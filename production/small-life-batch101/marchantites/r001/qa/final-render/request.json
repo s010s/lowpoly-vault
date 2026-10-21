@@ -1,0 +1,139 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/render-r002.py",
+    "--",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/artifacts/marchantites.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch101-evidence/queue/render/marchantites/r001/final-evidence/5558f3438eb9673c4e00b499b3c67bec581a9092d0cd64ad46e0579069f65c23/20261021T021910-1c2cf89ee1244adeba7a0e5f80bd2028/outputs/views",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette"
+  ],
+  "created_at": "2026-10-21T02:19:10.734262+00:00",
+  "fingerprint": "5558f3438eb9673c4e00b499b3c67bec581a9092d0cd64ad46e0579069f65c23",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8931,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/delivery-brief.json",
+        "sha256": "eeca0b61b9a8293936f2daed013ca079ee83296fb5b4ed4f20ac1d9d54e8ea38"
+      },
+      "glb": {
+        "bytes": 114136,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/artifacts/marchantites.glb",
+        "sha256": "a1ee0b7ff7d7bb255c3f204c66f98434012dbf0f4868e689c9ee72ea22262f2f"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 1637,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/references.json",
+        "sha256": "65bc4251d6fdd12155c7a4ca8131bfb5fee9cb6c372fed008ec6fdd4d0175675"
+      },
+      "renderer": {
+        "bytes": 16211,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/render-r002.py",
+        "sha256": "b88d7873610d320aaf541f78865d15adc7b0855a016f7a63913c61f9f42be286"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "asset_id": "marchantites",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch101-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/artifacts/marchantites.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch101-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/render-r002.py"
+      },
+      "job_id": "final-evidence",
+      "outputs": [
+        "views/hero.png",
+        "views/reversehero.png",
+        "views/front.png",
+        "views/side.png",
+        "views/rear.png",
+        "views/top.png",
+        "views/clay.png",
+        "views/silhouette.png",
+        "views/render-manifest.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T021910-2591620904cc4e2db9188d6a9e49f07d"
+}

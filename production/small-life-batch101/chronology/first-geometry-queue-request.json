@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/generate-r001.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch101-evidence/queue/build/marchantites/r001/initial-build/1c3f02c589552842e9479a56db61cdf6b1e6582c593663d956be08a54df5677b/20261021T020655-8855a110c0ba484abe3241c1da490207/outputs"
+  ],
+  "created_at": "2026-10-21T02:06:55.277064+00:00",
+  "fingerprint": "1c3f02c589552842e9479a56db61cdf6b1e6582c593663d956be08a54df5677b",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "blender": {
+        "bytes": 94967000,
+        "path": "/usr/bin/blender",
+        "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+      },
+      "config": {
+        "bytes": 742,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/config.json",
+        "sha256": "431008cf3044eeb46f45d50fc4fe325acd69957101121740d8c8cb7edd4d06cb"
+      },
+      "generator": {
+        "bytes": 18731,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/generate-r001.py",
+        "sha256": "6186e21cca942200fef29cb49f28a0bba1b147ef2cde3f22c8940013b3c2e393"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch101-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "marchantites",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch101-20261021/scripts/asset_common.py",
+        "blender": "/usr/bin/blender",
+        "config": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/config.json",
+        "generator": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/tools/generate-r001.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch101-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "initial-build",
+      "outputs": [
+        "marchantites/marchantites.blend",
+        "marchantites/marchantites.glb",
+        "marchantites/qa.json",
+        "execution.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T020654-a120f8e09d78478a8315991517cc7e48"
+}

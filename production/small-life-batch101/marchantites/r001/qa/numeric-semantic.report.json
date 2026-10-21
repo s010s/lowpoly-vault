@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "a1ee0b7ff7d7bb255c3f204c66f98434012dbf0f4868e689c9ee72ea22262f2f",
+    "brief_sha256": "eeca0b61b9a8293936f2daed013ca079ee83296fb5b4ed4f20ac1d9d54e8ea38",
+    "references_sha256": "65bc4251d6fdd12155c7a4ca8131bfb5fee9cb6c372fed008ec6fdd4d0175675"
+  },
+  "status": "pass",
+  "source_sha256": "59e6ac33ad69c4910b8a4dfd338bacea8fdb039e73231a17e95ccc78c63463c5",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "thallus": 1,
+    "costa": 5,
+    "cup": 3,
+    "ventral_scale": 24
+  },
+  "observed_counts": {
+    "thallus": 1,
+    "costa": 5,
+    "cup": 3,
+    "ventral_scale": 24
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "cup",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0011,
+          0.0025
+        ]
+      },
+      "observed_min": 0.0016999999061226845,
+      "observed_max": 0.0017000000225380063,
+      "count": 3,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "ventral_scale",
+        "measure": "oriented_width_m",
+        "range": [
+          0.0004,
+          0.0008
+        ]
+      },
+      "observed_min": 0.0005999994536978193,
+      "observed_max": 0.0006000002613291144,
+      "count": 24,
+      "failures": []
+    }
+  ],
+  "additional_source_checks": [],
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch101/marchantites/r001/qa/component-contact-exposure.report.json",
+    "sha256": "b4eccbe99fbcc07382c8be0c235f83aed8a37c071f62eb8d0362dbfdacd77885"
+  },
+  "additional_ribbon_proof": {
+    "path": "production/small-life-batch101/marchantites/r001/qa/source-ribbon-constraints.report.json",
+    "sha256": "4efb5343a91f00ae0da713e0f5750156298fa942a565307568e60462c0b8f447"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

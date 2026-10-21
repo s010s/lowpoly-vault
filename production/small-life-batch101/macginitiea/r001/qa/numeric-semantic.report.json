@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "b5ce2b8f8b886d323d45d9b37344ea0584887b4b8ab32c07764c2c55081c0c65",
+    "brief_sha256": "612e14da1245270135f75280aba9aa4ee5aabb4c4e0ea54cf518cca78c613652",
+    "references_sha256": "15b10e121dcb33532e3c12b9da9d45d23c480d7b80f94e402b6950507d8c25e1"
+  },
+  "status": "pass",
+  "source_sha256": "a55a51300f788570569fa2159c4442c6d8735768cd8e5d3c111fb779656a891f",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "trunk": 1,
+    "branch": 3,
+    "twig": 24,
+    "petiole": 24,
+    "leaf": 24,
+    "fruit_stalk": 3,
+    "fruit_axis": 3,
+    "fruit_pedicel": 21,
+    "fruit_head": 21
+  },
+  "observed_counts": {
+    "trunk": 1,
+    "branch": 3,
+    "twig": 24,
+    "petiole": 24,
+    "leaf": 24,
+    "fruit_stalk": 3,
+    "fruit_axis": 3,
+    "fruit_pedicel": 21,
+    "fruit_head": 21
+  },
+  "hard_organ_ranges": [
+    {
+      "rule": {
+        "kind": "leaf",
+        "measure": "oriented_length_m",
+        "range": [
+          0.15,
+          0.35
+        ]
+      },
+      "observed_min": 0.22999998927116394,
+      "observed_max": 0.2300000935792923,
+      "count": 24,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "leaf",
+        "measure": "oriented_width_m",
+        "range": [
+          0.12,
+          0.34
+        ]
+      },
+      "observed_min": 0.21211989037692547,
+      "observed_max": 0.2121199667453766,
+      "count": 24,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "petiole",
+        "measure": "oriented_length_m",
+        "range": [
+          0.03,
+          0.06
+        ]
+      },
+      "observed_min": 0.04529999941587448,
+      "observed_max": 0.04530007764697075,
+      "count": 24,
+      "failures": []
+    },
+    {
+      "rule": {
+        "kind": "fruit_head",
+        "measure": "oriented_width_m",
+        "range": [
+          0.01,
+          0.015
+        ]
+      },
+      "observed_min": 0.011999964714050293,
+      "observed_max": 0.012000039219856262,
+      "count": 21,
+      "failures": []
+    }
+  ],
+  "additional_source_checks": [],
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch101/macginitiea/r001/qa/component-contact-exposure.report.json",
+    "sha256": "6f37e48d8455d8b2c243a734e5e998880c6a03d7a39531b489a87c15b4daac04"
+  },
+  "additional_ribbon_proof": null,
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}
