@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "asset_id": "arthropleura",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational close-view candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact project/Khronos audit, editable source reopen, two separate-PID queued semantic rebuilds, real transformed dimensions, contact and global exposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "All eight separate final512px views personally inspected; required diagnostic features readable and globally exposed. Retain broad trilobed plates and small mostly-covered head, but correct generated collum that wrongly bears broad wings: small first collum has central shield only. Explicitly24 dorsalunits and44legpairs, seven-article antennae and eightpodomere shortlegs. Clubs not round cartoon eyes. Target juvenile39.8mm body, not scaled adult.",
+      "required_sources": [
+        "LHERITIER2024"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Twenty-four dorsal units: small collum without lateral paratergites, T2–23 each central arched syntergite plus two broad lateral wings, diminishing posteriorly, and terminal telson region. Forty-four pairs of short legs under plate edges: collum andT2 one pair each, T3–23 two pairs each; eight podomeres including terminal claw. Flattened head mostly beneath small collum, two seven-article ventrally originating antennae and two club-tipped ocular stalks; restrained ventral mouthpart outlines and low dorsal tubercles. Bounded to juvenile MNHN.F.SOT002123,39.8mm, from Montceau-les-Mines, unknown species. Not giant adult A.mammata, no2.6m extrapolation. Twenty-four dorsal units and44legpairs reconstructed by authors;38pairs preserved, missing positions in T12–14 inferred. Diet and terminalmouthpart articles uncertain; no forcipules. Antennae and stalkedocular outlines based on CT, no ommatidia invented.",
+      "required_sources": [
+        "LHERITIER2024"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete original frozen brief/config/reference/concept preserved; exact dependency closure, counts and real measurements.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB successfully parsed through pinned Three.js GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual device-renderer evidence required; CPU proof does not pass this stage.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intended scene evidence required; unrun stays unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight512px views and lossless sheet; extra details supplement rather than replace.",
+  "frozen_at": "2026-10-21T03:03:52.114899+00:00",
+  "subject": "Arthropleura sp. 39.8mm juvenile with reconstructed head and44 leg pairs",
+  "taxon": "Arthropleura sp.",
+  "representation": "living-reconstruction",
+  "factual_scope": "Bounded to juvenile MNHN.F.SOT002123,39.8mm, from Montceau-les-Mines, unknown species. Not giant adult A.mammata, no2.6m extrapolation. Twenty-four dorsal units and44legpairs reconstructed by authors;38pairs preserved, missing positions in T12–14 inferred. Diet and terminalmouthpart articles uncertain; no forcipules. Antennae and stalkedocular outlines based on CT, no ommatidia invented.",
+  "identifying_features": [
+    "Twenty-four dorsal units: small collum without lateral paratergites, T2–23 each central arched syntergite plus two broad lateral wings, diminishing posteriorly, and terminal telson region.",
+    "Forty-four pairs of short legs under plate edges: collum andT2 one pair each, T3–23 two pairs each; eight podomeres including terminal claw.",
+    "Flattened head mostly beneath small collum, two seven-article ventrally originating antennae and two club-tipped ocular stalks; restrained ventral mouthpart outlines and low dorsal tubercles."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.014,
+      0.044,
+      0.005
+    ],
+    "interpretation": "Nominal art targets except explicitly source-bounded hard_organ_ranges; no arbitrary microscopic gates. Actual final dimensions are measured, not asserted from config. No global rescaling to fit gates."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Grounded minimum z0 and horizontal centering by translation only.",
+  "surface_profile": "Opaque closed faceted full-volume geometry; no texture, alpha cards, backface tricks or depth bias. Integrated relief allowed with explicit shared-topology grouping.",
+  "palette_srgb": [
+    "#775139",
+    "#A37045",
+    "#BC8D58",
+    "#49392E",
+    "#C1A077"
+  ],
+  "parameters": {
+    "body_length_m": 0.0398,
+    "max_body_width_m": 0.013,
+    "body_center_z_m": 0.0032,
+    "dorsal_units": 24,
+    "central_tergites_with_wings": 22,
+    "leg_pairs": 44,
+    "leg_podomeres": 8,
+    "antenna_articles": 7,
+    "eye_stalks": 2,
+    "central_tubercle_cues_per_tergite": 8,
+    "lateral_tubercle_cues_per_side": 4,
+    "head_length_m": 0.0038
+  },
+  "hard_organ_ranges": [],
+  "numeric_semantics": "Only explicit hard_organ_ranges and stated source boundaries are numeric gates. Parameters are artistic nominal targets; actual counts/dimensions must be documented and any difference explained.",
+  "source_hard_boundaries": [
+    "Twenty-four dorsal units: small collum without lateral paratergites, T2–23 each central arched syntergite plus two broad lateral wings, diminishing posteriorly, and terminal telson region.",
+    "Forty-four pairs of short legs under plate edges: collum andT2 one pair each, T3–23 two pairs each; eight podomeres including terminal claw.",
+    "Flattened head mostly beneath small collum, two seven-article ventrally originating antennae and two club-tipped ocular stalks; restrained ventral mouthpart outlines and low dorsal tubercles."
+  ],
+  "component_measurement_contract": "Named semantic vertex groups, actual world bounds, axis measurements and real connected/physical junctions; distinguish shared-topology surface regions from separately closed solids.",
+  "contact_policy": "Reopened true-solid intersection or shared topology; assess required components against all relevant global solids, with dense surface samples plus exact pixels. No arbitrary exposure-percentage threshold. One exposed point is not proof of readability.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:03:52.114899+00:00",
+    "path": "production/small-life-batch104/concepts/arthropleura-concept.png",
+    "sha256": "1fbae2643f67ddbe22e5ac6bcd245abc76bf71e147d1fbf306896819a0108e53",
+    "decisions": "Retain broad trilobed plates and small mostly-covered head, but correct generated collum that wrongly bears broad wings: small first collum has central shield only. Explicitly24 dorsalunits and44legpairs, seven-article antennae and eightpodomere shortlegs. Clubs not round cartoon eyes. Target juvenile39.8mm body, not scaled adult."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "deterministic generator/config/seed/dependencies",
+    "real component dimensions/contact/global exposure",
+    "source reopen",
+    "two separate-PID queued semantic rebuilds",
+    "project/Khronos/Three",
+    "8 separate512px exact-subject views and lossless sheet",
+    "honest seven stages"
+  ]
+}

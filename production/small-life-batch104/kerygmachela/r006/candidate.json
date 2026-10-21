@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "asset_id": "kerygmachela",
+  "revision": "r006",
+  "maker": {
+    "id": "batch104-maker",
+    "task_id": "produce_batch104_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.glb",
+      "sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885"
+    },
+    "brief": {
+      "path": "production/small-life-batch104/kerygmachela/r006/delivery-brief.json",
+      "sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3"
+    },
+    "references": {
+      "path": "production/small-life-batch104/kerygmachela/r001/references.json",
+      "sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+    },
+    "source": {
+      "path": "production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.blend",
+      "sha256": "05878a1adf661b1d5169b349eb5c311c4fbfeda40d7801fc3685507972a086e3"
+    },
+    "generator": {
+      "path": "production/small-life-batch104/tools/generate-r006.py",
+      "sha256": "810ba277df3accc635ebe6491693885e5d896c9516b259fe1dc96c2cefa2d5a2"
+    },
+    "config": {
+      "path": "production/small-life-batch104/kerygmachela/r006/config.json",
+      "sha256": "8df62d78655571422fc898c44526e0cecaad035b7181f489745583b84064773e"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch104/build-dependencies.json",
+      "sha256": "7eb17bec96898b4adc885491a43b4acf4ba0fe20b3b2790ac1d98a109db19d97"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r006",
+        "glb_sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885",
+        "brief_sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3",
+        "references_sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+      },
+      "path": "production/small-life-batch104/kerygmachela/r006/qa/technical.report.json",
+      "sha256": "b28cf4774b104931066820f73701e1d90f042150002f63b0394572d4cfbf2cfb"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r006",
+        "glb_sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885",
+        "brief_sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3",
+        "references_sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+      },
+      "path": "production/small-life-batch104/kerygmachela/r006/qa/runtime-parse.report.json",
+      "sha256": "c122b75b458a7fd6259cc87338395dcab017d6a0c1869f4e45a9c22d384b1071"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r006",
+        "glb_sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885",
+        "brief_sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3",
+        "references_sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+      },
+      "path": "production/small-life-batch104/kerygmachela/r006/views/render-manifest.json",
+      "sha256": "d1a60564cae19110474b498826dc0231dc4f2687057df5ae1ab4e2ec942cae9d"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch104-maker",
+        "task_id": "produce_batch104_models"
+      },
+      "subject": {
+        "revision": "r006",
+        "glb_sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885",
+        "brief_sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3",
+        "references_sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Exact subject reports pinned."
+        }
+      ],
+      "note": "Actual maker automated checks passed; no independent or publication approval.",
+      "reviewed_at": "2026-10-21T03:43:29.991410+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "PARK2018"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation complete; fresh independent review pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "PARK2018"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation complete; fresh independent review pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker preparation complete; fresh independent review pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch104-maker",
+        "task_id": "produce_batch104_models"
+      },
+      "subject": {
+        "revision": "r006",
+        "glb_sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885",
+        "brief_sha256": "476d32735ea10285aa200af458212fbd7925629d659616b78aca98611033b9d3",
+        "references_sha256": "2d0a21a608bee0dd4b39288983d19b21f98b50078b076fb6c2aeeea8fca619d1"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Exact subject reports pinned."
+        }
+      ],
+      "note": "Actual maker automated checks passed; no independent or publication approval.",
+      "reviewed_at": "2026-10-21T03:43:29.991431+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; CPU stills are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; no composed intended scene proof."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification review pending."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "Actual GPU and composed scene stages not run."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

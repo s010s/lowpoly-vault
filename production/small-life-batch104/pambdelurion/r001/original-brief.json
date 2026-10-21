@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "asset_id": "pambdelurion",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational close-view candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact project/Khronos audit, editable source reopen, two separate-PID queued semantic rebuilds, real transformed dimensions, contact and global exposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "All eight separate final512px views personally inspected; required diagnostic features readable and globally exposed. Retain broad soft annulated body, gill flaps above stout legs, six cephalic spines and paired short posterior lobes. Concept wrongly makes oral cone a large forward horn: put a shallow ventral cone underneath head, with plate-like rim cues. No eyes. Appendages remain flexible, no rigid elbows, spines slender rather than crab claws.",
+      "required_sources": [
+        "YOUNG2017",
+        "VINTHER2016"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Thick soft annulated cigar-shaped trunk with eleven paired broad gill flaps above eleven paired short stout lobopods. Paired flexible annulated frontal appendages with inward spines and three elongate distal tips each; six short cephalic spines in two groups of three. Blunt posterior with two short posterior lobes, no Kerygmachela-like long tail; ventral restrained oral cone between appendage bases, not a protruding nose. Whole body reference gate resolved prospectively from Young and Vinther2017 original specimens and explicitly schematic Fig11. Not inferred from oral cone alone. Selected body length0.24m within reported2017 sample30–339mm; largest2016 complete460mm and estimated550mm not conflated. No eyes claimed. Ventral oralcone simplified,16 selected marginal cues reflect inferred approximately16 outer triangular plates, not invariant count.",
+      "required_sources": [
+        "YOUNG2017",
+        "VINTHER2016"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete original frozen brief/config/reference/concept preserved; exact dependency closure, counts and real measurements.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB successfully parsed through pinned Three.js GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual device-renderer evidence required; CPU proof does not pass this stage.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intended scene evidence required; unrun stays unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight512px views and lossless sheet; extra details supplement rather than replace.",
+  "frozen_at": "2026-10-21T03:03:52.114899+00:00",
+  "subject": "Pambdelurion whittingtoni thick annulated body with broad flaps above stout legs",
+  "taxon": "Pambdelurion whittingtoni",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole body reference gate resolved prospectively from Young and Vinther2017 original specimens and explicitly schematic Fig11. Not inferred from oral cone alone. Selected body length0.24m within reported2017 sample30–339mm; largest2016 complete460mm and estimated550mm not conflated. No eyes claimed. Ventral oralcone simplified,16 selected marginal cues reflect inferred approximately16 outer triangular plates, not invariant count.",
+  "identifying_features": [
+    "Thick soft annulated cigar-shaped trunk with eleven paired broad gill flaps above eleven paired short stout lobopods.",
+    "Paired flexible annulated frontal appendages with inward spines and three elongate distal tips each; six short cephalic spines in two groups of three.",
+    "Blunt posterior with two short posterior lobes, no Kerygmachela-like long tail; ventral restrained oral cone between appendage bases, not a protruding nose."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.15,
+      0.34,
+      0.075
+    ],
+    "interpretation": "Nominal art targets except explicitly source-bounded hard_organ_ranges; no arbitrary microscopic gates. Actual final dimensions are measured, not asserted from config. No global rescaling to fit gates."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Grounded minimum z0 and horizontal centering by translation only.",
+  "surface_profile": "Opaque closed faceted full-volume geometry; no texture, alpha cards, backface tricks or depth bias. Integrated relief allowed with explicit shared-topology grouping.",
+  "palette_srgb": [
+    "#A56C54",
+    "#C48A6A",
+    "#D6AA83",
+    "#6B5143",
+    "#AD7555"
+  ],
+  "parameters": {
+    "trunk_length_m": 0.24,
+    "trunk_width_m": 0.067,
+    "trunk_height_m": 0.052,
+    "body_center_z_m": 0.049,
+    "flap_pairs": 11,
+    "max_flap_reach_m": 0.073,
+    "flap_foreaft_width_m": 0.035,
+    "leg_pairs": 11,
+    "annulation_rings": 55,
+    "frontal_appendage_length_m": 0.087,
+    "frontal_inner_spines_per_appendage": 6,
+    "distal_spines_per_appendage": 3,
+    "cephalic_spines": 6,
+    "posterior_lobes": 2,
+    "oral_plate_cues": 16
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "body",
+      "measure": "length_m",
+      "range": [
+        0.03,
+        0.339
+      ]
+    }
+  ],
+  "numeric_semantics": "Only explicit hard_organ_ranges and stated source boundaries are numeric gates. Parameters are artistic nominal targets; actual counts/dimensions must be documented and any difference explained.",
+  "source_hard_boundaries": [
+    "Thick soft annulated cigar-shaped trunk with eleven paired broad gill flaps above eleven paired short stout lobopods.",
+    "Paired flexible annulated frontal appendages with inward spines and three elongate distal tips each; six short cephalic spines in two groups of three.",
+    "Blunt posterior with two short posterior lobes, no Kerygmachela-like long tail; ventral restrained oral cone between appendage bases, not a protruding nose."
+  ],
+  "component_measurement_contract": "Named semantic vertex groups, actual world bounds, axis measurements and real connected/physical junctions; distinguish shared-topology surface regions from separately closed solids.",
+  "contact_policy": "Reopened true-solid intersection or shared topology; assess required components against all relevant global solids, with dense surface samples plus exact pixels. No arbitrary exposure-percentage threshold. One exposed point is not proof of readability.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T03:03:52.114899+00:00",
+    "path": "production/small-life-batch104/concepts/pambdelurion-concept.png",
+    "sha256": "4d60e84f5c022264228d1e6d317c4624627a8d022194785b13d51172f6147f79",
+    "decisions": "Retain broad soft annulated body, gill flaps above stout legs, six cephalic spines and paired short posterior lobes. Concept wrongly makes oral cone a large forward horn: put a shallow ventral cone underneath head, with plate-like rim cues. No eyes. Appendages remain flexible, no rigid elbows, spines slender rather than crab claws."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "deterministic generator/config/seed/dependencies",
+    "real component dimensions/contact/global exposure",
+    "source reopen",
+    "two separate-PID queued semantic rebuilds",
+    "project/Khronos/Three",
+    "8 separate512px exact-subject views and lossless sheet",
+    "honest seven stages"
+  ]
+}

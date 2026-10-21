@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "asset_id": "arthropleura",
+  "revision": "r009",
+  "seed": 10403,
+  "freeze_time_utc": "2026-10-21T03:03:52.114899+00:00",
+  "parameters": {
+    "body_length_m": 0.0398,
+    "max_body_width_m": 0.013,
+    "body_center_z_m": 0.0032,
+    "dorsal_units": 24,
+    "central_tergites_with_wings": 22,
+    "leg_pairs": 44,
+    "leg_podomeres": 8,
+    "antenna_articles": 7,
+    "eye_stalks": 2,
+    "central_tubercle_cues_per_tergite": 8,
+    "lateral_tubercle_cues_per_side": 4,
+    "head_length_m": 0.0038
+  },
+  "palette_srgb": [
+    "#775139",
+    "#A37045",
+    "#BC8D58",
+    "#49392E",
+    "#C1A077"
+  ],
+  "global_scale": 1,
+  "brief_sha256": "fab715aa515064258b1b5d5569453e4cc44efaa356211d111149b3b8e28d3d68",
+  "references_sha256": "ed728e4f1065da06b7474fc04abaa388c4743ae9a3aad4d52bb0ed63a7309a7e",
+  "repair_note": "Actual contact diagnostics showed central tubercles floating and endpoint leg/plate roots outside tapering core. Build a full-volume arched trilobed plate and place each tubercle on its actual triangulated surface; constant narrow ventral core and legroot insertion restore real contacts, preserve24dorsalunits/44legpairs/8articles and all tubercles. Authoring rayorigin100m caused precision miss on millimeter-scale triangles; use near-local surface ray origin. Failed generator and run retained. Near-local rayorigin did not fix mathutils intersection miss. Use double-precision XY barycentric interpolation on actual authored triangles, avoiding fixed ray tolerances. Place eight central tubercles into actual two rows of four on central arch; retain four lateral cues per side,24units,44legpairs and all dimensional scope. Actual512 hero revealed underlying darkcore breaking through sloped dorsalplate faces. Narrow core and embed legroots in it, keep contact at platearch underside; no changes to exteriorunit/limb counts. Final actual head detail revealed poorly readable antenna articulation. Keep seven articles but add seven measured bulges separated by narrow integral necks; alternating existing palette emphasizes actual eight leg articles without changing counts or adding anatomy.",
+  "repaired_at": "2026-10-21T03:33:56.043328+00:00"
+}

@@ -1,0 +1,127 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/measure-source-v002.py",
+    "--",
+    "--source",
+    "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.blend",
+    "--glb",
+    "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch104-evidence/final-build-queue/build/kerygmachela/r006/final-source-reopen/3e9a2dd042e1eb424b1c760a9f5dade913743eaea3f338c8b0c4e7332c342617/20261021T032431-17cfd465adbb4be7be8e0f62493cb4be/outputs/source-export.report.json"
+  ],
+  "created_at": "2026-10-21T03:24:31.642512+00:00",
+  "fingerprint": "3e9a2dd042e1eb424b1c760a9f5dade913743eaea3f338c8b0c4e7332c342617",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8214,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r001/original-brief.json",
+        "sha256": "1352ea37b86371e7085570ce9e00244889d681b981346b5bd8141011ca426a91"
+      },
+      "check_reproducibility": {
+        "bytes": 9391,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/check_reproducibility.py",
+        "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+      },
+      "checker": {
+        "bytes": 13827,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/measure-source-v002.py",
+        "sha256": "00fd8b2484dc10a622b7bf0ca530a31ccd3e96fe3cb4eaf07aa40bc309647a37"
+      },
+      "glb": {
+        "bytes": 264372,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.glb",
+        "sha256": "b81ccfddc8285c21f82ca2a88afd1c0d61b11fe731bf27728cbfc8ab8abe9885"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "source": {
+        "bytes": 834676,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.blend",
+        "sha256": "05878a1adf661b1d5169b349eb5c311c4fbfeda40d7801fc3685507972a086e3"
+      },
+      "source_checker": {
+        "bytes": 6550,
+        "path": "/workspace/shared/lowpoly-batch104-20261021/scripts/check_source_export.py",
+        "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:checker}",
+        "--",
+        "--source",
+        "{input:source}",
+        "--glb",
+        "{input:glb}",
+        "--output",
+        "{output_dir}/source-export.report.json"
+      ],
+      "asset_id": "kerygmachela",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch104-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r001/original-brief.json",
+        "check_reproducibility": "/workspace/shared/lowpoly-batch104-20261021/scripts/check_reproducibility.py",
+        "checker": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/tools/measure-source-v002.py",
+        "glb": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch104-20261021/scripts/qa_glb.py",
+        "source": "/workspace/shared/lowpoly-batch104-20261021/production/small-life-batch104/kerygmachela/r006/artifacts/kerygmachela.blend",
+        "source_checker": "/workspace/shared/lowpoly-batch104-20261021/scripts/check_source_export.py"
+      },
+      "job_id": "final-source-reopen",
+      "outputs": [
+        "source-export.report.json",
+        "authored-evaluated-counts.json",
+        "actual-mesh-topology.json",
+        "world-components-and-contacts.json",
+        "hard-dimension-check.json",
+        "global-component-exposure.json",
+        "actual-feature-counts.json",
+        "original-glb-winding.json",
+        "measurement-summary.json"
+      ],
+      "revision": "r006",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T032423-9906b362bb674286818aeec5f7923d43"
+}
