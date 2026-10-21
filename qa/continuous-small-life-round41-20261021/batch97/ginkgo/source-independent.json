@@ -1,0 +1,3885 @@
+{
+  "asset_id": "ginkgo",
+  "revision": "r002",
+  "observed_at": "2026-10-21T01:36:52.785863+00:00",
+  "pid": 10,
+  "blender_version": "4.3.2",
+  "source_sha256": "647b4b2847cafb60866634dd1fdc11706ae41cead3f02a13590804a9d357c8c9",
+  "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+  "original_brief_sha256": "60df46d49fe95731e2c8b7dbfd12767d01ccdf269d94e8264a8db48712b42a0e",
+  "source_reopened": true,
+  "source_saved": false,
+  "object_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "world_bounds": {
+    "min": [
+      -0.05286111310124397,
+      -0.0019036964513361454,
+      0.0
+    ],
+    "max": [
+      0.05286111682653427,
+      0.0019036964513361454,
+      0.12753751873970032
+    ],
+    "size": [
+      0.10572222992777824,
+      0.003807392902672291,
+      0.12753751873970032
+    ]
+  },
+  "hard_envelope_exact": [
+    {
+      "axis": 0,
+      "actual_size_m": 0.10572222992777824,
+      "range": [
+        0.06,
+        0.18
+      ],
+      "passes_exact": true,
+      "distance_to_lower_m": 0.045722229927778246,
+      "distance_to_upper_m": 0.07427777007222175
+    },
+    {
+      "axis": 1,
+      "actual_size_m": 0.003807392902672291,
+      "range": [
+        0.001,
+        0.02
+      ],
+      "passes_exact": true,
+      "distance_to_lower_m": 0.0028073929026722908,
+      "distance_to_upper_m": 0.01619260709732771
+    },
+    {
+      "axis": 2,
+      "actual_size_m": 0.12753751873970032,
+      "range": [
+        0.09,
+        0.2
+      ],
+      "passes_exact": true,
+      "distance_to_lower_m": 0.03753751873970032,
+      "distance_to_upper_m": 0.0724624812602997
+    }
+  ],
+  "float_policy": "Source vertices are binary32. Each world coordinate converted to Python float before min/max subtraction. Constraints are tested exactly against frozen bounds, with no blanket tolerance or altered freeze; all margin deltas reported. Ray-start epsilon is geometric query robustness only, never dimension allowance.",
+  "ray_start_epsilon_m": 1.275375187397003e-09,
+  "source_counts": {
+    "authored_vertices": 2006,
+    "authored_polygons": 1921,
+    "authored_triangles": 3836,
+    "evaluated_vertices": 2006,
+    "evaluated_polygons": 1921,
+    "evaluated_triangles": 3836
+  },
+  "topology": {
+    "vertices": 2006,
+    "edges": 3839,
+    "faces": 1921,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0
+  },
+  "components": [
+    {
+      "tag": "petiole",
+      "vertices": 18,
+      "triangles": 32,
+      "islands": 1,
+      "world_bounds": {
+        "min": [
+          5.803746171295643e-05,
+          -0.0019036964513361454,
+          0.0
+        ],
+        "max": [
+          0.0032832855358719826,
+          0.0006963034975342453,
+          0.05706958472728729
+        ],
+        "size": [
+          0.003225248074159026,
+          0.0025999999488703907,
+          0.05706958472728729
+        ]
+      },
+      "pca_extents_m": [
+        0.0025999999488703907,
+        0.0031936622621963275,
+        0.057069289968206635
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 0,
+        "centroid": [
+          0.0006063615437597036,
+          -0.000937029835768044,
+          5.5473443353548646e-05
+        ],
+        "direction": [
+          -0.038433123379945755,
+          0.0,
+          -0.999261200428009
+        ],
+        "rays_tested": 1
+      }
+    },
+    {
+      "tag": "six_lobed_lamina",
+      "vertices": 98,
+      "triangles": 192,
+      "islands": 1,
+      "world_bounds": {
+        "min": [
+          -0.05286111310124397,
+          -0.0013524305541068316,
+          0.05203328654170036
+        ],
+        "max": [
+          0.05286111682653427,
+          0.0019036964513361454,
+          0.12753751873970032
+        ],
+        "size": [
+          0.10572222992777824,
+          0.003256127005442977,
+          0.07550423219799995
+        ]
+      },
+      "pca_extents_m": [
+        0.002516015293004791,
+        0.07510964465438286,
+        0.10575532792762826
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 32,
+        "centroid": [
+          0.01824074611067772,
+          -0.00043441448360681534,
+          0.05916069447994232
+        ],
+        "direction": [
+          0.017979880794882774,
+          -0.9988802671432495,
+          0.043760474771261215
+        ],
+        "rays_tested": 1
+      },
+      "parent": "petiole",
+      "contact_inside_witness": {
+        "child_vertex": 66,
+        "point": [
+          0.0021832853090018034,
+          -0.0010356964776292443,
+          0.05203328654170036
+        ],
+        "signed_distance_m": -0.00019415470362815768,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.00019415470362815768,
+        0.07092172687407583
+      ],
+      "parent_exposed_vertices": 95
+    },
+    {
+      "tag": "radiating_vein_0",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          -0.050420813262462616,
+          -0.0012101628817617893,
+          0.05294224992394447
+        ],
+        "max": [
+          -0.0004358527949079871,
+          -0.000555732287466526,
+          0.08643679320812225
+        ],
+        "size": [
+          0.04998496046755463,
+          0.0006544305942952633,
+          0.03349454328417778
+        ]
+      },
+      "pca_extents_m": [
+        0.0004579778742738895,
+        0.01020932262497709,
+        0.055652344035072396
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 225,
+        "centroid": [
+          -0.0005497930105775595,
+          -0.0011460956884548068,
+          0.05303409695625305
+        ],
+        "direction": [
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "rays_tested": 10
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 116,
+        "point": [
+          -0.0005194219993427396,
+          -0.0009021779987961054,
+          0.05308001860976219
+        ],
+        "signed_distance_m": -0.0001347963688047571,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.0001347963688047571,
+        0.00017767956853731448
+      ],
+      "parent_exposed_vertices": 151
+    },
+    {
+      "tag": "radiating_vein_1",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          -0.043658968061208725,
+          -0.001175243640318513,
+          0.053579892963171005
+        ],
+        "max": [
+          0.00017231935635209084,
+          -0.00019497907487675548,
+          0.1124996766448021
+        ],
+        "size": [
+          0.043831287417560816,
+          0.0009802645654417574,
+          0.05891978368163109
+        ]
+      },
+      "pca_extents_m": [
+        0.0011634193709540671,
+        0.012307885551092985,
+        0.06774253674105599
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 831,
+        "centroid": [
+          -0.0007326555205509067,
+          -0.0010721903527155519,
+          0.054559893906116486
+        ],
+        "direction": [
+          -0.7929235696792603,
+          -0.27250978350639343,
+          -0.5449867844581604
+        ],
+        "rays_tested": 20
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 431,
+        "point": [
+          4.544109106063843e-05,
+          -0.0008642420289106667,
+          0.053672581911087036
+        ],
+        "signed_distance_m": -0.0001344965279663768,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.0001344965279663768,
+        0.0001800595525338622
+      ],
+      "parent_exposed_vertices": 152
+    },
+    {
+      "tag": "radiating_vein_2",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          -0.01917833648622036,
+          -0.0012321060057729483,
+          0.05396062880754471
+        ],
+        "max": [
+          0.000951670459471643,
+          -0.00010988250141963363,
+          0.12318996340036392
+        ],
+        "size": [
+          0.020130006945692003,
+          0.0011222235043533146,
+          0.06922933459281921
+        ]
+      },
+      "pca_extents_m": [
+        0.001294254327617273,
+        0.012636585524148168,
+        0.06960408000253022
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 1443,
+        "centroid": [
+          -0.00029703459586016834,
+          -0.0008546324679628015,
+          0.05867353081703186
+        ],
+        "direction": [
+          -0.9748229384422302,
+          -0.11242200434207916,
+          -0.1925656944513321
+        ],
+        "rays_tested": 80
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 746,
+        "point": [
+          0.0008207705104723573,
+          -0.0008395108161494136,
+          0.05399341881275177
+        ],
+        "signed_distance_m": -0.0001306429407641474,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.0001306429407641474,
+        0.0001915161312702196
+      ],
+      "parent_exposed_vertices": 175
+    },
+    {
+      "tag": "radiating_vein_3",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          0.0014583650045096874,
+          -0.001157768303528428,
+          0.053954776376485825
+        ],
+        "max": [
+          0.021138764917850494,
+          0.00012940517626702785,
+          0.1194143146276474
+        ],
+        "size": [
+          0.019680399913340807,
+          0.001287173479795456,
+          0.06545953825116158
+        ]
+      },
+      "pca_extents_m": [
+        0.0011820368562679285,
+        0.011990210923365396,
+        0.06588589396326616
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 2043,
+        "centroid": [
+          0.002667307388037443,
+          -0.0008361637592315674,
+          0.05840029567480087
+        ],
+        "direction": [
+          0.7433043718338013,
+          -0.6570960879325867,
+          -0.12539228796958923
+        ],
+        "rays_tested": 66
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 1063,
+        "point": [
+          0.0016639556270092726,
+          -0.0008360904757864773,
+          0.05396798253059387
+        ],
+        "signed_distance_m": -0.00012089376836499355,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.00012089376836499355,
+        0.00020095448592627463
+      ],
+      "parent_exposed_vertices": 189
+    },
+    {
+      "tag": "radiating_vein_4",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          0.002218631561845541,
+          -0.0011641408782452345,
+          0.05356689170002937
+        ],
+        "max": [
+          0.045348480343818665,
+          0.0007624182035215199,
+          0.11054708808660507
+        ],
+        "size": [
+          0.043129848781973124,
+          0.0019265590817667544,
+          0.0569801963865757
+        ]
+      },
+      "pca_extents_m": [
+        0.0011081420219529808,
+        0.01199263520204411,
+        0.06589835630782856
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 2636,
+        "centroid": [
+          0.0037163279484957457,
+          -0.0010134020121768117,
+          0.05547467991709709
+        ],
+        "direction": [
+          0.5423256158828735,
+          -0.7673949003219604,
+          -0.3420349657535553
+        ],
+        "rays_tested": 15
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 1378,
+        "point": [
+          0.002415117807686329,
+          -0.0008510133484378457,
+          0.053602855652570724
+        ],
+        "signed_distance_m": -0.00011005871687430613,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.00011005871687430613,
+        0.0002044235712297393
+      ],
+      "parent_exposed_vertices": 189
+    },
+    {
+      "tag": "radiating_vein_5",
+      "vertices": 315,
+      "triangles": 602,
+      "islands": 7,
+      "world_bounds": {
+        "min": [
+          0.0028171357698738575,
+          -0.0011825565015897155,
+          0.05292427912354469
+        ],
+        "max": [
+          0.05053485929965973,
+          0.0009408245678059757,
+          0.08433373272418976
+        ],
+        "size": [
+          0.04771772352978587,
+          0.002123381069395691,
+          0.031409453600645065
+        ]
+      },
+      "pca_extents_m": [
+        0.00043359063163667794,
+        0.009722469280548318,
+        0.0528943757320553
+      ],
+      "finite_positive_extents": true,
+      "within_global_bounds": true,
+      "max_extent_within_global_hard_max": true,
+      "whole_surface_witness": {
+        "triangle": 3238,
+        "centroid": [
+          0.0044743334874510765,
+          -0.0010727238841354847,
+          0.05394372344017029
+        ],
+        "direction": [
+          0.33851826190948486,
+          -0.7946848273277283,
+          -0.5038665533065796
+        ],
+        "rays_tested": 21
+      },
+      "parent": "six_lobed_lamina",
+      "contact_inside_witness": {
+        "child_vertex": 1693,
+        "point": [
+          0.002943098545074463,
+          -0.0008730357512831688,
+          0.05297723785042763
+        ],
+        "signed_distance_m": -0.00010750972292683514,
+        "three_ray_parity": [
+          1,
+          1,
+          1
+        ]
+      },
+      "parent_signed_distance_range_m": [
+        -0.00010750972292683514,
+        0.00020473766650752623
+      ],
+      "parent_exposed_vertices": 189
+    }
+  ],
+  "component_count": 8,
+  "features": {
+    "radial_margin_peaks": 6,
+    "peak_indices": [
+      4,
+      12,
+      20,
+      28,
+      36,
+      44
+    ],
+    "radial_sinus_indices": [
+      8,
+      16,
+      24,
+      32,
+      40
+    ],
+    "sinus_radii_m": [
+      0.034004431991171265,
+      0.03401238334961582,
+      0.017018140841663566,
+      0.0340289734021899,
+      0.03403034928051825
+    ],
+    "lamina_closed_islands": 1,
+    "petiole_closed_islands": 1,
+    "vein_segments": 42,
+    "all_378_rings_cross": true
+  },
+  "ginkgo_segments": [
+    {
+      "group": "radiating_vein_0",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001347963688047571,
+          "maximum_signed_distance_m": 0.00017767956853731448,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00013354814555910366,
+          "maximum_signed_distance_m": 0.00017663074510210208,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00013230031499134043,
+          "maximum_signed_distance_m": 0.0001755804742558098,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00013105102722832385,
+          "maximum_signed_distance_m": 0.0001745325653601526,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.0001298034527685843,
+          "maximum_signed_distance_m": 0.00017348253636839672,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.0001285557447481267,
+          "maximum_signed_distance_m": 0.0001724324729011073,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00012730664467852648,
+          "maximum_signed_distance_m": 0.00017138433857866175,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.000126059133400247,
+          "maximum_signed_distance_m": 0.00017033387099019137,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.0001248106727516074,
+          "maximum_signed_distance_m": 0.00016928449537090273,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 225,
+        "centroid": [
+          -0.0005497930105775595,
+          -0.0011460956884548068,
+          0.05303409695625305
+        ],
+        "direction": [
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00012484112991018037,
+          "maximum_signed_distance_m": 0.00016896564807922232,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00012296707483372415,
+          "maximum_signed_distance_m": 0.0001673963979982318,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00012109617750510893,
+          "maximum_signed_distance_m": 0.00016582414964716463,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.0001192229373359055,
+          "maximum_signed_distance_m": 0.00016425438298739437,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011735143003477333,
+          "maximum_signed_distance_m": 0.0001626834367627339,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011547923759991363,
+          "maximum_signed_distance_m": 0.0001611124107725459,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00011360518252345742,
+          "maximum_signed_distance_m": 0.00015954326313760703,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00011173339083470069,
+          "maximum_signed_distance_m": 0.00015797187337440732,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00010985924058815044,
+          "maximum_signed_distance_m": 0.0001564031919834008,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 316,
+        "centroid": [
+          -0.02133174240589142,
+          -0.0009081962052732706,
+          0.06548203527927399
+        ],
+        "direction": [
+          -0.3866659104824066,
+          -0.3086128532886505,
+          -0.8690497875213623
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010986540332424966,
+          "maximum_signed_distance_m": 0.0001563359094731709,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010424883331339174,
+          "maximum_signed_distance_m": 0.0001516258085310085,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.86334649866194e-05,
+          "maximum_signed_distance_m": 0.00014687543401947778,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.30676247783424e-05,
+          "maximum_signed_distance_m": 0.0001412510319589444,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.744812258676404e-05,
+          "maximum_signed_distance_m": 0.0001365498559913192,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.184679178491194e-05,
+          "maximum_signed_distance_m": 0.0001314061683181933,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.622519365924063e-05,
+          "maximum_signed_distance_m": 0.0001267561281750318,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.060266386815783e-05,
+          "maximum_signed_distance_m": 0.00012211530732386677,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.498037452651317e-05,
+          "maximum_signed_distance_m": 0.00011747461348576849,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 402,
+        "centroid": [
+          -0.03715059161186218,
+          -0.0008931280463002622,
+          0.07245904207229614
+        ],
+        "direction": [
+          -0.35202130675315857,
+          -0.30942070484161377,
+          -0.8833684921264648
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010981319832836789,
+          "maximum_signed_distance_m": 0.00015687461411317827,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010421126085091714,
+          "maximum_signed_distance_m": 0.00015200503147383415,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.866479632947289e-05,
+          "maximum_signed_distance_m": 0.0001462732163766134,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.307369786171193e-05,
+          "maximum_signed_distance_m": 0.00014103453520419862,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.746018130878497e-05,
+          "maximum_signed_distance_m": 0.0001362609916135682,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.1864026731715e-05,
+          "maximum_signed_distance_m": 0.00013072196114016776,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.624401517425383e-05,
+          "maximum_signed_distance_m": 0.00012600570122778265,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.06194260082782e-05,
+          "maximum_signed_distance_m": 0.00012140409585192913,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.49949285422835e-05,
+          "maximum_signed_distance_m": 0.00011680266174529663,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 489,
+        "centroid": [
+          -0.03641630709171295,
+          -0.0009923751931637526,
+          0.0724867433309555
+        ],
+        "direction": [
+          -0.015055344440042973,
+          -0.9998856782913208,
+          0.0013920374913141131
+        ],
+        "rays_tested": 34
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001247617849955418,
+          "maximum_signed_distance_m": 0.0001697494218007023,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00012289051720770772,
+          "maximum_signed_distance_m": 0.0001681692572361726,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00012101808523468094,
+          "maximum_signed_distance_m": 0.00016659077397918054,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011914699874893131,
+          "maximum_signed_distance_m": 0.0001650104789945317,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011727483572343544,
+          "maximum_signed_distance_m": 0.00016343135398955155,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011541915243640233,
+          "maximum_signed_distance_m": 0.0001617055986713467,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00011363184321666608,
+          "maximum_signed_distance_m": 0.0001590265541544511,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.0001117712201157417,
+          "maximum_signed_distance_m": 0.0001572861153178451,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00010992992842773219,
+          "maximum_signed_distance_m": 0.00015518202427600158,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 574,
+        "centroid": [
+          -0.021159565076231956,
+          -0.0008876646170392632,
+          0.06582950055599213
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 33
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010996185203282494,
+          "maximum_signed_distance_m": 0.0001546044682925185,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010436703123417601,
+          "maximum_signed_distance_m": 0.0001489689508176184,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.874303964174658e-05,
+          "maximum_signed_distance_m": 0.0001443228311330813,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.311823564139843e-05,
+          "maximum_signed_distance_m": 0.00013972516933158374,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.749461128942926e-05,
+          "maximum_signed_distance_m": 0.00013512647825741908,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.186990570546726e-05,
+          "maximum_signed_distance_m": 0.00013052865638307765,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.624525889138312e-05,
+          "maximum_signed_distance_m": 0.00012593088208312508,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.062082299214012e-05,
+          "maximum_signed_distance_m": 0.00012133309705752993,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.499702401807639e-05,
+          "maximum_signed_distance_m": 0.00011673445299997809,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 661,
+        "centroid": [
+          -0.03403428941965103,
+          -0.0008205974008888006,
+          0.07636789232492447
+        ],
+        "direction": [
+          0.005213173106312752,
+          -0.9999858140945435,
+          0.001105743576772511
+        ],
+        "rays_tested": 34
+      }
+    },
+    {
+      "group": "radiating_vein_0",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010995228812404889,
+          "maximum_signed_distance_m": 0.00015476226829136408,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010435955538135033,
+          "maximum_signed_distance_m": 0.00014921068434858853,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.873729843867807e-05,
+          "maximum_signed_distance_m": 0.00014452302574952114,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.311425616331803e-05,
+          "maximum_signed_distance_m": 0.000139915756797393,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.749012929953892e-05,
+          "maximum_signed_distance_m": 0.00013530913101256203,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.186423820699673e-05,
+          "maximum_signed_distance_m": 0.0001307044406342328,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.624106402115416e-05,
+          "maximum_signed_distance_m": 0.0001260968398728579,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.061721411716348e-05,
+          "maximum_signed_distance_m": 0.0001214902252808514,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.499417184269163e-05,
+          "maximum_signed_distance_m": 0.00011688291555778108,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 746,
+        "centroid": [
+          -0.0345243401825428,
+          -0.0007115085027180612,
+          0.07681241631507874
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001344965279663768,
+          "maximum_signed_distance_m": 0.0001800595525338622,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00013325073598835502,
+          "maximum_signed_distance_m": 0.00017899252459585568,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00013200367229870835,
+          "maximum_signed_distance_m": 0.0001779268433566017,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.000130759715901263,
+          "maximum_signed_distance_m": 0.00017685756203889014,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.0001295111839532126,
+          "maximum_signed_distance_m": 0.00017579300704539946,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.0001282783092655393,
+          "maximum_signed_distance_m": 0.00017464304129788388,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00012720964378942767,
+          "maximum_signed_distance_m": 0.000172124090546788,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00012610143895486203,
+          "maximum_signed_distance_m": 0.00016955936148832507,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00012487405199124169,
+          "maximum_signed_distance_m": 0.00016826791693347332,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 831,
+        "centroid": [
+          -0.0007326555205509067,
+          -0.0010721903527155519,
+          0.054559893906116486
+        ],
+        "direction": [
+          -0.7929235696792603,
+          -0.27250978350639343,
+          -0.5449867844581604
+        ],
+        "rays_tested": 20
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00012491411341386538,
+          "maximum_signed_distance_m": 0.00016769381927872473,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.0001230750702418959,
+          "maximum_signed_distance_m": 0.0001654323579103334,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00012124699106763615,
+          "maximum_signed_distance_m": 0.0001627048807257836,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011937838339104445,
+          "maximum_signed_distance_m": 0.0001609282682952795,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011750364739659958,
+          "maximum_signed_distance_m": 0.00015939839605128014,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011562888297289575,
+          "maximum_signed_distance_m": 0.00015786861845779043,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00011375408351943506,
+          "maximum_signed_distance_m": 0.00015633884807009224,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00011187836533377293,
+          "maximum_signed_distance_m": 0.00015481001500194935,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00011000364585989075,
+          "maximum_signed_distance_m": 0.00015328022284943899,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 919,
+        "centroid": [
+          -0.016575997695326805,
+          -0.0005132706137374043,
+          0.0772913247346878
+        ],
+        "direction": [
+          -0.011146990582346916,
+          -0.9999377131462097,
+          0.0006308797746896744
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001100044528090649,
+          "maximum_signed_distance_m": 0.00015323972486935844,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010438072707019685,
+          "maximum_signed_distance_m": 0.00014865118509810316,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.875903064138214e-05,
+          "maximum_signed_distance_m": 0.0001437435251387953,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.306751439908112e-05,
+          "maximum_signed_distance_m": 0.00014105002933106903,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.744222925471945e-05,
+          "maximum_signed_distance_m": 0.00013643772107752028,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.182081958629794e-05,
+          "maximum_signed_distance_m": 0.0001317788862778002,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.61982192667432e-05,
+          "maximum_signed_distance_m": 0.0001271212301769964,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.05775651113072e-05,
+          "maximum_signed_distance_m": 0.0001224614058470408,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.495513273563347e-05,
+          "maximum_signed_distance_m": 0.00011780379340819991,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1003,
+        "centroid": [
+          -0.030911888927221298,
+          -0.0006620860658586025,
+          0.09265047311782837
+        ],
+        "direction": [
+          -0.6689345240592957,
+          -0.32183748483657837,
+          -0.670035183429718
+        ],
+        "rays_tested": 20
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010999671853628712,
+          "maximum_signed_distance_m": 0.00015357536209403833,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010438408721258341,
+          "maximum_signed_distance_m": 0.00014799715602542562,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.863843940038919e-05,
+          "maximum_signed_distance_m": 0.00014647030650039028,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.300349993068835e-05,
+          "maximum_signed_distance_m": 0.00014194564443226199,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.738584785916714e-05,
+          "maximum_signed_distance_m": 0.00013724852354357608,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.176702376516687e-05,
+          "maximum_signed_distance_m": 0.0001325523590089972,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.614648661835588e-05,
+          "maximum_signed_distance_m": 0.00012785826491157337,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.052676437524497e-05,
+          "maximum_signed_distance_m": 0.00012316285707658636,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.490919641199966e-05,
+          "maximum_signed_distance_m": 0.00011846587909403183,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1091,
+        "centroid": [
+          -0.03066924773156643,
+          -0.0007092286250554025,
+          0.09285121411085129
+        ],
+        "direction": [
+          0.012777098454535007,
+          -0.9999163150787354,
+          0.0020130593329668045
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001247951660019453,
+          "maximum_signed_distance_m": 0.00016918455727221726,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00012301930724589738,
+          "maximum_signed_distance_m": 0.00016638326800944014,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00012122463333685829,
+          "maximum_signed_distance_m": 0.00016339229250394993,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011936575232862623,
+          "maximum_signed_distance_m": 0.00016142086038239967,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011749137353112005,
+          "maximum_signed_distance_m": 0.00015988482546536176,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011563432477723623,
+          "maximum_signed_distance_m": 0.00015729759154048395,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.000113614089101155,
+          "maximum_signed_distance_m": 0.00015908153707400174,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00011169303715430345,
+          "maximum_signed_distance_m": 0.00015807658381206124,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00010982103769663354,
+          "maximum_signed_distance_m": 0.00015650481218631995,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1175,
+        "centroid": [
+          -0.016508279368281364,
+          -0.0004447315295692533,
+          0.07735230028629303
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 22
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010990798682986025,
+          "maximum_signed_distance_m": 0.00015542450969707744,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010428677681506571,
+          "maximum_signed_distance_m": 0.00015075266141195698,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.866635667687973e-05,
+          "maximum_signed_distance_m": 0.00014608013733319325,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.304573542134875e-05,
+          "maximum_signed_distance_m": 0.00014140782397742413,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.742314441789745e-05,
+          "maximum_signed_distance_m": 0.00013673697073546265,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.180272368640829e-05,
+          "maximum_signed_distance_m": 0.0001320643075430894,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.618108059359585e-05,
+          "maximum_signed_distance_m": 0.0001273929482072944,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.056144158923416e-05,
+          "maximum_signed_distance_m": 0.00012271941190089564,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.49391911125008e-05,
+          "maximum_signed_distance_m": 0.00011804859359187958,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1261,
+        "centroid": [
+          -0.02625776082277298,
+          -0.000658892560750246,
+          0.09592846035957336
+        ],
+        "direction": [
+          -0.7318755388259888,
+          -0.33731427788734436,
+          -0.5920956134796143
+        ],
+        "rays_tested": 20
+      }
+    },
+    {
+      "group": "radiating_vein_1",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010978697630559253,
+          "maximum_signed_distance_m": 0.00015685107967922107,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010416964117343497,
+          "maximum_signed_distance_m": 0.00015212489716898148,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.855400191227659e-05,
+          "maximum_signed_distance_m": 0.00014739680717212877,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.293819617450794e-05,
+          "maximum_signed_distance_m": 0.0001426687759789047,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.732078624618111e-05,
+          "maximum_signed_distance_m": 0.00013794250760401638,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.170512195437851e-05,
+          "maximum_signed_distance_m": 0.00013321452065717665,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.608934124725408e-05,
+          "maximum_signed_distance_m": 0.00012848633083262229,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.047258759484976e-05,
+          "maximum_signed_distance_m": 0.00012375965559385804,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.485708133752155e-05,
+          "maximum_signed_distance_m": 0.00011903107607125207,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1349,
+        "centroid": [
+          -0.025991126894950867,
+          -0.0007091574370861053,
+          0.09610148519277573
+        ],
+        "direction": [
+          0.05844073370099068,
+          -0.9982894062995911,
+          0.001749649760313332
+        ],
+        "rays_tested": 30
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001306429407641474,
+          "maximum_signed_distance_m": 0.0001915161312702196,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00012936954394504596,
+          "maximum_signed_distance_m": 0.00019046314832138478,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.0001281799930055172,
+          "maximum_signed_distance_m": 0.00018926352407078184,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00012696270382761554,
+          "maximum_signed_distance_m": 0.00018811171975130492,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00012671466563318745,
+          "maximum_signed_distance_m": 0.00018512571053719284,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00012769178492533229,
+          "maximum_signed_distance_m": 0.0001775928997140852,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.0001274351176334676,
+          "maximum_signed_distance_m": 0.00016924447628952066,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00012581218435414598,
+          "maximum_signed_distance_m": 0.0001721753990580055,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00012456570708607728,
+          "maximum_signed_distance_m": 0.0001711117309390886,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1443,
+        "centroid": [
+          -0.00029703459586016834,
+          -0.0008546324679628015,
+          0.05867353081703186
+        ],
+        "direction": [
+          -0.9748229384422302,
+          -0.11242200434207916,
+          -0.1925656944513321
+        ],
+        "rays_tested": 80
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00012484952234714797,
+          "maximum_signed_distance_m": 0.00016857831419514469,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00012297632330238173,
+          "maximum_signed_distance_m": 0.00016701304948796292,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.0001211011544466345,
+          "maximum_signed_distance_m": 0.00016544945164298497,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011922880067949393,
+          "maximum_signed_distance_m": 0.00016388316830884264,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011735750853425486,
+          "maximum_signed_distance_m": 0.00016231604895367013,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011523589517103972,
+          "maximum_signed_distance_m": 0.00016294095174274048,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00011340580787688737,
+          "maximum_signed_distance_m": 0.00016109257199126148,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.0001115020063551242,
+          "maximum_signed_distance_m": 0.00015974547180341858,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.00010963281656550805,
+          "maximum_signed_distance_m": 0.00015815190367440835,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1520,
+        "centroid": [
+          -0.0056508309207856655,
+          -0.00036342779640108347,
+          0.08388294279575348
+        ],
+        "direction": [
+          -0.8933680653572083,
+          -0.3247082233428955,
+          -0.3105767071247101
+        ],
+        "rays_tested": 26
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010970764465945138,
+          "maximum_signed_distance_m": 0.00015757434269403348,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010409624813156881,
+          "maximum_signed_distance_m": 0.00015281696131808076,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.848174945048527e-05,
+          "maximum_signed_distance_m": 0.0001480627596066597,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.286834728428062e-05,
+          "maximum_signed_distance_m": 0.00014330712660637346,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.725616710059114e-05,
+          "maximum_signed_distance_m": 0.00013855095778936288,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.164279827216347e-05,
+          "maximum_signed_distance_m": 0.00013379567404037118,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.602880422474811e-05,
+          "maximum_signed_distance_m": 0.0001290409843246465,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.041528311901857e-05,
+          "maximum_signed_distance_m": 0.0001242856886154442,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.480321934976274e-05,
+          "maximum_signed_distance_m": 0.00011952936180747997,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1605,
+        "centroid": [
+          -0.012408459559082985,
+          -0.0007192699704319239,
+          0.10341351479291916
+        ],
+        "direction": [
+          -0.8608113527297974,
+          -0.37298935651779175,
+          -0.3462409973144531
+        ],
+        "rays_tested": 20
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010785911858768316,
+          "maximum_signed_distance_m": 0.0001651871570693686,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010231789815406955,
+          "maximum_signed_distance_m": 0.000160135857143473,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.677752907499837e-05,
+          "maximum_signed_distance_m": 0.00015508388308660415,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.123535340727074e-05,
+          "maximum_signed_distance_m": 0.00015003423903614532,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.569301292560283e-05,
+          "maximum_signed_distance_m": 0.00014498361311154895,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.015253938431499e-05,
+          "maximum_signed_distance_m": 0.00013993186422922577,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.461145771170408e-05,
+          "maximum_signed_distance_m": 0.00013488051590293537,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -6.90692036418028e-05,
+          "maximum_signed_distance_m": 0.00012983073152916802,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.352825248434613e-05,
+          "maximum_signed_distance_m": 0.0001247793608598613,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1691,
+        "centroid": [
+          -0.012221572920680046,
+          -0.0007286466425284743,
+          0.10348483175039291
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 22
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.0001211267115817094,
+          "maximum_signed_distance_m": 0.00018188981749034383,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00011929593924442372,
+          "maximum_signed_distance_m": 0.00018016945985266375,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00011746683778746103,
+          "maximum_signed_distance_m": 0.00017844757288187907,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011563682088855387,
+          "maximum_signed_distance_m": 0.0001767264386458578,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011380959927365097,
+          "maximum_signed_distance_m": 0.00017500255680147347,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00011197942026086594,
+          "maximum_signed_distance_m": 0.00017328196892663073,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00011015029499361617,
+          "maximum_signed_distance_m": 0.00017156012296837275,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00010832103082236699,
+          "maximum_signed_distance_m": 0.00016983843719486913,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -0.0001064909503085687,
+          "maximum_signed_distance_m": 0.00016811763891411147,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1777,
+        "centroid": [
+          -0.005093241110444069,
+          -0.00044276402331888676,
+          0.08311266452074051
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 20
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010974989644907396,
+          "maximum_signed_distance_m": 0.0001572301299539447,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010414516172829735,
+          "maximum_signed_distance_m": 0.0001523210712122136,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.8212077702442e-05,
+          "maximum_signed_distance_m": 0.00014987180379932852,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.260973116376192e-05,
+          "maximum_signed_distance_m": 0.0001450405621046258,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.700814730655537e-05,
+          "maximum_signed_distance_m": 0.00014020864796293608,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.140795062505646e-05,
+          "maximum_signed_distance_m": 0.00013537576404765161,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.580533610962448e-05,
+          "maximum_signed_distance_m": 0.00013054441573778774,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.02030418029409e-05,
+          "maximum_signed_distance_m": 0.00012571323439480864,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.460179738265737e-05,
+          "maximum_signed_distance_m": 0.00012088135456167493,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1864,
+        "centroid": [
+          -0.006914762780070305,
+          -0.0006547562661580741,
+          0.10536986589431763
+        ],
+        "direction": [
+          -0.8963914513587952,
+          -0.369686484336853,
+          -0.24456948041915894
+        ],
+        "rays_tested": 26
+      }
+    },
+    {
+      "group": "radiating_vein_2",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.072424349909625e-05,
+          "maximum_signed_distance_m": 0.00017916182316923823,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.377238019185995e-05,
+          "maximum_signed_distance_m": 0.00017394228313705185,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.422925002664726e-05,
+          "maximum_signed_distance_m": 0.00016872392213507226,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.566752011634037e-05,
+          "maximum_signed_distance_m": 0.00016247262291813058,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -7.08106764681915e-05,
+          "maximum_signed_distance_m": 0.00015687418824406052,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.595271277376469e-05,
+          "maximum_signed_distance_m": 0.00015127789745861264,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -6.10941870808901e-05,
+          "maximum_signed_distance_m": 0.00014568166272255212,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.6235833864271e-05,
+          "maximum_signed_distance_m": 0.00014008490412287244,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -5.137682840938851e-05,
+          "maximum_signed_distance_m": 0.00013448874767796326,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 1949,
+        "centroid": [
+          -0.006462212186306715,
+          -0.0007408481324091554,
+          0.1046467050909996
+        ],
+        "direction": [
+          -0.6891096830368042,
+          -0.7242060899734497,
+          -0.0255612563341856
+        ],
+        "rays_tested": 17
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00012089376836499355,
+          "maximum_signed_distance_m": 0.00020095448592627463,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00011974826829330709,
+          "maximum_signed_distance_m": 0.0001997333133338941,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00011860271079555673,
+          "maximum_signed_distance_m": 0.0001985123006065237,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00011745552862052477,
+          "maximum_signed_distance_m": 0.0001972928674973673,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00011533269475094698,
+          "maximum_signed_distance_m": 0.00019657339055711986,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00010996050857059458,
+          "maximum_signed_distance_m": 0.0001970261327244316,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -9.672474195632219e-05,
+          "maximum_signed_distance_m": 0.00019742422659874137,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00010089517112454871,
+          "maximum_signed_distance_m": 0.00019590501120703152,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -9.984151978947864e-05,
+          "maximum_signed_distance_m": 0.00019465793004691534,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2043,
+        "centroid": [
+          0.002667307388037443,
+          -0.0008361637592315674,
+          0.05840029567480087
+        ],
+        "direction": [
+          0.7433043718338013,
+          -0.6570960879325867,
+          -0.12539228796958923
+        ],
+        "rays_tested": 66
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010787785747368162,
+          "maximum_signed_distance_m": 0.00019287901948139563,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.0001062029846288226,
+          "maximum_signed_distance_m": 0.00019102932486525503,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00010453125908860272,
+          "maximum_signed_distance_m": 0.00018917646749194716,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00010285707524104737,
+          "maximum_signed_distance_m": 0.00018732628400108808,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00010118356805755013,
+          "maximum_signed_distance_m": 0.00018547527724521728,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -9.950891349141955e-05,
+          "maximum_signed_distance_m": 0.00018362535773341904,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -9.783540993968387e-05,
+          "maximum_signed_distance_m": 0.00018177447370248956,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -9.616171989179634e-05,
+          "maximum_signed_distance_m": 0.00017992339780370514,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -9.448835046299564e-05,
+          "maximum_signed_distance_m": 0.00017807249512813428,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2119,
+        "centroid": [
+          0.007427259348332882,
+          -0.00019919528858736157,
+          0.0814376026391983
+        ],
+        "direction": [
+          0.5006552934646606,
+          -0.864489734172821,
+          -0.04474123939871788
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010378820840273306,
+          "maximum_signed_distance_m": 0.00017196886387083055,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.840527931093135e-05,
+          "maximum_signed_distance_m": 0.00016665425871487116,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.529709486066906e-05,
+          "maximum_signed_distance_m": 0.0001582035603622245,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.17183407231903e-05,
+          "maximum_signed_distance_m": 0.0001486806848944866,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.69111031889247e-05,
+          "maximum_signed_distance_m": 0.00014075270271263207,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.131336951677781e-05,
+          "maximum_signed_distance_m": 0.00013589636802890936,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -7.571672714945521e-05,
+          "maximum_signed_distance_m": 0.00013103905099498547,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -7.011906604859064e-05,
+          "maximum_signed_distance_m": 0.00012618245418494212,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -6.452130337208928e-05,
+          "maximum_signed_distance_m": 0.00012132615187709916,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2205,
+        "centroid": [
+          0.008940113708376884,
+          -0.00036490632919594646,
+          0.101838618516922
+        ],
+        "direction": [
+          0.3459264934062958,
+          -0.9380444288253784,
+          -0.020186960697174072
+        ],
+        "rays_tested": 7
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.613529858703117e-05,
+          "maximum_signed_distance_m": 0.0001797874784248421,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.291642005264777e-05,
+          "maximum_signed_distance_m": 0.00017401489391488667,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.814416679607916e-05,
+          "maximum_signed_distance_m": 0.00016844454599862502,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.418489342114754e-05,
+          "maximum_signed_distance_m": 0.00016272403733808005,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.939112050474705e-05,
+          "maximum_signed_distance_m": 0.00015711699771969734,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.459893065979827e-05,
+          "maximum_signed_distance_m": 0.00015150806635233494,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.980700603203104e-05,
+          "maximum_signed_distance_m": 0.00014589945074305888,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.5013018570804206e-05,
+          "maximum_signed_distance_m": 0.00014029255665093388,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -5.0220890573271504e-05,
+          "maximum_signed_distance_m": 0.0001346836324600531,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2291,
+        "centroid": [
+          0.009140904061496258,
+          -0.0003322515985928476,
+          0.10178971290588379
+        ],
+        "direction": [
+          0.5776744484901428,
+          -0.8009014129638672,
+          -0.15763626992702484
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.786353785390389e-05,
+          "maximum_signed_distance_m": 0.00019483067839054513,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.630698111173785e-05,
+          "maximum_signed_distance_m": 0.00019295714069933467,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.475030750394353e-05,
+          "maximum_signed_distance_m": 0.0001910838345207111,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.319449564326732e-05,
+          "maximum_signed_distance_m": 0.0001892094172912806,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -9.164004483519506e-05,
+          "maximum_signed_distance_m": 0.00018733395922687635,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -9.090730006011682e-05,
+          "maximum_signed_distance_m": 0.00018539858590038705,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -8.912578737962917e-05,
+          "maximum_signed_distance_m": 0.00018358168767207417,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -8.897566206300667e-05,
+          "maximum_signed_distance_m": 0.0001815747688382885,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -8.73941728087857e-05,
+          "maximum_signed_distance_m": 0.0001797025068270841,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2377,
+        "centroid": [
+          0.0076553779654204845,
+          -0.0001736089470796287,
+          0.08136403560638428
+        ],
+        "direction": [
+          0.5726412534713745,
+          -0.7957135438919067,
+          -0.1972864419221878
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.327470917597225e-05,
+          "maximum_signed_distance_m": 0.00017850217666648405,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.829880828997716e-05,
+          "maximum_signed_distance_m": 0.00017293516536653897,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -8.332286375534181e-05,
+          "maximum_signed_distance_m": 0.00016736799799588198,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.83479888752936e-05,
+          "maximum_signed_distance_m": 0.00016179978289443397,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -7.33710984661684e-05,
+          "maximum_signed_distance_m": 0.0001562336590694713,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.839670360747618e-05,
+          "maximum_signed_distance_m": 0.0001506646436055803,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -6.34228254394742e-05,
+          "maximum_signed_distance_m": 0.0001450957329893754,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.84453276779584e-05,
+          "maximum_signed_distance_m": 0.0001395301591529119,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -5.347002342404039e-05,
+          "maximum_signed_distance_m": 0.00013396221335071345,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2463,
+        "centroid": [
+          0.014375320635735989,
+          -0.0001535767805762589,
+          0.10068341344594955
+        ],
+        "direction": [
+          0.482476145029068,
+          -0.8718412518501282,
+          -0.08431817591190338
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_3",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.690338031414058e-05,
+          "maximum_signed_distance_m": 0.0001797561160827854,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.217510576002951e-05,
+          "maximum_signed_distance_m": 0.00017413976323865654,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.744586032742973e-05,
+          "maximum_signed_distance_m": 0.00016852431978975346,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.271849546341969e-05,
+          "maximum_signed_distance_m": 0.00016290727583623266,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.799063583073917e-05,
+          "maximum_signed_distance_m": 0.00015729060983460386,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.326027727432404e-05,
+          "maximum_signed_distance_m": 0.00015167638455437782,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.853394903709841e-05,
+          "maximum_signed_distance_m": 0.00014605821989732704,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.38049790730355e-05,
+          "maximum_signed_distance_m": 0.000140442689144038,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.907661776343275e-05,
+          "maximum_signed_distance_m": 0.00013482631437966575,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2549,
+        "centroid": [
+          0.014551952481269836,
+          -0.00014084963186178356,
+          0.1006154865026474
+        ],
+        "direction": [
+          0.5226572155952454,
+          -0.8241291642189026,
+          -0.21826720237731934
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00011005871687430613,
+          "maximum_signed_distance_m": 0.0002044235712297393,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010899278617415575,
+          "maximum_signed_distance_m": 0.00020317679133796673,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00010792668298975627,
+          "maximum_signed_distance_m": 0.00020193080978714306,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00010686001013482382,
+          "maximum_signed_distance_m": 0.0002006850197062704,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00010579333238069921,
+          "maximum_signed_distance_m": 0.00019943927269139294,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.0001046976406442468,
+          "maximum_signed_distance_m": 0.00019819791927844221,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00010219409549350189,
+          "maximum_signed_distance_m": 0.00019715793222729872,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -9.960884995052766e-05,
+          "maximum_signed_distance_m": 0.00019606892310264357,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -9.827196617351319e-05,
+          "maximum_signed_distance_m": 0.00019484180442219667,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2636,
+        "centroid": [
+          0.0037163279484957457,
+          -0.0010134020121768117,
+          0.05547467991709709
+        ],
+        "direction": [
+          0.5423256158828735,
+          -0.7673949003219604,
+          -0.3420349657535553
+        ],
+        "rays_tested": 15
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.915720399078509e-05,
+          "maximum_signed_distance_m": 0.0001947665564685508,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.700730223727305e-05,
+          "maximum_signed_distance_m": 0.00019294370603972766,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.415928294753684e-05,
+          "maximum_signed_distance_m": 0.00019117229614096232,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.171292433673983e-05,
+          "maximum_signed_distance_m": 0.00018933926390651834,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -9.01745007109156e-05,
+          "maximum_signed_distance_m": 0.00018746407633862816,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.805999077932114e-05,
+          "maximum_signed_distance_m": 0.00018560662051392285,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -8.829036934798751e-05,
+          "maximum_signed_distance_m": 0.0001836388664813171,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -8.770597299445626e-05,
+          "maximum_signed_distance_m": 0.0001816977392223862,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -8.613924435252329e-05,
+          "maximum_signed_distance_m": 0.00017982554180662191,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2721,
+        "centroid": [
+          0.018644485622644424,
+          0.00014905849820934236,
+          0.07650795578956604
+        ],
+        "direction": [
+          0.5716607570648193,
+          -0.7729874849319458,
+          -0.27512627840042114
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.644673774682587e-05,
+          "maximum_signed_distance_m": 0.00017979832878012303,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.17367093510768e-05,
+          "maximum_signed_distance_m": 0.0001741801924453057,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.702600511194646e-05,
+          "maximum_signed_distance_m": 0.00016856224257111307,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.231607266078299e-05,
+          "maximum_signed_distance_m": 0.00016294384750636937,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.760561313612357e-05,
+          "maximum_signed_distance_m": 0.00015732578984994916,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.289426684524813e-05,
+          "maximum_signed_distance_m": 0.0001517084502111743,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.8185037856262056e-05,
+          "maximum_signed_distance_m": 0.00014608939439852975,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.3473530572389905e-05,
+          "maximum_signed_distance_m": 0.0001404722766977784,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.87642606419314e-05,
+          "maximum_signed_distance_m": 0.0001348530425957506,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2807,
+        "centroid": [
+          0.0281711146235466,
+          0.00033906797762028873,
+          0.09460922330617905
+        ],
+        "direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "rays_tested": 12
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.51746372525497e-05,
+          "maximum_signed_distance_m": 0.00017989522726935547,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.05136865444922e-05,
+          "maximum_signed_distance_m": 0.0001742731996614566,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.58526230377754e-05,
+          "maximum_signed_distance_m": 0.00016865151585676585,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.119190516391427e-05,
+          "maximum_signed_distance_m": 0.00016302950871249777,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.653086028407529e-05,
+          "maximum_signed_distance_m": 0.00015740754250970213,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.186798736784738e-05,
+          "maximum_signed_distance_m": 0.00015178777093893814,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.720704163358903e-05,
+          "maximum_signed_distance_m": 0.0001461655290668773,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.254585487257657e-05,
+          "maximum_signed_distance_m": 0.00014054392761408963,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.788498284469256e-05,
+          "maximum_signed_distance_m": 0.00013492174218754371,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2893,
+        "centroid": [
+          0.028314027935266495,
+          0.0003467368078418076,
+          0.0944942757487297
+        ],
+        "direction": [
+          0.4570084512233734,
+          -0.8089717626571655,
+          -0.36974042654037476
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.771405467162708e-05,
+          "maximum_signed_distance_m": 0.00019488067276540733,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.58240529342902e-05,
+          "maximum_signed_distance_m": 0.00019302578725444164,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.319430069787416e-05,
+          "maximum_signed_distance_m": 0.00019121471145311375,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.114488899619744e-05,
+          "maximum_signed_distance_m": 0.000189355723687612,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -8.961071452961988e-05,
+          "maximum_signed_distance_m": 0.0001874829757575469,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -8.808135299087638e-05,
+          "maximum_signed_distance_m": 0.00018560546340040673,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -8.654824589982013e-05,
+          "maximum_signed_distance_m": 0.00018373180777508935,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -8.501495777135659e-05,
+          "maximum_signed_distance_m": 0.00018185789013358544,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -8.348201802732547e-05,
+          "maximum_signed_distance_m": 0.00017998424311471695,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 2979,
+        "centroid": [
+          0.018812434747815132,
+          0.00014716284931637347,
+          0.07635405659675598
+        ],
+        "direction": [
+          0.46572145819664,
+          -0.7883866429328918,
+          -0.4019329249858856
+        ],
+        "rays_tested": 10
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.382382991989346e-05,
+          "maximum_signed_distance_m": 0.00017997471912067908,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -7.850877801729439e-05,
+          "maximum_signed_distance_m": 0.00017436376693069633,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.595896979140093e-05,
+          "maximum_signed_distance_m": 0.0001686437887897796,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.16704185812489e-05,
+          "maximum_signed_distance_m": 0.00016299775643346948,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.698854814501942e-05,
+          "maximum_signed_distance_m": 0.0001573770261984464,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.230488686931324e-05,
+          "maximum_signed_distance_m": 0.00015175818865742485,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.7622917255528705e-05,
+          "maximum_signed_distance_m": 0.0001461377940685793,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.2942707501557607e-05,
+          "maximum_signed_distance_m": 0.0001405152593960679,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.825835139854462e-05,
+          "maximum_signed_distance_m": 0.00013489721037274194,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3071,
+        "centroid": [
+          0.032505761831998825,
+          0.0005737324245274067,
+          0.09149928390979767
+        ],
+        "direction": [
+          -0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "rays_tested": 42
+      }
+    },
+    {
+      "group": "radiating_vein_4",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.343488656414877e-05,
+          "maximum_signed_distance_m": 0.0001799852908526134,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -7.884169094296567e-05,
+          "maximum_signed_distance_m": 0.00017435945956378873,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.404956336420909e-05,
+          "maximum_signed_distance_m": 0.00016873835373587553,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.075025623137776e-05,
+          "maximum_signed_distance_m": 0.00016305229429747214,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.626051929004007e-05,
+          "maximum_signed_distance_m": 0.0001574247719773325,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.161291133111035e-05,
+          "maximum_signed_distance_m": 0.00015180128871605802,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.696420106637845e-05,
+          "maximum_signed_distance_m": 0.00014617864129462532,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.231604554190028e-05,
+          "maximum_signed_distance_m": 0.0001405555109386114,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.766548624068889e-05,
+          "maximum_signed_distance_m": 0.00013493494171967768,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3154,
+        "centroid": [
+          0.033375248312950134,
+          0.0005865943967364728,
+          0.09177577495574951
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rays_tested": 26
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 0,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -0.00010750972292683514,
+          "maximum_signed_distance_m": 0.00020473766650752623,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -0.00010669972119714544,
+          "maximum_signed_distance_m": 0.0002034638097185848,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -0.00010565304267728948,
+          "maximum_signed_distance_m": 0.00020221489079830235,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -0.00010460312551785478,
+          "maximum_signed_distance_m": 0.00020096706284178367,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -0.00010355401040484935,
+          "maximum_signed_distance_m": 0.0001997185034241511,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -0.00010250508832143623,
+          "maximum_signed_distance_m": 0.00019847025971486687,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -0.00010145530020011506,
+          "maximum_signed_distance_m": 0.00019722246254616493,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -0.00010040563745405962,
+          "maximum_signed_distance_m": 0.0001959745819526404,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -9.935556171214444e-05,
+          "maximum_signed_distance_m": 0.00019472679786858293,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3238,
+        "centroid": [
+          0.0044743334874510765,
+          -0.0010727238841354847,
+          0.05394372344017029
+        ],
+        "direction": [
+          0.33851826190948486,
+          -0.7946848273277283,
+          -0.5038665533065796
+        ],
+        "rays_tested": 21
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 1,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.980790206398638e-05,
+          "maximum_signed_distance_m": 0.00019467982428622577,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.82296114262482e-05,
+          "maximum_signed_distance_m": 0.0001928070537644544,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.664993921454368e-05,
+          "maximum_signed_distance_m": 0.00019093581419227235,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.50708071236761e-05,
+          "maximum_signed_distance_m": 0.00018906394334550214,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -9.349121406465599e-05,
+          "maximum_signed_distance_m": 0.00018719237936437594,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -9.183689138936302e-05,
+          "maximum_signed_distance_m": 0.00018532863185782844,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -8.909048748328985e-05,
+          "maximum_signed_distance_m": 0.00018358111620386808,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -8.735956112104759e-05,
+          "maximum_signed_distance_m": 0.00018172280488926162,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -8.579895232330159e-05,
+          "maximum_signed_distance_m": 0.00017984821274907858,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3332,
+        "centroid": [
+          0.02243860810995102,
+          -0.0002144881000276655,
+          0.06512553989887238
+        ],
+        "direction": [
+          -0.3218556344509125,
+          -0.8275511860847473,
+          0.459965318441391
+        ],
+        "rays_tested": 66
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 2,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.56676240452714e-05,
+          "maximum_signed_distance_m": 0.00017985692772271022,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -7.973930423865738e-05,
+          "maximum_signed_distance_m": 0.00017431995918215648,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.487892194291135e-05,
+          "maximum_signed_distance_m": 0.00016870779293753912,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.025810101346508e-05,
+          "maximum_signed_distance_m": 0.0001630844226738759,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.563629444045205e-05,
+          "maximum_signed_distance_m": 0.00015746180911335728,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.10163541487907e-05,
+          "maximum_signed_distance_m": 0.00015183759822789966,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.6395657160202006e-05,
+          "maximum_signed_distance_m": 0.00014621406015535854,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.17746109229833e-05,
+          "maximum_signed_distance_m": 0.0001405905734763735,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.7154845256969224e-05,
+          "maximum_signed_distance_m": 0.0001349661511262923,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3410,
+        "centroid": [
+          0.035357244312763214,
+          0.00041080088703893125,
+          0.07532349973917007
+        ],
+        "direction": [
+          0.41890960931777954,
+          -0.7939419746398926,
+          -0.44064831733703613
+        ],
+        "rays_tested": 18
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 3,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.530775557247239e-05,
+          "maximum_signed_distance_m": 0.00017988199121177217,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.029709540835483e-05,
+          "maximum_signed_distance_m": 0.00017428622200554855,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.466831839231247e-05,
+          "maximum_signed_distance_m": 0.00016871623304837158,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.00232830759262e-05,
+          "maximum_signed_distance_m": 0.0001630923927748995,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.541336637511108e-05,
+          "maximum_signed_distance_m": 0.00015746827016371867,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.0801967100232446e-05,
+          "maximum_signed_distance_m": 0.0001518451763864448,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.619168564496846e-05,
+          "maximum_signed_distance_m": 0.00014622092865934633,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.158157881002268e-05,
+          "maximum_signed_distance_m": 0.00014059667411814303,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.697048608459653e-05,
+          "maximum_signed_distance_m": 0.00013497342708390647,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3495,
+        "centroid": [
+          0.03498333692550659,
+          0.00042141039739362895,
+          0.07475093007087708
+        ],
+        "direction": [
+          0.2983407974243164,
+          -0.79965740442276,
+          -0.5210958123207092
+        ],
+        "rays_tested": 16
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 4,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -9.90455879126273e-05,
+          "maximum_signed_distance_m": 0.00019475645467181835,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -9.747568560314335e-05,
+          "maximum_signed_distance_m": 0.00019288357287550184,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -9.590614576993062e-05,
+          "maximum_signed_distance_m": 0.00019100959497109216,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -9.43348272333111e-05,
+          "maximum_signed_distance_m": 0.00018913804427000969,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -9.276504905209038e-05,
+          "maximum_signed_distance_m": 0.00018726523952850016,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -9.119415975789025e-05,
+          "maximum_signed_distance_m": 0.0001853933087510029,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -8.96266580525662e-05,
+          "maximum_signed_distance_m": 0.0001835176552056339,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -8.80535307352659e-05,
+          "maximum_signed_distance_m": 0.00018164776903617508,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -8.648364815755372e-05,
+          "maximum_signed_distance_m": 0.00017977450200490352,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3581,
+        "centroid": [
+          0.02209389954805374,
+          -0.00024513324024155736,
+          0.06436468660831451
+        ],
+        "direction": [
+          0.26326054334640503,
+          -0.7998425960540771,
+          -0.5393937826156616
+        ],
+        "rays_tested": 16
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 5,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.694222570149179e-05,
+          "maximum_signed_distance_m": 0.00017972971675206395,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.21091950875541e-05,
+          "maximum_signed_distance_m": 0.00017412537251004778,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.634099784858961e-05,
+          "maximum_signed_distance_m": 0.00016861579724647413,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.15428733517598e-05,
+          "maximum_signed_distance_m": 0.00016300249477652073,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.658652747582039e-05,
+          "maximum_signed_distance_m": 0.00015740287200927128,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.177992087508244e-05,
+          "maximum_signed_distance_m": 0.00015179064497772288,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.6299399632031566e-05,
+          "maximum_signed_distance_m": 0.0001462173779920306,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.166934165767856e-05,
+          "maximum_signed_distance_m": 0.00014059383310538465,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.70538765462436e-05,
+          "maximum_signed_distance_m": 0.00013497063746470417,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3668,
+        "centroid": [
+          0.03770837187767029,
+          0.0003214440948795527,
+          0.07143163681030273
+        ],
+        "direction": [
+          0.374407023191452,
+          -0.792466402053833,
+          -0.4814731478691101
+        ],
+        "rays_tested": 21
+      }
+    },
+    {
+      "group": "radiating_vein_5",
+      "segment": 6,
+      "ring_count": 9,
+      "rings": [
+        {
+          "ring": 0,
+          "minimum_signed_distance_m": -8.641806562259546e-05,
+          "maximum_signed_distance_m": 0.0001797805795646923,
+          "crosses": true
+        },
+        {
+          "ring": 1,
+          "minimum_signed_distance_m": -8.170919113581476e-05,
+          "maximum_signed_distance_m": 0.00017416305810513677,
+          "crosses": true
+        },
+        {
+          "ring": 2,
+          "minimum_signed_distance_m": -7.697395453476474e-05,
+          "maximum_signed_distance_m": 0.00016854883310912783,
+          "crosses": true
+        },
+        {
+          "ring": 3,
+          "minimum_signed_distance_m": -7.128374796749881e-05,
+          "maximum_signed_distance_m": 0.00016302032481974038,
+          "crosses": true
+        },
+        {
+          "ring": 4,
+          "minimum_signed_distance_m": -6.658676254467366e-05,
+          "maximum_signed_distance_m": 0.0001574010752669608,
+          "crosses": true
+        },
+        {
+          "ring": 5,
+          "minimum_signed_distance_m": -6.165540163927119e-05,
+          "maximum_signed_distance_m": 0.00015179970627343664,
+          "crosses": true
+        },
+        {
+          "ring": 6,
+          "minimum_signed_distance_m": -5.699144140969281e-05,
+          "maximum_signed_distance_m": 0.00014617622212753645,
+          "crosses": true
+        },
+        {
+          "ring": 7,
+          "minimum_signed_distance_m": -5.2339623842101446e-05,
+          "maximum_signed_distance_m": 0.00014055548827940356,
+          "crosses": true
+        },
+        {
+          "ring": 8,
+          "minimum_signed_distance_m": -4.769035527374399e-05,
+          "maximum_signed_distance_m": 0.00013493212659554388,
+          "crosses": true
+        }
+      ],
+      "all_rings_cross": true,
+      "whole_surface_witness": {
+        "triangle": 3753,
+        "centroid": [
+          0.03727315366268158,
+          0.00032316643046215177,
+          0.07090339064598083
+        ],
+        "direction": [
+          0.24114373326301575,
+          -0.8011153936386108,
+          -0.5477808117866516
+        ],
+        "rays_tested": 16
+      }
+    }
+  ],
+  "source_audit": {
+    "status": "pass",
+    "errors": [],
+    "warnings": [],
+    "triangles": 3836,
+    "materials": [
+      "ginkgo-palette-0",
+      "ginkgo-palette-1",
+      "ginkgo-palette-2",
+      "ginkgo-palette-3"
+    ],
+    "bounds_blender_m": {
+      "min": [
+        -0.05286111310124397,
+        -0.0019036964513361454,
+        0.0
+      ],
+      "max": [
+        0.05286111682653427,
+        0.0019036964513361454,
+        0.12753751873970032
+      ],
+      "size": [
+        0.10572222992777824,
+        0.003807392902672291,
+        0.12753751873970032
+      ]
+    },
+    "parts": [
+      {
+        "name": "six-lobed-jurassic-ginkgo-leaf",
+        "vertices": 2006,
+        "triangles": 3836,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0
+      }
+    ]
+  },
+  "missing_contact_witnesses": [],
+  "wholly_parent_buried": [],
+  "no_whole_surface_witness": [],
+  "visibility_limit": "Every component is tested against the complete transformed mesh with actual triangle-centroid outward rays; positive samples establish geometric exposure, not pixel-scale recognizability. Pixel review is separate.",
+  "reexport": {
+    "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/source-reexport.glb",
+    "sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+    "semantic_sha256": "72b8001a74cb061ef4de57e5c1688ec815e914e34ab37ba7f09715fea58e74c3",
+    "original_semantic_sha256": "72b8001a74cb061ef4de57e5c1688ec815e914e34ab37ba7f09715fea58e74c3",
+    "semantic_equal": true,
+    "byte_equal": true,
+    "errors": []
+  }
+}

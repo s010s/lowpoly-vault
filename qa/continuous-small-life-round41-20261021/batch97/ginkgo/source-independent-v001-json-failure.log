@@ -1,0 +1,27 @@
+ERROR Draco mesh compression is not available because library could not be found at /usr/bin/4.3/python/lib/python3.13/site-packages/libextern_draco.so
+03:35:08 | INFO: Starting glTF 2.0 export
+03:35:08 | INFO: Extracting primitive: six-lobed-jurassic-ginkgo-leaf-mesh
+03:35:08 | INFO: Primitives created: 3
+03:35:08 | INFO: Finished glTF 2.0 export in 0.0194399356842041 s
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch97-independent-qa-20261021/inspect_source.py", line 110, in <module>
+    (out/'source-independent.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({k:r[k] for k in ['asset_id','component_count','features','hard_envelope_exact','missing_contact_witnesses','wholly_parent_buried','no_whole_surface_witness','reexport']},indent=2))
+                                               ~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.13/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.13/json/encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.13/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type bool is not JSON serializable
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch97-independent-qa-20261021/inspect_source.py', exiting.
+
+Blender 4.3.2
+Read blend: "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/artifacts/ginkgo.blend"
+
+Blender quit

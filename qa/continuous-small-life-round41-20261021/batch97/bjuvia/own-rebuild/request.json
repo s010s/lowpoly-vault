@@ -1,0 +1,43 @@
+{
+  "asset_id": "bjuvia",
+  "revision": "r001",
+  "inputs": {
+    "generator": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/tools/generate-r001.py",
+      "sha256": "93bfa517f5db09b309bdeb9a97f21c2a07ec8fb68b3998a70bd55dbc4db63715"
+    },
+    "config": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/config.json",
+      "sha256": "d07dc5f7ca5062329e49e404e3eb86128f0ba0360cd8cafcd217133ca1955646"
+    },
+    "asset_common": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    "qa_glb": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    }
+  },
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/tools/generate-r001.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/own-rebuild/outputs"
+  ],
+  "started_at_executor_clock": "2026-10-21T01:46:15.538344+00:00",
+  "reason": "Fresh independent third generator rebuild, exact maker source/config; no original file changes."
+}

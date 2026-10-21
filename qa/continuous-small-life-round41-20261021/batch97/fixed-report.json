@@ -1,0 +1,1465 @@
+{
+  "schema_version": 1,
+  "batch": 97,
+  "reviewer": {
+    "id": "fresh-independent-batch97-review",
+    "task": "review_batch97_candidates",
+    "independent_of_maker": true
+  },
+  "review_window_authoritative_utc": {
+    "start": "2026-10-21T01:27:56Z",
+    "core_review_completed": "2026-10-21T01:52:00Z",
+    "final_evidence_sealing_started": "2026-10-21T01:56:00Z"
+  },
+  "clock_disclosure": "Some earlier executor raw timestamps were about2hours ahead of clock.curr_time; after a transient executor reconnect timestamps realigned. Preserve raw values and treat execution observed_at fields as executor clock, not authoritative wall time. No causal claims rely on mixed clocks.",
+  "source_binding": {
+    "worktree": "/workspace/shared/lowpoly-batch97-20261020",
+    "commit": "280ef4dcae42c368727b22a666b2e6a455c9e9d7",
+    "branch": "candidate/small-life-batch97-concept-20261020",
+    "handoff": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/handoff.json",
+      "sha256": "b2280ef3390203eb59c984e2cf3ba121569639238ffde1b485a8dfc4a7aaf726",
+      "bytes": 20390
+    },
+    "original_freeze": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/original-freeze-manifest.json",
+      "sha256": "bd29c9e2e00e7a3f2a3b396b37bc9128bc7b953486c715e3eec3c2d80d2eb747",
+      "bytes": 4202
+    },
+    "delivery_manifest": {
+      "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/delivery-manifest.json",
+      "sha256": "33d392968e52c5c79014fd4b570a88b1c6c7906edcd8b9ecaeaa27a401247c58",
+      "bytes": 54895
+    },
+    "final_repository_check": {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/repository-state-final.json",
+      "sha256": "73a0508f6ea2b3237f82b1d7756ae9276c68c6dd7df17f3b65f93d9a4b09efb8",
+      "bytes": 101919
+    }
+  },
+  "decision": "All four exact candidates pass the five independent bounded-static core stages. GPU and composed-scene remain unknown/not run; original required seven-stage formal approval is not granted.",
+  "accepted_static_count": 4,
+  "seven_stage_names": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "formal_approved_for_brief": false,
+  "publication_authorized_by_review": false,
+  "candidate_records_modified": false,
+  "queue_modified": false,
+  "push_pr_merge_deploy_performed": false,
+  "core_scope": "Static educational low-poly catalog assets; original frozen factual/artistic uncertainty remains attached. No GPU, website, composed-scene, animation, scientific specimen-cast or release assertion.",
+  "items": [
+    {
+      "subject": {
+        "asset_id": "ginkgo",
+        "revision": "r002",
+        "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+        "brief_sha256": "b6466b152c2c27e0d83c648085be5740bbbe3c06104f6c1b16f73219298e56ab",
+        "references_sha256": "04a30dac7ffa76865eabac4c27684032346d53d2f45ab213420bc30961cee114",
+        "source_sha256": "647b4b2847cafb60866634dd1fdc11706ae41cead3f02a13590804a9d357c8c9",
+        "generator_sha256": "a0698415d370a89b11791f3a6a870e733e0fb750cc155f245ed76de9a8908e60",
+        "config_sha256": "fcc998fb47f888baed2ece60ea3f204f9ddcb75743b2e1fcf7ab38e9222322f6"
+      },
+      "bounded_static_accepted": true,
+      "formal_approved_for_brief": false,
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "visual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "factual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "specification": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        }
+      },
+      "metrics": {
+        "glb_bytes": 173024,
+        "triangles": 3836,
+        "materials": 3,
+        "primitives": 3,
+        "actual_world_bounds_blender_xyz_m": {
+          "min": [
+            -0.05286111310124397,
+            -0.0019036964513361454,
+            0.0
+          ],
+          "max": [
+            0.05286111682653427,
+            0.0019036964513361454,
+            0.12753751873970032
+          ],
+          "size": [
+            0.10572222992777824,
+            0.003807392902672291,
+            0.12753751873970032
+          ]
+        },
+        "authored_and_evaluated_counts": {
+          "authored_vertices": 2006,
+          "authored_polygons": 1921,
+          "authored_triangles": 3836,
+          "evaluated_vertices": 2006,
+          "evaluated_polygons": 1921,
+          "evaluated_triangles": 3836
+        },
+        "source_topology": {
+          "vertices": 2006,
+          "edges": 3839,
+          "faces": 1921,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0
+        },
+        "component_count": 8,
+        "actual_features": {
+          "radial_margin_peaks": 6,
+          "peak_indices": [
+            4,
+            12,
+            20,
+            28,
+            36,
+            44
+          ],
+          "radial_sinus_indices": [
+            8,
+            16,
+            24,
+            32,
+            40
+          ],
+          "sinus_radii_m": [
+            0.034004431991171265,
+            0.03401238334961582,
+            0.017018140841663566,
+            0.0340289734021899,
+            0.03403034928051825
+          ],
+          "lamina_closed_islands": 1,
+          "petiole_closed_islands": 1,
+          "vein_segments": 42,
+          "all_378_rings_cross": true
+        },
+        "hard_world_envelopes_exact": [
+          {
+            "axis": 0,
+            "actual_size_m": 0.10572222992777824,
+            "range": [
+              0.06,
+              0.18
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.045722229927778246,
+            "distance_to_upper_m": 0.07427777007222175
+          },
+          {
+            "axis": 1,
+            "actual_size_m": 0.003807392902672291,
+            "range": [
+              0.001,
+              0.02
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.0028073929026722908,
+            "distance_to_upper_m": 0.01619260709732771
+          },
+          {
+            "axis": 2,
+            "actual_size_m": 0.12753751873970032,
+            "range": [
+              0.09,
+              0.2
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.03753751873970032,
+            "distance_to_upper_m": 0.0724624812602997
+          }
+        ],
+        "minimum_framing_margin_pixels": 32.74706657561089
+      },
+      "technical_evidence": {
+        "project_errors": [],
+        "khronos_issues": {
+          "numErrors": 0,
+          "numWarnings": 0,
+          "numInfos": 0,
+          "numHints": 0,
+          "messages": [],
+          "truncated": false
+        },
+        "three_revision": "180",
+        "source_reexport_semantic_and_bytes_equal": true,
+        "maker_actual_rebuild_pids": [
+          9,
+          32
+        ],
+        "independent_third_generator_pid": 7,
+        "third_generator_semantic_and_bytes_equal": true,
+        "semantic_sha256": "72b8001a74cb061ef4de57e5c1688ec815e914e34ab37ba7f09715fea58e74c3",
+        "source_reopen_pid": 10
+      },
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/concepts/ginkgo-concept.png",
+        "sha256": "c639f6ff8d7c83634d843f96132c1b21e4a3b4184c1722927cf8bf83e5d5571d",
+        "bytes": 1457272,
+        "personally_inspected": true,
+        "comment": "Seven fingerlike conceptual tips and unequal branch-like vein hierarchy were not copied. Final follows the pre-frozen correction to six elongate lobes and finer dichotomous venation."
+      },
+      "final_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/hero.png",
+          "sha256": "f54047055b506c462dfedf47f0b6ab363d0b7656f807ccad1817856bead8f2da",
+          "bytes": 206699,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "hero: Six separated elongate rounded lobes, deeply incised fan base and visible fine branching veins. Petiole is narrow and connected."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/reversehero.png",
+          "sha256": "ab80b9f31e391375ddaee6f5926e7a89fc2b4fe4a99b40b69cce6a3de582210d",
+          "bytes": 196528,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "reversehero: Continuous rear fan has no accidental leaf holes; subtle volume rim is visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/front.png",
+          "sha256": "6b7872cf406390676adf2e0a235e495d8e1a8cc0553aa97ee441844da77bfca7",
+          "bytes": 226934,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "front: All six lobes, five sinuses, deepest central division and fine front-side forks read clearly."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/side.png",
+          "sha256": "af27df2a4380fb791ca5a8ff9816f5f795c6fda1df5bed551b0a20b90296318a",
+          "bytes": 149367,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "side: Thin full-volume blade and petiole have a continuous profile; not a missing/backface surface."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/rear.png",
+          "sha256": "5e0e78c5324043d12c2587e8f13c83aee9325ef791109f6318a4d8ef0b0d2a1f",
+          "bytes": 206727,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "rear: Six-lobe identity is maintained with the naturally undecorated reverse face."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/top.png",
+          "sha256": "5bffb72191ec999ad955ad71fd6ea24faef0e24924fd0ebdeb08a215ddf8b004",
+          "bytes": 140995,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "top: Slight fold and thin thickness visible; expected strongly foreshortened plate, not clipping."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/clay.png",
+          "sha256": "dea493641a88fb9b619bb94f94385d95e2820d053ad8e6bfec4be129a0c1be92",
+          "bytes": 170814,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "clay: Original relief veins remain visible without color-based separation; six lobe silhouette persists."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/silhouette.png",
+          "sha256": "dd2499e3d1ecfd8e280cb11b2241d6f2b3f9b00e6d634973ad159aac5c61e876",
+          "bytes": 161830,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "silhouette: Distinct continuous basal fan and narrow petiole; no modern broad biloba or branch."
+        }
+      ],
+      "lossless_sheet": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/ginkgo/r002/views/contact-sheet.png",
+        "sha256": "519d3922859d1a33d10622ab26972aee285e01a119212a80d455d725deb60366",
+        "bytes": 761480,
+        "personally_inspected": true,
+        "all_eight_tiles_pixel_identical_to_bound_singles": true
+      },
+      "factual_review": "HKU CH105 source photograph and local official page inspected. The page identifies Ginkgo yimaensis, Middle Jurassic China. Photo supports a deeply divided isolated organ and long petiole, but individual fine veins/lobe boundaries are not uniformly resolvable. Six lobes and four terminal veins per lobe are expressly illustrative choices, not counts measured on CH105. Original taxonomic paper remains unavailable; no exact specimen cast or modern biloba/short-shoot claim.",
+      "scientific_and_visibility_limits": "Specimen-inspired isolated organ only; no complete plant, reproductive structure, or species-wide universal lobe count.",
+      "specific_findings": [
+        "Actual outline has six radial peaks and five sinuses; central sinus radius0.017018m versus others about0.0340m.",
+        "All42 actual connected vein segments, each9five-vertex rings, physically cross and protrude from lamina. All42 segments also have full-object exposed surface witnesses. Front and clay pixels corroborate useful relief, not merely named groups."
+      ],
+      "references_personally_inspected": [
+        {
+          "id": "HKU_CH105",
+          "url": "https://shmuseum.hku.hk/education/earth-evolution/mesozoic/dinosaur-world/plants-in-the-dinosaur-world",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/ginkgo.html",
+              "sha256": "604c7e698c67e7a65be5f551f7e2ea4fafa37a685d64c2d441efcb7434600a32"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/ginkgo-specimen-full.jpg",
+              "sha256": "b6f158c28ddd592a99f020f2e8a9dc7facc5a02c03de60d6309979c5b084c142"
+            }
+          ]
+        }
+      ],
+      "full_evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/project-independent.json",
+          "sha256": "1b21e60ac470a27c4f3adbbcd2269a0c094bf4942929254f9e06630b95f1e7ab",
+          "bytes": 1219
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/khronos-independent.json",
+          "sha256": "0abb9a014b1c84056739b4a769afcc95e24edb777e6012de34b5bff3320da957",
+          "bytes": 1160
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/three-independent.json",
+          "sha256": "75bd2069a469e5f61d8830f800da6b48de0a623942d51cccb68f94df1d11536f",
+          "bytes": 718
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/candidate-independent.json",
+          "sha256": "a039357e8c60c65cbdac535208e81c187108d9dee696043f90f419b78bc4f82d",
+          "bytes": 4400
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/source-independent.json",
+          "sha256": "bb8a00d57ae63b5135089a90eb3af30fb1a4e1681b380860ae31d140e7ce809c",
+          "bytes": 110980
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/source-independent.log",
+          "sha256": "77bb94a8a320b1cb5bb8a5ce4880c6b99e85577c7da34d0a1ef4015983c58177",
+          "bytes": 2446
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/source-reexport.glb",
+          "sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+          "bytes": 173024
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/own-rebuild/request.json",
+          "sha256": "eabcd19a0a4c4ad9ff79768f5da4d9a443cdb01b414565be507b686d7f2f4071",
+          "bytes": 1676
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/own-rebuild/result.json",
+          "sha256": "d5437d6805420d21803a70c58dd7683bbe8b42b60a14d164909d4ce6632f5be4",
+          "bytes": 2700
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/ginkgo/own-rebuild/stdout.log",
+          "sha256": "9ebaf76ef9f0a33cab8bbf500c6525fc5fa0ffca75c6b04a115bf030b47921a9",
+          "bytes": 531
+        }
+      ],
+      "repair_required_for_bounded_static": false,
+      "geometry_or_freeze_changed_in_review": false
+    },
+    {
+      "subject": {
+        "asset_id": "dicranophyllum",
+        "revision": "r003",
+        "glb_sha256": "becd37ca33dbee627f6fe70f3dae04a88b179a458326f8c016e5e26e3f82b81d",
+        "brief_sha256": "696b1f1355d050cd40275f57bc56b9340a1a0016ecb76b2cf85594fa57fb96ca",
+        "references_sha256": "13ac2ae6c44b929480c5e9b59a65f7b4dcc754268685a232c9e6e75775c57236",
+        "source_sha256": "05f2e04949e41659debfa80be4db983031532d09527080b0931c7fb8fb108166",
+        "generator_sha256": "e01bac943a9734161b853e3331c1e27f0d485ba00a1109f387e54e6e303516e9",
+        "config_sha256": "edc798d5e3f581ff0b00498e5fc9bd4bb0f3b1ff08a74e4ae97cdd327ed987db"
+      },
+      "bounded_static_accepted": true,
+      "formal_approved_for_brief": false,
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "visual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "factual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "specification": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        }
+      },
+      "metrics": {
+        "glb_bytes": 294108,
+        "triangles": 5068,
+        "materials": 4,
+        "primitives": 4,
+        "actual_world_bounds_blender_xyz_m": {
+          "min": [
+            -0.15326373279094696,
+            -0.14602088928222656,
+            0.0
+          ],
+          "max": [
+            0.15326373279094696,
+            0.14602088928222656,
+            1.7379463911056519
+          ],
+          "size": [
+            0.3065274655818939,
+            0.2920417785644531,
+            1.7379463911056519
+          ]
+        },
+        "authored_and_evaluated_counts": {
+          "authored_vertices": 3304,
+          "authored_polygons": 2722,
+          "authored_triangles": 5068,
+          "evaluated_vertices": 3304,
+          "evaluated_polygons": 2722,
+          "evaluated_triangles": 5068
+        },
+        "source_topology": {
+          "vertices": 3304,
+          "edges": 5256,
+          "faces": 2722,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0
+        },
+        "component_count": 97,
+        "actual_features": {
+          "leaves": 48,
+          "terminal_tips": 192,
+          "forks": 144,
+          "all_have_four_tips_three_forks": true,
+          "minimum_tip_separation_m": 0.007150434051695436,
+          "leaf_cushions": 48,
+          "axes": 1
+        },
+        "hard_world_envelopes_exact": [
+          {
+            "axis": 0,
+            "actual_size_m": 0.3065274655818939,
+            "range": [
+              0.15,
+              0.65
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.15652746558189393,
+            "distance_to_upper_m": 0.3434725344181061
+          },
+          {
+            "axis": 1,
+            "actual_size_m": 0.2920417785644531,
+            "range": [
+              0.15,
+              0.65
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.14204177856445313,
+            "distance_to_upper_m": 0.3579582214355469
+          },
+          {
+            "axis": 2,
+            "actual_size_m": 1.7379463911056519,
+            "range": [
+              1.4,
+              2.1
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.33794639110565194,
+            "distance_to_upper_m": 0.36205360889434823
+          }
+        ],
+        "minimum_framing_margin_pixels": 29.197253149685366
+      },
+      "technical_evidence": {
+        "project_errors": [],
+        "khronos_issues": {
+          "numErrors": 0,
+          "numWarnings": 0,
+          "numInfos": 0,
+          "numHints": 0,
+          "messages": [],
+          "truncated": false
+        },
+        "three_revision": "180",
+        "source_reexport_semantic_and_bytes_equal": true,
+        "maker_actual_rebuild_pids": [
+          55,
+          78
+        ],
+        "independent_third_generator_pid": 30,
+        "third_generator_semantic_and_bytes_equal": true,
+        "semantic_sha256": "a5e02f43d20e0aaf214cb307cfea13477e26d361ffac2b742290dd42f65c7467",
+        "source_reopen_pid": 32
+      },
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/concepts/dicranophyllum-concept.png",
+        "sha256": "0d5bac2f8b2e4f2ed1c11a080acc0fb0e20dfb9241f6d5803735911992543f48",
+        "bytes": 1719837,
+        "personally_inspected": true,
+        "comment": "Dense scaly column and variable conceptual fork counts were deliberately not copied. The final preserves a slender open helical axis with selected mature twice-forking leaves."
+      },
+      "final_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/hero.png",
+          "sha256": "190b34c54e5ac1164066c4be5a78ee0485a75dd4b8aa97001906eafa0e93b678",
+          "bytes": 173194,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "hero: Slender slightly curved unbranched axis remains visible through open foliage; very fine distal leaf detail is delicate at512."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/reversehero.png",
+          "sha256": "516f74bcd2b47dd9bc1dec9cb450638c4f24f77ca08e04df4cc9e69c00a40d12",
+          "bytes": 172854,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "reversehero: Distributed foliage and axis continuity confirmed; no mass of bark-scale pedestals."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/front.png",
+          "sha256": "0f2a4ce8cfdc0753f72ef5f396a363ff906fd07f732db9c043c4246fdf57b0a6",
+          "bytes": 176862,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "front: Whole plant is framed with margin; many paired forks readable, but all192tips cannot honestly be counted at this scale."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/side.png",
+          "sha256": "51530d63b13c42d55c868421a0e125f0a3082918b51d4de6d4b1f147e203d574",
+          "bytes": 176017,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "side: Sparse radial distribution, pointed terminal leaf form and attached leaves visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/rear.png",
+          "sha256": "bfc843d5112e55eb302736a7909fd520933a1a7236e2dbd490d7ddff3cbb14e6",
+          "bytes": 175122,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "rear: Reverse foliage has no missing surface sheets; axis remains coherent."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/top.png",
+          "sha256": "e0d5f0577e6677e7ee72d65274f34d09b6d5a6b7e8180531807fd8e84532d2eb",
+          "bytes": 149797,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "top: Radial helical distribution supported; dense top overlap is expected and is not an endpoint-count proof."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/clay.png",
+          "sha256": "bccde7f780be553a045d4a3d80aabf8f25d29f89e2cdafa6f951ed0b04235bbe",
+          "bytes": 166893,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "clay: Thin forked structures persist without palette cues; this does not establish exact tip count by itself."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/silhouette.png",
+          "sha256": "f073ed285087248460f82df5df0cf71618b7f4c967ec6ca08437ab558b2dd5c5",
+          "bytes": 168285,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "silhouette: Branching narrow leaves, rather than a broad leaf silhouette or massive tree crown."
+        }
+      ],
+      "lossless_sheet": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/dicranophyllum/r003/views/contact-sheet.png",
+        "sha256": "8337244c123d9e5e2a7e85249a3f0f588faadf07c86aa22a19bf5538920cc604",
+        "bytes": 626424,
+        "personally_inspected": true,
+        "all_eight_tiles_pixel_identical_to_bound_singles": true
+      },
+      "factual_review": "Primary Van Der Pas et al2017 text and original Fig6/12 personally inspected. Narrow leaves with successive forks and usually wider second fork are supported; reconstruction of a single unbranched habit remains interpretive, not a whole fossil observation. Geometry measured here has first-fork angles about17.156degrees and second-fork angles about24.054degrees, within the primary described ranges. Nominal1.6m axis and48leaves are art choices; no roots, reproduction or asserted family identity.",
+      "scientific_and_visibility_limits": "512whole-plant views communicate habit, not every fine tip or microscopic cushion. Exact fork verification uses all48 unchanged source-subset detail images plus complete-source graph and contact tests. Subset images are not claimed to be full-scene evidence.",
+      "specific_findings": [
+        "Each of48 actual seven-island leaf graphs has four distinct terminal nodes and three degree3forks;192tips/144forks, minimum pair separation0.007150434m. All48 tip morphologies personally inspected in four native-resolution12tile sheets.",
+        "Every leaf and cushion has actual stem penetration. Initial triangle-centroid-only test lacked cushion witnesses for18groups; denser barycentric sampling found genuine exposed surfaces for all48.",
+        "Cushion09 is the least exposed (only1of440 dense triangle samples). Full-source original-material witness-directed25mm and8mmfield renders show a small attached diamond;00/10/17 confirm broader/marginal cases. These are real pixels, not a claim that cushions are distinguishable in the512whole-plant view.",
+        "Targeted source-subset leaf diagnostic frames deliberately emphasize forks and may crop the basal segment; full-source contact frames and original whole-object views supply attachment/overall-form coverage."
+      ],
+      "references_personally_inspected": [
+        {
+          "id": "VANDERPAS2017",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5711295/",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/dicranophyllum-pmc.html",
+              "sha256": "c491be62fe0cfe1ed78f305b87b79d7b91e01b11f690029650d9586f20177af1"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/dicranophyllum-primary-text.txt",
+              "sha256": "db0b6eadb73bac7196fc8f36f9f4f85448072ff434996ddd5a60fe545f047b91"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/dicranophyllum-fig6.jpg",
+              "sha256": "c03bac331741a36803814516d034133ff93fe221b9b6b50df3d5dba3ec58a2e5"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/dicranophyllum-fig12.jpg",
+              "sha256": "bf3797aa20055c27da4c2bc8a47e2deb1f43671de0ec8b11dce663bc83da1bea"
+            }
+          ]
+        }
+      ],
+      "full_evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/project-independent.json",
+          "sha256": "40e7931af7b5f3230c74a8c85be037a80e9b3d2c5aab0ce814b101de267a3b2a",
+          "bytes": 1227
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/khronos-independent.json",
+          "sha256": "3acace7ae377f63e39916d010164af6a9a3a7ce8d25f3f31aedaea1c4ed2f24f",
+          "bytes": 1177
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/three-independent.json",
+          "sha256": "528fefbf6fe5a114c88ebb1648a148113c822c1ee368a5315d4035b486592636",
+          "bytes": 722
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/candidate-independent.json",
+          "sha256": "a57d5b52964933cd94c736b82ec84fe11df9b3463c97d972173838eaf458c899",
+          "bytes": 4424
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/source-independent.json",
+          "sha256": "ca83fe5686743ecb34843de7441c28166fb87767f0609c1be4c7d274999b3fba",
+          "bytes": 251817
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/source-independent.log",
+          "sha256": "f6c6fe7b589c515c26e404b3f051afc91b9bd8024926c4487c5bd8a9013d01fb",
+          "bytes": 2511
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/source-reexport.glb",
+          "sha256": "becd37ca33dbee627f6fe70f3dae04a88b179a458326f8c016e5e26e3f82b81d",
+          "bytes": 294108
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/own-rebuild/request.json",
+          "sha256": "68d6986bca80697b1e5dc5e8a5d5337157a06c4b4ceeabe32218dffdc2781ce0",
+          "bytes": 1694
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/own-rebuild/result.json",
+          "sha256": "376e48deddb44a623d0f64e3ae2713624f904138fddd153e618aabc03a8f5153",
+          "bytes": 2799
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/own-rebuild/stdout.log",
+          "sha256": "e093915efca91de62ae77d4d9eaefc5c14a2b0e84fa3cb16842be0d48cd53103",
+          "bytes": 546
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/fork-angle-check.json",
+          "sha256": "003e90650dad95b2921cff5f1bea9fcdcb7238f5986e41966c352a5c0244da5c",
+          "bytes": 20475
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/cushion-dense-exposure.json",
+          "sha256": "5a175d00ae0d48d9f5cfb65286b1f34362b54db916b21769bb8807e6ad67ac1c",
+          "bytes": 35133
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/targeted-render-manifest.json",
+          "sha256": "16a4311c8a2ec06250303a1c2283685937985fe0e1b0ac3ab39976e11745a1a8",
+          "bytes": 134428
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/leaf-diagnostic-sheet-manifest.json",
+          "sha256": "d046a6232843f61001d41bccd12d1fec4bcd76aa19e434bfa51e7ea26b45fb39",
+          "bytes": 1278
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/dicranophyllum/cushion-witness-render.json",
+          "sha256": "59f0ebe219f7ee0d1e7820e2ac701eaeb85e51cf629709f7e4b696feedac73e2",
+          "bytes": 8277
+        }
+      ],
+      "repair_required_for_bounded_static": false,
+      "geometry_or_freeze_changed_in_review": false
+    },
+    {
+      "subject": {
+        "asset_id": "noeggerathia",
+        "revision": "r002",
+        "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+        "brief_sha256": "46f72acc26090edb30b2bef7e823c4687d3cbc7b6cdb8cf80794a49c6a3b0484",
+        "references_sha256": "0764508e2f5da51fba3782fec8d4d089026a1267345b3c16e927f132b39955a0",
+        "source_sha256": "29681b6396aae6ae0b6cd2531c6ea543801f61c3b2623c28efdd2471d6aeace6",
+        "generator_sha256": "a04de39517f622cd45cb70b93a132450eebcb37ac2fee8a2359d377e0fd08279",
+        "config_sha256": "0517b46d0bc9db9266efc48606590f2508fae685784213ff3642579f51b07067"
+      },
+      "bounded_static_accepted": true,
+      "formal_approved_for_brief": false,
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "visual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "factual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "specification": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        }
+      },
+      "metrics": {
+        "glb_bytes": 277476,
+        "triangles": 5288,
+        "materials": 4,
+        "primitives": 4,
+        "actual_world_bounds_blender_xyz_m": {
+          "min": [
+            -0.06857701390981674,
+            -0.0034796767868101597,
+            0.0
+          ],
+          "max": [
+            0.06857701390981674,
+            0.0034796767868101597,
+            0.5055968761444092
+          ],
+          "size": [
+            0.13715402781963348,
+            0.006959353573620319,
+            0.5055968761444092
+          ]
+        },
+        "authored_and_evaluated_counts": {
+          "authored_vertices": 3270,
+          "authored_polygons": 3026,
+          "authored_triangles": 5288,
+          "evaluated_vertices": 3270,
+          "evaluated_polygons": 3026,
+          "evaluated_triangles": 5288
+        },
+        "source_topology": {
+          "vertices": 3270,
+          "edges": 5670,
+          "faces": 3026,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0
+        },
+        "component_count": 49,
+        "actual_features": {
+          "pinnules": 24,
+          "pinnule_solid_islands": 24,
+          "vein_systems": 24,
+          "rachis_islands": 1
+        },
+        "hard_world_envelopes_exact": [
+          {
+            "axis": 0,
+            "actual_size_m": 0.13715402781963348,
+            "range": [
+              0.08,
+              0.25
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.05715402781963348,
+            "distance_to_upper_m": 0.11284597218036652
+          },
+          {
+            "axis": 1,
+            "actual_size_m": 0.006959353573620319,
+            "range": [
+              0.001,
+              0.04
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.005959353573620319,
+            "distance_to_upper_m": 0.03304064642637968
+          },
+          {
+            "axis": 2,
+            "actual_size_m": 0.5055968761444092,
+            "range": [
+              0.4,
+              0.65
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.10559687614440916,
+            "distance_to_upper_m": 0.14440312385559084
+          }
+        ],
+        "minimum_framing_margin_pixels": 27.730379079228555
+      },
+      "technical_evidence": {
+        "project_errors": [],
+        "khronos_issues": {
+          "numErrors": 0,
+          "numWarnings": 0,
+          "numInfos": 0,
+          "numHints": 0,
+          "messages": [],
+          "truncated": false
+        },
+        "three_revision": "180",
+        "source_reexport_semantic_and_bytes_equal": true,
+        "maker_actual_rebuild_pids": [
+          102,
+          125
+        ],
+        "independent_third_generator_pid": 53,
+        "third_generator_semantic_and_bytes_equal": true,
+        "semantic_sha256": "73d7d5f2f80da9e22c72f5e902b9b5b4551d5f5082e888da2274e3c09e6b4e0e",
+        "source_reopen_pid": 54
+      },
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/concepts/noeggerathia-concept.png",
+        "sha256": "c2e9092bb1b11a3948df7e808667d633d73285c634f38fe070aa5d0eaae78934",
+        "bytes": 1735425,
+        "personally_inspected": true,
+        "comment": "Too many conceptual pairs and central pinnule midribs were rejected before freeze. Final uses12pairs, distal shallow dentition and open fan forks without a pinnule midrib."
+      },
+      "final_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/hero.png",
+          "sha256": "c6d472b94c391b60c222b28c5560558b8f7fa605abdf556c73f5534f5beece94",
+          "bytes": 178198,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "hero: Rounded wedge pinnules enlarge through middle and narrow at both basal and terminal sets; rachis remains visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/reversehero.png",
+          "sha256": "39a17cb701e5a6cb13164e71dc6a92754f5a6133352ac8971abeebe44195fe09",
+          "bytes": 180486,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "reversehero: Open radiating venation visible on the decorated surface, not a central pinnule midrib."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/front.png",
+          "sha256": "f02f7904b74149f6d678611c0598b8d2cad400e4b8525cfb449170a8fc2078ba",
+          "bytes": 186880,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "front:24attached pinnules with small basal and terminal pairs; opposite mostly plain surfaces are expected."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/side.png",
+          "sha256": "59acdc0017971173c84959842fb3778524a095e45f85ef193a294cfbba5491de",
+          "bytes": 143740,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "side: Thin closed organ with continuous rachis; no unsupported long bare distal spike."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/rear.png",
+          "sha256": "03df4f5eacdfed35148e575057924ac12b130a2b6f61002fdc066857ba8b0309",
+          "bytes": 188634,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "rear: Large pinnules show distinct fan veins and broad distal margins."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/top.png",
+          "sha256": "795e21b5252354c69f164d0378a38eac7ece7f867a816afecbeb335fe1d9cc5e",
+          "bytes": 136892,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "top: Thin relief and attached rachis profile corroborated under foreshortening."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/clay.png",
+          "sha256": "6700ae2b401b7893787a125adccf98f2bc20a07e5506096eeea98c137faa4fbf",
+          "bytes": 162360,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "clay: Wedge-rounded shape and size sequence remain clear without palette cues; fine relief subtle."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/silhouette.png",
+          "sha256": "edfa430c61362ac0a7f0c3f2e585aa2335f492627cdbce744c9ca017f2844148",
+          "bytes": 160407,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "silhouette: Entire frond tapering profile and shallow distal scallops preserved; no needle-like terminal pinnules."
+        }
+      ],
+      "lossless_sheet": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/noeggerathia/r002/views/contact-sheet.png",
+        "sha256": "83766b42ca2c8fe9510df6d6bccc4faaeb696aed69508a9344560b64d3c6f129",
+        "bytes": 603855,
+        "personally_inspected": true,
+        "all_eight_tiles_pixel_identical_to_bound_singles": true
+      },
+      "factual_review": "The2003 author-uploaded primary text was independently read online; it supports fan venation, distal dentation/lobing, small basal pairs and narrowing terminal pinnules. Official2021 National Museum Plate22 Fig1(NM-E122a) was personally viewed; it supports broad attached pinnules but does not resolve fine teeth. Figures2–5 were excluded. Fine2003 plate pixels remain uninspected. This is one sterile frond interpretation; complete length and12pairs are artistic, not a holotype cast.",
+      "scientific_and_visibility_limits": "Fine marginal teeth are text-supported conservative interpretation, not verified pixels from the inaccessible2003 plate or reliably resolved2021 photo. No trunk, roots, terminal cone or cuticle claims.",
+      "specific_findings": [
+        "Actual24 single closed pinnule islands and24 fan-vein systems, with one rachis. Full transformed outlines recorded, not config-derived counts.",
+        "All24pinnules contact actual rachis; all24vein systems contact their corresponding blades and have full-object surface witnesses. Rear/reversehero show useful fan relief.",
+        "The final small pair reaches the tip region; prior long bare-axis failure remains preserved."
+      ],
+      "references_personally_inspected": [
+        {
+          "id": "SIMUNEK_BEK2003",
+          "url": "https://doi.org/10.1016/S0034-6667(03)00004-6",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/noeggerathia-teaching.html",
+              "sha256": "0a4330290b8b61fd546e31c3135b4d9026cc233388d05049c2b15f511ce6185e"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/noeggerathia-teaching-image1.jpg",
+              "sha256": "0a339aa3cee77b51e15e0687fb9a4ec87255981e9f1cc7925fbd49dc628a08cb"
+            }
+          ]
+        },
+        {
+          "id": "NM2021_E122A",
+          "url": "https://www.nm.cz/file/0540551344b8fe025e3c8cea6ce019fd/26478/Sternbergiana_-2021_1-1.pdf",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/noeggerathia-sternbergiana-nm.pdf",
+              "sha256": "ef08fe770735c5335984136d76b584a578c737f3e52f1548ee724b0eb67cbb3c"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/noeggerathia-sternbergiana.txt",
+              "sha256": "dd564f33dfc64e101e6b731e2337e98f0d1120cc81724627f40f61b45c77bb86"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/noeggerathia-plate22.png",
+              "sha256": "1f6d0f80e84987056ac7e27ab2b20abd920b503b53efac732647ec5fa436c310"
+            }
+          ]
+        }
+      ],
+      "full_evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/project-independent.json",
+          "sha256": "08bb8605ab35639ea8df4ea73e2c201e9d6ce727bf48e0d69fe86dace5fb0812",
+          "bytes": 1229
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/khronos-independent.json",
+          "sha256": "595b28f11266ef874191bff50f2c07436a9464ffd2d22b64d492bf0f39e3b30a",
+          "bytes": 1172
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/three-independent.json",
+          "sha256": "53ddedddbb0172ba9120977780ef38b4216f8b047f15eddfdbe5fe624bd5cf21",
+          "bytes": 723
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/candidate-independent.json",
+          "sha256": "950de786cdfc2baee6f90901921a6601bccbdd95974a0d278a23e6507a4697c9",
+          "bytes": 4418
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/source-independent.json",
+          "sha256": "9308a626e95dda6dc23910f058dcbc36526ebc385bee290ea1d9407937020ae7",
+          "bytes": 134788
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/source-independent.log",
+          "sha256": "2ee168f73b83fb79f5e489597b15225e0ef2524b17c896c6ac780209dc255a48",
+          "bytes": 2090
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/source-reexport.glb",
+          "sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+          "bytes": 277476
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/own-rebuild/request.json",
+          "sha256": "17ae717d1a3daffbf690fa4dafe54b9fe2cbd4e971bfa86853804807a84d8292",
+          "bytes": 1686
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/own-rebuild/result.json",
+          "sha256": "1a2021e95311ebac41950bfa2cfc0437b51e401fffeff7ded27e7c7cb4eafe14",
+          "bytes": 2773
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/noeggerathia/own-rebuild/stdout.log",
+          "sha256": "0d5c7836fe7f655b6a43419aeb76b4996d82bef474b874211ef46edfe42104b5",
+          "bytes": 546
+        }
+      ],
+      "repair_required_for_bounded_static": false,
+      "geometry_or_freeze_changed_in_review": false
+    },
+    {
+      "subject": {
+        "asset_id": "bjuvia",
+        "revision": "r001",
+        "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+        "brief_sha256": "277bb7360e9bcb1d148eca8a9db6d2ff0f7a459d68ec0a5d0ad92efbfa970371",
+        "references_sha256": "5990bfd1f5aa11e19c7df54ec91f3f9a9660809c26aa32df60cdc1b3599e2869",
+        "source_sha256": "9804af4fc3ffdc3730d477411c777b4e9da0b9bdd398ba2548630849745b8e85",
+        "generator_sha256": "93bfa517f5db09b309bdeb9a97f21c2a07ec8fb68b3998a70bd55dbc4db63715",
+        "config_sha256": "d07dc5f7ca5062329e49e404e3eb86128f0ba0360cd8cafcd217133ca1955646"
+      },
+      "bounded_static_accepted": true,
+      "formal_approved_for_brief": false,
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "visual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "factual": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "specification": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "scope": "independent bounded static core"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "Not run. CPU stills/source checks/Node parse are not this stage."
+        }
+      },
+      "metrics": {
+        "glb_bytes": 263568,
+        "triangles": 4440,
+        "materials": 3,
+        "primitives": 3,
+        "actual_world_bounds_blender_xyz_m": {
+          "min": [
+            -0.05181112885475159,
+            -0.0020999915432184935,
+            0.0
+          ],
+          "max": [
+            0.05181112885475159,
+            0.0020999915432184935,
+            0.5000056028366089
+          ],
+          "size": [
+            0.10362225770950317,
+            0.004199983086436987,
+            0.5000056028366089
+          ]
+        },
+        "authored_and_evaluated_counts": {
+          "authored_vertices": 2608,
+          "authored_polygons": 2342,
+          "authored_triangles": 4440,
+          "evaluated_vertices": 2608,
+          "evaluated_polygons": 2342,
+          "evaluated_triangles": 4440
+        },
+        "source_topology": {
+          "vertices": 2608,
+          "edges": 4562,
+          "faces": 2342,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0
+        },
+        "component_count": 194,
+        "actual_features": {
+          "lamina_islands": 1,
+          "midrib_islands": 1,
+          "lateral_islands": 192,
+          "rows": 96,
+          "all_laterals_single_three_ring_tubes": true
+        },
+        "hard_world_envelopes_exact": [
+          {
+            "axis": 0,
+            "actual_size_m": 0.10362225770950317,
+            "range": [
+              0.07,
+              0.18
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.03362225770950317,
+            "distance_to_upper_m": 0.07637774229049682
+          },
+          {
+            "axis": 1,
+            "actual_size_m": 0.004199983086436987,
+            "range": [
+              0.001,
+              0.025
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.003199983086436987,
+            "distance_to_upper_m": 0.020800016913563014
+          },
+          {
+            "axis": 2,
+            "actual_size_m": 0.5000056028366089,
+            "range": [
+              0.4,
+              0.65
+            ],
+            "passes_exact": true,
+            "distance_to_lower_m": 0.10000560283660886,
+            "distance_to_upper_m": 0.14999439716339114
+          }
+        ],
+        "minimum_framing_margin_pixels": 27.430896307345222
+      },
+      "technical_evidence": {
+        "project_errors": [],
+        "khronos_issues": {
+          "numErrors": 0,
+          "numWarnings": 0,
+          "numInfos": 0,
+          "numHints": 0,
+          "messages": [],
+          "truncated": false
+        },
+        "three_revision": "180",
+        "source_reexport_semantic_and_bytes_equal": true,
+        "maker_actual_rebuild_pids": [
+          148,
+          171
+        ],
+        "independent_third_generator_pid": 76,
+        "third_generator_semantic_and_bytes_equal": true,
+        "semantic_sha256": "305658caa078b0e97b04809f0a7139e8ac96c7eafa4fedd2f83f7dbfb7e68071",
+        "source_reopen_pid": 76
+      },
+      "concept": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/concepts/bjuvia-concept.png",
+        "sha256": "f1ec804213a0b361a22db7ffa6b9fcbadc651f143139b3e6bf154ee2f59898f2",
+        "bytes": 1782742,
+        "personally_inspected": true,
+        "comment": "Entire strap silhouette retained, but thick rope-like conceptual midrib and blade were reduced. No conceptual whole plant adopted."
+      },
+      "final_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/hero.png",
+          "sha256": "845acef0c3fd01d1baab6f916e75185a3f806ba5d838fcee147bd3a0e0792724",
+          "bytes": 189522,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "hero: Broad entire elongated blade, continuous proportionate midrib and dense near-transverse open veins."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/reversehero.png",
+          "sha256": "9649b6990682011e6e9cb4cd477e61d7ceaf59bff9e95c9db13434b5d832e13e",
+          "bytes": 168900,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "reversehero: Undivided reverse blade continuous; no false pinnation."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/front.png",
+          "sha256": "0ae089b4bd91399e4792ee495dc0c05742133f8843538708e71e85c8c121c8eb",
+          "bytes": 206197,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "front: Entire margin, narrowed base/rounded tapering apex, and clearly nonreticulate transverse stripes."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/side.png",
+          "sha256": "e17677647977b9f291739223eda3ef295d22b60e796567776255766738a0af86",
+          "bytes": 143711,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "side: Thin closed lamina and relief rib remain connected."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/rear.png",
+          "sha256": "e3108189d57f726fa7ecf4098bad9189c63d457f348dcc2f2101f7a18f9544c0",
+          "bytes": 181341,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "rear: Reverse leaf surface continuous; original bounds respected."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/top.png",
+          "sha256": "5e28ca4d636740dd4adea02413e3f81e725f3496762831010a09cc368efc6457",
+          "bytes": 136277,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "top: Thin plate and central rib relief visible; no slab substitution."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/clay.png",
+          "sha256": "659817db7d7f91adcc0246907bf83a5c341ac12ddfe50f245a0123de81cd11ce",
+          "bytes": 160471,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "clay: Fine open vein relief persists without palette; no mesh-like crossveins."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/silhouette.png",
+          "sha256": "05b21dd20fb413e97056ccd22a34db82cb8720ac39a121cd1cba610ebed5c222",
+          "bytes": 151723,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "silhouette: Entire unsegmented strap outline; no palm-style pinnate foliage."
+        }
+      ],
+      "lossless_sheet": {
+        "path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/views/contact-sheet.png",
+        "sha256": "da4df499109140f3f6e53a751af667a2c0009d765d4a838cec01aa23bc467684",
+        "bytes": 609941,
+        "personally_inspected": true,
+        "all_eight_tiles_pixel_identical_to_bound_singles": true
+      },
+      "factual_review": "Harris1961 scannedpp314–315 were personally read, retaining the circumstantial rather than organically attached whole-plant association. The Komlo2021 Fig11 fossil photograph was personally viewed and is Jurassic comparative morphology, not claimed identical to Triassic material; adjacent whole-plant painting was excluded. Glossopteris primary PlateIV pixels/text were used solely as comparison. Entire strap blade, central rib and dense open transverse veins are supported; complete outline/0.5m/96rows remain illustrative.",
+      "scientific_and_visibility_limits": "Isolated leaf organ only; no trunk, rosette, reproductive association or exact complete specimen reconstruction. Outline and color alone are insufficient distinction from Glossopteris.",
+      "specific_findings": [
+        "Actual one lamina, one midrib and192 independent three-ring lateral tubes in96rows; independent full triangle BVHs show no cross-row lateral surface intersections. All contacts and exposed surfaces confirmed.",
+        "Maker comparison excluded the Glossopteris slab but used Bjuvia whole bounds including the midrib cap, overshooting lamina length by5.621101536micro-meters. Original evidence retained.",
+        "Independent replacement evidence measures lamina-material vertices only for both exact GLBs, keeps all Bjuvia geometry and only explicitly declared Glossopteris leaf/vein subset. Six new neutral same-camera/light views personally inspected; open near-transverse lines versus crosslinked polygonal net are unequivocal in closeups.",
+        "Post-transform readback is0.4999999850988388m(Bjuvia) versus0.5m(Glossopteris), not bitwise identical. Difference1.49011612e-8m is one binary32 endpoint ULP at0.25m, about0.0000132pixel in512/0.58m full view. This quantization is explicitly disclosed, not a relaxed candidate dimension bound."
+      ],
+      "references_personally_inspected": [
+        {
+          "id": "HARRIS1961",
+          "url": "https://palass.org/sites/default/files/media/publications/palaeontology/volume_4/vol4_part3_pp313-323.pdf",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/bjuvia.pdf",
+              "sha256": "cb2a65ef771b980cce999dbe42f59a7ca44a3d63e3e9944e64ef0c96928959a0"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/bjuvia-page-02.png",
+              "sha256": "d01512bc0cca9a1abfa5dad9f41f0228fb81b80e7a6a606fdf0820e712ec687f"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/bjuvia-page-02.txt",
+              "sha256": "b539a4b0cfba74f45e591030847a8707af3939a55c245fbcd3374ee5f7fe3715"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/bjuvia-page-03.png",
+              "sha256": "cc79719bf91b40d642aa99aa145a7a26fc774f7764d6c89bb33a7ee9961680bc"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch97-evidence/raw/bjuvia-page-03.txt",
+              "sha256": "cf3123b0ce91b635e8c8bbbc1bee371047d88e128e2ec46c2ac8ba41f37f82ac"
+            }
+          ]
+        },
+        {
+          "id": "BARBACKA2021",
+          "url": "https://www.komloikonyvtar.hu/userfiles/filemanager/Studia%20Comloensis/Stud_Com_Tom1_Fasc1.pdf",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch84-consult-only/bjuvia-simplex-komlo2021.pdf",
+              "sha256": "f2cceb168d6052b426d81875e3f6a06bf236eae310e62dc7c4562c359c4559a0"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch84-consult-only/bjuvia-simplex-photo-page9.png",
+              "sha256": "61bf59f01ec3a3dd5ee0f7288e44d587e64fb4d3e21b3b2f5af7626c0705ddb8"
+            }
+          ]
+        },
+        {
+          "id": "KOVACS1976",
+          "url": "https://wiredspace.wits.ac.za/bitstreams/d0c8a3dc-95ca-4993-a86e-c79ea3d53740/download",
+          "consulted_files": [
+            {
+              "path": "/workspace/shared/lowpoly-batch84-consult-only/glossopteris-wits.pdf",
+              "sha256": "8fa80e887fc8ba4bc373660b594613667716d5b502f455845226c6e12991c61d"
+            },
+            {
+              "path": "/workspace/shared/lowpoly-batch84-consult-only/glossopteris-plateIV-photo.png",
+              "sha256": "10258965cce581481dc642fd81be1dcc888f566563b2dde51d320a89192efa59"
+            }
+          ]
+        }
+      ],
+      "full_evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/project-independent.json",
+          "sha256": "16bdee51bbcf032c4641e90e13c9837462e80c6517d6f1b1d833352260880d5f",
+          "bytes": 1217
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/khronos-independent.json",
+          "sha256": "ec66907a157392813e0e6a521aabd6dfc21146b41d09fbcd33ff05c7b24ca6ca",
+          "bytes": 1160
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/three-independent.json",
+          "sha256": "d6bbd45a2dfff4c49b350f071d3b76bc876ce27eb89d5bf9ebe9bedec892d58f",
+          "bytes": 718
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/candidate-independent.json",
+          "sha256": "8222de0e9bb6ef49af85e0f0c5e2c2fd66a8a90d6dbd22133cee18fdb4181389",
+          "bytes": 4400
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/source-independent.json",
+          "sha256": "855f48b3e717e06c79e2096811b3790f2171193c5025be84e4cddc4ee9b13ee5",
+          "bytes": 319080
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/source-independent.log",
+          "sha256": "d3b21d30f4fd4332e5d8bb1d3848899cfc79767128f6cc563dfbe8f3b78edf02",
+          "bytes": 2104
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/source-reexport.glb",
+          "sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+          "bytes": 263568
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/own-rebuild/request.json",
+          "sha256": "f9ca4ac2c6a138efb7a1e6253ab14bd2168522212b4afdde6bbdfad69cfa6a78",
+          "bytes": 1662
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/own-rebuild/result.json",
+          "sha256": "8d5081f68b4a1ca540db2de1538360e516e7761db9abde425a19043c23359e0e",
+          "bytes": 2695
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/own-rebuild/stdout.log",
+          "sha256": "d7cce7526f96f63a9f1cff1a6a2370c6960a44791b7d68f83afc8ca65e028e6b",
+          "bytes": 534
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/actual-lamina-comparison/comparison-manifest.json",
+          "sha256": "201721b1b34cc7e634eedcac4e632ec2f2a57cc9b7ddbe736391220e73182440",
+          "bytes": 5288
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/bjuvia/actual-lamina-transform-readback.json",
+          "sha256": "317bba1997275b2be2c041236bdc4a3fdd0edc970545f88398dbd0a551ea4de6",
+          "bytes": 1827
+        }
+      ],
+      "repair_required_for_bounded_static": false,
+      "geometry_or_freeze_changed_in_review": false
+    }
+  ],
+  "references_and_rights": "All primary/reference pixels were consulted read-only. No reference pixels, copyright PDFs or meshes are added to QA deliverables; existing raw referenced by path/hash. All concepts are ImageGen art direction, not factual evidence.",
+  "common_evidence": [
+    {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/integrity.json",
+      "sha256": "c2e914d2b395a7a0db07a8135e2f62afb6896fbd939eb4006c024e27d6014819",
+      "bytes": 131812
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/provenance-recheck.json",
+      "sha256": "61b4106711677bedfc765402b2d222f2f2c264ddc15f58081909e325c56783dd",
+      "bytes": 4289
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/independent-framing.json",
+      "sha256": "53a907ebb4ddcba94afc1fca9c0bf610a591cd050d680a8e839ceb80ec23644f",
+      "bytes": 16329
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/checkpoint-001.json",
+      "sha256": "74310d553bd606fecb819d8377d4804abfbd79137dc8a134cee716a4e1251277",
+      "bytes": 1901
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch97-independent-qa-20261021/checkpoint-002.json",
+      "sha256": "30f24f8408f54f39001cef06e94aaaf5dd8439e64fd8d718d75618fbde103766",
+      "bytes": 2343
+    }
+  ],
+  "primary_web_text_read": {
+    "url": "https://www.researchgate.net/publication/261853866_Noeggerathiaceae_from_the_Carboniferous_basins_of_the_Bohemian_Massif",
+    "purpose": "Independent reread of author-uploaded2003 morphology text because retained source ledger did not contain that primary textual body. No claim of fine plate image inspection.",
+    "doi": "10.1016/S0034-6667(03)00004-6"
+  },
+  "raw_retention": {
+    "manifest": {
+      "path": "/workspace/shared/lowpoly-batch97-evidence/raw-content-manifest.json",
+      "sha256": "bb983238723f72e94740dd41305c0e45e9cd729135464c4c20cbbad34613c809",
+      "bytes": 311667
+    },
+    "files_checked": 989,
+    "missing": [],
+    "one_expected_mutable_checkpoint_mismatch": [
+      {
+        "path": "/workspace/shared/lowpoly-batch97-evidence/recovery-progress.json",
+        "exists": true,
+        "sha256_matches": false
+      }
+    ],
+    "explanation": "989listed paths remain present. Only recovery-progress.json appended later completion checkpoints after its maker manifest snapshot; all original failed geometry, diagnostic pixels, primary-reference files and delivered scientific inputs remain hash-matching. This is not hidden candidate drift."
+  },
+  "diagnostic_corrections": [
+    "Initial reviewer source audit export succeeded but JSON serialization failed on numpy bool; failed script/log/export kept, serializer fixed, all four actual reopens/reexports succeeded.",
+    "Initial reviewer validator invocation mistakenly used default legacy-v1. Its failures are preserved. Frozen static-stylized-v1 and exact profile-contract then pass without editing any obligations.",
+    "Coarse centroid-only cushion exposure false-negative was not promoted to a failure or an automatic pass. Dense whole-object ray tests and genuine witness-directed full-source renders resolve all48cushions.",
+    "Bjuvia actual-lamina comparison corrected through new evidence only, not mesh/freeze change. One binary32 endpoint ULP remains explicitly measured and pixel-bounded."
+  ],
+  "remaining": [
+    "Target GPU rendering acceptance remains separately unrun.",
+    "Intended composed-scene and website acceptance remain separately unrun.",
+    "Coordinator may incorporate these independent results without editing original frozen briefs or erasing failed evidence. Any publishing remains a separate authorized process."
+  ]
+}
