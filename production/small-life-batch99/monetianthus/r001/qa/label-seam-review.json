@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "70dab2d5055c78a68be2ac4048033842fa5303bfb0ed6a4ee012ac03a85b6933",
+  "observed_at": "2026-10-21T01:33:29.960715+00:00",
+  "label_only_boundary_edges": 368,
+  "anatomy_or_mount_boundary_edges": 0,
+  "actual_label_mesh": {
+    "vertices": 368,
+    "boundary_edges": 368,
+    "nonmanifold_edges": 0
+  },
+  "virtual_coordinate_weld_audit": {
+    "vertices": 184,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "signed_volume_m3": 5.864272463716523e-09
+  },
+  "virtual_merge_distance_m": 1e-08,
+  "source_mutated": false,
+  "interpretation": "Blender text conversion stores coincident cap/side vertices separately. All boundary edges belong solely to the extruded ENLARGED glyphs, not anatomy or mount. Virtual coordinate merge on an in-memory copy closes every edge with positive enclosed volume; no visible opening or missing cap exists. Source and GLB remain unchanged. This is an explicit reviewed topology warning, not a claim of zero raw boundary edges."
+}

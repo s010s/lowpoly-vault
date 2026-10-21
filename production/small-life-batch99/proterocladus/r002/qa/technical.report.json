@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+    "brief_sha256": "9a15c6996bd34c8f7272f06a6a7fc70f86bc487f961d2b9fe35ad84d3dd47f7c",
+    "references_sha256": "3ef492022d3837a6f91b066c8ecd38c5935950c1fcd43382c08afe8a50954bd3"
+  },
+  "status": "pass",
+  "method": "Exact final project GLB audit, Khronos validator, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space per-organ geometry/contact and full-scene vertex exposure.",
+  "observations": [
+    "All automated checks passed or have the explicit raw font-seam warning disposition. No independent approval is implied.",
+    "Actual dimensions are reported; no new microscopic numeric thresholds are invented. Sparse-direction geometric exposure is necessary but not sufficient for screen-space readability."
+  ],
+  "errors": [],
+  "warnings": [
+    "source: proterocladus-asymmetric-multiorder-relief-enlarged: 368 boundary edges; review intentional openings"
+  ],
+  "warning_review": [
+    {
+      "warning": "source: proterocladus-asymmetric-multiorder-relief-enlarged: 368 boundary edges; review intentional openings",
+      "rationale": "Final source retains368 raw indexed boundary edges solely in Blender bundled Bfont converted ENLARGED glyphs; anatomy/mount have0. On a separate in-memory copy,1e-8m coordinate merge and normal recalculation yields0 boundary/nonmanifold edges and positive signed volume. No final source/GLB weld or repair is claimed. Raw pre-weld signed integral is not a physical closed-volume measurement. Fresh QA may reject this warning disposition.",
+      "evidence": {
+        "path": "production/small-life-batch99/proterocladus/r002/qa/label-seam-review-v002.json",
+        "sha256": "2a445f74f5b7cf76eff08c12f9dcb2461ae50320de340dd7c44b252ffd3098dd"
+      },
+      "audit_helper": {
+        "path": "production/small-life-batch99/tools/check-label-seams-v002.py",
+        "sha256": "f0d7897c9353fe8c9f5ec7302cc9c9327c6fd85c3b0d133f741a48b6f2182db0"
+      }
+    }
+  ],
+  "measurements": {
+    "triangles": 1636,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 86008,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+      "report": {
+        "path": "production/small-life-batch99/proterocladus/r002/qa/static-glb.report.json",
+        "sha256": "7fe400ccf3831747f70f1bfa1124293eba714a1e0917262d1c77e896fb9a7bdd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+      "report": {
+        "path": "production/small-life-batch99/proterocladus/r002/artifacts/gltf-validator.report.json",
+        "sha256": "73064d1ae6fe512a91468fc4461cb9ba2de3e65c4f863d1fd80446b9d14a6f8d"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+      "report": {
+        "path": "production/small-life-batch99/proterocladus/r002/qa/source-export.report.json",
+        "sha256": "9e2cb2f7c0a688dc9cc5c01963162c8f853b5e0a8d93f9c50af80c546deeba4e"
+      },
+      "warning_review": [
+        {
+          "warning": "source: proterocladus-asymmetric-multiorder-relief-enlarged: 368 boundary edges; review intentional openings",
+          "rationale": "Final source retains368 raw indexed boundary edges solely in Blender bundled Bfont converted ENLARGED glyphs; anatomy/mount have0. On a separate in-memory copy,1e-8m coordinate merge and normal recalculation yields0 boundary/nonmanifold edges and positive signed volume. No final source/GLB weld or repair is claimed. Raw pre-weld signed integral is not a physical closed-volume measurement. Fresh QA may reject this warning disposition.",
+          "evidence": {
+            "path": "production/small-life-batch99/proterocladus/r002/qa/label-seam-review-v002.json",
+            "sha256": "2a445f74f5b7cf76eff08c12f9dcb2461ae50320de340dd7c44b252ffd3098dd"
+          },
+          "audit_helper": {
+            "path": "production/small-life-batch99/tools/check-label-seams-v002.py",
+            "sha256": "f0d7897c9353fe8c9f5ec7302cc9c9327c6fd85c3b0d133f741a48b6f2182db0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+      "report": {
+        "path": "production/small-life-batch99/proterocladus/r002/qa/reproducibility-a.report.json",
+        "sha256": "e3ba520fe79f9fd2d8c0e9fa93f718637e42eea119f61ddd6daac4ba26ef77b8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+      "report": {
+        "path": "production/small-life-batch99/proterocladus/r002/qa/reproducibility-b.report.json",
+        "sha256": "7ef287c7fa692035e02826c0b79a038fb7a67c9148e2976c9a82bbd08940cf3c"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "component_contact_report": {
+    "path": "production/small-life-batch99/proterocladus/r002/qa/component-contact.report.json",
+    "sha256": "7a4d43c6bc4656242bfa258b92f969fe545b850637046735e33f63a183b20645"
+  },
+  "full_scene_exposure_report": {
+    "path": "production/small-life-batch99/proterocladus/r002/qa/full-scene-exposure.report.json",
+    "sha256": "0b87aace51043c145b2fa2034c7fc97b01bbba5037e043ec9ada1230e2b243a9"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.06750000268220901,
+      0.0,
+      -0.005400000140070915
+    ],
+    "max": [
+      0.06750000268220901,
+      0.1899999976158142,
+      0.005400000140070915
+    ],
+    "size": [
+      0.13500000536441803,
+      0.1899999976158142,
+      0.01080000028014183
+    ]
+  },
+  "created_at": "2026-10-21T01:46:18.880677+00:00"
+}

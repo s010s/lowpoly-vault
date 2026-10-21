@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "asset_id": "quereuxia",
+  "revision": "r001",
+  "maker": {
+    "id": "batch99-maker",
+    "task_id": "resume_batch99_production"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch99/quereuxia/r001/artifacts/quereuxia.glb",
+      "sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424"
+    },
+    "brief": {
+      "path": "production/small-life-batch99/quereuxia/r001/delivery-brief.json",
+      "sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88"
+    },
+    "references": {
+      "path": "production/small-life-batch99/quereuxia/r001/references.json",
+      "sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+    },
+    "source": {
+      "path": "production/small-life-batch99/quereuxia/r001/artifacts/quereuxia.blend",
+      "sha256": "97b86fab7c39a7edebee9ad8f7cd79d85aa7fc222fbd7454ec44fe51f91eb61f"
+    },
+    "generator": {
+      "path": "production/small-life-batch99/tools/generate-r003.py",
+      "sha256": "d06cd4069e3933a7364516dc2ebbe8b6286358b53eb1eed7a7079a7b75cf6aba"
+    },
+    "config": {
+      "path": "production/small-life-batch99/quereuxia/r001/config.json",
+      "sha256": "90cca17b21562b51ed091b221f282b22c19aa7684d2cfa98b2aa2cba8e821191"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch99/dependencies.json",
+      "sha256": "fcd40131ec7ff9cc3a8ea6008a0a8d3fc878bdbe4af43b3595f2dd531d940e80"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424",
+        "brief_sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88",
+        "references_sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+      },
+      "path": "production/small-life-batch99/quereuxia/r001/qa/technical.report.json",
+      "sha256": "f0be5c1a4ab2d934a13c82e1a49a5c00d7c0d409f99236fc69f947443d15fb8e"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424",
+        "brief_sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88",
+        "references_sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+      },
+      "path": "production/small-life-batch99/quereuxia/r001/qa/runtime-parse.report.json",
+      "sha256": "538e144302ce1008830d690efb122ad400bd04c2c2931a11654163c93c88de57"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424",
+        "brief_sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88",
+        "references_sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+      },
+      "path": "production/small-life-batch99/quereuxia/r001/views/render-manifest.json",
+      "sha256": "9a664bb57730df8217b7509d95568277a76bbae8a9e78e4e6d6cd6a87a83b101"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch99-maker",
+        "task_id": "resume_batch99_production"
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424",
+        "brief_sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88",
+        "references_sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Automated exact-subject proof, not independent approval."
+        }
+      ],
+      "note": "Automated exact-subject checks completed.",
+      "reviewed_at": "2026-10-21T01:46:16.558280+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch99-maker",
+        "task_id": "resume_batch99_production"
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "ed17d3f1fd9f417e63954e937eab6eff6ba5e330c39e76d4ff2e3e4e74c1a424",
+        "brief_sha256": "8fffa70d1a3ccb6322004f1e6e75f514cc4a97b3c89d82f9b040f7063e05bb88",
+        "references_sha256": "7ff45bc271c57ecc9d1ce4b3b6a3676f0b6cc18539b5fe7214635e486efd652b"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Automated exact-subject proof, not independent approval."
+        }
+      ],
+      "note": "Automated exact-subject checks completed.",
+      "reviewed_at": "2026-10-21T01:46:16.558296+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "GPU/composed-scene not run."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "GPU/composed-scene not run."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification acceptance pending."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "Actual target GPU and composed scene not run. No publication approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

@@ -1,0 +1,2844 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "97b86fab7c39a7edebee9ad8f7cd79d85aa7fc222fbd7454ec44fe51f91eb61f",
+  "created_at": "2026-10-21T01:28:22.538319+00:00",
+  "method": "Reopened transformed Blend mesh. For each component, exclude only its own triangles and ray-cast every actual vertex in8 fixed directions against ALL other component triangles. No camera/material adjustments. Positive visibility is necessary, not sufficient, for meaningful pixel readability.",
+  "numerical_ray_origin_epsilon_m": 1.0656464844942093e-08,
+  "directions": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ],
+    "left": [
+      -1,
+      0,
+      0
+    ],
+    "right": [
+      1,
+      0,
+      0
+    ],
+    "top": [
+      0,
+      0,
+      1
+    ],
+    "bottom": [
+      0,
+      0,
+      -1
+    ],
+    "hero": [
+      0.47,
+      -0.67,
+      0.57
+    ],
+    "reversehero": [
+      -0.47,
+      0.67,
+      0.57
+    ]
+  },
+  "components": [
+    {
+      "tag": "rhizome",
+      "kind": "rhizome",
+      "component_vertices": 23,
+      "visible_vertices_any_direction": 19,
+      "visible_fraction": 0.8260869565217391,
+      "visible_vertices_by_direction": {
+        "front": 11,
+        "rear": 14,
+        "left": 14,
+        "right": 13,
+        "top": 10,
+        "bottom": 12,
+        "hero": 16,
+        "reversehero": 15
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "stem",
+      "kind": "upright_stem",
+      "component_vertices": 30,
+      "visible_vertices_any_direction": 20,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 18,
+        "rear": 17,
+        "left": 19,
+        "right": 16,
+        "top": 13,
+        "bottom": 3,
+        "hero": 18,
+        "reversehero": 17
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "compound_petiole_0",
+      "kind": "petiole",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 10,
+      "visible_fraction": 0.7142857142857143,
+      "visible_vertices_by_direction": {
+        "front": 6,
+        "rear": 4,
+        "left": 5,
+        "right": 3,
+        "top": 8,
+        "bottom": 0,
+        "hero": 8,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "rachis_0",
+      "kind": "rachis",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 4,
+        "rear": 2,
+        "left": 4,
+        "right": 2,
+        "top": 6,
+        "bottom": 4,
+        "hero": 6,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_0_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 3,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_0_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 29,
+        "right": 21,
+        "top": 42,
+        "bottom": 38,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_0_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_0_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 23,
+        "right": 21,
+        "top": 42,
+        "bottom": 36,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_1_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_1_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 11,
+        "right": 21,
+        "top": 42,
+        "bottom": 42,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_1_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_1_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 11,
+        "right": 21,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_2_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_2_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 9,
+        "right": 21,
+        "top": 42,
+        "bottom": 42,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_2_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_2_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 9,
+        "right": 21,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_3_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 0,
+        "left": 3,
+        "right": 2,
+        "top": 4,
+        "bottom": 4,
+        "hero": 2,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_3_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 10,
+        "right": 40,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_0_3_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 1,
+        "left": 3,
+        "right": 2,
+        "top": 4,
+        "bottom": 4,
+        "hero": 5,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_0_3_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 10,
+        "right": 40,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "terminal_leaflet_0",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 40,
+        "rear": 40,
+        "left": 21,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "compound_petiole_1",
+      "kind": "petiole",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.5714285714285714,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 4,
+        "right": 3,
+        "top": 5,
+        "bottom": 4,
+        "hero": 5,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "rachis_1",
+      "kind": "rachis",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 4,
+        "top": 6,
+        "bottom": 6,
+        "hero": 8,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_0_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_0_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 34,
+        "rear": 21,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_0_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_0_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 21,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_1_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_1_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 21,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 40,
+        "hero": 40,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_1_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_1_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 21,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_2_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_2_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 21,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 40,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_2_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_2_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 21,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_3_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 1,
+        "top": 4,
+        "bottom": 4,
+        "hero": 4,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_3_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 40,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 40,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_1_3_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 1,
+        "right": 0,
+        "top": 4,
+        "bottom": 4,
+        "hero": 5,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_1_3_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 22,
+        "rear": 40,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 41,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "terminal_leaflet_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 20,
+        "rear": 42,
+        "left": 40,
+        "right": 40,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "compound_petiole_2",
+      "kind": "petiole",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.42857142857142855,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 3,
+        "left": 2,
+        "right": 0,
+        "top": 4,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "rachis_2",
+      "kind": "rachis",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 4,
+        "left": 2,
+        "right": 0,
+        "top": 6,
+        "bottom": 4,
+        "hero": 5,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_0_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 3,
+        "top": 3,
+        "bottom": 1,
+        "hero": 4,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_0_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 21,
+        "right": 42,
+        "top": 42,
+        "bottom": 40,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_0_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_0_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 21,
+        "right": 34,
+        "top": 42,
+        "bottom": 40,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_1_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_1_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 21,
+        "right": 22,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_1_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_1_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 21,
+        "right": 22,
+        "top": 42,
+        "bottom": 40,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_2_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 4,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_2_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 21,
+        "right": 22,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_2_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 3,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_2_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 21,
+        "right": 22,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_3_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 1,
+        "left": 2,
+        "right": 2,
+        "top": 4,
+        "bottom": 4,
+        "hero": 5,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_3_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 40,
+        "right": 22,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_2_3_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 4,
+        "bottom": 4,
+        "hero": 3,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_2_3_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 40,
+        "right": 22,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "terminal_leaflet_2",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 40,
+        "rear": 40,
+        "left": 42,
+        "right": 20,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "compound_petiole_3",
+      "kind": "petiole",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.42857142857142855,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 3,
+        "right": 3,
+        "top": 4,
+        "bottom": 4,
+        "hero": 4,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "rachis_3",
+      "kind": "rachis",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 4,
+        "right": 2,
+        "top": 6,
+        "bottom": 6,
+        "hero": 5,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_0_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_0_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 34,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 38,
+        "hero": 42,
+        "reversehero": 40
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_0_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_0_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 42,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 40,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_1_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_1_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 22,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 38,
+        "hero": 42,
+        "reversehero": 40
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_1_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_1_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 22,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 40,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_2_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_2_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 22,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 40
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_2_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.4,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_2_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 22,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_3_-1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 1,
+        "right": 0,
+        "top": 4,
+        "bottom": 4,
+        "hero": 4,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_3_-1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 40,
+        "rear": 22,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 40
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_petiole_3_3_1",
+      "kind": "leaflet_petiole",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 6,
+      "visible_fraction": 0.6,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 1,
+        "top": 4,
+        "bottom": 4,
+        "hero": 3,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "leaflet_3_3_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 40,
+        "rear": 22,
+        "left": 0,
+        "right": 42,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 41
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "terminal_leaflet_3",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 20,
+        "left": 40,
+        "right": 40,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_petiole_0",
+      "kind": "simple_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 4,
+        "left": 0,
+        "right": 1,
+        "top": 4,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_leaf_0",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 0,
+        "right": 28,
+        "top": 42,
+        "bottom": 32,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_petiole_1",
+      "kind": "simple_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 4,
+        "right": 0,
+        "top": 4,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_leaf_1",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 42,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 36,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_petiole_2",
+      "kind": "simple_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 4,
+        "rear": 2,
+        "left": 3,
+        "right": 1,
+        "top": 4,
+        "bottom": 5,
+        "hero": 4,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_leaf_2",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 42,
+        "right": 0,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_petiole_3",
+      "kind": "simple_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 2,
+        "right": 1,
+        "top": 4,
+        "bottom": 5,
+        "hero": 2,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "simple_leaf_3",
+      "kind": "leaflet",
+      "component_vertices": 44,
+      "visible_vertices_any_direction": 42,
+      "visible_fraction": 0.9545454545454546,
+      "visible_vertices_by_direction": {
+        "front": 42,
+        "rear": 0,
+        "left": 0,
+        "right": 28,
+        "top": 42,
+        "bottom": 42,
+        "hero": 42,
+        "reversehero": 42
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "submerged_petiole_0",
+      "kind": "submerged_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 1,
+      "visible_fraction": 0.08333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 1,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_0",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 1,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 1,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_00",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 1,
+        "left": 3,
+        "right": 2,
+        "top": 0,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_000",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 0,
+        "left": 9,
+        "right": 7,
+        "top": 8,
+        "bottom": 8,
+        "hero": 8,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_002",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 0,
+        "left": 8,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_02",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 1,
+        "left": 1,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_020",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 4,
+        "left": 7,
+        "right": 7,
+        "top": 6,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_022",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 2,
+        "left": 8,
+        "right": 7,
+        "top": 6,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 9
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_2",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.16666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 1,
+        "top": 0,
+        "bottom": 0,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_20",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 1,
+        "left": 1,
+        "right": 4,
+        "top": 0,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_200",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 2,
+        "left": 7,
+        "right": 7,
+        "top": 6,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_202",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 4,
+        "rear": 8,
+        "left": 7,
+        "right": 7,
+        "top": 6,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_22",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 3,
+        "right": 2,
+        "top": 0,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_220",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 8,
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 7,
+        "hero": 8,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_0_222",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 10,
+      "visible_fraction": 0.8333333333333334,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 9,
+        "left": 9,
+        "right": 8,
+        "top": 8,
+        "bottom": 9,
+        "hero": 7,
+        "reversehero": 9
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "submerged_petiole_1",
+      "kind": "submerged_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 1,
+      "visible_fraction": 0.08333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 1,
+        "right": 0,
+        "top": 0,
+        "bottom": 1,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_0",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_00",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 4,
+        "left": 2,
+        "right": 3,
+        "top": 2,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_000",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 9,
+        "left": 7,
+        "right": 9,
+        "top": 8,
+        "bottom": 8,
+        "hero": 8,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_002",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 7,
+        "left": 8,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_02",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 1,
+        "left": 3,
+        "right": 2,
+        "top": 1,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_020",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 8,
+        "left": 7,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_022",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 8,
+        "left": 9,
+        "right": 8,
+        "top": 8,
+        "bottom": 7,
+        "hero": 6,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_2",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.16666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 2,
+        "right": 1,
+        "top": 0,
+        "bottom": 1,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_20",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 2,
+        "right": 2,
+        "top": 2,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_200",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 8,
+        "left": 7,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 2,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_202",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 8,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 1,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_22",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 3,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_220",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 7,
+        "right": 8,
+        "top": 6,
+        "bottom": 7,
+        "hero": 0,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_1_222",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 10,
+      "visible_fraction": 0.8333333333333334,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 9,
+        "left": 9,
+        "right": 8,
+        "top": 0,
+        "bottom": 9,
+        "hero": 6,
+        "reversehero": 7
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "submerged_petiole_2",
+      "kind": "submerged_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 1,
+      "visible_fraction": 0.08333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_0",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 1,
+        "top": 1,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_00",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 3,
+        "right": 1,
+        "top": 0,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_000",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 9,
+        "left": 9,
+        "right": 2,
+        "top": 6,
+        "bottom": 8,
+        "hero": 7,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_002",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 8,
+        "right": 3,
+        "top": 6,
+        "bottom": 7,
+        "hero": 8,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_02",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 1,
+        "left": 2,
+        "right": 1,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_020",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 7,
+        "left": 7,
+        "right": 7,
+        "top": 0,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_022",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 3,
+        "left": 3,
+        "right": 7,
+        "top": 6,
+        "bottom": 7,
+        "hero": 9,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_2",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.16666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 1,
+        "bottom": 1,
+        "hero": 2,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_20",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 4,
+        "rear": 1,
+        "left": 1,
+        "right": 1,
+        "top": 0,
+        "bottom": 3,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_200",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 7,
+        "left": 3,
+        "right": 7,
+        "top": 0,
+        "bottom": 7,
+        "hero": 7,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_202",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 7,
+        "left": 3,
+        "right": 7,
+        "top": 0,
+        "bottom": 7,
+        "hero": 8,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_22",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 1,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_220",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 2,
+        "right": 8,
+        "top": 8,
+        "bottom": 7,
+        "hero": 8,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_2_222",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 10,
+      "visible_fraction": 0.8333333333333334,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 9,
+        "left": 2,
+        "right": 9,
+        "top": 8,
+        "bottom": 9,
+        "hero": 8,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "submerged_petiole_3",
+      "kind": "submerged_petiole",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 1,
+      "visible_fraction": 0.08333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 1,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_0",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 1,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_00",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 2,
+        "left": 2,
+        "right": 4,
+        "top": 2,
+        "bottom": 3,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_000",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 7,
+        "left": 8,
+        "right": 9,
+        "top": 8,
+        "bottom": 8,
+        "hero": 4,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_002",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 8,
+        "right": 7,
+        "top": 7,
+        "bottom": 7,
+        "hero": 6,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_02",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.25,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 2,
+        "right": 0,
+        "top": 1,
+        "bottom": 2,
+        "hero": 1,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_020",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 7,
+        "left": 7,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 1,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_022",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 9,
+        "left": 9,
+        "right": 8,
+        "top": 8,
+        "bottom": 7,
+        "hero": 1,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_2",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.16666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 2,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 1,
+        "hero": 1,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_20",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 1,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_200",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 7,
+        "left": 7,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 0,
+        "reversehero": 6
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_202",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 8,
+      "visible_fraction": 0.6666666666666666,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 8,
+        "left": 8,
+        "right": 8,
+        "top": 7,
+        "bottom": 7,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_22",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 3,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_220",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 9,
+      "visible_fraction": 0.75,
+      "visible_vertices_by_direction": {
+        "front": 8,
+        "rear": 7,
+        "left": 8,
+        "right": 8,
+        "top": 0,
+        "bottom": 7,
+        "hero": 6,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "filiform_3_222",
+      "kind": "submerged_filiform_segment",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 10,
+      "visible_fraction": 0.8333333333333334,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 8,
+        "left": 9,
+        "right": 9,
+        "top": 0,
+        "bottom": 9,
+        "hero": 0,
+        "reversehero": 9
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_0",
+      "kind": "root",
+      "component_vertices": 17,
+      "visible_vertices_any_direction": 14,
+      "visible_fraction": 0.8235294117647058,
+      "visible_vertices_by_direction": {
+        "front": 13,
+        "rear": 13,
+        "left": 14,
+        "right": 8,
+        "top": 10,
+        "bottom": 14,
+        "hero": 11,
+        "reversehero": 14
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_0_0",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 5,
+        "top": 5,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_0_1",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 5,
+        "top": 0,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_1",
+      "kind": "root",
+      "component_vertices": 17,
+      "visible_vertices_any_direction": 11,
+      "visible_fraction": 0.6470588235294118,
+      "visible_vertices_by_direction": {
+        "front": 11,
+        "rear": 11,
+        "left": 6,
+        "right": 11,
+        "top": 0,
+        "bottom": 10,
+        "hero": 11,
+        "reversehero": 11
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_1_0",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 0,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_1_1",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 1,
+        "top": 5,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_2",
+      "kind": "root",
+      "component_vertices": 17,
+      "visible_vertices_any_direction": 15,
+      "visible_fraction": 0.8823529411764706,
+      "visible_vertices_by_direction": {
+        "front": 14,
+        "rear": 15,
+        "left": 10,
+        "right": 15,
+        "top": 12,
+        "bottom": 15,
+        "hero": 15,
+        "reversehero": 13
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_2_0",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 5,
+        "top": 0,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "root_lateral_2_1",
+      "kind": "root_lateral",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 5,
+        "left": 5,
+        "right": 5,
+        "top": 4,
+        "bottom": 5,
+        "hero": 5,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    }
+  ],
+  "errors": [],
+  "limitations": "Sparse-direction geometric exposure, not complete screen-space occlusion nor independent visual/factual acceptance. Tiny visible fractions are disclosed, not converted to arbitrary pass thresholds."
+}

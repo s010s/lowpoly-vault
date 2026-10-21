@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "asset_id": "proterocladus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static enlarged educational fossil or conservative living plant candidate; independent QA and publication are separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact final GLB project/Khronos audit, source reopen, two different-PID queued semantic rebuilds and measured actual transformed components.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all eight actual512px views, closed volume, readable diagnostic silhouette and contact/exposure; no visible coplanar interference. ImageGen inspected. Preserve negative spaces and asymmetric upward lateral pattern but reject the exaggerated hollow goblet, teardrop pods, woody knuckles and rough stone texture. Final geometry uses thin mostly cylindrical filaments with gentle widening and connected shallow constrictions, ensuring multiorder topology is readable at512px.",
+      "required_sources": [
+        "TANG2020"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "A labeled enlarged educational thallus relief on a simple thin neutral tablet. One main uniseriate axis bears five asymmetrically placed lateral branches, two of those branch again. Laterals emerge below septal constrictions, turn upward, and do not form a repetitive dichotomous Y tree. Sparse shallow septal constrictions, mostly elongate cylinders, modest distal widening and one subtle club/cup-shaped external cell outline. Narrow apical extensions on selected tips; tiny lobate/subdiscoidal holdfast. No fronds, leaf blades, roots, berries, coral polyps, giant hollow goblets, microscopic pores or cell-wall texture. The mounted relief is real closed volume, not an alpha decal. Tang et al.2020 P.antiquus, Fig1 and Fig2 original fossil images and original diagnosis read. Actual thalli0.3-3.3mm long. Enlarged display dimensions, exact topology, selected cell boundaries and tablet are interpretive, not a fossil cast or quantitative cell measurement. About1billion years old near latest Mesoproterozoic/early Tonian boundary, not falsely exact Neoproterozoic dating.",
+      "required_sources": [
+        "TANG2020"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Honor immutable original brief/config/source inventory and complete editable-source dependency closure.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact final GLB parsed by pinned Three GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Needs actual graphics device and target renderer evidence; CPU stills are not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Needs intended composed scene and measurements; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight512px fixed views plus lossless sheet. Zero turntable frames; supplementary closeups do not substitute required views.",
+  "frozen_at": "2026-10-21T01:17:10.465757+00:00",
+  "subject": "Proterocladus antiquus enlarged branching fossil relief",
+  "taxon": "Proterocladus antiquus",
+  "representation": "fossil-specimen",
+  "factual_scope": "Tang et al.2020 P.antiquus, Fig1 and Fig2 original fossil images and original diagnosis read. Actual thalli0.3-3.3mm long. Enlarged display dimensions, exact topology, selected cell boundaries and tablet are interpretive, not a fossil cast or quantitative cell measurement. About1billion years old near latest Mesoproterozoic/early Tonian boundary, not falsely exact Neoproterozoic dating.",
+  "identifying_features": [
+    "A labeled enlarged educational thallus relief on a simple thin neutral tablet. One main uniseriate axis bears five asymmetrically placed lateral branches, two of those branch again. Laterals emerge below septal constrictions, turn upward, and do not form a repetitive dichotomous Y tree.",
+    "Sparse shallow septal constrictions, mostly elongate cylinders, modest distal widening and one subtle club/cup-shaped external cell outline. Narrow apical extensions on selected tips; tiny lobate/subdiscoidal holdfast.",
+    "No fronds, leaf blades, roots, berries, coral polyps, giant hollow goblets, microscopic pores or cell-wall texture. The mounted relief is real closed volume, not an alpha decal."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.14,
+      0.02,
+      0.19
+    ],
+    "interpretation": "Nominal artistic targets, not pass thresholds. Actual final world component sizes must be reported. No invented microscopic hardgates; enlarged specimens have explicit physical labels. Global geometry rescaling to pass is prohibited."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "minimum mesh z0; horizontal geometry bounds centered using translation only",
+  "surface_profile": "Full-volume opaque flat-faceted mesh; no alpha cards, textures, subdivision, emission or double-sided concealment",
+  "palette_srgb": [
+    "#5B5145",
+    "#756450",
+    "#C2B594",
+    "#DFD4B6"
+  ],
+  "parameters": {
+    "tablet_width_m": 0.135,
+    "tablet_height_m": 0.19,
+    "tablet_thickness_m": 0.008,
+    "thallus_height_m": 0.155,
+    "main_filament_radius_m": 0.0015,
+    "primary_lateral_count": 5,
+    "secondary_lateral_count": 2,
+    "main_cell_segment_count": 8,
+    "holdfast_width_m": 0.006,
+    "relief_projection_m": 0.003,
+    "display_label": "ENLARGED"
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "Taxon and organ scope unchanged.",
+    "Diagnostic topology and anatomy described above must remain visible.",
+    "No inferred life color or measured exact fossil cast."
+  ],
+  "numeric_semantics": "Source factual boundaries and hard technical budgets are distinct from nominal artistic dimensions. Exact integer counts are deliberate authored design choices, not universal species values. Measure all actual transformed organs and support junctions; do not rely on config values alone.",
+  "component_measurement_contract": "Every organ is a named editable vertex group. Reopen Blend, compute actual world bounds and oriented size/triangle counts per component after all transforms. Record source/evaluated/export counts.",
+  "contact_policy": "Actual child-base mesh vertices must intersect the assigned parent closed volume; exposed vertices must remain outside the parent. BVH signed local distance is diagnostic, not sufficient visual acceptance; inspect front/reverse/top and exact closeups for buried parts, tip overlap, broad coplanar intersections and unintended occlusion.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T01:17:10.465757+00:00",
+    "path": "production/small-life-batch99/concepts/proterocladus-concept.png",
+    "sha256": "98c2674074c32954d2f2f5f849596e9faac750f59c571ff84c4a71aae4c90f7a",
+    "decisions": "ImageGen inspected. Preserve negative spaces and asymmetric upward lateral pattern but reject the exaggerated hollow goblet, teardrop pods, woody knuckles and rough stone texture. Final geometry uses thin mostly cylindrical filaments with gentle widening and connected shallow constrictions, ensuring multiorder topology is readable at512px."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "generator/config/seed/dependency hash closure",
+    "actual transformed component measures and support/exposure checks",
+    "source reopen",
+    "two separate PID queued semantic rebuilds",
+    "project/Khronos/Three parse",
+    "eight exact512px views and lossless sheet",
+    "seven separate stage states"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "asset_id": "palaeocarpinus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static enlarged educational fossil or conservative living plant candidate; independent QA and publication are separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact final GLB project/Khronos audit, source reopen, two different-PID queued semantic rebuilds and measured actual transformed components.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all eight actual512px views, closed volume, readable diagnostic silhouette and contact/exposure; no visible coplanar interference. ImageGen inspected. Its single alternating fruits fail the intended paired cymules, and cup-like bracts are not each deeply bilobed. Correct final geometry to six two-fruit cymules, two equal individually bilobed bracts per fruit and exposed nutlets. Retain color restraint and small open axis, not the incorrect concept counts.",
+      "required_sources": [
+        "SUN1992"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "One slender short fruiting axis bears six spaced cymules, each supporting TWO separate fruits on short pedicels: twelve visible nutlets total. Each oval slightly flattened nutlet has TWO equal opposite bracts; EACH bract is deeply bilobed with a few irregular pointed teeth. Twenty-four bilobed bracts total; their deep sinuses are silhouette geometry. Nutlets have subtle longitudinal ridges and small bifurcate styles. Expose nut fronts and short attachments between the open paired bracts. No tree, leaves, pollen, staminate catkin, rock slab or parent shoot connection. Select P.joffrensis Sun & Stockey1992, holotype S26016 A/B and original Figs1-16, especially4,6,11,15-16. This is one generalized fruiting organ, not a whole tree. Counts, three-dimensional cymule spacing and fossil palette are artistic; fossil bracts vary considerably. Reported nutlet3-6x2-3.5mm and bract6-12mm lengths guide nominal design, not new microscopic hard gates.",
+      "required_sources": [
+        "SUN1992"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Honor immutable original brief/config/source inventory and complete editable-source dependency closure.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact final GLB parsed by pinned Three GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Needs actual graphics device and target renderer evidence; CPU stills are not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Needs intended composed scene and measurements; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight512px fixed views plus lossless sheet. Zero turntable frames; supplementary closeups do not substitute required views.",
+  "frozen_at": "2026-10-21T01:17:10.465757+00:00",
+  "subject": "Palaeocarpinus joffrensis attached paired fruit-bract specimen",
+  "taxon": "Palaeocarpinus joffrensis",
+  "representation": "fossil-specimen",
+  "factual_scope": "Select P.joffrensis Sun & Stockey1992, holotype S26016 A/B and original Figs1-16, especially4,6,11,15-16. This is one generalized fruiting organ, not a whole tree. Counts, three-dimensional cymule spacing and fossil palette are artistic; fossil bracts vary considerably. Reported nutlet3-6x2-3.5mm and bract6-12mm lengths guide nominal design, not new microscopic hard gates.",
+  "identifying_features": [
+    "One slender short fruiting axis bears six spaced cymules, each supporting TWO separate fruits on short pedicels: twelve visible nutlets total.",
+    "Each oval slightly flattened nutlet has TWO equal opposite bracts; EACH bract is deeply bilobed with a few irregular pointed teeth. Twenty-four bilobed bracts total; their deep sinuses are silhouette geometry.",
+    "Nutlets have subtle longitudinal ridges and small bifurcate styles. Expose nut fronts and short attachments between the open paired bracts. No tree, leaves, pollen, staminate catkin, rock slab or parent shoot connection."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.023,
+      0.023,
+      0.065
+    ],
+    "interpretation": "Nominal artistic targets, not pass thresholds. Actual final world component sizes must be reported. No invented microscopic hardgates; enlarged specimens have explicit physical labels. Global geometry rescaling to pass is prohibited."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "minimum mesh z0; horizontal geometry bounds centered using translation only",
+  "surface_profile": "Full-volume opaque flat-faceted mesh; no alpha cards, textures, subdivision, emission or double-sided concealment",
+  "palette_srgb": [
+    "#68503C",
+    "#967348",
+    "#B79865",
+    "#765033"
+  ],
+  "parameters": {
+    "axis_length_m": 0.06,
+    "axis_base_radius_m": 0.00055,
+    "cymule_count": 6,
+    "fruits_per_cymule": 2,
+    "bracts_per_fruit": 2,
+    "lobes_per_bract": 2,
+    "nutlet_length_m": 0.0045,
+    "nutlet_width_m": 0.003,
+    "nutlet_thickness_m": 0.0019,
+    "bract_length_m": 0.009,
+    "bract_width_m": 0.005,
+    "bract_thickness_m": 0.00022,
+    "pedicel_length_m": 0.001,
+    "pedicel_radius_m": 0.00055,
+    "style_length_m": 0.00036
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "Taxon and organ scope unchanged.",
+    "Diagnostic topology and anatomy described above must remain visible.",
+    "No inferred life color or measured exact fossil cast."
+  ],
+  "numeric_semantics": "Source factual boundaries and hard technical budgets are distinct from nominal artistic dimensions. Exact integer counts are deliberate authored design choices, not universal species values. Measure all actual transformed organs and support junctions; do not rely on config values alone.",
+  "component_measurement_contract": "Every organ is a named editable vertex group. Reopen Blend, compute actual world bounds and oriented size/triangle counts per component after all transforms. Record source/evaluated/export counts.",
+  "contact_policy": "Actual child-base mesh vertices must intersect the assigned parent closed volume; exposed vertices must remain outside the parent. BVH signed local distance is diagnostic, not sufficient visual acceptance; inspect front/reverse/top and exact closeups for buried parts, tip overlap, broad coplanar intersections and unintended occlusion.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T01:17:10.465757+00:00",
+    "path": "production/small-life-batch99/concepts/palaeocarpinus-concept.png",
+    "sha256": "584ebb8ceae7a4464080cc63da9e8064593bd24e285b7cd2508497b4fee8178e",
+    "decisions": "ImageGen inspected. Its single alternating fruits fail the intended paired cymules, and cup-like bracts are not each deeply bilobed. Correct final geometry to six two-fruit cymules, two equal individually bilobed bracts per fruit and exposed nutlets. Retain color restraint and small open axis, not the incorrect concept counts."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "generator/config/seed/dependency hash closure",
+    "actual transformed component measures and support/exposure checks",
+    "source reopen",
+    "two separate PID queued semantic rebuilds",
+    "project/Khronos/Three parse",
+    "eight exact512px views and lossless sheet",
+    "seven separate stage states"
+  ]
+}

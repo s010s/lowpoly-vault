@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+    "brief_sha256": "4b80bcf6950e1dec334f32de4939e465950ab97c5650fe3425788bf06efaea0f",
+    "references_sha256": "110c3a003bae1dae67920b1f5040281135dca33bd1cce196ccf7cd8c26b41031"
+  },
+  "status": "pass",
+  "method": "Exact final project GLB audit, Khronos validator, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space per-organ geometry/contact and full-scene vertex exposure.",
+  "observations": [
+    "All automated checks passed or have the explicit raw font-seam warning disposition. No independent approval is implied.",
+    "Actual dimensions are reported; no new microscopic numeric thresholds are invented. Sparse-direction geometric exposure is necessary but not sufficient for screen-space readability."
+  ],
+  "errors": [],
+  "warnings": [
+    "source: monetianthus-preserved-flower-enlarged: 368 boundary edges; review intentional openings"
+  ],
+  "warning_review": [
+    {
+      "warning": "source: monetianthus-preserved-flower-enlarged: 368 boundary edges; review intentional openings",
+      "rationale": "Final source retains368 raw indexed boundary edges solely in Blender bundled Bfont converted ENLARGED glyphs; anatomy/mount have0. On a separate in-memory copy,1e-8m coordinate merge and normal recalculation yields0 boundary/nonmanifold edges and positive signed volume. No final source/GLB weld or repair is claimed. Raw pre-weld signed integral is not a physical closed-volume measurement. Fresh QA may reject this warning disposition.",
+      "evidence": {
+        "path": "production/small-life-batch99/monetianthus/r001/qa/label-seam-review-v002.json",
+        "sha256": "3ebe03d3cb55fbe4b77ca546aa2fe8e0735646483d58ba3ea2fac24aa0bbd66c"
+      },
+      "audit_helper": {
+        "path": "production/small-life-batch99/tools/check-label-seams-v002.py",
+        "sha256": "f0d7897c9353fe8c9f5ec7302cc9c9327c6fd85c3b0d133f741a48b6f2182db0"
+      }
+    }
+  ],
+  "measurements": {
+    "triangles": 2956,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 158724,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+      "report": {
+        "path": "production/small-life-batch99/monetianthus/r001/qa/static-glb.report.json",
+        "sha256": "51908ba09224a59d16e4e72253a857d7701e2de1dcaed00459b07f663baa5270"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+      "report": {
+        "path": "production/small-life-batch99/monetianthus/r001/artifacts/gltf-validator.report.json",
+        "sha256": "36fb931e34cd30a377261e4c9ad8a6b2735f19ec149ac40eff2e0315288c6c7a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+      "report": {
+        "path": "production/small-life-batch99/monetianthus/r001/qa/source-export.report.json",
+        "sha256": "fa9dd075010cf792ba4b1a51b5026789ae68ac94a4e2ae41086da95e8bec8a47"
+      },
+      "warning_review": [
+        {
+          "warning": "source: monetianthus-preserved-flower-enlarged: 368 boundary edges; review intentional openings",
+          "rationale": "Final source retains368 raw indexed boundary edges solely in Blender bundled Bfont converted ENLARGED glyphs; anatomy/mount have0. On a separate in-memory copy,1e-8m coordinate merge and normal recalculation yields0 boundary/nonmanifold edges and positive signed volume. No final source/GLB weld or repair is claimed. Raw pre-weld signed integral is not a physical closed-volume measurement. Fresh QA may reject this warning disposition.",
+          "evidence": {
+            "path": "production/small-life-batch99/monetianthus/r001/qa/label-seam-review-v002.json",
+            "sha256": "3ebe03d3cb55fbe4b77ca546aa2fe8e0735646483d58ba3ea2fac24aa0bbd66c"
+          },
+          "audit_helper": {
+            "path": "production/small-life-batch99/tools/check-label-seams-v002.py",
+            "sha256": "f0d7897c9353fe8c9f5ec7302cc9c9327c6fd85c3b0d133f741a48b6f2182db0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+      "report": {
+        "path": "production/small-life-batch99/monetianthus/r001/qa/reproducibility-a.report.json",
+        "sha256": "195092d94a9c3bdbf707cb67e45214a4269fe507653a35fee6dfc9e704dfacac"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+      "report": {
+        "path": "production/small-life-batch99/monetianthus/r001/qa/reproducibility-b.report.json",
+        "sha256": "98e9bdc599474a10c00a255b4a3a8c6f16bb3d523c5b38502116c68ded7cdcc1"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "component_contact_report": {
+    "path": "production/small-life-batch99/monetianthus/r001/qa/component-contact.report.json",
+    "sha256": "15bb54009b48b365c3817d71cef1df1c5e51fbdbf8631ce70ab0739ebb106cc6"
+  },
+  "full_scene_exposure_report": {
+    "path": "production/small-life-batch99/monetianthus/r001/qa/full-scene-exposure.report.json",
+    "sha256": "b185adc5a7022e0ebfdc0038954e0dd0909ec3cff94864579980f60c67274fda"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.07175000011920929,
+      0.0,
+      -0.0494999997317791
+    ],
+    "max": [
+      0.07175000011920929,
+      0.148991659283638,
+      0.0494999997317791
+    ],
+    "size": [
+      0.14350000023841858,
+      0.148991659283638,
+      0.0989999994635582
+    ]
+  },
+  "created_at": "2026-10-21T01:46:16.082511+00:00"
+}

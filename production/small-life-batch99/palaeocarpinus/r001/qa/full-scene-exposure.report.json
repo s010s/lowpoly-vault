@@ -1,0 +1,2664 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "91ecc06206564718831f14f366716a3f21614d51c531cce98f209fb2269db65f",
+  "created_at": "2026-10-21T01:30:02.107124+00:00",
+  "method": "Reopened transformed Blend mesh. For each component, exclude only its own triangles and ray-cast every actual vertex in8 fixed directions against ALL other component triangles. No camera/material adjustments. Positive visibility is necessary, not sufficient, for meaningful pixel readability.",
+  "numerical_ray_origin_epsilon_m": 6.00227378308773e-09,
+  "directions": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ],
+    "left": [
+      -1,
+      0,
+      0
+    ],
+    "right": [
+      1,
+      0,
+      0
+    ],
+    "top": [
+      0,
+      0,
+      1
+    ],
+    "bottom": [
+      0,
+      0,
+      -1
+    ],
+    "hero": [
+      0.47,
+      -0.67,
+      0.57
+    ],
+    "reversehero": [
+      -0.47,
+      0.67,
+      0.57
+    ]
+  },
+  "components": [
+    {
+      "tag": "fruiting_axis",
+      "kind": "axis",
+      "component_vertices": 34,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 1.0,
+      "visible_vertices_by_direction": {
+        "front": 32,
+        "rear": 18,
+        "left": 26,
+        "right": 26,
+        "top": 9,
+        "bottom": 9,
+        "hero": 31,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_0_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_0_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 33,
+        "rear": 0,
+        "left": 11,
+        "right": 27,
+        "top": 11,
+        "bottom": 35,
+        "hero": 34,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_0_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 34,
+        "rear": 6,
+        "left": 34,
+        "right": 19,
+        "top": 16,
+        "bottom": 26,
+        "hero": 34,
+        "reversehero": 18
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_0_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 12,
+        "rear": 25,
+        "left": 9,
+        "right": 26,
+        "top": 13,
+        "bottom": 14,
+        "hero": 29,
+        "reversehero": 25
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_0_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 2,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_0_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_0_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_0_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_0_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 33,
+        "left": 11,
+        "right": 28,
+        "top": 8,
+        "bottom": 35,
+        "hero": 12,
+        "reversehero": 25
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_0_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 28,
+        "rear": 12,
+        "left": 12,
+        "right": 26,
+        "top": 16,
+        "bottom": 16,
+        "hero": 26,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_0_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 6,
+        "rear": 34,
+        "left": 34,
+        "right": 18,
+        "top": 12,
+        "bottom": 26,
+        "hero": 9,
+        "reversehero": 34
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_0_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_0_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 2,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_0_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_0_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_1_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 1,
+        "left": 2,
+        "right": 3,
+        "top": 0,
+        "bottom": 1,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_1_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 34,
+        "left": 19,
+        "right": 27,
+        "top": 10,
+        "bottom": 26,
+        "hero": 9,
+        "reversehero": 21
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_1_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 30,
+        "rear": 28,
+        "left": 7,
+        "right": 34,
+        "top": 15,
+        "bottom": 16,
+        "hero": 34,
+        "reversehero": 25
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_1_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 21,
+        "rear": 24,
+        "left": 25,
+        "right": 12,
+        "top": 10,
+        "bottom": 14,
+        "hero": 9,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 1,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 1,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_1_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 4,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_1_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 3,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_1_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_1_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 0,
+        "left": 3,
+        "right": 1,
+        "top": 0,
+        "bottom": 1,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_1_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 40,
+      "visible_fraction": 0.7692307692307693,
+      "visible_vertices_by_direction": {
+        "front": 19,
+        "rear": 23,
+        "left": 34,
+        "right": 6,
+        "top": 0,
+        "bottom": 35,
+        "hero": 11,
+        "reversehero": 20
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_1_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 9,
+        "rear": 26,
+        "left": 27,
+        "right": 31,
+        "top": 17,
+        "bottom": 16,
+        "hero": 10,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_1_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 34,
+        "rear": 11,
+        "left": 32,
+        "right": 26,
+        "top": 9,
+        "bottom": 26,
+        "hero": 31,
+        "reversehero": 21
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 2,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_1_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_1_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 4,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_1_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_1_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_2_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_2_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 16,
+        "left": 36,
+        "right": 1,
+        "top": 1,
+        "bottom": 24,
+        "hero": 12,
+        "reversehero": 25
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_2_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 6,
+        "rear": 34,
+        "left": 34,
+        "right": 20,
+        "top": 16,
+        "bottom": 16,
+        "hero": 9,
+        "reversehero": 34
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_2_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 7,
+        "left": 26,
+        "right": 24,
+        "top": 16,
+        "bottom": 14,
+        "hero": 26,
+        "reversehero": 19
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 2,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_2_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 4,
+        "rear": 0,
+        "left": 1,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_2_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_2_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 5,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_2_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 3,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_2_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 40,
+      "visible_fraction": 0.7692307692307693,
+      "visible_vertices_by_direction": {
+        "front": 29,
+        "rear": 7,
+        "left": 17,
+        "right": 27,
+        "top": 10,
+        "bottom": 20,
+        "hero": 33,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_2_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 25,
+        "rear": 20,
+        "left": 27,
+        "right": 12,
+        "top": 13,
+        "bottom": 16,
+        "hero": 30,
+        "reversehero": 29
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_2_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 24,
+        "rear": 34,
+        "left": 11,
+        "right": 34,
+        "top": 16,
+        "bottom": 16,
+        "hero": 34,
+        "reversehero": 19
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 1,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 1,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 3,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_2_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_2_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 4,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_2_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_2_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_3_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 1,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_3_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 27,
+        "rear": 15,
+        "left": 9,
+        "right": 28,
+        "top": 22,
+        "bottom": 2,
+        "hero": 32,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_3_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 34,
+        "rear": 10,
+        "left": 34,
+        "right": 24,
+        "top": 18,
+        "bottom": 16,
+        "hero": 34,
+        "reversehero": 18
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_3_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 15,
+        "rear": 24,
+        "left": 13,
+        "right": 26,
+        "top": 30,
+        "bottom": 14,
+        "hero": 28,
+        "reversehero": 24
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_3_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 4,
+        "left": 0,
+        "right": 3,
+        "top": 2,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_3_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_3_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_3_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_3_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 35,
+        "left": 14,
+        "right": 24,
+        "top": 29,
+        "bottom": 5,
+        "hero": 13,
+        "reversehero": 22
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_3_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 27,
+        "rear": 22,
+        "left": 13,
+        "right": 26,
+        "top": 31,
+        "bottom": 10,
+        "hero": 27,
+        "reversehero": 8
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_3_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 20,
+        "rear": 34,
+        "left": 34,
+        "right": 11,
+        "top": 20,
+        "bottom": 20,
+        "hero": 12,
+        "reversehero": 34
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 1,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 1,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_3_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_3_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 2,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_3_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_3_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 0,
+        "left": 0,
+        "right": 5,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_4_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 3,
+        "top": 1,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_4_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 7,
+        "rear": 34,
+        "left": 25,
+        "right": 25,
+        "top": 36,
+        "bottom": 13,
+        "hero": 8,
+        "reversehero": 22
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_4_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 32,
+        "left": 9,
+        "right": 34,
+        "top": 34,
+        "bottom": 10,
+        "hero": 31,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_4_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 29,
+        "rear": 25,
+        "left": 25,
+        "right": 12,
+        "top": 28,
+        "bottom": 14,
+        "hero": 14,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 2,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_4_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 4,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_4_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_4_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_4_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 1,
+        "left": 3,
+        "right": 1,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_4_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 25,
+        "rear": 18,
+        "left": 34,
+        "right": 5,
+        "top": 26,
+        "bottom": 16,
+        "hero": 15,
+        "reversehero": 20
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_4_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 16,
+        "rear": 26,
+        "left": 24,
+        "right": 23,
+        "top": 31,
+        "bottom": 15,
+        "hero": 5,
+        "reversehero": 26
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_4_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 34,
+        "rear": 7,
+        "left": 28,
+        "right": 28,
+        "top": 18,
+        "bottom": 13,
+        "hero": 33,
+        "reversehero": 22
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 1,
+        "rear": 3,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 3,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_4_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 0,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_4_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 4,
+        "left": 3,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_4_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 5,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_4_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 0,
+        "rear": 3,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 5
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_5_0",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 3,
+        "left": 2,
+        "right": 0,
+        "top": 1,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 3
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_5_0",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 10,
+        "left": 34,
+        "right": 0,
+        "top": 36,
+        "bottom": 9,
+        "hero": 14,
+        "reversehero": 19
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_5_0_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 19,
+        "rear": 34,
+        "left": 34,
+        "right": 21,
+        "top": 34,
+        "bottom": 15,
+        "hero": 19,
+        "reversehero": 34
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_5_0_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 15,
+        "left": 20,
+        "right": 26,
+        "top": 31,
+        "bottom": 14,
+        "hero": 26,
+        "reversehero": 18
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_0_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 2
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_0_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_0_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 1,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_0_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 3,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_0_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 0,
+        "bottom": 2,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_5_0",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.4166666666666667,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 4,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_5_0_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_5_0_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "pedicel_5_1",
+      "kind": "pedicel",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 1,
+        "right": 3,
+        "top": 1,
+        "bottom": 0,
+        "hero": 0,
+        "reversehero": 1
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nutlet_5_1",
+      "kind": "nutlet",
+      "component_vertices": 52,
+      "visible_vertices_any_direction": 41,
+      "visible_fraction": 0.7884615384615384,
+      "visible_vertices_by_direction": {
+        "front": 27,
+        "rear": 10,
+        "left": 10,
+        "right": 32,
+        "top": 36,
+        "bottom": 0,
+        "hero": 26,
+        "reversehero": 4
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_5_1_-1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 31,
+      "visible_fraction": 0.8611111111111112,
+      "visible_vertices_by_direction": {
+        "front": 26,
+        "rear": 12,
+        "left": 28,
+        "right": 15,
+        "top": 31,
+        "bottom": 16,
+        "hero": 24,
+        "reversehero": 30
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "bract_5_1_1",
+      "kind": "bilobed_bract",
+      "component_vertices": 36,
+      "visible_vertices_any_direction": 34,
+      "visible_fraction": 0.9444444444444444,
+      "visible_vertices_by_direction": {
+        "front": 24,
+        "rear": 34,
+        "left": 10,
+        "right": 34,
+        "top": 34,
+        "bottom": 9,
+        "hero": 32,
+        "reversehero": 28
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_1_0",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 1,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_1_1",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 2,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_1_2",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_1_3",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 3,
+      "visible_fraction": 0.21428571428571427,
+      "visible_vertices_by_direction": {
+        "front": 3,
+        "rear": 0,
+        "left": 0,
+        "right": 3,
+        "top": 0,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "nut_ridge_5_1_4",
+      "kind": "nutlet_ridge",
+      "component_vertices": 14,
+      "visible_vertices_any_direction": 2,
+      "visible_fraction": 0.14285714285714285,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 2,
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0,
+        "hero": 2,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_5_1",
+      "kind": "style",
+      "component_vertices": 12,
+      "visible_vertices_any_direction": 4,
+      "visible_fraction": 0.3333333333333333,
+      "visible_vertices_by_direction": {
+        "front": 2,
+        "rear": 0,
+        "left": 2,
+        "right": 0,
+        "top": 2,
+        "bottom": 0,
+        "hero": 3,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_5_1_-1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 5,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    },
+    {
+      "tag": "style_lobe_5_1_1",
+      "kind": "style_lobe",
+      "component_vertices": 10,
+      "visible_vertices_any_direction": 5,
+      "visible_fraction": 0.5,
+      "visible_vertices_by_direction": {
+        "front": 5,
+        "rear": 0,
+        "left": 0,
+        "right": 0,
+        "top": 5,
+        "bottom": 0,
+        "hero": 5,
+        "reversehero": 0
+      },
+      "has_actual_exposed_vertices": true
+    }
+  ],
+  "errors": [],
+  "limitations": "Sparse-direction geometric exposure, not complete screen-space occlusion nor independent visual/factual acceptance. Tiny visible fractions are disclosed, not converted to arbitrary pass thresholds."
+}
