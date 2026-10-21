@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "asset_id": "caryocrinites",
+  "brief_version": "delivery-schema-corrected-r003",
+  "profile": "production",
+  "purpose": "Educational original low-poly whole-organism living reconstruction; maker self-tests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Actual transformed component dimensions, true closed outward solids, strict positive-volume attachment without relying on boundary witnesses, natural cavities unblocked, global exposure; source reopen, two distinct PID semantic rebuilds, project and Khronos checks.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect eight exact512frames and lossless sheet plus exactsubject details. Articulation, grooves, plates, openings and anatomically important exposed surfaces must read; counts or names alone are insufficient.",
+      "required_sources": [
+        "FOERSTE1916",
+        "PAUL2017",
+        "PAUL2021",
+        "FIELD-P5173",
+        "TREATISE-CARYO"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Acorn-ovoid theca,4basal/6infralateral/8lateral skeletal plates plus roofed tegmen; slender column with flattened modest attachment. Three primary ambulacral groups under tegmen, selected5/5/4terminal axes rather than five identical crinoid arms. Double-biserial main axes carry true short biserial lateral brachioles; grooves and articulation are geometry. Small posterior tegminal anal pyramid, not central mouth flower; mouth remains roofed under tegmen. Whole-organism living reconstruction based on C.ornatus, actual Foerste1916 fossils plus FieldP5173 exterior; not a specimen replica. Main arms can substantially exceed theca height, correcting old planning word short. Three ambulacral branches are roofed by tegmen. Exact variable adult terminal count is selected from documented example, not genus-wide hard count.",
+      "required_sources": [
+        "FOERSTE1916",
+        "PAUL2017",
+        "PAUL2021",
+        "FIELD-P5173",
+        "TREATISE-CARYO"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Original complete freeze precedes generator authoring/geometry; all required artifacts and immutable chronology preserved.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Actual pinned Three.js GLTFLoader parse, not hardware claim.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Unrun remains unknown; CPU images cannot prove GPU runtime.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Unrun remains unknown; no composed target-scene acceptance claim.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight fixed512frames and lossless sheet plus exact-subject anatomical close-ups and underside as needed; zero turntable under static-stylized-v1.",
+  "frozen_at": "2026-10-21T05:28:00Z",
+  "subject": "caryocrinites",
+  "taxon": "Caryocrinites ornatus",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole-organism living reconstruction based on C.ornatus, actual Foerste1916 fossils plus FieldP5173 exterior; not a specimen replica. Main arms can substantially exceed theca height, correcting old planning word short. Three ambulacral branches are roofed by tegmen. Exact variable adult terminal count is selected from documented example, not genus-wide hard count.",
+  "identifying_features": [
+    "Acorn-ovoid theca,4basal/6infralateral/8lateral skeletal plates plus roofed tegmen; slender column with flattened modest attachment.",
+    "Three primary ambulacral groups under tegmen, selected5/5/4terminal axes rather than five identical crinoid arms. Double-biserial main axes carry true short biserial lateral brachioles; grooves and articulation are geometry.",
+    "Small posterior tegminal anal pyramid, not central mouth flower; mouth remains roofed under tegmen."
+  ],
+  "scale": {
+    "units": "meters",
+    "interpretation": "All dimensional parameters are nominal art targets, not universal scientific organ limits; measure actual transformed output and report differences rather than inventing tolerances."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Horizontal bounds centered and minZ0 by translation only, global scale1.",
+  "surface_profile": "Opaque flat-faceted original closed volumes. True plate/ossicle geometry and recessed natural openings; no textures/cards, copied source meshes or double-sided concealment.",
+  "palette_srgb": [
+    "#814E60",
+    "#CFA09C",
+    "#4E3548",
+    "#A37285"
+  ],
+  "parameters": {
+    "theca_height_m": 0.03,
+    "theca_width_m": 0.022,
+    "column_length_m": 0.07,
+    "column_radius_m": 0.00125,
+    "columnals": 28,
+    "attachment_radius_m": 0.004,
+    "arm_length_m": 0.055,
+    "arm_spread_m": 0.022,
+    "main_axis_radius_m": 0.00085,
+    "axis_plate_stations": 8,
+    "lateral_brachioles_per_axis": 6,
+    "lateral_brachiole_length_m": 0.0038,
+    "lateral_brachiole_stations": 3,
+    "arm_group_counts": [
+      5,
+      5,
+      4
+    ],
+    "anal_pyramid_radius_m": 0.0012
+  },
+  "hard_organ_ranges": [],
+  "hard_component_counts": {
+    "primary_ambulacral_groups": 3,
+    "basal_plates": 4,
+    "infralateral_plates": 6,
+    "lateral_plates": 8
+  },
+  "source_hard_boundaries": [
+    "Acorn-ovoid theca,4basal/6infralateral/8lateral skeletal plates plus roofed tegmen; slender column with flattened modest attachment.",
+    "Three primary ambulacral groups under tegmen, selected5/5/4terminal axes rather than five identical crinoid arms. Double-biserial main axes carry true short biserial lateral brachioles; grooves and articulation are geometry.",
+    "Small posterior tegminal anal pyramid, not central mouth flower; mouth remains roofed under tegmen."
+  ],
+  "numeric_semantics": "Diagnostic counts and anatomical relations above are gates. Artistic sampling counts/lengths/colors in parameters are nominal design decisions, not species measurements. Cupressocrinites adult arm source minimum20brachials is a genuine hard lower bound. No percentage exposure or microscopic contact threshold invented.",
+  "component_measurement_contract": "Editable semantic vertex groups with actual transformed bounds and closed solid component ranges. Every anatomical plate/ossicle physically present and readable. Contact and whole-scene visibility audited separately.",
+  "contact_policy": "Required component attachment has strictly internal positive-volume overlap, not only coplanar boundary vertices. Natural openings and grooves remain unblocked by other solids. Whole-scene exposure assessed for all relevant directions including appropriate closeups; no arbitrary numeric exposure gate.",
+  "concept_inspection": {
+    "path": "production/small-life-batch109/concepts/caryocrinites-concept-r001.png",
+    "sha256": "a426ba07040836cb07fb1d014c0062f19e42467126695a85d51fcb651586bad2",
+    "review_path": "production/small-life-batch109/concepts/caryocrinites-concept-receipt-and-review.json",
+    "review_sha256": "67c50bf2189cc69daa9ef1559c18eee7e72f5a35bb4e16015470a9963e27d8ac",
+    "decisions": {
+      "retain": [
+        "Ovoid plated theca and slender segmented column with flattened attachment disk",
+        "Three broad groups of erected feeding axes, short laterals, readable palette/facets"
+      ],
+      "correct_before_geometry": [
+        "Do not copy the central position of the pictured anal pyramid. Move it to posterior tegminal region, mouth stays roofed.",
+        "Do not infer fourteen axes or their biserial structure from pixels. Generator must explicitly implement the researched five/five/four arrangement and double biserial axes with genuinely biserial lateral brachioles.",
+        "Concept makes nearly cylindrical uniserial cuff-like axes. Replace with alternating paired plate solids and an adoral groove.",
+        "Theca plate layout is decorative in concept. Implement researched four basal, six infralateral, eight lateral plates and tegmen without pretending to replicate an inaccessible exact specimen plate map."
+      ],
+      "status": "accepted for aesthetic direction with mandatory anatomical corrections in original pregeometry freeze"
+    }
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "deterministic generator/config/seed",
+    "dependencyclosure",
+    "transformed anatomy/contact/globalexposure/winding",
+    "source reopen",
+    "two actual distinctPID semantic rebuilds",
+    "project/Khronos/Three",
+    "eight separate512frames+losslesssheet+exactsubject details",
+    "seven honest stage states"
+  ],
+  "original_brief": {
+    "path": "production/small-life-batch109/caryocrinites/r001/original-brief.json",
+    "sha256": "db7532a9f0d3a2e0b1cc166e815c231bdc65262d09d1dca53ac22e32dbb90290"
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch109/caryocrinites/r003/artifacts/caryocrinites.blend",
+      "sha256": "6364725d316b0e0ae3610b04f0a4be96afd06921576460202eaa502ac5ee7bce"
+    },
+    {
+      "role": "glb",
+      "path": "production/small-life-batch109/caryocrinites/r003/artifacts/caryocrinites.glb",
+      "sha256": "35f7ad74119699a54395cae854f65f9814936e04ed15252b6b74fb3ea5558c93"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch109/tools/generate-r006.py",
+      "sha256": "8fe4ba5b070eb5d0927bcdb4077c26a2ff6a6ca4b61db1b24f1125fe1fc45fb8"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch109/caryocrinites/r003/config.json",
+      "sha256": "0c10f137b8082c76d30fc4792e710b6d803c5567ab8ab6195c10d6dbe9414dc8"
+    }
+  ],
+  "delivery_fixed_at_utc": "2026-10-21T06:06:32.611455+00:00",
+  "revision_history": "Original freeze unchanged. Real coplanar overlap failure corrected in r006 geometry; prior complete evidence retained. No source anatomy, strict contact or winding criterion relaxed.",
+  "schema_correction": "Required deliverables changed from invalid object container to schema-required role list. Scientific original freeze, final GLB, source, generator, config and references bytes unchanged. Previous bound pixel set preserved; this subject gets fresh renders."
+}

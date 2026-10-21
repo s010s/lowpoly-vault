@@ -32,7 +32,12 @@
     "test:scroll:browser": "node site/catalog-scroll-browser-test.mjs",
     "test:gallery": "node site/entry-route-test.mjs && node site/gallery-catalog-test.mjs && node site/gallery-assets.mjs && node site/gallery/tests/state-test.mjs && node site/gallery/tests/wheel-title-test.mjs && node site/gallery/tests/focus-center-test.mjs && node site/gallery/tests/wheel-guides-test.mjs && node site/gallery/tests/stage-handoff-test.mjs && node site/gallery/tests/reference-entry-continuity-test.mjs && node site/gallery/tests/reference-presentation-test.mjs && node site/gallery/tests/reference-shadow-footprint-test.mjs && node site/gallery/tests/reset-transition-test.mjs && node site/gallery/tests/model-dimensions-test.mjs && node site/gallery/tests/single-framing-test.mjs && node site/gallery/tests/poster-projection-test.mjs && node site/gallery/tests/selection-orbit-controls-test.mjs && node site/gallery/tests/compare-ground-regression-test.mjs && node site/gallery/tests/model-support-test.mjs",
     "gallery:posters": "node site/capture-gallery-posters.mjs",
-    "test:gallery:browser": "node site/gallery-browser-test.mjs"
+    "test:gallery:browser": "node site/gallery-browser-test.mjs",
+    "final-delivery:check": "node site/final-delivery.mjs",
+    "final-delivery:prepare-capture": "node site/final-delivery.mjs --prepare-capture",
+    "test:final-delivery": "python3 scripts/test_final_delivery.py && node site/final-delivery-test.mjs",
+    "test:final-delivery:native": "node site/final-delivery-native-test.mjs",
+    "test:final-delivery:blend": "blender -b --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/check_final_delivery_blend.py"
   },
   "dependencies": {
     "three": "0.180.0"
