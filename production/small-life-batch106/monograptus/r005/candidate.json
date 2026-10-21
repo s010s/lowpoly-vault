@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "asset_id": "monograptus",
+  "revision": "r005",
+  "maker": {
+    "id": "batch106-hidden-base-repair-maker",
+    "task_id": "repair_monograptus_hidden_base"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch106/monograptus/r005/artifacts/monograptus.glb",
+      "sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e"
+    },
+    "source": {
+      "path": "production/small-life-batch106/monograptus/r005/artifacts/monograptus.blend",
+      "sha256": "6ca1d510d2784d03281975e6cf089f3da3c8c087f61ff7111654a7b3172ee94b"
+    },
+    "brief": {
+      "path": "production/small-life-batch106/monograptus/r005/delivery-brief.json",
+      "sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff"
+    },
+    "references": {
+      "path": "production/small-life-batch106/monograptus/r001/references.json",
+      "sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+    },
+    "generator": {
+      "path": "production/small-life-batch106/tools/repair-monograptus-r005.py",
+      "sha256": "16605f74301246fc3c9f987f050fcb21f1dcce5267dd5aea0913129ba11594c9"
+    },
+    "config": {
+      "path": "production/small-life-batch106/monograptus/r005/config.json",
+      "sha256": "9e8e48b1b7bd88e55ec9c4641e61c2e0a52138cda091564243b64c55486dcad1"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch106/monograptus/r005/build-dependencies.json",
+      "sha256": "85dbffd2002c0a2dee5cc6904c4a6ae121e69273a596f82edb46944af6777c8e"
+    }
+  },
+  "supersedes": {
+    "path": "production/small-life-batch106/monograptus/r004/candidate.json",
+    "sha256": "62b04594011937e3d14742ec8dd2a81a36c0a6b06923a2a15eecb547ecf5911e",
+    "revision": "r004"
+  },
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "path": "production/small-life-batch106/monograptus/r005/qa/technical.report.json",
+      "sha256": "a801a4f5bcac4f8982fdf93b8adc4c287cf1c7b6d8d788c89c70d005788bd011"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "path": "production/small-life-batch106/monograptus/r005/qa/runtime-parse.report.json",
+      "sha256": "f2812be4f648931a1c2e36c730e8a3af330429ba29cf9102d7322bb0a960cc12"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "path": "production/small-life-batch106/monograptus/r005/views/render-manifest.json",
+      "sha256": "3f7a8a56f80894cb03a5c3a81d609674f61582bcbf3a5a1fc7807569455c94f5"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch106-hidden-base-repair-maker",
+        "task_id": "repair_monograptus_hidden_base"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Exact bound automated maker checks passed."
+        }
+      ],
+      "note": "Maker technical/runtime checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-21T05:48:23.901977+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "MALETZ2020",
+        "MONO-TREATISE"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Historical r004 visual/factual/specification PASS remains pinned separately by exact unchanged identity; r005 independent difference review pending. GPU and composed scene remain UNKNOWN.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette",
+        "detail-junction"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "MALETZ2020",
+        "MONO-TREATISE"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Historical r004 visual/factual/specification PASS remains pinned separately by exact unchanged identity; r005 independent difference review pending. GPU and composed scene remain UNKNOWN."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Historical r004 visual/factual/specification PASS remains pinned separately by exact unchanged identity; r005 independent difference review pending. GPU and composed scene remain UNKNOWN."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch106-hidden-base-repair-maker",
+        "task_id": "repair_monograptus_hidden_base"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+        "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+        "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Exact bound automated maker checks passed."
+        }
+      ],
+      "note": "Maker technical/runtime checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-21T05:48:23.901988+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Historical r004 visual/factual/specification PASS remains pinned separately by exact unchanged identity; r005 independent difference review pending. GPU and composed scene remain UNKNOWN."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Historical r004 visual/factual/specification PASS remains pinned separately by exact unchanged identity; r005 independent difference review pending. GPU and composed scene remain UNKNOWN."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent difference QA of only r005 hidden-base technical repair is pending. Historical r004 REVISE is preserved, not overwritten; no counter or publication change."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "GPU and composed intended scene not run, unknown."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

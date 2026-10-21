@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "helper": {
+    "path": "production/small-life-batch106/tools/measure-monograptus-strict-r005.py",
+    "sha256": "ecedc87a43c46644a67c57e28c23ae5d8befaf1c13f606bb5dd3e5cdf482f4c7"
+  },
+  "original_r004": {
+    "status": "fail",
+    "bad_apertures": [],
+    "bad_contacts": [
+      "nema"
+    ],
+    "buried": [],
+    "bad_topology": [],
+    "source_sha256": "18ff9ac194c3facb6bbdb91991998e4f88468cc00a7138b11a53c20f8b655704",
+    "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+    "measured_at": "2026-10-21T05:45:04.473244+00:00",
+    "pid": 9
+  },
+  "new_r005": {
+    "status": "pass",
+    "bad_apertures": [],
+    "bad_contacts": [],
+    "buried": [],
+    "bad_topology": [],
+    "source_sha256": "6ca1d510d2784d03281975e6cf089f3da3c8c087f61ff7111654a7b3172ee94b",
+    "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+    "measured_at": "2026-10-21T05:45:13.192820+00:00",
+    "pid": 31
+  },
+  "method": "Actual float64 centroid samples, generalized winding and triangle-distance boundary rejection reproduce old zero-volume failure and prove repaired strict intersection. No arbitrary new depth or exposure-fraction acceptance gate.",
+  "failed_diagnostic_history": [
+    {
+      "path": "/workspace/shared/lowpoly-batch106-monograptus-repair-evidence/measure-strict-v001-boundary-roundoff.py",
+      "sha256": "617db51197f86bbcc8b248c5b55452db1de9fca1d7eaca23afc27388e0cf84b7",
+      "outcome": "First boundary guard still misclassified old float32 centroid roundoff as strict interior; not acceptance evidence. Full reports retained locally."
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch106-monograptus-repair-evidence/repair-generator-v001-group-loss.py",
+      "sha256": "badd2a69921695acea72e82e965f83db108df8b959651d1a8323289116bebdf8",
+      "outcome": "Mesh replacement cleared vertex groups; stopped before export. Original source untouched. Corrected generator restores exact group names/memberships."
+    }
+  ]
+}

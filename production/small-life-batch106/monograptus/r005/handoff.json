@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-21T05:49:38.747110+00:00",
+  "scope": "Bounded Monograptus r005 hidden nema-base repair only. Ready for fresh independent difference QA, not acceptance/publication.",
+  "worktree": "/workspace/shared/lowpoly-batch106-monograptus-repair-20261021",
+  "branch": "candidate/batch106-monograptus-repair-20261021",
+  "exact_parent_commit": "56591b51d9f1f2fffb409f05cbee108bff5c2bfc",
+  "original_maker_commit": "182bcec567f6a9ef901f5ea926f482b43aad120e",
+  "candidate": {
+    "path": "production/small-life-batch106/monograptus/r005/candidate.json",
+    "sha256": "1ebe25577d528e7ee8b2ef5cdb05115f73934304ebbddf6729fcf02083f1c594",
+    "bytes": 9211
+  },
+  "subject": {
+    "revision": "r005",
+    "glb_sha256": "8b51a9c32202e1d643d8ef59a9007051ea62c2eeeeb32398fdf17057d345297e",
+    "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+    "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+  },
+  "source": {
+    "path": "production/small-life-batch106/monograptus/r005/artifacts/monograptus.blend",
+    "sha256": "6ca1d510d2784d03281975e6cf089f3da3c8c087f61ff7111654a7b3172ee94b"
+  },
+  "generator": {
+    "path": "production/small-life-batch106/tools/repair-monograptus-r005.py",
+    "sha256": "16605f74301246fc3c9f987f050fcb21f1dcce5267dd5aea0913129ba11594c9"
+  },
+  "config": {
+    "path": "production/small-life-batch106/monograptus/r005/config.json",
+    "sha256": "9e8e48b1b7bd88e55ec9c4641e61c2e0a52138cda091564243b64c55486dcad1"
+  },
+  "dependency_closure": {
+    "path": "production/small-life-batch106/monograptus/r005/build-dependencies.json",
+    "sha256": "85dbffd2002c0a2dee5cc6904c4a6ae121e69273a596f82edb46944af6777c8e",
+    "bytes": 7095
+  },
+  "repair": "Retained all original vertices and exposed sides. Relocated only the hidden six-vertex basal cap by adding six new vertices and six hidden quads inside unchanged stipe. Original 3088 triangles become3100; 3084 exact decoded position/normal/material triangles unchanged, four old hidden cap triangles replaced by sixteen hidden triangles.",
+  "proofs": [
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/hidden-base-difference-and-solid-proof.json",
+      "sha256": "1c3d2bb2eab4df74711779be35b3c172b7c85f33710b4c2807137bb3e165e32c",
+      "bytes": 64987
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/decoded-glb-difference.json",
+      "sha256": "687db1b669edff86946b4997e0ccbbca2c53994b7c0edd9fe92b62909f4ec9b0",
+      "bytes": 15888
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/boundary-regression.json",
+      "sha256": "2bd016a0ada2419119273e2688732f4b5161f73f445ddae3aaf4f12a0c4db7ae",
+      "bytes": 2035
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/historical-qa-identity.json",
+      "sha256": "c2b54ca27f781a83ffc66527bcc88fc2959c7cecf0ff5a2b6a42e9b26601c967",
+      "bytes": 9764
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/other-three-byte-identity.json",
+      "sha256": "3828f636985370aa88c633c7bef0949a66d2bd705a9fbccc59ded81d9ae1e8d2",
+      "bytes": 36011
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/maker-pixel-review.json",
+      "sha256": "5a66a78667800e625ff51aa1258508135e611edcaf37888b857eafd5961e0985",
+      "bytes": 4157
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r005/qa/project-validation.json",
+      "sha256": "0332bc0998f541c0e92d7798c953a95040fb3cd6217b16104088ad109c95ce4b",
+      "bytes": 4416
+    }
+  ],
+  "chronology": "Original freeze and original independent technical REVISE retained. v001 generator stopped before export on vertex-group reset. Corrected generator produced exact final artifacts; two real separately queued rebuilds and source reopen-export byte-match. First attempted boundary guard exposed float32 centroid roundoff and is retained as failed diagnostic. Final float64 solid classifier correctly rejects original r004 nema boundary contact and accepts r005 actual interior. Eight final512 frames, lossless sheet and full-scene junction detail personally viewed.",
+  "historical_pass_scope": "Original r004 visual/factual/specification PASS preserved by exact unchanged source vertices, decoded exposed triangles, materials, transforms, brief/references/freeze. It is historical identity, not new independent acceptance. All171 tracked files under other three assets byte-identical.",
+  "gpu": "UNKNOWN",
+  "scene": "UNKNOWN",
+  "counter_change": 0,
+  "remote_action": "none; no push, PR, merge, deployment, or public source URL for r005",
+  "raw_local_only": "/workspace/shared/lowpoly-batch106-monograptus-repair-evidence",
+  "payload_manifest": "necessary-payload-manifest.json",
+  "ignored_log_whitelist": [],
+  "next_independent_review": "Check exact original separating-plane defect versus r005 strict shared-interior witness; review full-source and decoded-GLB delta and other-three identity; independently reopen/rebuild/runtime validate and inspect changed junction and eight views. Preserve original historical QA as exact identity, never call maker checks acceptance."
+}
