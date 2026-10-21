@@ -156,6 +156,58 @@ export async function runGalleryBrowserTests({groups=defaultGroups,root=resolve(
         await page.mouse.move(1400,20);await page.waitForFunction(()=>window.__gallery.renderer.stats.hoverId===null);
         assert.equal(await page.locator('#detail-poster').getAttribute('data-model-id'),selected);row.hovered=id;
       });
+      async function rotating(page,id){
+        await page.waitForFunction(id=>{const r=window.__gallery.renderer,h=r.hover;return r.stats.hoverFirstFrameId===id&&h?.host?.dataset.hoverState==='rotating'&&h.presentation?.mix===1;},id,{timeout:30000});
+        const angle=await page.evaluate(()=>window.__gallery.renderer.stats.hoverAngle);
+        await page.waitForFunction(angle=>Math.abs(window.__gallery.renderer.stats.hoverAngle-angle)>.01,angle);
+      }
+      async function detailIdentity(page){return page.evaluate(()=>{const r=window.__gallery.renderer;return {selected:window.__gallery.state.selected,live:r.stats.detailId,poster:document.querySelector('#detail-poster').dataset.modelId,pose:r.viewState(),renderers:document.querySelectorAll('canvas.preview-renderer').length};});}
+      await test('hover-stationary-wheel-settle-recovery',async({page,row})=>{
+        const selected=await page.evaluate(()=>window.__gallery.state.selected),slot=page.locator(`#slots [data-id="${selected}"] .slot-image`);
+        await slot.hover();await rotating(page,selected);
+        const before=await detailIdentity(page),point=await slot.evaluate(el=>{const r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};});
+        const scroll=await page.locator('#wheel').evaluate(el=>el.scrollTop);
+        await page.evaluate(()=>{window.__hoverScrollStops=[];document.querySelector('#wheel').addEventListener('scroll',()=>window.__hoverScrollStops.push(window.__gallery.renderer.stats.hoverId),{passive:true});});
+        // No mouse move/hover after this input: recovery must come from settling.
+        await page.mouse.wheel(0,128);
+        await page.waitForFunction(previous=>document.querySelector('#wheel').scrollTop!==previous,scroll);
+        await page.waitForFunction(()=>window.__gallery.settler.state==='idle');
+        const hovered=await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.closest('.slot')?.dataset.id,point);
+        assert(hovered&&hovered!==selected,'Native scrolling puts a different visible card under the stationary pointer');
+        const paused=await page.evaluate(()=>window.__hoverScrollStops);assert(paused.length&&paused.every(id=>id===null),'Every native/snap scroll pauses the hover');
+        await rotating(page,hovered);
+        assert.deepEqual(await detailIdentity(page),before,'Hover rotation cannot change the right-hand model, pose or renderer count');
+        row.stationaryPoint=point;row.selected=selected;row.recovered=hovered;
+      });
+      for(const action of ['stay','leave','cancel'])await test(`hover-slow-selection-${action}`,async({page,row})=>{
+        const asset=assets.find(a=>a.id!==initial.id),url=new URL(asset.glb,baseURL).href;
+        let release,arrived;const held=new Promise(done=>release=done),requested=new Promise(done=>arrived=done);
+        await page.route(url,async route=>{arrived();await held;await route.continue().catch(()=>{});});
+        try{
+          await search(page,asset.id);
+          // Click without first waiting for hover, so this GLB is still cold.
+          await page.locator(`#slots [data-id="${asset.id}"] .slot-image`).click();
+          await Promise.race([requested,new Promise((_,reject)=>setTimeout(()=>reject(new Error('Held GLB was not requested')),20000))]);
+          await page.waitForTimeout(450);
+          assert.equal(await page.locator('#detail').getAttribute('data-state'),'loading');
+          assert.equal(await page.evaluate(()=>window.__gallery.renderer.stats.hoverId),null);
+          if(action==='leave')await page.mouse.move(1400,20);
+          if(action==='cancel')await page.locator('#wheel').dispatchEvent('pointercancel',{pointerType:'mouse',bubbles:true});
+          release();await ready(page,asset.id);
+          const before=await detailIdentity(page);
+          if(action==='stay'){
+            // No pointer input since click: matching selection readiness restores hover.
+            await rotating(page,asset.id);
+            await page.waitForTimeout(150);
+            assert.deepEqual(await detailIdentity(page),before,'Selected-card hover leaves the right-hand pose unchanged');
+          }else{
+            await page.waitForTimeout(750);
+            assert.equal(await page.evaluate(()=>window.__gallery.renderer.stats.hoverId),null,'Cancelled intent cannot restart after the delayed GLB completes');
+            assert.equal(await page.locator('.hover-surface').count(),0);
+          }
+          const identity=await detailIdentity(page);assert.equal(identity.selected,asset.id);assert.equal(identity.live,asset.id);assert.equal(identity.poster,asset.id);assert.equal(identity.renderers,1);row.identity=identity;
+        }finally{release();await page.unroute(url);}
+      });
       await test('selected-poster-live-and-repeat-supersession',async({page,row})=>{
         const late=assets.find(a=>a.id!==initial.id&&a.id!==last.id),latest=last.id;let release,requested;
         const held=new Promise(done=>release=done),arrived=new Promise(done=>requested=done),url=new URL(late.glb,baseURL).href;
