@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "distinct_real_blender_pids": [
+    260,
+    283
+  ],
+  "two_separate_executed_builds": true,
+  "queue_runs": [
+    {
+      "run": "a",
+      "pid": 260,
+      "request": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-a/request.json",
+        "sha256": "02e54b0233cf9bfc19b2a9de6d8779a0161c914583658546b06a26e001d3c441"
+      },
+      "result": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-a/result.json",
+        "sha256": "b3d6b745d952376630c6b462ec7093dbfcf0798d78edae63647d6c269687b5e3"
+      },
+      "execution": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-a/execution.json",
+        "sha256": "48e0049c4f65ce1a0da0cf7a2f222124eef1a06cbb05968bb4115bb257a90c28"
+      }
+    },
+    {
+      "run": "b",
+      "pid": 283,
+      "request": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-b/request.json",
+        "sha256": "b43eac5c2970eed39a641899df8ab1d1f98fac51844b4af64e82088f9e07bf2e"
+      },
+      "result": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-b/result.json",
+        "sha256": "a5d1541b72c93b0768db095241a327e0d855020c6b259e59a12041535351a71b"
+      },
+      "execution": {
+        "path": "production/small-life-batch103/plenocaris/r001/qa/rebuild-b/execution.json",
+        "sha256": "41f79af9c0f67f5a98c3c496860a080e638eff2e09f4630b4a3e1e9785ebac5b"
+      }
+    }
+  ],
+  "each_has_blocking_global_flock_and_threads2": true,
+  "semantic_equality": "pass; raw build and comparator reports pinned",
+  "not_independent_qa": true
+}

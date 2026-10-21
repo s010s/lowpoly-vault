@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+    "brief_sha256": "be63d9e1363ad6dafbeb28cdb084126afc7ce865cba50ea5c667fa9164a12276",
+    "references_sha256": "ff1ec52359e624bae366eb0d74efb2a8c361c0ad3d37b7a784fee6aade6781f3"
+  },
+  "status": "pass",
+  "method": "Exact final GLB audit and original triangle winding, Khronos validation, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space dimensions and contacts, and dense full-scene component exposure.",
+  "observations": [
+    "All technical checks pass with zero source warnings. No diagnostic weld or normal recalculation changes the original delivery or replaces original proof.",
+    "Exposure uses vertices and seven barycentric triangle samples with rays against every other component. No arbitrary exposure-percent cutoff. Geometric exposure is not a guarantee of512px readability."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 5948,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 351528,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+      "report": {
+        "path": "production/small-life-batch103/habelia/r001/qa/static-glb.report.json",
+        "sha256": "2ccb978ceb1cd6dee8508fa04564107339ddf0750214ba2514f4770ec4292cd5"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+      "report": {
+        "path": "production/small-life-batch103/habelia/r001/artifacts/gltf-validator.report.json",
+        "sha256": "e026707ff7d00ffe25a550cd3b3c728746b2eb24c2ecb829fd121bdf0de61662"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+      "report": {
+        "path": "production/small-life-batch103/habelia/r001/qa/source-export.report.json",
+        "sha256": "881e42977139063013230cdbbba69a1781f0f5d8020c224df1645c335ef01ad7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+      "report": {
+        "path": "production/small-life-batch103/habelia/r001/qa/reproducibility-a.report.json",
+        "sha256": "799d1c7730b2b91c30941dd1a3d33e50b2a2bcc6a5f32139afd0649967e871c1"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+      "report": {
+        "path": "production/small-life-batch103/habelia/r001/qa/reproducibility-b.report.json",
+        "sha256": "b79af6e391a49a82dd471ba1fb61f89fbcc1434dfab1839ce6c79d09a49c74f6"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "original_winding_report": {
+    "path": "production/small-life-batch103/habelia/r001/qa/original-winding.report.json",
+    "sha256": "1e7e952778c4f12daf42f921e7b39bdfd9487d599f734be590685283b35cae06"
+  },
+  "component_contact_exposure_report": {
+    "path": "production/small-life-batch103/habelia/r001/qa/component-contact-exposure.report.json",
+    "sha256": "85ab1f4bd884f71546ce8bf4b4e8db231da597837b40982ae47cd2352c041ce9"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.005417204461991787,
+      0.0,
+      -0.01934603974223137
+    ],
+    "max": [
+      0.005417204461991787,
+      0.0068119242787361145,
+      0.01934603974223137
+    ],
+    "size": [
+      0.010834408923983574,
+      0.0068119242787361145,
+      0.03869207948446274
+    ]
+  },
+  "created_at": "2026-10-21T03:05:53.786570+00:00"
+}

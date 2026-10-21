@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "asset_id": "plenocaris",
+  "brief_version": "delivery-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism candidate; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Original closed consistently-wound component solids; project/Khronos,source reopen,two distinctPID semantic rebuilds; measured transformed bounds/contact/globalexposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect all eight separate512frames plus sheet, required anatomy readable globally. Retain short bivalved shield and13exposed abdominal rings plus two separated broad paddles. Do not copy concept uncertain number of rings or elaborate paddlelegs. Implement three simple anterior limb pairs as declared choice; antenna10segments approximate. Color artistic.",
+      "required_sources": [
+        "ROM-PLENOCARIS",
+        "ROM-PERSPICARIS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Two short carapace valves enclose only head and short thorax, long exposed thirteen-ring limbless abdomen. Two segmented anterior antennae with small ventral spines and paired eyes. Three small anterior limb pairs below shield, no abdominal legs. One pair of broad paddle-shaped terminal caudal rami, contrasting Perspicaris narrow forked tail and seven abdominal segments. Whole-animal evidence-bounded reconstruction from ROM61125 and USNM57700. Museum describes2–4limbpairs and13abdomen segments. Three simplified limb pairs chosen within range, not an established exact count. Fine head/limb architecture unresolved; do not borrow from other genera.",
+      "required_sources": [
+        "ROM-PLENOCARIS",
+        "ROM-PERSPICARIS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/source/concept freeze; no retrospective requirements changes.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware renderer test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intendedscene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact-bound views and lossless contact sheet; targeted details supplement when fine anatomy needs them.",
+  "frozen_at": "2026-10-21T02:48:41.112329+00:00",
+  "subject": "Plenocaris plena low-poly whole-organism study",
+  "taxon": "Plenocaris plena",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole-animal evidence-bounded reconstruction from ROM61125 and USNM57700. Museum describes2–4limbpairs and13abdomen segments. Three simplified limb pairs chosen within range, not an established exact count. Fine head/limb architecture unresolved; do not borrow from other genera.",
+  "identifying_features": [
+    "Two short carapace valves enclose only head and short thorax, long exposed thirteen-ring limbless abdomen.",
+    "Two segmented anterior antennae with small ventral spines and paired eyes.",
+    "Three small anterior limb pairs below shield, no abdominal legs.",
+    "One pair of broad paddle-shaped terminal caudal rami, contrasting Perspicaris narrow forked tail and seven abdominal segments."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.0055,
+      0.017,
+      0.004
+    ],
+    "interpretation": "Nominal artistic targets, not invented hard tolerances. Actual component geometry and true source limits measured. No global normalization to pass."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted closed solids, no alpha cards,textures,emission,double-sided concealment. Actual original component winding audited without diagnostic repair.",
+  "palette_srgb": [
+    "#BB7938",
+    "#E0A855",
+    "#8D582D",
+    "#D8B16C",
+    "#292E2A"
+  ],
+  "parameters": {
+    "carapace_length_m": 0.003,
+    "carapace_width_m": 0.0028,
+    "abdomen_length_m": 0.008,
+    "abdomen_segments": 13,
+    "anterior_limb_pairs": 3,
+    "antenna_pairs": 1,
+    "antenna_segments": 10,
+    "caudal_rami_count": 2,
+    "caudal_ramulus_length_m": 0.002,
+    "caudal_ramulus_width_m": 0.0012,
+    "body_center_z_m": 0.0019
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "Modeled totalspan must not exceed17mm museum maximum.",
+    "Exactly13abdomen segments;2caudal paddles;2antennae;3anterior legpairs is chosen inside observed2–4range.",
+    "No limbs on exposed abdomen; no unsupported greatappendages."
+  ],
+  "numeric_semantics": "Source-backed counts and maximum biological size are hard boundaries. All other precise nominaldimensions and minute ornamental sampling counts are artistic implementation choices; report actualtransformed values.",
+  "component_measurement_contract": "Individually labeled editable semantic vertexgroups, actual transformed component dimensions/counts/topology and contact. Contact proof uses actualtriangles/inside tests, notAABB.",
+  "contact_policy": "Dense surface and triangle tests against all relevant solids plus targeted exactpixels. Requiredparts cannot be effectively swallowed; no arbitrary exposurepercentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T02:48:41.112329+00:00",
+    "path": "production/small-life-batch103/concepts/plenocaris-concept.png",
+    "sha256": "3f4fe1ecf02e4134b53b6e65b596e5223afbca3d7e37d33424fed61d28de8e86",
+    "decisions": "Retain short bivalved shield and13exposed abdominal rings plus two separated broad paddles. Do not copy concept uncertain number of rings or elaborate paddlelegs. Implement three simple anterior limb pairs as declared choice; antenna10segments approximate. Color artistic."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "deterministicgenerator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andlosslesssheet",
+    "sevenseparate honeststagestates"
+  ],
+  "original_frozen_brief": {
+    "path": "production/small-life-batch103/plenocaris/r001/original-brief.json",
+    "sha256": "e8108d453abb42df1593454f6387ba745ec28ca3e745302c11b0d6a8a7e4b33f"
+  },
+  "delivery_bound_at": "2026-10-21T03:00:37.277082+00:00",
+  "delivery_note": "Derived by adding delivery identities only. Original anatomy, scope, budgets, criteria, numeric semantics and immutable freeze remain unchanged.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch103/plenocaris/r001/artifacts/plenocaris.blend",
+      "sha256": "7dece6bedba4a1d4cfce4ea421edb21bbcc282c1e3928e8c035b88b0864ed322"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch103/tools/generate-r004.py",
+      "sha256": "e01e0de4df51e620dd679e01b9365e068f998ed06ba9f565ec798878728a1a1a"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch103/plenocaris/r001/config.json",
+      "sha256": "91a166117e4567b75bbdfe501022212f9e405cf2fe5c216e2951605e52351fd5"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch103/dependencies.json",
+      "sha256": "3eaf30088fda3dd078f35d7e6a10eceebcb494146742b3d88e91ddd634864b01"
+    }
+  ]
+}

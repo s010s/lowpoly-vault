@@ -1,0 +1,140 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py",
+    "--",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/artifacts/plenocaris.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch103-evidence/queue/render/plenocaris/r001/head-appendage-detail/f728af0b979007d3623368a9c90ed1fcb9e136c9897c16910851de82ce6f8134/20261021T030354-ef46b9fe531f4a2b87d2bcdceb9e212e/outputs/views",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "detail",
+    "--detail-target",
+    "0.5,0.270269144245453,0.5707752294620684",
+    "--detail-scale",
+    "0.32"
+  ],
+  "created_at": "2026-10-21T03:03:54.817622+00:00",
+  "fingerprint": "f728af0b979007d3623368a9c90ed1fcb9e136c9897c16910851de82ce6f8134",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8792,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/delivery-brief.json",
+        "sha256": "ffd15a76900264b02a94e6dee7689b87e8db7a875fc39fc3a258ea9cd83cc6c1"
+      },
+      "glb": {
+        "bytes": 115884,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/artifacts/plenocaris.glb",
+        "sha256": "9bcbe1950ec0fb4fcb6109bb1973c869402a9f47e59a89b6b75e40062dbb941e"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2938,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/references.json",
+        "sha256": "868feaab34ae9118e045e24c5b96b4847a083eb7787a2aa3aa2d6cc7c7c061de"
+      },
+      "renderer": {
+        "bytes": 16211,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py",
+        "sha256": "b88d7873610d320aaf541f78865d15adc7b0855a016f7a63913c61f9f42be286"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.5,0.270269144245453,0.5707752294620684",
+        "--detail-scale",
+        "0.32"
+      ],
+      "asset_id": "plenocaris",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch103-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/artifacts/plenocaris.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch103-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/plenocaris/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py"
+      },
+      "job_id": "head-appendage-detail",
+      "outputs": [
+        "views/detail.png",
+        "views/render-manifest.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T030341-80771ec40ee645569d31a521c21f3cf2"
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "asset_id": "habelia",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism candidate; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Original closed consistently-wound component solids; project/Khronos,source reopen,two distinctPID semantic rebuilds; measured transformed bounds/contact/globalexposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect all eight separate512frames plus sheet, required anatomy readable globally. Keep warm armor and long two-part telson. Correct concept variable tergite/leg counts with explicit source-backed12/5/7. Retain five cephalic raptorial pairs and separate sensory exopods, not vague bristles. Paired dorsal spines, not single median ridge. Simplify minute setae without copying noisy surface.",
+      "required_sources": [
+        "ARIA2017",
+        "ARIA2018"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Tuberculate head shield, two sessile lateral eyes, twelve trunk tergites with paired dorsal/lateral spines. Five thoracic biramous limb pairs, seven posterior exopod pairs without invented posterior walking legs. Five cephalic gnathobase/raptorial limb pairs with fine exopods, reduced anterior pair and one intermediary thoracic-like pair. Very long bipartite telson, proximal piece three times distal, near head+trunk length. Burgess morphA living reconstruction informed by USNM57693 and ROMIP64359. Preserve distinct cephalon/thorax/post-thorax and bipartite telson. Minute setae simplified, colors and thickness inferred. No H.brevicauda or morphB mixture.",
+      "required_sources": [
+        "ARIA2017",
+        "ARIA2018"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/source/concept freeze; no retrospective requirements changes.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware renderer test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intendedscene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact-bound views and lossless contact sheet; targeted details supplement when fine anatomy needs them.",
+  "frozen_at": "2026-10-21T02:48:41.112329+00:00",
+  "subject": "Habelia optata, morph A low-poly whole-organism study",
+  "taxon": "Habelia optata, morph A",
+  "representation": "living-reconstruction",
+  "factual_scope": "Burgess morphA living reconstruction informed by USNM57693 and ROMIP64359. Preserve distinct cephalon/thorax/post-thorax and bipartite telson. Minute setae simplified, colors and thickness inferred. No H.brevicauda or morphB mixture.",
+  "identifying_features": [
+    "Tuberculate head shield, two sessile lateral eyes, twelve trunk tergites with paired dorsal/lateral spines.",
+    "Five thoracic biramous limb pairs, seven posterior exopod pairs without invented posterior walking legs.",
+    "Five cephalic gnathobase/raptorial limb pairs with fine exopods, reduced anterior pair and one intermediary thoracic-like pair.",
+    "Very long bipartite telson, proximal piece three times distal, near head+trunk length."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.012,
+      0.042,
+      0.008
+    ],
+    "interpretation": "Nominal artistic targets, not invented hard tolerances. Actual component geometry and true source limits measured. No global normalization to pass."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted closed solids, no alpha cards,textures,emission,double-sided concealment. Actual original component winding audited without diagnostic repair.",
+  "palette_srgb": [
+    "#9C6C3F",
+    "#C49B60",
+    "#735338",
+    "#D0B57B",
+    "#252C29"
+  ],
+  "parameters": {
+    "head_length_m": 0.0038,
+    "trunk_length_m": 0.013,
+    "trunk_segments": 12,
+    "thoracic_leg_pairs": 5,
+    "posterior_exopod_pairs": 7,
+    "cephalic_gnathobase_pairs": 5,
+    "cephalic_exopod_pairs": 5,
+    "reduced_anterior_pairs": 1,
+    "intermediary_pairs": 1,
+    "head_width_m": 0.00475,
+    "telson_proximal_length_m": 0.01335,
+    "telson_distal_length_m": 0.00445,
+    "tubercle_count": 18,
+    "body_center_z_m": 0.0038
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "head+trunk length must remain8.5–34mm; telson subequal or slightly longer, not a new arbitrary numeric tolerance.",
+    "Exactly12trunk tergites,5thoracic legpairs,7posterior exopodpairs,5cephalic gnathobasepairs,2telson pieces.",
+    "All stated limb categories represented; microscopic setae counts are simplified artistic samples."
+  ],
+  "numeric_semantics": "Source-backed counts and maximum biological size are hard boundaries. All other precise nominaldimensions and minute ornamental sampling counts are artistic implementation choices; report actualtransformed values.",
+  "component_measurement_contract": "Individually labeled editable semantic vertexgroups, actual transformed component dimensions/counts/topology and contact. Contact proof uses actualtriangles/inside tests, notAABB.",
+  "contact_policy": "Dense surface and triangle tests against all relevant solids plus targeted exactpixels. Requiredparts cannot be effectively swallowed; no arbitrary exposurepercentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T02:48:41.112329+00:00",
+    "path": "production/small-life-batch103/concepts/habelia-concept.png",
+    "sha256": "ca4424b2efffbf8f1f2fc5788500bb5f60ba38c9647c5a440e933977d35b4398",
+    "decisions": "Keep warm armor and long two-part telson. Correct concept variable tergite/leg counts with explicit source-backed12/5/7. Retain five cephalic raptorial pairs and separate sensory exopods, not vague bristles. Paired dorsal spines, not single median ridge. Simplify minute setae without copying noisy surface."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "deterministicgenerator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andlosslesssheet",
+    "sevenseparate honeststagestates"
+  ]
+}

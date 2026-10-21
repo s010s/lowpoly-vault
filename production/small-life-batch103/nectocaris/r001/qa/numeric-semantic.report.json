@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "43b097e7db51e9318e8d86c6cbd1033f3392d64f12414959009a70c2a1601d42",
+    "brief_sha256": "4b9ebca12f6126b88357050c5c4d91e7c77954a987ff0d9a6acb98a351da590e",
+    "references_sha256": "98c55fb8ca596abd6a25d52b24d3ebcaec68bcfb0909647e46a858297d8b3cf2"
+  },
+  "status": "pass",
+  "source_sha256": "5a1caa16c8fd236fb69128fd54bc49d564fc23de8defefcb9b1f39214011c862",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "trunk": 1,
+    "lateral_fin": 2,
+    "lateral_eye": 2,
+    "antenna": 2,
+    "flared_tubular_mouth": 1
+  },
+  "observed_counts": {
+    "trunk": 1,
+    "head": 1,
+    "lateral_fin": 2,
+    "eye_stalk": 2,
+    "lateral_eye": 2,
+    "antenna": 2,
+    "flared_tubular_mouth": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "trunk",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "lateral_fin",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "lateral_eye",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "antenna",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "flared_tubular_mouth",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "maximum_observed_size_m": 0.072,
+      "actual_total_largest_span_m": 0.05490735173225403,
+      "pass": true
+    }
+  ],
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch103/nectocaris/r001/qa/component-contact-exposure.report.json",
+    "sha256": "500ec230a0adc1e69b97d73ad7fb0782f299443f703c9781d1741da0ce5e62c1"
+  },
+  "additional_ribbon_proof": null,
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

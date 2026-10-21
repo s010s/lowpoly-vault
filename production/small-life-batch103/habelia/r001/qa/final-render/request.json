@@ -1,0 +1,139 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py",
+    "--",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/artifacts/habelia.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch103-evidence/queue/render/habelia/r001/final-evidence/8a3435489ea42fea0bb4ab6585dc98eeaebc16a89e59a67cb19a6cdb72b66dfb/20261021T030154-cfd83662a5ef4f4fa178f6a47519c6da/outputs/views",
+    "--revision",
+    "r001",
+    "--brief",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "hero,reversehero,front,side,rear,top,clay,silhouette"
+  ],
+  "created_at": "2026-10-21T03:01:54.487909+00:00",
+  "fingerprint": "8a3435489ea42fea0bb4ab6585dc98eeaebc16a89e59a67cb19a6cdb72b66dfb",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 9044,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/delivery-brief.json",
+        "sha256": "be63d9e1363ad6dafbeb28cdb084126afc7ce865cba50ea5c667fa9164a12276"
+      },
+      "glb": {
+        "bytes": 351528,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/artifacts/habelia.glb",
+        "sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2649,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/references.json",
+        "sha256": "ff1ec52359e624bae366eb0d74efb2a8c361c0ad3d37b7a784fee6aade6781f3"
+      },
+      "renderer": {
+        "bytes": 16211,
+        "path": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py",
+        "sha256": "b88d7873610d320aaf541f78865d15adc7b0855a016f7a63913c61f9f42be286"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r001",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "hero,reversehero,front,side,rear,top,clay,silhouette"
+      ],
+      "asset_id": "habelia",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch103-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/artifacts/habelia.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch103-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/habelia/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch103-20261021/production/small-life-batch103/tools/render.py"
+      },
+      "job_id": "final-evidence",
+      "outputs": [
+        "views/hero.png",
+        "views/reversehero.png",
+        "views/front.png",
+        "views/side.png",
+        "views/rear.png",
+        "views/top.png",
+        "views/clay.png",
+        "views/silhouette.png",
+        "views/render-manifest.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T030154-e5580d1ee142475395ab7b7d39bb9609"
+}

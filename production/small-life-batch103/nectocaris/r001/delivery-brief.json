@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "asset_id": "nectocaris",
+  "brief_version": "delivery-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism candidate; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Original closed consistently-wound component solids; project/Khronos,source reopen,two distinctPID semantic rebuilds; measured transformed bounds/contact/globalexposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect all eight separate512frames plus sheet, required anatomy readable globally. Retain matte kite-body,continuousfins,eyes and narrowantennae. Concept mouth is blunt/snouted; actual mouth must flare outward with visibly recessed lumen beneath anteriorhead. Do not expose internaljaws or add distinct tail. Finrelief artistic sampling, not observed raycount.",
+      "required_sources": [
+        "VINTHER2025",
+        "ROM-NECTOCARIS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Shallow elongated kite trunk with continuous paired lateral fins extending to tapered rear. Fine transverse fin-ray relief; no separate caudal stalk or fin. Narrow head with paired stalked eyes and two forward sensory antennae. Flared tubular anterior mouth with recessed open lumen, no exposed jaw crown. N.pteryx exterior reconstruction under2025 nectocaridid chaetognath-stem interpretation. Internal jaws are not exposed external ornaments. No Nektognathus caudal region; no cephalopod arms, jet propulsion or gill claim. Tube-like mouth supported; suction feeding tentative.",
+      "required_sources": [
+        "VINTHER2025",
+        "ROM-NECTOCARIS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/source/concept freeze; no retrospective requirements changes.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware renderer test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intendedscene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact-bound views and lossless contact sheet; targeted details supplement when fine anatomy needs them.",
+  "frozen_at": "2026-10-21T02:48:41.112329+00:00",
+  "subject": "Nectocaris pteryx low-poly whole-organism study",
+  "taxon": "Nectocaris pteryx",
+  "representation": "living-reconstruction",
+  "factual_scope": "N.pteryx exterior reconstruction under2025 nectocaridid chaetognath-stem interpretation. Internal jaws are not exposed external ornaments. No Nektognathus caudal region; no cephalopod arms, jet propulsion or gill claim. Tube-like mouth supported; suction feeding tentative.",
+  "identifying_features": [
+    "Shallow elongated kite trunk with continuous paired lateral fins extending to tapered rear.",
+    "Fine transverse fin-ray relief; no separate caudal stalk or fin.",
+    "Narrow head with paired stalked eyes and two forward sensory antennae.",
+    "Flared tubular anterior mouth with recessed open lumen, no exposed jaw crown."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.023,
+      0.06,
+      0.008
+    ],
+    "interpretation": "Nominal artistic targets, not invented hard tolerances. Actual component geometry and true source limits measured. No global normalization to pass."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted closed solids, no alpha cards,textures,emission,double-sided concealment. Actual original component winding audited without diagnostic repair.",
+  "palette_srgb": [
+    "#718B7C",
+    "#A2B3A0",
+    "#BDB083",
+    "#3F625E",
+    "#202C2D"
+  ],
+  "parameters": {
+    "trunk_length_m": 0.034,
+    "trunk_width_m": 0.01,
+    "fin_span_m": 0.019,
+    "trunk_thickness_m": 0.004,
+    "head_length_m": 0.005,
+    "antenna_length_m": 0.017,
+    "eye_count": 2,
+    "antenna_count": 2,
+    "fin_count": 2,
+    "ray_count_per_fin": 14,
+    "mouth_length_m": 0.003,
+    "mouth_aperture_diameter_m": 0.0022,
+    "body_center_z_m": 0.004
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "Modeled entire span includingantennae must not exceed72mm museum observedmaximum.",
+    "Twoeyes,twoantennae,twocontinuouslateral fins,oneflaredmouth. No exposed internaljaws,no distinctcaudalregion.",
+    "Finray counts,color,thickness and posture artistic; do not label as measured fossil values."
+  ],
+  "numeric_semantics": "Source-backed counts and maximum biological size are hard boundaries. All other precise nominaldimensions and minute ornamental sampling counts are artistic implementation choices; report actualtransformed values.",
+  "component_measurement_contract": "Individually labeled editable semantic vertexgroups, actual transformed component dimensions/counts/topology and contact. Contact proof uses actualtriangles/inside tests, notAABB.",
+  "contact_policy": "Dense surface and triangle tests against all relevant solids plus targeted exactpixels. Requiredparts cannot be effectively swallowed; no arbitrary exposurepercentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T02:48:41.112329+00:00",
+    "path": "production/small-life-batch103/concepts/nectocaris-concept.png",
+    "sha256": "83ca54552dac00b2acfc30d687d837e4e807177a5496632c25fd714c85cc5cee",
+    "decisions": "Retain matte kite-body,continuousfins,eyes and narrowantennae. Concept mouth is blunt/snouted; actual mouth must flare outward with visibly recessed lumen beneath anteriorhead. Do not expose internaljaws or add distinct tail. Finrelief artistic sampling, not observed raycount."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "deterministicgenerator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andlosslesssheet",
+    "sevenseparate honeststagestates"
+  ],
+  "original_frozen_brief": {
+    "path": "production/small-life-batch103/nectocaris/r001/original-brief.json",
+    "sha256": "cc20d228ab2f63e35aa325c373f8464cf5010732ca34421250a2444591d841c2"
+  },
+  "delivery_bound_at": "2026-10-21T03:00:37.285493+00:00",
+  "delivery_note": "Derived by adding delivery identities only. Original anatomy, scope, budgets, criteria, numeric semantics and immutable freeze remain unchanged.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch103/nectocaris/r001/artifacts/nectocaris.blend",
+      "sha256": "5a1caa16c8fd236fb69128fd54bc49d564fc23de8defefcb9b1f39214011c862"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch103/tools/generate-r001.py",
+      "sha256": "05077a8e9f9a099e97e2eb208958460fab66e10ec8e008610ab720262332829b"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch103/nectocaris/r001/config.json",
+      "sha256": "d157d06e31b9759d46f5e094855ec87b1c65c705bc0caa36545b7c3bad4a76bf"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch103/dependencies.json",
+      "sha256": "3eaf30088fda3dd078f35d7e6a10eceebcb494146742b3d88e91ddd634864b01"
+    }
+  ]
+}

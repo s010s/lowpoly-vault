@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "798d149d78c34a5a2bf10694ca2a5a4f7dd07dc3cac47acb1e048afb6e4b6d90",
+    "brief_sha256": "be63d9e1363ad6dafbeb28cdb084126afc7ce865cba50ea5c667fa9164a12276",
+    "references_sha256": "ff1ec52359e624bae366eb0d74efb2a8c361c0ad3d37b7a784fee6aade6781f3"
+  },
+  "status": "pass",
+  "source_sha256": "f1def4abb12c0d962b261128b430f36de8c4c1a1222b54d5fa61cf5933a016f8",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "trunk_tergite": 12,
+    "walking_leg": 10,
+    "posterior_exopod": 14,
+    "gnathobase": 10,
+    "cephalic_raptorial": 10,
+    "cephalic_exopod": 10,
+    "head_walking_leg": 2,
+    "reduced_anterior_appendage": 2,
+    "telson_proximal": 1,
+    "telson_distal": 1,
+    "head_tubercle": 18
+  },
+  "observed_counts": {
+    "head_shield": 1,
+    "lateral_eye": 2,
+    "head_tubercle": 18,
+    "trunk_tergite": 12,
+    "dorsal_spine": 24,
+    "pleural_spine": 24,
+    "walking_leg": 10,
+    "thoracic_exopod": 10,
+    "exopod_fringe": 36,
+    "posterior_exopod": 14,
+    "gnathobase": 10,
+    "cephalic_raptorial": 10,
+    "raptorial_endite": 20,
+    "cephalic_exopod": 10,
+    "reduced_anterior_appendage": 2,
+    "head_walking_leg": 2,
+    "head_exopod": 2,
+    "telson_proximal": 1,
+    "telson_distal": 1,
+    "telson_spine": 16
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "trunk_tergite",
+      "required_count": 12,
+      "actual_nonempty_components": 12,
+      "pass": true
+    },
+    {
+      "kind": "walking_leg",
+      "required_count": 10,
+      "actual_nonempty_components": 10,
+      "pass": true
+    },
+    {
+      "kind": "posterior_exopod",
+      "required_count": 14,
+      "actual_nonempty_components": 14,
+      "pass": true
+    },
+    {
+      "kind": "gnathobase",
+      "required_count": 10,
+      "actual_nonempty_components": 10,
+      "pass": true
+    },
+    {
+      "kind": "cephalic_raptorial",
+      "required_count": 10,
+      "actual_nonempty_components": 10,
+      "pass": true
+    },
+    {
+      "kind": "cephalic_exopod",
+      "required_count": 10,
+      "actual_nonempty_components": 10,
+      "pass": true
+    },
+    {
+      "kind": "head_walking_leg",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "reduced_anterior_appendage",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "telson_proximal",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "telson_distal",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "head_tubercle",
+      "required_count": 18,
+      "actual_nonempty_components": 18,
+      "pass": true
+    },
+    {
+      "actual_head_plus_trunk_m": 0.01681249961256981,
+      "hard_range_m": [
+        0.0085,
+        0.034
+      ],
+      "actual_telson_span_m": 0.017800334841012955,
+      "telson_to_body_ratio": 1.0587560000717915,
+      "qualitative_requirement": "subequal or slightly longer; inspect actual values, no invented tolerance"
+    }
+  ],
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch103/habelia/r001/qa/component-contact-exposure.report.json",
+    "sha256": "85ab1f4bd884f71546ce8bf4b4e8db231da597837b40982ae47cd2352c041ce9"
+  },
+  "additional_ribbon_proof": null,
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}

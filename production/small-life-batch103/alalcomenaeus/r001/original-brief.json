@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "asset_id": "alalcomenaeus",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism candidate; maker selftests are not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Original closed consistently-wound component solids; project/Khronos,source reopen,two distinctPID semantic rebuilds; measured transformed bounds/contact/globalexposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect all eight separate512frames plus sheet, required anatomy readable globally. Retain compact shield and downturned flanks with wide spatulate tail. Concept front appears2flagella at some angles; implement3pergreatappendage. Tail fringe counts artistic. Keep exactly11trunksegments, two carinae; spine fan must be flat/paddle-like, not lobster tail fan.",
+      "required_sources": [
+        "ROM-ALALCOMENAEUS",
+        "BRIGGS1999",
+        "ARIA2015",
+        "ROM-LEANCHOILIA"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Eleven trunk tergites with enclosing pleurae and two parallel dorsal carinae. Single broad spatulate telson with terminal flat spines, not Leanchoilia lanceolate tip. Paired compact frontal three-clawed appendages with three flagella each, short peduncles. Two lateral stalked eyes and two smaller median eyes; eleven trunk and two posterior cephalic biramous limb pairs. Whole Burgess species reconstruction. Four-eye implementation follows currentROM and Aria2015 two-pair interpretation; fifth eye remains uncertain, not disproven. No CNS or transplanted Yawunik anatomy. Colors, limb pose and fine proportions artistic.",
+      "required_sources": [
+        "ROM-ALALCOMENAEUS",
+        "BRIGGS1999",
+        "ARIA2015",
+        "ROM-LEANCHOILIA"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete immutable premodel brief/config/source/concept freeze; no retrospective requirements changes.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "ExactGLB Three.js GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual hardware renderer test required; CPU stills not proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intendedscene test required; unrun remains unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px exact-bound views and lossless contact sheet; targeted details supplement when fine anatomy needs them.",
+  "frozen_at": "2026-10-21T02:48:41.112329+00:00",
+  "subject": "Alalcomenaeus cambricus low-poly whole-organism study",
+  "taxon": "Alalcomenaeus cambricus",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole Burgess species reconstruction. Four-eye implementation follows currentROM and Aria2015 two-pair interpretation; fifth eye remains uncertain, not disproven. No CNS or transplanted Yawunik anatomy. Colors, limb pose and fine proportions artistic.",
+  "identifying_features": [
+    "Eleven trunk tergites with enclosing pleurae and two parallel dorsal carinae.",
+    "Single broad spatulate telson with terminal flat spines, not Leanchoilia lanceolate tip.",
+    "Paired compact frontal three-clawed appendages with three flagella each, short peduncles.",
+    "Two lateral stalked eyes and two smaller median eyes; eleven trunk and two posterior cephalic biramous limb pairs."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.02,
+      0.052,
+      0.012
+    ],
+    "interpretation": "Nominal artistic targets, not invented hard tolerances. Actual component geometry and true source limits measured. No global normalization to pass."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "horizontally centered and minimumz0 by translation only",
+  "surface_profile": "Opaque faceted closed solids, no alpha cards,textures,emission,double-sided concealment. Actual original component winding audited without diagnostic repair.",
+  "palette_srgb": [
+    "#5E7A83",
+    "#92A5A3",
+    "#C5AD78",
+    "#3F565F",
+    "#202B30"
+  ],
+  "parameters": {
+    "head_length_m": 0.007,
+    "trunk_length_m": 0.022,
+    "trunk_segments": 11,
+    "trunk_limb_pairs": 11,
+    "posterior_head_limb_pairs": 2,
+    "great_appendage_pairs": 1,
+    "claws_per_appendage": 3,
+    "lateral_eye_count": 2,
+    "median_eye_count": 2,
+    "head_width_m": 0.009,
+    "telson_length_m": 0.007,
+    "telson_width_m": 0.0075,
+    "terminal_spine_count": 9,
+    "body_center_z_m": 0.0058
+  },
+  "hard_organ_ranges": [],
+  "source_hard_boundaries": [
+    "Keep entire modeled span within60mm museum maximum; no inferred minimum.",
+    "Exactly11trunk tergites,11trunk biramouspairs,2posterior headpairs,1greatappendagepair with3claw/flagella each.",
+    "Four eyes is a bounded reconstruction hypothesis, not a hard universal scientific assertion. No fifth eye added."
+  ],
+  "numeric_semantics": "Source-backed counts and maximum biological size are hard boundaries. All other precise nominaldimensions and minute ornamental sampling counts are artistic implementation choices; report actualtransformed values.",
+  "component_measurement_contract": "Individually labeled editable semantic vertexgroups, actual transformed component dimensions/counts/topology and contact. Contact proof uses actualtriangles/inside tests, notAABB.",
+  "contact_policy": "Dense surface and triangle tests against all relevant solids plus targeted exactpixels. Requiredparts cannot be effectively swallowed; no arbitrary exposurepercentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T02:48:41.112329+00:00",
+    "path": "production/small-life-batch103/concepts/alalcomenaeus-concept.png",
+    "sha256": "e44f0b7282cb1c6a5190730c807a45d47a2c66b66b722957edcc8e8b96441dd0",
+    "decisions": "Retain compact shield and downturned flanks with wide spatulate tail. Concept front appears2flagella at some angles; implement3pergreatappendage. Tail fringe counts artistic. Keep exactly11trunksegments, two carinae; spine fan must be flat/paddle-like, not lobster tail fan."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "deterministicgenerator/config/seed/dependencies",
+    "actualsolid/contact/globalexposure",
+    "source reopen",
+    "twoactual separatePID rebuilds",
+    "project/Khronos/Three",
+    "eightseparate512frames andlosslesssheet",
+    "sevenseparate honeststagestates"
+  ]
+}

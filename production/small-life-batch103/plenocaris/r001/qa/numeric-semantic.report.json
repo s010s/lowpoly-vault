@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "9bcbe1950ec0fb4fcb6109bb1973c869402a9f47e59a89b6b75e40062dbb941e",
+    "brief_sha256": "ffd15a76900264b02a94e6dee7689b87e8db7a875fc39fc3a258ea9cd83cc6c1",
+    "references_sha256": "868feaab34ae9118e045e24c5b96b4847a083eb7787a2aa3aa2d6cc7c7c061de"
+  },
+  "status": "pass",
+  "source_sha256": "7dece6bedba4a1d4cfce4ea421edb21bbcc282c1e3928e8c035b88b0864ed322",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "carapace_valve": 2,
+    "abdominal_segment": 13,
+    "anterior_leg": 6,
+    "antenna": 2,
+    "antenna_spine": 20,
+    "caudal_ramulus": 2
+  },
+  "observed_counts": {
+    "cephalothorax": 1,
+    "carapace_valve": 2,
+    "lateral_eye": 2,
+    "antenna": 2,
+    "antenna_spine": 20,
+    "anterior_leg": 6,
+    "abdominal_segment": 13,
+    "caudal_ramulus": 2
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "carapace_valve",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "abdominal_segment",
+      "required_count": 13,
+      "actual_nonempty_components": 13,
+      "pass": true
+    },
+    {
+      "kind": "anterior_leg",
+      "required_count": 6,
+      "actual_nonempty_components": 6,
+      "pass": true
+    },
+    {
+      "kind": "antenna",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "kind": "antenna_spine",
+      "required_count": 20,
+      "actual_nonempty_components": 20,
+      "pass": true
+    },
+    {
+      "kind": "caudal_ramulus",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    },
+    {
+      "maximum_observed_size_m": 0.017,
+      "actual_total_largest_span_m": 0.014928115531802177,
+      "pass": true
+    }
+  ],
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch103/plenocaris/r001/qa/component-contact-exposure.report.json",
+    "sha256": "4afdc6cd5168c70e21c1863ab24fb1f9ba4eda59e66059b4e12880479639ca09"
+  },
+  "additional_ribbon_proof": null,
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. Universal hard-boundary prose applies only to its named taxon; it does not impose another taxon's numbers."
+}
