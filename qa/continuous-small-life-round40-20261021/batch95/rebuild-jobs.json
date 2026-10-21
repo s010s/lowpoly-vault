@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "lane": "build",
+  "jobs": [
+    {
+      "asset_id": "sphenophyllum",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-a",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r005.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "sphenophyllum/sphenophyllum.glb",
+        "sphenophyllum/sphenophyllum.blend",
+        "sphenophyllum/qa.json",
+        "sphenophyllum/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "sphenophyllum",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-b",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r005.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "sphenophyllum/sphenophyllum.glb",
+        "sphenophyllum/sphenophyllum.blend",
+        "sphenophyllum/qa.json",
+        "sphenophyllum/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "psaronius",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-a",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "psaronius/psaronius.glb",
+        "psaronius/psaronius.blend",
+        "psaronius/qa.json",
+        "psaronius/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "psaronius",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-b",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "psaronius/psaronius.glb",
+        "psaronius/psaronius.blend",
+        "psaronius/qa.json",
+        "psaronius/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "hausmannia",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-a",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/hausmannia/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "hausmannia/hausmannia.glb",
+        "hausmannia/hausmannia.blend",
+        "hausmannia/qa.json",
+        "hausmannia/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "hausmannia",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-b",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r003.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/hausmannia/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "hausmannia/hausmannia.glb",
+        "hausmannia/hausmannia.blend",
+        "hausmannia/qa.json",
+        "hausmannia/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "dictyophyllum",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-a",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r004.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/dictyophyllum/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "dictyophyllum/dictyophyllum.glb",
+        "dictyophyllum/dictyophyllum.blend",
+        "dictyophyllum/qa.json",
+        "dictyophyllum/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    },
+    {
+      "asset_id": "dictyophyllum",
+      "revision": "r002",
+      "job_id": "independent-semantic-rebuild-b",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "inputs": {
+        "generator": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/generate-r004.py",
+        "config": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/dictyophyllum/r002/config.json",
+        "asset_common": "/workspace/shared/lowpoly-batch95-20261020/scripts/asset_common.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch95-20261020/scripts/qa_glb.py"
+      },
+      "outputs": [
+        "dictyophyllum/dictyophyllum.glb",
+        "dictyophyllum/dictyophyllum.blend",
+        "dictyophyllum/qa.json",
+        "dictyophyllum/metadata.json",
+        "execution.json"
+      ],
+      "timeout_seconds": 1800
+    }
+  ]
+}

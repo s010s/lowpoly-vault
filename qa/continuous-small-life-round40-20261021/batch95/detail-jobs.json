@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "lane": "render",
+  "jobs": [
+    {
+      "asset_id": "psaronius",
+      "revision": "r002",
+      "job_id": "independent-junction-detail",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "64",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.5,0.5,0.63",
+        "--detail-scale",
+        ".23"
+      ],
+      "inputs": {
+        "renderer": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/render.py",
+        "glb": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/artifacts/psaronius.glb",
+        "brief": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/delivery-brief.json",
+        "references": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r001/references.json"
+      },
+      "outputs": [
+        "detail.png",
+        "render-manifest.json",
+        "render-config.json"
+      ],
+      "timeout_seconds": 900
+    },
+    {
+      "asset_id": "sphenophyllum",
+      "revision": "r002",
+      "job_id": "independent-junction-detail",
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--threads",
+        "2",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "64",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.32,0.5,0.28",
+        "--detail-scale",
+        ".28"
+      ],
+      "inputs": {
+        "renderer": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/tools/render.py",
+        "glb": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/artifacts/sphenophyllum.glb",
+        "brief": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r002/delivery-brief.json",
+        "references": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/sphenophyllum/r001/references.json"
+      },
+      "outputs": [
+        "detail.png",
+        "render-manifest.json",
+        "render-config.json"
+      ],
+      "timeout_seconds": 900
+    }
+  ]
+}

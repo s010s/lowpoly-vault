@@ -1,0 +1,1 @@
+Batch95:3 bounded static passes; Psaronius r002 visual FAIL. See FINAL-REPORT.md and FINAL-REPORT.json. Source commit 5899a9f5c9e57341b42dee07ca564134bc1cbadc. GPU/scene unknown. No maker mutation or publication.

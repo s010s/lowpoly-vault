@@ -1,0 +1,121 @@
+{
+  "batch": 95,
+  "status": "INDEPENDENT_STATIC_3_PASS_1_VISUAL_FAIL",
+  "source_commit": "5899a9f5c9e57341b42dee07ca564134bc1cbadc",
+  "source_parent": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+  "branch": "candidate/small-life-batch95-concept-20261020",
+  "report": {
+    "path": "/workspace/shared/lowpoly-batch95-independent-qa-20261021/FINAL-REPORT.json",
+    "sha256": "9e8c6926c1d5e50ba9efd1cc1f1a9c1bef67b8b9debb883dcbec834ae0259a18",
+    "bytes": 82174
+  },
+  "readable_report": {
+    "path": "/workspace/shared/lowpoly-batch95-independent-qa-20261021/FINAL-REPORT.md",
+    "sha256": "8a51adf9a5dff58ba411675157a9ab88ded7e8a2a95058d981f68464972d2a73",
+    "bytes": 3265
+  },
+  "manifest": {
+    "path": "/workspace/shared/lowpoly-batch95-independent-qa-20261021/QA-MANIFEST.json",
+    "sha256": "fbfbce526c9a0b661b9bed4cd9719267c476630029cb497048a16c7a07428ffe",
+    "bytes": 41332
+  },
+  "selected_assets": [
+    {
+      "asset_id": "sphenophyllum",
+      "revision": "r002",
+      "glb_sha256": "f9dd85eced8c1ffd6624f71f60d775e1ee28f07c555e5176858f5a2ebbe4c7d9",
+      "verdict": "PASS_BOUNDED_STATIC",
+      "seven_stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_with_explicit_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      }
+    },
+    {
+      "asset_id": "psaronius",
+      "revision": "r002",
+      "glb_sha256": "1ec9dd8f89934be64eeaaa78267cc43efff7f30558cfc4825be9d088d3bab464",
+      "verdict": "FAIL_STATIC_VISUAL",
+      "seven_stages": {
+        "technical": "pass",
+        "visual": "fail",
+        "factual": "pass_with_explicit_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      }
+    },
+    {
+      "asset_id": "hausmannia",
+      "revision": "r002",
+      "glb_sha256": "70b8a98c50dbaa9d9db3e076da31ffb3c37ae7ad0e13d4305de874fc36651ef4",
+      "verdict": "PASS_BOUNDED_STATIC",
+      "seven_stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_with_explicit_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      }
+    },
+    {
+      "asset_id": "dictyophyllum",
+      "revision": "r002",
+      "glb_sha256": "09d84f23c4d7cc50f1e93f01bd187fdc055612539efcf455f2b613b1e3312adc",
+      "verdict": "PASS_BOUNDED_STATIC",
+      "seven_stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass_with_explicit_scope",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      }
+    }
+  ],
+  "blockers": [
+    {
+      "id": "root-mantle-visible-intersection-artifact",
+      "stage": "visual",
+      "severity": "blocking",
+      "description": "Abrupt common-height transition across the upper trunk with dark slit-like pockets between root ridges. Visible in final front, hero and clay, independently reproduced in a fresh exact-GLB512px detail. Closed topology and successful contacts do not make this surface acceptable. These are not proven topological holes or proven coplanar triangles; the failure is the visible abrupt root/core runout and shading interference.",
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/views/front.png",
+          "sha256": "c06b235489ea2ba16bff55ec98f862b58745efca5e4b7ea67e9f8ac44faca48c",
+          "bytes": 190568
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch95-20261020/production/small-life-batch95/psaronius/r002/views/clay.png",
+          "sha256": "81d47f8ddba18de9abf44ebbc6996dc626d3d2a3a8985fd6ab950732e9ebfa78",
+          "bytes": 202628
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch95-independent-qa-20261021/detail-queue/render/psaronius/r002/independent-junction-detail/31c389be6931c17cba115d3a675a101633fbac7e5ba324067a5869287dee59ba/20261021T002513-da13ba7cb4e0421a9dd3132634559d06/outputs/detail.png",
+          "sha256": "f2b3ae9c664f0fbbf84f0d9c756f32032e0f3624175419424714dd0f3b93dd4b",
+          "bytes": 252989
+        }
+      ],
+      "repair": "Repair actual root-mantle/core geometry and ridge transitions, preserving the immutable brief and integer counts. Do not hide it with materials, camera, depth bias or renderer settings. Freeze a new exact subject and rerender/revalidate changed deliverables before targeted independent difference review."
+    }
+  ],
+  "known_limits": [
+    "GPU/scene unrun; no formal/user/site/release/live approval.",
+    "Psaronius requires real geometry repair and targeted independent review before static acceptance.",
+    "Preserve declared fossil/whole-habit interpretation limits.",
+    "Source excerpts consultation-only, exclude from any lean upload."
+  ],
+  "all_source_unchanged": true,
+  "remote_actions": [],
+  "authority_queue_written": false,
+  "file_count_before_manifest_handoff": 166,
+  "payload_bytes_before_manifest_handoff": 16761743
+}
