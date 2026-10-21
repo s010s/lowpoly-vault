@@ -1,0 +1,14 @@
+Extensions: writing cache failed ([Errno 30] Read-only file system: '/home/agent/.config/blender').
+06:44:08 | INFO: Data are loaded, start creating Blender stuff
+06:44:08 | INFO: Blender create Mesh node trochocystites-original-organism-mesh
+06:44:08 | INFO: glTF import finished in 0.02s
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch107-independent-qa-20261021/render-independent-details.py", line 4, in <module>
+    id=sys.argv[sys.argv.index('--')+1];A=R/'production/small-life-batch107'/id/'r001';src=A/'artifacts'/f'{id}.glb';before=src.read_bytes();d=next(iter(json.loads((O/id/'source-geometry.json').read_text()).values()));C={c['tag']:c for c in d['contract']['components']};v=[Vector(x) for x in d['vertices_world_m']];col=setup_scene('independent-detail');bpy.ops.import_scene.gltf(filepath=str(src));sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.device='CPU';sc.cycles.samples=64;sc.cycles.use_denoising=False;sc.render.resolution_x=sc.render.resolution_y=512;sc.render.resolution_percentage=100;sc.render.image_settings.file_format='PNG';sc.render.image_settings.color_mode='RGBA';sc.view_settings.view_transform='Standard';sc.view_settings.look='None';sc.world.color=(.4,.4,.4)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'color' and no __dict__ for setting new attributes
+
+Error: script failed, file: '/workspace/shared/lowpoly-batch107-independent-qa-20261021/render-independent-details.py', exiting.
+Blender 4.3.2
+
+Blender quit

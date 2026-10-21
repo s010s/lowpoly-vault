@@ -1,0 +1,113 @@
+{
+  "earlier_failures": [
+    {
+      "id": "dendrocystites",
+      "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/diagnostic-history/dendrocystites-original-shared-plate-edge-fail.json",
+      "sha256": "597eed38451514eef6adbd3233708cdbeda1d6bd5e6e1e25c39568a2e24d5850",
+      "status": "fail",
+      "glb_sha256": "c812ef7ca2569ff5156ac4e57f1b2b9b16f3dc6fe285b09bf090aad1584d5816",
+      "failed_components": [
+        {
+          "triangle_count": 792,
+          "exact_position_boundary_edges": 0,
+          "nonmanifold_edges": 120,
+          "same_direction_shared_edges": 0,
+          "signed_volume_m3": 3.4239180129153053e-07,
+          "consistently_outward_closed": false
+        }
+      ]
+    },
+    {
+      "id": "trochocystites",
+      "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/diagnostic-history/trochocystites-original-shared-plate-edge-fail.json",
+      "sha256": "97e78449b5f7ae2c17eec1f2b1c4ba9aa250c80f96df64ad389995bb3700de10",
+      "status": "fail",
+      "glb_sha256": "0daf72aae132796ced53068daaee533e5001a973b2c7db773c1af90bea231fd9",
+      "failed_components": [
+        {
+          "triangle_count": 792,
+          "exact_position_boundary_edges": 0,
+          "nonmanifold_edges": 120,
+          "same_direction_shared_edges": 0,
+          "signed_volume_m3": 2.528381413785934e-07,
+          "consistently_outward_closed": false
+        }
+      ]
+    },
+    {
+      "id": "helicoplacus",
+      "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/diagnostic-history/helicoplacus-original-shared-plate-edge-fail.json",
+      "sha256": "178dbdd9b636b77db67ec2e1ed6d4a85b5416410745b049f41767d8b20fc8583",
+      "status": "fail",
+      "glb_sha256": "a7fa6dc9d26986a0b510bc31a2c1fc3d7af86ed9aa5c9400fadbfc7f464bd784",
+      "failed_components": [
+        {
+          "triangle_count": 5184,
+          "exact_position_boundary_edges": 0,
+          "nonmanifold_edges": 834,
+          "same_direction_shared_edges": 0,
+          "signed_volume_m3": 5.968524501645141e-07,
+          "consistently_outward_closed": false
+        }
+      ]
+    },
+    {
+      "id": "stromatocystites",
+      "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/diagnostic-history/stromatocystites-original-shared-plate-edge-fail.json",
+      "sha256": "636f23f797ef5b4a9fb51cadc92ed823eba5489adf1ae7d8d208b80709e4a83d",
+      "status": "fail",
+      "glb_sha256": "809f5a28470be497b565a9c2e58bdca43bbcc7423f440d0357a12b1f0caf9a5a",
+      "failed_components": [
+        {
+          "triangle_count": 2960,
+          "exact_position_boundary_edges": 0,
+          "nonmanifold_edges": 430,
+          "same_direction_shared_edges": 0,
+          "signed_volume_m3": 5.348939247162675e-07,
+          "consistently_outward_closed": false
+        }
+      ]
+    }
+  ],
+  "generator_difference": [
+    "--- /workspace/shared/lowpoly-batch107-evidence/original-generators/generate-r006.py\n",
+    "+++ /workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/tools/generate-r007.py\n",
+    "@@ -16,7 +16,7 @@\n",
+    "  def vert(self,p):self.v.append(tuple(float(x) for x in p));return len(self.v)-1",
+    "  def face(self,ids,mat=0):self.f.append(tuple(ids));self.mi.append(mat)",
+    "  def prism(self,lower,upper,mat=0):",
+    "-  n=len(lower);o=len(self.v);self.v.extend(tuple(p) for p in lower+upper);self.base.extend(range(o,o+n));self.face(list(range(o+n-1,o-1,-1)),mat)",
+    "+  n=len(lower);centroid=sum((Vector(v) for v in lower),Vector())/n;lower=[tuple(centroid+(Vector(v)-centroid)*.985) for v in lower];o=len(self.v);self.v.extend(tuple(p) for p in lower+upper);self.base.extend(range(o,o+n));self.face(list(range(o+n-1,o-1,-1)),mat)",
+    "   self.face(list(range(o+n,o+2*n)),mat)",
+    "   for i in range(n):j=(i+1)%n;self.face([o+i,o+j,o+n+j,o+n+i],mat)",
+    "   self.solids.append(list(range(o,o+2*n)))",
+    "@@ -57,11 +57,15 @@\n",
+    "   lower=[mapping(p*.945) for p in corners];upper=[mapping((c+(p-c)*.91).normalized()*(1+relief)) for p in corners];P.prism(lower,upper,1 if i%7==0 else (3 if i%5==0 else 0))",
+    "  bm.free();return P",
+    " ",
+    "-def segmented_tube(centers,radii,sides=8,mat=1):",
+    "+def segmented_tube(centers,radii,sides=8,mat=1,quarter_seam_until=None):",
+    "  P=Patch();rings=[]",
+    "  for i,(pt,r) in enumerate(zip(centers,radii)):",
+    "   pt=Vector(pt);a=(Vector(centers[min(i+1,len(centers)-1)])-Vector(centers[max(0,i-1)])).normalized();ref=Vector((0,0,1)) if abs(a.z)<.9 else Vector((0,1,0));w=ref.cross(a).normalized();t=a.cross(w)",
+    "-  ring=[P.vert(pt+r*(w*cos(2*pi*k/sides)+t*sin(2*pi*k/sides))) for k in range(sides)];rings.append(ring)",
+    "+  ring=[]",
+    "+  for k in range(sides):",
+    "+   angle=2*pi*k/sides;seam=(1-.13*max(0,cos(4*angle))**4) if quarter_seam_until is not None and i<=quarter_seam_until else 1",
+    "+   ring.append(P.vert(pt+r*seam*(w*cos(angle)+t*sin(angle))))",
+    "+  rings.append(ring)",
+    "  for i in range(len(rings)-1):",
+    "   for k in range(sides):q=(k+1)%sides;P.face([rings[i][k],rings[i][q],rings[i+1][q],rings[i+1][k]],mat if i%4!=0 else 0)",
+    "  P.face(list(reversed(rings[0])),mat);P.face(rings[-1],mat);P.base=rings[0];return P",
+    "@@ -86,7 +90,7 @@\n",
+    "  for j in range(N*4+1):",
+    "   u=j/(N*4);prox=p['proxistele_rings']/N;t=.25*u/prox if u<prox else .25+.75*(u-prox)/(1-prox);C.append((.0035*sin(t*pi*.9),L*.46+p['homoiostele_length_m']*t,.0007*sin(t*pi)))",
+    "   rad=(.0019-(.0010*t/.25)) if t<.25 else (.0009*(1-(t-.25)/.75)+.00014);R.append(rad*[.86,1.08,1.08,.86][j%4])",
+    "- M.add(segmented_tube(C,R),'homoiostele','homoiostele','theca',{'proximal_rings':p['proxistele_rings'],'distal_segments':p['dististele_segments'],'sharp_thecal_transition':True})",
+    "+ M.add(segmented_tube(C,R,sides=16,quarter_seam_until=p['proxistele_rings']*4),'homoiostele','homoiostele','theca',{'proximal_rings':p['proxistele_rings'],'distal_segments':p['dististele_segments'],'sharp_thecal_transition':True})",
+    "  P=Patch();P.prism([(x,y,z) for x,y,z in [(.0015,.008,.0018),(.004,.008,.0018),(.004,.0105,.0016),(.0015,.0105,.0016)]],[(.0017,.0085,.0031),(.0037,.0085,.0031),(.0037,.0098,.0042),(.0017,.0098,.0042)],1);M.add(P,'suranal','suranal_plate','theca')",
+    "  return M.emit('dendrocystites',m,col)",
+    " "
+  ],
+  "current_checker_sha256": "a77ec8f5ecb6ca09d0eaa34408b3044dc625599d36a89c9da4f7b2859eccba2b"
+}
