@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "lyginopteris",
+  "revision": "r002",
+  "labels": {
+    "en": "Lyginopteris supported scrambling gland-bearing seed fern"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "820958f68361c952653bf5d007d9dea68021e79b507d0680a57561f4795e17eb"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "4a373e836af6a22f6d09e2ea319479374401b7b99a39c22d8c316a5933744fe6"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "3611112b19fba825d8f0797153ac36404745fe4ed6db9143f461420ce6206cf8"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "5d3b1e0d4729648d6c28f0e2a21c28a28bcc4398b454fbce68502afdda1b2d83"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ef048f58ff8fe609bb5fda08302158562510be3620fa9b4dec2f8d09e9e8ff81"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "da1c3a06ac7001fa1dd78e7324823323461a12c24dfbc9ef03defc9b35d0a7e4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "a89e30bd4fbb4a9742eb720c2500b1d96cec5d35eafa60afb8f1d5a0a6d9db3c"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "bbfa67ef416607c8321444f6f78a4db8ea6a7f4e18bd6a35df36f86ece783ec0"
+      }
+    ],
+    "cross_view_consistency_note": "Viewed actual generated image: divided small lobed foliage and subordinate support visible. Reject large nodal bead clusters as glands; use smaller scattered axis gland bases. Reduce stout stem and avoid a perfectly straight ladder of opposed fronds. Preserve genuine leaning non-twining habit.",
+    "hidden_surface_decisions": "Viewed actual generated image: divided small lobed foliage and subordinate support visible. Reject large nodal bead clusters as glands; use smaller scattered axis gland bases. Reduce stout stem and avoid a perfectly straight ladder of opposed fronds. Preserve genuine leaning non-twining habit."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T23:51:48.512900+00:00",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 40.818,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "a89e30bd4fbb4a9742eb720c2500b1d96cec5d35eafa60afb8f1d5a0a6d9db3c"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 11.8276,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "1913fc522558759edea719fafadceb3a5febf4766af899e05e3768027d45e0fc"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "1913fc522558759edea719fafadceb3a5febf4766af899e05e3768027d45e0fc"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "2e1a083925d6667b51e6a0cf693999e7f267d69542bc2cbf95a74dba2fee769b",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "53e3467e2a00d02abf272bf329e30ceec60a83a2fa61ad8d63f88b39b159997b"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "820958f68361c952653bf5d007d9dea68021e79b507d0680a57561f4795e17eb",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "2d951bce6c98b2c01bdb2cd946d055361672e9dfa2ef0556aa4a1332253ad2a7"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

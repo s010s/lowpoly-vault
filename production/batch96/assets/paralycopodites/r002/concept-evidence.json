@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "paralycopodites",
+  "revision": "r002",
+  "labels": {
+    "en": "Paralycopodites opposite-row compact lateral-branch lycopsid"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "655017bae90917e29f2dd64fde6aaa14565cd04ffd077855308d9a44f164f424"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "cab756f61ffd20bff15cd16558cc28b89ec13da590bcae3ec7be766d2e50c334"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9dfb418df171cde1bc4791b403a3b29b4827f9dc06b4f8aa1a71e7f1b145f31b"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "c0175b8e6b413c3a5290436b35a290f53e35a81040ba7893b3c97950913f977e"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "dafc15662fe5e28229682c0246b5c884f4ab0c5b3b9f9e9f87259dd823f174f1"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "090f7c07f93cd0c82321cb9b99c4f69bcdea553900f02ab96490389b900f74c4"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "58af61c6dc2671d8079de470f8c4f0b4a291176202a5b2168e2f2ac3e79b5898"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "04e133a92844921ff14b3ae05ee8114eb2c362daab3e3d0f5cdde75325c8adc8"
+      }
+    ],
+    "cross_view_consistency_note": "Actual generated image inspected. Keep paired opposite-row compact side systems and limited crown fork. Reduce overlarge cones to approximately 55mm length in metre-scale geometry; retain narrow cigars not balls. Reject coarse diamond bark armor and woody modern spreading roots; show small persistent microphyll cues and four short subdued basal rhizomorph beginnings. Make trunk continuous and branch systems planar but occupy true depth.",
+    "hidden_surface_decisions": "Actual generated image inspected. Keep paired opposite-row compact side systems and limited crown fork. Reduce overlarge cones to approximately 55mm length in metre-scale geometry; retain narrow cigars not balls. Reject coarse diamond bark armor and woody modern spreading roots; show small persistent microphyll cues and four short subdued basal rhizomorph beginnings. Make trunk continuous and branch systems planar but occupy true depth."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T23:51:48.497976+00:00",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 32.953,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "58af61c6dc2671d8079de470f8c4f0b4a291176202a5b2168e2f2ac3e79b5898"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 15.7453,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b274b920e5e8912ba349fd897461d67102a76550c2539b635a4aae824e2b4e8c"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b274b920e5e8912ba349fd897461d67102a76550c2539b635a4aae824e2b4e8c"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "4be153c1a0c4292f67e35bfafd48d1bba45e8a20aed661419081db78df4e4aa4",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2dd609f125f28ba875d34913dfdf01f0639af98b1236f2a97443625e9ac70d96"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "655017bae90917e29f2dd64fde6aaa14565cd04ffd077855308d9a44f164f424",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "2cdbcb5b9b06315aa1bf9ccea0a1d0533752f514c84ebd0600fda87d09851c3d"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

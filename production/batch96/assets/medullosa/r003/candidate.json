@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "medullosa",
+  "revision": "r003",
+  "maker": {
+    "id": "batch96 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch96_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch96/assets/medullosa/r003/model.glb",
+      "sha256": "51a0a71e510afb8243cffa870864e04f354498899bee85738ba069599a0ee771"
+    },
+    "brief": {
+      "path": "production/batch96/assets/medullosa/r003/candidate-brief.json",
+      "sha256": "f973980386e9c7f7e38a596e2e21fe4ecd6ad28eb535edecce57b841f3b8ff60"
+    },
+    "references": {
+      "path": "production/batch96/assets/medullosa/r003/references.json",
+      "sha256": "f291837bd323065403fc0cc4706fccbcc3290269fcdb94aa92975dc0534189c4"
+    },
+    "source": {
+      "path": "production/batch96/assets/medullosa/r003/source.blend",
+      "sha256": "ce9596c17c8bf84cceafdc290ec3db43e3a59d43bfd06064f48657d9cb84e27b"
+    },
+    "generator": {
+      "path": "production/batch96/assets/medullosa/r003/generator.py",
+      "sha256": "8370a7e12f91012af988921768325677b8c1aca6cedd217fce6724b1316a2c8f"
+    },
+    "config": {
+      "path": "production/batch96/assets/medullosa/r003/build-config.json",
+      "sha256": "c4e0d66f92f62bfc2351fec67d5ab7414ade6dae5ac511c3289b8f63095028b5"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "51a0a71e510afb8243cffa870864e04f354498899bee85738ba069599a0ee771",
+        "brief_sha256": "f973980386e9c7f7e38a596e2e21fe4ecd6ad28eb535edecce57b841f3b8ff60",
+        "references_sha256": "f291837bd323065403fc0cc4706fccbcc3290269fcdb94aa92975dc0534189c4"
+      },
+      "path": "production/batch96/assets/medullosa/r003/proof-final/render-manifest.json",
+      "sha256": "2ae7e583fec2e00cf444e0185e1908504e47c7fce71f2ad11f5e0f7dfafb73aa"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and at least one actual supporting reference image per asset inspected before original freeze; supplemental inspection addendum explicitly corrects grouped404/467 chronology. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch96/assets/medullosa/r003/metrics.json",
+      "sha256": "ac492869d39763e15aa4a9aacfa933b68aabc4901ea24fc541957cc3be36e1e4"
+    },
+    "source-metrics.json": {
+      "path": "production/batch96/assets/medullosa/r003/source-metrics.json",
+      "sha256": "dd84e3c7592c63d4229ab180fefe10a6d23536018ec0f8e255414507f20a2c0d"
+    },
+    "project-audit.json": {
+      "path": "production/batch96/assets/medullosa/r003/project-audit.json",
+      "sha256": "5246af4e9736405f7834a3559b5f1375b753b2b09273adc53c5150ec0386985f"
+    },
+    "source-final.report.json": {
+      "path": "production/batch96/assets/medullosa/r003/source-final.report.json",
+      "sha256": "5147d0899da51ed9b9cf8b065b7db7d2b150f3c7e1f00089d5dfe48b1e3a610f"
+    },
+    "final-measurement.json": {
+      "path": "production/batch96/assets/medullosa/r003/final-measurement.json",
+      "sha256": "1a22557744299f8d507df5c60bbde77ec78b1ba37d362c27c39a570985460087"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch96/assets/medullosa/r003/repro-final-1.report.json",
+      "sha256": "c2acd72501efa613b6c9eabecdd5601482d733f2fd65a3b777d739a48732d0a4"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch96/assets/medullosa/r003/repro-final-2.report.json",
+      "sha256": "6406b20c3a0feb6bba305306676657020f3e6d074728aec0f07c5c26ee74bca1"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch96/assets/medullosa/r003/gltf-validator.report.json",
+      "sha256": "225ff77e7f0b66c022031bab601431f4216b71eb6fe5f11d43e81114c50adaef"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch96/assets/medullosa/r003/runtime-parse.report.json",
+      "sha256": "0638703bd88a9849faa3f0d90446e5765fa73b7f59d8ec374fc2d67d705b10ab"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch96/assets/medullosa/r003/build-dependencies.json",
+      "sha256": "1e424fa7de2e44b5ed6ec5fdee32b459ff36e224a2668d99854e67b3ba78f8d0"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch96/assets/medullosa/r003/pixel-inspection.json",
+      "sha256": "f383b39b6c2f68a342a4d0dd50857cfe6c174ff34d8a9f24fa10a3f8e3686990"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch96/assets/medullosa/r003/contact-sheet.png",
+      "sha256": "feb6d7e5428ce070d8e540b911ec1083e86039db10a427f33e9d87d0ecfadc44"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch96/assets/medullosa/r003/preproof-binding.json",
+      "sha256": "09de10da41690be58b8349d25240373199dd02a608d9aeaa1d72b3e9cc9cfae3"
+    }
+  }
+}

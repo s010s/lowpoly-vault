@@ -1,0 +1,106 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-evidence/rebuild-runs/build/medullosa/r003/semantic-rebuild-1/48b08e91f2c4775474684569568d85253906fb59a1ec4859494e2e72a85701a8/20261021T000536-5c8fc99d471e4daba352a8b48e3c7a13/outputs"
+  ],
+  "created_at": "2026-10-21T00:05:36.624120+00:00",
+  "fingerprint": "48b08e91f2c4775474684569568d85253906fb59a1ec4859494e2e72a85701a8",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9428,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/brief.json",
+        "sha256": "1529b43c1ccfeb0c5f24d18c8e9a8af88cafe2387a594c76a9152f4c052869be"
+      },
+      "config": {
+        "bytes": 1063,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/build-config.json",
+        "sha256": "c4e0d66f92f62bfc2351fec67d5ab7414ade6dae5ac511c3289b8f63095028b5"
+      },
+      "generator": {
+        "bytes": 13538,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/generator.py",
+        "sha256": "8370a7e12f91012af988921768325677b8c1aca6cedd217fce6724b1316a2c8f"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3358,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/references.json",
+        "sha256": "f291837bd323065403fc0cc4706fccbcc3290269fcdb94aa92975dc0534189c4"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "medullosa",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/brief.json",
+        "config": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/references.json"
+      },
+      "job_id": "semantic-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r003"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 3600.0
+  },
+  "run_id": "20261021T000536-aed5eae5554e4b3485ecefd262c0a7e6"
+}

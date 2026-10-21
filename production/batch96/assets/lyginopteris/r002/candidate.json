@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "lyginopteris",
+  "revision": "r002",
+  "maker": {
+    "id": "batch96 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch96_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch96/assets/lyginopteris/r002/model.glb",
+      "sha256": "820958f68361c952653bf5d007d9dea68021e79b507d0680a57561f4795e17eb"
+    },
+    "brief": {
+      "path": "production/batch96/assets/lyginopteris/r002/candidate-brief.json",
+      "sha256": "4a373e836af6a22f6d09e2ea319479374401b7b99a39c22d8c316a5933744fe6"
+    },
+    "references": {
+      "path": "production/batch96/assets/lyginopteris/r002/references.json",
+      "sha256": "3611112b19fba825d8f0797153ac36404745fe4ed6db9143f461420ce6206cf8"
+    },
+    "source": {
+      "path": "production/batch96/assets/lyginopteris/r002/source.blend",
+      "sha256": "5d3b1e0d4729648d6c28f0e2a21c28a28bcc4398b454fbce68502afdda1b2d83"
+    },
+    "generator": {
+      "path": "production/batch96/assets/lyginopteris/r002/generator.py",
+      "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+    },
+    "config": {
+      "path": "production/batch96/assets/lyginopteris/r002/build-config.json",
+      "sha256": "ef048f58ff8fe609bb5fda08302158562510be3620fa9b4dec2f8d09e9e8ff81"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "820958f68361c952653bf5d007d9dea68021e79b507d0680a57561f4795e17eb",
+        "brief_sha256": "4a373e836af6a22f6d09e2ea319479374401b7b99a39c22d8c316a5933744fe6",
+        "references_sha256": "3611112b19fba825d8f0797153ac36404745fe4ed6db9143f461420ce6206cf8"
+      },
+      "path": "production/batch96/assets/lyginopteris/r002/proof-final/render-manifest.json",
+      "sha256": "1913fc522558759edea719fafadceb3a5febf4766af899e05e3768027d45e0fc"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and at least one actual supporting reference image per asset inspected before original freeze; supplemental inspection addendum explicitly corrects grouped404/467 chronology. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/metrics.json",
+      "sha256": "c6bea984e97b3c755cf517cb565e56a37704cfcd729b486b21cd3de969cbc0be"
+    },
+    "source-metrics.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/source-metrics.json",
+      "sha256": "b86d3c8427c9516f52c213a37e115c8938e5e81c6097ed42f12767593f269e3e"
+    },
+    "project-audit.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/project-audit.json",
+      "sha256": "96a98ceb2aa81941cad55a48140e16c6c4e3ed1ae1eae82b7703ddd4b128064c"
+    },
+    "source-final.report.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/source-final.report.json",
+      "sha256": "a0dcc70ecf8f9bba7b5eb5d9417e8a12fe0d1e6b2425350a6641993bdada1b4f"
+    },
+    "final-measurement.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/final-measurement.json",
+      "sha256": "dcbdc713e2a06b8af2946f70d80c0007e6ff7f50a7afc935199c87e4b8288961"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/repro-final-1.report.json",
+      "sha256": "28beb8d42cbbb5676ea10b96ac664cd910524883e42e13355c48c6a50d904032"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/repro-final-2.report.json",
+      "sha256": "24971cde2e97f1aaeee62b28c424f4f77bcbbe32da31989f4df289af163bfa9d"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/gltf-validator.report.json",
+      "sha256": "2d951bce6c98b2c01bdb2cd946d055361672e9dfa2ef0556aa4a1332253ad2a7"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/runtime-parse.report.json",
+      "sha256": "7aa7b6922755d4bf6d83dbf332844e1872e3fc090ff3b7565be90221dd4e0400"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/build-dependencies.json",
+      "sha256": "5feac58f438d65a5414ee0f0ede43fe9e49b5af072c38cfc073ebecff08154f5"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/pixel-inspection.json",
+      "sha256": "40183b55bf9e70a36926dcb10f2f1a909d8e792a497127738ae49257935ffe3c"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch96/assets/lyginopteris/r002/contact-sheet.png",
+      "sha256": "6ea615df16c919256ada8cb599ab5f4d72caa7ce89cfdab9ac342817ef9e4c42"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch96/assets/lyginopteris/r002/preproof-binding.json",
+      "sha256": "e6650b194c36fc4eabe526eacb78a534facfa9a6b473d9907b9a6c452bf4fb67"
+    }
+  }
+}

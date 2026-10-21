@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "medullosa",
+  "revision": "r003",
+  "labels": {
+    "en": "Medullosa erect massive multi-order frond seed plant"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "51a0a71e510afb8243cffa870864e04f354498899bee85738ba069599a0ee771"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f973980386e9c7f7e38a596e2e21fe4ecd6ad28eb535edecce57b841f3b8ff60"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "f291837bd323065403fc0cc4706fccbcc3290269fcdb94aa92975dc0534189c4"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "ce9596c17c8bf84cceafdc290ec3db43e3a59d43bfd06064f48657d9cb84e27b"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "8370a7e12f91012af988921768325677b8c1aca6cedd217fce6724b1316a2c8f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "c4e0d66f92f62bfc2351fec67d5ab7414ade6dae5ac511c3289b8f63095028b5"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "23e6a81b3222551b9642767f21078572083b33b30badb0b11d37de7060925d35"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "2511dd1aba55c2d6e3ca91d71b02f7bd5959e653c638e5702dd7a03af13bf3e3"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "5e4f4b0125e8aa69416d85015e008380764014e8b218c736a20ecb67c1ed962c"
+      }
+    ],
+    "cross_view_consistency_note": "Viewed original concept: clear thick petiole and secondary pinna/pinnule hierarchy. Reject continuous pineapple/palm armor and oversized root buttresses. Use sparse persistent petiole stubs separated by smooth stem intervals, smaller basal flare. Broad multi-order compound fronds must remain distinct from a single pinnate cycad.",
+    "hidden_surface_decisions": "Viewed original concept: clear thick petiole and secondary pinna/pinnule hierarchy. Reject continuous pineapple/palm armor and oversized root buttresses. Use sparse persistent petiole stubs separated by smooth stem intervals, smaller basal flare. Broad multi-order compound fronds must remain distinct from a single pinnate cycad."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T23:51:48.519108+00:00",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 37.598,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "2511dd1aba55c2d6e3ca91d71b02f7bd5959e653c638e5702dd7a03af13bf3e3"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 16.5388,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "2ae7e583fec2e00cf444e0185e1908504e47c7fce71f2ad11f5e0f7dfafb73aa"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "2ae7e583fec2e00cf444e0185e1908504e47c7fce71f2ad11f5e0f7dfafb73aa"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "fe00a0d7554c4b66a11fa4895a0374cde44e37383e1994df4226ea813b2a75e7",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2a3df0057f9b2feebeefb7e27b513f53e91ccd8c4100f972c1fb9b79024f31e3"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "51a0a71e510afb8243cffa870864e04f354498899bee85738ba069599a0ee771",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "225ff77e7f0b66c022031bab601431f4216b71eb6fe5f11d43e81114c50adaef"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

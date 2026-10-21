@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "paralycopodites",
+  "revision": "r002",
+  "maker": {
+    "id": "batch96 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch96_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch96/assets/paralycopodites/r002/model.glb",
+      "sha256": "655017bae90917e29f2dd64fde6aaa14565cd04ffd077855308d9a44f164f424"
+    },
+    "brief": {
+      "path": "production/batch96/assets/paralycopodites/r002/candidate-brief.json",
+      "sha256": "cab756f61ffd20bff15cd16558cc28b89ec13da590bcae3ec7be766d2e50c334"
+    },
+    "references": {
+      "path": "production/batch96/assets/paralycopodites/r002/references.json",
+      "sha256": "9dfb418df171cde1bc4791b403a3b29b4827f9dc06b4f8aa1a71e7f1b145f31b"
+    },
+    "source": {
+      "path": "production/batch96/assets/paralycopodites/r002/source.blend",
+      "sha256": "c0175b8e6b413c3a5290436b35a290f53e35a81040ba7893b3c97950913f977e"
+    },
+    "generator": {
+      "path": "production/batch96/assets/paralycopodites/r002/generator.py",
+      "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+    },
+    "config": {
+      "path": "production/batch96/assets/paralycopodites/r002/build-config.json",
+      "sha256": "dafc15662fe5e28229682c0246b5c884f4ab0c5b3b9f9e9f87259dd823f174f1"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "655017bae90917e29f2dd64fde6aaa14565cd04ffd077855308d9a44f164f424",
+        "brief_sha256": "cab756f61ffd20bff15cd16558cc28b89ec13da590bcae3ec7be766d2e50c334",
+        "references_sha256": "9dfb418df171cde1bc4791b403a3b29b4827f9dc06b4f8aa1a71e7f1b145f31b"
+      },
+      "path": "production/batch96/assets/paralycopodites/r002/proof-final/render-manifest.json",
+      "sha256": "b274b920e5e8912ba349fd897461d67102a76550c2539b635a4aae824e2b4e8c"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and at least one actual supporting reference image per asset inspected before original freeze; supplemental inspection addendum explicitly corrects grouped404/467 chronology. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/metrics.json",
+      "sha256": "adc92e61a948cae950b959a039a02f1ea191f7d05ae89e2614233d90934ce709"
+    },
+    "source-metrics.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/source-metrics.json",
+      "sha256": "fe5afceb65cf9052868b59cd7f28ced7124d5f4bd98a47da459f806003ef25b3"
+    },
+    "project-audit.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/project-audit.json",
+      "sha256": "1803ed337fa84c8af03e7e84cbacf08b0b0cce0e83c360c18b40d575618dded9"
+    },
+    "source-final.report.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/source-final.report.json",
+      "sha256": "e3c02db63e652433739968c72b5fa5f052801c0f358998d053f515544f86196d"
+    },
+    "final-measurement.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/final-measurement.json",
+      "sha256": "ec22640a16f55417f5c193479c785d3d24b2e3e6b5470f82c3e427776ede0c26"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/repro-final-1.report.json",
+      "sha256": "7cd2bc80e3ebb43cb3cd10e0373dfa2f8eaf19454184a7f035a43bac1664018a"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/repro-final-2.report.json",
+      "sha256": "38e27c1cd0c2bc32e9cf26bb352e0e57ba5b28df7a8f457329af0c30fc42702e"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/gltf-validator.report.json",
+      "sha256": "2cdbcb5b9b06315aa1bf9ccea0a1d0533752f514c84ebd0600fda87d09851c3d"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/runtime-parse.report.json",
+      "sha256": "e1475424bf3eeb1add4c5c8578a6afebb38bc6e1f586232ed67828430cc19834"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/build-dependencies.json",
+      "sha256": "cb5c0e2bf10600512634ff45002b57b4819365a319bfbedbb478f88ae48d7c37"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/pixel-inspection.json",
+      "sha256": "43ee1977ca5a6d9d952794ca8545a854a79b319882a874f12ea38a60ac49cf30"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch96/assets/paralycopodites/r002/contact-sheet.png",
+      "sha256": "c0fe7f6562cf14bc276a467d465bde5e8ce12a58adf0fa87826678e0bf5b4a67"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch96/assets/paralycopodites/r002/preproof-binding.json",
+      "sha256": "3f7fcee47ccec7bfb506f374bb375055b9b7ce3449c0af0c6919c1cb822d862f"
+    }
+  }
+}

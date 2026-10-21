@@ -1,0 +1,106 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-evidence/rebuild-runs/build/lyginopteris/r002/semantic-rebuild-2/98962743b355440e808b7a8e6e9a412aad66718820e7039aeaecaa5a8a195616/20261021T000530-e654032b855e42db93f4aecf42130934/outputs"
+  ],
+  "created_at": "2026-10-21T00:05:30.672016+00:00",
+  "fingerprint": "98962743b355440e808b7a8e6e9a412aad66718820e7039aeaecaa5a8a195616",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 9332,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/brief.json",
+        "sha256": "57b6278fe643ceea80db4494ed290c7d379cc3889899f731512043f4ad234bf8"
+      },
+      "config": {
+        "bytes": 1077,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/build-config.json",
+        "sha256": "ef048f58ff8fe609bb5fda08302158562510be3620fa9b4dec2f8d09e9e8ff81"
+      },
+      "generator": {
+        "bytes": 13444,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/generator.py",
+        "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3147,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/references.json",
+        "sha256": "3611112b19fba825d8f0797153ac36404745fe4ed6db9143f461420ce6206cf8"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "lyginopteris",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/brief.json",
+        "config": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/lyginopteris/r002/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 3600.0
+  },
+  "run_id": "20261021T000530-844a3dbcc6d14b17bda5efde31da7014"
+}

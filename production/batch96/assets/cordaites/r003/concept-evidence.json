@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "cordaites",
+  "revision": "r003",
+  "labels": {
+    "en": "Cordaites juvenile upland broad-strap woody seed tree"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "63aff4ec63f639a4e2258e73813d526274c2703e1dd6c1cca98e77c9f5b0e1fe"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "0d1de3067aeb3603aebb5e2effd591afe175e0c27c2eef2e9980b013e9ca9258"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "c060a26277712dfa02a7ae0f690fcf3cdb84fe8cc19227506a31159338aedefe"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "677493d0d89ad660c6782aa6b37dfbbdb01a4c32ff8454b0b4b87f73cb9fb4d2"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "8370a7e12f91012af988921768325677b8c1aca6cedd217fce6724b1316a2c8f"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "5c5d03908c79d085befbc08419eb0b01b6ff8628da4d83402e0b1d9988c449a7"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "826a0a94729f5b5572c15f7c91177f2dee6efab13b668a7b3b8d968463c0159f"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "3e015db63e7690aa596504f816d7a77b69c89bad5646ca0c752fa23c2f768dc7"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "00a64cc35dfda1d3cb99b0907a28967989328b8f18c2b5e971123c9d650898d1"
+      }
+    ],
+    "cross_view_consistency_note": "Viewed original concept: woody upper branching crown and individual broad hanging leaves clear. Reject overprominent central leaf keel and overly tapered willow shapes; use parallel sides over central leaf length, equal subtle longitudinal vein bands, no dominant midrib. Preserve bare lower trunk and non-mangrove base.",
+    "hidden_surface_decisions": "Viewed original concept: woody upper branching crown and individual broad hanging leaves clear. Reject overprominent central leaf keel and overly tapered willow shapes; use parallel sides over central leaf length, equal subtle longitudinal vein bands, no dominant midrib. Preserve bare lower trunk and non-mangrove base."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T23:51:48.533302+00:00",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 35.155,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "3e015db63e7690aa596504f816d7a77b69c89bad5646ca0c752fa23c2f768dc7"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 26.1946,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "1c88e6a451c938a150a1e161aab4a1597e52f0da6e227e0b7f3589d0876ddf1e"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "1c88e6a451c938a150a1e161aab4a1597e52f0da6e227e0b7f3589d0876ddf1e"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "ce29f11bd926bc001fb5e34a511ffb8af1ae611158db992d3d347ad38b968838",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "ba31788ec1493bad9ec6208ed0091bb8ea4e97c7fea595c049dced46ac5a5dec"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "63aff4ec63f639a4e2258e73813d526274c2703e1dd6c1cca98e77c9f5b0e1fe",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "330667573da26f890ef40130409585c6a9d76950aed23d8d3473316638932727"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}
