@@ -1,0 +1,125 @@
+{
+  "asset_id": "proterocladus",
+  "revision": "r003",
+  "previous_rejected_revision": "r002",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "4bbf893bc7f5516384969d680d2290244b9cb4594a316c3befef603bf73d818c",
+    "brief_sha256": "246ee6c958eb5cd2330b0cf80d7676be28434ce363210fba4e5f5e41df45178a",
+    "references_sha256": "3ef492022d3837a6f91b066c8ecd38c5935950c1fcd43382c08afe8a50954bd3"
+  },
+  "source_sha256": "57f324b7ed37794ba29ccdfe277439819850b788f29c12ee33ac66d4cfeecbb1",
+  "independent_stage_statuses": {
+    "technical": "pass",
+    "visual": "pass",
+    "factual": "pass",
+    "specification": "pass",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "stage_reasons": {
+    "technical": "Fresh read-only old/new Blender source extraction and direct final-GLB decoding verify exact non-label positions, topology, normals, material assignment, transforms, source shaders, nodes and scenes. Reopened full export collection produces byte-identical shipped GLB. Old label inconsistency reproduced and actual corrected shells verified. Fresh project/Khronos audits and both retained distinct-PID rebuild records checked against exact inputs and raw outputs.",
+    "visual": "Personally viewed every new required512px frame and the lossless sheet. Exact decoded RGBA equality to previously inspected accepted anatomical pixels; original visual blocker was the label full-volume defect, now repaired in actual source and export. No new mask, shader, camera or anatomy change.",
+    "factual": "Bounded differential inheritance of prior independent factual PASS under unchanged frozen scope. Actual non-label anatomy, original brief, references and config are exact; no scientific research or acceptance threshold was replaced or newly invented.",
+    "specification": "Immutable original brief/config/reference bytes and inherited freeze Git blob preserved, all original failure evidence retained; label correction now satisfies the original consistently oriented closed-volume requirement. New geometric revision identity and dependency closure checked.",
+    "runtime_parse": "Fresh pinned Three GLTFLoader CPU parse of exact shipped GLB succeeds.",
+    "gpu": "Unknown: no intended graphics device/target renderer test was run. CPU views and Node parse do not establish this stage.",
+    "scene": "Unknown: intended composed-scene acceptance was not run."
+  },
+  "candidate_stage_eligible": true,
+  "all_seven_stages_pass": false,
+  "publication_approved": false,
+  "static_only": true,
+  "measured": {
+    "triangles": 1636,
+    "components": 23,
+    "nonlabel_components_exact": 22,
+    "materials": 4,
+    "source_bounds_blender_m": {
+      "min": [
+        -0.06750000268220901,
+        -0.005400000140070915,
+        0.0
+      ],
+      "max": [
+        0.06750000268220901,
+        0.005400000140070915,
+        0.1899999976158142
+      ],
+      "size": [
+        0.13500000536441803,
+        0.01080000028014183,
+        0.1899999976158142
+      ]
+    },
+    "label_vertices_old": 368,
+    "label_vertices_new": 184,
+    "label_triangles_old_and_new": 348,
+    "coordinate_positions_exact": true,
+    "unoriented_triangles_exact": true,
+    "source_label_raw_boundary_edges_old": 368,
+    "source_label_raw_boundary_edges_new": 0,
+    "old_back_cap_inward_triangles": 82,
+    "old_same_direction_coordinate_edges": 92,
+    "new_back_cap_outward_triangles": 82,
+    "new_same_direction_coordinate_edges": 0,
+    "closed_positive_volume_glyphs": 8,
+    "contact_count": 20,
+    "detached_contacts": [],
+    "nonlabel_contact_and_exposure_details_exact": true,
+    "new_label_rear_exposed_samples": 0,
+    "label_back_plane_inside_mount_front_depth_m": 4.9999915063381195e-05,
+    "full_collection_export_byte_identical": true,
+    "rebuild_pids": [
+      55,
+      78
+    ],
+    "khronos_errors": 0,
+    "khronos_warnings": 0,
+    "three_revision": "180",
+    "changed_pixels_across_eight_frames": 0,
+    "render_config_byte_identical": true,
+    "hard_organ_ranges": []
+  },
+  "visual_inspection": {
+    "personally_viewed_frames": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "personally_viewed_sheet": true,
+    "findings": "Front/hero ENLARGED glyphs remain readable. Asymmetric narrow branching relief and holdfast remain unchanged. Side/top show real tablet/relief thickness; rear/reversehero naturally show the tablet back, not a missing front surface. No clipping or newly introduced interference.",
+    "pixel_equality_explanation": "Corrected back-cap orientation is geometrically inside the unchanged closed label plinth; rear exposure is zero. This explains unchanged CPU pixels but does not substitute for actual shell topology verification or GPU testing.",
+    "new_detail_render_needed": false
+  },
+  "resolved_issue": {
+    "id": "B99-LABEL-ORIENTATION",
+    "status": "resolved_for_this_new_revision",
+    "original_failure_remains_valid": true,
+    "original_failed_revision_not_relabelled": true
+  },
+  "prior_factual_basis": {
+    "report_path": "/workspace/shared/lowpoly-batch99-independent-qa-20261021/BATCH99-INDEPENDENT-QA-REPORT.json",
+    "report_sha256": "fec29cd0a36922721dd3d4cb3196a7a4ee20e3cea535bea6e676b04d97b7b2d1",
+    "prior_factual_status": "pass",
+    "scientific_scope_unchanged": true
+  },
+  "evidence": [
+    "proterocladus-independent-difference.json",
+    "proterocladus-geometry.json",
+    "proterocladus-source-export.json",
+    "proterocladus-khronos.json",
+    "proterocladus-runtime.json",
+    "proterocladus-rebuild-a-independent.json",
+    "proterocladus-rebuild-b-independent.json",
+    "original-method-old/proterocladus-glb-label-orientation.json",
+    "original-method-new/proterocladus-glb-label-orientation.json",
+    "lifecycle-pixel-camera-verification.json"
+  ]
+}
