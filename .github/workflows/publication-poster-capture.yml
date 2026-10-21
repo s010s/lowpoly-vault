@@ -1,72 +1,155 @@
 name: Capture pinned publication posters
 on:
   push:
-    branches: ['capture/**']
-  pull_request:
-    paths:
-      - 'qa/landair-release-20261019/capture-inputs.json'
-      - 'site/accepted-landair-capture.mjs'
-      - 'site/prepare-landair-capture.mjs'
-      - 'qa/quartets-release-20261019/capture-inputs.json'
-      - 'site/accepted-quartets-capture.mjs'
-      - 'site/prepare-quartets-capture.mjs'
-      - '.github/workflows/publication-poster-capture.yml'
-  workflow_dispatch:
+    branches: ['capture/fifty-two-final-subject-20261021']
 permissions:
   contents: read
 jobs:
   capture:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      SITE_BASE: /lowpoly-vault/
-      SITE_ORIGIN: https://s010s.github.io
-      GALLERY_DIR: qa/capture-inputs-site
-      PREVIEW_OUTPUT: qa/ci-publication-capture
-      PREVIEW_POSTERS_ONLY: '1'
-      CAPTURE_REFERENCE: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/publication-poster-capture.yml
+            /assets/additions/arroyo-wash/batch79-20261021/arroyo-wash.glb
+            /assets/additions/badlands-ridge-network/batch82-20261021/badlands-ridge-network.glb
+            /assets/additions/banded-gneiss-outcrop/batch75-20261021/banded-gneiss-outcrop.glb
+            /assets/additions/beach-cusp-field/batch86-20261021/beach-cusp-field.glb
+            /assets/additions/calamites/batch94-20261021/calamites.glb
+            /assets/additions/caytonia/batch92-20261021/caytonia.glb
+            /assets/additions/charnia/batch81-20261021/charnia.glb
+            /assets/additions/chondrites-branching-trace/batch88-20261021/chondrites-branching-trace.glb
+            /assets/additions/cinder-cone/batch86-20261021/cinder-cone.glb
+            /assets/additions/cloudina/batch83-20261021/cloudina.glb
+            /assets/additions/dickinsonia/batch79-20261021/dickinsonia.glb
+            /assets/additions/diplopora/batch93-20261021/diplopora.glb
+            /assets/additions/eophyllophyton/batch92-20261021/eophyllophyton.glb
+            /assets/additions/ernietta/batch77-20261021/ernietta.glb
+            /assets/additions/glossopteris/batch84-20261021/glossopteris.glb
+            /assets/additions/impact-crater/batch83-20261021/impact-crater.glb
+            /assets/additions/inselberg/batch81-20261021/inselberg.glb
+            /assets/additions/kame-mound/batch80-20261021/kame-mound.glb
+            /assets/additions/karst-polje/batch85-20261021/karst-polje.glb
+            /assets/additions/kimberella/batch82-20261021/kimberella.glb
+            /assets/additions/lava-channel/batch85-20261021/lava-channel.glb
+            /assets/additions/lava-tube-entrance/batch83-20261021/lava-tube-entrance.glb
+            /assets/additions/lumbricaria-thread-like-coprolite/batch90-20261021/lumbricaria-thread-like-coprolite.glb
+            /assets/additions/namacalathus/batch85-20261021/namacalathus.glb
+            /assets/additions/nathorstiana/batch93-20261021/nathorstiana.glb
+            /assets/additions/oncoid-bed/batch92-20261021/oncoid-bed.glb
+            /assets/additions/patterned-stone-circles/batch81-20261021/patterned-stone-circles.glb
+            /assets/additions/pediment/batch80-20261021/pediment.glb
+            /assets/additions/pertica/batch90-20261021/pertica.glb
+            /assets/additions/piedmont-glacier/batch85-20261021/piedmont-glacier.glb
+            /assets/additions/planolites-smooth-burrow/batch88-20261021/planolites-smooth-burrow.glb
+            /assets/additions/playa-basin/batch82-20261021/playa-basin.glb
+            /assets/additions/pseudobornia/batch94-20261021/pseudobornia.glb
+            /assets/additions/psilophyton/batch89-20261021/psilophyton.glb
+            /assets/additions/pterosaur-manus-pes-trackway/batch91-20261021/pterosaur-manus-pes-trackway.glb
+            /assets/additions/rhacophyton/batch94-20261021/rhacophyton.glb
+            /assets/additions/rosselia-concentrically-filled-burrow/batch89-20261021/rosselia-concentrically-filled-burrow.glb
+            /assets/additions/sauropod-manus-pes-trackway/batch91-20261021/sauropod-manus-pes-trackway.glb
+            /assets/additions/shield-volcano/batch79-20261021/shield-volcano.glb
+            /assets/additions/sigillaria/batch94-20261021/sigillaria.glb
+            /assets/additions/skolithos-pipe-field/batch89-20261021/skolithos-pipe-field.glb
+            /assets/additions/spatter-cone/batch87-20261021/spatter-cone.glb
+            /assets/additions/spiral-coprolite/batch91-20261021/spiral-coprolite.glb
+            /assets/additions/spriggina/batch80-20261021/spriggina.glb
+            /assets/additions/stratovolcano/batch82-20261021/stratovolcano.glb
+            /assets/additions/teichichnus-spreite-wall/batch89-20261021/teichichnus-spreite-wall.glb
+            /assets/additions/thrombolite-mound/batch92-20261021/thrombolite-mound.glb
+            /assets/additions/tower-karst/batch86-20261021/tower-karst.glb
+            /assets/additions/travertine-terrace-pools/batch87-20261021/travertine-terrace-pools.glb
+            /assets/additions/valley-glacier/batch81-20261021/valley-glacier.glb
+            /assets/additions/volcanic-neck/batch84-20261021/volcanic-neck.glb
+            /assets/additions/zoophycos-spiral-spreite/batch90-20261021/zoophycos-spiral-spreite.glb
+            /package-lock.json
+            /package.json
+            /qa/fifty-two-final-subject-capture-20261021/capture-inputs.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/arroyo-wash.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/badlands-ridge-network.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/banded-gneiss-outcrop.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/beach-cusp-field.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/calamites.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/caytonia.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/charnia.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/chondrites-branching-trace.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/cinder-cone.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/cloudina.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/dickinsonia.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/diplopora.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/eophyllophyton.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/ernietta.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/glossopteris.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/impact-crater.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/inselberg.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/kame-mound.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/karst-polje.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/kimberella.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/lava-channel.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/lava-tube-entrance.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/lumbricaria-thread-like-coprolite.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/namacalathus.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/nathorstiana.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/oncoid-bed.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/patterned-stone-circles.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/pediment.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/pertica.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/piedmont-glacier.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/planolites-smooth-burrow.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/playa-basin.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/pseudobornia.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/psilophyton.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/pterosaur-manus-pes-trackway.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/rhacophyton.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/rosselia-concentrically-filled-burrow.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/sauropod-manus-pes-trackway.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/shield-volcano.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/sigillaria.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/skolithos-pipe-field.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/spatter-cone.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/spiral-coprolite.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/spriggina.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/stratovolcano.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/teichichnus-spreite-wall.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/thrombolite-mound.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/tower-karst.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/travertine-terrace-pools.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/valley-glacier.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/volcanic-neck.json
+            /qa/fifty-two-final-subject-capture-20261021/metadata/zoophycos-spiral-spreite.json
+            /qa/fifty-two-final-subject-capture-20261021/scoped-gallery-capture.mjs
+            /site/capture-gallery-posters.mjs
+            /site/gallery-poster-compat.mjs
+            /site/gallery-poster-inputs.mjs
+            /site/gallery/hover-presentation.js
+            /site/gallery/hover-turntable.js
+            /site/gallery/liquid-core.js
+            /site/gallery/model-support.js
+            /site/gallery/reference-entry.js
+            /site/gallery/renderer.js
+            /site/gallery/scale-reference.js
+            /site/gallery/urls.js
+            /site/gallery/view-transition.js
+            /site/render-preset.js
+            /site/viewer.js
+            /vite.config.js
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
       - run: npm ci --ignore-scripts
-      - run: npx vite build --outDir "$GITHUB_WORKSPACE/qa/capture-inputs-site"
-      - name: Prepare reviewed land-air candidate capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') != ''
-        run: node site/prepare-landair-capture.mjs
-      - name: Prepare reviewed candidate capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') != ''
-        run: node site/prepare-quartets-capture.mjs
-      - name: Prepare checked capture inputs
-        if: hashFiles('qa/landair-release-20261019/capture-inputs.json') == '' && hashFiles('qa/quartets-release-20261019/capture-inputs.json') == ''
-        run: |
-          node --input-type=module <<'JS'
-          import assert from 'node:assert/strict';
-          import {appendFile} from 'node:fs/promises';
-          import {resolve} from 'node:path';
-          import {prepareRenderCapture} from './site/prepare-render-capture.mjs';
-          import {CONCEPT_SEVEN_IDS} from './site/concept-seven-release.mjs';
-          const manifest=await prepareRenderCapture({outDir:resolve(process.env.GALLERY_DIR)});
-          const pack=manifest.assets.at(-1).packs[0];
-          const ids=manifest.assets.filter(a=>a.packs.includes(pack)).map(a=>a.id);
-          if(manifest.publication?.approved_concept_seven_ids){
-            assert.deepEqual(ids.slice().sort(),CONCEPT_SEVEN_IDS);
-            assert.deepEqual(manifest.publication.approved_concept_seven_ids,CONCEPT_SEVEN_IDS);
-          }else{assert.equal(ids.length,12);assert.equal(new Set(ids).size,12);}
-          await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${ids.join(',')}\n`);
-          JS
       - run: npx playwright install --with-deps chromium
-      - run: node site/render-web-previews.mjs
-      - run: node site/export-captured-posters.mjs
+      - name: Validate exact final52 frozen inputs
+        run: node qa/fifty-two-final-subject-capture-20261021/scoped-gallery-capture.mjs --validate-only
+      - name: Capture only52 final-subject gallery pairs
+        run: node qa/fifty-two-final-subject-capture-20261021/scoped-gallery-capture.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: pinned-publication-capture
-          path: qa/ci-publication-capture/
-      - name: State capture scope
-        run: echo 'Capture-only public image generation. Publication tests, exact poster reproduction, full review, Pages and live browser gates remain required separately.' >> "$GITHUB_STEP_SUMMARY"
+          name: fifty-two-final-subject-gallery
+          path: qa/ci-fifty-two-final-subject-capture/gallery/
+      - run: echo '52 exact final-subject gallery pairs only. Original card PNG/WebP unchanged. No model, source QA, publication or formal approval change.' >> "$GITHUB_STEP_SUMMARY"
