@@ -1,0 +1,338 @@
+{
+  "asset_id": "eleutherocrinus",
+  "revision": "r002",
+  "verdict": "REVISE",
+  "stages": {
+    "technical": "FAIL",
+    "visual": "PASS",
+    "factual": "PASS",
+    "specification": "PASS",
+    "runtime_parse": "PASS",
+    "gpu": "UNKNOWN",
+    "scene": "UNKNOWN"
+  },
+  "triplet": {
+    "revision": "r002",
+    "glb_sha256": "bd1a026ec3c0aa80d75e99bac557bd88674f66f1186666d8c4a7f58d416faed7",
+    "brief_sha256": "1a76cd48f49e21b9382d805963a208999775a0fbfad0af272355c6b5b7f56737",
+    "references_sha256": "2cf40c377c7c72f11b465a38644f73e843bb2ae6130b005b54b81357b35325c3"
+  },
+  "source": {
+    "path": "production/batch-108/eleutherocrinus/r002/artifacts/eleutherocrinus.blend",
+    "sha256": "1d02ae5541067590913295c4692230eb3dcfcfd8a5d16007b12704c759b43f7e"
+  },
+  "generator": {
+    "path": "production/batch-108/tools/generate-r009.py",
+    "sha256": "f16d075b98f8c609833678bc9c07bc1afe922cefd1a8b616c77873a7e676a293"
+  },
+  "config": {
+    "path": "production/batch-108/eleutherocrinus/r002/config.json",
+    "sha256": "3875ee3ece72ed6eb982f8488e6c42f9ddb6fa9b8be47bd401683206ae722224"
+  },
+  "all_five_static_stages_pass": false,
+  "metrics": {
+    "triangles": 11280,
+    "glb_bytes": 609356,
+    "materials": 4,
+    "primitives": 4,
+    "textures": 0,
+    "bounds_gltf_m": {
+      "min": [
+        -0.006745034363120794,
+        0.0,
+        -0.00984888430684805
+      ],
+      "max": [
+        0.006745034363120794,
+        0.017838111147284508,
+        0.00984888430684805
+      ],
+      "size": [
+        0.013490068726241589,
+        0.017838111147284508,
+        0.0196977686136961
+      ]
+    },
+    "actual_connected_solids": 324,
+    "nonempty_component_kind_counts": {
+      "theca_core": 1,
+      "thecal_plating": 1,
+      "ambulacral_path": 5,
+      "brachiole": 18,
+      "oral_plate": 5,
+      "spiracle": 4,
+      "anispiracle": 1
+    }
+  },
+  "scientific_review": {
+    "taxon": "Eleutherocrinus cassedayi",
+    "sources": [
+      {
+        "url": "https://www.canadiana.ca/view/oocihm.44564/129",
+        "inspected": "Actual Whiteaves1889 page110, plate14 caption and figures5/5a/5b pixels read. Goodwillie1882 Thedford specimen is distinguished from the Smithsonian records."
+      },
+      {
+        "url": "https://www.si.edu/object/nmnhpaleobiology_3118626",
+        "inspected": "Saved S4960-a/b/c actual fossil pixels inspected; fresh direct record tool access failed. S4960-a is a complete lateral theca, not the S4963 fragment."
+      },
+      {
+        "url": "https://www.si.edu/object/nmnhpaleobiology_3118629",
+        "inspected": "Saved S4963-a/b fragments inspected separately; not used as a complete body outline. Fresh direct record tool access failed."
+      },
+      {
+        "url": "https://www.researchgate.net/publication/383323267_A_critical_interval_in_blastoid_evolution_the_respiratory_transition_and_palaeogeographic_dispersion_of_the_spiraculate_blastoids_in_the_Devonian",
+        "inspected": "Fresh author-upload primary text pp56\u201358 read: D-side resting axis, elongate form, four ovoid spiracles plus anispiracle, C/E brachioles thicker than A/B."
+      }
+    ],
+    "finding": "Stemless, asymmetric elongate body and genuine shortened broad D-side strip with four long strips; no genus substitution. Complete brachiole number/posture explicitly reconstructive. Anatomy is coherent apart from technical plate detachment below."
+  },
+  "failures": [
+    {
+      "id": "E-1",
+      "stage": "technical",
+      "original_requirement": {
+        "file": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/eleutherocrinus/r001/original-brief.json",
+        "keys": [
+          "criteria[technical-acceptance]",
+          "contact_policy",
+          "component_measurement_contract"
+        ],
+        "text": "Unmodified closed outward geometry; actual transformed dimensions/counts, strict attachment and whole-scene exposure. Feature solids touch/interpenetrate their parent strictly."
+      },
+      "finding": "8 real connected ambulacral plate solids are detached from the entire remainder of the organism. Group-level witnesses elsewhere in a composite ambulacrum cannot establish their attachment.",
+      "proof": [
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/fresh-source-inspection.json",
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/dense-contact-diagnostic.json",
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/targeted-proof-v2.json",
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/solid-angle-proof.json"
+      ],
+      "exact_detached_solids": [
+        {
+          "component": "ambulacrum_1",
+          "connected_part_index": 19,
+          "source_vertex_indices": [
+            1662,
+            1663,
+            1664,
+            1665,
+            1666,
+            1667,
+            1668,
+            1669
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 4.524863470578566e-06,
+          "all_rest_winding_max_abs": 7.271748482296689e-15,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_1",
+          "connected_part_index": 31,
+          "source_vertex_indices": [
+            1758,
+            1759,
+            1760,
+            1761,
+            1762,
+            1763,
+            1764,
+            1765
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 3.312898570584366e-06,
+          "all_rest_winding_max_abs": 6.487765566062571e-16,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_1",
+          "connected_part_index": 35,
+          "source_vertex_indices": [
+            1790,
+            1791,
+            1792,
+            1793,
+            1794,
+            1795,
+            1796,
+            1797
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 3.6610288134397706e-06,
+          "all_rest_winding_max_abs": 1.2005593096941417e-16,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_1",
+          "connected_part_index": 47,
+          "source_vertex_indices": [
+            1886,
+            1887,
+            1888,
+            1889,
+            1890,
+            1891,
+            1892,
+            1893
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 4.195013843855122e-06,
+          "all_rest_winding_max_abs": 1.6609175085227808e-16,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_4",
+          "connected_part_index": 17,
+          "source_vertex_indices": [
+            4982,
+            4983,
+            4984,
+            4985,
+            4986,
+            4987,
+            4988,
+            4989
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 4.524863470578566e-06,
+          "all_rest_winding_max_abs": 1.3517184840084885e-15,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_4",
+          "connected_part_index": 29,
+          "source_vertex_indices": [
+            5078,
+            5079,
+            5080,
+            5081,
+            5082,
+            5083,
+            5084,
+            5085
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 3.312464968985296e-06,
+          "all_rest_winding_max_abs": 9.156605028999608e-16,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_4",
+          "connected_part_index": 33,
+          "source_vertex_indices": [
+            5110,
+            5111,
+            5112,
+            5113,
+            5114,
+            5115,
+            5116,
+            5117
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 3.661444452518481e-06,
+          "all_rest_winding_max_abs": 1.9716263992188662e-16,
+          "all_rest_triangle_crossings": 0
+        },
+        {
+          "component": "ambulacrum_4",
+          "connected_part_index": 45,
+          "source_vertex_indices": [
+            5206,
+            5207,
+            5208,
+            5209,
+            5210,
+            5211,
+            5212,
+            5213
+          ],
+          "minimum_sampled_vertex_to_rest_surface_distance_m": 4.194930170342559e-06,
+          "all_rest_winding_max_abs": 2.6451388777862666e-15,
+          "all_rest_triangle_crossings": 0
+        }
+      ],
+      "minimal_correction": "Modify only the affected plate lower geometry or its actual host interface so every real plate is continuously supported by genuine strict interior embedding. Preserve external anatomy/nominal proportions. Rerun per-solid contact against the complete scene and all changed-source topology/export/rebuild checks. Do not relax the test, count a boundary vertex, or require an invented minimum overlap distance.",
+      "diagnostic_qualification": "Earlier broad no-witness samples were refined. Pieces supported by other structural plate solids are not called detached. Only the listed8/16 are proven disjoint from all remaining triangles by zero triangle intersections and near-zero double-precision signed solid-angle sums at every vertex and centroid. Reported distances are observations, not new thresholds."
+    }
+  ],
+  "technical_evidence": {
+    "original_glb_topology": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/fresh-original-glb-topology.json",
+    "full_source_inspection_and_reexport": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/fresh-source-inspection.json",
+    "full_source_semantic_match": true,
+    "all_authored_objects": [
+      {
+        "name": "eleutherocrinus",
+        "type": "EMPTY",
+        "collections": [
+          "EXPORT"
+        ],
+        "hide_render": false,
+        "selected": false,
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertices": null
+      },
+      {
+        "name": "eleutherocrinus-original-organism",
+        "type": "MESH",
+        "collections": [
+          "EXPORT"
+        ],
+        "hide_render": false,
+        "selected": false,
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertices": 6288
+      }
+    ],
+    "rehashed_separate_process_rebuilds": [
+      "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/rehashed-rebuild-a.json",
+      "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/rehashed-rebuild-b.json"
+    ],
+    "fresh_khronos": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/fresh-khronos.json",
+    "fresh_three": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/fresh-three.json",
+    "anatomy_corroboration": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/eleutherocrinus/reexecuted-anatomy.json"
+  },
+  "specification_review": "Original30-file freeze and concept pixels rehashed; all348 committed production files match fixed commit. Current references/configs equal originals; delivery briefs add only provenance/deliverable bindings, not weakened criteria. Nominal artistic dimensional targets are not converted into fabricated tight tolerances. Actual body/component dimensions and hard anatomical counts assessed."
+}

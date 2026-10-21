@@ -1,0 +1,198 @@
+{
+  "asset_id": "placocystites",
+  "revision": "r003",
+  "verdict": "REVISE",
+  "stages": {
+    "technical": "PASS",
+    "visual": "FAIL",
+    "factual": "FAIL",
+    "specification": "PASS",
+    "runtime_parse": "PASS",
+    "gpu": "UNKNOWN",
+    "scene": "UNKNOWN"
+  },
+  "triplet": {
+    "revision": "r003",
+    "glb_sha256": "ab29dbc459bc6187654725db581feee0956670d96efe1da3ba8883b57eb4c395",
+    "brief_sha256": "e3b4e28b49423662d9eb13973a63bc4348c094f72d003a85046614a3fb47ec0a",
+    "references_sha256": "f0ee47f007909fff865064d6c5f22a3ff69216c4fe8ef1026d37da3aff4b63ee"
+  },
+  "source": {
+    "path": "production/batch-108/placocystites/r003/artifacts/placocystites.blend",
+    "sha256": "1a93f6f23a96fecc1511aabac9076e1d469c9b42c9ce316462fa78b1cbe1f65b"
+  },
+  "generator": {
+    "path": "production/batch-108/tools/generate-r011.py",
+    "sha256": "3c1b32bae35a0bd5174fa1463e3c668d30fdb4ab674140d49111f77c6336d035"
+  },
+  "config": {
+    "path": "production/batch-108/placocystites/r003/config.json",
+    "sha256": "b9a511b23a640481a68f97396e290e40b995a3f73fc0577383b0600e625bea76"
+  },
+  "all_five_static_stages_pass": false,
+  "metrics": {
+    "triangles": 3440,
+    "glb_bytes": 187464,
+    "materials": 4,
+    "primitives": 4,
+    "textures": 0,
+    "bounds_gltf_m": {
+      "min": [
+        -0.011788289994001389,
+        0.0,
+        -0.03489425778388977
+      ],
+      "max": [
+        0.011788289994001389,
+        0.004008528310805559,
+        0.03489425778388977
+      ],
+      "size": [
+        0.023576579988002777,
+        0.004008528310805559,
+        0.06978851556777954
+      ]
+    },
+    "actual_connected_solids": 33,
+    "nonempty_component_kind_counts": {
+      "theca_core": 1,
+      "thecal_plate": 17,
+      "marginal_plate": 6,
+      "ventral_anterior_plate": 3,
+      "ventral_round_midline_plate": 1,
+      "spine_articulation": 2,
+      "oral_spine": 2,
+      "aulacophore": 1
+    }
+  },
+  "scientific_review": {
+    "taxon": "Placocystites forbesianus",
+    "sources": [
+      {
+        "url": "https://palass.org/sites/default/files/media/publications/palaeontology/volume_41/vol41_part1_pp173-182.pdf",
+        "inspected": "Actual original Ruta1998 normal textfig1 A\u2013D on page174 inspected, with primary descriptive text. HC11 pathological plate omission on pages175\u2013176 explicitly excluded."
+      },
+      {
+        "url": "https://bcgs.info/pub/wp-content/uploads/newsletters/BCGS_Newsletter200.pdf",
+        "inspected": "Actual BIRUG18327 museum photograph inspected; historical adjacent head/gill/tail explanation is not adopted."
+      },
+      {
+        "url": "https://bcgs.info/pub/wp-content/uploads/newsletters/BCGS_Newsletter201.pdf",
+        "inspected": "Actual named Dudley specimen photo inspected; complete distal appendage not asserted preserved."
+      }
+    ],
+    "finding": "Rounded rectangular flattened body, differentiated normal dorsal/ventral map, three anterior ventral plates and small midline round plate are present; two unjointed oral spines and posterior articulated appendage present. Proximal multi-plate relationship remains missing despite transverse waists; see P-1."
+  },
+  "failures": [
+    {
+      "id": "P-1",
+      "stage": [
+        "visual",
+        "factual"
+      ],
+      "original_requirement": {
+        "file": "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r001/original-brief.json",
+        "keys": [
+          "criteria[visual-acceptance]",
+          "identifying_features[2]",
+          "concept_inspection.decisions"
+        ],
+        "text": "Proximal aulacophore needs real multi-plate articulation, not simple cylindrical rings; short broad multi-plate proximal region."
+      },
+      "finding": "The proximal aulacophore is a continuous sequence of convex transverse ring sections. It has real transverse article waists but no actual longitudinal plate separation/articulation. Radial variation alone was mistakenly treated as proof of multi-row plate seams. All22sections spanning the proximal region have same-sign corner cross products, hence are convex: the supposed four grooves never become grooves. Exact supplied and fresh oblique pixels agree.",
+      "proof": [
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/targeted-proof.json",
+        "/workspace/shared/lowpoly-batch108-20261021/production/batch-108/placocystites/r003/details/detail.png",
+        "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/low-detail/detail.png"
+      ],
+      "minimal_correction": "Sculpt a genuine multi-plate proximal region with readable longitudinal plate boundaries in addition to the existing transverse articles, preserving the original broad-proximal/tapered-middle/slender-distal relationship and two unjointed oral spines. No invented new plate count or groove-depth gate. Check strict root contact, original winding and exact detail pixels, then reexport/rebuild changed subject."
+    }
+  ],
+  "technical_evidence": {
+    "original_glb_topology": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/fresh-original-glb-topology.json",
+    "full_source_inspection_and_reexport": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/fresh-source-inspection.json",
+    "full_source_semantic_match": true,
+    "all_authored_objects": [
+      {
+        "name": "placocystites",
+        "type": "EMPTY",
+        "collections": [
+          "EXPORT"
+        ],
+        "hide_render": false,
+        "selected": false,
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertices": null
+      },
+      {
+        "name": "placocystites-original-organism",
+        "type": "MESH",
+        "collections": [
+          "EXPORT"
+        ],
+        "hide_render": false,
+        "selected": false,
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertices": 1786
+      }
+    ],
+    "rehashed_separate_process_rebuilds": [
+      "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/rehashed-rebuild-a.json",
+      "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/rehashed-rebuild-b.json"
+    ],
+    "fresh_khronos": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/fresh-khronos.json",
+    "fresh_three": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/fresh-three.json",
+    "anatomy_corroboration": "/workspace/shared/lowpoly-batch108-independent-qa-20261021/placocystites/reexecuted-anatomy.json"
+  },
+  "specification_review": "Original30-file freeze and concept pixels rehashed; all348 committed production files match fixed commit. Current references/configs equal originals; delivery briefs add only provenance/deliverable bindings, not weakened criteria. Nominal artistic dimensional targets are not converted into fabricated tight tolerances. Actual body/component dimensions and hard anatomical counts assessed."
+}
