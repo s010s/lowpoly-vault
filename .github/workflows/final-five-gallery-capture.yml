@@ -1,0 +1,104 @@
+name: Capture five final gallery pairs
+on:
+  push:
+    branches: ['delivery-images/final-five-gallery-20261021']
+permissions:
+  contents: read
+concurrency:
+  group: final-five-gallery-capture
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/final-five-gallery-capture.yml
+            /assets/additions/caryocrinites/candidate/caryocrinites.glb
+            /assets/additions/caryocrinites/candidate/caryocrinites.png
+            /assets/additions/caryocrinites/candidate/release-metadata.json
+            /assets/additions/echinosphaerites/candidate/echinosphaerites.glb
+            /assets/additions/echinosphaerites/candidate/echinosphaerites.png
+            /assets/additions/echinosphaerites/candidate/release-metadata.json
+            /assets/additions/eleutherocrinus/candidate/eleutherocrinus.glb
+            /assets/additions/eleutherocrinus/candidate/eleutherocrinus.png
+            /assets/additions/eleutherocrinus/candidate/release-metadata.json
+            /assets/additions/micraster/candidate/micraster.glb
+            /assets/additions/micraster/candidate/micraster.png
+            /assets/additions/micraster/candidate/release-metadata.json
+            /assets/additions/nucleocrinus/candidate/nucleocrinus.glb
+            /assets/additions/nucleocrinus/candidate/nucleocrinus.png
+            /assets/additions/nucleocrinus/candidate/release-metadata.json
+            /assets/card-previews/caryocrinites-v2-768-q90.webp
+            /assets/card-previews/echinosphaerites-v2-768-q90.webp
+            /assets/card-previews/eleutherocrinus-v2-768-q90.webp
+            /assets/card-previews/micraster-v2-768-q90.webp
+            /assets/card-previews/nucleocrinus-v2-768-q90.webp
+            /capture/final-gallery/inputs.json
+            /capture/final-gallery/scoped-gallery-capture.mjs
+            /package-lock.json
+            /package.json
+            /qa/final-delivery-20261021/card-presentation-index.json
+            /site/asset-delivery.mjs
+            /site/capture-gallery-posters.mjs
+            /site/catalog-build.mjs
+            /site/catalog-data.json
+            /site/ci-archival-inputs.mjs
+            /site/ci-card-preview-proof.mjs
+            /site/ci-git.mjs
+            /site/ci-model-cache.mjs
+            /site/ci-model-proof.mjs
+            /site/ci-model-shards.mjs
+            /site/ci-proof-budget.mjs
+            /site/ci-proof-fetch.mjs
+            /site/ci-provenance.mjs
+            /site/curation.js
+            /site/gallery-assets.mjs
+            /site/gallery-poster-cache.mjs
+            /site/gallery-poster-compat.mjs
+            /site/gallery-poster-inputs.mjs
+            /site/gallery-poster-orchestration.mjs
+            /site/gallery-poster-proof.mjs
+            /site/gallery/hover-presentation.js
+            /site/gallery/hover-turntable.js
+            /site/gallery/icons.js
+            /site/gallery/liquid-core.js
+            /site/gallery/model-dimensions.js
+            /site/gallery/model-support.js
+            /site/gallery/presentation-labels.js
+            /site/gallery/reference-entry.js
+            /site/gallery/renderer.js
+            /site/gallery/scale-reference.js
+            /site/gallery/startup.mjs
+            /site/gallery/urls.js
+            /site/gallery/view-transition.js
+            /site/image-scrub.js
+            /site/refinable-asset-ids.mjs
+            /site/render-preset.js
+            /site/render-web-previews.mjs
+            /site/routes.js
+            /site/static-routes.mjs
+            /site/turntable-delivery.mjs
+            /site/viewer.js
+            /site/words.js
+            /vite.config.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Validate exact final subjects and accepted card identities
+        run: node capture/final-gallery/scoped-gallery-capture.mjs --validate-only
+      - run: npx playwright install --with-deps chromium
+      - name: Capture only five native detail and wheel pairs
+        run: node capture/final-gallery/scoped-gallery-capture.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-five-gallery-capture
+          path: qa/ci-final-five-gallery/
+          retention-days: 7
+      - run: echo 'Ten exact final detail/wheel PNGs plus scope receipt only. Independent pixel review and full release gates remain required.' >> "$GITHUB_STEP_SUMMARY"
