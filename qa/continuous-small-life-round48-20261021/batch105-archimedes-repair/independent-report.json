@@ -1,0 +1,1075 @@
+{
+  "schema_version": 1,
+  "review": "QA105-ARCH-R002 fresh independent endpoint-difference review",
+  "reviewer": "review_archimedes_endpoint_repair",
+  "completed_at_utc": "2026-10-21T05:38:09Z",
+  "scope": "Only the Archimedes endpoint-only r002 repair is newly reviewed. The other3 assets retain their earlier bounded-static acceptance through exact inherited identity; this is not a new full-batch or full factual-source review.",
+  "source": {
+    "commit": "3b470a4aca963df9ceae39affcc96602707a1180",
+    "branch": "candidate/batch105-archimedes-repair-20261021",
+    "base_commit": "cc7568aae69c84100837b056ea82314aafcaf525",
+    "candidate_path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/candidate.json",
+    "candidate_sha256": "3873c3c9ab8e12742d4a6b75b73308ecf4a541c19849d127455dd61d578ebf66",
+    "maker_handoff": {
+      "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/maker-handoff.json",
+      "sha256": "23e373e424450beba574ca33e00c5a0a64b20094e7c5c97ea95dd332568d6d54",
+      "bytes": 5780
+    },
+    "submission_manifest": {
+      "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/submission-manifest.json",
+      "sha256": "1ce33666a24feeeffabb7c3e502d5f73fb3daf1f5a1f4f8f898ba0ee168dd724",
+      "bytes": 19851
+    },
+    "read_only": true,
+    "git_status_before_and_after": "clean",
+    "changed_paths_from_base": 93
+  },
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+    "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+    "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.glb",
+      "sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475"
+    },
+    "brief": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/delivery-brief.json",
+      "sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d"
+    },
+    "references": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/references.json",
+      "sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+    },
+    "source": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.blend",
+      "sha256": "a3cbef0d7283439fab6379064ec0ff27310259ecfcd8c2400587f7719e93ddf7"
+    },
+    "generator": {
+      "path": "production/small-life-batch105-archimedes-repair/tools/generate.py",
+      "sha256": "fc75e5fd9f9839ed6075874739f8c941d8f6321ef79bc8f7e77c48a6ef999a2d"
+    },
+    "config": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/config.json",
+      "sha256": "3bdeb18c60be379ab11a21122b9e2428969d91ffa50850d4bb1e0929c7252b0e"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch105-archimedes-repair/dependencies.json",
+      "sha256": "25cbf8557dd531a037b7a3915e7b5d53947912eb7e618401b21372410811dcda"
+    }
+  },
+  "result": "BOUNDED_STATIC_PASS",
+  "required_changes": [],
+  "whole_brief_approved": false,
+  "whole_batch_release_approved": false,
+  "website_approved": false,
+  "publication_authority": "Separate; no upload, push, PR, merge, deployment, authority queue or counter change performed.",
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/source-independent.json",
+          "sha256": "0fd45cdb32a4d37db53c7cb09ee35f974a1b4a1aece1fc076e731e8d63c668e7",
+          "bytes": 13751
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/glb-independent.json",
+          "sha256": "43cf63c79d65b7c78b8240d9b51f0cea29f6ac8e469b0aca89d7d277c208c2b3",
+          "bytes": 3388
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/khronos-independent.json",
+          "sha256": "afb6f1c95cedbee3bd0a7ae183acb481e6cb71eef965a54c5cdad30fa2cf455a",
+          "bytes": 1085
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/project-independent.json",
+          "sha256": "fed63329531e41802c66d6a50aee1d7475129a10121666afa0c13b2920a71b20",
+          "bytes": 4420
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/open-net-independent.json",
+          "sha256": "57421af4b8ba0a9c1ceaf5ab20d1e2474007aa5cfc089d3312b81ba7e3847bd8",
+          "bytes": 29486
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/evidence-integrity.json",
+          "sha256": "8797b9904675f7c768e8c70a79d742034131b2b413788cc7b7dd6c3c96dd7a46",
+          "bytes": 128663
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/provenance-independent.json",
+          "sha256": "b5f8aa2843f39a5246ff4b0ca849a8476e964520040c0fe6ec97798303af70cd",
+          "bytes": 24936
+        }
+      ],
+      "changed_source_vertices": 65,
+      "unchanged_source_vertices": 4037,
+      "changed_exported_triangles": 144,
+      "unchanged_exported_triangles": 9252,
+      "total_triangles": 9396,
+      "materials": 3,
+      "primitives": 3,
+      "textures": 0,
+      "glb_bytes": 673416,
+      "middle_113_rings": "unchanged",
+      "all_faces_materials_nodes_transforms_semantic_contract": "unchanged",
+      "frond_vertices_triangles_and300_feature_records": "unchanged",
+      "original_topology": [
+        {
+          "tag": "axial_helix",
+          "vertices": 970,
+          "triangles": 1936,
+          "edges": 2904,
+          "boundary_nonmanifold_or_direction_errors": 0,
+          "signed_volume_m3": 4.525161516134313e-08,
+          "connected_components": 1,
+          "euler_characteristic": 2,
+          "closed_orientable_genus": 0
+        },
+        {
+          "tag": "continuous_lacy_frond",
+          "vertices": 3132,
+          "triangles": 7460,
+          "edges": 11190,
+          "boundary_nonmanifold_or_direction_errors": 0,
+          "signed_volume_m3": 8.101196918973292e-08,
+          "connected_components": 1,
+          "euler_characteristic": -598,
+          "closed_orientable_genus": 300
+        }
+      ],
+      "full_authored_collection_reopened": true,
+      "full_authored_collection_reexport_byte_identical": true,
+      "full_authored_collection_objects": [
+        [
+          "archimedes",
+          "EMPTY"
+        ],
+        [
+          "archimedes-original-skeleton",
+          "MESH"
+        ]
+      ],
+      "reexport": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/full-collection-reexport.glb",
+        "sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "bytes": 673416
+      },
+      "two_rebuilds": "Both retained real process outputs and their separate execution/request/result records independently rehashed. Distinct PIDs7 and30 and distinct nonoverlapping intervals verified. Not rerun solely to duplicate evidence.",
+      "khronos_errors": 0,
+      "khronos_warnings": 0
+    },
+    "visual": {
+      "status": "pass",
+      "review_method": "Personally inspected all8 separate512 images, lossless contact sheet, both repaired endpoint details and both original defect detail images. No inference of viewing from maker statements.",
+      "observations": {
+        "hero": "Continuous faceted open helix and slender actual corkscrew support; lower termination narrows rather than ending as a full-width cylinder.",
+        "reversehero": "Air between turns and through lattice remains visible; lower end is tapered without a bulky root.",
+        "front": "Continuous perforated flare, unobstructed open cells and narrow attached axis. No disconnected part apparent.",
+        "side": "Long helical silhouette and fine taper retained. Frond is an actual net, not a filled spiral ribbon.",
+        "rear": "Reverse faces remain readable and openings remain open; no newly hidden back-side defect.",
+        "top": "Radial lattice and central corkscrew opening visible; no solid sheet or masking cover.",
+        "clay": "Geometry alone retains the lattice and tapered termination. Color is not responsible for the repair.",
+        "silhouette": "Real through-openings and continuous connected silhouette confirmed; no base mass.",
+        "lower_endpoint": "Exact same camera as original defect: full-radius blunt cap replaced by a visibly narrowing faceted end with a small terminal cap. Frond root remains physically attached.",
+        "upper_endpoint": "Exact same camera as original defect: previously full-width abrupt cap now visibly tapers into a narrow incomplete termination adjoining the net.",
+        "lossless_sheet": "All8 required views present. Pixel crops were byte-exact RGBA matches to individual512 images; no resize or alternate subject.",
+        "original_defect_pixels": "Personally viewed both original r001 endpoint details. Original0.65mm full-radius blunt caps remain in immutable evidence, distinct from r002."
+      },
+      "image_pins": [
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-1/hero.png",
+          "sha256": "e0b2fcddb362ebaa8b494e8f30a0bf955f314e782bc452b3d0e87924c9db7075",
+          "bytes": 255221
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-1/reversehero.png",
+          "sha256": "60441d538f93915e696b45f7927a377772c252711f83781ed0b2f19b0f48988a",
+          "bytes": 234160
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-2/front.png",
+          "sha256": "9bf904eed6a95a9c183ef23a80e1447bfbd3359d8fa60c6e3fad7fe19b111af1",
+          "bytes": 234926
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-2/side.png",
+          "sha256": "057ec6d3a51e731f14b71a5cb6e62e50541b2ba6d9c1bcfb088190d1cf036340",
+          "bytes": 232845
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-3/rear.png",
+          "sha256": "40104660766a12f785e21989d696c2e88aa357a01ccbdcd114482681b0fdb8b5",
+          "bytes": 234662
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-3/top.png",
+          "sha256": "9fd379f16805ca31e9b845fd78442feb0e5e773f00b269dc32acc69ddfe45654",
+          "bytes": 196845
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-4/clay.png",
+          "sha256": "73c608643d6479dbb1bbfb2c3edbf57c589fb2b65422c809204ed138ade8293e",
+          "bytes": 209943
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-4/silhouette.png",
+          "sha256": "6c1dc2067ffd261cfbcaa4a9ddfbcae7cb775c033df48aab4788896cc67c2573",
+          "bytes": 203390
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-1/hero.png",
+          "sha256": "e0b2fcddb362ebaa8b494e8f30a0bf955f314e782bc452b3d0e87924c9db7075",
+          "bytes": 255221
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-1/reversehero.png",
+          "sha256": "60441d538f93915e696b45f7927a377772c252711f83781ed0b2f19b0f48988a",
+          "bytes": 234160
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-2/front.png",
+          "sha256": "9bf904eed6a95a9c183ef23a80e1447bfbd3359d8fa60c6e3fad7fe19b111af1",
+          "bytes": 234926
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-2/side.png",
+          "sha256": "057ec6d3a51e731f14b71a5cb6e62e50541b2ba6d9c1bcfb088190d1cf036340",
+          "bytes": 232845
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-3/rear.png",
+          "sha256": "40104660766a12f785e21989d696c2e88aa357a01ccbdcd114482681b0fdb8b5",
+          "bytes": 234662
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-3/top.png",
+          "sha256": "9fd379f16805ca31e9b845fd78442feb0e5e773f00b269dc32acc69ddfe45654",
+          "bytes": 196845
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-4/clay.png",
+          "sha256": "73c608643d6479dbb1bbfb2c3edbf57c589fb2b65422c809204ed138ade8293e",
+          "bytes": 209943
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/views-4/silhouette.png",
+          "sha256": "6c1dc2067ffd261cfbcaa4a9ddfbcae7cb775c033df48aab4788896cc67c2573",
+          "bytes": 203390
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/lower-end/detail.png",
+          "sha256": "15ff14ab00e15eda43949f49b1739a9dbed59701487f8de3955618ec00766210",
+          "bytes": 326437
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/upper-end/detail.png",
+          "sha256": "58eaa4ac75f03b466b5ce01bcdceeddd252887a5e4f0cf083d92e6994f9b59b7",
+          "bytes": 296268
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/views/lossless-contact-sheet.png",
+          "sha256": "40bb17e2139dc91820f1320ba59458989634494804c4ee54c6685ee2735cb86c",
+          "bytes": 1062853
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/archimedes-lower-end/detail.png",
+          "sha256": "2408ed6dd905dc3c51cbe6334c84f4431ef5e1fe8f23bebcb36fbbce047c7652",
+          "bytes": 329268
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/archimedes-upper-end/detail.png",
+          "sha256": "e26b3a9031f6bfa679339b2c0d87cd9cd9d11dfad2346a4e8925f45042f42a8e",
+          "bytes": 296953
+        }
+      ],
+      "original_requirement": "Keep actual holes and taper incomplete ends; no massive root base.",
+      "criterion_interpretation": "Actual visible narrowing at both original axial terminations satisfies frozen taper wording. It does not require a mathematical point, cap removal, a prescribed radius ratio, or new taper/penetration-depth gate."
+    },
+    "factual": {
+      "status": "pass",
+      "basis": "Preserved immutable prior factual PASS, plus fresh difference review establishing that the endpoint-only artistic repair does not change its bounded anatomical claim. No new full source/species review is claimed.",
+      "prior_report": {
+        "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/independent-report.json",
+        "sha256": "5dcd2cd93424713c0895ec0ffc79eff3a0c884fefe3042ada6a0169ca50235bb",
+        "bytes": 81251
+      },
+      "prior_asset_revision": "archimedes/r001",
+      "prior_factual_stage": {
+        "status": "pass",
+        "source_urls": [
+          "https://www.uky.edu/KGS/fossils/fossil-month-09-2018-Archimedes.php",
+          "https://palaeo-electronica.org/2006_2/helical/helical.pdf"
+        ],
+        "observations": "Personally read KGS description/caption and Raup et al. morphology discussion; viewed KGS left fossil image separately from right Greb reconstruction. The selected attached-frond material is genus-level, without supplied accession/species. The model is a bounded skeletal reconstruction, not a complete fossil or living soft anatomy. Extent, 2.5 turns and 300 openings are declared artistic sampling. The terminal-taper failure is an artistic frozen-brief miss, not a new paleontological claim."
+      },
+      "unchanged_references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09",
+      "unchanged_frozen_scope": true,
+      "reviewed_effect": "Actual narrow corkscrew support, continuously winding flaring perforated frond,300 geometric openings and2.5-turn artistic sampling remain. No species/accession or complete-colony claim added."
+    },
+    "specification": {
+      "status": "pass",
+      "all23_frozen_entries": "Exact offline committed bytes preserved",
+      "original_freeze": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105/original-freeze-manifest.json",
+        "sha256": "4513b45ecbf59f49a046d176025a1a998cdab1b3cc9d4d9a6fa67454853549e3",
+        "bytes": 4706
+      },
+      "original_criteria_and_anatomical_scope_unchanged": true,
+      "profile": "static-stylized-v1 2026-10-18.1",
+      "project_candidate_valid": true,
+      "project_approved_for_brief": false,
+      "legacy_diagnostic": "Legacy validator still reports brief.turntable_frames integer >=2. The original frozen contract explicitly requires zero turntable frames and8 fixed views; its preexisting pinned static profile applies. No acceptance gate has been relaxed.",
+      "closed_repair_obligation": "QA105-ARCH-TERMINAL-TAPER closed for r002 only; original r001 FAIL/REVISE remains unchanged."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+      "three_revision": "180",
+      "meshes": 3,
+      "triangles": 9396,
+      "materials": 3,
+      "bounds": {
+        "min": [
+          -0.009499999694526196,
+          0,
+          -0.009499999694526196
+        ],
+        "max": [
+          0.009499999694526196,
+          0.04092784970998764,
+          0.009499999694526196
+        ]
+      },
+      "gpu": "unknown",
+      "scene": "unknown",
+      "method": "Fresh exact GLB Node GLTFLoader parse; no GPU or composed target scene exercised"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reason": "No actual target hardware test. CPU images and Node parsing are not GPU proof."
+    },
+    "scene": {
+      "status": "unknown",
+      "reason": "No composed target website/scene exercised. Static acceptance is not publication or website approval."
+    }
+  },
+  "endpoint_geometry": {
+    "taper_profile": [
+      {
+        "ring": 0,
+        "original": {
+          "center_m": [
+            0.0012499999720603228,
+            -7.275957614183426e-12,
+            0.00031785035389475524
+          ],
+          "min_radius_m": 0.0006499998998127774,
+          "max_radius_m": 0.0006499999489188016
+        },
+        "repaired": {
+          "center_m": [
+            0.0012499999720603228,
+            -7.275957614183426e-12,
+            6.357007077895105e-05
+          ],
+          "min_radius_m": 0.00012999993067824394,
+          "max_radius_m": 0.00013000002331249396
+        }
+      },
+      {
+        "ring": 1,
+        "original": {
+          "center_m": [
+            0.0012393060605973005,
+            0.00016315773245878518,
+            0.0006095170392654836
+          ],
+          "min_radius_m": 0.0006499999319238475,
+          "max_radius_m": 0.0006500000412381168
+        },
+        "repaired": {
+          "center_m": [
+            0.0012393060605973005,
+            0.00016315773245878518,
+            0.0006095170392654836
+          ],
+          "min_radius_m": 0.00025999996122321806,
+          "max_radius_m": 0.00026000002740959215
+        }
+      },
+      {
+        "ring": 2,
+        "original": {
+          "center_m": [
+            0.0012074074475094676,
+            0.00032352379639633,
+            0.0009011836373247206
+          ],
+          "min_radius_m": 0.000649999891614206,
+          "max_radius_m": 0.0006500000665170416
+        },
+        "repaired": {
+          "center_m": [
+            0.0012074073310941458,
+            0.00032352379639633,
+            0.0009011836373247206
+          ],
+          "min_radius_m": 0.0003899999364260518,
+          "max_radius_m": 0.00039000005257245783
+        }
+      },
+      {
+        "ring": 3,
+        "original": {
+          "center_m": [
+            0.0011548493057489395,
+            0.0004783542826771736,
+            0.0011928504100069404
+          ],
+          "min_radius_m": 0.0006499998478884905,
+          "max_radius_m": 0.0006500000801813209
+        },
+        "repaired": {
+          "center_m": [
+            0.0011548494221642613,
+            0.0004783542826771736,
+            0.0011928504100069404
+          ],
+          "min_radius_m": 0.0005199999361107214,
+          "max_radius_m": 0.0005200000659214132
+        }
+      },
+      {
+        "ring": 4,
+        "original": {
+          "center_m": [
+            0.0010825317585840821,
+            0.0006250000442378223,
+            0.0014845170080661774
+          ],
+          "min_radius_m": 0.0006499998984463488,
+          "max_radius_m": 0.0006500000391884745
+        },
+        "repaired": {
+          "center_m": [
+            0.0010825317585840821,
+            0.0006250000442378223,
+            0.0014845170080661774
+          ],
+          "min_radius_m": 0.0006499998984463488,
+          "max_radius_m": 0.0006500000391884745
+        }
+      },
+      {
+        "ring": 116,
+        "original": {
+          "center_m": [
+            -0.0010825317585840821,
+            0.0006249999278225005,
+            0.03415118157863617
+          ],
+          "min_radius_m": 0.0006499993231796742,
+          "max_radius_m": 0.0006500004245211283
+        },
+        "repaired": {
+          "center_m": [
+            -0.0010825317585840821,
+            0.0006249999278225005,
+            0.03415118157863617
+          ],
+          "min_radius_m": 0.0006499993231796742,
+          "max_radius_m": 0.0006500004245211283
+        }
+      },
+      {
+        "ring": 117,
+        "original": {
+          "center_m": [
+            -0.0011548494221642613,
+            0.0004783542826771736,
+            0.03444284945726395
+          ],
+          "min_radius_m": 0.0006499994625554948,
+          "max_radius_m": 0.0006500000911127461
+        },
+        "repaired": {
+          "center_m": [
+            -0.0011548494221642613,
+            0.0004783542826771736,
+            0.03444284945726395
+          ],
+          "min_radius_m": 0.0005199990240188938,
+          "max_radius_m": 0.0005200000693374836
+        }
+      },
+      {
+        "ring": 118,
+        "original": {
+          "center_m": [
+            -0.001207407214678824,
+            0.00032352376729249954,
+            0.034734517335891724
+          ],
+          "min_radius_m": 0.0006499993491418391,
+          "max_radius_m": 0.0006500005065067699
+        },
+        "repaired": {
+          "center_m": [
+            -0.001207407214678824,
+            0.00032352379639633,
+            0.034734517335891724
+          ],
+          "min_radius_m": 0.0003899996563080919,
+          "max_radius_m": 0.00039000004118555637
+        }
+      },
+      {
+        "ring": 119,
+        "original": {
+          "center_m": [
+            -0.0012393060605973005,
+            0.00016315771790686995,
+            0.0350261814892292
+          ],
+          "min_radius_m": 0.0006499993064409094,
+          "max_radius_m": 0.0006500003589326076
+        },
+        "repaired": {
+          "center_m": [
+            -0.0012393059441819787,
+            0.0001631577470107004,
+            0.0350261814892292
+          ],
+          "min_radius_m": 0.00025999937920940966,
+          "max_radius_m": 0.00026000074862647296
+        }
+      },
+      {
+        "ring": 120,
+        "original": {
+          "center_m": [
+            -0.001249999855645001,
+            -3.637978807091713e-12,
+            0.03531784936785698
+          ],
+          "min_radius_m": 0.0006499998337971948,
+          "max_radius_m": 0.0006500003452683316
+        },
+        "repaired": {
+          "center_m": [
+            -0.001249999855645001,
+            -3.637978807091713e-12,
+            0.03531784936785698
+          ],
+          "min_radius_m": 0.00012999924715500092,
+          "max_radius_m": 0.0001300000469314149
+        }
+      }
+    ],
+    "contact": [
+      {
+        "endpoint": "lower",
+        "z_window_m": [
+          0.0,
+          0.001484517020561422
+        ],
+        "strict_interior_surface_centroids": 15,
+        "negative_candidates": 15,
+        "local_surface_intersections": 28,
+        "examples": [
+          {
+            "triangle": 7204,
+            "source_indices": [
+              971,
+              1040,
+              1034
+            ],
+            "centroid_m": [
+              0.0011241569882258773,
+              0.0005245079519227147,
+              0.0012534059351310134
+            ],
+            "distance_m": 0.0004561110108625144,
+            "signed_distance_m": -0.00045611099631059915,
+            "winding": 1.0000000017391737
+          },
+          {
+            "triangle": 128,
+            "source_indices": [
+              979,
+              1041,
+              1040
+            ],
+            "centroid_m": [
+              0.001210550544783473,
+              0.0005499846884049475,
+              0.0014276280999183655
+            ],
+            "distance_m": 0.00041694578249007463,
+            "signed_distance_m": -0.0004164067952530104,
+            "winding": 0.9999999992161397
+          },
+          {
+            "triangle": 7205,
+            "source_indices": [
+              971,
+              979,
+              1040
+            ],
+            "centroid_m": [
+              0.0011657821014523506,
+              0.0004240158887114376,
+              0.0011322948848828673
+            ],
+            "distance_m": 0.0003957708249799907,
+            "signed_distance_m": -0.00039112289380227594,
+            "winding": 1.0000000080355151
+          },
+          {
+            "triangle": 120,
+            "source_indices": [
+              971,
+              1034,
+              1035
+            ],
+            "centroid_m": [
+              0.001210550544783473,
+              0.0005499846301972866,
+              0.0012076281709596515
+            ],
+            "distance_m": 0.0003781687410082668,
+            "signed_distance_m": -0.0003781686973525211,
+            "winding": 0.9999999950810682
+          },
+          {
+            "triangle": 129,
+            "source_indices": [
+              979,
+              1042,
+              1041
+            ],
+            "centroid_m": [
+              0.0013312798691913486,
+              0.0004925673129037023,
+              0.001322961412370205
+            ],
+            "distance_m": 0.00029380671912804246,
+            "signed_distance_m": -0.00029380673140622093,
+            "winding": 0.9999999923812409
+          },
+          {
+            "triangle": 121,
+            "source_indices": [
+              971,
+              1035,
+              1036
+            ],
+            "centroid_m": [
+              0.0013312798691913486,
+              0.0004925673129037023,
+              0.001102961483411491
+            ],
+            "distance_m": 0.0002604506735224277,
+            "signed_distance_m": -0.0002604506444185972,
+            "winding": 0.9999999878968382
+          }
+        ]
+      },
+      {
+        "endpoint": "upper",
+        "z_window_m": [
+          0.034151183687228095,
+          0.03531785035389476
+        ],
+        "strict_interior_surface_centroids": 14,
+        "negative_candidates": 14,
+        "local_surface_intersections": 50,
+        "examples": [
+          {
+            "triangle": 7433,
+            "source_indices": [
+              3946,
+              3952,
+              4004
+            ],
+            "centroid_m": [
+              -0.0011241569882258773,
+              0.0005245079519227147,
+              0.03438229486346245
+            ],
+            "distance_m": 0.0004561095265671611,
+            "signed_distance_m": -0.0004561095265671611,
+            "winding": 1.000000008054603
+          },
+          {
+            "triangle": 7432,
+            "source_indices": [
+              3946,
+              4004,
+              3998
+            ],
+            "centroid_m": [
+              -0.0011657822178676724,
+              0.0004240158596076071,
+              0.03450340777635574
+            ],
+            "distance_m": 0.00039577126153744757,
+            "signed_distance_m": -0.00039112306262722996,
+            "winding": 1.0000000020642896
+          },
+          {
+            "triangle": 6960,
+            "source_indices": [
+              3946,
+              3998,
+              3999
+            ],
+            "centroid_m": [
+              -0.0012448863126337528,
+              0.00046709051821380854,
+              0.034457627683877945
+            ],
+            "distance_m": 0.00034986925311386585,
+            "signed_distance_m": -0.000349869264937297,
+            "winding": 1.0000000079189462
+          },
+          {
+            "triangle": 6961,
+            "source_indices": [
+              3946,
+              3999,
+              4000
+            ],
+            "centroid_m": [
+              -0.0012896546395495534,
+              0.0005930593470111489,
+              0.03435295820236206
+            ],
+            "distance_m": 0.0003382121794857085,
+            "signed_distance_m": -0.00033821215765783563,
+            "winding": 1.0000000030276726
+          },
+          {
+            "triangle": 6968,
+            "source_indices": [
+              3952,
+              4005,
+              4004
+            ],
+            "centroid_m": [
+              -0.0012448863126337528,
+              0.00046709051821380854,
+              0.03467762842774391
+            ],
+            "distance_m": 0.0002745402744039893,
+            "signed_distance_m": -0.00027454024711914826,
+            "winding": 0.9999999945715344
+          },
+          {
+            "triangle": 7437,
+            "source_indices": [
+              3998,
+              4004,
+              4056
+            ],
+            "centroid_m": [
+              -0.0012216048780828714,
+              0.00021568253578152508,
+              0.034965630620718
+            ],
+            "distance_m": 0.00023340460029430687,
+            "signed_distance_m": -0.00023340462212217972,
+            "winding": 1.0000000094415464
+          }
+        ]
+      }
+    ],
+    "method": "Radius values describe actual geometric taper, not an added acceptance threshold. Interior test uses real frond surface centroids with nonzero distance, negative outward-normal signed distance, winding near+1, and actual local surface intersections. No new penetration-depth requirement.",
+    "actual300_open_throats": 300,
+    "all_scene_exposure": [
+      {
+        "tag": "axial_helix",
+        "all_scene_visible_triangle_centroids": 1750,
+        "triangles_sampled": 1936,
+        "visible_by_direction": [
+          579,
+          628,
+          595,
+          665,
+          262,
+          257,
+          702,
+          674
+        ]
+      },
+      {
+        "tag": "continuous_lacy_frond",
+        "all_scene_visible_triangle_centroids": 5209,
+        "triangles_sampled": 7460,
+        "visible_by_direction": [
+          1673,
+          1568,
+          1659,
+          1698,
+          1754,
+          1603,
+          2084,
+          1824
+        ]
+      }
+    ],
+    "no_masks_or_material_trick": true
+  },
+  "inherited_acceptance": {
+    "prior_report": {
+      "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/independent-report.json",
+      "sha256": "5dcd2cd93424713c0895ec0ffc79eff3a0c884fefe3042ada6a0169ca50235bb",
+      "bytes": 81251
+    },
+    "verified_immutable_prior_manifest": {
+      "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/evidence-manifest.json",
+      "sha256": "7dce43a2dccd78fe9779999e8dee1b8ac5f306e36c364deb7c1f064ac8a73fc3",
+      "bytes": 10795
+    },
+    "all62_prior_evidence_files_verified": true,
+    "mapping_report": {
+      "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/provenance-independent.json",
+      "sha256": "b5f8aa2843f39a5246ff4b0ca849a8476e964520040c0fe6ec97798303af70cd",
+      "bytes": 24936
+    },
+    "all212_inherited_accepted_files_byte_identical": true,
+    "file_mapping_report": {
+      "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/evidence-integrity.json",
+      "sha256": "8797b9904675f7c768e8c70a79d742034131b2b413788cc7b7dd6c3c96dd7a46",
+      "bytes": 128663
+    },
+    "subjects": [
+      {
+        "asset_id": "penniretepora",
+        "revision": "r001",
+        "prior_pins": {
+          "asset_id": "penniretepora",
+          "revision": "r001",
+          "candidate": {
+            "path": "production/small-life-batch105/penniretepora/r001/candidate.json",
+            "sha256": "05211f179208ebfdbe87763e7ea6dcb1b526c93e74ae39ee39659d2e754b7601"
+          },
+          "profile_contract": {
+            "path": "production/small-life-batch105/penniretepora/r001/profile-contract.json",
+            "sha256": "16308455fc9158d8b455fc5d40b1acca22c797ea9e9c989f6556357d3fc0c290"
+          },
+          "triplet": {
+            "revision": "r001",
+            "glb_sha256": "8702a14ca721ff60d80a4cfb81ab5524fa38c2b2b7fa6f511486f6eb0d2a1b4c",
+            "brief_sha256": "510deafae759d42470b52134485ddcd4a9971c1647ec37fedfd1238a9f611a1a",
+            "references_sha256": "69d1aae16f0626b1523b7872c076d445de23e002804a51af4b59a64b9d44774f"
+          },
+          "source": {
+            "path": "production/small-life-batch105/penniretepora/r001/artifacts/penniretepora.blend",
+            "sha256": "807898e7b8cc0bf454457caf28191b3bf4ff983a3d1c160642977c23017d618c"
+          },
+          "generator": {
+            "path": "production/small-life-batch105/tools/generate-r002.py",
+            "sha256": "0703fd2031e91c59fdad7567254317655ca098b2d51305c62e798b11f980dca9"
+          },
+          "config": {
+            "path": "production/small-life-batch105/penniretepora/r001/config.json",
+            "sha256": "20c6ec3f6044e9c254534e9d69b5667cc40b08921cccb2fdf5a9c6ca5e023389"
+          }
+        },
+        "file_count": 70,
+        "result": "preserved prior bounded-static PASS; not regenerated or re-reviewed"
+      },
+      {
+        "asset_id": "constellaria",
+        "revision": "r002",
+        "prior_pins": {
+          "asset_id": "constellaria",
+          "revision": "r002",
+          "candidate": {
+            "path": "production/small-life-batch105/constellaria/r002/candidate.json",
+            "sha256": "382ea27672da68ff4e3e5a2d8d093e24374d513b28d043f7bfccb1e241a3237e"
+          },
+          "profile_contract": {
+            "path": "production/small-life-batch105/constellaria/r002/profile-contract.json",
+            "sha256": "c04b1aff5c84e5a424c136df7d190c04ebaeef4eb47e6e2ea21ec1b9bd4c0e4d"
+          },
+          "triplet": {
+            "revision": "r002",
+            "glb_sha256": "9ad41d73295256a618dbb337b82b3cf106a105d876685c49ba405b01e88b4dd0",
+            "brief_sha256": "0f3115a2a96a5c313a28c4ef0bb2bb0ea75d9fc7cc8b276ef8fe5fca33ae7e46",
+            "references_sha256": "fee7a0b2b5c5cd602a4b2c3dcd7d51b4b2ef5559349e12a4a2d1145df1ad8edf"
+          },
+          "source": {
+            "path": "production/small-life-batch105/constellaria/r002/artifacts/constellaria.blend",
+            "sha256": "854038f54ec236a8c6c54b046a2387fff85776b9b8c1d8b203384ce5a9eba9b7"
+          },
+          "generator": {
+            "path": "production/small-life-batch105/tools/generate-r005.py",
+            "sha256": "25078b87c4235c684e2f6b76bcd47b86ed2118eaece9a26c4ea55e7d19cc060c"
+          },
+          "config": {
+            "path": "production/small-life-batch105/constellaria/r002/config.json",
+            "sha256": "3b050d395eec4fab29251372f0a37f97817911a86e10b84d03192682c7d9bac4"
+          }
+        },
+        "file_count": 71,
+        "result": "preserved prior bounded-static PASS; not regenerated or re-reviewed"
+      },
+      {
+        "asset_id": "cystodictya",
+        "revision": "r003",
+        "prior_pins": {
+          "asset_id": "cystodictya",
+          "revision": "r003",
+          "candidate": {
+            "path": "production/small-life-batch105/cystodictya/r003/candidate.json",
+            "sha256": "fe6b9cf89394cb55d6c3a0ab68a16e0bd67c230342284291db076558cab4946c"
+          },
+          "profile_contract": {
+            "path": "production/small-life-batch105/cystodictya/r003/profile-contract.json",
+            "sha256": "0f1dc1c84f64e0280cb908beb57e213be4aee1cf2f040142bd05af91f865c244"
+          },
+          "triplet": {
+            "revision": "r003",
+            "glb_sha256": "82b06f60e371e8542ae5f74f42dc65a79f349e8356ceaf9ed92860e7f05e65da",
+            "brief_sha256": "5c12ea022d7f6671ac40565b2fd4c327f0b8636f400650212d967d61fdc29a7a",
+            "references_sha256": "c7bc0cb67137bd69f243f0984ff3d274957c2c3ad5d6ca27ccf8cdf92870f5b7"
+          },
+          "source": {
+            "path": "production/small-life-batch105/cystodictya/r003/artifacts/cystodictya.blend",
+            "sha256": "863d3b4e3e959f44f4b10222e3331fccecf45cf2aa3145e914c2d517e785096e"
+          },
+          "generator": {
+            "path": "production/small-life-batch105/tools/generate-r006.py",
+            "sha256": "55314f3c406ae3155737e2af3d51853ecfc57739c57a284775c2458351cc7d33"
+          },
+          "config": {
+            "path": "production/small-life-batch105/cystodictya/r003/config.json",
+            "sha256": "baf4889e967b867063863c0b3b5daf7959aa0f09beb2d7fd4116409d3cb42386"
+          }
+        },
+        "file_count": 71,
+        "result": "preserved prior bounded-static PASS; not regenerated or re-reviewed"
+      }
+    ]
+  },
+  "original_failure_preserved": {
+    "id": "QA105-ARCH-TERMINAL-TAPER",
+    "revision": "r001",
+    "result": "FAIL/REVISE remains unchanged",
+    "original_pins": {
+      "asset_id": "archimedes",
+      "revision": "r001",
+      "candidate": {
+        "path": "production/small-life-batch105/archimedes/r001/candidate.json",
+        "sha256": "c31b427190ab097505fa1dad574d1192959c598288ee89c45e17c22de4399bd1"
+      },
+      "profile_contract": {
+        "path": "production/small-life-batch105/archimedes/r001/profile-contract.json",
+        "sha256": "56fad43312c8f1e622ba452d0999d9b332361fd893acc6d9487c77e1eca0dbb7"
+      },
+      "triplet": {
+        "revision": "r001",
+        "glb_sha256": "789f3ba80c2982b996974bc3eae887716ddeb7c74589b12b7fd1064cc8495c3d",
+        "brief_sha256": "f7d978a5504a49cba906eedfb838d2efb4d0157a6b971b5d024fd16ba8cf2c15",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "source": {
+        "path": "production/small-life-batch105/archimedes/r001/artifacts/archimedes.blend",
+        "sha256": "8b645457f94d094c80af52b500ea2be4b652968e8cd8bdaee2913f1381300ffb"
+      },
+      "generator": {
+        "path": "production/small-life-batch105/tools/generate-r001.py",
+        "sha256": "91bd0943579523d52c51168ea5751897765bdaada2e525c148a64fe933da9d32"
+      },
+      "config": {
+        "path": "production/small-life-batch105/archimedes/r001/config.json",
+        "sha256": "b530096f6217ecd76342c998f029b4f0c743032c7a3f76062714e52834d8768c"
+      }
+    },
+    "entire_original_tree_unchanged": true,
+    "prior_report_sha256": "5dcd2cd93424713c0895ec0ffc79eff3a0c884fefe3042ada6a0169ca50235bb",
+    "original_image_pins": [
+      {
+        "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/archimedes-lower-end/detail.png",
+        "sha256": "2408ed6dd905dc3c51cbe6334c84f4431ef5e1fe8f23bebcb36fbbce047c7652",
+        "bytes": 329268
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch105-independent-qa-20261021/archimedes-upper-end/detail.png",
+        "sha256": "e26b3a9031f6bfa679339b2c0d87cd9cd9d11dfad2346a4e8925f45042f42a8e",
+        "bytes": 296953
+      }
+    ]
+  },
+  "diagnostic_history": [
+    {
+      "kind": "reviewer harness failure",
+      "evidence": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/evidence-integrity.log",
+        "sha256": "3e41c3aa136b65b7ea2646eb6c9a228e1805cf21f4f13b9dabbd2958cd28c46a",
+        "bytes": 978
+      },
+      "finding": "Initial attempt read all frozen paths from sparse worktree. A non-materialized path raised FileNotFoundError. Corrected by reading exact local Git blobs with all transports and lazy fetch disabled. No checkout mutation or network access."
+    },
+    {
+      "kind": "reviewer harness failure",
+      "evidence": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/source-independent.log",
+        "sha256": "5d1f05134bb2d37e39f7d8331430bf4c61ed760fa60b8842fcc91e97f577141b",
+        "bytes": 961
+      },
+      "script": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/inspect_source.failed_index_assumption.py",
+        "sha256": "b1fcaa602743f11b7e48c438c749bb2ea4c0d80039dee20e5dc7e56184e22c65",
+        "bytes": 8095
+      },
+      "finding": "Initial radius diagnostic incorrectly assumed each source ring occupied eight contiguous vertex indices. The original deduplicated mesh interleaves first2 rings. Corrected by locating actual original analytical ring positions in reopened source, then measuring the same vertices. No model/source change; no new acceptance threshold."
+    },
+    {
+      "kind": "runtime warning",
+      "evidence": {
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/source-independent-v2.log",
+        "sha256": "32549f270861df15a69bd3c044361c9b7194f833191cda417ac4e7c947e9498f",
+        "bytes": 804
+      },
+      "finding": "Blender reported unavailable optional Draco library. Draco was explicitly disabled, candidate has no extensions/compression, exact full-collection uncompressed export succeeded with byte identity. Not a geometry failure."
+    }
+  ],
+  "constraints": {
+    "dot_native_environment_only": true,
+    "new_agents_spawned": 0,
+    "installations": 0,
+    "candidate_source_freeze_mutated": false,
+    "external_actions": [],
+    "heavy_jobs": "Each Blender process independently obtained flock /tmp/lowpoly-production-blender.lock, used --threads2 and released after exit. No assumption of global absence from namespace-local ps.",
+    "maximum_unique_output_bytes": 25000000
+  },
+  "completion": {
+    "actual_review_complete": true,
+    "all_started_jobs_terminal": true,
+    "pending_or_uncertain_jobs": [],
+    "blender_runs": [
+      {
+        "purpose": "initial source diagnostic",
+        "exit_code": 1,
+        "outcome": "retained reviewer indexing failure"
+      },
+      {
+        "purpose": "corrected source, contact and full collection export",
+        "exit_code": 0
+      },
+      {
+        "purpose": "real open net and global exposure",
+        "exit_code": 0
+      }
+    ],
+    "future_action": "No further repair requested by this bounded-static verdict. Separate target GPU/composed-scene and publication obligations remain unresolved."
+  }
+}

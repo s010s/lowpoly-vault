@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch105-archimedes-independent-qa-20261021/verify_evidence.py", line 12, in <module>
+    p=R/f['path'];assert sha(p.read_bytes())==f['sha256'] and p.stat().st_size==f['bytes'];assert git('show','HEAD:'+f['path'])==p.read_bytes();verified.append(f)
+                             ^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105/batch-105-claim.json'
