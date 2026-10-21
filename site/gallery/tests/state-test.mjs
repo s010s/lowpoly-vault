@@ -45,3 +45,7 @@ position=67;wheel.input();advance(151);assert.equal(position,67,'a click without
 wheel.input();wheel.dispose();advance(500);
 assert.equal(callbacks.size,0);
 console.log('PASS: bilingual search, facet OR/AND, empty selections, native inertia, interruptible settling, reduced motion and disposal. Center callback has no selection operation.');
+
+// Keep hover recovery in the existing gallery state gate without changing the
+// package file sealed into the historical poster-renderer recipe.
+await import('./hover-intent-test.mjs');
