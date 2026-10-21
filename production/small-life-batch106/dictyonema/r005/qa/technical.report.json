@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r005",
+    "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+    "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+    "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+  },
+  "status": "pass",
+  "method": "Exact original-source and original-GLB topology/winding, world measurements and strict symmetric solid contact; global union burial plus whole-scene line-of-sight rays; real solid-wall recesses; project/Khronos, source reopen and TWO separately queued semantic rebuild processes.",
+  "observations": [
+    "Project and Khronos zero errors/warnings. Source export world bounds and triangle counts agree exactly.",
+    "Original GLB winding decoded directly without repair, normal recomputation or diagnostic remeshing.",
+    "Each named component has a whole-scene unoccluded triangle sample and each aperture a genuine unfilled recess and exterior ray. Sampling does not alone prove visual or factual acceptance.",
+    "Both separate-PID builds succeeded, bind exact generator/config/helpers, and match final decoded semantic hash."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 13248,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 689480,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+      "report": {
+        "path": "production/small-life-batch106/dictyonema/r005/qa/static-glb.report.json",
+        "sha256": "49531fa38e47f2f42ea880b08b21ea3f42280e6ad14cbe8516d411bf2d679988"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+      "report": {
+        "path": "production/small-life-batch106/dictyonema/r005/artifacts/gltf-validator.report.json",
+        "sha256": "c53ed9c91bd62cf354f3d07f2f63a9eb1b672762ab412700f8d8e1f5a257fa70"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+      "report": {
+        "path": "production/small-life-batch106/dictyonema/r005/qa/source-export.report.json",
+        "sha256": "bf66f8c882644bf09c4b9abb8d86df995ba03b9d7879d9b19d9f4df45f9b4362"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+      "report": {
+        "path": "production/small-life-batch106/dictyonema/r005/qa/reproducibility-a.report.json",
+        "sha256": "726ab42e5e0e246d1cd1ec1d5f27960ac490121146f6a2e7c6023d28e69ec93e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+      "report": {
+        "path": "production/small-life-batch106/dictyonema/r005/qa/reproducibility-b.report.json",
+        "sha256": "481961ce74244b16bd8cb4ebec42ee62c4fc8bca9e872981deab0f7fb78c03b6"
+      },
+      "warning_review": []
+    }
+  ],
+  "original_geometry_proof": [
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/actual-mesh-topology.json",
+      "sha256": "48933db3daca540c6c685581162f08972e7f62a0dddf9078e3aee7f45c50686c"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/original-glb-winding.json",
+      "sha256": "8c7c86779e7edcf70b8d06e85c38423b3eff49c92f42b23215023e147369085f"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/world-components-and-contacts.json",
+      "sha256": "5ef7eea60768f98f43a5da85a7f324acd0a5771493e1f41c7088de4e6195b94c"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/global-component-exposure.json",
+      "sha256": "1ac542bc575c0e0f326db7a1078e399fb855ad45c37ca2fec5450cfb1c55b514"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/whole-scene-line-of-sight.json",
+      "sha256": "f65f76ee11ee86febc1984998b1f82321c94c09832238d234280579652d441be"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/actual-aperture-recesses.json",
+      "sha256": "e5682c100f4067d2f5a5f8bfc39fa5dd0eb345007a0a99359d501a2a848e8c31"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/hard-dimension-check.json",
+      "sha256": "857e8e62b427aa96d051e3edc5076f30f388e88a9146f6b2a72ead4134e25b84"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/authored-evaluated-counts.json",
+      "sha256": "9c49bbaf7b9580a3f6b114e5b700278900dedd8cfd3d897b84aa3dfe99c83c29"
+    },
+    {
+      "path": "production/small-life-batch106/dictyonema/r005/qa/actual-feature-counts.json",
+      "sha256": "a50f1fd9aab991b60518cd9029efca8d5e0bb08e22faaf90375b3e555456b2b1"
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.020307661965489388,
+      0.0,
+      -0.020307276397943497
+    ],
+    "max": [
+      0.020307661965489388,
+      0.030412763357162476,
+      0.020307276397943497
+    ],
+    "size": [
+      0.040615323930978775,
+      0.030412763357162476,
+      0.04061455279588699
+    ]
+  },
+  "exported_position_vertices": 23020,
+  "created_at": "2026-10-21T04:25:09.123716+00:00"
+}

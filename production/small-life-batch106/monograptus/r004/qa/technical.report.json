@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r004",
+    "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+    "brief_sha256": "b4d3349a62319d101548764dcc41d51b66460e2701477f5ecfaa498c8e2adfff",
+    "references_sha256": "ab7aaf02ed2986391ee73256e7ddc0d5fe37f043b843aa550e932a3367648b72"
+  },
+  "status": "pass",
+  "method": "Exact original-source and original-GLB topology/winding, world measurements and strict symmetric solid contact; global union burial plus whole-scene line-of-sight rays; real solid-wall recesses; project/Khronos, source reopen and TWO separately queued semantic rebuild processes.",
+  "observations": [
+    "Project and Khronos zero errors/warnings. Source export world bounds and triangle counts agree exactly.",
+    "Original GLB winding decoded directly without repair, normal recomputation or diagnostic remeshing.",
+    "Each named component has a whole-scene unoccluded triangle sample and each aperture a genuine unfilled recess and exterior ray. Sampling does not alone prove visual or factual acceptance.",
+    "Both separate-PID builds succeeded, bind exact generator/config/helpers, and match final decoded semantic hash."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3088,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 165272,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+      "report": {
+        "path": "production/small-life-batch106/monograptus/r004/qa/static-glb.report.json",
+        "sha256": "005e4fc2031353f7ff4cd9f2fb3cfda48e0464e7e5e4f52bdaba2cfbfa523417"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+      "report": {
+        "path": "production/small-life-batch106/monograptus/r004/artifacts/gltf-validator.report.json",
+        "sha256": "421c60ed027e413c004ac0fd5b0b6a20f4908a5e280b4eb2a4e395af366eec7c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+      "report": {
+        "path": "production/small-life-batch106/monograptus/r004/qa/source-export.report.json",
+        "sha256": "f376fba7f55a8b17c22482da318f8b97d921c68c070caeb0703259973ff8757f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+      "report": {
+        "path": "production/small-life-batch106/monograptus/r004/qa/reproducibility-a.report.json",
+        "sha256": "1b6c87294c790e5790da2efd33d0fd47189aeedc761dbccaca5819930d75a068"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "a219763081fcd18447a3250d88a1333d8568fba1b4de55eac61332ae3c74e97d",
+      "report": {
+        "path": "production/small-life-batch106/monograptus/r004/qa/reproducibility-b.report.json",
+        "sha256": "97506779cf00a9944c09ece9745919fba5d56d39179e2d5a579248b4d0a51982"
+      },
+      "warning_review": []
+    }
+  ],
+  "original_geometry_proof": [
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/actual-mesh-topology.json",
+      "sha256": "be5d4452b219b5335d733b755a834f04dd6287cf57f6e84ce1a19c6fc2232216"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/original-glb-winding.json",
+      "sha256": "a57e5c64b7a678a9bc8c1bd7f6fafad87dc974fdcd0e5e26db39d5cde6e63fb8"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/world-components-and-contacts.json",
+      "sha256": "ba6d5df0dac58428d66e5dd0dad4f178faddfebd5ef0f1faf98b4b2c04f27bec"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/global-component-exposure.json",
+      "sha256": "9030347d9563c5d7b2cd107334b5eb04690054c7801685dd775835f7381c0ff5"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/whole-scene-line-of-sight.json",
+      "sha256": "df7aeba0b71084dfc0bfd7c97e43329b025776d349e64df9d555fcbf12c47bb3"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/actual-aperture-recesses.json",
+      "sha256": "971eadc33444175135827d46f8f6b2bc9655cd526b9d926bc7a892a0190c9b82"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/hard-dimension-check.json",
+      "sha256": "2451a906e55b14357796f630f2520d5f2f42360b653358fc18e5375c4ac3cc5d"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/authored-evaluated-counts.json",
+      "sha256": "94daba28ca625fb39016a2139ade3f039b8cbc3a269f7271049291dcd653344e"
+    },
+    {
+      "path": "production/small-life-batch106/monograptus/r004/qa/actual-feature-counts.json",
+      "sha256": "283546a291c468e71d3af21a42a0116ae9540624bdaf5c90a91d3aec8a9be38b"
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.0015375753864645958,
+      0.0,
+      -0.00040305888978764415
+    ],
+    "max": [
+      0.0015375753864645958,
+      0.027865160256624222,
+      0.00040305888978764415
+    ],
+    "size": [
+      0.0030751507729291916,
+      0.027865160256624222,
+      0.0008061177795752883
+    ]
+  },
+  "exported_position_vertices": 5664,
+  "created_at": "2026-10-21T04:25:09.106064+00:00"
+}

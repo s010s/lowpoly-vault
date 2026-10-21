@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r009",
+    "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+    "brief_sha256": "1f64a82366c6c5b28231b23a0857db5f4a16292e7e470fcf117654eb292486d3",
+    "references_sha256": "d4b41283247b5cdc29dd0fe4cd246e3146e707d05c6b0858fa5e047d8a4e74d0"
+  },
+  "status": "pass",
+  "method": "Exact original-source and original-GLB topology/winding, world measurements and strict symmetric solid contact; global union burial plus whole-scene line-of-sight rays; real solid-wall recesses; project/Khronos, source reopen and TWO separately queued semantic rebuild processes.",
+  "observations": [
+    "Project and Khronos zero errors/warnings. Source export world bounds and triangle counts agree exactly.",
+    "Original GLB winding decoded directly without repair, normal recomputation or diagnostic remeshing.",
+    "Each named component has a whole-scene unoccluded triangle sample and each aperture a genuine unfilled recess and exterior ray. Sampling does not alone prove visual or factual acceptance.",
+    "Both separate-PID builds succeeded, bind exact generator/config/helpers, and match final decoded semantic hash."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3148,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 167156,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+      "report": {
+        "path": "production/small-life-batch106/diplograptus/r009/qa/static-glb.report.json",
+        "sha256": "b641822553b605e2b76259e10ff9e1deb9c40941f4f3bb655ae29f22ca696db9"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+      "report": {
+        "path": "production/small-life-batch106/diplograptus/r009/artifacts/gltf-validator.report.json",
+        "sha256": "056f3874879f725f4ec424d5d91c84d8041440e19032dc12fa4f9c4ef7e035ee"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+      "report": {
+        "path": "production/small-life-batch106/diplograptus/r009/qa/source-export.report.json",
+        "sha256": "cd64a91d4cbd1bad019f959a2dab69c87e7ae7a57b52c83b549a21c30c3fda69"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+      "report": {
+        "path": "production/small-life-batch106/diplograptus/r009/qa/reproducibility-a.report.json",
+        "sha256": "19811d7b2a54fb8f225879957c163de231d079e90be6cad177ede89023fe6598"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "e1d521a7c3ced7fe3801a3dc37eb73f70d63fff8d85ec24551e78d91bd150741",
+      "report": {
+        "path": "production/small-life-batch106/diplograptus/r009/qa/reproducibility-b.report.json",
+        "sha256": "b1d5fe47aaabf8ea769c09b6af0a86bf346ed793869d098aa1cf8510d0691845"
+      },
+      "warning_review": []
+    }
+  ],
+  "original_geometry_proof": [
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/actual-mesh-topology.json",
+      "sha256": "4da1d84712fe13897064c12ede0b5d17026df99f706cff5af5fdb7d75be51c7e"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/original-glb-winding.json",
+      "sha256": "9c6fca3b8133d8d0ad7362af0cd35828a4c69a999a9027783404dccd7bca43b1"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/world-components-and-contacts.json",
+      "sha256": "5c03e0829b3021ff12437f540e1b95878663e6b01f540e8de475a89e2e3d6269"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/global-component-exposure.json",
+      "sha256": "81b3a3b345105732e57d9d3bd2e41d9711d02651888909818a800a7647cbadad"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/whole-scene-line-of-sight.json",
+      "sha256": "f7bcedb9429cdade40f984bf2f85ec1b5228f97ec9dd0949e891ce6fb8962421"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/actual-aperture-recesses.json",
+      "sha256": "e6c857beb1d468eed0917a277a65ef52e15249ee18f9a5893d1af6f5a70a15ce"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/hard-dimension-check.json",
+      "sha256": "24e336b6e80379bd6a352689ede45e7cbb15a376e32b4986bd2b752375f9278c"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/authored-evaluated-counts.json",
+      "sha256": "47d7d477089e11d3213ca2edd50223b5a9923fd0e886c56e62a21cbe747f8e29"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/actual-feature-counts.json",
+      "sha256": "9b128aeaf649910ad25ac68b0fec2d0e833589776f61032c0d04325a30879b2e"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/source-dimensions-and-aperture-planes.json",
+      "sha256": "eb14bcfc81721c1cd6821107407ac7d86909a726bd11a01f004c912abedd833d"
+    },
+    {
+      "path": "production/small-life-batch106/diplograptus/r009/qa/source-range-comparison.json",
+      "sha256": "55f9b8d7fa8a3f4662ddc21e039ddf6da93aa2dc75662c5f9223b9118a8abf65"
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.0012700000079348683,
+      0.0,
+      -0.000528255826793611
+    ],
+    "max": [
+      0.0012700000079348683,
+      0.012606009840965271,
+      0.000528255826793611
+    ],
+    "size": [
+      0.0025400000158697367,
+      0.012606009840965271,
+      0.001056511653587222
+    ]
+  },
+  "exported_position_vertices": 5728,
+  "created_at": "2026-10-21T04:39:16.783549+00:00"
+}

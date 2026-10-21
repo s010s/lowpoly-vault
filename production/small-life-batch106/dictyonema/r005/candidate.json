@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "asset_id": "dictyonema",
+  "revision": "r005",
+  "maker": {
+    "id": "batch106-maker",
+    "task_id": "produce_batch106_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch106/dictyonema/r005/artifacts/dictyonema.glb",
+      "sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722"
+    },
+    "brief": {
+      "path": "production/small-life-batch106/dictyonema/r005/delivery-brief.json",
+      "sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b"
+    },
+    "references": {
+      "path": "production/small-life-batch106/dictyonema/r001/references.json",
+      "sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+    },
+    "source": {
+      "path": "production/small-life-batch106/dictyonema/r005/artifacts/dictyonema.blend",
+      "sha256": "1f27fdd95972b97f46b737b506df0f7b0f0882add765bc7636085e0f65ccf2ba"
+    },
+    "generator": {
+      "path": "production/small-life-batch106/tools/generate-r005.py",
+      "sha256": "cf73681b83e8fe4c001941c12fa6f7d978dd0142d144bcf4823ddfb3a125d53a"
+    },
+    "config": {
+      "path": "production/small-life-batch106/dictyonema/r005/config.json",
+      "sha256": "d53db1a3a4d02693d254920af698b3e625d294aa4d6632ccaf8d8c8aa6c6a715"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch106/build-dependencies.json",
+      "sha256": "09685f4d959aad2d4ac6a60de6a34452eb9cdc7b3490490b6d9220b87df8aa7b"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "path": "production/small-life-batch106/dictyonema/r005/qa/technical.report.json",
+      "sha256": "129b074ff8207b2e918f49187d2ac0561263627dd1ca38e4cdc4ed52eaa26a57"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "path": "production/small-life-batch106/dictyonema/r005/qa/runtime-parse.report.json",
+      "sha256": "242c2f16048fe0d061d19b3e152a9f3b2819315ac157c5239aae9058be74b527"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "path": "production/small-life-batch106/dictyonema/r005/views/render-manifest.json",
+      "sha256": "71d91a61d9abf51bc3482050894adc1b1f9bca8bfafc77f60c5470b01e0e5395"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch106-maker",
+        "task_id": "produce_batch106_models"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Exact bound automated maker checks passed."
+        }
+      ],
+      "note": "Maker technical/runtime checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-21T04:25:09.127588+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "DICTYO-TREATISE",
+        "DICTYO2019"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Maker personally inspected sources and final pixels; separate independent acceptance pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "DICTYO-TREATISE",
+        "DICTYO2019"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Maker personally inspected sources and final pixels; separate independent acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Maker personally inspected sources and final pixels; separate independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch106-maker",
+        "task_id": "produce_batch106_models"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "0232908fdfbdc7d3236d1c1d6e0ec765564fb86e479180b1957519b1cfbfe722",
+        "brief_sha256": "a680799924402f42cfc4f8fb4ea54d927fa1d3b638514726bbf601ac456bd26b",
+        "references_sha256": "733b79867ae927e0a2a6a527cc50000f9e283245b5218cf6d893d9a4bc3faff6"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Exact bound automated maker checks passed."
+        }
+      ],
+      "note": "Maker technical/runtime checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-21T04:25:09.127607+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Not run, unknown; CPU renders are not GPU or composed-scene evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review pending."
+        }
+      ],
+      "note": "Not run, unknown; CPU renders are not GPU or composed-scene evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification review required; maker reports are not independent acceptance."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "GPU and composed intended scene not run, unknown."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}
