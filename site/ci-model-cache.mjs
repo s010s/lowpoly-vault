@@ -5,14 +5,15 @@ import {tmpdir} from 'node:os';
 import {resolve,join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
-import {computeModelInputs,modelPolicyDigestAtCommit,modelPolicySnapshotAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
+import {computeModelInputs,prepareModelPolicyContext,modelPolicyDigest,modelRuntimeConfig,modelPolicyDigestAtCommit,modelPolicySnapshotAtCommit,assertModelArchivalAppendAtCommit,catalogIDs,hashBytes,hashObject,assertBaseModelProof,planModelReuse,MODEL_PROOF_FILE,MODEL_PROOF_WORKFLOW,GPU_POLICY} from './ci-model-proof.mjs';
 import {controlDigest} from './ci-provenance.mjs';
 import {proofGet} from './ci-proof-fetch.mjs';
 import {proofReadBudget} from './ci-proof-budget.mjs';
+import {immutableGitEnv} from './ci-git.mjs';
 
 const SHA=/^[a-f0-9]{40}$/,MAX_ARTIFACT_BYTES=16*1024*1024;
 export const proofArtifactName=attempt=>`model-proof-v2-${attempt}`;
-const git=(root,...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:128*1024*1024}).trim();
+const git=(root,...args)=>execFileSync('git',args,{cwd:root,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:128*1024*1024}).trim();
 export function assertTrustedMainRun(run,{repository,repositoryId,sourceSha,workflowId}){
   assert(['push','workflow_dispatch'].includes(run.event),'Only main release review runs supply a baseline');
   assert.equal(run.head_branch,'main','Non-main baseline');assert.equal(run.status,'completed');assert.equal(run.conclusion,'success');
@@ -76,10 +77,31 @@ async function sourceManifest(api,sha){
   assert.equal(blob.encoding,'base64');if(blob!==file)assert.equal(blob.sha,file.sha);
   return JSON.parse(Buffer.from(blob.content.replace(/\s/g,''),'base64').toString('utf8'));
 }
-export async function fetchVerifiedBaseProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,inputs=computeModelInputs({root}),token,fetchImpl,allowAncestor=true,timeoutMs=120000,onTiming}={}){
-  const reasons=[];
+// Only an independently downloaded, digest-verified GitHub artifact can mint
+// this temporary capability. Public receipt JSON remains insufficient authority.
+const authenticatedBaselines=new WeakMap();
+export function authenticatedModelBaseline(candidate,{root=process.cwd(),currentSha}={}){
+  const state=authenticatedBaselines.get(candidate);
+  assert(state&&state.root===resolve(root)&&state.currentSha===currentSha,'Baseline requires independently authenticated process-local evidence, never JSON');
+  return {...state,proof:structuredClone(state.proof)};
+}
+function ensureAuthenticatedCommit(root,sha,{repository,budget}){
+  assert(SHA.test(sha),'Exact authenticated source commit required');
+  const options={cwd:root,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],timeout:budget.remaining(),maxBuffer:128*1024*1024};
+  try{execFileSync('git',['cat-file','-e',`${sha}^{commit}`],options);}
+  catch{
+    budget.check();
+    // Fetch only the already API-authenticated SHA. Do not deepen all matrix
+    // checkouts or let local replace/graft state substitute another tree.
+    execFileSync('git',['fetch','--no-tags','--depth=1','--filter=blob:none',`https://github.com/${repository}.git`,sha],options);
+    budget.check();execFileSync('git',['cat-file','-e',`${sha}^{commit}`],options);
+  }
+}
+export async function fetchVerifiedBaseProof({root=process.cwd(),repository=process.env.GITHUB_REPOSITORY,baseSha=process.env.BASE_SHA,currentSha=process.env.GITHUB_SHA,inputs,token,fetchImpl,allowAncestor=true,timeoutMs=120000,onTiming,onInputRead,archiveOnly=false}={}){
+  root=resolve(root);const reasons=[];
   try{
     assert(SHA.test(baseSha||'')&&!/^0+$/.test(baseSha),'No exact trusted comparison base');assert(SHA.test(currentSha||''),'No current source commit');
+    assert.equal(git(root,'rev-parse','HEAD'),currentSha,'Current source commit differs from HEAD');
     const budget=proofReadBudget(timeoutMs,{maximumMs:120000,onTiming}),snapshots=new Map();
     const {api,artifact}=client({repository,token,fetchImpl,budget});
     const repo=await api('');assert.equal(repo.full_name,repository);assert.equal(repo.default_branch,'main');
@@ -88,32 +110,52 @@ export async function fetchVerifiedBaseProof({root=process.cwd(),repository=proc
     const workflow=await api('actions/workflows/full-release-review.yml');assert.equal(workflow.path,MODEL_PROOF_WORKFLOW);assert(Number.isSafeInteger(workflow.id));
     const listed=await api(`actions/workflows/${workflow.id}/runs?branch=main&status=success&per_page=100`);
     const candidates=listed.workflow_runs.filter(run=>run.head_sha===baseSha||(allowAncestor&&run.head_sha!==currentSha)).slice(0,100);
-    // A later rerun of an older commit must not hide the newer 194-model proof.
-    // This local graph distance only orders candidates; the API still proves
-    // ancestry independently before any candidate can authorize reuse.
-    const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,stdio:'ignore',timeout:budget.remaining()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,encoding:'utf8',timeout:budget.remaining()}));}catch{budget.check();return Number.MAX_SAFE_INTEGER;}};
+    // Local history orders candidates only. Independent API comparisons prove
+    // ancestry, including on depth-one shard checkouts with no local ancestors.
+    const distance=sha=>{try{assert(SHA.test(sha||''));execFileSync('git',['merge-base','--is-ancestor',sha,baseSha],{cwd:root,env:immutableGitEnv(),stdio:'ignore',timeout:budget.remaining()});return Number(execFileSync('git',['rev-list','--count',`${sha}..${baseSha}`],{cwd:root,env:immutableGitEnv(),encoding:'utf8',timeout:budget.remaining()}));}catch{budget.check();return Number.MAX_SAFE_INTEGER;}};
     const distances=budget.measure('model candidate ranking',()=>new Map([...new Set(candidates.map(run=>run.head_sha))].map(sha=>{budget.check();return [sha,distance(sha)];})));
     candidates.sort((a,b)=>distances.get(a.head_sha)-distances.get(b.head_sha)||b.id-a.id);
     for(const summary of candidates){
       budget.check();
       try{
         assert(SHA.test(summary.head_sha||''));await assertAncestor(api,summary.head_sha,baseSha);
-        // A PR cannot authorize its own changed verifier or acceptance boundary.
-        if(!snapshots.has(summary.head_sha))snapshots.set(summary.head_sha,budget.measure('model committed policy',()=>modelPolicySnapshotAtCommit(summary.head_sha,{root,budget})));
-        const snapshot=snapshots.get(summary.head_sha);
-        assert.equal(modelPolicyDigestAtCommit(summary.head_sha,{root,snapshot,budget}),inputs.policy_sha256,'Protected source changed; new full main baseline required');
-        budget.measure('model current archive append',()=>assertModelArchivalAppendAtCommit(summary.head_sha,{root,snapshot,budget}));
+        // Authentication precedes declaration parsing or any body-read shortcut.
         const run=await api(`actions/runs/${summary.id}`);assertTrustedMainRun(run,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});
-        const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);
+        const attempt=await api(`actions/runs/${run.id}/attempts/${run.run_attempt}`);assertTrustedMainRun(attempt,{repository,repositoryId:repo.id,sourceSha:summary.head_sha,workflowId:workflow.id});assert.equal(attempt.id,run.id);assert.equal(attempt.run_attempt,run.run_attempt);assert.equal(attempt.check_suite_id,run.check_suite_id,'Run attempt suite differs');assert.equal(attempt.event,run.event,'Run attempt event differs');
         const suite=await api(`check-suites/${run.check_suite_id}`);assertTrustedSuite(suite,run);
         const {proof,metadata}=await artifact(run),manifest=await sourceManifest(api,run.head_sha);
-        assertBaseModelProof(proof,{repository,baseSha:run.head_sha,sourceTree:git(root,'rev-parse',`${run.head_sha}^{tree}`),runId:run.id,runAttempt:run.run_attempt,policy_sha256:inputs.policy_sha256,runtime_config:inputs.runtime_config,catalog_ids:catalogIDs(manifest)});
+        ensureAuthenticatedCommit(root,run.head_sha,{repository,budget});
+        const sourceTree=git(root,'rev-parse',`${run.head_sha}^{tree}`);
+        assert.equal(proof.source_tree,sourceTree,'Baseline source tree differs');
+        assert.deepEqual(catalogIDs(JSON.parse(git(root,'show',`${run.head_sha}:assets/manifest.json`))),catalogIDs(manifest),'Git/API baseline catalog differs');
+        const candidate=Object.freeze({});
+        authenticatedBaselines.set(candidate,{root,currentSha,proof:structuredClone(proof),repository,runId:run.id,runAttempt:run.run_attempt,sourceCommit:run.head_sha});
+        let sourceContext;
+        try{sourceContext=budget.measure('model committed policy',()=>prepareModelPolicyContext(candidate,{root,currentSha,budget,onInputRead}));}
+        catch(error){
+          if(archiveOnly)throw error;
+          // Partial GPU proofs retain their narrower existing semantics. They
+          // never grant an archive shortcut; perform complete byte validation.
+          if(!snapshots.has(run.head_sha))snapshots.set(run.head_sha,budget.measure('model full committed policy',()=>modelPolicySnapshotAtCommit(run.head_sha,{root,budget})));
+          const snapshot=snapshots.get(run.head_sha),policy=inputs?.policy_sha256||modelPolicyDigest(root);
+          assert.equal(modelPolicyDigestAtCommit(run.head_sha,{root,snapshot,budget}),policy,'Protected source changed; new full main baseline required');
+          budget.measure('model current archive append',()=>assertModelArchivalAppendAtCommit(run.head_sha,{root,snapshot,budget}));
+        }finally{authenticatedBaselines.delete(candidate);}
+        const policy_sha256=inputs?.policy_sha256||modelPolicyDigest(root,{sourceContext});
+        assertBaseModelProof(proof,{repository,baseSha:run.head_sha,sourceTree,runId:run.id,runAttempt:run.run_attempt,policy_sha256,runtime_config:inputs?.runtime_config||modelRuntimeConfig(),catalog_ids:catalogIDs(manifest)});
+        if(sourceContext)budget.measure('model current archive append',()=>assertModelArchivalAppendAtCommit(run.head_sha,{root,sourceContext,budget}));
         const verifiedBaseProof={schema:2,repository,source_commit:run.head_sha,comparison_base:baseSha,run_id:run.id,run_attempt:run.run_attempt,check_suite_id:run.check_suite_id,workflow_id:workflow.id,artifact_id:metadata.id,artifact_sha256:metadata.digest,proof_sha256:hashObject(proof)};
-        budget.check();return {baseProof:proof,verifiedBaseProof,reasons};
+        budget.check();return {baseProof:proof,verifiedBaseProof,sourceContext,sourceCommit:run.head_sha,reasons};
       }catch(error){reasons.push(`Candidate ${summary.id} rejected: ${error.message}`);budget.check();}
     }
     throw Error('No successful compatible main-ancestor v2 model proof');
-  }catch(error){return {baseProof:null,verifiedBaseProof:null,reasons:[...reasons,error.message]};}
+  }catch(error){return {baseProof:null,verifiedBaseProof:null,sourceContext:undefined,reasons:[...reasons,error.message]};}
+}
+/** CI-only committed archive source. Missing/untrusted/incompatible proof means
+ * the caller's ordinary full, bounded byte-validation path, not saved-plan trust. */
+export async function prepareModelSource({forceFull=false,...options}={}){
+  if(forceFull)return {baseProof:null,verifiedBaseProof:null,sourceContext:undefined,reasons:['Explicit full archive validation']};
+  return fetchVerifiedBaseProof({...options,archiveOnly:true});
 }
 /** Import only the independently successful exact-tree PR proof already eligible
  * for ci-reuse; this never weakens or changes that separate exact-tree contract. */
@@ -148,15 +190,15 @@ export async function promoteVerifiedPRProof({root=process.cwd(),repository=proc
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   const directory=process.env.CI_MODEL_PROOF_DIR||'qa/ci-model-proof';mkdirSync(directory,{recursive:true});
-  const inputs=computeModelInputs();
   if(process.argv[2]==='promote'){
+    const inputs=computeModelInputs();
     rmSync(join(directory,MODEL_PROOF_FILE),{force:true});
     try{const proof=await promoteVerifiedPRProof({inputs});writeFileSync(join(directory,MODEL_PROOF_FILE),JSON.stringify(proof,null,2)+'\n');if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,'promoted=true\n');console.log(`Imported ${proof.models.length} independently verified exact-tree PR model results.`);}
     catch(error){if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,'promoted=false\n');console.log(error.message);}
   }else if(process.argv[2]==='plan'||!process.argv[2]){
     rmSync(join(directory,'base-proof.json'),{force:true});
     const force=process.env.CI_MODEL_FORCE_FULL==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
-    const found=force?{baseProof:null,verifiedBaseProof:null,reasons:['Explicit full-model verification or uncertain dependency ownership']}:await fetchVerifiedBaseProof({inputs}),plan=planModelReuse({inputs,...found});
+    const found=force?{baseProof:null,verifiedBaseProof:null,reasons:['Explicit full-model verification or uncertain dependency ownership']}:await fetchVerifiedBaseProof(),inputs=computeModelInputs({sourceContext:found.sourceContext}),plan=planModelReuse({inputs,...found});
     writeFileSync(join(directory,'inputs.json'),JSON.stringify(inputs,null,2)+'\n');writeFileSync(join(directory,'plan.json'),JSON.stringify(plan,null,2)+'\n');
     if(found.baseProof)writeFileSync(join(directory,'base-proof.json'),JSON.stringify(found.baseProof,null,2)+'\n');
     if(process.env.GITHUB_OUTPUT)for(const [key,value]of Object.entries({fresh_ids:plan.fresh_ids.join(','),reused_ids:plan.reused_ids.join(','),fresh_count:plan.fresh_ids.length,reused_count:plan.reused_ids.length}))appendFileSync(process.env.GITHUB_OUTPUT,`${key}=${value}\n`);

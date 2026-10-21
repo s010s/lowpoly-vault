@@ -7,8 +7,10 @@ import {execFileSync} from 'node:child_process';
 import {fixture,identity,finish,verification} from './ci-model-proof-test.mjs';
 import {computeModelInputs,modelPolicyDigest,modelPolicyDigestAtCommit,hashBytes,planModelReuse} from './ci-model-proof.mjs';
 import {fetchVerifiedBaseProof,extractModelProof,proofArtifactName} from './ci-model-cache.mjs';
-import './ci-proof-fetch-test.mjs';
-import './ci-model-policy-snapshot-test.mjs';
+// Run timed transport and synchronous Git contracts sequentially. Parallel ESM
+// dependency evaluation must not consume another fixture's real deadline.
+await import('./ci-proof-fetch-test.mjs');
+await import('./ci-model-policy-snapshot-test.mjs');
 
 const zip=(proof,{name='model-proof.json',duplicate=false,symlink=false}={})=>{
   const dir=mkdtempSync(join(tmpdir(),'proof-zip-test-'));
@@ -30,7 +32,7 @@ try{
   const shadow=mkdtempSync(join(tmpdir(),'proof-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
   try{for(const moduleName of ['zipfile','json'])writeFileSync(join(shadow,`${moduleName}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractModelProof(originalZip),baseProof,'Isolated proof decoding ignores checkout/PYTHONPATH modules');}
   finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
-  async function lookup({alterRun,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming}={}){
+  async function lookup({alterRun,alterAttempt,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming}={}){
     const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[],timings=[];let socketCalls=0,firstSocketOptions;
     const fetchImpl=async(url,options={})=>{
       url=String(url);requests.push({url,options});
@@ -54,7 +56,7 @@ try{
       else if(path.startsWith('actions/workflows/99/runs?'))body={workflow_runs:missing?[]:[...(retryCandidate?[{id:102,head_sha:baseSha}]:[]),{id:101,head_sha:newer?currentSha:baseSha}]};
       else if(path==='actions/runs/102')body={...r,id:102,conclusion:'failure'};
       else if(path==='actions/runs/101')body=r;
-      else if(path===`actions/runs/101/attempts/${r.run_attempt}`)body={...r,run_attempt:attempt};
+      else if(path===`actions/runs/101/attempts/${r.run_attempt}`){body={...r,run_attempt:attempt};alterAttempt?.(body);}
       else if(path==='check-suites/202')body=s;
       else if(path==='actions/runs/101/artifacts?per_page=100')body={artifacts:[a]};
       else if(path==='actions/artifacts/303')body=a;
@@ -68,11 +70,12 @@ try{
   }
   const rerun=await lookup({retryCandidate:true});assert(rerun.verifiedBaseProof,rerun.reasons.join('; '));
   assert.equal(rerun.timings.filter(row=>row.stage==='model committed policy').length,1,'Same-commit reruns share one authenticated policy snapshot');
-  assert.equal(rerun.timings.filter(row=>row.stage==='model current archive append').length,2,'Current tree is revalidated, never cached');
+  assert.equal(rerun.timings.filter(row=>row.stage==='model current archive append').length,1,'Rejected run cannot trigger an archive scan; the authenticated candidate is checked');
   const noBudget=await lookup({timeoutMs:0});assert.equal(noBudget.verifiedBaseProof,null);assert.equal(noBudget.requests.length,0);
   const exhaustedLocal=await lookup({retryCandidate:true,timeoutMs:1000,onTiming:entry=>{if(entry.stage==='model committed policy')Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1010);}});
-  assert.equal(exhaustedLocal.verifiedBaseProof,null);assert.equal(exhaustedLocal.reasons.filter(reason=>reason.startsWith('Candidate ')).length,1,'Budget exhaustion stops the candidate loop');
-  assert(!exhaustedLocal.requests.some(row=>/\/actions\/runs\//.test(row.url)),'No run metadata GET starts after local validation exhausts the total budget');
+  assert.equal(exhaustedLocal.verifiedBaseProof,null);assert.equal(exhaustedLocal.reasons.filter(reason=>reason.startsWith('Candidate ')).length,2,'Failed run is rejected before local validation; budget exhaustion stops the candidate loop');
+  assert(exhaustedLocal.requests.some(row=>row.url.endsWith('/actions/runs/101')),'Run authentication must precede local archive validation');
+  assert(!exhaustedLocal.requests.some(row=>row.url.endsWith('/actions/runs/102/artifacts?per_page=100')),'Failed runs cannot authorize artifact validation');
   const valid=await lookup();assert(valid.verifiedBaseProof,valid.reasons.join('\n'));const planned=planModelReuse({inputs,...valid});assert.equal(planned.fresh_ids.length,4);assert.equal(planned.reused_ids.length,190);
   assert.equal(valid.requests[0].url,`https://api.github.com/repos/${repository}`,'Repository metadata uses the canonical no-slash endpoint');
   assert((await lookup({apiFailure:true})).reasons.some(reason=>reason==='GitHub proof read failed (503) at repository metadata'),'A failed read reports the safe endpoint, not credentials');
@@ -86,7 +89,7 @@ try{
     {alterRun:r=>r.conclusion='failure'},{alterRun:r=>r.status='in_progress'},
     {alterRun:r=>r.event='pull_request'},{alterRun:r=>r.head_branch='feature'},
     {alterRun:r=>r.path='.github/workflows/not-full-review.yml'},{alterRun:r=>r.workflow_id=100},
-    {alterRun:r=>r.head_repository={id:13,full_name:'fork/repo'}},{attempt:2},
+    {alterRun:r=>r.head_repository={id:13,full_name:'fork/repo'}},{attempt:2},{alterAttempt:a=>a.check_suite_id=203},{alterAttempt:a=>a.event='workflow_dispatch'},
     {alterSuite:s=>s.app.owner.login='attacker'},{alterSuite:s=>s.app.id=7},{alterSuite:s=>s.conclusion='failure'},
     {alterArtifact:a=>a.expired=true},{alterArtifact:a=>a.name='model-proof-v2-2'},
     {alterArtifact:a=>a.workflow_run.head_repository_id=13},{alterArtifact:a=>delete a.digest},

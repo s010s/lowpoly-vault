@@ -6,6 +6,7 @@ import {modelPlan,modelReceipt,verifyBuild} from './ci-model-shards.mjs';
 import {computeModelInputs,freshModelRecords,assertBuiltRenderInputs} from './ci-model-proof.mjs';
 import {assertAdditionsReport} from './ci-additions-browser-contract.mjs';
 import {freshCardPreviewRecords} from './ci-card-preview-proof.mjs';
+import {prepareModelSource} from './ci-model-cache.mjs';
 const tasks = {
   "round13": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round13-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round13-20261018/site"}},
   "round12": {command:"node site/small-life-browser-test.mjs && node site/ci-scene-browser-test.mjs",env:{QA_ADDITION_PACK:"prehistoric-small-life-round12-20261018",GALLERY_DIR:"dist",QA_OUTPUT_DIR:"qa/continuous-release-round12-20261018/site"}},
@@ -141,13 +142,17 @@ if(modelShard&&result.status===0){
   const report=JSON.parse(readFileSync(`${env.QA_OUTPUT_DIR}/report.json`));
   const receipt=modelReceipt(manifest,plan,shard,report,build);
   if(acceptance)receipt.browser_acceptance=acceptance;
-  if(process.env.CI_MODEL_PROOF_ACTIVE==='true')receipt.proof_records=freshModelRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({})}),selectedIDs:shard.ids,browser:report,identity:build.identity,payload_sha256:build.payload_sha256});
+  if(process.env.CI_MODEL_PROOF_ACTIVE==='true'){
+    const {sourceContext}=await prepareModelSource({forceFull:process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch'});
+    receipt.proof_records=freshModelRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({}),sourceContext}),selectedIDs:shard.ids,browser:report,identity:build.identity,payload_sha256:build.payload_sha256});
+  }
   mkdirSync('qa/ci-model-shards',{recursive:true});
   writeFileSync(`qa/ci-model-shards/${task}.json`,JSON.stringify(receipt,null,2)+'\n');
 }
 if(cardProof&&result.status===0){
   const report=JSON.parse(readFileSync(`${env.PREVIEW_OUTPUT}/render-report.json`));
-  const records=freshCardPreviewRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({})}),selectedIDs:process.env.PREVIEW_ASSET_IDS.split(','),report,identity:build.identity,payload_sha256:build.payload_sha256});
+  const {sourceContext}=await prepareModelSource({forceFull:process.env.FULL_REVIEW==='true'||process.env.GITHUB_EVENT_NAME==='workflow_dispatch'});
+  const records=freshCardPreviewRecords({inputs:computeModelInputs({built:await assertBuiltRenderInputs({}),sourceContext}),selectedIDs:process.env.PREVIEW_ASSET_IDS.split(','),report,identity:build.identity,payload_sha256:build.payload_sha256});
   mkdirSync('qa/ci-card-preview-proof',{recursive:true});
   writeFileSync('qa/ci-card-preview-proof/receipt.json',JSON.stringify({version:1,kind:'card-preview-shard',identity:build.identity,payload_sha256:build.payload_sha256,records},null,2)+'\n');
 }
