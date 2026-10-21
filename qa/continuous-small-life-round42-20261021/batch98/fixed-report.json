@@ -1,0 +1,2152 @@
+{
+  "schema_version": 1,
+  "kind": "independent-static-qa-fixed-report",
+  "reviewer": {
+    "id": "independent-batch98-reviewer",
+    "task_id": "resume_batch98_review",
+    "maker": false,
+    "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+  },
+  "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+  "worktree": "/workspace/shared/lowpoly-batch98-20261020",
+  "source_commit": "fb79740178a71dbce507aceb834332bed3a2e0ad",
+  "source_parent": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+  "source_branch": "candidate/small-life-batch98-concept-20261020",
+  "scope": "Independent static review only. Original candidate records, freezes and QA unchanged. No GPU/scene execution, publication authority, user approval, push, PR, merge or release implied.",
+  "manifest_inputs": [
+    {
+      "path": "/workspace/shared/lowpoly-batch98-evidence/final-handoff.json",
+      "sha256": "d92b48173912e32d58b18c93943b763ccffb036b42ba0ed5b5d3a99054b5e945",
+      "bytes": 5991
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/maker-handoff.json",
+      "sha256": "ce9e0114b9f577db9d41987cf0ad73a4e3043ae2958155c4cb53aeeb926b1cc4",
+      "bytes": 21895
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/submission-manifest.json",
+      "sha256": "850a7fcc00643bc2d000eeba2dbfbc2b3ee44ad58255daf8b5ec64d88ff4aece",
+      "bytes": 59418
+    }
+  ],
+  "shared_evidence": [
+    {
+      "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/integrity.json",
+      "sha256": "973eb878d38e2d966cba45dd35cc1f5a5106a611867f0017f04d446000db5c64",
+      "bytes": 91243
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/provenance-recheck.json",
+      "sha256": "77c6ad0431e23c6dbbd7a21bec16300ed9968e2b82cd31ce6ad426844c13a488",
+      "bytes": 30010
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/frame-boundary-diagnostic.json",
+      "sha256": "c7260fe1e82e90076fce55d9ae9be1d1eb486c3098dbdfb488e381d4c0da5ff8",
+      "bytes": 12022
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/recovery-checkpoint-001.json",
+      "sha256": "88cf82cc4ee0e2d71dd3500f8841c0d095c514561f4944bf6f423dcd3f559429",
+      "bytes": 1639
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/recovery-checkpoint-002.json",
+      "sha256": "e4483b4bb601446096b2fd81a9502fa066d40bf7e4c7e0379e97cf1e1c0c7981",
+      "bytes": 1180
+    }
+  ],
+  "chronology": {
+    "original_freeze": {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/original-freeze-manifest.json",
+      "sha256": "053b2f92692ba1a8dde4ffcbd096f7fc3e1bdae69cde885abe00975808a3b7a2",
+      "bytes": 5457
+    },
+    "original_erratum": {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/freeze-timing-erratum.json",
+      "sha256": "b1148e6e0a602d53b8bbba2e84c502533e260ef81add2e8b81bf4e263bc5ba9f",
+      "bytes": 589
+    },
+    "later_timing_observation": {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/timing-observation-v002.json",
+      "sha256": "0ab89b201b569f688b6677a729bf5436dc5064ad8889a312627b8a85e32459fe",
+      "bytes": 1628
+    },
+    "first_geometry_request": {
+      "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/chronology/first-geometry-request.json",
+      "sha256": "2a447575cf27ef1f550794052e5b50596b1f3a08890e99e07f8ce6936f3bc3f9",
+      "bytes": 3627
+    },
+    "finding": "Original00:31:45 freeze and00:34:05 erratum metadata were prefilled, not actual completed-write timestamps. Later retained disclosure gives tool-return completion00:33:54 and00:34:17; first geometry queue begins00:39:57. The disclosures and queue ordering are consistent. No filesystem mtime or universal+2h conversion is used as proof; historical tool-return times remain attested by the preserved record, not independently observed by this resumed reviewer. Concept source files exist, match originals and have real provider receipts with internal timestamps explicitly unknown.",
+    "limitation": "Source-inspection annotations are approximate and not treated as independently authenticated clock measurements."
+  },
+  "source_read_log": [
+    {
+      "source": "SM1844",
+      "url": "https://archive.org/download/Monographiedesp00Schi/Monographiedesp00Schi.pdf",
+      "inspection": "Local primary text and PlateXIV fig2 pixels; morphology plus attached-cone arrangement."
+    },
+    {
+      "source": "FORTE2022",
+      "url": "https://www.natura.museum/wp-content/uploads/2023/10/2022-Forte-et-al.-Kuehwiesenkopf-conifer-cones.pdf",
+      "inspection": "Local PDF text extraction, heterophylla diagnosis/discussion and Fig2 pixels; cross-species separation."
+    },
+    {
+      "source": "PAL1991",
+      "url": "https://www.amh-geo.com/app/download/7759879451/dn066-1991_v2025.pdf?t=1734103939",
+      "inspection": "Local text p5 and Plate4 fig9 pixels; cf. limitation and dimensions; groove basis unresolved."
+    },
+    {
+      "source": "WILF2014",
+      "url": "https://bsapubs.onlinelibrary.wiley.com/doi/10.3732/ajb.1300327",
+      "inspection": "Official article Description and Fig32–36 captions read through web tool; local original consultation plates1–7 and32–36 viewed. Original plate hashes retained."
+    },
+    {
+      "source": "SUN2002",
+      "url": "https://www.bfa.fcnym.unlp.edu.ar/catalogo/doc_num.php?explnum_id=2445",
+      "inspection": "Local primary text note8, pages901–902, Fig2A–D,H,I and Fig3 pixels."
+    },
+    {
+      "source": "DE2014",
+      "url": "https://www.journals.uchicago.edu/doi/full/10.1086/675935",
+      "inspection": "Official Archaefructus section read through web tool; phylogeny remains ambiguous, no new fossil anatomy inferred."
+    }
+  ],
+  "pixel_coverage": {
+    "concepts": 4,
+    "single512views": 32,
+    "lossless_contact_sheets": 4,
+    "organ_closeups": 5,
+    "primary_reference_plates": 7,
+    "method": "Each original image opened and personally inspected through view_image; no fresh rendering of already complete proof images."
+  },
+  "assets": {
+    "voltzia": {
+      "asset_id": "voltzia",
+      "revision": "r001",
+      "verdict": "REJECT_REPAIR_REQUIRED",
+      "eligible_static_count": 0,
+      "source_pins": {
+        "glb": {
+          "path": "production/small-life-batch98/voltzia/r001/artifacts/voltzia.glb",
+          "sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+          "actual_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73"
+        },
+        "brief": {
+          "path": "production/small-life-batch98/voltzia/r001/original-brief.json",
+          "sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+          "actual_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f"
+        },
+        "references": {
+          "path": "production/small-life-batch98/voltzia/r001/references.json",
+          "sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0",
+          "actual_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+        },
+        "source": {
+          "path": "production/small-life-batch98/voltzia/r001/artifacts/voltzia.blend",
+          "sha256": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5",
+          "actual_sha256": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5"
+        },
+        "generator": {
+          "path": "production/small-life-batch98/tools/generate-r002.py",
+          "sha256": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+          "actual_sha256": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede"
+        },
+        "config": {
+          "path": "production/small-life-batch98/voltzia/r001/config.json",
+          "sha256": "85c3f54a9cd8c163026b8d4c24896f5baa4208c62385b163db7e74770f7e5605",
+          "actual_sha256": "85c3f54a9cd8c163026b8d4c24896f5baa4208c62385b163db7e74770f7e5605"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch98/dependencies.json",
+          "sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51",
+          "actual_sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        }
+      },
+      "candidate": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/candidate.json",
+        "sha256": "650d9487082fd08a4d2e4bc864acd93202a0d885c3ecba2d5456158de156f592",
+        "bytes": 8098
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+        "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+        "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass.",
+          "criteria": [
+            {
+              "id": "technical-acceptance",
+              "status": "pass",
+              "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass."
+            }
+          ]
+        },
+        "visual": {
+          "status": "fail",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Specified geometry shape is not expressed; see confirmed blocker.",
+          "criteria": [
+            {
+              "id": "visual-acceptance",
+              "status": "fail",
+              "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Specified geometry shape is not expressed; see confirmed blocker."
+            }
+          ]
+        },
+        "factual": {
+          "status": "fail",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "See source-linked confirmed geometry mismatch.",
+          "criteria": [
+            {
+              "id": "factual-acceptance",
+              "status": "fail",
+              "note": "See source-linked confirmed geometry mismatch."
+            }
+          ]
+        },
+        "specification": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply.",
+          "criteria": [
+            {
+              "id": "specification-acceptance",
+              "status": "pass",
+              "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply."
+            }
+          ]
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference.",
+          "criteria": [
+            {
+              "id": "runtime_parse-acceptance",
+              "status": "pass",
+              "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference."
+            }
+          ]
+        },
+        "gpu": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run on actual target graphics context/device.",
+          "criteria": [
+            {
+              "id": "gpu-acceptance",
+              "status": "unknown",
+              "note": "Not run on actual target graphics context/device."
+            }
+          ]
+        },
+        "scene": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run in the actual intended composed scene.",
+          "criteria": [
+            {
+              "id": "scene-acceptance",
+              "status": "unknown",
+              "note": "Not run in the actual intended composed scene."
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "triangles": 3020,
+        "materials": 4,
+        "primitives": 4,
+        "glb_bytes": 165720,
+        "hard_budget": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000
+        },
+        "hard_ranges": [],
+        "component_count": 123,
+        "kind_counts": {
+          "axis": 3,
+          "leaf": 96,
+          "five_lobed_cone_scale": 24
+        },
+        "bounds_blender_m": {
+          "min": [
+            -0.0658239871263504,
+            -0.018680380657315254,
+            0.0
+          ],
+          "max": [
+            0.0658239871263504,
+            0.018680380657315254,
+            0.16402000188827515
+          ],
+          "size": [
+            0.1316479742527008,
+            0.03736076131463051,
+            0.16402000188827515
+          ]
+        },
+        "detached_bases": [],
+        "fully_parent_buried": []
+      },
+      "observations": [
+        "Historical1844 PlateXIV fig2 supports attached fertile lateral;2022 Fig2A is the detached heterophylla specimen, not the attached walchiaeformis panels. Those species are not conflated.",
+        "One open incomplete cone with24 five-lobed scale units and Y-like branch silhouette is legible; no pedestal, slab or whole tree.",
+        "96 leaf components are straight six-vertex diamond volumes ending at one vertex, not curved short leaves. This is visible in hero/front/rear/clay/silhouette and independently measured in the reopened source. The frozen feature requires curvature; the2022 diagnosis and1844 plate describe/show curved rounded short leaves."
+      ],
+      "blockers": [
+        {
+          "id": "V98-LEAF-PROFILE",
+          "stage": [
+            "visual",
+            "factual"
+          ],
+          "status": "confirmed",
+          "issue": "Straight pointed diamond leaves replace the required curved short-leaf profile.",
+          "evidence": [
+            "targeted-leaf-outline.json",
+            "views/hero.png",
+            "views/front.png",
+            "views/clay.png"
+          ],
+          "minimal_next_step": "Create a new geometry revision with recognizably curved short leaves and rounded/blunted apices. Preserve branch/cone identity, original freeze and old evidence. Reopen/measure, rebuild twice and render exact new-GLB views; do not use a material/camera-only correction."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/project-glb.json",
+          "sha256": "b18decc7f39ffed256b5036ad2f473665a36f08bb92b2355f76b39e5abbc5471",
+          "bytes": 1215
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/source-independent.json",
+          "sha256": "b1482f219af10a8fcf11f3da31061356b9582d6a065289866b06bf28a5720949",
+          "bytes": 101081
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/source-independent.log",
+          "sha256": "dd2a2a9c0b87534bd4b22b39ea70a34b8bab674f5ef4310cf3b328fd2d2a3351",
+          "bytes": 1326
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/source-reexport.glb",
+          "sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+          "bytes": 165720
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/khronos-independent.json",
+          "sha256": "cfee819cfb951406da9b0f3f7a074263575c648015c5271d231a1637f8e33a22",
+          "bytes": 1162
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/three-independent.json",
+          "sha256": "c673ec1aa34b141e65e1aac29eeee09c5e6265b092b77c0be7da5b5e6b0a08b6",
+          "bytes": 715
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/candidate-profile-independent.json",
+          "sha256": "31e5d922d01fa4fbed978c80a5994991b6023d260b9bad3112dd33452872962a",
+          "bytes": 4403
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/reproducibility-a-independent.json",
+          "sha256": "db8d12b7090806caf8b76d321d99da4b84c7663a4cc804a87c5a5627391a0935",
+          "bytes": 2259
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/reproducibility-b-independent.json",
+          "sha256": "6fcf700c4f6707ffbd2ddfb42f9b9d5768d1833dd62c73ffd43183c9974cfa8b",
+          "bytes": 2259
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/voltzia/targeted-leaf-outline.json",
+          "sha256": "2a4a312e8687d35e424f5b9710c79d6b25d2bbd10e121f218862b2572b522a9e",
+          "bytes": 81219
+        }
+      ],
+      "inspected_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/hero.png",
+          "sha256": "17b937de14d87359320d35e211e842e680c9caf09cd95cfd287e256c7a7a0de0",
+          "bytes": 190624,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "Attached single cone and vegetative stem legible; leaf tips look like straight spines."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/reversehero.png",
+          "sha256": "ff8c39cabb82547a1e8e68c99dfc752ea71404527da4c774be65582db24396b8",
+          "bytes": 196244,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "Reverse confirms open scale tiers and same straight leaf profile."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/front.png",
+          "sha256": "a7bc60c1cf32fc56e9f39e228d28a1a3b3eefa4e0521400f25e8c082746156b3",
+          "bytes": 189469,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "Y branch, terminal cone and single pointed leaf tips clear."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/side.png",
+          "sha256": "db7cdc116670b550056297c9b93637e7af6f6a8770b9b01171798db1e0673bd0",
+          "bytes": 181112,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "Lateral collapses in projection as expected; leaf depth and cone lobes remain present."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/rear.png",
+          "sha256": "57d5e6bf8165785d241847b36e95d2e51359f9a1bc5bcc91102c79073cbc37d5",
+          "bytes": 188628,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "No missing cone support; straight leaf outlines remain."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/top.png",
+          "sha256": "a1dc778f0d11ae5b179b533c4136ebad6abf8a03c31c3cdb373c484c69065a14",
+          "bytes": 168814,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "Spiral leaf distribution and radial cone units visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/clay.png",
+          "sha256": "3dd6a4921cc54bfb0f67e4d0b2518e31e6a395fa738e73a99b450f2ed18a8b77",
+          "bytes": 173659,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "Volume/contact legible; no obvious coplanar flicker in this still; no curve in leaves."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/silhouette.png",
+          "sha256": "639626c67f838a3c2bceeccbe26c4426de05046a43f0f6b45aa32e3f04b2381b",
+          "bytes": 168000,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "Open branch and lobed cone distinct; sharp diamond foliage is not the frozen curved profile."
+        }
+      ],
+      "inspected_contact_sheet": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/voltzia/r001/views/contact-sheet.png",
+        "sha256": "b5bdf074387ed51b89c108908291b71b106900f23ce00091fc727625e194e2e7",
+        "bytes": 689752,
+        "lossless_pixel_identity_verified": true,
+        "personally_inspected": true
+      },
+      "inspected_details": [],
+      "inspected_concept": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/voltzia-concept.png",
+        "sha256": "8ccc8a402384194554cbdcbd02ae0d58b6369f49a3ca403ce0508b08f1bb6dc7",
+        "bytes": 1958222,
+        "personally_inspected": true,
+        "original_source_identity_matches": true,
+        "receipt": {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/voltzia-receipt.json",
+          "sha256": "fcec8ea7da46eb9ae84c2f03ed0b5ab6eab9788f801518d59681c8ee627b2d96",
+          "bytes": 796
+        }
+      },
+      "frozen_reference_files_verified": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/voltzia-1844-archive.pdf",
+          "sha256": "54a3e9cb2a525f09f21d368926a774ce9e01d710ef090860e7619a4062879b77",
+          "bytes": 11188255,
+          "source_id": "SM1844",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/voltzia-1844-plate14.png",
+          "sha256": "6ff28aa5e0b5f45ded27217911164c2f2a1dd75c899b023d42bab059484b76ea",
+          "bytes": 1444918,
+          "source_id": "SM1844",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/voltzia-2022.pdf",
+          "sha256": "590c54be029e6bf4eb0434ef2e0c761d155d366953364398568f828538137896",
+          "bytes": 3213945,
+          "source_id": "FORTE2022",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/voltzia-2022-page4.png",
+          "sha256": "c00d707b7c2c24833350885b0ee96bfbd61c4f4a952f5149c8aec189905ed436",
+          "bytes": 2010810,
+          "source_id": "FORTE2022",
+          "matches_frozen_hash": true
+        }
+      ],
+      "independent_source_reopen_reused": {
+        "pid": 8,
+        "report_time": "2026-10-21T01:03:34.001922+00:00",
+        "source_sha256": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5",
+        "complete_log_verified": true,
+        "reexport_byte_equal": true,
+        "semantic_equal": true
+      },
+      "production_approval": false,
+      "gpu_scene_acceptance": false
+    },
+    "sciadopitys": {
+      "asset_id": "sciadopitys",
+      "revision": "r001",
+      "verdict": "BLOCKED_FACTUAL_EVIDENCE",
+      "eligible_static_count": 0,
+      "source_pins": {
+        "glb": {
+          "path": "production/small-life-batch98/sciadopitys/r001/artifacts/sciadopitys.glb",
+          "sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+          "actual_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27"
+        },
+        "brief": {
+          "path": "production/small-life-batch98/sciadopitys/r001/original-brief.json",
+          "sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+          "actual_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4"
+        },
+        "references": {
+          "path": "production/small-life-batch98/sciadopitys/r001/references.json",
+          "sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a",
+          "actual_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+        },
+        "source": {
+          "path": "production/small-life-batch98/sciadopitys/r001/artifacts/sciadopitys.blend",
+          "sha256": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7",
+          "actual_sha256": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7"
+        },
+        "generator": {
+          "path": "production/small-life-batch98/tools/generate-r002.py",
+          "sha256": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+          "actual_sha256": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede"
+        },
+        "config": {
+          "path": "production/small-life-batch98/sciadopitys/r001/config.json",
+          "sha256": "18b50ed6249d838dee3b5c5de79b05237e8429cd8e6aeac395fee7322950d717",
+          "actual_sha256": "18b50ed6249d838dee3b5c5de79b05237e8429cd8e6aeac395fee7322950d717"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch98/dependencies.json",
+          "sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51",
+          "actual_sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        }
+      },
+      "candidate": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/candidate.json",
+        "sha256": "8879db3e3add39ce463abbb3bd4226b37aa774ea172c6f2c40ddf31f2726ad22",
+        "bytes": 8102
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+        "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+        "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass.",
+          "criteria": [
+            {
+              "id": "technical-acceptance",
+              "status": "pass",
+              "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass."
+            }
+          ]
+        },
+        "visual": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Coverage and visible low-poly construction pass within the representation scope.",
+          "criteria": [
+            {
+              "id": "visual-acceptance",
+              "status": "pass",
+              "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Coverage and visible low-poly construction pass within the representation scope."
+            }
+          ]
+        },
+        "factual": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "A specific frozen surface interpretation lacks sufficient primary reference support; unresolved, not a pass.",
+          "criteria": [
+            {
+              "id": "factual-acceptance",
+              "status": "unknown",
+              "note": "A specific frozen surface interpretation lacks sufficient primary reference support; unresolved, not a pass."
+            }
+          ]
+        },
+        "specification": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply.",
+          "criteria": [
+            {
+              "id": "specification-acceptance",
+              "status": "pass",
+              "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply."
+            }
+          ]
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference.",
+          "criteria": [
+            {
+              "id": "runtime_parse-acceptance",
+              "status": "pass",
+              "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference."
+            }
+          ]
+        },
+        "gpu": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run on actual target graphics context/device.",
+          "criteria": [
+            {
+              "id": "gpu-acceptance",
+              "status": "unknown",
+              "note": "Not run on actual target graphics context/device."
+            }
+          ]
+        },
+        "scene": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run in the actual intended composed scene.",
+          "criteria": [
+            {
+              "id": "scene-acceptance",
+              "status": "unknown",
+              "note": "Not run in the actual intended composed scene."
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "triangles": 1640,
+        "materials": 3,
+        "primitives": 3,
+        "glb_bytes": 79764,
+        "hard_budget": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000
+        },
+        "hard_ranges": [
+          {
+            "rule": {
+              "kind": "cladode",
+              "measure": "oriented_length_m",
+              "range": [
+                0.08,
+                0.1
+              ],
+              "basis": "source range, PAL1991 p5"
+            },
+            "count": 36,
+            "min": 0.08999999237130396,
+            "max": 0.0900000233668834,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "cladode",
+              "measure": "oriented_width_m",
+              "range": [
+                0.0019,
+                0.0021
+              ],
+              "basis": "source2mm;0.1mm discretization allowance, not fossil variation"
+            },
+            "count": 36,
+            "min": 0.001999999862164259,
+            "max": 0.002000001259148121,
+            "exact_failures": []
+          }
+        ],
+        "component_count": 37,
+        "kind_counts": {
+          "axis": 1,
+          "cladode": 36
+        },
+        "bounds_blender_m": {
+          "min": [
+            -0.08973625302314758,
+            -0.08865109086036682,
+            0.0
+          ],
+          "max": [
+            0.08973625302314758,
+            0.08865109086036682,
+            0.1795414537191391
+          ],
+          "size": [
+            0.17947250604629517,
+            0.17730218172073364,
+            0.1795414537191391
+          ]
+        },
+        "detached_bases": [],
+        "fully_parent_buried": []
+      },
+      "observations": [
+        "PAL1991 p5 and Plate4 fig9 support the cf. identification,12–15 leaves per whorl,8–10cm length,2mm width, sessile linear entire blades and short narrowed rounded tips. Poor cuticle preservation leaves species attribution uncertain.",
+        "Actual model has36 attached linear blades in three separated12-blade whorls.90mm lengths and2mm widths are inside the exact frozen ranges. The full-volume narrow terminal face is not a single-point tip.",
+        "The frozen design requires a shallow central groove and implements a0.18mm depression. The only frozen fossil source instead describes a midrib; its plate does not resolve whether a depression should replace that feature. I cannot certify that modeled surface interpretation from the present ledger. This is an evidence gap, not a proved biological absence of grooves."
+      ],
+      "blockers": [
+        {
+          "id": "S98-GROOVE-BASIS",
+          "stage": [
+            "factual"
+          ],
+          "status": "unresolved",
+          "issue": "The shallow central groove is not demonstrated by the only frozen cf.-fossil reference; do not infer exact fossil surface anatomy from genus familiarity.",
+          "evidence": [
+            "original-brief.json",
+            "references.json",
+            "details/cladode-groove/detail.png",
+            "PAL1991 p5 and Plate4 fig9"
+          ],
+          "minimal_next_step": "Provide a primary-source/pixel basis specifically supporting this cf. reconstruction surface, or produce a transparently derived new revision with evidence-bounded surface interpretation. Preserve the original freeze and cf. limitation; do not silently replace the source or claim uncertainty is a pass."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/project-glb.json",
+          "sha256": "104872a18953b18985fb13192479c935ade34b365e266a1aab3b734a679d29e0",
+          "bytes": 1221
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/source-independent.json",
+          "sha256": "9dc5b8520dea7ab57ec3d254a298a9958f93d86cda5c7a834c08b02c16beaf1c",
+          "bytes": 36070
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/source-independent.log",
+          "sha256": "55bdc67d1e45484e96c82435db615bee8edc8d6b99a8e52295427c947b86d60b",
+          "bytes": 2007
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/source-reexport.glb",
+          "sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+          "bytes": 79764
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/khronos-independent.json",
+          "sha256": "2f56502f124466beae06ae0b3738c7be2481f74e2bc5fc8aed61d9e054370828",
+          "bytes": 1169
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/three-independent.json",
+          "sha256": "0f515d92d87735ca1aef8e2212bf4fb8d167e4647d276bc1abe5c42619eb48db",
+          "bytes": 719
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/candidate-profile-independent.json",
+          "sha256": "ecd6161a71710017f1cba6ffac4d754f0e76aa9e579f654cbd1215078056032e",
+          "bytes": 4414
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/reproducibility-a-independent.json",
+          "sha256": "0079e2cb8651ea6342321e8965f1650369029c40072efb7f1078b8ca479d7b82",
+          "bytes": 2299
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/sciadopitys/reproducibility-b-independent.json",
+          "sha256": "06eb5d24f7e181640a8800ae9f079776077d3768875f040d53fe75fdcbb02c81",
+          "bytes": 2299
+        }
+      ],
+      "inspected_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/hero.png",
+          "sha256": "9ef97d11ea16fc0cb80eba4527fe06b292d0510b679a39459ebc17f9ea481383",
+          "bytes": 206653,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "Three clean umbrella whorls, long fine blades, no clusters of pine fascicles."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/reversehero.png",
+          "sha256": "01628196286a1e04a811150e1f2b98208063fd986a2a95dcd1d388b35765894c",
+          "bytes": 209410,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "Open gaps and sessile attachments remain legible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/front.png",
+          "sha256": "e496f39270205e211d7ca9b966d87393c3d7fca1998e633a6421c5c4fa8e0b7f",
+          "bytes": 177002,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "Tier separation and fine blade proportions clear."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/side.png",
+          "sha256": "eb33649970f996d4f4857051837288cb4401114ac7b8a9df3d3958a8fa42b4a8",
+          "bytes": 178475,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "No detached whorl or roots; apparent overlaps are projection."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/rear.png",
+          "sha256": "7b4ecc307f6f8f0139ae6af29229d821833d02eccd89fec3d3e584396594c499",
+          "bytes": 176312,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "All three tiers remain open and stem continuous."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/top.png",
+          "sha256": "0ae4d7665b87a2acb903a714d8980ac13088f6ec0537dff05c432240b49fc3c7",
+          "bytes": 213091,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "Radial blade directions and staggered tiers visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/clay.png",
+          "sha256": "9e392e9eea5c97cef68f915ce66497237ebaee54bd20ecc4d6a2985a2430a9e6",
+          "bytes": 188523,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "Closed slender volume; no visible coplanar interference."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/silhouette.png",
+          "sha256": "e3049b8ff12d9f4be1f5e94244476bd3f1eec8477a72891f9f7abf1273985ee2",
+          "bytes": 184010,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "Three radiating whorls remain readable without material color."
+        }
+      ],
+      "inspected_contact_sheet": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/views/contact-sheet.png",
+        "sha256": "e1bdbc15570e18a6a9d108d2d4349c541930049cb83aad2f0115d7e945ed25c1",
+        "bytes": 779725,
+        "lossless_pixel_identity_verified": true,
+        "personally_inspected": true
+      },
+      "inspected_details": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/sciadopitys/r001/details/cladode-groove/detail.png",
+          "sha256": "43867b359816a34068ffaf353b1849bf1603eed38a2ea8ef31434661e4a9e1a4",
+          "bytes": 266185,
+          "personally_inspected": true
+        }
+      ],
+      "inspected_concept": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/sciadopitys-concept.png",
+        "sha256": "6f2ae0516da123c58c5a068a68832f3cff4032ca80b133141f951e95018fe242",
+        "bytes": 1777040,
+        "personally_inspected": true,
+        "original_source_identity_matches": true,
+        "receipt": {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/sciadopitys-receipt.json",
+          "sha256": "71f7ec2d2b65c777879c2729a34d60bd7b0c41d2aaa552b76068fe6ef31f7364",
+          "bytes": 796
+        }
+      },
+      "frozen_reference_files_verified": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/sciadopitys-official.pdf",
+          "sha256": "aaffdb69c271788c63168b08b6d16e4ded2a90308950a8b84a87d9a3cae4383c",
+          "bytes": 10438664,
+          "source_id": "PAL1991",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/sciadopitys-plate4.png",
+          "sha256": "5437ad78d048ac7955cdec54818b6b0320f67aa6a963ce68de44b0facdfbc3f1",
+          "bytes": 2751290,
+          "source_id": "PAL1991",
+          "matches_frozen_hash": true
+        }
+      ],
+      "independent_source_reopen_reused": {
+        "pid": 30,
+        "report_time": "2026-10-21T01:03:36.091463+00:00",
+        "source_sha256": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7",
+        "complete_log_verified": true,
+        "reexport_byte_equal": true,
+        "semantic_equal": true
+      },
+      "production_approval": false,
+      "gpu_scene_acceptance": false
+    },
+    "agathis": {
+      "asset_id": "agathis",
+      "revision": "r001",
+      "verdict": "REJECT_REPAIR_REQUIRED",
+      "eligible_static_count": 0,
+      "source_pins": {
+        "glb": {
+          "path": "production/small-life-batch98/agathis/r001/artifacts/agathis.glb",
+          "sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+          "actual_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc"
+        },
+        "brief": {
+          "path": "production/small-life-batch98/agathis/r001/original-brief.json",
+          "sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+          "actual_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb"
+        },
+        "references": {
+          "path": "production/small-life-batch98/agathis/r001/references.json",
+          "sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57",
+          "actual_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+        },
+        "source": {
+          "path": "production/small-life-batch98/agathis/r001/artifacts/agathis.blend",
+          "sha256": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe",
+          "actual_sha256": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe"
+        },
+        "generator": {
+          "path": "production/small-life-batch98/tools/generate-r004.py",
+          "sha256": "e483091a7fcb9db70c286dbc5c0c5cd17c3b1703c177ac1ba46684c60d26df09",
+          "actual_sha256": "e483091a7fcb9db70c286dbc5c0c5cd17c3b1703c177ac1ba46684c60d26df09"
+        },
+        "config": {
+          "path": "production/small-life-batch98/agathis/r001/config.json",
+          "sha256": "3b5a01d4c8e43fbfdf6f18c44a434a6ecb24573b3bc540f16f755ab475a736d4",
+          "actual_sha256": "3b5a01d4c8e43fbfdf6f18c44a434a6ecb24573b3bc540f16f755ab475a736d4"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch98/dependencies.json",
+          "sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51",
+          "actual_sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        }
+      },
+      "candidate": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/candidate.json",
+        "sha256": "8dd73648c9dffc155ee4c6101be1a52aad9229e8e8fdb77067d82660920a2f7d",
+        "bytes": 8060
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+        "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+        "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass.",
+          "criteria": [
+            {
+              "id": "technical-acceptance",
+              "status": "pass",
+              "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass."
+            }
+          ]
+        },
+        "visual": {
+          "status": "fail",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Specified geometry shape is not expressed; see confirmed blocker.",
+          "criteria": [
+            {
+              "id": "visual-acceptance",
+              "status": "fail",
+              "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Specified geometry shape is not expressed; see confirmed blocker."
+            }
+          ]
+        },
+        "factual": {
+          "status": "fail",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "See source-linked confirmed geometry mismatch.",
+          "criteria": [
+            {
+              "id": "factual-acceptance",
+              "status": "fail",
+              "note": "See source-linked confirmed geometry mismatch."
+            }
+          ]
+        },
+        "specification": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply.",
+          "criteria": [
+            {
+              "id": "specification-acceptance",
+              "status": "pass",
+              "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply."
+            }
+          ]
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference.",
+          "criteria": [
+            {
+              "id": "runtime_parse-acceptance",
+              "status": "pass",
+              "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference."
+            }
+          ]
+        },
+        "gpu": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run on actual target graphics context/device.",
+          "criteria": [
+            {
+              "id": "gpu-acceptance",
+              "status": "unknown",
+              "note": "Not run on actual target graphics context/device."
+            }
+          ]
+        },
+        "scene": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run in the actual intended composed scene.",
+          "criteria": [
+            {
+              "id": "scene-acceptance",
+              "status": "unknown",
+              "note": "Not run in the actual intended composed scene."
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "triangles": 13726,
+        "materials": 6,
+        "primitives": 6,
+        "glb_bytes": 876516,
+        "hard_budget": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000
+        },
+        "hard_ranges": [
+          {
+            "rule": {
+              "kind": "leaf",
+              "measure": "oriented_length_m",
+              "range": [
+                0.0243,
+                0.1324
+              ],
+              "basis": "WILF2014 measured range"
+            },
+            "count": 432,
+            "min": 0.10499995946884155,
+            "max": 0.1050000786781311,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "leaf",
+              "measure": "oriented_width_m",
+              "range": [
+                0.0057,
+                0.0185
+              ],
+              "basis": "WILF2014 measured range"
+            },
+            "count": 432,
+            "min": 0.014999940991401672,
+            "max": 0.01500009000301361,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "leaf",
+              "measure": "length_width_ratio",
+              "range": [
+                3.9,
+                11.5
+              ],
+              "basis": "WILF2014 measured range"
+            },
+            "count": 432,
+            "min": 6.999957780296611,
+            "max": 7.000027815610319,
+            "exact_failures": []
+          }
+        ],
+        "component_count": 970,
+        "kind_counts": {
+          "axis": 37,
+          "petiole": 432,
+          "leaf": 432,
+          "terminal_bud": 27,
+          "fertile_branch": 1,
+          "seed_cone": 1,
+          "cone_scale": 40
+        },
+        "bounds_blender_m": {
+          "min": [
+            -0.8066597580909729,
+            -0.7568743228912354,
+            0.0
+          ],
+          "max": [
+            0.8066597580909729,
+            0.7568743228912354,
+            2.10207462310791
+          ],
+          "size": [
+            1.6133195161819458,
+            1.5137486457824707,
+            2.10207462310791
+          ]
+        },
+        "detached_bases": [],
+        "fully_parent_buried": []
+      },
+      "observations": [
+        "Selected2014 source supports opposite/subopposite two-ranked narrow blades with blunted apices, no midrib, and a small immature cone on a thickened branch. Whole-crown stature remains artistic, not fossil evidence.",
+        "Actual432 leaves are105mm by15mm, aspect ratio approximately7, and have finite blunt terminal edges. These hard dimensions pass; the tree has9 limbs,27 twigs,27 buds and one cone. Final child-base contact tests no longer reproduce the retained early floating-junction failures.",
+        "Cone detail shows a broad bare faceted core with small isolated projections rather than the required smooth upturned imbricate scale surface. External-ray sampling confirms all40 scales have some exposed surface, so full burial is NOT claimed. Each top-tier scale has68–69 of70 sample points inside core and only1–2 exposed.",
+        "The required transverse growth scar is not visibly represented on the plain fertile support. Rounded terminal buds are simple faceted ellipsoids rather than visibly scaly structures. These are secondary missing identifying details to address with the cone repair."
+      ],
+      "blockers": [
+        {
+          "id": "A98-CONE-EXPRESSION",
+          "stage": [
+            "visual",
+            "factual"
+          ],
+          "status": "confirmed",
+          "issue": "Mostly embedded scale geometry leaves a visibly naked core and does not express smooth upturned imbrication; a nonempty or partly exposed scale is not sufficient.",
+          "evidence": [
+            "targeted-cone-exposure.json",
+            "details/cone/detail.png",
+            "WILF2014 Figs32–36"
+          ],
+          "minimal_next_step": "Create a new revision reshaping/exposing the cone scales into a coherent overlapping upturned surface while retaining real support attachment and the intended small cone. Add the frozen growth-scar and scaly-bud detail. Stay within14000tris/1000000bytes/6materials; then measure/contact-check, rebuild twice and re-render the exact final subject."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/project-glb.json",
+          "sha256": "1cf8ebbac6621dc920a45a03ec9091142cd8b2151d1937d59065f121640e2ffd",
+          "bytes": 1207
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/source-independent.json",
+          "sha256": "42471dc8a6df4d19899d93d9b1f180d9831bb11fcb8a134ba0e6687d1f801523",
+          "bytes": 807179
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/source-independent.log",
+          "sha256": "d3b56516f2bc3644be7dc717edf0756849cfa446b4e3ea7753897f7f11eb16b5",
+          "bytes": 2941
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/source-reexport.glb",
+          "sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+          "bytes": 876516
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/khronos-independent.json",
+          "sha256": "bcbd1ec44547c9dad62c86a87cbfa28d7cc05ff7de8611781b71a0839e805c97",
+          "bytes": 1164
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/three-independent.json",
+          "sha256": "8712cc84307cad88303c04391753a4bc8b026472973059f3c0625d054bf4a7a1",
+          "bytes": 709
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/candidate-profile-independent.json",
+          "sha256": "680219d7b465808a62c63fee3155d3baae539c29f5ceb16ff1b74eccf7f48610",
+          "bytes": 4404
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/reproducibility-a-independent.json",
+          "sha256": "71bf3c208b27236abe88d96851bab5a103d8a27c0deba4f1f4281695cd6926e3",
+          "bytes": 2259
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/reproducibility-b-independent.json",
+          "sha256": "e55f541efc66927f3c4d67dc3b99cd7d39c4b13bff0779a70b7fffe7ad7bb69e",
+          "bytes": 2259
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/agathis/targeted-cone-exposure.json",
+          "sha256": "52b31ef0b61d000f7fc50e1defd924498a55ae342da2a18aa06bd15fecde8af0",
+          "bytes": 81139
+        }
+      ],
+      "inspected_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/hero.png",
+          "sha256": "d9dc17882a5bb7aa0e9785fa9c1d208b2a70bac1f2f05f6331b6350a1d923e6e",
+          "bytes": 231436,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "Restrained sparse crown and paired sprays legible; tiny cone requires detail view."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/reversehero.png",
+          "sha256": "c3c14a36d61b1a4ac6db83211833d610601da54bfd7b9b9fd5f9804a8175040a",
+          "bytes": 229165,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "Branch junctions look connected; no prior floating twigs observed."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/front.png",
+          "sha256": "e1665a9a6a7524718e196075ea70b42f42717bfe9b0059b9b5b31dc4fcee189e",
+          "bytes": 192248,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "No clipping: dark-object top is y29; edge-on foliage produces sparse outline."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/side.png",
+          "sha256": "55d6758f1087b7f9868cdd6cae9965b8c51e6c36a4750496f8f3a68712872bad",
+          "bytes": 191577,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "No clipping: dark-object top is y30; all branches remain within frame."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/rear.png",
+          "sha256": "1e0631b582c4e2546f4f1ea5ebd4b7287ab2b056fbc495c8e79455006036714e",
+          "bytes": 191014,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "No clipping: dark-object top is y29; branch junctions continuous."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/top.png",
+          "sha256": "1ce95c328defe0b9865bb353fc5db619870b7108dd0a71ffd2aed03ef7eedc79",
+          "bytes": 250426,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "Two-ranked paired leaves and distinct twig sprays visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/clay.png",
+          "sha256": "6d00217f27cf6c68df310c180db56f85b44150d24484203f5cb4098d88a3941c",
+          "bytes": 204206,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "Solid low-poly tree form; no broad coplanar surface flicker observed."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/silhouette.png",
+          "sha256": "17ad78ef8bb9f33173803be9f6c0d4bd9f57155d5da5a56d25be9206ce2a490f",
+          "bytes": 198862,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "Open branch architecture distinct; no terrain or roots."
+        }
+      ],
+      "inspected_contact_sheet": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/views/contact-sheet.png",
+        "sha256": "08dab405c2c999ef314c0385e7d5181db6cafb541e3ea61172e566269f331a2f",
+        "bytes": 938988,
+        "lossless_pixel_identity_verified": true,
+        "personally_inspected": true
+      },
+      "inspected_details": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/details/cone/detail.png",
+          "sha256": "1e7e578261298ac11e2d9d51a8f9a1863a0b7c95b98ced8cc4a230112817bc8e",
+          "bytes": 309128,
+          "personally_inspected": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/agathis/r001/details/leaf/detail.png",
+          "sha256": "50eaaa5ae46e03662ec84b77eee5465c212e924da10cdf4875b339a7893fd994",
+          "bytes": 256810,
+          "personally_inspected": true
+        }
+      ],
+      "inspected_concept": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/agathis-concept.png",
+        "sha256": "aedd91a2f60d353bb2c1348b0016bb4c777533cac5f85553bb17c5a9366f8c21",
+        "bytes": 1753317,
+        "personally_inspected": true,
+        "original_source_identity_matches": true,
+        "receipt": {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/agathis-receipt.json",
+          "sha256": "81ec8468139a077c31feb01b58fa8e2ab9cf9a854e3c8a0327ff39346ae8a940",
+          "bytes": 796
+        }
+      },
+      "frozen_reference_files_verified": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/agathis-figs1-7-consult.png",
+          "sha256": "7514caa9cf37c0b3a75de919bddb8c51bced7df732f36eb9b55487e6dc52304c",
+          "bytes": 6102576,
+          "source_id": "WILF2014",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/agathis-figs32-36-consult.png",
+          "sha256": "3973eb837f26520fc3cf5e937cf954b13aec6c4c9058e82b5d43ad9e0b78ebf5",
+          "bytes": 8063128,
+          "source_id": "WILF2014",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/agathis-pixel-receipt.json",
+          "sha256": "f666965af9c9e83136ad0848448521cae6c902052c9a723c9972cbb45f8847c7",
+          "bytes": 603,
+          "source_id": "WILF2014",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/agathis-cone-pixel-receipt.json",
+          "sha256": "4a4a7e67d1ad3cc51e683c442a987829cf989c807eeb5aa2768d3190f1d3174c",
+          "bytes": 604,
+          "source_id": "WILF2014",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/agathis-figshare-meta.json",
+          "sha256": "a21c647cdcf5b46e84c9e21db50cf3e529605fe88c960994c54eac8269eee1ab",
+          "bytes": 6768,
+          "source_id": "WILF2014",
+          "matches_frozen_hash": true
+        }
+      ],
+      "independent_source_reopen_reused": {
+        "pid": 52,
+        "report_time": "2026-10-21T01:03:40.141333+00:00",
+        "source_sha256": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe",
+        "complete_log_verified": true,
+        "reexport_byte_equal": true,
+        "semantic_equal": true
+      },
+      "production_approval": false,
+      "gpu_scene_acceptance": false,
+      "exposure_audit_caveat": "Initial unobserved support-petiole surfaces are not claimed wholly buried; attached leaf surfaces are independently positive. Whole-model visibility is not proved merely by parent exposure. Targeted cone sampling resolves the earlier scale false negatives."
+    },
+    "archaefructus": {
+      "asset_id": "archaefructus",
+      "revision": "r001",
+      "verdict": "ACCEPT_STATIC_QA_ONLY",
+      "eligible_static_count": 1,
+      "source_pins": {
+        "glb": {
+          "path": "production/small-life-batch98/archaefructus/r001/artifacts/archaefructus.glb",
+          "sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+          "actual_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6"
+        },
+        "brief": {
+          "path": "production/small-life-batch98/archaefructus/r001/original-brief.json",
+          "sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+          "actual_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f"
+        },
+        "references": {
+          "path": "production/small-life-batch98/archaefructus/r001/references.json",
+          "sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520",
+          "actual_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+        },
+        "source": {
+          "path": "production/small-life-batch98/archaefructus/r001/artifacts/archaefructus.blend",
+          "sha256": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c",
+          "actual_sha256": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c"
+        },
+        "generator": {
+          "path": "production/small-life-batch98/tools/generate-r003.py",
+          "sha256": "097d1e6536a129a99981d46dd6e7fa2ff3bc8debe8015beb45c7e4d47c63f0d4",
+          "actual_sha256": "097d1e6536a129a99981d46dd6e7fa2ff3bc8debe8015beb45c7e4d47c63f0d4"
+        },
+        "config": {
+          "path": "production/small-life-batch98/archaefructus/r001/config.json",
+          "sha256": "c1a9d86b2048525437b0a90282ce4e46ef55d62aa2486fe27b793b35d05b8cc0",
+          "actual_sha256": "c1a9d86b2048525437b0a90282ce4e46ef55d62aa2486fe27b793b35d05b8cc0"
+        },
+        "dependencies": {
+          "path": "production/small-life-batch98/dependencies.json",
+          "sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51",
+          "actual_sha256": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        }
+      },
+      "candidate": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/candidate.json",
+        "sha256": "2d261ceeb806e0d6e523126076be324f529f02cbc1bcb8056ee04ed4937b191b",
+        "bytes": 8160
+      },
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+        "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+        "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass.",
+          "criteria": [
+            {
+              "id": "technical-acceptance",
+              "status": "pass",
+              "note": "Actual project/Khronos checks, existing completed independent source reopen and byte/semantic reexport, two real separate-PID rebuild raw outputs reverified; counts and original hard ranges pass."
+            }
+          ]
+        },
+        "visual": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Coverage and visible low-poly construction pass within the representation scope.",
+          "criteria": [
+            {
+              "id": "visual-acceptance",
+              "status": "pass",
+              "note": "All eight exact frames, lossless sheet, concept and available closeups inspected. Coverage and visible low-poly construction pass within the representation scope."
+            }
+          ]
+        },
+        "factual": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Primary source plus actual pixels/geometry satisfy the bounded interpretation.",
+          "criteria": [
+            {
+              "id": "factual-acceptance",
+              "status": "pass",
+              "note": "Primary source plus actual pixels/geometry satisfy the bounded interpretation."
+            }
+          ]
+        },
+        "specification": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply.",
+          "criteria": [
+            {
+              "id": "specification-acceptance",
+              "status": "pass",
+              "note": "Original frozen/inventory/config/dependency artifacts unchanged and hash-pinned. Candidate profile valid but not approved. Exact dimensions, counts, budgets, genuine concept originals, queue/proof bindings and retained failure history checked. Chronology qualifications above apply."
+            }
+          ]
+        },
+        "runtime_parse": {
+          "status": "pass",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference.",
+          "criteria": [
+            {
+              "id": "runtime_parse-acceptance",
+              "status": "pass",
+              "note": "Actual Three GLTFLoader parse succeeds; no hardware-render inference."
+            }
+          ]
+        },
+        "gpu": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run on actual target graphics context/device.",
+          "criteria": [
+            {
+              "id": "gpu-acceptance",
+              "status": "unknown",
+              "note": "Not run on actual target graphics context/device."
+            }
+          ]
+        },
+        "scene": {
+          "status": "unknown",
+          "reviewer": {
+            "id": "independent-batch98-reviewer",
+            "task_id": "resume_batch98_review",
+            "maker": false,
+            "continuation": "Same independent QA resumed after environment restart; prior completed evidence verified and retained."
+          },
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "reviewed_at": "2026-10-21T01:25:35.705601+00:00",
+          "note": "Not run in the actual intended composed scene.",
+          "criteria": [
+            {
+              "id": "scene-acceptance",
+              "status": "unknown",
+              "note": "Not run in the actual intended composed scene."
+            }
+          ]
+        }
+      },
+      "measurements": {
+        "triangles": 13632,
+        "materials": 5,
+        "primitives": 5,
+        "glb_bytes": 907464,
+        "hard_budget": {
+          "triangles": 14000,
+          "materials": 6,
+          "primitives": 30,
+          "glb_bytes": 1000000
+        },
+        "hard_ranges": [
+          {
+            "rule": {
+              "kind": "carpel",
+              "measure": "oriented_length_m",
+              "range": [
+                0.01,
+                0.018
+              ],
+              "basis": "SUN2002 note8"
+            },
+            "count": 64,
+            "min": 0.013999975810293108,
+            "max": 0.014000034076161683,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "carpel",
+              "measure": "oriented_width_m",
+              "range": [
+                0.0015,
+                0.002
+              ],
+              "basis": "SUN2002 note8"
+            },
+            "count": 64,
+            "min": 0.0017999876290559769,
+            "max": 0.0018000125419348478,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "anther",
+              "measure": "oriented_length_m",
+              "range": [
+                0.004,
+                0.005
+              ],
+              "basis": "SUN2002 note8"
+            },
+            "count": 64,
+            "min": 0.004499973525526002,
+            "max": 0.0045000408426858485,
+            "exact_failures": []
+          },
+          {
+            "rule": {
+              "kind": "anther",
+              "measure": "oriented_width_m",
+              "range": [
+                0.0005,
+                0.0008
+              ],
+              "basis": "SUN2002 note8"
+            },
+            "count": 64,
+            "min": 0.0006499858573079109,
+            "max": 0.0006500078161479905,
+            "exact_failures": []
+          }
+        ],
+        "component_count": 1117,
+        "kind_counts": {
+          "axis": 1,
+          "lateral_stem": 3,
+          "fertile_axis": 4,
+          "carpel_stalk": 64,
+          "carpel": 64,
+          "paired_stamen_stalk": 32,
+          "filament": 64,
+          "anther": 64,
+          "swollen_leaf_base": 12,
+          "petiole": 12,
+          "leaf_division_axis": 468,
+          "ultimate_lobe": 324,
+          "primary_root": 1,
+          "secondary_root": 4
+        },
+        "bounds_blender_m": {
+          "min": [
+            -0.08504921942949295,
+            -0.05658618360757828,
+            0.0
+          ],
+          "max": [
+            0.08504921942949295,
+            0.05658618360757828,
+            0.35979658365249634
+          ],
+          "size": [
+            0.1700984388589859,
+            0.11317236721515656,
+            0.35979658365249634
+          ]
+        },
+        "detached_bases": [],
+        "fully_parent_buried": []
+      },
+      "observations": [
+        "Used Sun2002 A.sinensis panelsA–D,H,I and Fig3, not liaoningensis panelsE–G,J–L. The source describes dissected leaves, reduced roots, terminal carpels above paired stamens and absence of perianth.",
+        "Four slender fertile shoots carry64 carpels and32 paired-stamen stalks/64 anthers in the required ordering;12 genuinely three-level divided leaves have324 distinct ultimate lobes. Swollen bases and sparse1+4 roots are present. Actual whole-object exposed-surface samples exist for every component.",
+        "Carpels14mm by1.8mm and anthers4.5mm by0.65mm satisfy exact hard ranges. No enlarged pods, flower cups, petals or sepals. Thin leaf divisions are faint at full-object512px, but top/silhouette and the dedicated divided-leaf detail make the branching readable.",
+        "Historical over-budget and detached-leaf attempts remain retained. Final13632tris and907464bytes are under the hard ceilings. Doyle/Endress2014 supports retaining phylogenetic uncertainty; this is not an earliest-angiosperm or definitive habitat claim."
+      ],
+      "blockers": [],
+      "evidence": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/project-glb.json",
+          "sha256": "26ccdbf008205721998f0eeb01648eb518633129cb9a3ce11c00aaec2c84982b",
+          "bytes": 1230
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/source-independent.json",
+          "sha256": "d889693fa72263cc14628d5834e0a5a74a614cb4d2ddaa28625db7db3287f2f2",
+          "bytes": 971239
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/source-independent.log",
+          "sha256": "0b320788fd5204c1731399205ad058733222895240e00718a2f3200091eedd56",
+          "bytes": 2895
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/source-reexport.glb",
+          "sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+          "bytes": 907464
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/khronos-independent.json",
+          "sha256": "94f8b0e62db03c058ddd81b0463c3fb58bc3ef038cbdb8d845d5d30614aeafcb",
+          "bytes": 1176
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/three-independent.json",
+          "sha256": "058b2c5b711c47206d55d95e3d8770046502c85276aea51a43e77e75194efb83",
+          "bytes": 723
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/candidate-profile-independent.json",
+          "sha256": "c4c2ad2979958f329effebc72ee68ba910a5b2f959ab3b649bee6bb87793f4cb",
+          "bytes": 4422
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/reproducibility-a-independent.json",
+          "sha256": "498d6b6554980c08575208ededce15971f8b9af44aed46db34d7cbac02f08689",
+          "bytes": 2319
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-independent-qa-20261021/archaefructus/reproducibility-b-independent.json",
+          "sha256": "3afacf13481392d7c7c6a56f069a99dc960abf19c12ed4cbeb1c476beffa1286",
+          "bytes": 2319
+        }
+      ],
+      "inspected_frames": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/hero.png",
+          "sha256": "4b8711de8aab03558249cfc44cd2ec20c1d325d30410e54fe8652cffba3a04f2",
+          "bytes": 163478,
+          "view": "hero",
+          "personally_inspected": true,
+          "observation": "Four open fertile shoots and fine divided leaves; slender herb not woody tree."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/reversehero.png",
+          "sha256": "e37f399b3a3b3d7e32938949993da9c503bb3de5192e5f553687f9fc61fe3d6e",
+          "bytes": 165540,
+          "view": "reversehero",
+          "personally_inspected": true,
+          "observation": "Stem branches connected; no enlarged terminal two-pod concept anatomy."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/front.png",
+          "sha256": "03f40e8fca3de1e73267fa9193123dd0e3f844206d147ef50d6d73d2c9592e3c",
+          "bytes": 164463,
+          "view": "front",
+          "personally_inspected": true,
+          "observation": "Terminal reproductive organs above lower stamen region; thin leaf fans edge-on."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/side.png",
+          "sha256": "0d2c2480d1f6d0ddf07b458eebb562ea766f4190d6ae9841752bce63b6e78454",
+          "bytes": 162919,
+          "view": "side",
+          "personally_inspected": true,
+          "observation": "Depth of lateral shoots and continuous main stem visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/rear.png",
+          "sha256": "866b4a366f2bc8e4a39652f8b4001c815e1b865a93b7d5881fcaf9eb52c18f96",
+          "bytes": 163434,
+          "view": "rear",
+          "personally_inspected": true,
+          "observation": "No flower/perianth forms; sparse fine roots visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/top.png",
+          "sha256": "14d9e3c74c6c3e2d4fb9f61d6488b2af9de621abeb3638f1e2b38764146494bc",
+          "bytes": 152785,
+          "view": "top",
+          "personally_inspected": true,
+          "observation": "Fan dissection and separate lateral shoot paths visible."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/clay.png",
+          "sha256": "1ecdcc35f0007c59b87393609ba36597e40001c97d776bc030e82b0bb5199f28",
+          "bytes": 159796,
+          "view": "clay",
+          "personally_inspected": true,
+          "observation": "Closed fine-volume organs and attached junctions; no visible coplanar defect."
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/silhouette.png",
+          "sha256": "ef481b9f1ac3ec1160816fb4cba49526fa257ae61b9b1b0c53a5219a8e0d5cd0",
+          "bytes": 158378,
+          "view": "silhouette",
+          "personally_inspected": true,
+          "observation": "Thin herb architecture, tiny lobes and open terminal spikes remain legible."
+        }
+      ],
+      "inspected_contact_sheet": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/views/contact-sheet.png",
+        "sha256": "6739533cf4c3e20c88e10557f638fdd100bfff9048606b9cd1a9ed183403414f",
+        "bytes": 570027,
+        "lossless_pixel_identity_verified": true,
+        "personally_inspected": true
+      },
+      "inspected_details": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/details/divided-leaf/detail.png",
+          "sha256": "37fa9150bc23217e7590e369864c2d54aad7254f589d3f6e550974cc10e41b78",
+          "bytes": 227424,
+          "personally_inspected": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/archaefructus/r001/details/fertile-axis/detail.png",
+          "sha256": "b0a7728b99c4e57fff7b561e0cae66c659952277eb21ce9c778b8fba046558ab",
+          "bytes": 226814,
+          "personally_inspected": true
+        }
+      ],
+      "inspected_concept": {
+        "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/archaefructus-concept.png",
+        "sha256": "3dc46c8d4b3c3f85f665196da10a2250f1b836f94796b32653c87812087e2b39",
+        "bytes": 1904714,
+        "personally_inspected": true,
+        "original_source_identity_matches": true,
+        "receipt": {
+          "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/concepts/archaefructus-receipt.json",
+          "sha256": "3e5bbe74fb9317326caca6ba0f88b6ebd014241e1e9ea4976e699aa5e41a0baf",
+          "bytes": 796
+        }
+      },
+      "frozen_reference_files_verified": [
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/archaefructus-2002.pdf",
+          "sha256": "b39dc3e5c6aa072627dca395e99a0deceb32e62288c1f2474cb00bbba8100251",
+          "bytes": 1015922,
+          "source_id": "SUN2002",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/archaefructus-p-5.png",
+          "sha256": "84c64948ff69de1b9add71f3c26829c8a37278e7606940792b9f58a9d079961f",
+          "bytes": 1464940,
+          "source_id": "SUN2002",
+          "matches_frozen_hash": true
+        },
+        {
+          "path": "/workspace/shared/lowpoly-batch98-evidence/raw/archaefructus-p-6.png",
+          "sha256": "95770d27a1ecd4895e5525fb915e7091b736cc7022f162609552969684f27d28",
+          "bytes": 831070,
+          "source_id": "SUN2002",
+          "matches_frozen_hash": true
+        }
+      ],
+      "independent_source_reopen_reused": {
+        "pid": 74,
+        "report_time": "2026-10-21T01:03:44.222787+00:00",
+        "source_sha256": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c",
+        "complete_log_verified": true,
+        "reexport_byte_equal": true,
+        "semantic_equal": true
+      },
+      "production_approval": false,
+      "gpu_scene_acceptance": false
+    }
+  },
+  "review_corrections": [
+    "Initial visual impression of Agathis front/side/rear top clipping was wrong; original pixel boundaries demonstrate29/30/29px top clearance. It is not a defect.",
+    "Initial centroid-outward-ray audit had10 Agathis scales without positive samples. Higher-coverage exterior rays find exposed samples for all40. No complete burial claim is made. The defect is insufficient visible scale expression, not zero exposure."
+  ],
+  "preserved_failed_attempts": {
+    "path": "/workspace/shared/lowpoly-batch98-20261020/production/small-life-batch98/diagnostic-history/index.json",
+    "sha256": "047cb788b6f2eda1fb6a02478a7975241c6a39faeaa928ada0c466101f61365b",
+    "bytes": 1960
+  },
+  "policy_limits": [
+    "No tolerance was introduced to waive a hard range or real geometry defect. All hard ranges passed direct original-bound comparisons.",
+    "AABB overlaps, component names, counts and parent intersection alone were not accepted as visible anatomy evidence.",
+    "Node parser and CPU Blender images cannot establish actual target GPU or composed-scene stages."
+  ],
+  "summary": {
+    "static_accepted": [
+      "archaefructus"
+    ],
+    "repair_required": [
+      "voltzia",
+      "agathis"
+    ],
+    "factual_evidence_blocked": [
+      "sciadopitys"
+    ],
+    "eligible_static_count": 1,
+    "gpu_or_scene_pass_count": 0,
+    "production_or_publication_approvals": 0
+  }
+}

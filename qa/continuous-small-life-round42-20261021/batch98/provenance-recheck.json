@@ -1,0 +1,628 @@
+{
+  "created_at": "2026-10-21T01:19:11.500671+00:00",
+  "assets": {
+    "voltzia": {
+      "rebuilds": [
+        {
+          "label": "a",
+          "returncode": 0,
+          "report_sha256": "db8d12b7090806caf8b76d321d99da4b84c7663a4cc804a87c5a5627391a0935",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 71,
+          "started": "2026-10-21T00:46:21.584032+00:00",
+          "finished": "2026-10-21T00:46:22.330544+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        },
+        {
+          "label": "b",
+          "returncode": 0,
+          "report_sha256": "6fcf700c4f6707ffbd2ddfb42f9b9d5768d1833dd62c73ffd43183c9974cfa8b",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 94,
+          "started": "2026-10-21T00:46:29.947536+00:00",
+          "finished": "2026-10-21T00:46:31.147006+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        }
+      ],
+      "profile_returncode": 0,
+      "candidate_gate": {
+        "valid": true,
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "visual: unknown",
+          "visual-acceptance: unknown",
+          "factual: unknown",
+          "factual-acceptance: unknown",
+          "specification: unknown",
+          "specification-acceptance: unknown",
+          "gpu: unknown",
+          "gpu-acceptance: unknown",
+          "scene: unknown",
+          "scene-acceptance: unknown",
+          "open blocker: independent-review-pending",
+          "open blocker: gpu-scene-unrun",
+          "approval: pending"
+        ],
+        "required_stages": [
+          "factual",
+          "gpu",
+          "runtime_parse",
+          "scene",
+          "specification",
+          "technical",
+          "visual"
+        ],
+        "measurements": {
+          "triangles": 3020,
+          "materials": 4,
+          "primitives": 4,
+          "glb_bytes": 165720,
+          "texture_count": 0,
+          "texture_max_dimension": 0,
+          "texture_bytes": 0,
+          "decoded_texture_bytes_estimate": 0,
+          "semantic_sha256": "42f0bb930e7d6a5b266b9c5ea04ff71215fc9e03a8e1257673e071fd25b1caee"
+        },
+        "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "asset_id": "voltzia",
+        "revision": "r001",
+        "subject": {
+          "revision": "r001",
+          "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+          "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+          "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+        },
+        "artifact_sha256": {
+          "glb": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+          "brief": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+          "references": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0",
+          "source": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5",
+          "generator": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+          "config": "85c3f54a9cd8c163026b8d4c24896f5baa4208c62385b163db7e74770f7e5605",
+          "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        },
+        "approved_visual_image_sha256": [],
+        "profile_contract": {
+          "path": "production/small-life-batch98/voltzia/r001/profile-contract.json",
+          "sha256": "973ffe14c34b2bfd3792851acc5aeddbd7d594298642820de79f3a0b875d243e"
+        },
+        "profile": "production",
+        "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+        "approval_status": "pending",
+        "legacy_result": {
+          "valid": false,
+          "approved_for_brief": false,
+          "errors": [
+            "brief.turntable_frames: integer >= 2 required"
+          ],
+          "approval_blockers": [],
+          "required_stages": [],
+          "measurements": {},
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "legacy-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "not_checked",
+          "asset_id": "voltzia",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief_sha256": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references_sha256": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0"
+          },
+          "artifact_sha256": {
+            "glb": "869af564350f0b814cfa3107c094514257dd43a64ede81653941fe8839b9ff73",
+            "brief": "a98b471c43a13401dabed198b18fba00afc682f52a2a4e69db4ddf015ed6a68f",
+            "references": "21a86c21393ff289914916d5507b1ffe1ccaf69fee843edc51136554911cede0",
+            "source": "09e22b4dba44b620bcb542bfa76b6e2f3ca956bf88847af891532456af57a0d5",
+            "generator": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+            "config": "85c3f54a9cd8c163026b8d4c24896f5baa4208c62385b163db7e74770f7e5605",
+            "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+          },
+          "approved_visual_image_sha256": []
+        }
+      },
+      "render_bindings": {
+        "before_request": true,
+        "request_created": "2026-10-21T00:44:39.605473+00:00",
+        "render_started": "2026-10-21T00:44:39.609989+00:00",
+        "render_finished": "2026-10-21T00:45:06.250731+00:00",
+        "success": true,
+        "triplet_request_matches": true,
+        "binding_hash_matches": true,
+        "manifest_subject_match": true,
+        "frame_outputs_equal_result": true
+      }
+    },
+    "sciadopitys": {
+      "rebuilds": [
+        {
+          "label": "a",
+          "returncode": 0,
+          "report_sha256": "0079e2cb8651ea6342321e8965f1650369029c40072efb7f1078b8ca479d7b82",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 117,
+          "started": "2026-10-21T00:46:34.993676+00:00",
+          "finished": "2026-10-21T00:46:35.590577+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        },
+        {
+          "label": "b",
+          "returncode": 0,
+          "report_sha256": "06eb5d24f7e181640a8800ae9f079776077d3768875f040d53fe75fdcbb02c81",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 140,
+          "started": "2026-10-21T00:46:39.955841+00:00",
+          "finished": "2026-10-21T00:46:40.614383+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        }
+      ],
+      "profile_returncode": 0,
+      "candidate_gate": {
+        "valid": true,
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "visual: unknown",
+          "visual-acceptance: unknown",
+          "factual: unknown",
+          "factual-acceptance: unknown",
+          "specification: unknown",
+          "specification-acceptance: unknown",
+          "gpu: unknown",
+          "gpu-acceptance: unknown",
+          "scene: unknown",
+          "scene-acceptance: unknown",
+          "open blocker: independent-review-pending",
+          "open blocker: gpu-scene-unrun",
+          "approval: pending"
+        ],
+        "required_stages": [
+          "factual",
+          "gpu",
+          "runtime_parse",
+          "scene",
+          "specification",
+          "technical",
+          "visual"
+        ],
+        "measurements": {
+          "triangles": 1640,
+          "materials": 3,
+          "primitives": 3,
+          "glb_bytes": 79764,
+          "texture_count": 0,
+          "texture_max_dimension": 0,
+          "texture_bytes": 0,
+          "decoded_texture_bytes_estimate": 0,
+          "semantic_sha256": "a305bc3d322357df8b3e7a7891a7f312d4c0ed566446eff887392e54664c7f00"
+        },
+        "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "asset_id": "sciadopitys",
+        "revision": "r001",
+        "subject": {
+          "revision": "r001",
+          "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+          "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+          "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+        },
+        "artifact_sha256": {
+          "glb": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+          "brief": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+          "references": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a",
+          "source": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7",
+          "generator": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+          "config": "18b50ed6249d838dee3b5c5de79b05237e8429cd8e6aeac395fee7322950d717",
+          "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        },
+        "approved_visual_image_sha256": [],
+        "profile_contract": {
+          "path": "production/small-life-batch98/sciadopitys/r001/profile-contract.json",
+          "sha256": "11d0df4627fa20dbe8376d367539603d8327406773418dd1c882b5519b6dfd58"
+        },
+        "profile": "production",
+        "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+        "approval_status": "pending",
+        "legacy_result": {
+          "valid": false,
+          "approved_for_brief": false,
+          "errors": [
+            "brief.turntable_frames: integer >= 2 required"
+          ],
+          "approval_blockers": [],
+          "required_stages": [],
+          "measurements": {},
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "legacy-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "not_checked",
+          "asset_id": "sciadopitys",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief_sha256": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references_sha256": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a"
+          },
+          "artifact_sha256": {
+            "glb": "39be2a82af0049a2e92d5437b82d5d6a8c4d46264d8c46a5a0f32280d7b2ba27",
+            "brief": "23da215d46a189a312c710b3b473cb3d2959a5207c52da2d21c39b27fe8c16c4",
+            "references": "8785a92a1c96785d255b34012e0a850cced42459cbd4584d9423ac858e76165a",
+            "source": "d816ea9f34bc98daa1e2e1b95e6f07db37305be47af7974a4ada79416a735fb7",
+            "generator": "923431d4148285ff537cb69ca3de7e10fbdd70708f1f4e576417dc3ba41a6ede",
+            "config": "18b50ed6249d838dee3b5c5de79b05237e8429cd8e6aeac395fee7322950d717",
+            "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+          },
+          "approved_visual_image_sha256": []
+        }
+      },
+      "render_bindings": {
+        "before_request": true,
+        "request_created": "2026-10-21T00:45:06.254059+00:00",
+        "render_started": "2026-10-21T00:45:06.257397+00:00",
+        "render_finished": "2026-10-21T00:45:15.053001+00:00",
+        "success": true,
+        "triplet_request_matches": true,
+        "binding_hash_matches": true,
+        "manifest_subject_match": true,
+        "frame_outputs_equal_result": true
+      }
+    },
+    "agathis": {
+      "rebuilds": [
+        {
+          "label": "a",
+          "returncode": 0,
+          "report_sha256": "71bf3c208b27236abe88d96851bab5a103d8a27c0deba4f1f4281695cd6926e3",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 163,
+          "started": "2026-10-21T00:46:45.030580+00:00",
+          "finished": "2026-10-21T00:46:50.734021+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        },
+        {
+          "label": "b",
+          "returncode": 0,
+          "report_sha256": "e55f541efc66927f3c4d67dc3b99cd7d39c4b13bff0779a70b7fffe7ad7bb69e",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 186,
+          "started": "2026-10-21T00:46:52.807238+00:00",
+          "finished": "2026-10-21T00:46:59.692860+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        }
+      ],
+      "profile_returncode": 0,
+      "candidate_gate": {
+        "valid": true,
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "visual: unknown",
+          "visual-acceptance: unknown",
+          "factual: unknown",
+          "factual-acceptance: unknown",
+          "specification: unknown",
+          "specification-acceptance: unknown",
+          "gpu: unknown",
+          "gpu-acceptance: unknown",
+          "scene: unknown",
+          "scene-acceptance: unknown",
+          "open blocker: independent-review-pending",
+          "open blocker: gpu-scene-unrun",
+          "approval: pending"
+        ],
+        "required_stages": [
+          "factual",
+          "gpu",
+          "runtime_parse",
+          "scene",
+          "specification",
+          "technical",
+          "visual"
+        ],
+        "measurements": {
+          "triangles": 13726,
+          "materials": 6,
+          "primitives": 6,
+          "glb_bytes": 876516,
+          "texture_count": 0,
+          "texture_max_dimension": 0,
+          "texture_bytes": 0,
+          "decoded_texture_bytes_estimate": 0,
+          "semantic_sha256": "14004f45708ddbdccac99de3ca25ab3778f0f5c2e8c25ed48320abdd5c61adde"
+        },
+        "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "asset_id": "agathis",
+        "revision": "r001",
+        "subject": {
+          "revision": "r001",
+          "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+          "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+          "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+        },
+        "artifact_sha256": {
+          "glb": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+          "brief": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+          "references": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57",
+          "source": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe",
+          "generator": "e483091a7fcb9db70c286dbc5c0c5cd17c3b1703c177ac1ba46684c60d26df09",
+          "config": "3b5a01d4c8e43fbfdf6f18c44a434a6ecb24573b3bc540f16f755ab475a736d4",
+          "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        },
+        "approved_visual_image_sha256": [],
+        "profile_contract": {
+          "path": "production/small-life-batch98/agathis/r001/profile-contract.json",
+          "sha256": "b74e52c60ead0f4831423702879b2f3fa3b08d4e39666235af1deebf1ab8043f"
+        },
+        "profile": "production",
+        "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+        "approval_status": "pending",
+        "legacy_result": {
+          "valid": false,
+          "approved_for_brief": false,
+          "errors": [
+            "brief.turntable_frames: integer >= 2 required"
+          ],
+          "approval_blockers": [],
+          "required_stages": [],
+          "measurements": {},
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "legacy-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "not_checked",
+          "asset_id": "agathis",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief_sha256": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references_sha256": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57"
+          },
+          "artifact_sha256": {
+            "glb": "61c0fc0d04bbf672cfa6d682c941fbce372f2cb72179c890c1afe927a7c872cc",
+            "brief": "11e372605425820d49448f9b0132e7bf685235289025c4400c78108eab5887bb",
+            "references": "09f64937887fa7db91834bc493c19768bd03734e181d8fad181d45cdef46aa57",
+            "source": "df1766f632a1db190e968be14cf678f13261df33d606d2e7454ed7e336f8ccfe",
+            "generator": "e483091a7fcb9db70c286dbc5c0c5cd17c3b1703c177ac1ba46684c60d26df09",
+            "config": "3b5a01d4c8e43fbfdf6f18c44a434a6ecb24573b3bc540f16f755ab475a736d4",
+            "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+          },
+          "approved_visual_image_sha256": []
+        }
+      },
+      "render_bindings": {
+        "before_request": true,
+        "request_created": "2026-10-21T00:46:03.314743+00:00",
+        "render_started": "2026-10-21T00:46:03.317712+00:00",
+        "render_finished": "2026-10-21T00:46:11.763902+00:00",
+        "success": true,
+        "triplet_request_matches": true,
+        "binding_hash_matches": true,
+        "manifest_subject_match": true,
+        "frame_outputs_equal_result": true
+      }
+    },
+    "archaefructus": {
+      "rebuilds": [
+        {
+          "label": "a",
+          "returncode": 0,
+          "report_sha256": "498d6b6554980c08575208ededce15971f8b9af44aed46db34d7cbac02f08689",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 209,
+          "started": "2026-10-21T00:47:01.690993+00:00",
+          "finished": "2026-10-21T00:47:08.376102+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        },
+        {
+          "label": "b",
+          "returncode": 0,
+          "report_sha256": "3afacf13481392d7c7c6a56f069a99dc960abf19c12ed4cbeb1c476beffa1286",
+          "status": "pass",
+          "semantic_match": true,
+          "pid": 232,
+          "started": "2026-10-21T00:47:10.259213+00:00",
+          "finished": "2026-10-21T00:47:16.977650+00:00",
+          "raw_execution_equal": true,
+          "log_mentions_success": true,
+          "argv_generator_exact": true,
+          "argv_config_exact": true
+        }
+      ],
+      "profile_returncode": 0,
+      "candidate_gate": {
+        "valid": true,
+        "approved_for_brief": false,
+        "errors": [],
+        "approval_blockers": [
+          "visual: unknown",
+          "visual-acceptance: unknown",
+          "factual: unknown",
+          "factual-acceptance: unknown",
+          "specification: unknown",
+          "specification-acceptance: unknown",
+          "gpu: unknown",
+          "gpu-acceptance: unknown",
+          "scene: unknown",
+          "scene-acceptance: unknown",
+          "open blocker: independent-review-pending",
+          "open blocker: gpu-scene-unrun",
+          "approval: pending"
+        ],
+        "required_stages": [
+          "factual",
+          "gpu",
+          "runtime_parse",
+          "scene",
+          "specification",
+          "technical",
+          "visual"
+        ],
+        "measurements": {
+          "triangles": 13632,
+          "materials": 5,
+          "primitives": 5,
+          "glb_bytes": 907464,
+          "texture_count": 0,
+          "texture_max_dimension": 0,
+          "texture_bytes": 0,
+          "decoded_texture_bytes_estimate": 0,
+          "semantic_sha256": "694bc92d9157abf3010243d7f4d8b857567b6968bfbc44750392c153bef2a6fb"
+        },
+        "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+        "validation_profile": "static-stylized-v1",
+        "rule_version": "2026-10-18.1",
+        "profile_contract_status": "pass",
+        "asset_id": "archaefructus",
+        "revision": "r001",
+        "subject": {
+          "revision": "r001",
+          "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+          "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+          "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+        },
+        "artifact_sha256": {
+          "glb": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+          "brief": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+          "references": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520",
+          "source": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c",
+          "generator": "097d1e6536a129a99981d46dd6e7fa2ff3bc8debe8015beb45c7e4d47c63f0d4",
+          "config": "c1a9d86b2048525437b0a90282ce4e46ef55d62aa2486fe27b793b35d05b8cc0",
+          "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+        },
+        "approved_visual_image_sha256": [],
+        "profile_contract": {
+          "path": "production/small-life-batch98/archaefructus/r001/profile-contract.json",
+          "sha256": "260134c6e8458d91d0ac1e39f28061daf4881acb8b3ff7e5dfa4e88cacf918ce"
+        },
+        "profile": "production",
+        "decoded_memory_assumptions": "RGBA8 per embedded image with full mip chain; estimate excludes GPU duplication, driver overhead and device compression.",
+        "approval_status": "pending",
+        "legacy_result": {
+          "valid": false,
+          "approved_for_brief": false,
+          "errors": [
+            "brief.turntable_frames: integer >= 2 required"
+          ],
+          "approval_blockers": [],
+          "required_stages": [],
+          "measurements": {},
+          "limitations": "Checks evidence integrity and recorded obligations only; it does not prove visual quality, scientific truth, reviewer identity, or actual human inspection. Approval is for the frozen brief only. Publication authority is always separate.",
+          "validation_profile": "legacy-v1",
+          "rule_version": "2026-10-18.1",
+          "profile_contract_status": "not_checked",
+          "asset_id": "archaefructus",
+          "revision": "r001",
+          "subject": {
+            "revision": "r001",
+            "glb_sha256": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief_sha256": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references_sha256": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520"
+          },
+          "artifact_sha256": {
+            "glb": "443c925d75df0c4142b405d538d382a77e3a1c6be724971afeefdd893502fdb6",
+            "brief": "4caf6a3a410591e6293b5a97e7f691d452faf5b61435c4d2b4900ea4aaf6a37f",
+            "references": "c30aa3493cd5d529e283107f130e4c8efb16dd22d57d24a7cc09f63bc99d3520",
+            "source": "c09d63eb400b2921f13498f351c359c19119c73c369b4e97222f283c5a9b236c",
+            "generator": "097d1e6536a129a99981d46dd6e7fa2ff3bc8debe8015beb45c7e4d47c63f0d4",
+            "config": "c1a9d86b2048525437b0a90282ce4e46ef55d62aa2486fe27b793b35d05b8cc0",
+            "dependencies": "e4ca5b8220cff42c0486c2b138e446ab8f897901a11e9b6bce69771484703f51"
+          },
+          "approved_visual_image_sha256": []
+        }
+      },
+      "render_bindings": {
+        "before_request": true,
+        "request_created": "2026-10-21T00:46:11.766854+00:00",
+        "render_started": "2026-10-21T00:46:11.769822+00:00",
+        "render_finished": "2026-10-21T00:46:18.594984+00:00",
+        "success": true,
+        "triplet_request_matches": true,
+        "binding_hash_matches": true,
+        "manifest_subject_match": true,
+        "frame_outputs_equal_result": true
+      }
+    }
+  },
+  "concepts": {
+    "voltzia": {
+      "provider": "builtin-image_gen",
+      "observed_times": {
+        "start": "2026-10-21T00:27:02.114Z",
+        "result": "2026-10-21T00:27:25.531Z"
+      },
+      "provider_internal_timestamp": null,
+      "output_hint": "Generated images are saved to /workspace/scratch/f9208c421601/generated_images as /workspace/scratch/f9208c421601/generated_images/exec-6dbb8987-89ea-40f7-861e-971620ff420e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source_path": "/workspace/scratch/f9208c421601/generated_images/exec-6dbb8987-89ea-40f7-861e-971620ff420e.png"
+    },
+    "sciadopitys": {
+      "provider": "builtin-image_gen",
+      "observed_times": {
+        "start": "2026-10-21T00:23:30.663Z",
+        "result": "2026-10-21T00:24:05.780Z"
+      },
+      "provider_internal_timestamp": null,
+      "output_hint": "Generated images are saved to /workspace/scratch/f9208c421601/generated_images as /workspace/scratch/f9208c421601/generated_images/exec-f82d931f-353b-48c6-a305-653214f74678.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source_path": "/workspace/scratch/f9208c421601/generated_images/exec-f82d931f-353b-48c6-a305-653214f74678.png"
+    },
+    "agathis": {
+      "provider": "builtin-image_gen",
+      "observed_times": {
+        "start": "2026-10-21T00:30:24.108Z",
+        "result": "2026-10-21T00:30:59.723Z"
+      },
+      "provider_internal_timestamp": null,
+      "output_hint": "Generated images are saved to /workspace/scratch/f9208c421601/generated_images as /workspace/scratch/f9208c421601/generated_images/exec-dfc81e5a-4a33-4343-a9db-1e71d6d27a7c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source_path": "/workspace/scratch/f9208c421601/generated_images/exec-dfc81e5a-4a33-4343-a9db-1e71d6d27a7c.png"
+    },
+    "archaefructus": {
+      "provider": "builtin-image_gen",
+      "observed_times": {
+        "start": "2026-10-21T00:27:25.531Z",
+        "result": "2026-10-21T00:28:16.034Z"
+      },
+      "provider_internal_timestamp": null,
+      "output_hint": "Generated images are saved to /workspace/scratch/f9208c421601/generated_images as /workspace/scratch/f9208c421601/generated_images/exec-82cf90d5-8275-4ab0-b1d3-0f487556a7c4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source_path": "/workspace/scratch/f9208c421601/generated_images/exec-82cf90d5-8275-4ab0-b1d3-0f487556a7c4.png"
+    }
+  },
+  "frozen_manifest_sha256": "053b2f92692ba1a8dde4ffcbd096f7fc3e1bdae69cde885abe00975808a3b7a2"
+}
