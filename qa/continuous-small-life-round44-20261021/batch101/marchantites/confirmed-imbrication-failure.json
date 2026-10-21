@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "asset_id": "marchantites",
+  "revision": "r001",
+  "source_commit": "4199dfcdb6e93d832b82b341a25935ba59edbc01",
+  "observed_at": "2026-10-21T02:51:48.789015+00:00",
+  "status": "confirmed_failure",
+  "issue": "Frozen required imbricate ventral scales are separate, spaced pairs rather than genuinely overlapping rows.",
+  "original_brief_sha256": "4e294b3656b04f16ea34d26d725937296fbd56621878f255517ed7640f466b78",
+  "original_requirement": "Two rows of imbricate ventral scales remain visible from low and underside views.",
+  "primary_source_url": "https://doi.org/10.1016/j.cretres.2014.03.007",
+  "primary_source_support": "Original diagnosis and description specify two rows of imbricate ventral scales.",
+  "triplet": {
+    "schema_version": 1,
+    "bound_at": "2026-10-21T02:18:27.676301+00:00",
+    "subject": {
+      "revision": "r001",
+      "glb_sha256": "a1ee0b7ff7d7bb255c3f204c66f98434012dbf0f4868e689c9ee72ea22262f2f",
+      "brief_sha256": "eeca0b61b9a8293936f2daed013ca079ee83296fb5b4ed4f20ac1d9d54e8ea38",
+      "references_sha256": "65bc4251d6fdd12155c7a4ca8131bfb5fee9cb6c372fed008ec6fdd4d0175675"
+    },
+    "original_freeze_manifest": {
+      "path": "production/small-life-batch101/original-freeze-manifest.json",
+      "sha256": "4d913f5b3716975a8310ffc584d3aeb7f4ce75bf65960e05aa067b67145e7659"
+    },
+    "source": {
+      "path": "production/small-life-batch101/marchantites/r001/artifacts/marchantites.blend",
+      "sha256": "59e6ac33ad69c4910b8a4dfd338bacea8fdb039e73231a17e95ccc78c63463c5"
+    },
+    "generator": {
+      "path": "production/small-life-batch101/tools/generate-r004.py",
+      "sha256": "d2452669d72e08b1b79243bebde81b128e66dbd7db605bc02dd39e9b0e7b497f"
+    },
+    "config": {
+      "path": "production/small-life-batch101/marchantites/r001/config.json",
+      "sha256": "431008cf3044eeb46f45d50fc4fe325acd69957101121740d8c8cb7edd4d06cb"
+    },
+    "note": "All final proof pixels must be rendered after this binding, never rebound from diagnostics."
+  },
+  "actual_scale_count": 24,
+  "same_row_pairs": 132,
+  "same_row_projected_bound_overlaps": 0,
+  "exact_triangle_intersections": 0,
+  "minimum_same_row_xy_gap_m": 0.0002732916036620736,
+  "source_audit_sha256": "1e883b5c384832ae963f755e26b6c3114242a0f2e08152ac1bcdc489fbc6db0c",
+  "underside_image": {
+    "path": "/workspace/shared/lowpoly-batch101-20261021/production/small-life-batch101/marchantites/r001/details/ventral-scale-bottom/bottom.png",
+    "sha256": "3b22d93302d340fea130b179540add40e90ef15aa54c5ff5168eb5f32051ff7b"
+  },
+  "minimum_repair": "Retain r001 and all original frozen scope/ranges. Make a new revision changing ventral scale positions/orientations only as needed to visibly overlap neighbors along two rows. Retain real thallus attachment, appropriate global exposure, 0.4\u20130.8 mm source-supported widths and current valid strap/cup geometry. Freeze is not rewritten; rerender/rebind only the changed candidate and issue targeted difference evidence."
+}
