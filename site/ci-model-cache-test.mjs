@@ -32,10 +32,12 @@ try{
   const shadow=mkdtempSync(join(tmpdir(),'proof-python-shadow-')),previousCwd=process.cwd(),previousPythonPath=process.env.PYTHONPATH;
   try{for(const moduleName of ['zipfile','json'])writeFileSync(join(shadow,`${moduleName}.py`),'raise RuntimeError("Untrusted checkout module executed")\n');process.chdir(shadow);process.env.PYTHONPATH=shadow;assert.deepEqual(extractModelProof(originalZip),baseProof,'Isolated proof decoding ignores checkout/PYTHONPATH modules');}
   finally{process.chdir(previousCwd);if(previousPythonPath===undefined)delete process.env.PYTHONPATH;else process.env.PYTHONPATH=previousPythonPath;rmSync(shadow,{recursive:true,force:true});}
-  async function lookup({alterRun,alterAttempt,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming}={}){
+  async function lookup({alterRun,alterAttempt,alterSuite,alterArtifact,download=originalZip,extraMember,attempt=1,sourceManifest=baseManifest,missing=false,apiFailure=false,newer=false,ancestor=true,largeManifest=false,socketAt,socketFailures=0,retryCandidate=false,timeoutMs,onTiming,hangAt,hangBodyAt}={}){
     const r=structuredClone(run),s=structuredClone(suite),a=structuredClone(metadata);alterRun?.(r);alterSuite?.(s);alterArtifact?.(a);const requests=[],timings=[];let socketCalls=0,firstSocketOptions;
     const fetchImpl=async(url,options={})=>{
       url=String(url);requests.push({url,options});
+      if(hangAt!==undefined&&url.endsWith(hangAt))return new Promise(()=>{});
+      if(hangBodyAt!==undefined&&url.endsWith(hangBodyAt))return new Response(new ReadableStream({start(){}}));
       if(socketAt&&url.endsWith(socketAt)){
         socketCalls++;if(firstSocketOptions)assert.equal(options,firstSocketOptions,'Retries keep the original signal/options');else firstSocketOptions=options;
         if(socketCalls<=socketFailures)throw Object.assign(new TypeError('sensitive transport text'),{cause:{code:'UND_ERR_SOCKET'}});
@@ -72,6 +74,16 @@ try{
   assert.equal(rerun.timings.filter(row=>row.stage==='model committed policy').length,1,'Same-commit reruns share one authenticated policy snapshot');
   assert.equal(rerun.timings.filter(row=>row.stage==='model current archive append').length,1,'Rejected run cannot trigger an archive scan; the authenticated candidate is checked');
   const noBudget=await lookup({timeoutMs:0});assert.equal(noBudget.verifiedBaseProof,null);assert.equal(noBudget.requests.length,0);
+  for(const options of [
+    {hangAt:'/owner/repo'},{hangAt:'/actions/artifacts/303/zip'},{hangAt:'/immutable.zip'},
+    {hangBodyAt:'/owner/repo'},{hangBodyAt:'/immutable.zip'}
+  ]){
+    const stopped=await lookup({...options,timeoutMs:250});
+    assert(stopped.requests.some(row=>row.url.endsWith(options.hangAt||options.hangBodyAt)),'The intended pending stage must be reached');
+    assert.equal(stopped.baseProof,null);assert.equal(stopped.verifiedBaseProof,null);assert.equal(stopped.sourceContext,undefined);
+    assert(stopped.reasons.some(reason=>/timeout|timed out|budget exhausted/i.test(reason)),stopped.reasons.join('; '));
+    const full=planModelReuse({inputs,...stopped});assert.equal(full.reused_ids.length,0);assert.equal(full.fresh_ids.length,194,'Timeout must settle into complete fresh verification, never partial reuse');
+  }
   const exhaustedLocal=await lookup({retryCandidate:true,timeoutMs:1000,onTiming:entry=>{if(entry.stage==='model committed policy')Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,1010);}});
   assert.equal(exhaustedLocal.verifiedBaseProof,null);assert.equal(exhaustedLocal.reasons.filter(reason=>reason.startsWith('Candidate ')).length,2,'Failed run is rejected before local validation; budget exhaustion stops the candidate loop');
   assert(exhaustedLocal.requests.some(row=>row.url.endsWith('/actions/runs/101')),'Run authentication must precede local archive validation');

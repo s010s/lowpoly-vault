@@ -21,8 +21,21 @@ export function proofReadBudget(timeoutMs,{maximumMs,onTiming=entry=>console.inf
  };
  const measureAsync=async(stage,operation)=>{
   check();safeStage(stage);const start=performance.now();
-  try{const result=await operation();check();return result;}
-  finally{report(stage,start);}
+  let timer,onAbort;
+  try{
+   // AbortSignal.timeout is unreferenced. A pending transport/body promise can
+   // otherwise outlive every active handle and terminate top-level await before
+   // the caller receives a timeout. Keep only this await alive, and independently
+   // settle it even if the operation never handles abort. All stages share the
+   // original deadline; successful/error paths must not retain this timer.
+   const expired=new Promise((_,reject)=>{
+    const milliseconds=remaining();onAbort=()=>reject(signal.reason);
+    signal.addEventListener('abort',onAbort,{once:true});
+    timer=setTimeout(()=>reject(signal.aborted?signal.reason:new DOMException('Proof lookup total budget exhausted','TimeoutError')),milliseconds);
+    if(signal.aborted)onAbort();
+   });
+   const result=await Promise.race([Promise.resolve().then(()=>{check();return operation();}),expired]);check();return result;
+  }finally{clearTimeout(timer);if(onAbort)signal.removeEventListener('abort',onAbort);report(stage,start);}
  };
  return {signal,check,remaining,measure,measureAsync};
 }

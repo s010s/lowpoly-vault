@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
 import {proofGet} from './ci-proof-fetch.mjs';
 const url='https://api.github.com/repos/owner/repo/actions/runs/1';
 const socket=()=>Object.assign(new TypeError('secret signed URL must not be logged'),{cause:{code:'UND_ERR_SOCKET'}});
@@ -45,4 +46,24 @@ const brokenBody=await proofGet(url,options,{fetchImpl:async()=>{calls++;return 
 await assert.rejects(()=>brokenBody.arrayBuffer(),error=>error===bodyError);assert.equal(calls,1,'A body socket error is not a replayable request failure');
 let yielded=false;setImmediate(()=>{yielded=true;});
 await proofGet(url,options,{fetchImpl:async()=>{assert(yielded,'A request must yield after synchronous validation');return new Response('ok');}});
+// Separate processes have no runner/server handle accidentally keeping the
+// timeout alive. Exit 13 is a failure, never a successful fallback.
+const budgetURL=new URL('./ci-proof-budget.mjs',import.meta.url).href;
+const child=(body,{timeout=2000}={})=>{
+ const result=spawnSync(process.execPath,['--input-type=module','-e',`import assert from 'node:assert/strict';import {proofReadBudget} from ${JSON.stringify(budgetURL)};${body}`],{encoding:'utf8',timeout});
+ assert.equal(result.error,undefined,result.error?.message);assert.equal(result.signal,null,result.stderr);assert.equal(result.status,0,result.stderr);assert.match(result.stdout,/settled/);
+};
+for(const operation of [
+ "new Promise((resolve,reject)=>budget.signal.addEventListener('abort',()=>reject(budget.signal.reason),{once:true}))",
+ 'new Promise(()=>{})',
+ "new Response(new ReadableStream({start(){}})).json()"
+])child(`const budget=proofReadBudget(40,{maximumMs:40,onTiming:()=>{}});await assert.rejects(()=>budget.measureAsync('pending read',()=>${operation}),error=>error.name==='TimeoutError');console.log('settled');`);
+for(const operation of ['Promise.resolve(7)',"Promise.reject(new Error('read failed'))"])
+ child(`const budget=proofReadBudget(10000,{maximumMs:10000,onTiming:()=>{}});try{await budget.measureAsync('quick read',()=>${operation});}catch(error){assert.equal(error.message,'read failed');}console.log('settled');`,{timeout:1500});
+child(`const budget=proofReadBudget(100,{maximumMs:100,onTiming:()=>{}});await budget.measureAsync('first read',()=>new Promise(resolve=>setTimeout(resolve,65)));assert(budget.remaining()<60,'A stage cannot reset the total deadline');await assert.rejects(()=>budget.measureAsync('second read',()=>new Promise(()=>{})),error=>error.name==='TimeoutError');console.log('settled');`);
+child(`const budget=proofReadBudget(20,{maximumMs:20,onTiming:()=>{}});await assert.rejects(()=>budget.measureAsync('blocked read',()=>{Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,30);return 'late';}),error=>error.name==='TimeoutError');console.log('settled');`);
+child(`const budget=proofReadBudget(20,{maximumMs:20,onTiming:()=>{}});await assert.rejects(()=>budget.measureAsync('late rejection',()=>new Promise((_,reject)=>setTimeout(()=>reject(new Error('late read')),50))),error=>error.name==='TimeoutError');await new Promise(resolve=>setTimeout(resolve,65));console.log('settled');`);
+child(`const {getEventListeners}=await import('node:events');const controller=new AbortController(),reason=new Error('explicit abort'),original=AbortSignal.timeout;let budget;try{AbortSignal.timeout=()=>controller.signal;budget=proofReadBudget(10000,{maximumMs:10000,onTiming:()=>{}});}finally{AbortSignal.timeout=original;}setTimeout(()=>controller.abort(reason),10);await assert.rejects(()=>budget.measureAsync('cancelled read',()=>new Promise(()=>{})),error=>error===reason);assert.equal(getEventListeners(budget.signal,'abort').length,0);console.log('settled');`,{timeout:1500});
+child(`const {getEventListeners}=await import('node:events');const budget=proofReadBudget(10000,{maximumMs:10000,onTiming:()=>{}});for(let i=0;i<20;i++){assert.equal(await budget.measureAsync('quick read',()=>7),7);assert.equal(getEventListeners(budget.signal,'abort').length,0);}await assert.rejects(()=>budget.measureAsync('failed read',()=>{throw new Error('read failed');}),/read failed/);assert.equal(getEventListeners(budget.signal,'abort').length,0);console.log('settled');`,{timeout:1500});
 console.log('Proof GET transport: event-loop yield, bounded same-request socket retry, unchanged signal/deadline, safe errors and non-retry guards pass.');
+console.log('Proof async budget: child-process abort, uncooperative read/body, shared deadline, synchronous expiry, late rejection and timer cleanup pass.');

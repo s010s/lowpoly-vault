@@ -46,7 +46,7 @@ export function extractModelProof(bytes){
 function client({repository,token=process.env.GITHUB_TOKEN,fetchImpl=fetch,budget=proofReadBudget(120000,{maximumMs:120000})}){
   assert(/^[\w.-]+\/[\w.-]+$/.test(repository||''),'Missing repository');assert(token,'Read-only GitHub proof token unavailable');
   const {signal}=budget;
-  const get=(url,options,stage)=>{budget.check();return proofGet(url,options,{fetchImpl,stage,checkBudget:budget.check}).then(response=>{budget.check();return response;});};
+  const get=(url,options,stage)=>budget.measureAsync(`${stage} request`,()=>proofGet(url,options,{fetchImpl,stage,checkBudget:budget.check}));
   const url=path=>`https://api.github.com/repos/${repository}${path?`/${path}`:''}`;
   const headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
   const api=path=>budget.measureAsync(`model API ${path.split('?')[0]||'repository metadata'}`,async()=>{const response=await get(url(path),{headers,signal},`model API ${path.split('?')[0]||'repository metadata'}`);assert(response.ok,`GitHub proof read failed (${response.status}) at ${path||'repository metadata'}`);return response.json();});
