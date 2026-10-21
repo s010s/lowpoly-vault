@@ -55,13 +55,13 @@ renderer.compare=function(){this.comparison=!this.comparison;return this.compari
 renderer.reset=function(){this.comparison=false;};
 renderer.select=async function(){this.comparison=false;return true;};
 renderer.detail={metric:{available:true}};
-Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:()=>({ready:Promise.resolve(true)}),mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
+Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},hover:{pause(){},refresh(){}},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:()=>({ready:Promise.resolve(true)}),mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
 document.body=new Node();ui.filter={open:false};
 vm.runInContext(source.slice(source.indexOf('async function choose('),source.indexOf('function showError(')),context);
 const resetStart=source.indexOf("$('#reset').onclick="),resetEnd=source.indexOf(";$('#retry').onclick=",resetStart);vm.runInContext(source.slice(resetStart,resetEnd)+';',context);
-const errorStart=source.indexOf('renderer.onReferenceError='),errorEnd=source.indexOf(';renderer.onHoverStop=',errorStart);vm.runInContext(source.slice(errorStart,errorEnd)+';',context);
+const errorStart=source.indexOf('renderer.onReferenceError='),errorEnd=source.indexOf(';renderer.onInteraction=',errorStart);assert(errorEnd>errorStart);vm.runInContext(source.slice(errorStart,errorEnd)+';',context);
 const pointerHandlers=[];document.addEventListener=(name,handler)=>{if(name==='pointerdown')pointerHandlers.push(handler);};
-vm.runInContext(source.split('\n').find(line=>line.startsWith("document.addEventListener('pointerdown'")),context);
+vm.runInContext(source.split('\n').find(line=>line.startsWith("document.addEventListener('pointerdown'")&&line.includes('ui.filter.open')),context);
 for(const lang of ['en','zh']){
  state.lang=lang;await vm.runInContext("choose('wave-ripple-surface',{push:false,openMobile:false});",context);
  assert.equal(get('#comparison-label').hidden,true);assert.equal(get('#compare').attributes['aria-pressed'],'false');assert.equal(get('#dimensions').textContent,'8.1 cm');
