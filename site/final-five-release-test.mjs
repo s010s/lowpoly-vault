@@ -1,3 +1,4 @@
+import './test-historical295-fixture-test.mjs';
 import assert from 'node:assert/strict';
 import {mkdtempSync,readFileSync,writeFileSync,mkdirSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';import {dirname,join} from 'node:path';import {execFileSync} from 'node:child_process';
