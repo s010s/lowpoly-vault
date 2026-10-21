@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "asset_id": "echmatocrinus",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static educational close-view candidate; independent acceptance and publication separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact project/Khronos audit, editable source reopen, two separate-PID queued semantic rebuilds, real transformed dimensions, contact and global exposure.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "All eight separate final512px views personally inspected; required diagnostic features readable and globally exposed. Retain irregular scale surfaces, elongated cone and unbranched arms. Concept has a conspicuous deep empty cup and arm count obscured: actual model closes the top with a shallow neutral surface without inventing mouth/anus, and has exactly eight separately readable arms. Plate relief restrained, not thick armored tiles; small soft processes alternate sides.",
+      "required_sources": [
+        "ROM-ECHMAT",
+        "AUSICH1998"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Small attachment disk and elongated tapering plated conical stalk, widening to short broad cup. Eight unbranched arms around cup edge; each has six alternating small soft projections, with arm gaps preserved. Irregular thin plate/scalelike relief across body, more regular uniserial arm segmentation; no columnals or fivefold branching. Whole animal inferred from fossils, with artistic pose/color and moderate low-poly plate relief. Affinity disputed between echinoderm and cnidarian interpretations; no categorical crinoid assignment, no mouth/anus or stereom modeled. ROM image collection attribution verified; GSC25962 separately verified in Ausich/Babcock1998 textfig1 and plate1. Substrate tube omitted as not part of the animal.",
+      "required_sources": [
+        "ROM-ECHMAT",
+        "AUSICH1998"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Complete original frozen brief/config/reference/concept preserved; exact dependency closure, counts and real measurements.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB successfully parsed through pinned Three.js GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual device-renderer evidence required; CPU proof does not pass this stage.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed intended scene evidence required; unrun stays unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "static-stylized-v1 eight512px views and lossless sheet; extra details supplement rather than replace.",
+  "frozen_at": "2026-10-21T02:19:24.755878+00:00",
+  "subject": "Echmatocrinus brachiatus irregular plated cone and eight unbranched arms",
+  "taxon": "Echmatocrinus brachiatus",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole animal inferred from fossils, with artistic pose/color and moderate low-poly plate relief. Affinity disputed between echinoderm and cnidarian interpretations; no categorical crinoid assignment, no mouth/anus or stereom modeled. ROM image collection attribution verified; GSC25962 separately verified in Ausich/Babcock1998 textfig1 and plate1. Substrate tube omitted as not part of the animal.",
+  "identifying_features": [
+    "Small attachment disk and elongated tapering plated conical stalk, widening to short broad cup.",
+    "Eight unbranched arms around cup edge; each has six alternating small soft projections, with arm gaps preserved.",
+    "Irregular thin plate/scalelike relief across body, more regular uniserial arm segmentation; no columnals or fivefold branching."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.043,
+      0.043,
+      0.072
+    ],
+    "interpretation": "Nominal art targets except explicitly source-bounded hard_organ_ranges; no arbitrary microscopic gates. Actual final dimensions are measured, not asserted from config. No global rescaling to fit gates."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Grounded minimum z0 and horizontal centering by translation only.",
+  "surface_profile": "Opaque closed faceted full-volume geometry; no texture, alpha cards, backface tricks or depth bias. Integrated relief allowed with explicit shared-topology grouping.",
+  "palette_srgb": [
+    "#50706B",
+    "#7C9583",
+    "#ADC0A1",
+    "#BE8A78",
+    "#6D8880"
+  ],
+  "parameters": {
+    "attachment_radius_m": 0.0035,
+    "attachment_height_m": 0.0015,
+    "stalk_height_m": 0.041,
+    "cup_height_m": 0.015,
+    "cup_radius_m": 0.009,
+    "arm_count": 8,
+    "arm_vertical_rise_m": 0.013,
+    "arm_radial_reach_m": 0.011,
+    "arm_radius_m": 0.0011,
+    "arm_segments": 7,
+    "soft_projections_per_arm": 6,
+    "soft_projection_length_m": 0.0023,
+    "body_plate_rows": 12,
+    "body_plate_sectors": 11,
+    "plate_relief_m": 0.00014
+  },
+  "hard_organ_ranges": [
+    {
+      "kind": "arms",
+      "measure": "count",
+      "range": [
+        7,
+        10
+      ]
+    }
+  ],
+  "numeric_semantics": "Only explicit hard_organ_ranges and stated source boundaries are numeric gates. Parameters are artistic nominal targets; actual counts/dimensions must be documented and any difference explained.",
+  "source_hard_boundaries": [
+    "Small attachment disk and elongated tapering plated conical stalk, widening to short broad cup.",
+    "Eight unbranched arms around cup edge; each has six alternating small soft projections, with arm gaps preserved.",
+    "Irregular thin plate/scalelike relief across body, more regular uniserial arm segmentation; no columnals or fivefold branching."
+  ],
+  "component_measurement_contract": "Named semantic vertex groups, actual world bounds, axis measurements and real connected/physical junctions; distinguish shared-topology surface regions from separately closed solids.",
+  "contact_policy": "Reopened true-solid intersection or shared topology; assess required components against all relevant global solids, with dense surface samples plus exact pixels. No arbitrary exposure-percentage threshold. One exposed point is not proof of readability.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T02:19:24.755878+00:00",
+    "path": "production/small-life-batch102/concepts/echmatocrinus-concept.png",
+    "sha256": "991b7c1522b49643fcd4f72763cd628a1959ee3730d471c0ec458ad10866b061",
+    "decisions": "Retain irregular scale surfaces, elongated cone and unbranched arms. Concept has a conspicuous deep empty cup and arm count obscured: actual model closes the top with a shallow neutral surface without inventing mouth/anus, and has exactly eight separately readable arms. Plate relief restrained, not thick armored tiles; small soft processes alternate sides."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editable Blend",
+    "deterministic generator/config/seed/dependencies",
+    "real component dimensions/contact/global exposure",
+    "source reopen",
+    "two separate-PID queued semantic rebuilds",
+    "project/Khronos/Three",
+    "8 separate512px exact-subject views and lossless sheet",
+    "honest seven stages"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch102/echmatocrinus/r001/original-brief.json",
+    "sha256": "4e56b8b75a53c2ca8f3b5328b74673e5c540f1722688b75d614f797b7bec7f13"
+  },
+  "delivery_bound_at": "2026-10-21T02:34:14.650810+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved": true,
+  "repair_note": "All four512 views inspected. Eight unbranched arms and48 alternating soft processes readable. Body is horizontally striped due deterministic color-index bug rather than irregular plate coloration. Actual source contact also FAILS at tiny attachment: body just touches disk. Repair contact by small basal overlap and per-cell palette variation.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch102/echmatocrinus/r002/artifacts/echmatocrinus.blend",
+      "sha256": "45ea74161678d3885215b562ee563538248adada66868206486fab9757fbb158"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch102/tools/generate-r002.py",
+      "sha256": "e5971cdd6fb15b94aa385d61e2686ac497e1b9dc7b549bb57de6fd9ff123f50a"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch102/echmatocrinus/r002/config.json",
+      "sha256": "08ebd74a9de3bd722304311812669fbc01240a7eb1a503866ebe5e7b7e318d3e"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch102/build-dependencies.json",
+      "sha256": "a50b73674df04f81e623f6406cbc6fbacf8aa2e016e47bee5b83ee5695aefd37"
+    }
+  ]
+}

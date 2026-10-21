@@ -1,0 +1,139 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/render.py",
+    "--",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/artifacts/arborea.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch102-evidence/final-render-queue/render/arborea/r003/final-supplementary-detail/4b6b48f74dad67854131e04a35afac091cb5ec4d47750c5156f9371828d4bc3a/20261021T024145-44a3da9d7dca4e5e8b969dd550f7a50a/outputs",
+    "--revision",
+    "r003",
+    "--brief",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r001/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "32",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "detail",
+    "--detail-target",
+    "0.65,0.45,0.65",
+    "--detail-scale",
+    "0.24"
+  ],
+  "created_at": "2026-10-21T02:41:45.979927+00:00",
+  "fingerprint": "4b6b48f74dad67854131e04a35afac091cb5ec4d47750c5156f9371828d4bc3a",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 9363,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/delivery-brief.json",
+        "sha256": "9d091b99065e9ebfb828722569022a6f732feaada39b6664eb0b15937d038746"
+      },
+      "glb": {
+        "bytes": 549824,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/artifacts/arborea.glb",
+        "sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2014,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r001/references.json",
+        "sha256": "87b12acf4263225d71345cf6be987e99a1238bd1c044536abda6175bed5ba196"
+      },
+      "renderer": {
+        "bytes": 16212,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/render.py",
+        "sha256": "615a82e5ec875e2aadd7d52bfcaa2c9d4a4a5a8496f76d2b8139eb059d4de78b"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}",
+        "--revision",
+        "r003",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "32",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.65,0.45,0.65",
+        "--detail-scale",
+        "0.24"
+      ],
+      "asset_id": "arborea",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch102-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r003/artifacts/arborea.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch102-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/arborea/r001/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/render.py"
+      },
+      "job_id": "final-supplementary-detail",
+      "outputs": [
+        "detail.png",
+        "render-manifest.json",
+        "render-config.json"
+      ],
+      "revision": "r003",
+      "timeout_seconds": 1800
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T024122-11db3136aca5422e8c07c7c26e94c702"
+}

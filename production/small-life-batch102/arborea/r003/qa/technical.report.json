@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+    "brief_sha256": "9d091b99065e9ebfb828722569022a6f732feaada39b6664eb0b15937d038746",
+    "references_sha256": "87b12acf4263225d71345cf6be987e99a1238bd1c044536abda6175bed5ba196"
+  },
+  "status": "pass",
+  "method": "Project/Khronos audit, editable source reopened without modification, world solid contact/global union exposure, direct ORIGINAL GLB winding and two actual separately queued semantic rebuild processes.",
+  "observations": [
+    "All named checks passed with zero errors and warnings. Actual rebuild PIDs differ and successful queue evidence is pinned.",
+    "Source/export triangles and world axis-converted bounds agree; authored and evaluated counts recorded separately.",
+    "Original GLB winding checked directly with exact decoded coordinate edge identification, without normal repair or diagnostic remeshing.",
+    "All required components checked against union of other actual solids using vertices and triangle centroids. Sampling alone is not visual acceptance."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 10184,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 549824,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+      "report": {
+        "path": "production/small-life-batch102/arborea/r003/qa/static-glb.report.json",
+        "sha256": "8ac3afdae4baacf142f16e897597a2c9752290f89ff50cf1af6159f62cb0cb40"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+      "report": {
+        "path": "production/small-life-batch102/arborea/r003/artifacts/gltf-validator.report.json",
+        "sha256": "90e27058939afb022e5630e9fdb5a79eeb6a5ddf688fea246ace33171a58e6e8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+      "report": {
+        "path": "production/small-life-batch102/arborea/r003/qa/source-export.report.json",
+        "sha256": "42786845b47f27cc2f1e8caf3d17b31d3991ee31d430decc1c1175330ca1dfd7"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+      "report": {
+        "path": "production/small-life-batch102/arborea/r003/qa/reproducibility-a.report.json",
+        "sha256": "3a8dd3011646868951b880d0fc13da5a15518d325a4ae42e7a3b5c8e42aac8d4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "287c31ce4f594d6b97fd74b80ae56335abc3ae148f3f397d5c9ba324af8c8bd6",
+      "report": {
+        "path": "production/small-life-batch102/arborea/r003/qa/reproducibility-b.report.json",
+        "sha256": "b14dff406712d1a7c51d85625a679370f6f6a3927eb3349ebd30cc2004263600"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.07999999821186066,
+      0.0,
+      -0.03307799994945526
+    ],
+    "max": [
+      0.07999999821186066,
+      0.42500001192092896,
+      0.03307799994945526
+    ],
+    "size": [
+      0.1599999964237213,
+      0.42500001192092896,
+      0.06615599989891052
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "arborea-paddle-with-simple-pods",
+      "vertices": 5226,
+      "triangles": 10184,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 20000,
+  "created_at": "2026-10-21T02:43:03.605004+00:00"
+}

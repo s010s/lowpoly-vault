@@ -1,0 +1,95 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/generate-r001.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/coronacollina/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch102-evidence/initial-build-queue/build/coronacollina/r001/initial-build/a950ce61b6ca60b523b492893a7c1c40a60b13b7b74f95761140cbb275812612/20261021T022501-e1f45a135d034d3e9bcabcc9cac3bf1f/outputs"
+  ],
+  "created_at": "2026-10-21T02:25:01.932942+00:00",
+  "fingerprint": "a950ce61b6ca60b523b492893a7c1c40a60b13b7b74f95761140cbb275812612",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "config": {
+        "bytes": 851,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/coronacollina/r001/config.json",
+        "sha256": "9f964aff2322d5135698dbe86d8b07ec104e16b3b936cb6501b1d6c34abba1a0"
+      },
+      "generator": {
+        "bytes": 11765,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/generate-r001.py",
+        "sha256": "caf2f1f597e3526de2d1144c0d35ff13dd61b1f3796b850d2d37c68fff9c5846"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch102-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "--background",
+        "--threads",
+        "2",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "coronacollina",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch102-20261021/scripts/asset_common.py",
+        "config": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/coronacollina/r001/config.json",
+        "generator": "/workspace/shared/lowpoly-batch102-20261021/production/small-life-batch102/tools/generate-r001.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch102-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "initial-build",
+      "outputs": [
+        "coronacollina/coronacollina.glb",
+        "coronacollina/coronacollina.blend",
+        "coronacollina/qa.json",
+        "coronacollina/metadata.json",
+        "execution.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 1800
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 1800
+  },
+  "run_id": "20261021T022455-427714a107ad483b9407ba7b0da7795d"
+}
