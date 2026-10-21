@@ -1,0 +1,2099 @@
+{
+  "schema_version": 1,
+  "review": "QA105 fresh independent fullbatch review",
+  "reviewer": "independent reviewer review_batch105_candidates",
+  "reviewed_at": "2026-10-21T04:22:23.250091+00:00",
+  "source": {
+    "source_commit": "9188a1ef90c7f61762e4bb4877ff9a8b4a5103dd",
+    "source_branch": "candidate/small-life-batch105-concept-20261021",
+    "source_parent": "43e40fc89f2b369a5f1858e72fa58a0d10318124",
+    "maker_handoff_sha256": "f925c6267b5c154fc5cc2f265d951288219f6b2d5d6451405c752e4c50f0da5a",
+    "submission_manifest_sha256": "bcad58c84ffd746cc2fd46195a1a6e8637543f05c186955ae50c18ab3f2f14ad",
+    "source_files_changed": [],
+    "source_git_status": "",
+    "checked_at": "2026-10-21T04:22:23.250091+00:00"
+  },
+  "source_is_read_only": true,
+  "result": "3 bounded-static PASS; 1 bounded-static FAIL with a narrow terminal-taper repair",
+  "static_pass_ids": [
+    "penniretepora",
+    "constellaria",
+    "cystodictya"
+  ],
+  "static_fail_ids": [
+    "archimedes"
+  ],
+  "whole_batch_release_approved": false,
+  "publication_authority": "separate; no remote writes, PR, merge, deploy or counter changes performed",
+  "assets": [
+    {
+      "asset_id": "archimedes",
+      "revision": "r001",
+      "bounded_static_result": "fail",
+      "pins": {
+        "asset_id": "archimedes",
+        "revision": "r001",
+        "candidate": {
+          "path": "production/small-life-batch105/archimedes/r001/candidate.json",
+          "sha256": "c31b427190ab097505fa1dad574d1192959c598288ee89c45e17c22de4399bd1"
+        },
+        "profile_contract": {
+          "path": "production/small-life-batch105/archimedes/r001/profile-contract.json",
+          "sha256": "56fad43312c8f1e622ba452d0999d9b332361fd893acc6d9487c77e1eca0dbb7"
+        },
+        "triplet": {
+          "revision": "r001",
+          "glb_sha256": "789f3ba80c2982b996974bc3eae887716ddeb7c74589b12b7fd1064cc8495c3d",
+          "brief_sha256": "f7d978a5504a49cba906eedfb838d2efb4d0157a6b971b5d024fd16ba8cf2c15",
+          "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+        },
+        "source": {
+          "path": "production/small-life-batch105/archimedes/r001/artifacts/archimedes.blend",
+          "sha256": "8b645457f94d094c80af52b500ea2be4b652968e8cd8bdaee2913f1381300ffb"
+        },
+        "generator": {
+          "path": "production/small-life-batch105/tools/generate-r001.py",
+          "sha256": "91bd0943579523d52c51168ea5751897765bdaada2e525c148a64fe933da9d32"
+        },
+        "config": {
+          "path": "production/small-life-batch105/archimedes/r001/config.json",
+          "sha256": "b530096f6217ecd76342c998f029b4f0c743032c7a3f76062714e52834d8768c"
+        }
+      },
+      "original_freeze": {
+        "path": "production/small-life-batch105/original-freeze-manifest.json",
+        "sha256": "4513b45ecbf59f49a046d176025a1a998cdab1b3cc9d4d9a6fa67454853549e3"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "triangles": 9396,
+          "glb_bytes": 673344,
+          "materials": 3,
+          "primitives": 3,
+          "textures": 0,
+          "original_closed_components": 2,
+          "original_boundary_nonmanifold_same_direction_edges": 0,
+          "source_reopened": true,
+          "full_collection_reexport_byte_identical": true,
+          "two_retained_rebuilds_independently_rehashed": true,
+          "distinct_blender_pids": [
+            7,
+            30
+          ],
+          "rebuild_limitations": "Existing actual maker queue records and retained distinct output files were independently inspected/rehashed and compared. I did not fabricate or rerun two builds merely to enlarge evidence. Queue timings are execution attestations, not provider-independent cryptographic attestations. Four fresh source reopen/re-export processes additionally produced exact original GLB bytes.",
+          "world_gltf_bounds_m": {
+            "min": [
+              -0.009499999694526196,
+              0.0,
+              -0.009499999694526196
+            ],
+            "max": [
+              0.009499999694526196,
+              0.04092784970998764,
+              0.009499999694526196
+            ],
+            "size": [
+              0.01899999938905239,
+              0.04092784970998764,
+              0.01899999938905239
+            ]
+          },
+          "source_components": [
+            {
+              "tag": "axial_helix",
+              "kind": "axial_helix",
+              "vertices": 970,
+              "triangles": 1936,
+              "oriented_length_m": 0.03563569858670235,
+              "oriented_width_m": 0.003800000064074993,
+              "oriented_thickness_m": 0.003800000064074993,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 4.707429563523332e-08,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 1744,
+              "all_scene_sampled_triangles": 1936,
+              "world_aabb_m": {
+                "min": [
+                  -0.0019000000320374966,
+                  -0.0019000000320374966,
+                  0.0
+                ],
+                "max": [
+                  0.0019000000320374966,
+                  0.0019000000320374966,
+                  0.03563569858670235
+                ]
+              }
+            },
+            {
+              "tag": "continuous_lacy_frond",
+              "kind": "perforated_frond",
+              "vertices": 3132,
+              "triangles": 7460,
+              "oriented_length_m": 0.04071999934967607,
+              "oriented_width_m": 0.01899999938905239,
+              "oriented_thickness_m": 0.01899999938905239,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 8.101196918973292e-08,
+                "euler_characteristic": -598,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 5202,
+              "all_scene_sampled_triangles": 7460,
+              "world_aabb_m": {
+                "min": [
+                  -0.009499999694526196,
+                  -0.009499999694526196,
+                  0.00020785036031156778
+                ],
+                "max": [
+                  0.009499999694526196,
+                  0.009499999694526196,
+                  0.04092784970998764
+                ]
+              },
+              "root_contact": {
+                "parent": "axial_helix",
+                "base_vertices": 240,
+                "signed_distance_m_min": -0.0005385466211009771,
+                "signed_distance_m_max": 9.59511784657252e-05,
+                "intersecting_surface_triangle_pairs": 1099,
+                "pass": true
+              }
+            }
+          ],
+          "scientific_range_checks": [],
+          "project_validation": "pass",
+          "khronos_errors": 0,
+          "khronos_warnings": 0
+        },
+        "visual": {
+          "status": "fail",
+          "observations": [
+            "All eight original 512px images and lossless sheet personally viewed. Continuous perforated helical sheet, clear air between turns, narrow true corkscrew axis and no massive base. Top and silhouette confirm actual open lattice; source frond Euler characteristic -598 independently supports 300 handles/fenestrules.",
+            "Both terminal axial caps are visibly blunt and full width. Fresh exact-GLB lower/upper close views use the same original subject/materials, not modified geometry or material masking. Actual cap rings and neighboring rings remain approximately 0.65 mm radius."
+          ],
+          "failed_requirement": "original-brief.json criteria visual-acceptance: Keep actual holes and taper incomplete ends; no massive root base.",
+          "failure_id": "QA105-ARCH-TERMINAL-TAPER",
+          "minimum_repair": "Taper the two incomplete axial terminations in actual geometry, preserving frond attachment, original open helix and source-defined geometry. No numerical taper ratio is prescribed. Preserve this r001 subject, add a new revision and rerun the affected source/export/topology/provenance/view checks. Other three subjects need no regeneration."
+        },
+        "factual": {
+          "status": "pass",
+          "source_urls": [
+            "https://www.uky.edu/KGS/fossils/fossil-month-09-2018-Archimedes.php",
+            "https://palaeo-electronica.org/2006_2/helical/helical.pdf"
+          ],
+          "observations": "Personally read KGS description/caption and Raup et al. morphology discussion; viewed KGS left fossil image separately from right Greb reconstruction. The selected attached-frond material is genus-level, without supplied accession/species. The model is a bounded skeletal reconstruction, not a complete fossil or living soft anatomy. Extent, 2.5 turns and 300 openings are declared artistic sampling. The terminal-taper failure is an artistic frozen-brief miss, not a new paleontological claim."
+        },
+        "specification": {
+          "status": "fail",
+          "immutable_freeze": "pass",
+          "candidate_profile": "static-stylized-v1 2026-10-18.1",
+          "candidate_valid": true,
+          "original_freeze_hashes": "all 23 entries exact unchanged committed bytes",
+          "render_subject_and_chronology": "all final frames bound to exact triplet and rendered after binding",
+          "nominal_vs_hard_bounds": "Global art targets and ornamental counts are not interpreted as scientific hard ranges. Source widths/thickness/angles/spacing and geometry-defined distinguishing structures were checked.",
+          "legacy_diagnostic": "Preserved legacy validator fails brief.turntable_frames integer >=2. The explicit frozen static contract requires zero turntable frames and eight fixed views, validated through its pinned static profile. This is not a newly relaxed gate.",
+          "unmet_requirement": "QA105-ARCH-TERMINAL-TAPER"
+        },
+        "runtime_parse": {
+          "glb_sha256": "789f3ba80c2982b996974bc3eae887716ddeb7c74589b12b7fd1064cc8495c3d",
+          "status": "pass",
+          "three_revision": "180",
+          "loader": "GLTFLoader",
+          "mesh_count": 3,
+          "triangles": 9396,
+          "materials": 3,
+          "bounds": {
+            "min": [
+              -0.009499999694526196,
+              0,
+              -0.009499999694526196
+            ],
+            "max": [
+              0.009499999694526196,
+              0.04092784970998764,
+              0.009499999694526196
+            ]
+          },
+          "parse_ms": 8.286833999999999,
+          "gpu": "unknown",
+          "scene": "unknown",
+          "created_at": "2026-10-21T04:15:06.309Z"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "No hardware target exercised. CPU Cycles stills and Node parsing are not GPU proof."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "No target composed website/scene executed. Static acceptance is not release or website approval."
+        }
+      },
+      "physical_feature_evidence": {
+        "counts": {
+          "open_fenestrule": 300
+        },
+        "rows": [],
+        "closed_bottom_to_outside_rays": 0,
+        "occluded_bottom_to_outside_rays": 0,
+        "note": "These are finite directional diagnostics, not an all-pore visibility quota. Redundant pores at genuine overlaps can be partially/fully occluded while required rows remain visible."
+      }
+    },
+    {
+      "asset_id": "penniretepora",
+      "revision": "r001",
+      "bounded_static_result": "pass",
+      "pins": {
+        "asset_id": "penniretepora",
+        "revision": "r001",
+        "candidate": {
+          "path": "production/small-life-batch105/penniretepora/r001/candidate.json",
+          "sha256": "05211f179208ebfdbe87763e7ea6dcb1b526c93e74ae39ee39659d2e754b7601"
+        },
+        "profile_contract": {
+          "path": "production/small-life-batch105/penniretepora/r001/profile-contract.json",
+          "sha256": "16308455fc9158d8b455fc5d40b1acca22c797ea9e9c989f6556357d3fc0c290"
+        },
+        "triplet": {
+          "revision": "r001",
+          "glb_sha256": "8702a14ca721ff60d80a4cfb81ab5524fa38c2b2b7fa6f511486f6eb0d2a1b4c",
+          "brief_sha256": "510deafae759d42470b52134485ddcd4a9971c1647ec37fedfd1238a9f611a1a",
+          "references_sha256": "69d1aae16f0626b1523b7872c076d445de23e002804a51af4b59a64b9d44774f"
+        },
+        "source": {
+          "path": "production/small-life-batch105/penniretepora/r001/artifacts/penniretepora.blend",
+          "sha256": "807898e7b8cc0bf454457caf28191b3bf4ff983a3d1c160642977c23017d618c"
+        },
+        "generator": {
+          "path": "production/small-life-batch105/tools/generate-r002.py",
+          "sha256": "0703fd2031e91c59fdad7567254317655ca098b2d51305c62e798b11f980dca9"
+        },
+        "config": {
+          "path": "production/small-life-batch105/penniretepora/r001/config.json",
+          "sha256": "20c6ec3f6044e9c254534e9d69b5667cc40b08921cccb2fdf5a9c6ca5e023389"
+        }
+      },
+      "original_freeze": {
+        "path": "production/small-life-batch105/original-freeze-manifest.json",
+        "sha256": "4513b45ecbf59f49a046d176025a1a998cdab1b3cc9d4d9a6fa67454853549e3"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "triangles": 7472,
+          "glb_bytes": 518820,
+          "materials": 3,
+          "primitives": 3,
+          "textures": 0,
+          "original_closed_components": 17,
+          "original_boundary_nonmanifold_same_direction_edges": 0,
+          "source_reopened": true,
+          "full_collection_reexport_byte_identical": true,
+          "two_retained_rebuilds_independently_rehashed": true,
+          "distinct_blender_pids": [
+            53,
+            76
+          ],
+          "rebuild_limitations": "Existing actual maker queue records and retained distinct output files were independently inspected/rehashed and compared. I did not fabricate or rerun two builds merely to enlarge evidence. Queue timings are execution attestations, not provider-independent cryptographic attestations. Four fresh source reopen/re-export processes additionally produced exact original GLB bytes.",
+          "world_gltf_bounds_m": {
+            "min": [
+              -0.0013523822417482734,
+              0.0,
+              -9.40000027185306e-05
+            ],
+            "max": [
+              0.0013523822417482734,
+              0.006200000178068876,
+              9.40000027185306e-05
+            ],
+            "size": [
+              0.0027047644834965467,
+              0.006200000178068876,
+              0.0001880000054370612
+            ]
+          },
+          "source_components": [
+            {
+              "tag": "main_branch",
+              "kind": "main_branch",
+              "vertices": 730,
+              "triangles": 1456,
+              "oriented_length_m": 0.006200000178068876,
+              "oriented_width_m": 0.00031999999191612005,
+              "oriented_thickness_m": 0.0001880000054370612,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.7385518327607545e-10,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 1308,
+              "all_scene_sampled_triangles": 1456,
+              "world_aabb_m": {
+                "min": [
+                  -0.00015999999595806003,
+                  -9.40000027185306e-05,
+                  0.0
+                ],
+                "max": [
+                  0.00015999999595806003,
+                  9.40000027185306e-05,
+                  0.006200000178068876
+                ]
+              }
+            },
+            {
+              "tag": "lateral_-1_0",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000690226443,
+              "oriented_width_m": 0.00018000014824792743,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449602277946874e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 357,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.0002654276613611728
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.0008791985455900431
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.868201241745723e-05,
+                "signed_distance_m_max": 1.9751943643433936e-06,
+                "intersecting_surface_triangle_pairs": 44,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_1",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000690226443,
+              "oriented_width_m": 0.00018000014824792743,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449589929477052e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 318,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.000985427643172443
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.0015991985565051436
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.776323730696502e-05,
+                "signed_distance_m_max": 6.952006291971458e-06,
+                "intersecting_surface_triangle_pairs": 49,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_2",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000835745595,
+              "oriented_width_m": 0.00018000022100750357,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449585563869242e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 310,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.0017054276540875435
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.0023191983345896006
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.731424393496827e-05,
+                "signed_distance_m_max": 3.2597819240229417e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_3",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.001300000170886051,
+              "oriented_width_m": 0.00018000011914409697,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449585648572537e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 295,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.002425427781417966
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.003039198461920023
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.80571165946686e-05,
+                "signed_distance_m_max": 2.715767023042659e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_4",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000002290937118,
+              "oriented_width_m": 0.0001800002355594188,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449554628602528e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 291,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.0031454276759177446
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.0037591983564198017
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.885213488963272e-05,
+                "signed_distance_m_max": 1.918085132501801e-06,
+                "intersecting_surface_triangle_pairs": 50,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_5",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000001636100933,
+              "oriented_width_m": 0.0001800008467398584,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449585813285154e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 259,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.0038654275704175234
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.004479198716580868
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.8640466435372065e-05,
+                "signed_distance_m_max": 1.9911926917588318e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_6",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0012999999453313649,
+              "oriented_width_m": 0.00018000102136284113,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449686015765216e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 258,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.004585427697747946
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.0051991986110806465
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.7654371970094755e-05,
+                "signed_distance_m_max": 2.8503909634460672e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_-1_7",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000617466867,
+              "oriented_width_m": 0.00018000083218794316,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449679281288592e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 263,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  -0.0013523822417482734,
+                  -6.769999890821055e-05,
+                  0.0053054275922477245
+                ],
+                "max": [
+                  -6.921817839611322e-05,
+                  6.769999890821055e-05,
+                  0.005919198505580425
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.7330314271721435e-05,
+                "signed_distance_m_max": 3.2519155297450197e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_0",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000617466867,
+              "oriented_width_m": 0.00018000014824792743,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449582189572324e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 354,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.0004958276404067874
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.0011095985537394881
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.8420892207412525e-05,
+                "signed_distance_m_max": 2.1641757071565355e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_1",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000981264748,
+              "oriented_width_m": 0.00018000014824792743,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449580752298585e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 317,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.001215827651321888
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.0018295985646545887
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.747432376461802e-05,
+                "signed_distance_m_max": 3.044897818150344e-06,
+                "intersecting_surface_triangle_pairs": 45,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_2",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.001300000170886051,
+              "oriented_width_m": 0.00018000011914409697,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449553884272325e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 302,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.0019358276622369885
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.0025495984591543674
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.7437537015151965e-05,
+                "signed_distance_m_max": 3.199294212663517e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_3",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.001300000170886051,
+              "oriented_width_m": 0.00018000022100750357,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.344953566854645e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 290,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.002655827673152089
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.003269598353654146
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.836815456417398e-05,
+                "signed_distance_m_max": 2.4565974966260333e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_4",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.00130000011267839,
+              "oriented_width_m": 0.00018000022828346118,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449554630226012e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 296,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.0033758278004825115
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.003989598713815212
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.8930433877103496e-05,
+                "signed_distance_m_max": 1.839353140451269e-06,
+                "intersecting_surface_triangle_pairs": 43,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_5",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0013000000617466867,
+              "oriented_width_m": 0.000180000948603265,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449634555478467e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 268,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.00409582769498229
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.004709598608314991
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.836566183781532e-05,
+                "signed_distance_m_max": 2.245111346610429e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_6",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0012999999453313649,
+              "oriented_width_m": 0.00018000102136284113,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.3449573532895606e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 267,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.004815827589482069
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.00542959850281477
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.743392952214279e-05,
+                "signed_distance_m_max": 3.06077944226945e-06,
+                "intersecting_surface_triangle_pairs": 42,
+                "pass": true
+              }
+            },
+            {
+              "tag": "lateral_1_7",
+              "kind": "lateral_branch",
+              "vertices": 190,
+              "triangles": 376,
+              "oriented_length_m": 0.0012999999453313649,
+              "oriented_width_m": 0.00018000083218794316,
+              "oriented_thickness_m": 0.0001353999978164211,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 2.34496015333608e-11,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 253,
+              "all_scene_sampled_triangles": 376,
+              "world_aabb_m": {
+                "min": [
+                  6.921817839611322e-05,
+                  -6.769999890821055e-05,
+                  0.005535827483981848
+                ],
+                "max": [
+                  0.0013523822417482734,
+                  6.769999890821055e-05,
+                  0.0061495983973145485
+                ]
+              },
+              "root_contact": {
+                "parent": "main_branch",
+                "base_vertices": 10,
+                "signed_distance_m_min": -4.750891390209108e-05,
+                "signed_distance_m_max": 3.1503428402320562e-06,
+                "intersecting_surface_triangle_pairs": 44,
+                "pass": true
+              }
+            }
+          ],
+          "scientific_range_checks": [
+            {
+              "rule": {
+                "kind": "main_branch",
+                "measure": "oriented_width_m",
+                "range": [
+                  0.00022,
+                  0.00043
+                ]
+              },
+              "actual": [
+                0.00031999999191612005
+              ],
+              "pass": true
+            },
+            {
+              "rule": {
+                "kind": "lateral_branch",
+                "measure": "oriented_width_m",
+                "range": [
+                  0.00012,
+                  0.00024
+                ]
+              },
+              "actual": [
+                0.00018000014824792743,
+                0.00018000014824792743,
+                0.00018000022100750357,
+                0.00018000011914409697,
+                0.0001800002355594188,
+                0.0001800008467398584,
+                0.00018000102136284113,
+                0.00018000083218794316,
+                0.00018000014824792743,
+                0.00018000014824792743,
+                0.00018000011914409697,
+                0.00018000022100750357,
+                0.00018000022828346118,
+                0.000180000948603265,
+                0.00018000102136284113,
+                0.00018000083218794316
+              ],
+              "pass": true
+            }
+          ],
+          "project_validation": "pass",
+          "khronos_errors": 0,
+          "khronos_warnings": 0
+        },
+        "visual": {
+          "status": "pass",
+          "observations": [
+            "All eight original 512px frames, sheet and macro personally viewed. Sixteen laterals remain distinct and free; silhouette is a clearly pinnate fishbone, not a reticulate net. Two recessed aperture rows are readable on the main and lateral faces in the macro. Reverse is correctly not an invented second aperture-bearing face.",
+            "Thin source-scale pores are not all readable in every whole-object projection; side/top naturally edge-on. The exact-subject macro resolves them. Low faceted median keel is present without nodes. Uniform lateral length is a disclosed artistic extrapolation, not a measured intact colony."
+          ]
+        },
+        "factual": {
+          "status": "pass",
+          "source_urls": [
+            "https://www.palaeo-electronica.org/content/2022/3608-pennsylvanian-bryozoan-fauna"
+          ],
+          "observations": "Personally read the P. flexistriata account and viewed Figure 18 D-G fossil SEM, keeping H-J sections and A-C Septopora separate. Actual main/lateral widths, angle, same-rank spacing, aperture width and two-row arrangement meet cited limits. The whole 16-lateral outline is disclosed extrapolation from XCI121/122/123 fragments; tiny septa/microstylets are an explicit prefreeze simplification."
+        },
+        "specification": {
+          "status": "pass",
+          "immutable_freeze": "pass",
+          "candidate_profile": "static-stylized-v1 2026-10-18.1",
+          "candidate_valid": true,
+          "original_freeze_hashes": "all 23 entries exact unchanged committed bytes",
+          "render_subject_and_chronology": "all final frames bound to exact triplet and rendered after binding",
+          "nominal_vs_hard_bounds": "Global art targets and ornamental counts are not interpreted as scientific hard ranges. Source widths/thickness/angles/spacing and geometry-defined distinguishing structures were checked.",
+          "legacy_diagnostic": "Preserved legacy validator fails brief.turntable_frames integer >=2. The explicit frozen static contract requires zero turntable frames and eight fixed views, validated through its pinned static profile. This is not a newly relaxed gate.",
+          "unmet_requirement": null
+        },
+        "runtime_parse": {
+          "glb_sha256": "8702a14ca721ff60d80a4cfb81ab5524fa38c2b2b7fa6f511486f6eb0d2a1b4c",
+          "status": "pass",
+          "three_revision": "180",
+          "loader": "GLTFLoader",
+          "mesh_count": 3,
+          "triangles": 7472,
+          "materials": 3,
+          "bounds": {
+            "min": [
+              -0.0013523822417482734,
+              0,
+              -9.40000027185306e-05
+            ],
+            "max": [
+              0.0013523822417482734,
+              0.006200000178068876,
+              9.40000027185306e-05
+            ]
+          },
+          "parse_ms": 2.8815369999999803,
+          "gpu": "unknown",
+          "scene": "unknown",
+          "created_at": "2026-10-21T04:15:06.351Z"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "No hardware target exercised. CPU Cycles stills and Node parsing are not GPU proof."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "No target composed website/scene executed. Static acceptance is not release or website approval."
+        }
+      },
+      "physical_feature_evidence": {
+        "counts": {
+          "recessed_aperture": 200
+        },
+        "rows": [
+          {
+            "component": "main_branch",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              20,
+              20
+            ],
+            "row_unobstructed_lumens": [
+              20,
+              19
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_0",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_1",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_2",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_3",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_4",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_5",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_6",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_-1_7",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_0",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_1",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_2",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_3",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_4",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_5",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_6",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          },
+          {
+            "component": "lateral_1_7",
+            "side": 1,
+            "actual_geometric_rows": 2,
+            "required": 2,
+            "row_apertures": [
+              5,
+              5
+            ],
+            "row_unobstructed_lumens": [
+              5,
+              5
+            ],
+            "pass": true
+          }
+        ],
+        "closed_bottom_to_outside_rays": 199,
+        "occluded_bottom_to_outside_rays": 1,
+        "note": "These are finite directional diagnostics, not an all-pore visibility quota. Redundant pores at genuine overlaps can be partially/fully occluded while required rows remain visible."
+      }
+    },
+    {
+      "asset_id": "constellaria",
+      "revision": "r002",
+      "bounded_static_result": "pass",
+      "pins": {
+        "asset_id": "constellaria",
+        "revision": "r002",
+        "candidate": {
+          "path": "production/small-life-batch105/constellaria/r002/candidate.json",
+          "sha256": "382ea27672da68ff4e3e5a2d8d093e24374d513b28d043f7bfccb1e241a3237e"
+        },
+        "profile_contract": {
+          "path": "production/small-life-batch105/constellaria/r002/profile-contract.json",
+          "sha256": "c04b1aff5c84e5a424c136df7d190c04ebaeef4eb47e6e2ea21ec1b9bd4c0e4d"
+        },
+        "triplet": {
+          "revision": "r002",
+          "glb_sha256": "9ad41d73295256a618dbb337b82b3cf106a105d876685c49ba405b01e88b4dd0",
+          "brief_sha256": "0f3115a2a96a5c313a28c4ef0bb2bb0ea75d9fc7cc8b276ef8fe5fca33ae7e46",
+          "references_sha256": "fee7a0b2b5c5cd602a4b2c3dcd7d51b4b2ef5559349e12a4a2d1145df1ad8edf"
+        },
+        "source": {
+          "path": "production/small-life-batch105/constellaria/r002/artifacts/constellaria.blend",
+          "sha256": "854038f54ec236a8c6c54b046a2387fff85776b9b8c1d8b203384ce5a9eba9b7"
+        },
+        "generator": {
+          "path": "production/small-life-batch105/tools/generate-r005.py",
+          "sha256": "25078b87c4235c684e2f6b76bcd47b86ed2118eaece9a26c4ea55e7d19cc060c"
+        },
+        "config": {
+          "path": "production/small-life-batch105/constellaria/r002/config.json",
+          "sha256": "3b050d395eec4fab29251372f0a37f97817911a86e10b84d03192682c7d9bac4"
+        }
+      },
+      "original_freeze": {
+        "path": "production/small-life-batch105/original-freeze-manifest.json",
+        "sha256": "4513b45ecbf59f49a046d176025a1a998cdab1b3cc9d4d9a6fa67454853549e3"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "triangles": 8568,
+          "glb_bytes": 584516,
+          "materials": 3,
+          "primitives": 3,
+          "textures": 0,
+          "original_closed_components": 3,
+          "original_boundary_nonmanifold_same_direction_edges": 0,
+          "source_reopened": true,
+          "full_collection_reexport_byte_identical": true,
+          "two_retained_rebuilds_independently_rehashed": true,
+          "distinct_blender_pids": [
+            7,
+            30
+          ],
+          "rebuild_limitations": "Existing actual maker queue records and retained distinct output files were independently inspected/rehashed and compared. I did not fabricate or rerun two builds merely to enlarge evidence. Queue timings are execution attestations, not provider-independent cryptographic attestations. Four fresh source reopen/re-export processes additionally produced exact original GLB bytes.",
+          "world_gltf_bounds_m": {
+            "min": [
+              -0.022744860500097275,
+              0.0,
+              -0.0017500000540167093
+            ],
+            "max": [
+              0.022744860500097275,
+              0.04826822876930237,
+              0.0017500000540167093
+            ],
+            "size": [
+              0.04548972100019455,
+              0.04826822876930237,
+              0.0035000001080334187
+            ]
+          },
+          "source_components": [
+            {
+              "tag": "broad_lower",
+              "kind": "broad_branch",
+              "vertices": 1430,
+              "triangles": 2856,
+              "oriented_length_m": 0.026000000536441803,
+              "oriented_width_m": 0.012184234336018562,
+              "oriented_thickness_m": 0.0035000001080334187,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 8.699404177092749e-07,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 2630,
+              "all_scene_sampled_triangles": 2856,
+              "world_aabb_m": {
+                "min": [
+                  -0.007577212993055582,
+                  -0.0017500000540167093,
+                  0.0
+                ],
+                "max": [
+                  0.00460702134296298,
+                  0.0017500000540167093,
+                  0.026000000536441803
+                ]
+              }
+            },
+            {
+              "tag": "broad_arm-1",
+              "kind": "broad_branch",
+              "vertices": 1430,
+              "triangles": 2856,
+              "oriented_length_m": 0.029000002425163984,
+              "oriented_width_m": 0.012184233404695988,
+              "oriented_thickness_m": 0.0035000001080334187,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 9.628430675348056e-07,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 2418,
+              "all_scene_sampled_triangles": 2856,
+              "world_aabb_m": {
+                "min": [
+                  -0.022744860500097275,
+                  -0.0017500000540167093,
+                  0.020381953567266464
+                ],
+                "max": [
+                  -0.0017778631299734116,
+                  0.0017500000540167093,
+                  0.04826822876930237
+                ]
+              },
+              "root_contact": {
+                "parent": "broad_lower",
+                "base_vertices": 26,
+                "signed_distance_m_min": -0.0006851787593404879,
+                "signed_distance_m_max": -0.0001541096479513726,
+                "intersecting_surface_triangle_pairs": 210,
+                "pass": true
+              }
+            },
+            {
+              "tag": "broad_arm1",
+              "kind": "broad_branch",
+              "vertices": 1430,
+              "triangles": 2856,
+              "oriented_length_m": 0.029000006732530892,
+              "oriented_width_m": 0.012184237595647573,
+              "oriented_thickness_m": 0.0035000001080334187,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 9.628436653951807e-07,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 2422,
+              "all_scene_sampled_triangles": 2856,
+              "world_aabb_m": {
+                "min": [
+                  -0.00018709572032094002,
+                  -0.0017500000540167093,
+                  0.020261205732822418
+                ],
+                "max": [
+                  0.022744860500097275,
+                  0.0017500000540167093,
+                  0.046733610332012177
+                ]
+              },
+              "root_contact": {
+                "parent": "broad_lower",
+                "base_vertices": 26,
+                "signed_distance_m_min": -0.000585003275773488,
+                "signed_distance_m_max": -0.0001329434588797085,
+                "intersecting_surface_triangle_pairs": 180,
+                "pass": true
+              }
+            }
+          ],
+          "scientific_range_checks": [
+            {
+              "rule": {
+                "kind": "broad_branch",
+                "measure": "oriented_thickness_m",
+                "range": [
+                  0.003,
+                  0.005
+                ]
+              },
+              "actual": [
+                0.0035000001080334187,
+                0.0035000001080334187,
+                0.0035000001080334187
+              ],
+              "pass": true
+            }
+          ],
+          "project_validation": "pass",
+          "khronos_errors": 0,
+          "khronos_warnings": 0
+        },
+        "visual": {
+          "status": "pass",
+          "observations": [
+            "All eight original 512px frames, sheet and macro personally viewed. Broad flattened, asymmetric Y rather than a narrow interwoven C. emaciata clump. Small stellate relief is integrated into both faces, not mounted stars or decals; sparse tiny cavities are resolved in the macro.",
+            "The initial reviewer global-height test was inappropriate on a curved/tapered host. It is retained, not hidden. Actual same-coordinate host-relative measurements establish all 36 centers are locally depressed about 0.22 mm, with variable ray/interray depth; all 36 center-to-outside rays are unobstructed. No model, threshold or frozen brief was edited.",
+            "Root uses physically intersecting closed solids rather than a Boolean-unioned single shell. It is genuinely attached and does not require an invented single-shell criterion. Visible faceted junctions remain within the frozen stylization."
+          ]
+        },
+        "factual": {
+          "status": "pass",
+          "source_urls": [
+            "https://www.ordovicianatlas.org/atlas/bryozoa/stenolaemata/cystoporata/constellaria/constellaria-florida/",
+            "https://repository.si.edu/bitstream/handle/10088/26164/SMC_47_Ulrich_1905_3_15-55.pdf"
+          ],
+          "observations": "Personally read the OUIP24 description and 1905 pp37-38 comparison, and viewed the fossil/inset. Broad flattened branches and depressed stellate maculae are appropriate. The original planning text incorrectly described raised patches; the source-backed correction was documented before freeze and remains preserved. Three branches, relief sampling and full arrangement are artistic, not specimen counts."
+        },
+        "specification": {
+          "status": "pass",
+          "immutable_freeze": "pass",
+          "candidate_profile": "static-stylized-v1 2026-10-18.1",
+          "candidate_valid": true,
+          "original_freeze_hashes": "all 23 entries exact unchanged committed bytes",
+          "render_subject_and_chronology": "all final frames bound to exact triplet and rendered after binding",
+          "nominal_vs_hard_bounds": "Global art targets and ornamental counts are not interpreted as scientific hard ranges. Source widths/thickness/angles/spacing and geometry-defined distinguishing structures were checked.",
+          "legacy_diagnostic": "Preserved legacy validator fails brief.turntable_frames integer >=2. The explicit frozen static contract requires zero turntable frames and eight fixed views, validated through its pinned static profile. This is not a newly relaxed gate.",
+          "unmet_requirement": null
+        },
+        "runtime_parse": {
+          "glb_sha256": "9ad41d73295256a618dbb337b82b3cf106a105d876685c49ba405b01e88b4dd0",
+          "status": "pass",
+          "three_revision": "180",
+          "loader": "GLTFLoader",
+          "mesh_count": 3,
+          "triangles": 8568,
+          "materials": 3,
+          "bounds": {
+            "min": [
+              -0.022744860500097275,
+              0,
+              -0.0017500000540167093
+            ],
+            "max": [
+              0.022744860500097275,
+              0.04826822876930237,
+              0.0017500000540167093
+            ]
+          },
+          "parse_ms": 1.6754129999999918,
+          "gpu": "unknown",
+          "scene": "unknown",
+          "created_at": "2026-10-21T04:15:06.391Z"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "No hardware target exercised. CPU Cycles stills and Node parsing are not GPU proof."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "No target composed website/scene executed. Static acceptance is not release or website approval."
+        }
+      },
+      "physical_feature_evidence": {
+        "counts": {
+          "recessed_aperture": 216,
+          "integrated_stellate_depression": 36
+        },
+        "rows": [],
+        "closed_bottom_to_outside_rays": 204,
+        "occluded_bottom_to_outside_rays": 12,
+        "note": "These are finite directional diagnostics, not an all-pore visibility quota. Redundant pores at genuine overlaps can be partially/fully occluded while required rows remain visible."
+      }
+    },
+    {
+      "asset_id": "cystodictya",
+      "revision": "r003",
+      "bounded_static_result": "pass",
+      "pins": {
+        "asset_id": "cystodictya",
+        "revision": "r003",
+        "candidate": {
+          "path": "production/small-life-batch105/cystodictya/r003/candidate.json",
+          "sha256": "fe6b9cf89394cb55d6c3a0ab68a16e0bd67c230342284291db076558cab4946c"
+        },
+        "profile_contract": {
+          "path": "production/small-life-batch105/cystodictya/r003/profile-contract.json",
+          "sha256": "0f1dc1c84f64e0280cb908beb57e213be4aee1cf2f040142bd05af91f865c244"
+        },
+        "triplet": {
+          "revision": "r003",
+          "glb_sha256": "82b06f60e371e8542ae5f74f42dc65a79f349e8356ceaf9ed92860e7f05e65da",
+          "brief_sha256": "5c12ea022d7f6671ac40565b2fd4c327f0b8636f400650212d967d61fdc29a7a",
+          "references_sha256": "c7bc0cb67137bd69f243f0984ff3d274957c2c3ad5d6ca27ccf8cdf92870f5b7"
+        },
+        "source": {
+          "path": "production/small-life-batch105/cystodictya/r003/artifacts/cystodictya.blend",
+          "sha256": "863d3b4e3e959f44f4b10222e3331fccecf45cf2aa3145e914c2d517e785096e"
+        },
+        "generator": {
+          "path": "production/small-life-batch105/tools/generate-r006.py",
+          "sha256": "55314f3c406ae3155737e2af3d51853ecfc57739c57a284775c2458351cc7d33"
+        },
+        "config": {
+          "path": "production/small-life-batch105/cystodictya/r003/config.json",
+          "sha256": "baf4889e967b867063863c0b3b5daf7959aa0f09beb2d7fd4116409d3cb42386"
+        }
+      },
+      "original_freeze": {
+        "path": "production/small-life-batch105/original-freeze-manifest.json",
+        "sha256": "4513b45ecbf59f49a046d176025a1a998cdab1b3cc9d4d9a6fa67454853549e3"
+      },
+      "stages": {
+        "technical": {
+          "status": "pass",
+          "triangles": 5824,
+          "glb_bytes": 413056,
+          "materials": 3,
+          "primitives": 3,
+          "textures": 0,
+          "original_closed_components": 3,
+          "original_boundary_nonmanifold_same_direction_edges": 0,
+          "source_reopened": true,
+          "full_collection_reexport_byte_identical": true,
+          "two_retained_rebuilds_independently_rehashed": true,
+          "distinct_blender_pids": [
+            39,
+            62
+          ],
+          "rebuild_limitations": "Existing actual maker queue records and retained distinct output files were independently inspected/rehashed and compared. I did not fabricate or rerun two builds merely to enlarge evidence. Queue timings are execution attestations, not provider-independent cryptographic attestations. Four fresh source reopen/re-export processes additionally produced exact original GLB bytes.",
+          "world_gltf_bounds_m": {
+            "min": [
+              -0.0018068663775920868,
+              0.0,
+              -0.000307999987853691
+            ],
+            "max": [
+              0.0018068663775920868,
+              0.004887573886662722,
+              0.000307999987853691
+            ],
+            "size": [
+              0.0036137327551841736,
+              0.004887573886662722,
+              0.000615999975707382
+            ]
+          },
+          "source_components": [
+            {
+              "tag": "lower_bifoliate",
+              "kind": "bifoliate_branch",
+              "vertices": 890,
+              "triangles": 1776,
+              "oriented_length_m": 0.0024999999441206455,
+              "oriented_width_m": 0.0008799999777693301,
+              "oriented_thickness_m": 0.000615999975707382,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 1.0292079064697815e-09,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 1476,
+              "all_scene_sampled_triangles": 1776,
+              "world_aabb_m": {
+                "min": [
+                  -0.000573650118894875,
+                  -0.000307999987853691,
+                  0.0
+                ],
+                "max": [
+                  0.0003063498588744551,
+                  0.000307999987853691,
+                  0.0024999999441206455
+                ]
+              }
+            },
+            {
+              "tag": "arm-1",
+              "kind": "bifoliate_branch",
+              "vertices": 1014,
+              "triangles": 2024,
+              "oriented_length_m": 0.002800000198476482,
+              "oriented_width_m": 0.0008800004725344479,
+              "oriented_thickness_m": 0.000615999975707382,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 1.1522626367197465e-09,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 1558,
+              "all_scene_sampled_triangles": 2024,
+              "world_aabb_m": {
+                "min": [
+                  -0.0018068663775920868,
+                  -0.000307999987853691,
+                  0.0019932440482079983
+                ],
+                "max": [
+                  0.0002483927528373897,
+                  0.000307999987853691,
+                  0.004887573886662722
+                ]
+              },
+              "root_contact": {
+                "parent": "lower_bifoliate",
+                "base_vertices": 22,
+                "signed_distance_m_min": -4.0564688092104007e-05,
+                "signed_distance_m_max": 7.361704894570664e-07,
+                "intersecting_surface_triangle_pairs": 332,
+                "pass": true
+              }
+            },
+            {
+              "tag": "arm1",
+              "kind": "bifoliate_branch",
+              "vertices": 1014,
+              "triangles": 2024,
+              "oriented_length_m": 0.0028000000456813723,
+              "oriented_width_m": 0.0008800003270152956,
+              "oriented_thickness_m": 0.000615999975707382,
+              "original_index_topology": {
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "same_direction_edges": 0,
+                "signed_volume_m3": 1.1522628917966247e-09,
+                "euler_characteristic": 2,
+                "pass": true
+              },
+              "all_scene_visible_triangle_centroids": 1510,
+              "all_scene_sampled_triangles": 2024,
+              "world_aabb_m": {
+                "min": [
+                  -0.0004884266527369618,
+                  -0.000307999987853691,
+                  0.0019609550945460796
+                ],
+                "max": [
+                  0.0018068663775920868,
+                  0.000307999987853691,
+                  0.004774349741637707
+                ]
+              },
+              "root_contact": {
+                "parent": "lower_bifoliate",
+                "base_vertices": 22,
+                "signed_distance_m_min": -4.695495590567589e-05,
+                "signed_distance_m_max": 9.627464351069648e-06,
+                "intersecting_surface_triangle_pairs": 354,
+                "pass": true
+              }
+            }
+          ],
+          "scientific_range_checks": [
+            {
+              "rule": {
+                "kind": "bifoliate_branch",
+                "measure": "oriented_width_m",
+                "range": [
+                  0.00067,
+                  0.00107
+                ]
+              },
+              "actual": [
+                0.0008799999777693301,
+                0.0008800004725344479,
+                0.0008800003270152956
+              ],
+              "pass": true
+            },
+            {
+              "rule": {
+                "kind": "bifoliate_branch",
+                "measure": "oriented_thickness_m",
+                "range": [
+                  0.0004,
+                  0.00092
+                ]
+              },
+              "actual": [
+                0.000615999975707382,
+                0.000615999975707382,
+                0.000615999975707382
+              ],
+              "pass": true
+            }
+          ],
+          "project_validation": "pass",
+          "khronos_errors": 0,
+          "khronos_warnings": 0
+        },
+        "visual": {
+          "status": "pass",
+          "observations": [
+            "All eight original r003 512px frames, sheet and macro personally viewed, not the failed r002 subject. Narrow thick lenticular branches and real five-row recessed aperture pattern are readable on both faces. Both Y arms physically intersect the lower stem; free distal prongs do not form a mesh.",
+            "The overlapping root region occludes or clips some redundant tiny pores, visible in the macro. This does not remove any required aperture row or detach the root. No arbitrary all-pore or percentage gate is applied. The original exact-edge global topology is now closed/outward with no fourfold root edge."
+          ]
+        },
+        "factual": {
+          "status": "pass",
+          "source_urls": [
+            "https://www.palaeo-electronica.org/content/2022/3608-pennsylvanian-bryozoan-fauna"
+          ],
+          "observations": "Personally read the C. formosa account and viewed Figure5 C-D exterior XCI99 plus Figure6 B XCI23c cross-section, without treating other panels as this taxon. Narrow bifoliate width, total thickness, aperture width and five rows fit cited bounds. The Y is bounded reconstruction from fragments; the section does not establish intact colony form. No C. pustulosa dimensions or externally displayed mesotheca were introduced."
+        },
+        "specification": {
+          "status": "pass",
+          "immutable_freeze": "pass",
+          "candidate_profile": "static-stylized-v1 2026-10-18.1",
+          "candidate_valid": true,
+          "original_freeze_hashes": "all 23 entries exact unchanged committed bytes",
+          "render_subject_and_chronology": "all final frames bound to exact triplet and rendered after binding",
+          "nominal_vs_hard_bounds": "Global art targets and ornamental counts are not interpreted as scientific hard ranges. Source widths/thickness/angles/spacing and geometry-defined distinguishing structures were checked.",
+          "legacy_diagnostic": "Preserved legacy validator fails brief.turntable_frames integer >=2. The explicit frozen static contract requires zero turntable frames and eight fixed views, validated through its pinned static profile. This is not a newly relaxed gate.",
+          "unmet_requirement": null
+        },
+        "runtime_parse": {
+          "glb_sha256": "82b06f60e371e8542ae5f74f42dc65a79f349e8356ceaf9ed92860e7f05e65da",
+          "status": "pass",
+          "three_revision": "180",
+          "loader": "GLTFLoader",
+          "mesh_count": 3,
+          "triangles": 5824,
+          "materials": 3,
+          "bounds": {
+            "min": [
+              -0.0018068663775920868,
+              0,
+              -0.000307999987853691
+            ],
+            "max": [
+              0.0018068663775920868,
+              0.004887573886662722,
+              0.000307999987853691
+            ]
+          },
+          "parse_ms": 1.434787999999969,
+          "gpu": "unknown",
+          "scene": "unknown",
+          "created_at": "2026-10-21T04:15:06.410Z"
+        },
+        "gpu": {
+          "status": "unknown",
+          "reason": "No hardware target exercised. CPU Cycles stills and Node parsing are not GPU proof."
+        },
+        "scene": {
+          "status": "unknown",
+          "reason": "No target composed website/scene executed. Static acceptance is not release or website approval."
+        }
+      },
+      "physical_feature_evidence": {
+        "counts": {
+          "recessed_aperture": 230
+        },
+        "rows": [
+          {
+            "component": "lower_bifoliate",
+            "side": -1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "row_unobstructed_lumens": [
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "pass": true
+          },
+          {
+            "component": "lower_bifoliate",
+            "side": 1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "row_unobstructed_lumens": [
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "pass": true
+          },
+          {
+            "component": "arm-1",
+            "side": -1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "row_unobstructed_lumens": [
+              6,
+              7,
+              7,
+              7,
+              7
+            ],
+            "pass": true
+          },
+          {
+            "component": "arm-1",
+            "side": 1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "row_unobstructed_lumens": [
+              6,
+              7,
+              7,
+              7,
+              7
+            ],
+            "pass": true
+          },
+          {
+            "component": "arm1",
+            "side": -1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "row_unobstructed_lumens": [
+              7,
+              7,
+              7,
+              7,
+              6
+            ],
+            "pass": true
+          },
+          {
+            "component": "arm1",
+            "side": 1,
+            "actual_geometric_rows": 5,
+            "required": 5,
+            "row_apertures": [
+              8,
+              8,
+              8,
+              8,
+              8
+            ],
+            "row_unobstructed_lumens": [
+              7,
+              7,
+              7,
+              7,
+              6
+            ],
+            "pass": true
+          }
+        ],
+        "closed_bottom_to_outside_rays": 196,
+        "occluded_bottom_to_outside_rays": 34,
+        "note": "These are finite directional diagnostics, not an all-pore visibility quota. Redundant pores at genuine overlaps can be partially/fully occluded while required rows remain visible."
+      }
+    }
+  ],
+  "personally_inspected": {
+    "primary_texts": [
+      "KGS Archimedes account and attached-frond caption",
+      "Raup et al.2006 morphology discussion",
+      "Ernst et al.2022 P.flexistriata and C.formosa species descriptions",
+      "Atlas OUIP24 C.florida description and specimen caption",
+      "Ulrich and Bassler1905 pp37-38 comparative text"
+    ],
+    "specimen_pixel_files": [
+      "kgs-attached-fronds-mirror.jpg",
+      "figure18.jpg",
+      "figure5.jpg",
+      "figure6.jpg",
+      "florida.png"
+    ],
+    "concepts": 4,
+    "individual_final_512_frames": 32,
+    "lossless_contact_sheets": 4,
+    "original_exact_macro_details": 3,
+    "new_exact_archimedes_endpoint_details": 2
+  },
+  "diagnostic_history": {
+    "maker_failures_preserved": "All 166 declared retired delivery files verified present at original archive hashes; r002 Cystodictya fourfold-edge failure remains in original committed record. Final conclusions only apply to r003.",
+    "reviewer_errors": [
+      {
+        "action": "Initial local HTML extraction using bs4",
+        "outcome": "ModuleNotFoundError: No module named bs4. No installs attempted; actual primary pages were read with the web tool instead."
+      },
+      {
+        "action": "Constellaria initial global-height macula test",
+        "outcome": "Retained false-failure report constellaria-source-independent.json. A global axial-height comparison wrongly assumes flat host geometry. Supplement constellaria-local-depressions.json checks actual source coordinates relative to the curved/tapered native host and verifies all36 depressed centers; model and original criteria unchanged."
+      },
+      {
+        "action": "Endpoint ring-plane diagnostic",
+        "outcome": "Finite 1e-9m plane selection returns6 of8 nearby rim vertices for rings118/119 because float precision. Cap rings0/120 have all8 and all measured neighboring radii agree; no precision gate or failure inferred from the missing2 samples."
+      }
+    ],
+    "no_diagnostic_repair_presented_as_original": true
+  },
+  "limitations": [
+    "No user computer or saved cloud environment used. No helpers or agents spawned, no installs/full-catalog builds or source edits.",
+    "Fresh source inspections used per-process blocking flock /tmp/lowpoly-production-blender.lock and Blender threads2. All Git invocations disabled lazy fetch, terminal prompts and transports.",
+    "Consult-only copyrighted source media remain outside the repository; no third-party geometry, texture or media incorporated into new evidence.",
+    "Scientific/visual acceptance is bounded stylized skeletal reconstruction, not a claim of preserved complete colonies.",
+    "Unrun GPU and composed-scene tests remain UNKNOWN, and publication authority is separate."
+  ]
+}
