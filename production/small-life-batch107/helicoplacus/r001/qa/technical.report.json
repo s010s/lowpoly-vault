@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+    "brief_sha256": "0c068a1b3fff68e6b072733ea98386ff3236073efb7d78d25424a21535d5a310",
+    "references_sha256": "b31ebe5526af60ea3896370e8ba22392d3f4bbd7d0fa54b6840a5e2be2193d5a"
+  },
+  "status": "pass",
+  "method": "Exact final GLB audit and original triangle winding, Khronos validation, reopened editable source, two different-PID queue rebuilds with semantic equality, actual world-space dimensions and contacts, and dense full-scene component exposure.",
+  "observations": [
+    "All technical checks pass with zero source warnings. No diagnostic weld or normal recalculation changes the original delivery or replaces original proof.",
+    "Exposure uses vertices and seven barycentric triangle samples with rays against every other component. No arbitrary exposure-percent cutoff. Integrated required features additionally ray-test against the full mesh including their host surface. All required structural components have actual exposure; individual repeated plates can be partly occluded by a deliberate anatomical overlap and are reported individually. Geometric exposure is not a guarantee of512px readability."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 8332,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 454724,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+      "report": {
+        "path": "production/small-life-batch107/helicoplacus/r001/qa/static-glb.report.json",
+        "sha256": "f6871db8db77022c33aba5fa8615ae66a22d40eb2361c31cab2a08670fee788a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+      "report": {
+        "path": "production/small-life-batch107/helicoplacus/r001/artifacts/gltf-validator.report.json",
+        "sha256": "a93143f2b35abe9a8c58f3b17e78ada654393ca68a215363d9b33e6e08910940"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+      "report": {
+        "path": "production/small-life-batch107/helicoplacus/r001/qa/source-export.report.json",
+        "sha256": "a9144d57e1d5b880439dde8bb14ec99fb56bd7504d57fd68a7381d39f1bd96ec"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+      "report": {
+        "path": "production/small-life-batch107/helicoplacus/r001/qa/reproducibility-a.report.json",
+        "sha256": "077ce9c13d1d27ff4105752953cf533593ed422a647ce32bf82f0e865958cb9f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+      "report": {
+        "path": "production/small-life-batch107/helicoplacus/r001/qa/reproducibility-b.report.json",
+        "sha256": "0849a66c03ed48eceef70c3175c1ebe2da16dc0538815dcc2b38b6c6a8131320"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "original_winding_report": {
+    "path": "production/small-life-batch107/helicoplacus/r001/qa/original-winding.report.json",
+    "sha256": "56e6e564946d99f4dc2f1db22d6ea0b63733084a181fb41f365ba1ad20baaf25"
+  },
+  "component_contact_exposure_report": {
+    "path": "production/small-life-batch107/helicoplacus/r001/qa/component-contact-exposure.report.json",
+    "sha256": "b43851aefb2515e71cbf069060929b7cbb0b27a6b1f6b829a00f1f7a2b002816"
+  },
+  "factual_geometry_report": {
+    "path": "production/small-life-batch107/helicoplacus/r001/qa/factual-geometry.report.json",
+    "sha256": "698016c3e5ac831c2988937f77479760eacb176f3ffff3c836b049238c5d3a8c"
+  },
+  "dependency_manifest": {
+    "path": "production/small-life-batch107/dependencies.json",
+    "sha256": "923883e8643c514a103025ca6b8d9299b0d076ed44e7aedae80cedb96912ef83"
+  },
+  "bounds_glb_m": {
+    "min": [
+      -0.008814085274934769,
+      0.0,
+      -0.00882721971720457
+    ],
+    "max": [
+      0.008814085274934769,
+      0.03999999910593033,
+      0.00882721971720457
+    ],
+    "size": [
+      0.017628170549869537,
+      0.03999999910593033,
+      0.01765443943440914
+    ]
+  },
+  "created_at": "2026-10-21T04:28:13.013811+00:00"
+}

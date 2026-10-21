@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/tools/generate-r007.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/dendrocystites/r001/config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch107-evidence/queue/build/dendrocystites/r001/semantic-rebuild-b/b7eef99e6e1360ed6b3a4ce3d9fece9c0d5480481f9e7886ee4aee48a033177e/20261021T042600-b6bbe4a439914d8fad3a78c82eeff8eb/outputs"
+  ],
+  "created_at": "2026-10-21T04:26:00.216069+00:00",
+  "fingerprint": "b7eef99e6e1360ed6b3a4ce3d9fece9c0d5480481f9e7886ee4aee48a033177e",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch107-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "blender": {
+        "bytes": 94967000,
+        "path": "/usr/bin/blender",
+        "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+      },
+      "config": {
+        "bytes": 786,
+        "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/dendrocystites/r001/config.json",
+        "sha256": "c6ae4c67034a28882cc8a036afc693e62ce471d8fe897f2e2f371e0555b88f79"
+      },
+      "generator": {
+        "bytes": 15843,
+        "path": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/tools/generate-r007.py",
+        "sha256": "060fb3a0fcf7222168b80ff56cc91ebffde250ad98de576581ab04799ef1f6f9"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch107-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "dendrocystites",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch107-20261021/scripts/asset_common.py",
+        "blender": "/usr/bin/blender",
+        "config": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/dendrocystites/r001/config.json",
+        "generator": "/workspace/shared/lowpoly-batch107-20261021/production/small-life-batch107/tools/generate-r007.py",
+        "qa_glb": "/workspace/shared/lowpoly-batch107-20261021/scripts/qa_glb.py"
+      },
+      "job_id": "semantic-rebuild-b",
+      "outputs": [
+        "dendrocystites/dendrocystites.blend",
+        "dendrocystites/dendrocystites.glb",
+        "dendrocystites/qa.json",
+        "execution.json"
+      ],
+      "revision": "r001",
+      "timeout_seconds": 900
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 900
+  },
+  "run_id": "20261021T042555-e3134de15c5b433db8142a124aa09608"
+}

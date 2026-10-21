@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "asset_id": "trochocystites",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism living reconstruction; independent acceptance remains separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward geometry; actual transformed dimensions/counts, strict attachment and whole-scene exposure; source reopen; two distinct-PID semantic rebuilds; project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect eight exact512px final frames plus lossless sheet; actual plate/ring relief must read, not only mesh loops or labels. Retain broad frame versus small pavement. Correct the overly central dorsal mouth to anterolateral right-of-operculum mouth. Short rigid stele, slight asymmetry. Grooves are not decorative lines: paired banks and a geometrically lower gutter. No extra feeding appendages.",
+      "required_sources": [
+        "LEFEBVRE2024",
+        "RAHMAN2020",
+        "SMITH2009"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Flattened asymmetric oval/pear-shaped theca, a thick individually plated cinctus and smaller irregular thecal pavement. Large anterior operculum distinct from the small mouth on its anatomical right; unequal marginal food grooves with real recessed gutters. One short rigid posterior homostele, not a swimming tail, and low ventral stabilization swelling. No radial arms. Whole-organism stylized living reconstruction based on named Bohemian fossil NMP.L9060 and published cinctan anatomy. The selected photo does not preserve its homostele; complete stele and living thickness are inferred from primary comparative anatomical descriptions, not copied digital models. Exact plate count, full dimensions and posture are nominal artistic choices. 2009caption calls9066 lectotype while2024 calls9060 lectotype; accession/photo identification is used without resolving that discrepancy.",
+      "required_sources": [
+        "LEFEBVRE2024",
+        "RAHMAN2020",
+        "SMITH2009"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Original immutable complete brief/config/references/concept freeze precedes geometry.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Actual Three.js GLTFLoader parse of exact final GLB.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Unrun remains unknown; CPU stills not GPU proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Unrun remains unknown; no composed target-scene claim.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px final views plus lossless contact sheet; exact-subject supplementary details if required to inspect tiny plate/ring structure.",
+  "frozen_at": "2026-10-21T04:07:32Z",
+  "subject": "Trochocystites bohemicus Barrande, 1887 whole-organism reconstruction",
+  "taxon": "Trochocystites bohemicus Barrande, 1887",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole-organism stylized living reconstruction based on named Bohemian fossil NMP.L9060 and published cinctan anatomy. The selected photo does not preserve its homostele; complete stele and living thickness are inferred from primary comparative anatomical descriptions, not copied digital models. Exact plate count, full dimensions and posture are nominal artistic choices. 2009caption calls9066 lectotype while2024 calls9060 lectotype; accession/photo identification is used without resolving that discrepancy.",
+  "identifying_features": [
+    "Flattened asymmetric oval/pear-shaped theca, a thick individually plated cinctus and smaller irregular thecal pavement.",
+    "Large anterior operculum distinct from the small mouth on its anatomical right; unequal marginal food grooves with real recessed gutters.",
+    "One short rigid posterior homostele, not a swimming tail, and low ventral stabilization swelling. No radial arms."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.023,
+      0.038,
+      0.0065
+    ],
+    "interpretation": "Nominal artistic dimensions only, not scientific hard bounds or a measured fossil replica. Original fossil scale bars are contextual and do not justify universal organ ranges."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Horizontally centered, minZ0, translation only. No global scale normalization.",
+  "surface_profile": "Faceted opaque closed solids with true geometric plate seams, ridges and appendage segmentation. No textures, cards, hidden feature claims or double-sided concealment.",
+  "palette_srgb": [
+    "#B77D5D",
+    "#D7B18B",
+    "#684F40",
+    "#C48B68"
+  ],
+  "parameters": {
+    "theca_length_m": 0.026,
+    "theca_width_m": 0.022,
+    "theca_thickness_m": 0.005,
+    "stele_length_m": 0.01,
+    "stele_segments": 9,
+    "marginal_plate_count": 16,
+    "plate_subdivisions": 2,
+    "mouth_radius_m": 0.00065,
+    "left_groove_arc_deg": 165,
+    "right_groove_arc_deg": 45
+  },
+  "hard_organ_ranges": [],
+  "hard_component_counts": {
+    "theca_core": 1,
+    "homostele": 1,
+    "operculum": 1,
+    "mouth": 1,
+    "marginal_groove": 2
+  },
+  "source_hard_boundaries": [
+    "Flattened asymmetric oval/pear-shaped theca, a thick individually plated cinctus and smaller irregular thecal pavement.",
+    "Large anterior operculum distinct from the small mouth on its anatomical right; unequal marginal food grooves with real recessed gutters.",
+    "One short rigid posterior homostele, not a swimming tail, and low ventral stabilization swelling. No radial arms."
+  ],
+  "numeric_semantics": "Only diagnostic anatomical counts and absence constraints are scientific gates. Dimensions and plate/ring sample counts are nominal frozen artistic targets. No invented micron or visibility-percentage thresholds.",
+  "component_measurement_contract": "Named editable semantic groups with actual transformed bounds, independently checked solid topology, parent contact and global exposure. Semantic paths include real geometric plate solids, not labels alone.",
+  "contact_policy": "Feature solids touch/interpenetrate their parent strictly; global exposure measured against entire scene. Exposure evaluated with exact final frames; no arbitrary percentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T04:03:39Z",
+    "path": "production/small-life-batch107/concepts/trochocystites-concept.png",
+    "sha256": "fc7be6a038523d792af8c0a4da76ec5b24d6a6d9a543a3ad38ce8e8d74e9f331",
+    "decisions": "Retain broad frame versus small pavement. Correct the overly central dorsal mouth to anterolateral right-of-operculum mouth. Short rigid stele, slight asymmetry. Grooves are not decorative lines: paired banks and a geometrically lower gutter. No extra feeding appendages."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencyClosure",
+    "actual topology/contact/exposure/measurements",
+    "source reopen",
+    "two distinct-PID semantic rebuilds",
+    "project/Khronos/Three",
+    "eight separate512frames plus lossless sheet",
+    "seven honest stage states"
+  ]
+}

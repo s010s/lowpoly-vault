@@ -1,0 +1,1522 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "41bc9aa16b13cf08dc46224201049f45c418df519a0f15abffe36c77e507b307",
+  "brief_sha256": "c4d8b5d2ee036d11e347a34c979d67baacd3343df43cbabda3a1741a8ecaa8d5",
+  "created_at": "2026-10-21T04:23:54.872365+00:00",
+  "source_reopened": true,
+  "pid": 9,
+  "object_matrix_world": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "component_count": 5,
+  "component_kind_counts": {
+    "theca_core": 1,
+    "thecal_plating": 1,
+    "brachiole": 1,
+    "homoiostele": 1,
+    "suranal_plate": 1
+  },
+  "components": [
+    {
+      "tag": "theca",
+      "kind": "theca_core",
+      "vertices": 266,
+      "triangles": 528,
+      "world_aabb_m": {
+        "min": [
+          -0.008235960267484188,
+          -0.028928600251674652,
+          0.0
+        ],
+        "max": [
+          0.008412267081439495,
+          -0.003928598947823048,
+          0.006500000134110451
+        ]
+      },
+      "oriented_length_m": 0.025000001303851604,
+      "oriented_width_m": 0.016648227348923683,
+      "oriented_thickness_m": 0.006500000134110451,
+      "design": {
+        "nominal_length_m": 0.025,
+        "nominal_thickness_m": 0.0065,
+        "nominal_width_m": 0.019
+      },
+      "shared_topology": false
+    },
+    {
+      "tag": "thecal_plating",
+      "kind": "thecal_plating",
+      "vertices": 480,
+      "triangles": 792,
+      "world_aabb_m": {
+        "min": [
+          -0.00841519795358181,
+          -0.02871078997850418,
+          1.5333527699112892e-05
+        ],
+        "max": [
+          0.00841519795358181,
+          -0.004146409220993519,
+          0.0064846668392419815
+        ]
+      },
+      "oriented_length_m": 0.024564380757510662,
+      "oriented_width_m": 0.01683039590716362,
+      "oriented_thickness_m": 0.006469333311542869,
+      "design": {
+        "plate_count_is_artistic": true
+      },
+      "shared_topology": false
+    },
+    {
+      "tag": "brachiole",
+      "kind": "brachiole",
+      "vertices": 456,
+      "triangles": 908,
+      "world_aabb_m": {
+        "min": [
+          -0.0024873330257833004,
+          -0.04009624570608139,
+          0.002365242689847946
+        ],
+        "max": [
+          0.0007718212436884642,
+          -0.027749912813305855,
+          0.004646638408303261
+        ]
+      },
+      "oriented_length_m": 0.012346332892775536,
+      "oriented_width_m": 0.0032591542694717646,
+      "oriented_thickness_m": 0.0022813957184553146,
+      "design": {
+        "unbranched": true,
+        "visible_segments": 14
+      },
+      "shared_topology": false
+    },
+    {
+      "tag": "homoiostele",
+      "kind": "homoiostele",
+      "vertices": 2192,
+      "triangles": 4380,
+      "world_aabb_m": {
+        "min": [
+          -0.0017851436277851462,
+          -0.005281931720674038,
+          0.0013950137654319406
+        ],
+        "max": [
+          0.004245042335242033,
+          0.04009624570608139,
+          0.005132473539561033
+        ]
+      },
+      "oriented_length_m": 0.04537817742675543,
+      "oriented_width_m": 0.006030185963027179,
+      "oriented_thickness_m": 0.0037374597741290927,
+      "design": {
+        "distal_segments": 24,
+        "proximal_rings": 10,
+        "sharp_thecal_transition": true
+      },
+      "shared_topology": false
+    },
+    {
+      "tag": "suranal",
+      "kind": "suranal_plate",
+      "vertices": 8,
+      "triangles": 12,
+      "world_aabb_m": {
+        "min": [
+          0.001506903558038175,
+          -0.008409848436713219,
+          0.004851500038057566
+        ],
+        "max": [
+          0.00396940391510725,
+          -0.005947349593043327,
+          0.007449999917298555
+        ]
+      },
+      "oriented_length_m": 0.0024624988436698914,
+      "oriented_width_m": 0.002462500357069075,
+      "oriented_thickness_m": 0.0025984998792409897,
+      "design": {},
+      "shared_topology": false
+    }
+  ],
+  "contact_checks": [
+    {
+      "child": "thecal_plating",
+      "parent": "theca",
+      "actual_base_vertices": [
+        266,
+        267,
+        268,
+        269,
+        270,
+        276,
+        277,
+        278,
+        279,
+        280,
+        286,
+        287,
+        288,
+        289,
+        290,
+        296,
+        297,
+        298,
+        299,
+        300,
+        306,
+        307,
+        308,
+        309,
+        310,
+        316,
+        317,
+        318,
+        319,
+        320,
+        326,
+        327,
+        328,
+        329,
+        330,
+        336,
+        337,
+        338,
+        339,
+        340,
+        346,
+        347,
+        348,
+        349,
+        350,
+        356,
+        357,
+        358,
+        359,
+        360,
+        366,
+        367,
+        368,
+        369,
+        370,
+        376,
+        377,
+        378,
+        379,
+        380,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        530,
+        531,
+        532,
+        533,
+        534,
+        535,
+        542,
+        543,
+        544,
+        545,
+        546,
+        547,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        566,
+        567,
+        568,
+        569,
+        570,
+        571,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        662,
+        663,
+        664,
+        665,
+        666,
+        667,
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        686,
+        687,
+        688,
+        689,
+        690,
+        691,
+        698,
+        699,
+        700,
+        701,
+        702,
+        703,
+        710,
+        711,
+        712,
+        713,
+        714,
+        715,
+        722,
+        723,
+        724,
+        725,
+        726,
+        727,
+        734,
+        735,
+        736,
+        737,
+        738,
+        739
+      ],
+      "min_signed_base_distance_m": -0.00047809815441723913,
+      "triangle_intersection_pair_count": 1742,
+      "base_intersects_parent": true,
+      "method": "Actual transformed component base vertices signed to nearest parent triangles, plus exact BVH triangle intersections. Not AABB."
+    },
+    {
+      "child": "brachiole",
+      "parent": "theca",
+      "actual_base_vertices": [
+        746,
+        747,
+        748,
+        749,
+        750,
+        751,
+        752,
+        753
+      ],
+      "min_signed_base_distance_m": -0.0008741814708628226,
+      "triangle_intersection_pair_count": 40,
+      "base_intersects_parent": true,
+      "method": "Actual transformed component base vertices signed to nearest parent triangles, plus exact BVH triangle intersections. Not AABB."
+    },
+    {
+      "child": "homoiostele",
+      "parent": "theca",
+      "actual_base_vertices": [
+        1202,
+        1203,
+        1204,
+        1205,
+        1206,
+        1207,
+        1208,
+        1209,
+        1210,
+        1211,
+        1212,
+        1213,
+        1214,
+        1215,
+        1216,
+        1217
+      ],
+      "min_signed_base_distance_m": -0.0009541608869767515,
+      "triangle_intersection_pair_count": 54,
+      "base_intersects_parent": true,
+      "method": "Actual transformed component base vertices signed to nearest parent triangles, plus exact BVH triangle intersections. Not AABB."
+    },
+    {
+      "child": "suranal",
+      "parent": "theca",
+      "actual_base_vertices": [
+        3394,
+        3395,
+        3396,
+        3397
+      ],
+      "min_signed_base_distance_m": -0.0005991312831383766,
+      "triangle_intersection_pair_count": 20,
+      "base_intersects_parent": true,
+      "method": "Actual transformed component base vertices signed to nearest parent triangles, plus exact BVH triangle intersections. Not AABB."
+    }
+  ],
+  "hard_range_checks": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "brachiole",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "homoiostele",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "suranal_plate",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "original_component_topology": [
+    {
+      "tag": "theca",
+      "triangles": 528,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "same_direction_edges": 0,
+      "signed_volume_m3": 1.3632073624080903e-06,
+      "original_closed_outward": true
+    },
+    {
+      "tag": "thecal_plating",
+      "triangles": 792,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "same_direction_edges": 0,
+      "signed_volume_m3": 3.372862012658775e-07,
+      "original_closed_outward": true
+    },
+    {
+      "tag": "brachiole",
+      "triangles": 908,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "same_direction_edges": 0,
+      "signed_volume_m3": 1.071809547052806e-08,
+      "original_closed_outward": true
+    },
+    {
+      "tag": "homoiostele",
+      "triangles": 4380,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "same_direction_edges": 0,
+      "signed_volume_m3": 1.0525337630005712e-07,
+      "original_closed_outward": true
+    },
+    {
+      "tag": "suranal",
+      "triangles": 12,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "same_direction_edges": 0,
+      "signed_volume_m3": 8.393015930400575e-09,
+      "original_closed_outward": true
+    }
+  ],
+  "global_exposure": [
+    {
+      "tag": "theca",
+      "kind": "theca_core",
+      "surface_samples": 3962,
+      "visible_samples_any_direction": 914,
+      "visible_fraction": 0.23069156991418477,
+      "visible_samples_by_direction": {
+        "front": 324,
+        "rear": 275,
+        "left": 325,
+        "right": 321,
+        "top": 398,
+        "bottom": 409,
+        "hero": 365,
+        "reversehero": 370
+      },
+      "not_fully_swallowed": true
+    },
+    {
+      "tag": "thecal_plating",
+      "kind": "thecal_plating",
+      "surface_samples": 6024,
+      "visible_samples_any_direction": 2457,
+      "visible_fraction": 0.40786852589641437,
+      "visible_samples_by_direction": {
+        "front": 1530,
+        "rear": 1164,
+        "left": 1381,
+        "right": 1344,
+        "top": 1324,
+        "bottom": 1347,
+        "hero": 1406,
+        "reversehero": 1345
+      },
+      "not_fully_swallowed": true
+    },
+    {
+      "tag": "brachiole",
+      "kind": "brachiole",
+      "surface_samples": 6812,
+      "visible_samples_any_direction": 6428,
+      "visible_fraction": 0.9436288901937757,
+      "visible_samples_by_direction": {
+        "front": 6428,
+        "rear": 0,
+        "left": 6413,
+        "right": 6395,
+        "top": 6390,
+        "bottom": 6384,
+        "hero": 6428,
+        "reversehero": 6056
+      },
+      "not_fully_swallowed": true
+    },
+    {
+      "tag": "homoiostele",
+      "kind": "homoiostele",
+      "surface_samples": 32852,
+      "visible_samples_any_direction": 32522,
+      "visible_fraction": 0.9899549494703519,
+      "visible_samples_by_direction": {
+        "front": 0,
+        "rear": 32522,
+        "left": 32447,
+        "right": 32460,
+        "top": 32300,
+        "bottom": 32260,
+        "hero": 30959,
+        "reversehero": 32478
+      },
+      "not_fully_swallowed": true
+    },
+    {
+      "tag": "suranal",
+      "kind": "suranal_plate",
+      "surface_samples": 92,
+      "visible_samples_any_direction": 67,
+      "visible_fraction": 0.7282608695652174,
+      "visible_samples_by_direction": {
+        "front": 31,
+        "rear": 65,
+        "left": 55,
+        "right": 67,
+        "top": 67,
+        "bottom": 0,
+        "hero": 67,
+        "reversehero": 67
+      },
+      "not_fully_swallowed": true
+    }
+  ],
+  "global_exposure_method": "Seven barycentric surface points per actual triangle plus vertices; rays in8 directions against all other relevant triangles. Shared tissue regions use unique source triangles. No arbitrary percentage acceptance threshold; small exposure still requires exact pixel readability.",
+  "numerical_ray_origin_epsilon_m": 8.019249141216278e-10,
+  "errors": [],
+  "integrated_feature_evidence": {
+    "integrated_feature_count": {
+      "geometric_plate": 43
+    },
+    "features": [
+      {
+        "tag": "thecal_plating_plate_0",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 2,
+          "left": 4,
+          "right": 3,
+          "top": 0,
+          "bottom": 5,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_1",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 0,
+          "right": 5,
+          "top": 1,
+          "bottom": 5,
+          "hero": 3,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_2",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 5,
+          "right": 1,
+          "top": 1,
+          "bottom": 5,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_3",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 2,
+          "left": 5,
+          "right": 0,
+          "top": 1,
+          "bottom": 5,
+          "hero": 0,
+          "reversehero": 2
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_4",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 4,
+          "left": 4,
+          "right": 0,
+          "top": 1,
+          "bottom": 4,
+          "hero": 0,
+          "reversehero": 2
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_5",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 5,
+          "left": 0,
+          "right": 5,
+          "top": 1,
+          "bottom": 5,
+          "hero": 1,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_6",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 1,
+          "right": 5,
+          "top": 5,
+          "bottom": 1,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_7",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 5,
+          "right": 0,
+          "top": 5,
+          "bottom": 1,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_8",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 5,
+          "left": 5,
+          "right": 0,
+          "top": 5,
+          "bottom": 1,
+          "hero": 4,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_9",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 2,
+          "left": 0,
+          "right": 2,
+          "top": 3,
+          "bottom": 1,
+          "hero": 2,
+          "reversehero": 3
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_10",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 2,
+          "left": 0,
+          "right": 5,
+          "top": 5,
+          "bottom": 1,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_11",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 10,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 1,
+          "left": 3,
+          "right": 4,
+          "top": 5,
+          "bottom": 0,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_12",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 3,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_13",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 1,
+          "right": 6,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_14",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 2,
+          "right": 6,
+          "top": 0,
+          "bottom": 6,
+          "hero": 3,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_15",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 2,
+          "left": 0,
+          "right": 6,
+          "top": 0,
+          "bottom": 6,
+          "hero": 3,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_16",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 4,
+          "left": 1,
+          "right": 6,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_17",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 3,
+          "left": 6,
+          "right": 0,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_18",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 0,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_19",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 1,
+          "rear": 6,
+          "left": 6,
+          "right": 3,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_20",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 1,
+          "rear": 6,
+          "left": 6,
+          "right": 0,
+          "top": 0,
+          "bottom": 6,
+          "hero": 0,
+          "reversehero": 3
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_21",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 5,
+          "left": 1,
+          "right": 5,
+          "top": 0,
+          "bottom": 5,
+          "hero": 0,
+          "reversehero": 0
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_22",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 0,
+          "right": 6,
+          "top": 4,
+          "bottom": 4,
+          "hero": 5,
+          "reversehero": 1
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_23",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 4,
+          "left": 0,
+          "right": 6,
+          "top": 4,
+          "bottom": 4,
+          "hero": 3,
+          "reversehero": 2
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_24",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 4,
+          "right": 4,
+          "top": 4,
+          "bottom": 4,
+          "hero": 5,
+          "reversehero": 2
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_25",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 0,
+          "right": 6,
+          "top": 4,
+          "bottom": 4,
+          "hero": 6,
+          "reversehero": 1
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_26",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 0,
+          "top": 4,
+          "bottom": 4,
+          "hero": 3,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_27",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 0,
+          "top": 4,
+          "bottom": 4,
+          "hero": 3,
+          "reversehero": 4
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_28",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 6,
+          "left": 6,
+          "right": 0,
+          "top": 4,
+          "bottom": 4,
+          "hero": 1,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_29",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 1,
+          "rear": 4,
+          "left": 6,
+          "right": 0,
+          "top": 4,
+          "bottom": 4,
+          "hero": 1,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_30",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 5,
+          "left": 0,
+          "right": 6,
+          "top": 4,
+          "bottom": 4,
+          "hero": 4,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_31",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 3,
+          "left": 2,
+          "right": 2,
+          "top": 3,
+          "bottom": 3,
+          "hero": 1,
+          "reversehero": 3
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_32",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 0,
+          "right": 6,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_33",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 2,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_34",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 2,
+          "rear": 2,
+          "left": 6,
+          "right": 0,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_35",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 5,
+          "left": 5,
+          "right": 0,
+          "top": 5,
+          "bottom": 0,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_36",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 1,
+          "rear": 6,
+          "left": 0,
+          "right": 6,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_37",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 3,
+          "right": 6,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_38",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 3,
+          "rear": 2,
+          "left": 0,
+          "right": 6,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_39",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 0,
+          "left": 6,
+          "right": 1,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_40",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 0,
+          "rear": 4,
+          "left": 6,
+          "right": 1,
+          "top": 6,
+          "bottom": 0,
+          "hero": 6,
+          "reversehero": 6
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "thecal_plating_plate_41",
+        "kind": "geometric_plate",
+        "component": "thecal_plating",
+        "sample_count": 12,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 1,
+          "rear": 4,
+          "left": 3,
+          "right": 4,
+          "top": 5,
+          "bottom": 0,
+          "hero": 5,
+          "reversehero": 5
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      },
+      {
+        "tag": "suranal_plate_0",
+        "kind": "geometric_plate",
+        "component": "suranal",
+        "sample_count": 8,
+        "globally_visible": true,
+        "visible_samples_by_direction": {
+          "front": 3,
+          "rear": 3,
+          "left": 2,
+          "right": 3,
+          "top": 5,
+          "bottom": 0,
+          "hero": 5,
+          "reversehero": 4
+        },
+        "side": null,
+        "row": null,
+        "station": null
+      }
+    ],
+    "aperture_row_exposure_checks": [],
+    "method": "Actual source world-coordinate feature vertices, cast rays against all original triangles including own host. Dimensions are rim projections in each actual branch frame. Partial or total occlusion of repeated junction features is disclosed; every required row needs actually exposed apertures."
+  },
+  "limitations": "Surface intersection and sampled ray exposure are diagnostics, not independent approval. Required detail pixels and all eight actual final views must still be inspected."
+}

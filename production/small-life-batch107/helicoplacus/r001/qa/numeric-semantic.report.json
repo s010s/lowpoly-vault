@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "070daa054da2258659b970e5692180090418389554afd5db1580f0640945c734",
+    "brief_sha256": "0c068a1b3fff68e6b072733ea98386ff3236073efb7d78d25424a21535d5a310",
+    "references_sha256": "b31ebe5526af60ea3896370e8ba22392d3f4bbd7d0fa54b6840a5e2be2193d5a"
+  },
+  "status": "pass",
+  "source_sha256": "fc324892855323468d3465b877d162137d09b6c1eed78d3f7d358412a426c8b3",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "ambulacral_path": 3,
+    "mouth": 1
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "helical_plating": 1,
+    "ambulacral_path": 3,
+    "mouth": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "ambulacral_path",
+      "required_count": 3,
+      "actual_nonempty_components": 3,
+      "pass": true
+    },
+    {
+      "kind": "mouth",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch107/helicoplacus/r001/qa/factual-geometry.report.json",
+    "sha256": "698016c3e5ac831c2988937f77479760eacb176f3ffff3c836b049238c5d3a8c"
+  },
+  "integrated_features": {
+    "geometric_plate": 564
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch107/helicoplacus/r001/qa/component-contact-exposure.report.json",
+    "sha256": "b43851aefb2515e71cbf069060929b7cbb0b27a6b1f6b829a00f1f7a2b002816"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "asset_id": "stromatocystites",
+  "brief_version": "delivery-v001",
+  "profile": "production",
+  "purpose": "Static educational whole-organism living reconstruction; independent acceptance remains separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Unmodified closed outward geometry; actual transformed dimensions/counts, strict attachment and whole-scene exposure; source reopen; two distinct-PID semantic rebuilds; project/Khronos validation.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect eight exact512px final frames plus lossless sheet; actual plate/ring relief must read, not only mesh loops or labels. Concept disc is too thick and ambulacra too broad. Final low disc nominal4.5mm thick at30mm diameter, five narrow1.2mm surface bands, continuous round-pentagonal perimeter and broad interambulacra. No projecting star arms. Geometric plate relief and crenulated cover plates, no photographic texture.",
+      "required_sources": [
+        "SMITH1985",
+        "ZAMORA2015"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Low slightly inflated rounded-subpentagonal disc with continuous plated interambulacral body, no projecting arms or thick Cambraster-like rim. Exactly five narrow straight ambulacral surface ridges, paired flooring/cover plates and small central oral opening; subtle2-1-2proximal organization. Entire aboral side plated with differentiated central attachment region. Small noncentral periproct in interambulacrum. Whole-organism stylized living reconstruction from Bohemian S.pentangularis skeletal morphology. Smith1985 scanned primary pages and named fossil-cast plate87 inspected. 2015 primary publisher abstract updates S.flexibilis synonymy and aboral attachment, but full2015paper was unavailable. Specimens compressed; low living thickness, exact nominal size, cover-plate sampling and coloration are artistic. No modern starfish body plan.",
+      "required_sources": [
+        "SMITH1985",
+        "ZAMORA2015"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Original immutable complete brief/config/references/concept freeze precedes geometry.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Actual Three.js GLTFLoader parse of exact final GLB.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Unrun remains unknown; CPU stills not GPU proof.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Unrun remains unknown; no composed target-scene claim.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight512px final views plus lossless contact sheet; exact-subject supplementary details if required to inspect tiny plate/ring structure.",
+  "frozen_at": "2026-10-21T04:07:32Z",
+  "subject": "Stromatocystites pentangularis Pompeckj, 1896 whole-organism reconstruction",
+  "taxon": "Stromatocystites pentangularis Pompeckj, 1896",
+  "representation": "living-reconstruction",
+  "factual_scope": "Whole-organism stylized living reconstruction from Bohemian S.pentangularis skeletal morphology. Smith1985 scanned primary pages and named fossil-cast plate87 inspected. 2015 primary publisher abstract updates S.flexibilis synonymy and aboral attachment, but full2015paper was unavailable. Specimens compressed; low living thickness, exact nominal size, cover-plate sampling and coloration are artistic. No modern starfish body plan.",
+  "identifying_features": [
+    "Low slightly inflated rounded-subpentagonal disc with continuous plated interambulacral body, no projecting arms or thick Cambraster-like rim.",
+    "Exactly five narrow straight ambulacral surface ridges, paired flooring/cover plates and small central oral opening; subtle2-1-2proximal organization.",
+    "Entire aboral side plated with differentiated central attachment region. Small noncentral periproct in interambulacrum."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.032,
+      0.032,
+      0.0055
+    ],
+    "interpretation": "Nominal artistic dimensions only, not scientific hard bounds or a measured fossil replica. Original fossil scale bars are contextual and do not justify universal organ ranges."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Horizontally centered, minZ0, translation only. No global scale normalization.",
+  "surface_profile": "Faceted opaque closed solids with true geometric plate seams, ridges and appendage segmentation. No textures, cards, hidden feature claims or double-sided concealment.",
+  "palette_srgb": [
+    "#AD6C4F",
+    "#DFBE8C",
+    "#6B4839",
+    "#C58A65"
+  ],
+  "parameters": {
+    "diameter_m": 0.03,
+    "disc_thickness_m": 0.0045,
+    "pentagonal_amplitude_fraction": 0.055,
+    "plate_subdivisions": 3,
+    "ambulacral_count": 5,
+    "ambulacral_stations": 12,
+    "ambulacral_width_m": 0.0012,
+    "ambulacral_relief_m": 0.00035,
+    "mouth_radius_m": 0.0006,
+    "periproct_radius_m": 0.00035
+  },
+  "hard_organ_ranges": [],
+  "hard_component_counts": {
+    "theca_core": 1,
+    "ambulacral_path": 5,
+    "mouth": 1,
+    "periproct": 1,
+    "attachment_pad": 1
+  },
+  "source_hard_boundaries": [
+    "Low slightly inflated rounded-subpentagonal disc with continuous plated interambulacral body, no projecting arms or thick Cambraster-like rim.",
+    "Exactly five narrow straight ambulacral surface ridges, paired flooring/cover plates and small central oral opening; subtle2-1-2proximal organization.",
+    "Entire aboral side plated with differentiated central attachment region. Small noncentral periproct in interambulacrum."
+  ],
+  "numeric_semantics": "Only diagnostic anatomical counts and absence constraints are scientific gates. Dimensions and plate/ring sample counts are nominal frozen artistic targets. No invented micron or visibility-percentage thresholds.",
+  "component_measurement_contract": "Named editable semantic groups with actual transformed bounds, independently checked solid topology, parent contact and global exposure. Semantic paths include real geometric plate solids, not labels alone.",
+  "contact_policy": "Feature solids touch/interpenetrate their parent strictly; global exposure measured against entire scene. Exposure evaluated with exact final frames; no arbitrary percentage pass threshold.",
+  "concept_inspection": {
+    "observed_at": "2026-10-21T04:03:39Z",
+    "path": "production/small-life-batch107/concepts/stromatocystites-concept.png",
+    "sha256": "bd718a218f36d90ad0a5adcd0556a11e017246098970be267a0baf680c7d8be6",
+    "decisions": "Concept disc is too thick and ambulacra too broad. Final low disc nominal4.5mm thick at30mm diameter, five narrow1.2mm surface bands, continuous round-pentagonal perimeter and broad interambulacra. No projecting star arms. Geometric plate relief and crenulated cover plates, no photographic texture."
+  },
+  "deliverable_plan": [
+    "GLB",
+    "editableBlend",
+    "generator/config/seed/dependencyClosure",
+    "actual topology/contact/exposure/measurements",
+    "source reopen",
+    "two distinct-PID semantic rebuilds",
+    "project/Khronos/Three",
+    "eight separate512frames plus lossless sheet",
+    "seven honest stage states"
+  ],
+  "original_frozen_brief": {
+    "path": "production/small-life-batch107/stromatocystites/r001/original-brief.json",
+    "sha256": "388cb4eae2fc105e21ed95286bbd77e3479c7b2d35901ea252316b34a52100c2"
+  },
+  "delivery_bound_at": "2026-10-21T04:24:37.181784+00:00",
+  "delivery_note": "Derived by adding delivery identities only. Original anatomy, scope, budgets, criteria, numeric semantics and immutable freeze remain unchanged.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch107/stromatocystites/r001/artifacts/stromatocystites.blend",
+      "sha256": "9ad0e9080d08d022f577896e7b9601e742e2af087b18edde739c31430c8033ac"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch107/tools/generate-r007.py",
+      "sha256": "060fb3a0fcf7222168b80ff56cc91ebffde250ad98de576581ab04799ef1f6f9"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch107/stromatocystites/r001/config.json",
+      "sha256": "016d4185b62a2b0bb5f2180fc7332170f9469ebcd0d8394d71de8d1e02db8ba1"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch107/dependencies.json",
+      "sha256": "923883e8643c514a103025ca6b8d9299b0d076ed44e7aedae80cedb96912ef83"
+    }
+  ]
+}

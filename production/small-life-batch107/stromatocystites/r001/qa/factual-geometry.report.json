@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "9ad0e9080d08d022f577896e7b9601e742e2af087b18edde739c31430c8033ac",
+  "asset_id": "stromatocystites",
+  "read_only_original_mesh": true,
+  "measurements": {
+    "theca": {
+      "actual_aabb_dimensions_m": [
+        0.03078301250934601,
+        0.030090847983956337,
+        0.004500000039115548
+      ],
+      "actual_vertex_centroid_m": [
+        1.5802986089857862e-12,
+        -2.0912617471058326e-10,
+        2.423124374761887e-11
+      ]
+    },
+    "thecal_plating": {
+      "actual_aabb_dimensions_m": [
+        0.03207810968160629,
+        0.031161202117800713,
+        0.0044809007085859776
+      ],
+      "actual_vertex_centroid_m": [
+        7.750121100436047e-10,
+        6.357061543837972e-10,
+        -2.0457703586718168e-10
+      ]
+    },
+    "ambulacrum_0": {
+      "actual_aabb_dimensions_m": [
+        0.001164000015705824,
+        0.014344898809213191,
+        0.002116359304636717
+      ],
+      "actual_vertex_centroid_m": [
+        -1.8947806851624636e-14,
+        0.007916439324617386,
+        0.0018801349215209484
+      ]
+    },
+    "ambulacrum_1": {
+      "actual_aabb_dimensions_m": [
+        0.013924114522524178,
+        0.005940711940638721,
+        0.0021157930605113506
+      ],
+      "actual_vertex_centroid_m": [
+        -0.007550987880676985,
+        0.00231589050963521,
+        0.0018797360826283693
+      ]
+    },
+    "ambulacrum_2": {
+      "actual_aabb_dimensions_m": [
+        0.00889622635440901,
+        0.012779102311469615,
+        0.0021157930605113506
+      ],
+      "actual_vertex_centroid_m": [
+        -0.004747631028294563,
+        -0.006311953067779541,
+        0.0018797360826283693
+      ]
+    },
+    "ambulacrum_3": {
+      "actual_aabb_dimensions_m": [
+        0.00889622635440901,
+        0.012779102311469615,
+        0.0021157930605113506
+      ],
+      "actual_vertex_centroid_m": [
+        0.004747631028294563,
+        -0.006311953067779541,
+        0.0018797360826283693
+      ]
+    },
+    "ambulacrum_4": {
+      "actual_aabb_dimensions_m": [
+        0.013924114522524178,
+        0.005940711940638721,
+        0.0021157930605113506
+      ],
+      "actual_vertex_centroid_m": [
+        0.007550986483693123,
+        0.00231589050963521,
+        0.0018797360826283693
+      ]
+    },
+    "mouth": {
+      "actual_aabb_dimensions_m": [
+        0.0016199999954551458,
+        0.0016199999954551458,
+        0.000780000351369381
+      ],
+      "actual_vertex_centroid_m": [
+        -6.063298192519884e-13,
+        9.701277108031814e-12,
+        0.0025299997068941593
+      ]
+    },
+    "periproct": {
+      "actual_aabb_dimensions_m": [
+        0.0009449999779462814,
+        0.0009449999779462814,
+        0.0005979998968541622
+      ],
+      "actual_vertex_centroid_m": [
+        -1.5158245752350252e-12,
+        -0.008000001311302185,
+        0.0021004173904657364
+      ]
+    },
+    "attachment_pad": {
+      "actual_aabb_dimensions_m": [
+        0.006599999964237213,
+        0.006599999964237213,
+        0.0007999999215826392
+      ],
+      "actual_vertex_centroid_m": [
+        4.968946434869004e-11,
+        -1.419698993782026e-12,
+        -0.002250000135973096
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "five_narrow_surface_bands",
+      "pass_": true,
+      "evidence": {
+        "actual_paths": [
+          "ambulacrum_0",
+          "ambulacrum_1",
+          "ambulacrum_2",
+          "ambulacrum_3",
+          "ambulacrum_4"
+        ]
+      }
+    },
+    {
+      "name": "low_disc_not_star_arms",
+      "pass_": true,
+      "evidence": {
+        "actual_disc_dimensions_m": [
+          0.03078301250934601,
+          0.030090847983956337,
+          0.004500000039115548
+        ]
+      }
+    },
+    {
+      "name": "ambulacrum_0_inside_continuous_disc_extent",
+      "pass_": true,
+      "evidence": {
+        "actual_max_band_radius_m": 0.015100107069700611,
+        "body_max_radius_m": 0.015825000571575314,
+        "actual_cover_plate_count": 24
+      }
+    },
+    {
+      "name": "ambulacrum_1_inside_continuous_disc_extent",
+      "pass_": true,
+      "evidence": {
+        "actual_max_band_radius_m": 0.015100107076004217,
+        "body_max_radius_m": 0.015825000571575314,
+        "actual_cover_plate_count": 24
+      }
+    },
+    {
+      "name": "ambulacrum_2_inside_continuous_disc_extent",
+      "pass_": true,
+      "evidence": {
+        "actual_max_band_radius_m": 0.015100106871498197,
+        "body_max_radius_m": 0.015825000571575314,
+        "actual_cover_plate_count": 24
+      }
+    },
+    {
+      "name": "ambulacrum_3_inside_continuous_disc_extent",
+      "pass_": true,
+      "evidence": {
+        "actual_max_band_radius_m": 0.015100106871498197,
+        "body_max_radius_m": 0.015825000571575314,
+        "actual_cover_plate_count": 24
+      }
+    },
+    {
+      "name": "ambulacrum_4_inside_continuous_disc_extent",
+      "pass_": true,
+      "evidence": {
+        "actual_max_band_radius_m": 0.015100107076004217,
+        "body_max_radius_m": 0.015825000571575314,
+        "actual_cover_plate_count": 24
+      }
+    },
+    {
+      "name": "aboral_pad_below_oral_mouth",
+      "pass_": true,
+      "evidence": {
+        "pad": [
+          4.968946434869004e-11,
+          -1.419698993782026e-12,
+          -0.002250000135973096
+        ],
+        "mouth": [
+          -6.063298192519884e-13,
+          9.701277108031814e-12,
+          0.0025299997068941593
+        ]
+      }
+    }
+  ],
+  "limitations": "All dimensions and sampling counts are nominal artistic choices unless a frozen source-specific bound says otherwise. These tests establish geometric implementation, not independent scientific or visual acceptance. No mesh repair performed."
+}

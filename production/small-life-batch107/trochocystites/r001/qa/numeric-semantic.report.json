@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "aebbc9816435371ea3d47770728bb0f53a4b6117d7fbadf98b64e0861656487c",
+    "brief_sha256": "c550fdb3c49bd915c6748f6bc78fef9e04f1943a3062cd833b7fbfb911cd7789",
+    "references_sha256": "fa0fb504b4b4af1e9af42405cffad2aadda69d7bcf3d5fa07a214f2fef770d25"
+  },
+  "status": "pass",
+  "source_sha256": "20a3592ca31d32cb25fb2330f5ac979f11a3e177f52cb0ac07bc0f334552abef",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "homostele": 1,
+    "operculum": 1,
+    "mouth": 1,
+    "marginal_groove": 2
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "thecal_plating": 1,
+    "marginal_frame": 1,
+    "operculum": 1,
+    "mouth": 1,
+    "marginal_groove": 2,
+    "homostele": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "homostele",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "operculum",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "mouth",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "marginal_groove",
+      "required_count": 2,
+      "actual_nonempty_components": 2,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch107/trochocystites/r001/qa/factual-geometry.report.json",
+    "sha256": "4306f76353853c174f7b6f6f651be51003d1a25b2023df9ef6510437a64b69d1"
+  },
+  "integrated_features": {
+    "geometric_plate": 58
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch107/trochocystites/r001/qa/component-contact-exposure.report.json",
+    "sha256": "4bffe305fd3d6523cebe58785c4eabca8cf0e4bc9f5a9e6820dbbec77f20cc1f"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}

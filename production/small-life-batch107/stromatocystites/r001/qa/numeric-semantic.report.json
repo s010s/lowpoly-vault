@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "6e0808ca004ed2772d6e4fc1d626c362a51ab34dd714483b75118d0875b23883",
+    "brief_sha256": "8754804ea5705dd7f5cdf442180a901accfbebbe7d8941bdbb91e97c693d3768",
+    "references_sha256": "5ec137e7daef0d97b0a9ee0cf231cf41281a1e184415f8b763fa519765deccea"
+  },
+  "status": "pass",
+  "source_sha256": "9ad0e9080d08d022f577896e7b9601e742e2af087b18edde739c31430c8033ac",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "ambulacral_path": 5,
+    "mouth": 1,
+    "periproct": 1,
+    "attachment_pad": 1
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "thecal_plating": 1,
+    "ambulacral_path": 5,
+    "mouth": 1,
+    "periproct": 1,
+    "attachment_pad": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "ambulacral_path",
+      "required_count": 5,
+      "actual_nonempty_components": 5,
+      "pass": true
+    },
+    {
+      "kind": "mouth",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "periproct",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "attachment_pad",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch107/stromatocystites/r001/qa/factual-geometry.report.json",
+    "sha256": "5845ad68c93187e5c6afc13f8ffc93cffedd367d9613d802ba38f3da2b21e137"
+  },
+  "integrated_features": {
+    "geometric_plate": 270
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch107/stromatocystites/r001/qa/component-contact-exposure.report.json",
+    "sha256": "8e6b4807d203d29be43ddd2c0a66f6da851e1290fc1048f3bd4fbb6cdd93b7e0"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}

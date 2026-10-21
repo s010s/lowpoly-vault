@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "source_sha256": "20a3592ca31d32cb25fb2330f5ac979f11a3e177f52cb0ac07bc0f334552abef",
+  "asset_id": "trochocystites",
+  "read_only_original_mesh": true,
+  "measurements": {
+    "theca": {
+      "actual_aabb_dimensions_m": [
+        0.018648196943104267,
+        0.023919999599456787,
+        0.004999999888241291
+      ],
+      "actual_vertex_centroid_m": [
+        -4.5515764768300215e-11,
+        7.002425549129665e-12,
+        5.952061760128302e-11
+      ]
+    },
+    "thecal_plating": {
+      "actual_aabb_dimensions_m": [
+        0.01891577895730734,
+        0.023276113905012608,
+        0.004928328795358539
+      ],
+      "actual_vertex_centroid_m": [
+        2.5708385073541784e-11,
+        -1.2805685678518586e-10,
+        -1.2611660847594575e-11
+      ]
+    },
+    "cinctus": {
+      "actual_aabb_dimensions_m": [
+        0.020464119501411915,
+        0.025609999895095825,
+        0.0025999998906627297
+      ],
+      "actual_vertex_centroid_m": [
+        1.188406456575919e-10,
+        -2.061521439666869e-11,
+        0.00017916700744535774
+      ]
+    },
+    "operculum": {
+      "actual_aabb_dimensions_m": [
+        0.007600000128149986,
+        0.004999998956918716,
+        0.001999999862164259
+      ],
+      "actual_vertex_centroid_m": [
+        1.877666425120772e-12,
+        -0.010199999436736107,
+        0.0020999994594603777
+      ]
+    },
+    "mouth": {
+      "actual_aabb_dimensions_m": [
+        0.001957329921424389,
+        0.001923752948641777,
+        0.001972069265320897
+      ],
+      "actual_vertex_centroid_m": [
+        0.006126349326223135,
+        -0.009794778190553188,
+        0.0012858218979090452
+      ]
+    },
+    "groove_left": {
+      "actual_aabb_dimensions_m": [
+        0.01709386147558689,
+        0.021211511455476284,
+        0.0005700001493096352
+      ],
+      "actual_vertex_centroid_m": [
+        -0.005157525651156902,
+        -0.004741390701383352,
+        0.0015774992061778903
+      ]
+    },
+    "groove_right": {
+      "actual_aabb_dimensions_m": [
+        0.0053895157761871815,
+        0.007750147022306919,
+        0.0005700001493096352
+      ],
+      "actual_vertex_centroid_m": [
+        0.007787712384015322,
+        -0.007106209639459848,
+        0.0015774992061778903
+      ]
+    },
+    "homostele": {
+      "actual_aabb_dimensions_m": [
+        0.0036515555111691356,
+        0.009999999776482582,
+        0.0036515557439997792
+      ],
+      "actual_vertex_centroid_m": [
+        0.0005999997956678271,
+        0.016439994797110558,
+        -9.99999392661266e-05
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "groove_left_physically_meets_mouth",
+      "pass_": true,
+      "evidence": {
+        "actual_triangle_intersection_pairs": 53
+      }
+    },
+    {
+      "name": "groove_right_physically_meets_mouth",
+      "pass_": true,
+      "evidence": {
+        "actual_triangle_intersection_pairs": 156
+      }
+    },
+    {
+      "name": "separate_right_anterolateral_mouth",
+      "pass_": true,
+      "evidence": {
+        "mouth": [
+          0.006126349326223135,
+          -0.009794778190553188,
+          0.0012858218979090452
+        ],
+        "operculum": [
+          1.877666425120772e-12,
+          -0.010199999436736107,
+          0.0020999994594603777
+        ]
+      }
+    },
+    {
+      "name": "short_posterior_stele",
+      "pass_": true,
+      "evidence": {
+        "actual_aabb_dimensions_m": [
+          0.0036515555111691356,
+          0.009999999776482582,
+          0.0036515557439997792
+        ],
+        "actual_vertex_centroid_m": [
+          0.0005999997956678271,
+          0.016439994797110558,
+          -9.99999392661266e-05
+        ]
+      }
+    },
+    {
+      "name": "genuine_marginal_plates",
+      "pass_": true,
+      "evidence": {
+        "actual_closed_plate_count": 16
+      }
+    }
+  ],
+  "limitations": "All dimensions and sampling counts are nominal artistic choices unless a frozen source-specific bound says otherwise. These tests establish geometric implementation, not independent scientific or visual acceptance. No mesh repair performed."
+}

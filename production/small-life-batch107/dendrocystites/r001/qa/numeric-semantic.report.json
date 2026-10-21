@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "a179ed89bae518a4d4a85ddf6854f264295fb157db1a0e979a721added6fca6f",
+    "brief_sha256": "599c0dcd67dcbf6bcc9921d920a44fca76a978bdc02947abe007d862ea1a61d9",
+    "references_sha256": "07df696793543f5456cd66f1a8f893156e387a3629a08cdc792466709d8c9907"
+  },
+  "status": "pass",
+  "source_sha256": "41bc9aa16b13cf08dc46224201049f45c418df519a0f15abffe36c77e507b307",
+  "method": "Actual reopened Blend component vertex membership and world-space geometry, not config counts alone.",
+  "expected_counts": {
+    "theca_core": 1,
+    "brachiole": 1,
+    "homoiostele": 1,
+    "suranal_plate": 1
+  },
+  "observed_counts": {
+    "theca_core": 1,
+    "thecal_plating": 1,
+    "brachiole": 1,
+    "homoiostele": 1,
+    "suranal_plate": 1
+  },
+  "hard_organ_ranges": [],
+  "additional_source_checks": [
+    {
+      "kind": "theca_core",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "brachiole",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "homoiostele",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    },
+    {
+      "kind": "suranal_plate",
+      "required_count": 1,
+      "actual_nonempty_components": 1,
+      "pass": true
+    }
+  ],
+  "actual_factual_geometry_report": {
+    "path": "production/small-life-batch107/dendrocystites/r001/qa/factual-geometry.report.json",
+    "sha256": "966073b0113123a37448332c6cd7ae2b7c6666eeb9bf3faa0d75a37ff4e99e20"
+  },
+  "integrated_features": {
+    "geometric_plate": 43
+  },
+  "all_junctions_intersect": true,
+  "all_components_have_actual_full_scene_exposure": true,
+  "measurement_report": {
+    "path": "production/small-life-batch107/dendrocystites/r001/qa/component-contact-exposure.report.json",
+    "sha256": "9198dff8964911d71f05e94a06c824b342e09bf215f9e80a37448a4343426bf1"
+  },
+  "limitations": "Exact counts and unbounded display dimensions are artistic nominal choices except explicitly sourced ranges. No scientific dimension ranges were invented from nominal artistic display dimensions."
+}
