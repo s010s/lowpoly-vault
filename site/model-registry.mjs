@@ -312,3 +312,7 @@ export function assertIntegrationPlan(plan, previous, next, {currentHead}) {
   assert.equal(currentHead, plan.expected_head, 'Integration head moved; recompose and recheck before merging');
   assert.deepEqual(plan, createIntegrationPlan(previous, next, {expectedHead: currentHead}), 'Integration inputs changed');
 }
+
+// Offline final-only candidates are NOT published records. Existing compose/append
+// validation still requires all final presentation and independent release gates.
+export {collectFinalDeliveryCandidates, prepareFinalDeliveryCapture} from './final-delivery.mjs';

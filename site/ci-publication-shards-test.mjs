@@ -24,7 +24,7 @@ try{
  git('init','-q');git('config','user.name','Publication fixture');git('config','user.email','fixture@example.invalid');git('add','.');git('commit','-qm','fixture');
  process.env.GITHUB_SHA=git('rev-parse','HEAD');
  let plan=createPublicationPlan();assertPublicationPlan(plan);checks++;
- assert.equal(PUBLICATION_SHARD_COUNT,4);assert.equal(plan.suites.length,24);assert.equal(plan.suites.at(-1).name,'fifty-two-release');
+ assert.equal(PUBLICATION_SHARD_COUNT,4);assert.equal(plan.suites.length,25);assert.equal(plan.suites.at(-1).name,'final-five-release');
  assert.deepEqual(Array.from({length:4},(_,index)=>publicationShardSuites(plan,index)).flat().map(suite=>suite.name).sort(),[...PUBLICATION_SUITES].sort());checks++;
  rejects(()=>publicationShardSuites(plan,-1));rejects(()=>publicationShardSuites(plan,4));rejects(()=>publicationShardSuites(plan,'0'));
  const passing=()=>Array.from({length:4},(_,index)=>createPublicationShardReport(plan,index,publicationShardSuites(plan,index).map(suite=>({name:suite.name,seconds:0.001,exit_code:0,signal:null,script_sha256:suite.sha256})),'pass'));
@@ -48,7 +48,7 @@ try{
  rejects(()=>aggregatePublicationReports(plan,[{...reports[0],report_sha256:'0'.repeat(64)},...reports.slice(1)]));
  for(const edit of [p=>p.suites.pop(),p=>p.suites.push(p.suites[0]),p=>p.suites[0].shard=1,p=>p.identity.source_tree='0'.repeat(40),p=>p.identity.control_sha256='0'.repeat(64),p=>p.identity.runtime_config.node_major='1'])rejects(()=>assertPublicationPlan(change(plan,edit)));
  rejects(()=>assertPublicationPlan({...plan,report_sha256:'0'.repeat(64)}));
- // Run all 24 entrypoints, including fifty-two-release, in four separate sequential fixture invocations.
+ // Run all 25 entrypoints, including fifty-two-release, in four separate sequential fixture invocations.
  writePublicationEvidence('plan.json',plan);
  for(let index=0;index<4;index++){
   const file=`artifacts/publication-shard-${index}-1/shard-${index}.json`;
@@ -58,7 +58,7 @@ try{
  reports=readPublicationShardReports('artifacts',plan);assert.equal(aggregatePublicationReports(plan,reports).status,'pass');
  assert.deepEqual(readFileSync('events','utf8').trim().split('\n').sort(),[...PUBLICATION_SUITES].sort());checks++;
  const collected=spawnSync(process.execPath,[cli,'aggregate','plan.json','artifacts','aggregate.json'],{encoding:'utf8'});
- assert.equal(collected.status,0,collected.stdout+collected.stderr);assert.equal(JSON.parse(readFileSync('aggregate.json')).suites.length,24);checks++;
+ assert.equal(collected.status,0,collected.stdout+collected.stderr);assert.equal(JSON.parse(readFileSync('aggregate.json')).suites.length,25);checks++;
  // Filesystem aggregation must not hide duplicate or unexpected artifact members.
  writeFileSync('artifacts/extra.json','{}');rejects(()=>readPublicationShardReports('artifacts',plan));rmSync('artifacts/extra.json');
  writeFileSync('artifacts/publication-shard-0-1/extra.json','{}');rejects(()=>readPublicationShardReports('artifacts',plan));rmSync('artifacts/publication-shard-0-1/extra.json');
@@ -97,7 +97,7 @@ try{
  assert.match(pipeline,/workflow_dispatch:/);assert.match(pipeline,/branches: \[main, 'quality\/\*\*'\]/);
  assert.match(pipeline,/site\/ci-publication-shards\*\.mjs/);assert.match(pipeline,/\.github\/workflows\/publication-regressions\.yml/);checks++;
  assert.equal(JSON.parse(readFileSync('package.json')).scripts['test:publication'],'node site/ci-timed.mjs publication');checks++;
- console.log(`Publication shards: ${checks} fixture checks passed; exact 24-suite coverage, four isolated runners, first failure, source/control/runtime/hash rejection and mandatory deployment gate.`);
+ console.log(`Publication shards: ${checks} fixture checks passed; exact 25-suite coverage, four isolated runners, first failure, source/control/runtime/hash rejection and mandatory deployment gate.`);
 }finally{
  process.chdir(checkout);
  for(const key of Object.keys(process.env))if(!(key in originalEnv))delete process.env[key];

@@ -5,6 +5,12 @@ on:
     branches: [main, 'quality/**']
     paths:
       - 'scripts/**'
+      - 'qa/final-delivery-20261021/**'
+      - 'assets/additions/**'
+      - 'production/small-life-batch109/**'
+      - 'production/batch-108/**'
+      - 'site/final-delivery*.mjs'
+      - 'site/final-five*.mjs'
       - 'schemas/**'
       - 'qa/pipeline-pilot/**'
       - 'skills/**'
@@ -18,6 +24,12 @@ on:
   pull_request:
     paths:
       - 'scripts/**'
+      - 'qa/final-delivery-20261021/**'
+      - 'assets/additions/**'
+      - 'production/small-life-batch109/**'
+      - 'production/batch-108/**'
+      - 'site/final-delivery*.mjs'
+      - 'site/final-five*.mjs'
       - 'schemas/**'
       - 'qa/pipeline-pilot/**'
       - 'skills/**'
@@ -51,6 +63,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: npm ci --ignore-scripts
+      - run: python3 scripts/test_final_delivery.py && node site/final-delivery-test.mjs
+      - run: node site/final-delivery.mjs
+      - run: node site/final-delivery-native-test.mjs
       - run: npm run test:pipeline
       - run: npm run test:manifest
       - run: npm run publication:check
