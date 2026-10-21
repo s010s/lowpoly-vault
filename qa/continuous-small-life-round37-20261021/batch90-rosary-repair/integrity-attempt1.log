@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/shared/lowpoly-batch90-rosary-repair-independent-qa-20261021/own_integrity.py", line 52, in <module>
+    rr=compare_rebuild(B/'model.glb',raw/'outputs/model.glb',B/'generator.py',B/'build-config.json',raw/'request.json',raw/'result.json','model.glb',root=R);assert rr['semantic_match'] and rr['byte_identical'] and not rr['errors'];(O/f'own-rebuild-{i}-comparison.json').write_text(json.dumps(rr,indent=2)+'\n');runs.append(dict(pid=ex['pid'],started_at=ex['started_at'],finished_at=ex['finished_at'],raw_directory=str(raw),raw_output_glb_sha256=H(raw/'outputs/model.glb'),request_sha256=H(raw/'request.json'),result_sha256=H(raw/'result.json'),execution_sha256=H(raw/'outputs/execution.json'),semantic_match=True,byte_identical=True))
+                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

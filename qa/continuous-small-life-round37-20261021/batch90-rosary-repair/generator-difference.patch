@@ -1,0 +1,66 @@
+--- r001/generator.py
++++ r002/generator.py
+@@ -67,7 +67,7 @@
+ def poly_outline(W,D):return [(-.50*W,-.35*D),(-.39*W,-.50*D),(.30*W,-.50*D),(.50*W,-.32*D),(.48*W,.35*D),(.28*W,.50*D),(-.35*W,.48*D),(-.50*W,.20*D)]
+ def inside(q,poly):return all((poly[(i+1)%len(poly)][0]-a[0])*(q[1]-a[1])-(poly[(i+1)%len(poly)][1]-a[1])*(q[0]-a[0])>=-1e-11 for i,a in enumerate(poly))
+ def relief(paths,W,D,T,r,h,beads=None):
+- poly=poly_outline(W,D);points=list(poly);segments=[]
++ poly=poly_outline(W,D);points=list(poly);segments=[];constraints=[];boundary_input=set();support_polygons=[]
+  for path in paths:
+   ps=[Vector(q) for q in path]
+   for a,b in zip(ps,ps[1:]):segments.append((a,b))
+@@ -81,25 +81,38 @@
+  if beads:
+   for q,br,bh in beads:
+    points.append(q)
+-   for frac in [.35,.70,1,1.25]:
++   for frac in [.35,.70,1.25]:
+     for j in range(16):points.append((q[0]+br*frac*math.cos(math.tau*j/16),q[1]+br*frac*math.sin(math.tau*j/16)))
+  for j in range(15):
+   for i in range(21):
+    q=((i/20-.5)*W,(j/14-.5)*D)
+    if inside(q,poly):points.append(q)
+- # Delaunay heightfield is one watertight full-volume relief, so crossings cannot z-fight.
+- vv,ee,ff,*_=delaunay_2d_cdt([Vector(q) for q in points],[],[],0,.000015)
+- def height(q):
++ # The chamber base loops are actual constrained topology, not merely labels.
++ if beads:
++  for q,br,bh in beads:
++   support_polygons.append([(q[0]+(br-2e-8)*math.cos(math.tau*j/32),q[1]+(br-2e-8)*math.sin(math.tau*j/32)) for j in range(32)])
++  def edge_distance(q,a,b):
++   x,y=q;ax,ay=a;dx,dy=b[0]-ax,b[1]-ay;t=max(0,min(1,((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy)))
++   return math.hypot(x-ax-t*dx,y-ay-t*dy)
++  # Prevent merge epsilon from displacing or collapsing a support boundary.
++  points=[q for q in points if all(edge_distance(q,a,ring[(j+1)%32])>3e-5 for ring in support_polygons for j,a in enumerate(ring))]
++  for ring in support_polygons:
++   ids=list(range(len(points),len(points)+32));points.extend(ring);boundary_input.update(ids);constraints.extend((ids[j],ids[(j+1)%32]) for j in range(32))
++ vv,ee,ff,orig_v,*_=delaunay_2d_cdt([Vector(q) for q in points],constraints,[],0,.000015)
++ boundary_output={i for i,orig in enumerate(orig_v) if any(j in boundary_input for j in orig)}
++ def strictly_in(q,ring):
++  return all((b[0]-a[0])*(q.y-a[1])-(b[1]-a[1])*(q.x-a[0])>0 for a,b in zip(ring,ring[1:]+ring[:1]))
++ def height(q,index):
+   best=1e9
+   for a,b in segments:
+    v=b-a;t=max(0,min(1,(q-a).dot(v)/v.length_squared));best=min(best,(q-a-v*t).length)
+   bump=h*math.sqrt(max(0,1-(best/r)**2)) if best<r else 0
+   if beads:
+-   for center,br,bh in beads:
++   for (center,br,bh),ring in zip(beads,support_polygons):
+     dist=(q-Vector(center)).length
+-    if dist<br:bump=max(bump,bh*math.sqrt(max(0,1-(dist/br)**2)))
++    if index not in boundary_output and strictly_in(q,ring):bump=max(bump,bh*math.sqrt(max(0,1-(dist/br)**2)))
+   return T+bump,bump
+- vs=[(q.x,q.y,height(q)[0]) for q in vv];fs=[];mi=[]
++ vs=[(q.x,q.y,height(q,i)[0]) for i,q in enumerate(vv)];fs=[];mi=[]
+  for f in ff:
+   centroid=sum((vv[k] for k in f),Vector((0,0)))/len(f)
+   if inside(centroid,poly):fs.append(tuple(f));mi.append(2 if max(vs[k][2]-T for k in f)>h*.22 else 0)
+@@ -121,7 +134,7 @@
+  pts=[xy(i/96) for i in range(97)];beads=[]
+  for i in range(13):
+   r=.0027+.0005*(.5+.5*math.sin(i*1.3+.2));beads.append((xy(i/12),r,.0033*(.90+.10*math.cos(i*.8))))
+- relief([pts],*p['slab_dimensions_m'],p['neck_radius_m'],p['neck_relief_height_m'],beads);semantic['chamber_count']=13
++ relief([pts],*p['slab_dimensions_m'],p['neck_radius_m'],p['neck_relief_height_m'],beads);semantic['chamber_count']=13;semantic['support_repair']={'kind':'constrained inscribed32-gon with neck-only boundary heights','inward_construction_guard_m':2e-8,'support_polygon_sides':32,'not_an_acceptance_tolerance':True}
+ 
+ def lumbricaria():
+  controls=[
