@@ -16,10 +16,10 @@ export function filterItems(items, query = '', facets = {}) {
 
 /** Native scrolling remains authoritative until motion has become quiet. */
 export class WheelSettler {
-  constructor({ read, write, targets, center, reduced = () => false,
+  constructor({ read, write, targets, center, settled = () => {}, reduced = () => false,
     now = () => performance.now(), frame = callback => requestAnimationFrame(callback),
     cancel = id => cancelAnimationFrame(id) }) {
-    Object.assign(this, { read, write, targets, center, reduced, now, frame, cancel });
+    Object.assign(this, { read, write, targets, center, settled, reduced, now, frame, cancel });
     this.raf = 0;
     this.lastInput = this.lastMovement = -Infinity;
     this.previous = read();
@@ -74,6 +74,7 @@ export class WheelSettler {
       this.write(this.to);
       this.previous = this.read();
       this.setCenter(id);
+      this.settled();
       return true;
     }
     this.started = this.now();
@@ -93,7 +94,7 @@ export class WheelSettler {
     const time = this.now(), position = this.read();
     if (this.state === 'centering') {
       const target = this.targets().find(item => item.id === this.destinationId);
-      if (!target || target.offset !== this.to) { this.stop(); return; }
+      if (!target || target.offset !== this.to) { this.finish(); return; }
       const progress = this.reduced() ? 1 : Math.min(1, (time - this.started) / this.duration);
       // Smooth start/finish; a new click retargets from the currently presented position.
       const eased = progress * progress * (3 - 2 * progress);
@@ -102,31 +103,33 @@ export class WheelSettler {
       const nearest = this.nearest(this.previous);
       if (nearest) this.setCenter(nearest.id);
       if (progress < 1) this.schedule();
-      else this.stop();
+      else this.finish();
       return;
     }
     if (this.state === 'tracking') {
       if (Math.abs(position - this.previous) > .2) { this.lastMovement = time; this.moved = true; }
       this.previous = position;
       if (this.pressed || time - Math.max(this.lastMovement, this.lastInput) < 150) { this.schedule(); return; }
-      if (!this.moved) { this.stop(); return; }
+      if (!this.moved) { this.finish(); return; }
       const target = this.nearest(position);
-      if (!target) { this.stop(); return; }
+      if (!target) { this.finish(); return; }
       this.setCenter(target.id);
-      if (this.reduced() || Math.abs(position - target.offset) < 1) { this.stop(); return; }
+      if (this.reduced() || Math.abs(position - target.offset) < 1) { this.finish(); return; }
       this.from = position;
       this.to = target.offset;
       this.started = time;
       this.state = 'snapping';
     }
     if (this.state === 'snapping') {
-      if (this.reduced()) { this.stop(); return; }
+      if (this.reduced()) { this.finish(); return; }
       const progress = Math.min(1, (time - this.started) / 220);
       this.write(this.from + (this.to - this.from) * (1 - (1 - progress) ** 3));
       if (progress < 1) this.schedule();
-      else this.stop();
+      else this.finish();
     }
   }
+
+  finish() { this.stop();if(!this.destroyed)this.settled(); }
 
   stop() {
     if (this.raf) this.cancel(this.raf);
