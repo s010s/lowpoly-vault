@@ -1,3 +1,4 @@
+import {appendFinalFiveRelease} from './final-five-release.mjs';
 import {appendFiftyTwoRelease} from './fifty-two-release.mjs';
 import {appendFortyFourRelease} from './forty-four-release.mjs';
 import {collectConceptLandairRelease,collectBatch54Release,collectBatches5253Release,appendBatches5657Release,appendBatches5155Release,appendBatches6061Release,appendBatches5861Release,appendBatches6267Release} from './concept-landair-release.mjs';
@@ -111,6 +112,7 @@ export async function checkPublishedManifest(root=process.cwd()) {
   if(current.publication?.batches62_67_descriptors)expected=await appendBatches6267Release(root,expected,current.publication.batches62_67_descriptors);
   if(current.publication?.forty_four_descriptors)expected=await appendFortyFourRelease(root,expected,current.publication.forty_four_descriptors);
   if(current.publication?.fifty_two_descriptors)expected=await appendFiftyTwoRelease(root,expected,current.publication.fifty_two_descriptors);
+  if(current.publication?.final_five_presentation)expected=await appendFinalFiveRelease(root,expected,current.publication.final_five_presentation);
   assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
   return current;
 }
