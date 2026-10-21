@@ -1,0 +1,80 @@
+{
+  "jobs": [
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cordaites",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py"
+      },
+      "job_id": "independent-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r003"
+    },
+    {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "cordaites",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py"
+      },
+      "job_id": "independent-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r003"
+    }
+  ],
+  "lane": "build",
+  "schema_version": 1
+}

@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-10-21T00:32:32.234997+00:00",
+  "ended_at": "2026-10-21T00:32:37.801874+00:00",
+  "runner_pid": 632,
+  "returncode": 0,
+  "command": [
+    "flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/scripts/check_source_export.py",
+    "--",
+    "--source",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/source.blend",
+    "--glb",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/cordaites/r003/model.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-independent-qa-20261021/cordaites/source-reopen.json",
+    "--collection",
+    "EXPORT"
+  ],
+  "log_sha256": "1aac6ec979e4f6e8c9108b77567339105a758d4b9449b059b05088bea037b6ea"
+}

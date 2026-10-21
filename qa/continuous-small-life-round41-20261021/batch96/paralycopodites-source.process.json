@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-10-21T00:31:27.007406+00:00",
+  "ended_at": "2026-10-21T00:31:29.043308+00:00",
+  "runner_pid": 353,
+  "returncode": 0,
+  "command": [
+    "flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/scripts/check_source_export.py",
+    "--",
+    "--source",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/source.blend",
+    "--glb",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/model.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-independent-qa-20261021/paralycopodites/source-reopen.json",
+    "--collection",
+    "EXPORT"
+  ],
+  "log_sha256": "f82928de1b51ed2907bf2f44f118b4b6218c58aad489e477acba1ebd433453e7"
+}

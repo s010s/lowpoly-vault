@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-independent-qa-20261021/rebuild-runs/build/paralycopodites/r002/independent-rebuild-1/940076fb88285cf6c9fb482020ee220f817a997e539e3010f8d1bf3e83204c79/20261021T003136-6c52de8e93a846bb8decd6cf6b159290/outputs"
+  ],
+  "created_at": "2026-10-21T00:31:36.550492+00:00",
+  "fingerprint": "940076fb88285cf6c9fb482020ee220f817a997e539e3010f8d1bf3e83204c79",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "config": {
+        "bytes": 1301,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/build-config.json",
+        "sha256": "dafc15662fe5e28229682c0246b5c884f4ab0c5b3b9f9e9f87259dd823f174f1"
+      },
+      "generator": {
+        "bytes": 13444,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/generator.py",
+        "sha256": "7913c81e59a4464b28cde33ecd470ca969afde56cb7f87c059252045d8b260d6"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "{blender}",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--python-exit-code",
+        "1",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "paralycopodites",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch96-20261020/scripts/qa_glb.py",
+        "config": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/paralycopodites/r002/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch96-20261020/scripts/asset_common.py"
+      },
+      "job_id": "independent-rebuild-1",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json",
+        "execution.json"
+      ],
+      "revision": "r002"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 3600.0
+  },
+  "run_id": "20261021T003136-1721b6bfbbc847c3912177c1a20b25ef"
+}

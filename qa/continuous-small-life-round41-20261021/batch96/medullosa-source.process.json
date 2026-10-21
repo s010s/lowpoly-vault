@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-10-21T00:31:56.939113+00:00",
+  "ended_at": "2026-10-21T00:31:59.568471+00:00",
+  "runner_pid": 539,
+  "returncode": 0,
+  "command": [
+    "flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch96-20261020/scripts/check_source_export.py",
+    "--",
+    "--source",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/source.blend",
+    "--glb",
+    "/workspace/shared/lowpoly-batch96-20261020/production/batch96/assets/medullosa/r003/model.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch96-independent-qa-20261021/medullosa/source-reopen.json",
+    "--collection",
+    "EXPORT"
+  ],
+  "log_sha256": "ea39f37fe06a9b8b4471a0ad14b5d90de1d9ed76e658c590a23f6db43bb4f5d4"
+}
