@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "spriggina",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original fossil-specimen educational prop",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Thin irregular full-volume sandstone slab with shallow negative body impression, not a living elevated animal; Broad undivided conventional anterior and gently tapering module-divided body; narrow median ridge separates two series of shallow curved transverse module boundaries; No eyes legs antennae mouth or reconstructed underside; symmetry and movement direction not asserted. Scope: Original simplified fossil-specimen study informed by identified N14-03 in Evans et al2026 Fig2I, not a replica, scan, exact measured specimen or living organism. This is a negative-hyporelief impression in an artistic sandstone slab. Fossil length nominal35mm within nominal50x65x6mm slab, chosen illustrative hand scale, not source measurement. Conventional anterior label ambiguous without movement direction; modules may be bilateral but exact symmetry across median is unresolved. No settled arthropod identity, eyes, legs, feeding or behaviour claim.",
+      "required_sources": [
+        "EVANS2026"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Thin irregular full-volume sandstone slab with shallow negative body impression, not a living elevated animal; Broad undivided conventional anterior and gently tapering module-divided body; narrow median ridge separates two series of shallow curved transverse module boundaries; No eyes legs antennae mouth or reconstructed underside; symmetry and movement direction not asserted. Scope: Original simplified fossil-specimen study informed by identified N14-03 in Evans et al2026 Fig2I, not a replica, scan, exact measured specimen or living organism. This is a negative-hyporelief impression in an artistic sandstone slab. Fossil length nominal35mm within nominal50x65x6mm slab, chosen illustrative hand scale, not source measurement. Conventional anterior label ambiguous without movement direction; modules may be bilateral but exact symmetry across median is unresolved. No settled arthropod identity, eyes, legs, feeding or behaviour claim.",
+      "required_sources": [
+        "EVANS2026"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch80/assets/spriggina/r003/source.blend",
+      "sha256": "001eafb5806a5677bb8d7ef3c519bfa9849cb8d04ed8830eb94b0c1b9e44a88c"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch80/assets/spriggina/r003/generator.py",
+      "sha256": "f14474031824d338a62c9f3c3ba8f22bf2212f5357c905e979d61b703e8fb343"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch80/assets/spriggina/r003/build-config.json",
+      "sha256": "ea2e775d44c0584128f39c6107faad51ac12458d9976815a031343dce0de4751"
+    }
+  ],
+  "claim_scope": "Original simplified fossil-specimen study informed by identified N14-03 in Evans et al2026 Fig2I, not a replica, scan, exact measured specimen or living organism. This is a negative-hyporelief impression in an artistic sandstone slab. Fossil length nominal35mm within nominal50x65x6mm slab, chosen illustrative hand scale, not source measurement. Conventional anterior label ambiguous without movement direction; modules may be bilateral but exact symmetry across median is unresolved. No settled arthropod identity, eyes, legs, feeding or behaviour claim.",
+  "nominal_dimensions_blender_xyz_m": [
+    0.05,
+    0.065,
+    0.006
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "Thin irregular full-volume sandstone slab with shallow negative body impression, not a living elevated animal",
+    "Broad undivided conventional anterior and gently tapering module-divided body; narrow median ridge separates two series of shallow curved transverse module boundaries",
+    "No eyes legs antennae mouth or reconstructed underside; symmetry and movement direction not asserted"
+  ],
+  "concept_decisions": "Keep concept negative impression and taper. Correct concept overly smooth leaflike outline and sparse veins: use denser small posteriorly curved modular grooves, each stopping at median line, with broad small anterior depression rather than invented shield anatomy. Reference Fig2I is straight and complete-looking, not holotypeA bent specimen or incompleteC/E/G; modest unequal margins are artistic simplification, not copied source mesh. Retain broken slab but lower concept thick miniature-plaque rim; fossil body lies below surrounding bedding surface with median ridge only relative to impression. Neutral artistic palette. No texture grain or copied photograph.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static educational museum specimen at256-512px",
+  "created_at": "2026-10-20T16:34:52.428819+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T16:43:31.707175+00:00",
+    "frozen_design_brief_sha256": "596712e9976f668d831c3d397b30d5d5c21e3cfe904673a0097167020f1450d2",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

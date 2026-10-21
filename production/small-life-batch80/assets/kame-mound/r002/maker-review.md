@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+Actual all eight final512px views individually opened. Front/rear and reversehero reveal high off-axis mound, smaller unequal shoulder, broad irregular saddle and uneven flanks, not a sinuous esker or streamlined drumlin. Hero partly merges the smaller shoulder into the large mound; other views disclose it. Nonuniform triangulated granular relief and sparse gray gravel-like facets are integral, not detached overlapping stones. Mound is stylized and some triangular color flecks remain obvious; source photo vegetation does not establish bare-gravel appearance. No thermal origin or internal sediment layers claimed.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash f3877ca2efcca03a31e5b904c55c00675f64d9e58f0bc7736bcda93ac96dccf2. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

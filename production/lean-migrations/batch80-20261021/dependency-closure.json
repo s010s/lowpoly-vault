@@ -1,0 +1,167 @@
+{
+  "scope": "Static file/hash/import closure only; no new Blender, render, QA verdict, rebuild or dependency installation.",
+  "assets": [
+    {
+      "asset_id": "spriggina",
+      "revision": "r003",
+      "build_dependencies_path": "production/small-life-batch80/assets/spriggina/r003/build-dependencies.json",
+      "declared_file_paths": [
+        "production/small-life-batch80/assets/spriggina/r003/generator.py",
+        "production/small-life-batch80/assets/spriggina/r003/build-config.json",
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "scripts/check_source_export.py",
+        "scripts/check_reproducibility.py",
+        "scripts/rebuild_frozen_blender.py",
+        "scripts/run_asset_queue.py",
+        "production/small-life-batch80/render-fixed8.py",
+        "production/small-life-batch80/runtime-parse.mjs",
+        "production/small-life-batch80/check-physical-surfaces.py"
+      ]
+    },
+    {
+      "asset_id": "pediment",
+      "revision": "r002",
+      "build_dependencies_path": "production/small-life-batch80/assets/pediment/r002/build-dependencies.json",
+      "declared_file_paths": [
+        "production/small-life-batch80/assets/pediment/r002/generator.py",
+        "production/small-life-batch80/assets/pediment/r002/build-config.json",
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "scripts/check_source_export.py",
+        "scripts/check_reproducibility.py",
+        "scripts/rebuild_frozen_blender.py",
+        "scripts/run_asset_queue.py",
+        "production/small-life-batch80/render-fixed8.py",
+        "production/small-life-batch80/runtime-parse.mjs",
+        "production/small-life-batch80/check-physical-surfaces.py"
+      ]
+    },
+    {
+      "asset_id": "kame-mound",
+      "revision": "r002",
+      "build_dependencies_path": "production/small-life-batch80/assets/kame-mound/r002/build-dependencies.json",
+      "declared_file_paths": [
+        "production/small-life-batch80/assets/kame-mound/r002/generator.py",
+        "production/small-life-batch80/assets/kame-mound/r002/build-config.json",
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "scripts/check_source_export.py",
+        "scripts/check_reproducibility.py",
+        "scripts/rebuild_frozen_blender.py",
+        "scripts/run_asset_queue.py",
+        "production/small-life-batch80/render-fixed8.py",
+        "production/small-life-batch80/runtime-parse.mjs",
+        "production/small-life-batch80/check-physical-surfaces.py"
+      ]
+    }
+  ],
+  "python_files_parsed": [
+    "production/small-life-batch80/assets/kame-mound/r002/generator.py",
+    "production/small-life-batch80/assets/pediment/r002/generator.py",
+    "production/small-life-batch80/assets/spriggina/r003/generator.py",
+    "production/small-life-batch80/check-physical-surfaces.py",
+    "production/small-life-batch80/render-fixed8.py",
+    "scripts/asset_common.py",
+    "scripts/check_reproducibility.py",
+    "scripts/check_source_export.py",
+    "scripts/qa_glb.py",
+    "scripts/rebuild_frozen_blender.py",
+    "scripts/run_asset_queue.py",
+    "scripts/validate_candidate.py"
+  ],
+  "local_import_edges": [
+    {
+      "file": "production/small-life-batch80/assets/kame-mound/r002/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch80/assets/kame-mound/r002/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/asset_common.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "production/small-life-batch80/assets/pediment/r002/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch80/assets/pediment/r002/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "production/small-life-batch80/render-fixed8.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch80/render-fixed8.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/check_reproducibility.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/check_reproducibility.py",
+      "import": "validate_candidate",
+      "resolved_path": "scripts/validate_candidate.py"
+    },
+    {
+      "file": "scripts/validate_candidate.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/validate_candidate.py",
+      "import": "check_reproducibility",
+      "resolved_path": "scripts/check_reproducibility.py"
+    },
+    {
+      "file": "scripts/check_source_export.py",
+      "import": "check_reproducibility",
+      "resolved_path": "scripts/check_reproducibility.py"
+    },
+    {
+      "file": "scripts/check_source_export.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/check_source_export.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch80/assets/spriggina/r003/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch80/assets/spriggina/r003/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    }
+  ],
+  "external_runtime_modules": [
+    "bmesh",
+    "bpy",
+    "mathutils"
+  ],
+  "missing_source_files": [],
+  "unresolved_imports": [],
+  "expected_runtime": {
+    "blender": "4.3.2",
+    "three": "0.180.0"
+  },
+  "all_declared_build_files_exact": true
+}
