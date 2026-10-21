@@ -1,0 +1,91 @@
+{
+  "scope": "Static file/hash/import closure only; no new Blender, render, QA verdict, rebuild or dependency installation.",
+  "assets": [
+    {
+      "asset_id": "dickinsonia",
+      "revision": "r006",
+      "build_dependencies_path": "production/small-life-batch79/assets/dickinsonia/r006/build-dependencies.json",
+      "declared_file_paths": [
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "package-lock.json"
+      ]
+    },
+    {
+      "asset_id": "arroyo-wash",
+      "revision": "r005",
+      "build_dependencies_path": "production/small-life-batch79/assets/arroyo-wash/r005/build-dependencies.json",
+      "declared_file_paths": [
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "package-lock.json"
+      ]
+    },
+    {
+      "asset_id": "shield-volcano",
+      "revision": "r003",
+      "build_dependencies_path": "production/small-life-batch79/assets/shield-volcano/r003/build-dependencies.json",
+      "declared_file_paths": [
+        "scripts/asset_common.py",
+        "scripts/qa_glb.py",
+        "package-lock.json"
+      ]
+    }
+  ],
+  "python_files_parsed": [
+    "production/small-life-batch79/assets/arroyo-wash/r005/generator.py",
+    "production/small-life-batch79/assets/dickinsonia/r006/generator.py",
+    "production/small-life-batch79/assets/shield-volcano/r003/generator.py",
+    "scripts/asset_common.py",
+    "scripts/qa_glb.py"
+  ],
+  "local_import_edges": [
+    {
+      "file": "production/small-life-batch79/assets/shield-volcano/r003/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch79/assets/shield-volcano/r003/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "scripts/asset_common.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "production/small-life-batch79/assets/arroyo-wash/r005/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch79/assets/arroyo-wash/r005/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    },
+    {
+      "file": "production/small-life-batch79/assets/dickinsonia/r006/generator.py",
+      "import": "asset_common",
+      "resolved_path": "scripts/asset_common.py"
+    },
+    {
+      "file": "production/small-life-batch79/assets/dickinsonia/r006/generator.py",
+      "import": "qa_glb",
+      "resolved_path": "scripts/qa_glb.py"
+    }
+  ],
+  "external_runtime_modules": [
+    "bmesh",
+    "bpy",
+    "mathutils"
+  ],
+  "missing_source_files": [],
+  "unresolved_imports": [],
+  "expected_runtime": {
+    "blender": "4.3.2",
+    "three": "0.180.0"
+  },
+  "all_declared_build_files_exact": true
+}
