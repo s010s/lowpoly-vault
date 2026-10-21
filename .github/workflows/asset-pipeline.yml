@@ -63,9 +63,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: npm ci --ignore-scripts
-      - run: npm run test:final-delivery
-      - run: npm run final-delivery:check
-      - run: npm run test:final-delivery:native
+      - run: python3 scripts/test_final_delivery.py && node site/final-delivery-test.mjs
+      - run: node site/final-delivery.mjs
+      - run: node site/final-delivery-native-test.mjs
       - run: npm run test:pipeline
       - run: npm run test:manifest
       - run: npm run publication:check

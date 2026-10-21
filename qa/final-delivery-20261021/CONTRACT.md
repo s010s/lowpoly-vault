@@ -1,4 +1,4 @@
-# Final-only offline delivery contract
+# Final-only content and bounded website delivery contract
 
 Exactly five original independently accepted subjects: Caryocrinites, Echinosphaerites, Micraster, Eleutherocrinus, Nucleocrinus. Cupressocrinites remains REVISE in the unaltered batch109 summary and is not a downloadable candidate here. Original GPU/scene UNKNOWN and original failures remain unchanged. No publication acceptance is granted.
 
@@ -10,13 +10,16 @@ Concept images, historical acceptance PNGs, expanded reports, debug arrays and f
 
 Runtime/download inputs are final GLB and editable final Blend. Brief/config/generator/dependencies/references are provenance audit inputs, not a promise of one-click reconstruction. In particular the E/N repair generator requires archived original r002 Blend restored separately. That historical dependency is not placed in this package or automatically executed by current CI. Current final Blend can instead be reopened and its complete authored export collection re-exported directly; no repair generator is involved. Existing asset_common.py/qa_glb.py/check_source_export.py/check_reproducibility.py implement this retained verifier closure.
 
-Commands:
-- npm run final-delivery:check: actual complete seven-role offline collector.
-- npm run test:final-delivery: adversarial consumer and protected-source/registry interface tests.
-- npm run test:final-delivery:native: actual final Khronos and Three.js parsing.
-- npm run test:final-delivery:blend: Blender read-only reopen, whole authored collection re-export and original-semantic identity. Requires installed Blender compatible with the frozen original exporter. Never saves the original Blend.
-- npm run final-delivery:prepare-capture: exact final-subject capture input plan only; no capture or presentation approval.
+Commands (direct entrypoints preserve the established package.json renderer recipe):
+- `node site/final-delivery.mjs`: actual complete seven-role offline collector.
+- `python3 scripts/test_final_delivery.py` and `node site/final-delivery-test.mjs`: adversarial consumer and protected-source/registry interface tests.
+- `node site/final-delivery-native-test.mjs`: actual final Khronos and Three.js parsing.
+- `blender -b --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/check_final_delivery_blend.py`: read-only reopen, whole authored collection re-export and original-semantic identity. Requires compatible installed Blender; never saves the original Blend.
+- `node site/final-delivery.mjs --prepare-capture`: offline subject preparation, not capture approval.
+- `node site/final-five-release-test.mjs`: fixed website-presentation bindings, actual seven-role consumer, old347 invariance and rejection tests. This is included as an additional mandatory publication suite, without removing any old suite.
 
-The five canonical website preview/card/gallery sets are absent. Metadata is explicitly candidate-only and not runtime catalog metadata. The offline registry collector does not insert these candidates into composeRegistry or the deployed asset manifest. Existing record, final-image, independent pixel-review, scene/GPU, remote full-CI and separate publication gates remain mandatory. Publication accepted set and publication-ready IDs stay empty.
+The website layer is separate from the immutable original content summaries. Those summaries and their historical pending/failed/UNKNOWN stages are not rewritten to describe later website work. The offline collector still returns no publication-ready IDs. The exact five final canonical PNGs, card WebPs and detail/wheel PNGs are now integrated with final runtime metadata and five append-only registry records. The protected `site/final-five-release.mjs` pins the compact website-presentation index, checks the full original seven-role contract, actual final bytes, exact current capture recipe and independently reviewed image identities, then appends only these five to the unchanged347 asset objects. Ordinary incoming JSON cannot grant presentation or publication approval.
+
+The compact presentation index identifies original full independent reports by hash and original capture runs/ZIP hashes; full reports and process materials remain in the verified private archive. This bounded website-presentation acceptance does not grant physical GPU, target-scene, formal-profile, full remote-CI or live-deployment acceptance. Full release checks, platform-required approvals and publication gates remain mandatory; local integration is not evidence that the352 site is deployed. Package scripts are not changed solely to add test commands, so old capture recipes remain intact.
 
 Historical fixed52 migration uses scripts/plan_final_delivery_migration.py in DRY_RUN only. A real successful collector read-set distinguishes bundle enumeration from true body reads; exact readback-verified archives are additionally required. No old295 constant, original seal, deployed renderer, historical file, ref or history is modified by this integration.

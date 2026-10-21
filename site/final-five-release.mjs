@@ -11,7 +11,7 @@ import {posterInputKey,posterSharedInputs} from './gallery-poster-inputs.mjs';
 import {CARD_RENDER_PRESET} from './render-preset.js';
 import {assetFileAllowlist} from './asset-delivery.mjs';
 export const FINAL_FIVE_IDS=Object.freeze(['caryocrinites','echinosphaerites','eleutherocrinus','micraster','nucleocrinus']);
-export const FINAL_FIVE_PRESENTATION=Object.freeze({path:'qa/final-delivery-20261021/website-presentation-index.json',sha256:'813016309e1db751efd0d784be59494e3167bd18a39b64a82a066f86e09edd9b'});
+export const FINAL_FIVE_PRESENTATION=Object.freeze({path:'qa/final-delivery-20261021/website-presentation-index.json',sha256:'08548d567fc109ce660a7039214543af505f2b037bb36d5a99848752c59f8cc8'});
 const BASE347_ASSETS='635a0838674969ffab5bba9dd8f1a5edc161059822d1a1c29dd8fc40cc2a5c47';
 const sha=b=>createHash('sha256').update(b).digest('hex');
 async function local(root,path){assert(typeof path==='string'&&!path.startsWith('/')&&!path.includes('\\')&&path.split('/').every(p=>p&&p!=='.'&&p!=='..'));const full=resolve(root,path);assert.equal(await realpath(full),full,'Symlink substitution rejected');return readFile(full);}
