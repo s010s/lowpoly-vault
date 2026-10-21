@@ -1,0 +1,72 @@
+name: Capture five reviewed final cards
+on:
+  push:
+    branches: ['capture/final-five-card-20261021']
+permissions:
+  contents: read
+concurrency:
+  group: final-five-card-capture
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GALLERY_DIR: qa/ci-final-five-card/site
+      PREVIEW_OUTPUT: qa/ci-final-five-card/cards
+      PREVIEW_ASSET_IDS: caryocrinites,echinosphaerites,eleutherocrinus,micraster,nucleocrinus
+      PREVIEW_POSTERS_ONLY: '1'
+      CAPTURE_REFERENCE: '1'
+      PREVIEW_SIZE: '768'
+      PREVIEW_QUALITY: '0.9'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/final-five-card-capture.yml
+            /assets/additions/caryocrinites/candidate/caryocrinites.glb
+            /assets/additions/echinosphaerites/candidate/echinosphaerites.glb
+            /assets/additions/eleutherocrinus/candidate/eleutherocrinus.glb
+            /assets/additions/micraster/candidate/micraster.glb
+            /assets/additions/nucleocrinus/candidate/nucleocrinus.glb
+            /capture/build-card-viewer.mjs
+            /capture/check-and-stage.mjs
+            /capture/inputs.json
+            /capture/metadata/caryocrinites.json
+            /capture/metadata/echinosphaerites.json
+            /capture/metadata/eleutherocrinus.json
+            /capture/metadata/micraster.json
+            /capture/metadata/nucleocrinus.json
+            /package-lock.json
+            /package.json
+            /site/image-scrub.js
+            /site/refinable-asset-ids.mjs
+            /site/render-preset.js
+            /site/render-web-previews.mjs
+            /site/turntable-delivery.mjs
+            /site/viewer.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Check five frozen source and metadata inputs
+        run: node capture/check-and-stage.mjs --check
+      - name: Bundle unchanged native ModelStage renderer
+        run: node capture/build-card-viewer.mjs
+      - name: Stage only five subjects and an isolated empty image index
+        run: |
+          node capture/check-and-stage.mjs
+          mkdir -p assets/turntables
+          printf '%s\n' '{"version":1,"assets":[],"posters":[]}' > assets/turntables/index.json
+      - run: npx playwright install --with-deps chromium
+      - name: Capture fresh canonical PNG and WebP card pairs
+        run: node site/render-web-previews.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-five-card-capture
+          path: qa/ci-final-five-card/cards/
+          retention-days: 7
+      - run: echo 'Five source-bound canonical PNG and WebP pairs only. Independent image review, final metadata, gallery pairs, full CI and publication remain pending.' >> "$GITHUB_STEP_SUMMARY"

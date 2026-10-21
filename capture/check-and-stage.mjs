@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir,appendFile,realpath} from 'node:fs/promises';
+import {resolve,dirname} from 'node:path';import {createHash} from 'node:crypto';
+const input={"path": "capture/inputs.json", "sha256": "10170d631d621b1b06f08918dc75d082874c3521fd0087b1b13aa826e682879e"},exactIds=["caryocrinites", "echinosphaerites", "eleutherocrinus", "micraster", "nucleocrinus"];
+async function checked(pin){assert(/^(assets|capture)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').includes('..'));const p=resolve(pin.path);assert.equal(await realpath(p),p);const b=await readFile(p);assert.equal(createHash('sha256').update(b).digest('hex'),pin.sha256);return b;}
+const d=JSON.parse(await checked(input));assert.equal(d.publication_authority,false);assert.equal(d.capture_status,'not_run');assert.equal(d.images_present,false);assert.deepEqual(d.selected_ids.slice().sort(),exactIds);assert.deepEqual(d.assets.map(a=>a.id).sort(),exactIds);
+const assets=[];for(const e of d.assets){const a=JSON.parse(await checked(e.metadata)),b=await checked(e.glb);assert.equal(a.id,e.id);assert.equal(a.glb,e.glb.path);assert.equal(a.sha256.glb,e.glb.sha256);assert.equal(a.sha256.preview,null);if(!process.argv.includes('--check')){const target=resolve(process.env.GALLERY_DIR,a.glb);await mkdir(dirname(target),{recursive:true});await writeFile(target,b);}assets.push(a);}
+if(!process.argv.includes('--check')){await mkdir(resolve(process.env.GALLERY_DIR,'assets'),{recursive:true});await writeFile(resolve(process.env.GALLERY_DIR,'assets/manifest.json'),JSON.stringify({capture_only:true,publication_authority:false,assets}));}console.log('PASS: 5 exact source/metadata inputs; no publication or final-gallery authority.');
