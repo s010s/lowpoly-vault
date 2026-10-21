@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "rosary-shaped-chambered-burrow-hormosiroidea-type",
+  "revision": "r002",
+  "labels": {
+    "en": "Rosary-shaped chambered burrow, Hormosiroidea-type"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c26d58428112ca0a9b3c1579e31988b884590785d6e2f0d9a9e5e186cb5387d4"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "aca08d7920aebd9bcc6a240b11969990fa8fa45f87913bcc9ceaf1a0eca3c1dd"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "52ecdb3c9bbe61b420335931cf1770bff7a14b4ccad88499a7ee645009f15ddb"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "2cee225931489e095dfeba4c2a3efd19d13b4bd1162fe565ecac1a29152cd521"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "d9192024e84970f6d103dd44858bf2ef6961a2e9e72c44c2db8faec5138eb17d"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "31824dc8f75cf9d91f92ed971ba49999ebdcc46283865cd625c725d44cfef737"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "7222a15567cfcc7a9602cbe108d2fba94f1e8fcde77328adab91abba164cd758"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "7c6eddf4d7486511fb6ad3add52c010208c1c41b3928e6cba6b1145ee31a488a"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "2283966669b5e1b11fcf5dc4ec17f3d7e46a30c12206ca01f67df039f5638a07"
+      }
+    ],
+    "cross_view_consistency_note": "Every concept panel inspected. Keep connected curved pearl chain but reduce giant ball height and overly noisy rock texture. Actual reference is shallow relief; design will be a single continuous raised rock surface with narrow necks, no detached components or copied specimen cracks.",
+    "hidden_surface_decisions": "Every concept panel inspected. Keep connected curved pearl chain but reduce giant ball height and overly noisy rock texture. Actual reference is shallow relief; design will be a single continuous raised rock surface with narrow necks, no detached components or copied specimen cracks. Repair r002 constrains true chamber support inside the original radius range, without changing frozen design or acceptance criteria."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:38:39.658Z",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 28.867,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "7c6eddf4d7486511fb6ad3add52c010208c1c41b3928e6cba6b1145ee31a488a"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 24.2561,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "cc6cebd67355fc27e14eb0ac41983ef5193dc048c1224a6d957293830e4f021c"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "cc6cebd67355fc27e14eb0ac41983ef5193dc048c1224a6d957293830e4f021c"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "408e8a89689cb8a05e6940226271c99787d718419fb1bf08b54ad05195bc1ce0",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "405102239bb92c72d3d5517ebbca9091cdb594a54d51914f3c9ec05b80ddb5bb"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c26d58428112ca0a9b3c1579e31988b884590785d6e2f0d9a9e5e186cb5387d4",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "444966d7a5b6afa4a10ae9046d7581ff727d205b6e9ebb2e1ce280f179b5afe3"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}
