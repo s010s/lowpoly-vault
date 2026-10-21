@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+    "brief_sha256": "277bb7360e9bcb1d148eca8a9db6d2ff0f7a459d68ec0a5d0ad92efbfa970371",
+    "references_sha256": "5990bfd1f5aa11e19c7df54ec91f3f9a9660809c26aa32df60cdc1b3599e2869"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 4440,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 263568,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "report": {
+        "path": "production/small-life-batch97/bjuvia/r001/qa/static-glb.report.json",
+        "sha256": "553fe6271acb85148e1c79d3ae101f724ae7a94d04c95ee86976927ad654f7ef"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "report": {
+        "path": "production/small-life-batch97/bjuvia/r001/artifacts/gltf-validator.report.json",
+        "sha256": "e9d1b47d1dae0de653811b64110dd177bbdaed83fd4d5981983f0efe69df13cd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "report": {
+        "path": "production/small-life-batch97/bjuvia/r001/qa/source-export.report.json",
+        "sha256": "6e0b4f2b169c5de24cdad39d61106715499a7936c99dbbb7a90f361ff6b78bf4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "report": {
+        "path": "production/small-life-batch97/bjuvia/r001/qa/reproducibility-a.report.json",
+        "sha256": "c828f978be5667040743638d7df905e878a67b320380bb6a4268812b1539bcbd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "report": {
+        "path": "production/small-life-batch97/bjuvia/r001/qa/reproducibility-b.report.json",
+        "sha256": "4c325790c3ae78a8d81672bcb3b622032cd7df636ccd8c8e7cf1982d38016c79"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.05181112885475159,
+      0.0,
+      -0.0020999915432184935
+    ],
+    "max": [
+      0.05181112885475159,
+      0.5000056028366089,
+      0.0020999915432184935
+    ],
+    "size": [
+      0.10362225770950317,
+      0.5000056028366089,
+      0.004199983086436987
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "entire-strap-open-parallel-veins",
+      "vertices": 2608,
+      "triangles": 4440,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 8876,
+  "created_at": "2026-10-21T00:59:32.614417+00:00"
+}

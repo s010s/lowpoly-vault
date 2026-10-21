@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+    "brief_sha256": "46f72acc26090edb30b2bef7e823c4687d3cbc7b6cdb8cf80794a49c6a3b0484",
+    "references_sha256": "0764508e2f5da51fba3782fec8d4d089026a1267345b3c16e927f132b39955a0"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 5288,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 277476,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+      "report": {
+        "path": "production/small-life-batch97/noeggerathia/r002/qa/static-glb.report.json",
+        "sha256": "7db3c1f1e6c36afe41960895807c3a2fac9ec7c447ecf237822ac1f53f4e16fc"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+      "report": {
+        "path": "production/small-life-batch97/noeggerathia/r002/artifacts/gltf-validator.report.json",
+        "sha256": "918e4efe16b9541902e8e5646619e4e75c636f63aacfda5a6ff9ff147137475b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+      "report": {
+        "path": "production/small-life-batch97/noeggerathia/r002/qa/source-export.report.json",
+        "sha256": "1a51c990f5d129b7ddbf0f85677bb2b7aed6f8901cd022f23ef897d244f9c73a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+      "report": {
+        "path": "production/small-life-batch97/noeggerathia/r002/qa/reproducibility-a.report.json",
+        "sha256": "9c7da02b093d0c084117bfe59a301dcd8eb94829ccc2f61959ba69afd0c9c4b2"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "9afb01642523438c43be0671072141a44181aed0b09b50d2cfdc7251e7f89c9d",
+      "report": {
+        "path": "production/small-life-batch97/noeggerathia/r002/qa/reproducibility-b.report.json",
+        "sha256": "f2c3adb8e624b2bcfdfd97ae144253152547c3a90e87c5a5028ae1c8c9b1c2d1"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.06857701390981674,
+      0.0,
+      -0.0034796767868101597
+    ],
+    "max": [
+      0.06857701390981674,
+      0.5055968761444092,
+      0.0034796767868101597
+    ],
+    "size": [
+      0.13715402781963348,
+      0.5055968761444092,
+      0.006959353573620319
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "sterile-twelve-pair-wedge-pinnule-frond",
+      "vertices": 3270,
+      "triangles": 5288,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 9900,
+  "created_at": "2026-10-21T00:59:32.415978+00:00"
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "purpose": "Fresh97 Bjuvia versus exact prior Glossopteris, same actual lamina displayed0.5m length and neutral material/light/camera; no prior pixels reused. Comparison transforms are display-only, not delivered model edits.",
+  "pid": 7,
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/tools/compare-bjuvia-v002.py",
+    "--",
+    "--bjuvia",
+    "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/artifacts/bjuvia.glb",
+    "--glossopteris",
+    "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/glossopteris/r001/model.glb",
+    "--output",
+    "/workspace/shared/lowpoly-batch97-evidence/comparison-lamina-queue/render/bjuvia/r001/distinctness-lamina-comparison/801c348af93a7a547bb6c7d0d6904c64f8045f2b7d90a36ff0eca2decf33e352/20261021T004419-68c0361998ed42028361c31d3c407e10/outputs"
+  ],
+  "started_at": "2026-10-21T00:44:23.934709+00:00",
+  "finished_at": "2026-10-21T00:44:50.799137+00:00",
+  "renderer": "Blender Cycles CPU",
+  "blender_version": "4.3.2",
+  "script_sha256": "54fb6d83da8dc12429708e56ea135f05588a4d654cf03eef4c7f94afa45324eb",
+  "items": [
+    {
+      "name": "glossopteris",
+      "input_path": "/workspace/shared/lowpoly-batch84-20261020/production/batch84/assets/glossopteris/r001/model.glb",
+      "input_sha256": "825d60ab47580bb5edad23c15575f24febda482a3be5a2b57adabbc96e12672d",
+      "diagnostic_subset": "leaf and vein only; matrix excluded",
+      "original_axis_conversion_degrees_x": 90,
+      "display_uniform_scale": 3.125000069849195,
+      "same_display_length_m": 0.5,
+      "actual_unscaled_oriented_bounds_size_m": [
+        0.052965451031923294,
+        0.0009600119665265083,
+        0.1599999964237213
+      ],
+      "material": "same-neutral929292",
+      "frames": [
+        {
+          "view": "front",
+          "path": "glossopteris-front.png",
+          "sha256": "979eeb7b4d9e30ea6acfc9f436df8a32d52a5f0e1d7ebdbcd2925f0b0c47df4b",
+          "ortho_scale_m": 0.58,
+          "camera_position": [
+            0.0,
+            -2.0,
+            0.0
+          ]
+        },
+        {
+          "view": "oblique",
+          "path": "glossopteris-oblique.png",
+          "sha256": "7e6f52062d66b51262ff6483bdcf28416ba37e0c7eb6bddc07c164c1cb4e856e",
+          "ortho_scale_m": 0.58,
+          "camera_position": [
+            0.9934635162353516,
+            -1.4188129901885986,
+            1.0
+          ]
+        },
+        {
+          "view": "detail",
+          "path": "glossopteris-detail.png",
+          "sha256": "d338c7832c73be3244269c9c778fa50c495c19458ea181cbf96e21a7b73068fb",
+          "ortho_scale_m": 0.16,
+          "camera_position": [
+            0.0,
+            -2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bjuvia",
+      "input_path": "/workspace/shared/lowpoly-batch97-20261020/production/small-life-batch97/bjuvia/r001/artifacts/bjuvia.glb",
+      "input_sha256": "f59b09671da29cade1c0a249a0d935ae6117bf93e21d53933b6eb2b43de78ebf",
+      "diagnostic_subset": "entire candidate",
+      "original_axis_conversion_degrees_x": 0,
+      "display_uniform_scale": 0.9999887944523479,
+      "same_display_length_m": 0.5,
+      "actual_unscaled_oriented_bounds_size_m": [
+        0.10362225770950317,
+        0.004199983086436987,
+        0.5000056028366089
+      ],
+      "material": "same-neutral929292",
+      "frames": [
+        {
+          "view": "front",
+          "path": "bjuvia-front.png",
+          "sha256": "cfebd0575e151b29cfe71206c10e495a90822484a3f9c75e77069b3db00795fb",
+          "ortho_scale_m": 0.58,
+          "camera_position": [
+            0.0,
+            -2.0,
+            0.0
+          ]
+        },
+        {
+          "view": "oblique",
+          "path": "bjuvia-oblique.png",
+          "sha256": "59cfeb36aa8e4ca850d03ee2449ce8521b27ad73121ac05161b802baf423a1ac",
+          "ortho_scale_m": 0.58,
+          "camera_position": [
+            0.9934635162353516,
+            -1.4188129901885986,
+            1.0
+          ]
+        },
+        {
+          "view": "detail",
+          "path": "bjuvia-detail.png",
+          "sha256": "f5c0867d977f0775be25c03f1a19dc017a7606e173d186c0f95fd3307aeb3a9d",
+          "ortho_scale_m": 0.16,
+          "camera_position": [
+            0.0,
+            -2.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "generated-awaiting-personal-inspection",
+  "gpu_scene_claim": false
+}

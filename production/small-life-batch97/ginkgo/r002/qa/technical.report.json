@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+    "brief_sha256": "b6466b152c2c27e0d83c648085be5740bbbe3c06104f6c1b16f73219298e56ab",
+    "references_sha256": "04a30dac7ffa76865eabac4c27684032346d53d2f45ab213420bc30961cee114"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 3836,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 173024,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+      "report": {
+        "path": "production/small-life-batch97/ginkgo/r002/qa/static-glb.report.json",
+        "sha256": "06d2beb1d00ece0e82e17d26c112d106a8720816808c5d9f1a8424bb3b948233"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+      "report": {
+        "path": "production/small-life-batch97/ginkgo/r002/artifacts/gltf-validator.report.json",
+        "sha256": "85752932752bf5d7d67700d96fa038ea9039c88680d8884fb93b239028debdcd"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+      "report": {
+        "path": "production/small-life-batch97/ginkgo/r002/qa/source-export.report.json",
+        "sha256": "def9e14c1be5af5924f517dba5a5335d8b2770cc33e989a87a4426fb38739827"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+      "report": {
+        "path": "production/small-life-batch97/ginkgo/r002/qa/reproducibility-a.report.json",
+        "sha256": "7d62a4becded0531ecff15e909e6031b5a826ee7e655e7ea6cb7ea0516da9206"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "de1f8eae939e8328e4a28c611c8f2ee18c20485c7e85c70944111db2ea249d55",
+      "report": {
+        "path": "production/small-life-batch97/ginkgo/r002/qa/reproducibility-b.report.json",
+        "sha256": "e1e2bd1e469b1795c995b99e9781f3366515f71307e98ff389720efcd9d388ee"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.05286111310124397,
+      0.0,
+      -0.0019036964513361454
+    ],
+    "max": [
+      0.05286111682653427,
+      0.12753751873970032,
+      0.0019036964513361454
+    ],
+    "size": [
+      0.10572222992777824,
+      0.12753751873970032,
+      0.003807392902672291
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "six-lobed-jurassic-ginkgo-leaf",
+      "vertices": 2006,
+      "triangles": 3836,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 6088,
+  "created_at": "2026-10-21T00:59:32.086206+00:00"
+}

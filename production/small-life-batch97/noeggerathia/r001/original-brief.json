@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "asset_id": "noeggerathia",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly candidate. Independent review and publication remain separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect each exact final frame. Concept personally inspected00:32UTC. Keep wedge-rounded pinnules and basal/apical size sequence; image has too many pairs and central pinnule midribs with lateral branching. Final exactly12pairs, shallow teeth confined to distal margins and radiating equal vein forks, no pinnule midrib. No claim museum pixels resolve individual fine teeth.",
+      "required_sources": [
+        "SIMUNEK_BEK2003",
+        "NM2021_E122A"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One tapering gently curved rachis with twelve subopposite pairs of attached pinnules; first two pairs small, broad middle pinnules, narrow tapering terminal pairs. Pinnules are obovate-obcuneate, narrowed at base and broad rounded distally, with shallow distal teeth/lobes rather than long needle points. Fan-shaped dichotomous open venation without a central pinnule midrib; slight basiscopic overlap, thin closed lowrelief organ. One isolated complete sterile frond interpretation based on2003 primary text and actual holotype NM-E122a photograph, not wholeplant. Complete50cm extent is author-compatible reconstruction, not exact measured holotype. Fine denticles unresolved in museum photo; shallow distal dentition follows primary2003 text. No terminal cone, roots, trunk, cuticle anatomy or modern conifer reinterpretation.",
+      "required_sources": [
+        "SIMUNEK_BEK2003",
+        "NM2021_E122A"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight real512px exact-subject views and lossless sheet; CPU and Node are not GPU or scene evidence.",
+  "frozen_at": "2026-10-21T00:34:43.087497+00:00",
+  "subject": "Noeggerathia foliosa isolated sterile frond reconstruction",
+  "representation": "fossil-specimen",
+  "factual_scope": "One isolated complete sterile frond interpretation based on2003 primary text and actual holotype NM-E122a photograph, not wholeplant. Complete50cm extent is author-compatible reconstruction, not exact measured holotype. Fine denticles unresolved in museum photo; shallow distal dentition follows primary2003 text. No terminal cone, roots, trunk, cuticle anatomy or modern conifer reinterpretation.",
+  "identifying_features": [
+    "One tapering gently curved rachis with twelve subopposite pairs of attached pinnules; first two pairs small, broad middle pinnules, narrow tapering terminal pairs.",
+    "Pinnules are obovate-obcuneate, narrowed at base and broad rounded distally, with shallow distal teeth/lobes rather than long needle points.",
+    "Fan-shaped dichotomous open venation without a central pinnule midrib; slight basiscopic overlap, thin closed lowrelief organ."
+  ],
+  "scale": {
+    "units": "meters",
+    "axes": "Blender world XYZ; final transformed vertices, including caps, relief and grounding. GLB Y-up measured separately.",
+    "art_target_bounds_blender_xyz_m": [
+      0.16,
+      0.012,
+      0.5
+    ],
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.08,
+        0.25
+      ],
+      [
+        0.001,
+        0.04
+      ],
+      [
+        0.4,
+        0.65
+      ]
+    ],
+    "hard_component_extent_policy": "Every tagged solid component must have finite positive world extents, lie inside complete object hard bounds, and largest world extent <= complete object upper longest-axis bound. No scientific min thickness inferred. All actual transformed percomponent XYZ and PCA extents measured, with no hidden final scaling.",
+    "hard_ranges_are": "Broad authored display envelopes, not fossil measurements or scientific size limits. Nominal inputs are not separate equality requirements.",
+    "accuracy": "Interpretive educational art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Grounded lowest vertexz0, X/Ycentered; translation only, no final normalizing scale.",
+  "intended_use": {
+    "role": "Static catalog candidate",
+    "viewing": "512px CPU stills",
+    "limits": "No GPU, composed-scene or dynamics acceptance."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry; no alpha, textures, emission or double-sided defect concealment.",
+  "palette_srgb": [
+    "#705235",
+    "#987044",
+    "#BD975D",
+    "#806039"
+  ],
+  "component_and_cause": {
+    "primary": "One tapering gently curved rachis with twelve subopposite pairs of attached pinnules; first two pairs small, broad middle pinnules, narrow tapering terminal pairs.",
+    "secondary": "Pinnules are obovate-obcuneate, narrowed at base and broad rounded distally, with shallow distal teeth/lobes rather than long needle points.",
+    "tertiary": "Fan-shaped dichotomous open venation without a central pinnule midrib; slight basiscopic overlap, thin closed lowrelief organ.",
+    "quiet_region": "Broad muted lamina facets or open stem intervals."
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T00:34:43.087497+00:00",
+    "path": "production/small-life-batch97/concepts/noeggerathia-concept.png",
+    "sha256": "c2e9092bb1b11a3948df7e808667d633d73285c634f38fe070aa5d0eaae78934",
+    "decisions": "Concept personally inspected00:32UTC. Keep wedge-rounded pinnules and basal/apical size sequence; image has too many pairs and central pinnule midribs with lateral branching. Final exactly12pairs, shallow teeth confined to distal margins and radiating equal vein forks, no pinnule midrib. No claim museum pixels resolve individual fine teeth."
+  },
+  "parameters": {
+    "pinnule_pairs": 12,
+    "nominal_rachis_length_m": 0.5,
+    "nominal_pinnule_length_m": 0.075,
+    "nominal_pinnule_width_m": 0.043,
+    "distal_teeth_per_large_pinnule": 6,
+    "nominal_lamina_thickness_m": 0.0008
+  },
+  "numeric_semantics": "Integer counts are explicit construction choices, not fossil universals. Lengths/radii/widths are nominal artistic inputs; only separately declared hard world envelopes and budget ceilings are pass constraints. Actual component sizes and contact samples must be measured after every transform.",
+  "contact_policy": "Each named leaf base contacts its actual parent stem/rachis; each vein physically contacts its lamina; axis junctions and petiole blends have no exposed pedestal/collar or dangling sheets. Surface samples/ray parity and multidirectional pixels required, not centers alone.",
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts/bounds and all component world measurements",
+    "actual source reopen",
+    "two different real queued semantic rebuild PIDs with full input/request/result/time/hash closure",
+    "project/Khronos/Three checks",
+    "eight512px final views and lossless sheet"
+  ],
+  "prohibited": [
+    "Silently change original freeze or inventory",
+    "Treat concept or text summary as inspected factual pixels",
+    "Copy consulted pixels into models/publicGit",
+    "Hide geometry problems with camera/material",
+    "Claim maker is independent QA or CPU is GPU/scene"
+  ]
+}

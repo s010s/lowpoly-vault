@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "asset_id": "ginkgo",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational low-poly candidate. Independent review and publication remain separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect each exact final frame. Concept personally inspected; retain six-lobed fan and single long petiole, but image has seven fingerlike tips and wrong branching midvein hierarchy. Final exactly six broad elongate lobes, fine near-equal dichotomous veins. No modern biloba or branch.",
+      "required_sources": [
+        "HKU_CH105"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One long narrow petiole joins a continuous basal fan lamina with six elongate rounded lobes and five deep sinuses, deepest central cleft. Fine radiating dichotomous veins fan from basal attachment into each lobe; no central dicot midrib or reticulate cross-veins. Thin closed slightly folded fossil-organ volume without a slab or invented branch. One isolated fossil leaf organ with petiole, inspired by CH105. Original inventory misleading short-shoot/broad-biloba wording corrected before freeze and preserved unchanged. No branch, complete parent, reproductive organs, modern biloba phenotype or exact specimen cast. Six lobes are an illustrative simplification of visible divisions; color, thickness and size illustrative.",
+      "required_sources": [
+        "HKU_CH105"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight real512px exact-subject views and lossless sheet; CPU and Node are not GPU or scene evidence.",
+  "frozen_at": "2026-10-21T00:34:43.087497+00:00",
+  "subject": "Ginkgo yimaensis CH105-inspired isolated divided leaf",
+  "representation": "fossil-specimen",
+  "factual_scope": "One isolated fossil leaf organ with petiole, inspired by CH105. Original inventory misleading short-shoot/broad-biloba wording corrected before freeze and preserved unchanged. No branch, complete parent, reproductive organs, modern biloba phenotype or exact specimen cast. Six lobes are an illustrative simplification of visible divisions; color, thickness and size illustrative.",
+  "identifying_features": [
+    "One long narrow petiole joins a continuous basal fan lamina with six elongate rounded lobes and five deep sinuses, deepest central cleft.",
+    "Fine radiating dichotomous veins fan from basal attachment into each lobe; no central dicot midrib or reticulate cross-veins.",
+    "Thin closed slightly folded fossil-organ volume without a slab or invented branch."
+  ],
+  "scale": {
+    "units": "meters",
+    "axes": "Blender world XYZ; final transformed vertices, including caps, relief and grounding. GLB Y-up measured separately.",
+    "art_target_bounds_blender_xyz_m": [
+      0.13,
+      0.006,
+      0.13
+    ],
+    "hard_world_bbox_size_ranges_xyz_m": [
+      [
+        0.06,
+        0.18
+      ],
+      [
+        0.001,
+        0.02
+      ],
+      [
+        0.09,
+        0.2
+      ]
+    ],
+    "hard_component_extent_policy": "Every tagged solid component must have finite positive world extents, lie inside complete object hard bounds, and largest world extent <= complete object upper longest-axis bound. No scientific min thickness inferred. All actual transformed percomponent XYZ and PCA extents measured, with no hidden final scaling.",
+    "hard_ranges_are": "Broad authored display envelopes, not fossil measurements or scientific size limits. Nominal inputs are not separate equality requirements.",
+    "accuracy": "Interpretive educational art, not specimen cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Grounded lowest vertexz0, X/Ycentered; translation only, no final normalizing scale.",
+  "intended_use": {
+    "role": "Static catalog candidate",
+    "viewing": "512px CPU stills",
+    "limits": "No GPU, composed-scene or dynamics acceptance."
+  },
+  "surface_profile": "Opaque flat-faceted full-volume geometry; no alpha, textures, emission or double-sided defect concealment.",
+  "palette_srgb": [
+    "#6F5436",
+    "#A4824D",
+    "#C5A66C",
+    "#84673D"
+  ],
+  "component_and_cause": {
+    "primary": "One long narrow petiole joins a continuous basal fan lamina with six elongate rounded lobes and five deep sinuses, deepest central cleft.",
+    "secondary": "Fine radiating dichotomous veins fan from basal attachment into each lobe; no central dicot midrib or reticulate cross-veins.",
+    "tertiary": "Thin closed slightly folded fossil-organ volume without a slab or invented branch.",
+    "quiet_region": "Broad muted lamina facets or open stem intervals."
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-21T00:34:43.087497+00:00",
+    "path": "production/small-life-batch97/concepts/ginkgo-concept.png",
+    "sha256": "c639f6ff8d7c83634d843f96132c1b21e4a3b4184c1722927cf8bf83e5d5571d",
+    "decisions": "Concept personally inspected; retain six-lobed fan and single long petiole, but image has seven fingerlike tips and wrong branching midvein hierarchy. Final exactly six broad elongate lobes, fine near-equal dichotomous veins. No modern biloba or branch."
+  },
+  "parameters": {
+    "lobe_count": 6,
+    "nominal_petiole_length_m": 0.052,
+    "nominal_lamina_radius_m": 0.075,
+    "nominal_lamina_thickness_m": 0.0009,
+    "terminal_veins_per_lobe": 4
+  },
+  "numeric_semantics": "Integer counts are explicit construction choices, not fossil universals. Lengths/radii/widths are nominal artistic inputs; only separately declared hard world envelopes and budget ceilings are pass constraints. Actual component sizes and contact samples must be measured after every transform.",
+  "contact_policy": "Each named leaf base contacts its actual parent stem/rachis; each vein physically contacts its lamina; axis junctions and petiole blends have no exposed pedestal/collar or dangling sheets. Surface samples/ray parity and multidirectional pixels required, not centers alone.",
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts/bounds and all component world measurements",
+    "actual source reopen",
+    "two different real queued semantic rebuild PIDs with full input/request/result/time/hash closure",
+    "project/Khronos/Three checks",
+    "eight512px final views and lossless sheet"
+  ],
+  "prohibited": [
+    "Silently change original freeze or inventory",
+    "Treat concept or text summary as inspected factual pixels",
+    "Copy consulted pixels into models/publicGit",
+    "Hide geometry problems with camera/material",
+    "Claim maker is independent QA or CPU is GPU/scene"
+  ]
+}
