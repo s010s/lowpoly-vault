@@ -1,0 +1,141 @@
+{
+  "argv": [
+    "/usr/bin/flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--threads",
+    "2",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105/tools/render-macro.py",
+    "--",
+    "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.glb",
+    "--output-dir",
+    "/workspace/shared/lowpoly-batch105-archimedes-repair-evidence/queue/render/archimedes/r002/lower-end/5fd397f0ad7f072cd3f7a0dd371ecb512ba78de0f4c5d3fb5fad82865767a3df/20261021T052144-044fd012e35543b191ced3252957d88c/outputs/views",
+    "--revision",
+    "r002",
+    "--brief",
+    "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/delivery-brief.json",
+    "--references",
+    "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/references.json",
+    "--resolution",
+    "512",
+    "--samples",
+    "16",
+    "--turntable-frames",
+    "0",
+    "--views",
+    "detail",
+    "--detail-target",
+    "0.5,0.5,0.08",
+    "--detail-scale",
+    "0.18"
+  ],
+  "created_at": "2026-10-21T05:21:44.102403+00:00",
+  "fingerprint": "5fd397f0ad7f072cd3f7a0dd371ecb512ba78de0f4c5d3fb5fad82865767a3df",
+  "identity": {
+    "executable": {
+      "bytes": 35288,
+      "path": "/usr/bin/flock",
+      "sha256": "231d0d5879ff18acd8edcedb791be807cc7507df4dcfd7a17269d54bbeef21e1"
+    },
+    "inputs": {
+      "asset_common": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "brief": {
+        "bytes": 8821,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/delivery-brief.json",
+        "sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d"
+      },
+      "glb": {
+        "bytes": 673416,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.glb",
+        "sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475"
+      },
+      "qa_glb": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "references": {
+        "bytes": 2348,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/references.json",
+        "sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "renderer": {
+        "bytes": 16209,
+        "path": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105/tools/render-macro.py",
+        "sha256": "5ce1d03722d7a77544c2e87700371ee6048ec451d3bdd0f0f4131284aec881af"
+      }
+    },
+    "job": {
+      "argv": [
+        "/usr/bin/flock",
+        "/tmp/lowpoly-production-blender.lock",
+        "/usr/bin/blender",
+        "-b",
+        "--threads",
+        "{threads}",
+        "--factory-startup",
+        "--disable-autoexec",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "{input:renderer}",
+        "--",
+        "{input:glb}",
+        "--output-dir",
+        "{output_dir}/views",
+        "--revision",
+        "r002",
+        "--brief",
+        "{input:brief}",
+        "--references",
+        "{input:references}",
+        "--resolution",
+        "512",
+        "--samples",
+        "16",
+        "--turntable-frames",
+        "0",
+        "--views",
+        "detail",
+        "--detail-target",
+        "0.5,0.5,0.08",
+        "--detail-scale",
+        "0.18"
+      ],
+      "asset_id": "archimedes",
+      "inputs": {
+        "asset_common": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/scripts/asset_common.py",
+        "brief": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/delivery-brief.json",
+        "glb": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.glb",
+        "qa_glb": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/scripts/qa_glb.py",
+        "references": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105-archimedes-repair/r002/references.json",
+        "renderer": "/workspace/shared/lowpoly-batch105-archimedes-repair-20261021/production/small-life-batch105/tools/render-macro.py"
+      },
+      "job_id": "lower-end",
+      "outputs": [
+        "views/render-config.json",
+        "views/render-manifest.json",
+        "views/turntable.json",
+        "views/detail.png"
+      ],
+      "revision": "r002"
+    },
+    "lane": "render",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 600.0
+  },
+  "run_id": "20261021T052144-34e39d45d1ed47e59fe7a2e7e8487e8e"
+}

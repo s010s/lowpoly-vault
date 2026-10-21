@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "archimedes",
+  "revision": "r002",
+  "maker": {
+    "id": "batch105-archimedes-repair-maker",
+    "task_id": "repair_archimedes_endpoints"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.glb",
+      "sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475"
+    },
+    "brief": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/delivery-brief.json",
+      "sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d"
+    },
+    "references": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/references.json",
+      "sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+    },
+    "source": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/artifacts/archimedes.blend",
+      "sha256": "a3cbef0d7283439fab6379064ec0ff27310259ecfcd8c2400587f7719e93ddf7"
+    },
+    "generator": {
+      "path": "production/small-life-batch105-archimedes-repair/tools/generate.py",
+      "sha256": "fc75e5fd9f9839ed6075874739f8c941d8f6321ef79bc8f7e77c48a6ef999a2d"
+    },
+    "config": {
+      "path": "production/small-life-batch105-archimedes-repair/r002/config.json",
+      "sha256": "3bdeb18c60be379ab11a21122b9e2428969d91ffa50850d4bb1e0929c7252b0e"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch105-archimedes-repair/dependencies.json",
+      "sha256": "25cbf8557dd531a037b7a3915e7b5d53947912eb7e618401b21372410811dcda"
+    }
+  },
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "path": "production/small-life-batch105-archimedes-repair/r002/qa/technical.report.json",
+      "sha256": "1e9e3dec302ea5a595c0cc013927d928c539b3d2c3b23b2236dece5aa879a080"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "path": "production/small-life-batch105-archimedes-repair/r002/qa/runtime-parse.report.json",
+      "sha256": "a84ab3a1281cea1e99fc43f47e3b30cf383cf1e77d04cb607befe2fb8781e7be"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "path": "production/small-life-batch105-archimedes-repair/r002/views/render-manifest.json",
+      "sha256": "7596090335d7035f0cbcb3c61d1d262d8dbefefb115cbda275f661cb5b20ea5b"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch105-archimedes-repair-maker",
+        "task_id": "repair_archimedes_endpoints"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Automated exact-subject proof, not independent approval."
+        }
+      ],
+      "note": "Automated exact-subject checks completed.",
+      "reviewed_at": "2026-10-21T05:22:29.467004+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "Fresh independent review pending; maker observations separate."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch105-archimedes-repair-maker",
+        "task_id": "repair_archimedes_endpoints"
+      },
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "f89d607a4ede8bb0c7388188404f916062b4f46ca751811270348b398677f475",
+        "brief_sha256": "f8de1815563c8d6f105499f57af8ae69d73653bf26670a0d54512735895e5f8d",
+        "references_sha256": "4b915e75c02c88b1ecddaf2f5a84334b5d2f469e4c61fc0c954246d162f40d09"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Automated exact-subject proof, not independent approval."
+        }
+      ],
+      "note": "Automated exact-subject checks completed.",
+      "reviewed_at": "2026-10-21T05:22:29.467028+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "GPU/composed-scene not run."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Unrun or fresh independent review pending."
+        }
+      ],
+      "note": "GPU/composed-scene not run."
+    }
+  },
+  "blockers": [
+    {
+      "id": "independent-review-pending",
+      "status": "open",
+      "description": "Fresh independent visual/factual/specification acceptance pending."
+    },
+    {
+      "id": "gpu-scene-unrun",
+      "status": "open",
+      "description": "Actual target GPU and composed scene not run. No publication approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}
