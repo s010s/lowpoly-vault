@@ -1,0 +1,5 @@
+# Maker observations, not independent approval
+
+Personally opened all8 exact512px finalframes. Hero/front/rear show six near-subopposite pairs on a slender naked axis, broad rounded cupules rather than distal-slit eggs. Side/top reveal actual shallow3D thickness and stalk relationship; proximal small mouth/lip oriented back toward attachment, not upward dehiscent slit. Clay/silhouette confirm fullvolume closed rounded bodies. No foliage,trunk,roots,individual bracts or speculative visible seed arrangement; cupule not fruit. 3D depth/pose and wholeplant association uncertainty retained. Actual worldbounds and mouthorientation checked separately; CPU not independent/GPU/scene acceptance.
+
+Every individual final512px frame was personally opened. Final contact sheet is a lossless arrangement without image resampling, not a substitute for individual inspection. Exact subject GLB bfc40984e83cf7d181ad6ac0ec9e7912f7e2a091a77dbebfed4d18c8d5a990a9. Original source uncertainty retained in frozen brief and ledger. No GPU, scene, formal, independent or user approval.

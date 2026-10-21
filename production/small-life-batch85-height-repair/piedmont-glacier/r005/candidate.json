@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "asset_id": "piedmont-glacier",
+  "revision": "r005",
+  "maker": {
+    "id": "batch85-height-repair-maker",
+    "task_id": "repair_batch85_height_limits"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/piedmont-glacier.glb",
+      "sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279"
+    },
+    "brief": {
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/delivery-brief.json",
+      "sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e"
+    },
+    "references": {
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/references.json",
+      "sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+    },
+    "source": {
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/artifacts/piedmont-glacier.blend",
+      "sha256": "03272197d50122e7c9ef178db753ec90159b416e2fcec98a05fc46f102fb9b8c"
+    },
+    "generator": {
+      "path": "production/small-life-batch85-height-repair/tools/generate.py",
+      "sha256": "26751bae0a598103e71cfa6ea8a5ba5570949223ad99dd5dffb0ecefecb61e28"
+    },
+    "config": {
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/config.json",
+      "sha256": "1302dcccdd2230f4dbb561ca4476ad97dc75b046dcf722f289d3c954466a9de6"
+    },
+    "dependencies": {
+      "path": "production/small-life-batch85-height-repair/dependencies.json",
+      "sha256": "3d17758576d75a5dc11da7f51b3912741d3872b60d7071ebde349147f7e71d69"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "technical",
+      "stage": "technical",
+      "kind": "technical_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/technical.report.json",
+      "sha256": "d7ea905fa77646d8760d012b6b39a64a9476072531f76276549aaebf0b79b92f"
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "kind": "runtime_parse_report",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/qa/runtime-parse.report.json",
+      "sha256": "239b9874297dfa2727869e5208c1aa06e9226b1e456bff88aa3e98e1a28cee18"
+    },
+    {
+      "id": "final-views",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "path": "production/small-life-batch85-height-repair/piedmont-glacier/r005/views/render-manifest.json",
+      "sha256": "1b0bdbf827efb096013c498fd589ddaca05e3eaf8358e6c4086a1ff7551bb696"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch85-height-repair-maker",
+        "task_id": "repair_batch85_height_limits"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "evidence": [
+        "technical"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "pass",
+          "evidence": [
+            "technical"
+          ],
+          "note": "Actual checks and raw provenance pinned."
+        }
+      ],
+      "note": "Maker automated exact-subject checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-20T21:58:47.791281+00:00"
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "final-views"
+      ],
+      "inspected_references": [
+        "NPS-GLACIER",
+        "NPS-MALASPINA"
+      ],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending.",
+      "inspected_frames": [
+        "hero",
+        "reversehero",
+        "front",
+        "side",
+        "rear",
+        "top",
+        "clay",
+        "silhouette"
+      ]
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [
+        "NPS-GLACIER",
+        "NPS-MALASPINA"
+      ],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Maker inspection and original frozen-height repair completed; fresh independent approval pending."
+    },
+    "runtime_parse": {
+      "status": "pass",
+      "reviewer": {
+        "id": "batch85-height-repair-maker",
+        "task_id": "repair_batch85_height_limits"
+      },
+      "subject": {
+        "revision": "r005",
+        "glb_sha256": "454b7ae3b459daec6fc74fbb096c357e28dd59b0ab32f066789ac7dcc5242279",
+        "brief_sha256": "de3242b3b08630b979ea9bebd23fd6d3e41a679944b5d67712701f4e954ca16e",
+        "references_sha256": "0ddff5668e94f79d74ac9b96b17c556551471a4aa87d397dde3a82df3151707f"
+      },
+      "evidence": [
+        "runtime"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "pass",
+          "evidence": [
+            "runtime"
+          ],
+          "note": "Actual checks and raw provenance pinned."
+        }
+      ],
+      "note": "Maker automated exact-subject checks only; not independent acceptance.",
+      "reviewed_at": "2026-10-20T21:58:47.791301+00:00"
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; CPU stills do not establish GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Not yet reviewed."
+        }
+      ],
+      "note": "Not run; no intended composed scene or website acceptance."
+    }
+  },
+  "blockers": [
+    {
+      "id": "fresh-independent-difference-review-pending",
+      "status": "open",
+      "description": "Independent visual/factual/specification difference review of these exact new revisions pending."
+    },
+    {
+      "id": "gpu-scene-not-run",
+      "status": "open",
+      "description": "GPU and composed scene unrun; no formal/user/publication approval."
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  }
+}

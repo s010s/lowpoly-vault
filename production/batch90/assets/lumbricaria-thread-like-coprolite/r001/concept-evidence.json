@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "lumbricaria-thread-like-coprolite",
+  "revision": "r001",
+  "labels": {
+    "en": "Lumbricaria thread-like coprolite"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "5c473c15091b75f6c1bd82d10d9cd478e1877369e4fc5d101dcea5653144a76e"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "dc63489ccfe424b8813a43a676de091c19db9ca2304baced93f3f85edfc589f8"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "6f083d71ab8b13e40a4a5163337cf295f63aab9314b85c2c5d7ca05c9e2d931d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "ca3ffd846f58d6d91df19dd5b707ebfec79f9e61a7dd1cb3264ab6f58068df5a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "841b81b7f02da587e5293ab9ad38255fdd277875c0bf8d704cd28685d178f43c"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6a242bb2c128b202549d4423f387f9f4d897894af33952e7f03e62d5a2925f2c"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "6cc060a36aa5d35dc2eebed46b160c1889757c46412d9c1fa8f2f0a03eb6d7ff"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "de8cca5ef33445619270ece89182457dfcddd3a2e179932560c9b23941322f8d"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "3c6bae77db06a1cb75f91c62f84022683f6f96e5267533d685a5ced8f88c678b"
+      }
+    ],
+    "cross_view_consistency_note": "All actual concept views inspected. Preserve airy compact looping slender cords and full slab thickness, quiet negative space. Correct overly dense minor surface texture to broad lowpoly facets and keep geometric narrow cords; intersections treated as compressed union to avoid z-fighting. No source cracks copied.",
+    "hidden_surface_decisions": "All actual concept views inspected. Preserve airy compact looping slender cords and full slab thickness, quiet negative space. Correct overly dense minor surface texture to broad lowpoly facets and keep geometric narrow cords; intersections treated as compressed union to avoid z-fighting. No source cracks copied."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:38:43.482Z",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 113.027,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "de8cca5ef33445619270ece89182457dfcddd3a2e179932560c9b23941322f8d"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 29.0422,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b14bb952842f3aecabe9c95592886322e1f7c97ad7f22c1ae692fe88a16983cf"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b14bb952842f3aecabe9c95592886322e1f7c97ad7f22c1ae692fe88a16983cf"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "fc735ee235b655976f400afc40c66575e03b0c51683cacaf7e2ee7c5e4f0fda0",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "fe658eda41adc1c55a6327ce6cbeb5d73ef05768d1c35d3d16ab517497d85239"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "5c473c15091b75f6c1bd82d10d9cd478e1877369e4fc5d101dcea5653144a76e",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "6b9bce0aa0c760504eb4d768bc81d067bd48468abf7d531baa340cd98c6157e9"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

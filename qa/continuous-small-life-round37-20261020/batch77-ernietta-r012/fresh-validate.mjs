@@ -1,0 +1,12 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {createRequire} from 'node:module';
+const N='/workspace/shared/lowpoly-landair-web-integration/node_modules/';
+const require=createRequire(N+'package.json');const validator=require('gltf-validator');
+const {GLTFLoader}=await import(N+'three/examples/jsm/loaders/GLTFLoader.js');const {Box3,Vector3,REVISION}=await import(N+'three/build/three.module.js');
+const A='/workspace/shared/lowpoly-batch77-ernietta-repair-20261020/production/batch77-ernietta-repair/assets/ernietta/r012';const Q='/workspace/shared/lowpoly-ernietta-r012-independent-qa-20261020';
+const bytes=fs.readFileSync(A+'/model.glb');const hash=crypto.createHash('sha256').update(bytes).digest('hex');
+const validation=await validator.validateBytes(new Uint8Array(bytes),{uri:'model.glb',maxIssues:10000,severityOverrides:{ACCESSOR_INDEX_TRIANGLE_DEGENERATE:0},externalResourceFunction:async uri=>{throw Error('External resource forbidden '+uri)}});
+fs.writeFileSync(Q+'/khronos-fresh.json',JSON.stringify({checked_at:new Date().toISOString(),glb_sha256:hash,version:validator.version(),...validation},null,2)+'\n');
+if(validation.issues.numErrors||validation.issues.numWarnings)throw Error('Khronos issues');
+const g=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');g.scene.updateMatrixWorld(true);let triangles=0,meshes=0,positionVertices=0;const materials=new Set();
+g.scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;positionVertices+=o.geometry.attributes.position.count;for(const x of o.geometry.attributes.position.array)if(!Number.isFinite(x))throw Error('Nonfinite position');for(const m of (Array.isArray(o.material)?o.material:[o.material]))materials.add(m.uuid);}});
+const box=new Box3().setFromObject(g.scene);const report={checked_at:new Date().toISOString(),glb_sha256:hash,status:'pass',three_version:'0.180.0',revision:REVISION,parser:'Node GLTFLoader.parseAsync',triangles,meshes,materials:materials.size,exported_position_vertices:positionVertices,bounds_glb_xyz_m:{min:box.min.toArray(),max:box.max.toArray(),size:box.getSize(new Vector3()).toArray()},gpu:'not_run',scene:'not_run'};fs.writeFileSync(Q+'/three-fresh.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

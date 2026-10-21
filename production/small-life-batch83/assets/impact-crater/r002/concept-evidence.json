@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "impact-crater",
+  "revision": "r002",
+  "labels": {
+    "en": "impact-crater"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "cfd50732977a30859163cfee30ce7190324830c07500a26ce63aeaa47a67cd43"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "d206de0e81efb51f06985e16a15858ff79661be283626337ba7da97ad6c7e1ac"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "207e60ddde923d2b4701e0dbfe988769a286311129922d1c6ca3d2668d70ba64"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "eea31ceef4f9fc84b0cfd79b5b5927e3b321c469d52495f726a1e3236db07c25"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "e4fb6c38ddb9499cb23070dfac0583eda37188daf37b7cc98a032cf9de92a4f4"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "ddd64c66f5964a14e25b4c235514ddc39199beb4fb96fa3d361023452e80ffb7"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "b183af5a2856514435ab35f3867e5d0fd07e1d0a9ec06ab9268e5916519dbfdf"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "250684539405b02a926bc892b7db56951472189f3abdf6a613df45ae0dd4616e"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "3289c02bdfdf26cbb71f92ef38386ca0a133c4c4032496e028a484b3c17d2883"
+      }
+    ],
+    "cross_view_consistency_note": "Concept has correct lowered bowl and raised rim; remove photograph-like grain and orderly horizontal cut-base stripes, no central raised object. Build continuous volume irregular near-round terrain apron with plain level around260m, broken rim around380-420m, bowl floor around35m above lower cut. Bowl remains below surrounding plain, not cone with summit pit. Small irregular radial erosional cuts integrated into inward walls; natural asymmetry avoiding donut torus and perfectly repeated sectors. Ejecta apron merges gradually into plain, no separate clasts crossing coplanar surfaces.",
+    "hidden_surface_decisions": "Concept has correct lowered bowl and raised rim; remove photograph-like grain and orderly horizontal cut-base stripes, no central raised object. Build continuous volume irregular near-round terrain apron with plain level around260m, broken rim around380-420m, bowl floor around35m above lower cut. Bowl remains below surrounding plain, not cone with summit pit. Small irregular radial erosional cuts integrated into inward walls; natural asymmetry avoiding donut torus and perfectly repeated sectors. Ejecta apron merges gradually into plain, no separate clasts crossing coplanar surfaces."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:27:08Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 42.0104,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "e8c4dade98c5d0158cf21702063aa54090c4229ef91635e4161fd36f04f55457"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "e8c4dade98c5d0158cf21702063aa54090c4229ef91635e4161fd36f04f55457"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "7652fe19effd074a7295a3d9568417f7400b52d64049f6aca2951070eda7e50e",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "ab4880e3d071eaef3b4f3cec771bb254a58625d2e45ee9f2e5c66df3483a00e9"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "cfd50732977a30859163cfee30ce7190324830c07500a26ce63aeaa47a67cd43",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "de60fd91f84a7b89c04e3da499dc001fc19ebb999f222b5f4cd40806d3464de0"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "calamites",
+  "revision": "r001",
+  "maker": {
+    "id": "batch94 maker",
+    "task_id": "/root/resume_parallel_model_production/resume_batch94_recovery2"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch94/assets/calamites/r001/model.glb",
+      "sha256": "44fec258d990ba04a28211ecd8f0c6bfc25071e2a8fdadf7fc864507c9168238"
+    },
+    "brief": {
+      "path": "production/batch94/assets/calamites/r001/candidate-brief.json",
+      "sha256": "4977a5d058a827eb6f2f45909d26a583cebc4bcd5f3965df97e3e907dbc8f740"
+    },
+    "references": {
+      "path": "production/batch94/assets/calamites/r001/references.json",
+      "sha256": "9d09bf4cfa5eed82c9c6e28576cd2b5b131b4766aeef2650d23a55f8037f14e5"
+    },
+    "source": {
+      "path": "production/batch94/assets/calamites/r001/source.blend",
+      "sha256": "b3e099291afb1f181bac0f4d712471e297686175e9a9f78aa9086adfb16f79b5"
+    },
+    "generator": {
+      "path": "production/batch94/assets/calamites/r001/generator.py",
+      "sha256": "1d9028140b1e906692318438ef825b9455d6755f17cb19a49695bed78fb82d91"
+    },
+    "config": {
+      "path": "production/batch94/assets/calamites/r001/build-config.json",
+      "sha256": "e94fe2617a11591fa5135c5e9cbfc91277d9d2d2069e84021ed5709a38fa00cd"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r001",
+        "glb_sha256": "44fec258d990ba04a28211ecd8f0c6bfc25071e2a8fdadf7fc864507c9168238",
+        "brief_sha256": "4977a5d058a827eb6f2f45909d26a583cebc4bcd5f3965df97e3e907dbc8f740",
+        "references_sha256": "9d09bf4cfa5eed82c9c6e28576cd2b5b131b4766aeef2650d23a55f8037f14e5"
+      },
+      "path": "production/batch94/assets/calamites/r001/proof-final/render-manifest.json",
+      "sha256": "5f7c8fcfc43bf9e6ae10e57afd180e32e46d5cbc85d3f0becd869eeb30189740"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before original freeze. Exact species/habit, organ-association and scale uncertainties remain explicit in own frozen ledgers. Generated concepts are design aids, not factual sources. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch94/assets/calamites/r001/metrics.json",
+      "sha256": "1b92989d14627e634340c8f32584d6fe88cad7dfa0dd39b1a9cb44a33332bff3"
+    },
+    "source-metrics.json": {
+      "path": "production/batch94/assets/calamites/r001/source-metrics.json",
+      "sha256": "8ed4d5ffe7830ed4b019b2cb05dd0d1571c2a09079a61ddbf3443226a466891f"
+    },
+    "project-audit.json": {
+      "path": "production/batch94/assets/calamites/r001/project-audit.json",
+      "sha256": "dfcb847079a806fefb17d2fa0aeb45f27efcd04a86c6276a37dfe85782356361"
+    },
+    "source-final.report.json": {
+      "path": "production/batch94/assets/calamites/r001/source-final.report.json",
+      "sha256": "51e24400f45302fbfbdc68b17d6ab1e4e70969430fe3535e9c8c58b42d36822b"
+    },
+    "final-measurement.json": {
+      "path": "production/batch94/assets/calamites/r001/final-measurement.json",
+      "sha256": "8d403919f71a8d47be81c57d214c3e52d712c967aab2374b6b15aeb0eb392a69"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch94/assets/calamites/r001/repro-final-1.report.json",
+      "sha256": "f506c43d6690bbade5b3356ad0f0009ec4930738b87c419a8a4909c2ee2371cd"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch94/assets/calamites/r001/repro-final-2.report.json",
+      "sha256": "c3b82633e8fd8e8e1643b9001446ce08afeeb7db283efd552a580b98d33a1a69"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch94/assets/calamites/r001/gltf-validator.report.json",
+      "sha256": "682394875b48b10081a3c864bd8a0fe87581f12e52387b319000c73b7889a95a"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch94/assets/calamites/r001/runtime-parse.report.json",
+      "sha256": "3b6960ca156cee58b2eb2f76b0c3e7de8ca21133112091c1dc9a5b56894701e7"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch94/assets/calamites/r001/build-dependencies.json",
+      "sha256": "b116ae7a6a68d4baeebba0644a1ed4ac69c0412c5b3258f024b6118f1915cdb2"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch94/assets/calamites/r001/pixel-inspection.json",
+      "sha256": "ce1d57ead610e66387d78d81e34c25cf526395805401c05e96cb6b0f0e40ddcf"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch94/assets/calamites/r001/contact-sheet.png",
+      "sha256": "677994709060cd53c0c2d4def18a353fe99183b796884a85f829e27694afa5db"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch94/assets/calamites/r001/preproof-binding.json",
+      "sha256": "dacda9daa77c07d68b70b33e9f2db425f617e3c8e33cbc5b0b55484c4f3eb46c"
+    }
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "schema_version": 1,
+  "batch": 93,
+  "reviewer": "fresh independent batch93 reviewer,not maker",
+  "source_commit": "2cbc3cbb206d81c2383eada3a3f142c2b2c5cd82",
+  "source_branch": "candidate/small-life-batch93-concept-20261020",
+  "source_root": "/workspace/shared/lowpoly-batch93-20261020",
+  "review_observation_window_tool_utc": [
+    "2026-10-20T23:32:37Z",
+    "2026-10-20T23:43:40Z"
+  ],
+  "result_counts": {
+    "REVISE": 2,
+    "PASS_STATIC_ONLY": 2
+  },
+  "overall": "REVISE",
+  "assets": [
+    {
+      "asset_id": "omphalophloios",
+      "revision": "r004",
+      "outcome": "REVISE",
+      "exact_subject": {
+        "glb": {
+          "path": "production/small-life-batch93/omphalophloios/r004/artifacts/omphalophloios.glb",
+          "sha256": "b2d1c4812b097feba01b452a3b7a39b5948858a5f0340f1f36da199093aaf58d"
+        },
+        "brief": {
+          "path": "production/small-life-batch93/omphalophloios/r004/delivery-brief.json",
+          "sha256": "e1d7026591f3d633681b5ae95a5935e1c563e7436bd530e486524c3041bad084"
+        },
+        "references": {
+          "path": "production/small-life-batch93/omphalophloios/r001/references.json",
+          "sha256": "9738e750e475dd92040badfc5b713e433e2fca41a2c7d39c04807c22d91517aa"
+        }
+      },
+      "source": {
+        "path": "production/small-life-batch93/omphalophloios/r004/artifacts/omphalophloios.blend",
+        "sha256": "47d45745b0671c73a4202e9a16d64a40a441f11be5a4857b14ed0bbdce1e1a71"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "fail",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "issues": [
+        {
+          "id": "O93-main-fork-sleeve",
+          "severity": "revision_required",
+          "basis": "Original visual acceptance and required scrutiny of intersecting-component surfaces. No new full-ring-containment or zero-intersection rule is introduced.",
+          "finding": "A protruding faceted sleeve/lower lip surrounds the main fork. It is visible in original512 front/side/rear and both newly rendered exact-GLB junction details. The first two branch bases are fully inside the trunk and all94 joints have overlap, so this is a visible exterior transition defect, not floating geometry.",
+          "required_repair": "Reshape the actual main-fork exterior into a coherent tapered branch junction while preserving the five binary branch orders,32 terminal axes and fertile-axis organization. Do not hide the lip with camera/material/renderer changes.",
+          "evidence": [
+            "omphalophloios/junction-diagnostic-0/detail.png",
+            "omphalophloios/junction-diagnostic-90/detail.png",
+            "omphalophloios/source-geometry-reexport.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "source_authored_evaluated": {
+          "authored_vertices": 9138,
+          "authored_polygons": 10816,
+          "authored_triangles": 13568,
+          "evaluated_vertices": 9138,
+          "evaluated_polygons": 10816,
+          "evaluated_triangles": 13568,
+          "modifiers": 0
+        },
+        "triangles": 13568,
+        "exported_position_vertices": 35200,
+        "materials": 4,
+        "primitives": 4,
+        "glb_bytes": 930348,
+        "world_glb_bounds_m": {
+          "min": [
+            -0.8850624561309814,
+            0,
+            -0.9804906249046326
+          ],
+          "max": [
+            0.9426807165145874,
+            3,
+            0.9034217596054077
+          ],
+          "size": [
+            1.8277431726455688,
+            3,
+            1.8839123845100403
+          ]
+        },
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "source_component_count": 1177,
+        "source_euler": 2354
+      },
+      "measured_features": {
+        "woody_components": 95,
+        "branch_junctions": 94,
+        "woody_depth_histogram": {
+          "0": 1,
+          "1": 2,
+          "2": 4,
+          "3": 8,
+          "4": 16,
+          "5": 32,
+          "6": 32
+        },
+        "children_histogram": {
+          "2": 31,
+          "1": 32,
+          "0": 32
+        },
+        "terminal_axes": 32,
+        "leaf_components": 818,
+        "sporangia_components": 256,
+        "root_components": 8,
+        "all_joint_centers_match": true,
+        "all_junctions_have_volume_connection": true,
+        "all_base_rings_fully_inside_parent": false,
+        "terminal_leaf_count_validation": {
+          "method": "Postprocess already measured fresh-source leaf-root distances to terminal centerlines. The 384 near-axis roots are separated from the next proximal root by an observed 6x distance gap; midpoint is a grouping aid, not an invented size acceptance requirement.",
+          "source_measurements_sha256": "c9ad2d73d8c1388b100b1cc5b5ad6d3ce096d3d995e4f5940a1f326d812dda64",
+          "near_group_distance_range_m": [
+            0.0025499132426068114,
+            0.0025503823213089936
+          ],
+          "next_group_min_distance_m": 0.01537599893627677,
+          "classification_midpoint_m": 0.008963190628792882,
+          "terminal_leaf_counts": {
+            "806": 12,
+            "2486": 12,
+            "2194": 12,
+            "514": 12,
+            "1126": 12,
+            "2006": 12,
+            "2326": 12,
+            "2246": 12,
+            "1286": 12,
+            "1714": 12,
+            "1634": 12,
+            "994": 12,
+            "1582": 12,
+            "1874": 12,
+            "1074": 12,
+            "674": 12,
+            "2058": 12,
+            "330": 12,
+            "942": 12,
+            "1766": 12,
+            "1366": 12,
+            "754": 12,
+            "2618": 12,
+            "2538": 12,
+            "462": 12,
+            "1418": 12,
+            "382": 12,
+            "2378": 12,
+            "1926": 12,
+            "622": 12,
+            "1234": 12,
+            "2670": 12
+          },
+          "all32_have12": true,
+          "initial_probe_note": "The initial arbitrary 0.002m probe was too narrow and returned zero. It is retained, not misrepresented as a model failure. Results are stable for thresholds from0.0026 to0.0153m."
+        }
+      },
+      "checks": {
+        "actual_source_reopen": true,
+        "actual_fresh_reexport": true,
+        "reexport_byte_identical": true,
+        "project_candidate_valid": true,
+        "project_approval_established": false,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "three_revision": "180",
+        "actual_hardware_gpu_test": false,
+        "composed_scene_test": false
+      },
+      "original_concept": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/omphalophloios-concept.png",
+        "sha256": "8f27f9b63ec39b24ebd1f35f4c2d329d577b1d48f2f0293b9594e4e0169dfd32",
+        "personally_inspected": true,
+        "observation": "Actual concept shows a forked crown, oversized bright ovoid reproductive bodies and spike-like stem scars. Final deliberately reduces these and uses five schematic dichotomy orders. Concept is not fossil proof."
+      },
+      "views": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/hero.png",
+          "sha256": "8ced6cd96662c59315521a6214f09db21a534c9309da536ce0a38b89107bd695",
+          "personally_inspected": true,
+          "observation": "Complete slender tree and dense dichotomizing crown; long upper fertile axes and small tan sporangia read separately from the foliage. A visible main-fork collar remains."
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/reversehero.png",
+          "sha256": "f18eded6d7f8641163ce3ce0b93f84957a07ba445d8b7e315c1c25751f969590",
+          "personally_inspected": true,
+          "observation": "Opposite oblique confirms full three-dimensional crown and roots; the primary trunk-to-fork seam remains evident."
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/front.png",
+          "sha256": "20a48056c42446976fc4917d6a88b705277dcc4f7353e1a6d83d1f66937d9c5b",
+          "personally_inspected": true,
+          "observation": "Five-order architecture reads clearly, but a continuous angular sleeve edge crosses the main fork above the bare trunk."
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/side.png",
+          "sha256": "3b1c5fa1d7a1d05f9e8d5c41cf56792b01fea52743e56c2f50ef5470c6fa2924",
+          "personally_inspected": true,
+          "observation": "The old flat horizontal shelf is improved, but a protruding lower sleeve lip still interrupts the trunk-to-crown surface."
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/rear.png",
+          "sha256": "e8dfa2e51c40fd79cacbde603dd3147d81009db09b827d343218891a75c64416",
+          "personally_inspected": true,
+          "observation": "The same main-fork step is visible from the rear; no detached whole branches are visible."
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/top.png",
+          "sha256": "7173e18b7c4565305f1ad1b9c4713041afbccc40592e643b6504cb801d84e50a",
+          "personally_inspected": true,
+          "observation": "The crown occupies a real asymmetric footprint rather than a billboard; repeated leaf modules are anatomically permitted."
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/clay.png",
+          "sha256": "69426e4f4ef951d1f5ad9d1714581591101ba236dc600fe8ca4a32d3c065c2bf",
+          "personally_inspected": true,
+          "observation": "The collar is geometry, not a palette effect. Branches, needles and fertile axes retain their volume."
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/silhouette.png",
+          "sha256": "7cea40a609ac7be78ee8dd166a06f235bb583d26975dd5339c0160db58fbea44",
+          "personally_inspected": true,
+          "observation": "Whole root-to-crown silhouette is intact; narrow leaf tips and forked branches read without a separate terminal cone."
+        }
+      ],
+      "sheet": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/omphalophloios/r004/views/contact-sheet.png",
+        "sha256": "64608d4235a1ec0249b7703b0dda0b8cf406350ac7d56ff3a20d71f2c545bddf",
+        "personally_inspected": true
+      },
+      "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+      "limitations": [
+        "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+        "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements."
+      ]
+    },
+    {
+      "asset_id": "chaloneria",
+      "revision": "r001",
+      "outcome": "REVISE",
+      "exact_subject": {
+        "glb": {
+          "path": "production/small-life-batch93/chaloneria/r001/artifacts/chaloneria.glb",
+          "sha256": "d8f26740d8f822d78760403957b81f04023809190829bea83f0a0a76b627f127"
+        },
+        "brief": {
+          "path": "production/small-life-batch93/chaloneria/r001/delivery-brief.json",
+          "sha256": "c67a9c9e612f356a1a81ed816654622d8070c32caf0aca7cd4ff6ae604d80e1b"
+        },
+        "references": {
+          "path": "production/small-life-batch93/chaloneria/r001/references.json",
+          "sha256": "0332731e547281aeb652decba5a9696dd809235690b1bd0ecf7eb1aeb160411d"
+        }
+      },
+      "source": {
+        "path": "production/small-life-batch93/chaloneria/r001/artifacts/chaloneria.blend",
+        "sha256": "332c7c68870a2d0fd94ac8473d859956be7f6ca3fed39da98e342a7070738602"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "fail",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "issues": [
+        {
+          "id": "C93-missing-oval-leaf-bases",
+          "severity": "revision_required",
+          "basis": "Immutable original-brief.json identifying_features[2] and factual-acceptance explicitly say the stem has subtle oval leaf bases; this is not a new requirement for ligules or microscopic anatomy.",
+          "finding": "Fresh source measurement shows a stem of only six circular16-vertex rings,184 six-vertex pointed leaf blades, and72 ovoid bodies confined to the upper fertile zone. The vegetative stem has no oval leaf-base relief. Exact-GLB detail confirms pointed green insertions into a featureless stem.",
+          "required_repair": "Add restrained oval foliar-base geometry appropriate to the documented leaf bases, without creating raised diamond cushions or copying exaggerated concept nodules. Preserve the unbranched habit, rounded root base and continuous alternating fertile regions.",
+          "evidence": [
+            "chaloneria/leaf-base-diagnostic/detail.png",
+            "chaloneria/leaf-feature-measurements.json"
+          ]
+        }
+      ],
+      "metrics": {
+        "source_authored_evaluated": {
+          "authored_vertices": 1912,
+          "authored_polygons": 2368,
+          "authored_triangles": 2740,
+          "evaluated_vertices": 1912,
+          "evaluated_polygons": 2368,
+          "evaluated_triangles": 2740,
+          "modifiers": 0
+        },
+        "triangles": 2740,
+        "exported_position_vertices": 7476,
+        "materials": 5,
+        "primitives": 5,
+        "glb_bytes": 198908,
+        "world_glb_bounds_m": {
+          "min": [
+            -0.20480047166347504,
+            0,
+            -0.2074151337146759
+          ],
+          "max": [
+            0.2037200778722763,
+            2,
+            0.20329713821411133
+          ],
+          "size": [
+            0.40852054953575134,
+            2,
+            0.41071227192878723
+          ]
+        },
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "source_component_count": 271,
+        "source_euler": 542
+      },
+      "measured_features": {
+        "leaf_components": 184,
+        "root_components": 14,
+        "stem_top_z_m": 1.9412014484405518,
+        "leaf_bases_inside_stem": 183,
+        "all_leaf_bases_inside_stem": false,
+        "fertile_sporangial_components": 72,
+        "alternate_sporangial_bands": [
+          {
+            "material": 4,
+            "count": 18
+          },
+          {
+            "material": 1,
+            "count": 18
+          },
+          {
+            "material": 4,
+            "count": 18
+          },
+          {
+            "material": 1,
+            "count": 18
+          }
+        ],
+        "vegetative_leaves_derived": 112
+      },
+      "checks": {
+        "actual_source_reopen": true,
+        "actual_fresh_reexport": true,
+        "reexport_byte_identical": true,
+        "project_candidate_valid": true,
+        "project_approval_established": false,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "three_revision": "180",
+        "actual_hardware_gpu_test": false,
+        "composed_scene_test": false
+      },
+      "original_concept": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/chaloneria-concept.png",
+        "sha256": "73b816159eea04cf74f2bfbd193fcbb3309ec9e57bf6b83b056250641e7f1180",
+        "personally_inspected": true,
+        "observation": "Actual concept shows an unbranched plant, broad pointed leaves, rounded base and conspicuous oval stem marks. Narrowing leaves was documented; deleting all subtle oval stem leaf bases was not part of the frozen scope."
+      },
+      "views": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/hero.png",
+          "sha256": "dd13290389b85e132ea68ec94af4993ab029fb3c666e46156d67dca0ecd6f46a",
+          "personally_inspected": true,
+          "observation": "Single narrow leafy axis and rounded/faceted basal swelling are clear. The continuous upper fertile zone is not a separate cone."
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/reversehero.png",
+          "sha256": "be8c86f5c294484c3edd64706a5ef5f8a510ec94e24584cc0c65e773187c37b6",
+          "personally_inspected": true,
+          "observation": "Opposite oblique retains the unbranched architecture and rooted base, with no large detached organs."
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/front.png",
+          "sha256": "fa2a19d308d0a92926ad1a122ca07d599a638305b9ffc3135160e07814fec0dc",
+          "personally_inspected": true,
+          "observation": "Proximal foliage grades into a slender upper spire; stem leaf-base relief required by the brief is not resolved."
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/side.png",
+          "sha256": "411da817fc0a358563e1d037f36495cc3dcf31efbcde0cd028b06d02366ba3dc",
+          "personally_inspected": true,
+          "observation": "Narrow blades remain volumetric; no branching or diamond cushions are present."
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/rear.png",
+          "sha256": "ef0adbf2bd154ad92c8eeebeded100f6385e2dd3a6b283a3be6902214b9a5757",
+          "personally_inspected": true,
+          "observation": "Rear view retains the continuous unbranched taper, but offers no evidence of the required oval leaf bases."
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/top.png",
+          "sha256": "5c29ca09fc79841ea726c693d8dc8788ab6964e5abba13a14485a428f0abede0",
+          "personally_inspected": true,
+          "observation": "The radial plant is small at the common full-height framing; this view cannot establish reproductive microanatomy."
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/clay.png",
+          "sha256": "16462c55ed264e7cd2ce2c65e4f0d6564d9b9f47760ae4f9de12d40cf8783fa8",
+          "personally_inspected": true,
+          "observation": "Basic corm, roots and leafy axis survive removal of material color. Stem remains smooth between pointed leaf insertions."
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/silhouette.png",
+          "sha256": "4c56b3155f0ea96fec82d2d117ff749b897fb89c3a09af55f143443d1e1e4a40",
+          "personally_inspected": true,
+          "observation": "Unbranched silhouette and radial roots read clearly. This does not compensate for the missing named surface feature."
+        }
+      ],
+      "sheet": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/chaloneria/r001/views/contact-sheet.png",
+        "sha256": "c5d64be0df1f910da57e92196943d2c529b9d29e7e0701167e4c382016837c1c",
+        "personally_inspected": true
+      },
+      "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+      "limitations": [
+        "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+        "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements.",
+        "183 leaf origins are interior; the remaining top origin lies on the cap within6.59e-10m and is not a floating leaf. Four18-body fertile bands are independently measured; tiny full-height top view does not resolve microanatomy."
+      ]
+    },
+    {
+      "asset_id": "nathorstiana",
+      "revision": "r002",
+      "outcome": "PASS_STATIC_ONLY",
+      "exact_subject": {
+        "glb": {
+          "path": "production/small-life-batch93/nathorstiana/r002/artifacts/nathorstiana.glb",
+          "sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc"
+        },
+        "brief": {
+          "path": "production/small-life-batch93/nathorstiana/r002/delivery-brief.json",
+          "sha256": "26e3319f5635e3717537447ebb4661aab0b34a74bad499bbb33c276695f576e9"
+        },
+        "references": {
+          "path": "production/small-life-batch93/nathorstiana/r001/references.json",
+          "sha256": "2c07b8a649bae0df8d97e61cfb457aeb753b3323cda448a905da1b55d160812d"
+        }
+      },
+      "source": {
+        "path": "production/small-life-batch93/nathorstiana/r002/artifacts/nathorstiana.blend",
+        "sha256": "8471058002a975c1caa61dfc2a2fb040558f89fe8a58d24a5f3d76f8de7fab2c"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "issues": [],
+      "metrics": {
+        "source_authored_evaluated": {
+          "authored_vertices": 768,
+          "authored_polygons": 708,
+          "authored_triangles": 1380,
+          "evaluated_vertices": 768,
+          "evaluated_polygons": 708,
+          "evaluated_triangles": 1380,
+          "modifiers": 0
+        },
+        "triangles": 1380,
+        "exported_position_vertices": 2796,
+        "materials": 3,
+        "primitives": 3,
+        "glb_bytes": 78672,
+        "world_glb_bounds_m": {
+          "min": [
+            -0.08753181993961334,
+            0,
+            -0.08245515823364258
+          ],
+          "max": [
+            0.07609213143587112,
+            0.2199999988079071,
+            0.07495513558387756
+          ],
+          "size": [
+            0.16362395137548447,
+            0.2199999988079071,
+            0.15741029381752014
+          ]
+        },
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "source_component_count": 39,
+        "source_euler": 78
+      },
+      "measured_features": {
+        "leaf_components": 20,
+        "root_components": 18,
+        "stem_top_z_m": 0.09180896729230881,
+        "leaf_bases_inside_stem": 20,
+        "all_leaf_bases_inside_stem": true,
+        "actual_basal_radial_peaks": 12,
+        "basal_ring_radius_range_m": [
+          0.020895595066086063,
+          0.024041169439012706
+        ]
+      },
+      "checks": {
+        "actual_source_reopen": true,
+        "actual_fresh_reexport": true,
+        "reexport_byte_identical": true,
+        "project_candidate_valid": true,
+        "project_approval_established": false,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "three_revision": "180",
+        "actual_hardware_gpu_test": false,
+        "composed_scene_test": false
+      },
+      "original_concept": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/nathorstiana-concept.png",
+        "sha256": "02a9c9f8ca9f8b97d56dd89c7db1c4a51a5ce06686ce4d31b45d437649f001de",
+        "personally_inspected": true,
+        "observation": "Actual concept shows terminal leaves, short stem, swollen ribbed rooting body and exaggerated root-scar pegs. Final keeps the broad organization while simplifying root scars and reducing pegs."
+      },
+      "views": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/hero.png",
+          "sha256": "81d324979ad3355dc21e8db2eac5d767c684881942f7860192cb67320f20e5fe",
+          "personally_inspected": true,
+          "observation": "Terminal narrow quill/blade crown, short bare axis and ribbed swollen base are distinct; leaf bases meet the stem."
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/reversehero.png",
+          "sha256": "b254da35165b3e9eb66c95b2f2724f6740c6bb7474a0b60a28333d6e1bf9e3d3",
+          "personally_inspected": true,
+          "observation": "Reverse view shows attached crown with no former detached high leaf roots and no reproductive structures."
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/front.png",
+          "sha256": "165353f89404413ce8256d6f59825f45113a45ded4e1de95ee3b6b9713b6a2b3",
+          "personally_inspected": true,
+          "observation": "Short unbranched axis, narrow leaves and broader ribbed basal body retain the intended compact morphology."
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/side.png",
+          "sha256": "ddaec03d498c0f60364a51f5ea74d2f029c39c3279a5ea164d46452a8eff169a",
+          "personally_inspected": true,
+          "observation": "Crown meets the stem continuously; fine roots emerge from the lower body rather than four trunk-like legs."
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/rear.png",
+          "sha256": "5fe388058b310a2b24da309c7d9f0361ea3237e1b7289424f9b1a0f7834de026",
+          "personally_inspected": true,
+          "observation": "Rear view confirms the conservative cone-free crown and attached basal foliage."
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/top.png",
+          "sha256": "6bd16b1adf75f874cf0a4a50f014f2200ee7cda701fa89c21d0c61c02cfcb512",
+          "personally_inspected": true,
+          "observation": "Real leaves and thin roots radiate around a volumetric center. Expanded blade shoulders are stylized, not heart-shaped anatomical replicas."
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/clay.png",
+          "sha256": "43113ba507ff76fb958785af67469e9b5bcee9f84347fddcd13e98f5ea6a0902",
+          "personally_inspected": true,
+          "observation": "Base ribs and root/crown volumes remain readable without palette; faceting is an intentional low-poly abstraction."
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/silhouette.png",
+          "sha256": "28f5fed24f3deb14c76ccdb5e06b2a45f787ca37bd07b1c7a537765e002d43a9",
+          "personally_inspected": true,
+          "observation": "Rooting body, short stem and modest quill crown form a distinct silhouette without unsupported reproductive organs."
+        }
+      ],
+      "sheet": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/nathorstiana/r002/views/contact-sheet.png",
+        "sha256": "2f8687a2dca4ec22e0b387f8fd247f01a893562cfa8cfee020ff744a253ef13d",
+        "personally_inspected": true
+      },
+      "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+      "limitations": [
+        "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+        "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements."
+      ]
+    },
+    {
+      "asset_id": "diplopora",
+      "revision": "r002",
+      "outcome": "PASS_STATIC_ONLY",
+      "exact_subject": {
+        "glb": {
+          "path": "production/small-life-batch93/diplopora/r002/artifacts/diplopora.glb",
+          "sha256": "b662bfd6068dc7458b2b120d21ae82e7fc3de793e6dc764b192fe99dc9544429"
+        },
+        "brief": {
+          "path": "production/small-life-batch93/diplopora/r002/delivery-brief.json",
+          "sha256": "62705b4c7d45bc5245152ca98b92029936083cddbe00330b57007685c2718bbf"
+        },
+        "references": {
+          "path": "production/small-life-batch93/diplopora/r001/references.json",
+          "sha256": "74f024c23f75c7d8b1f3c081fbc26f5001ec2937c22cd22cd11762995d6edd1b"
+        }
+      },
+      "source": {
+        "path": "production/small-life-batch93/diplopora/r002/artifacts/diplopora.blend",
+        "sha256": "f557f510fd6f0b917354f13e1ce3be079c55dd8162329ac14fa934598fa2a382"
+      },
+      "stage_status": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "issues": [],
+      "metrics": {
+        "source_authored_evaluated": {
+          "authored_vertices": 2176,
+          "authored_polygons": 2368,
+          "authored_triangles": 4736,
+          "evaluated_vertices": 2176,
+          "evaluated_polygons": 2368,
+          "evaluated_triangles": 4736,
+          "modifiers": 0
+        },
+        "triangles": 4736,
+        "exported_position_vertices": 9472,
+        "materials": 2,
+        "primitives": 2,
+        "glb_bytes": 258228,
+        "world_glb_bounds_m": {
+          "min": [
+            -0.01600000075995922,
+            0,
+            -0.01600000075995922
+          ],
+          "max": [
+            0.01600000075995922,
+            0.10333467274904251,
+            0.01600000075995922
+          ],
+          "size": [
+            0.03200000151991844,
+            0.10333467274904251,
+            0.03200000151991844
+          ]
+        },
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "source_component_count": 1,
+        "source_euler": -192
+      },
+      "measured_features": {
+        "outer_surface_boundary_loops": 98,
+        "pore_loops": 96,
+        "rim_loops": [
+          32,
+          32
+        ],
+        "boundary_loop_degree_two": true,
+        "pore_whorl_counts": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "pore_whorl_z_ranges_m": [
+          [
+            0.009668393060564995,
+            0.010332943871617317
+          ],
+          [
+            0.026663698256015778,
+            0.026670971885323524
+          ],
+          [
+            0.043334003537893295,
+            0.043334003537893295
+          ],
+          [
+            0.060000669211149216,
+            0.060000669211149216
+          ],
+          [
+            0.07666369527578354,
+            0.07667097449302673
+          ],
+          [
+            0.09300172328948975,
+            0.09366628527641296
+          ]
+        ],
+        "all96_real_through_channels": true,
+        "all_wall_controls_solid": true,
+        "axial_lumen_ray_clear": true
+      },
+      "checks": {
+        "actual_source_reopen": true,
+        "actual_fresh_reexport": true,
+        "reexport_byte_identical": true,
+        "project_candidate_valid": true,
+        "project_approval_established": false,
+        "khronos_errors": 0,
+        "khronos_warnings": 0,
+        "three_revision": "180",
+        "actual_hardware_gpu_test": false,
+        "composed_scene_test": false
+      },
+      "original_concept": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/concepts/diplopora-concept.png",
+        "sha256": "5f202471ed9a084d79d6f4f66e233fced1701af45494110a278a89469c008a2b",
+        "personally_inspected": true,
+        "observation": "Actual concept has a hollow perforated fossil tube with excessive irregular rim and single pore rows. Frozen design correctly specified two rows per segment and limited fossil-fragment interpretation."
+      },
+      "views": [
+        {
+          "view": "hero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/hero.png",
+          "sha256": "72b096f69b76917d40119ac32637fe4a5aec64a1a4d5a3fd19c71f35c3924ef7",
+          "personally_inspected": true,
+          "observation": "Three annular regions, six pore rows and a genuinely deep open lumen read clearly in pale carbonate color."
+        },
+        {
+          "view": "reversehero",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/reversehero.png",
+          "sha256": "b1d056795476a569b8fbf6a31f96ff085895a0f12b5033d9727f291321cc8f66",
+          "personally_inspected": true,
+          "observation": "Reverse side retains real openings and simple fossil wall; no green living-tissue appendages are invented."
+        },
+        {
+          "view": "front",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/front.png",
+          "sha256": "8113e6c65eb61ef14febb562c6a1b976a5b03294c8835e0db60d27378a12d154",
+          "personally_inspected": true,
+          "observation": "Two rows in each of three annular units are distinguishable with modest broken rim undulation."
+        },
+        {
+          "view": "side",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/side.png",
+          "sha256": "7c4437354e2e6389894ab9392f70aad8d5f1999a3ffd8f68a8a84a18d6f2e922",
+          "personally_inspected": true,
+          "observation": "The faceted tube and repeated pores are consistent with the frozen schematic fossil-fragment scope."
+        },
+        {
+          "view": "rear",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/rear.png",
+          "sha256": "22b815cca91d9f04a1961a96e397c44c8d1707524b7a479050d1a328e890886e",
+          "personally_inspected": true,
+          "observation": "Annulation and pore rows continue around the rear; no checkerboard material patches remain."
+        },
+        {
+          "view": "top",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/top.png",
+          "sha256": "202910235bca1624b25e11a325b0f15b89f259e57c1d309b67206fd4247036de",
+          "personally_inspected": true,
+          "observation": "The axial opening is genuinely unsealed; wall thickness and both-end axial continuity are supported by independent ray tests."
+        },
+        {
+          "view": "clay",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/clay.png",
+          "sha256": "66e3d358a4f3ff3088de6b2e336d86cf3f47f52b5531a55a13ad84678ae4ae51",
+          "personally_inspected": true,
+          "observation": "Pore channels, lumen and annular relief remain without palette, confirming geometry rather than painted dots."
+        },
+        {
+          "view": "silhouette",
+          "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/silhouette.png",
+          "sha256": "1d59bfe0395ec9189eb680044ce4464b3c2aec79dfacfcda31e9f951cd5b4da7",
+          "personally_inspected": true,
+          "observation": "Irregular rim and annulated tube silhouette are clear. Interior shading is not used to claim microscopic anatomy."
+        }
+      ],
+      "sheet": {
+        "path": "/workspace/shared/lowpoly-batch93-20261020/production/small-life-batch93/diplopora/r002/views/contact-sheet.png",
+        "sha256": "361f62816a607e086d9367003641a571a3146ec6466396c433ca8d9342472281",
+        "personally_inspected": true
+      },
+      "dimensional_interpretation": "Original bbox values are explicitly nominal art-planning targets, not hard bounds. Dimensional parameter variations disclosed in revision history are not silently promoted to hard equalities. Named morphology/component counts and budget ceilings remain required. Actual world component bounds are in source-geometry-reexport report.",
+      "limitations": [
+        "No formal,user,site,release or live approval. GPU and composed scene remain unrun.",
+        "Color,full habit,organ numbers and scale are illustrative,not direct complete-fossil measurements.",
+        "96 straight schematic channels preserve intended gross fossil morphology,not unresolved lateral tuft microstructure; display scale is enlarged."
+      ]
+    }
+  ],
+  "provenance": {
+    "path": "provenance/provenance-report.json",
+    "sha256": "da9d01af725c40ca2f8c2c054bc0c8a483a636008e6f1f2093ee75fb069870bc",
+    "checks": 1362,
+    "substantive_failures": 0,
+    "raw_snapshot_note": "616/617 current raw files match. recovery-progress.json gained two bookkeeping entries; its original first-four-entry prefix exactly reproduces original4435-byte SHA. No artifact execution evidence drift.",
+    "chronology_caution": "Original freeze precedes recorded geometry execution. Historical generator-authoring time and personal maker inspection remain assertions,not retrospectively measured facts. Concept provider timestamps/IDs remain unknown where absent."
+  },
+  "independent_execution": "Fresh source reopen/world geometry/topology/ray measurements and exact reexport on all four; original project candidate,official Khronos and actual Three r180 POSITION parsing on all four. Individual32 PNGs,four sheets,four concepts and cited source pixels personally viewed. Three newly generated exact-GLB diagnostic details reviewed.",
+  "clock_caution": "Execution host timestamps are approximately+2h relative to clock.curr_time/developer reminders. Original process timestamps retained without silent correction. Tool observation window records actual review sequence; no filesystem timestamps used to invent historical chronology.",
+  "retained_failed_attempt": "Diplopora first independent script successfully measured and exported,but JSON serialization failed on a shadowed Vector variable. Partial/log/first export retained; complete attempt2 is authoritative. This was a QA-script fault,not a model fault.",
+  "authority": "Independent local static QA only. No source mutation,push,PR,merge,upload,site,CI,permissions,security or credential change. No formal/user/release/live approval.",
+  "source_review": {
+    "path": "independent-source-review.json",
+    "sha256": "0444a1849988463fed1a27c2252ff7a27dc2a8a76064a8be8c478496a81731c2"
+  },
+  "source_integrity_after": {
+    "head": "2cbc3cbb206d81c2383eada3a3f142c2b2c5cd82",
+    "status": ""
+  }
+}

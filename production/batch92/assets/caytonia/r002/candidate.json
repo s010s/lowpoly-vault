@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "asset_id": "caytonia",
+  "revision": "r002",
+  "maker": {
+    "id": "batch92 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch92_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch92/assets/caytonia/r002/model.glb",
+      "sha256": "bfc40984e83cf7d181ad6ac0ec9e7912f7e2a091a77dbebfed4d18c8d5a990a9"
+    },
+    "brief": {
+      "path": "production/batch92/assets/caytonia/r002/candidate-brief.json",
+      "sha256": "4e497d1506553f1ce2b2ee1fb353e90e34e9671737ee37c7d1a730d0f315d397"
+    },
+    "references": {
+      "path": "production/batch92/assets/caytonia/r002/references.json",
+      "sha256": "f061a962db3c6a1a2c0b81e30334f87fa72c3f176a335dd6562fe8a20e8a5335"
+    },
+    "source": {
+      "path": "production/batch92/assets/caytonia/r002/source.blend",
+      "sha256": "37879bbdff32ce81c63b2a0d3f7b78a39d6fc6003e1cfc3bd20dceb1f57d8150"
+    },
+    "generator": {
+      "path": "production/batch92/assets/caytonia/r002/generator.py",
+      "sha256": "a14c48a3bed1edbcbf76da43c81ea12823cabbefba55d2c88265814b2c9feb87"
+    },
+    "config": {
+      "path": "production/batch92/assets/caytonia/r002/build-config.json",
+      "sha256": "2b275494362c65fa8e75cd0e6754a611abcd422cb0203d547eef4a41391d72e0"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r002",
+        "glb_sha256": "bfc40984e83cf7d181ad6ac0ec9e7912f7e2a091a77dbebfed4d18c8d5a990a9",
+        "brief_sha256": "4e497d1506553f1ce2b2ee1fb353e90e34e9671737ee37c7d1a730d0f315d397",
+        "references_sha256": "f061a962db3c6a1a2c0b81e30334f87fa72c3f176a335dd6562fe8a20e8a5335"
+      },
+      "path": "production/batch92/assets/caytonia/r002/proof-final/render-manifest.json",
+      "sha256": "cf31d5da8698f3344617af0739e48536ed6cbe9d765ddd379bff07994089769f"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary text and actual reference pixels inspected before freeze. Unavailable inventory sources, secondary-host Eophyllophyton plate and Caytonia organ-association/3D uncertainty explicitly disclosed in own frozen ledgers. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch92/assets/caytonia/r002/metrics.json",
+      "sha256": "742bdae3780475c05d355e40660e60237f207a618e3b9b3af40324248a20a085"
+    },
+    "source-metrics.json": {
+      "path": "production/batch92/assets/caytonia/r002/source-metrics.json",
+      "sha256": "d06923da230c94ffe1082797c437f837e2f13343e96009e9f5d0e25613cb1696"
+    },
+    "project-audit.json": {
+      "path": "production/batch92/assets/caytonia/r002/project-audit.json",
+      "sha256": "a81e4597441300f822b88d60a4337b5185b9d770965ddfbbfb7a63bf946c861f"
+    },
+    "source-final.report.json": {
+      "path": "production/batch92/assets/caytonia/r002/source-final.report.json",
+      "sha256": "6fc863eb240ffea04d21daacee25323a674715dc837609e708e0ac6912ac2884"
+    },
+    "source-vertex-counts.json": {
+      "path": "production/batch92/assets/caytonia/r002/source-vertex-counts.json",
+      "sha256": "13b173471077fe0eca1d88ae8f65c3b64f2c152ef314ebe6a37e39a2ee948c3c"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch92/assets/caytonia/r002/repro-final-1.report.json",
+      "sha256": "b9260a76f1907516a09c9a4cdd8a75fda24fd44d77663b2ef3f82b9c29c16723"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch92/assets/caytonia/r002/repro-final-2.report.json",
+      "sha256": "2b8430cc6ed32d77c2aab52342c633c613d719e17c0836ee0ab4ebaca4650005"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch92/assets/caytonia/r002/gltf-validator.report.json",
+      "sha256": "57db68e225b6a29408854744d65f334d08e5a740a1d6438929812877b769d62a"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch92/assets/caytonia/r002/runtime-parse.report.json",
+      "sha256": "f017fcefc25fd89716d3771135864c320e33cf2abe67f6af1a0409b396d92e42"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch92/assets/caytonia/r002/build-dependencies.json",
+      "sha256": "c535be589ce250497c49619d5c51d6e215554ea2c1961b8123b0b1fd2f6b2762"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch92/assets/caytonia/r002/pixel-inspection.json",
+      "sha256": "de91c22b1159f76f039ae0d65f8d47da656ff4bf3f6f6c17932a062f659d5bc7"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch92/assets/caytonia/r002/contact-sheet.png",
+      "sha256": "7c7f804ea83d1d473b22e2cd80aabd2ee5b4b998873e3a78b70004f88a5031f8"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch92/assets/caytonia/r002/preproof-binding.json",
+      "sha256": "184faa651566a80850c7330d07ecb90b8ad46352df114904a0a4fa5307a7fffc"
+    }
+  }
+}

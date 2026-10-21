@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "scope": "next52-g09-release-20261021",
+  "authorization": "owner_authorized_fixed52_after_required_checks",
+  "acceptance_scope": "independent_qa_accepted_stylized_prop",
+  "formal_profile_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "provider_generation_timestamp": "unknown",
+  "source_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+  "review_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "source_bundle": {
+    "path": "qa/next52-g09-release-20261021/source-bundle.json",
+    "sha256": "d70c90815479a3f3d3da517efffb19d715bb99d0f33b82fec046f59142a5ece3"
+  },
+  "protected_source_inputs": [
+    {
+      "path": "package-lock.json",
+      "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1bddf73367b09c1c72034cca826c1dfcebc1ae35e1480d9da99b8fd202a34b1b"
+    },
+    {
+      "path": "production/policies/qa-passed-batch-publication-20261018.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+    },
+    {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "scripts/candidate_profile.py",
+      "sha256": "0489ec5378ec5d073ac4e84994b796ac529b122fd1c9c51be7b55623a413ac7d"
+    },
+    {
+      "path": "scripts/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+    },
+    {
+      "path": "scripts/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "scripts/run_asset_queue.py",
+      "sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e"
+    },
+    {
+      "path": "scripts/validate_candidate.py",
+      "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9"
+    },
+    {
+      "path": "scripts/validate_concept_evidence.py",
+      "sha256": "745938a9b1624e8b744e9c03f597fd8d967ef1b4c145209805c6b6357578c723"
+    },
+    {
+      "path": "scripts/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7"
+    }
+  ],
+  "independent_reviews": [
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/OWN_QA_MANIFEST.json",
+      "sha256": "7df099fc636f2fa71057d81aea6085e51bb08976473341d811c49cd1c3851786"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/handoff.json",
+      "sha256": "342bba0fc3f4280a610b37f1145ff27d25352029bec9419a81ec0b65ec375d4e"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
+      "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40"
+    }
+  ],
+  "capture": {
+    "report": {
+      "path": "qa/fifty-two-website-release-20261021/capture/render-report.json",
+      "sha256": "7a4dd79a333cde8c85247d766cbece0283368ed58538e087fd2745788acff6f7"
+    },
+    "index": {
+      "path": "qa/fifty-two-website-release-20261021/capture/card-index.json",
+      "sha256": "428e02f49a3e1f7a365e36a2df1e8303be5db86446b8fc5c3a9aa4dae76c104f"
+    },
+    "artifact_verification": {
+      "path": "qa/fifty-two-website-release-20261021/capture/artifact-verification.json",
+      "sha256": "2331174af34d46228f10f64a97c21fc5c9bd60c0b9d9ea8f18a4c4e932bdcc73"
+    },
+    "independent_review": {
+      "path": "qa/fifty-two-website-release-20261021/capture/independent-card-review.json",
+      "sha256": "44df62beec02610e4b2f919d10fd0230e1296e484fbb4890242c536dfb7acd86"
+    },
+    "reviewer_evidence": {
+      "path": "qa/fifty-two-website-release-20261021/capture/reviewer-evidence-pin.json",
+      "sha256": "12f9578268cdcb28a714536319849cbc041ccfd7a9c44c9f1641289699bef0e0"
+    },
+    "review_inputs": {
+      "path": "qa/fifty-two-website-release-20261021/capture/review-inputs.json",
+      "sha256": "ac8680fc2c5348ebda8079c4d53e24b5d7ac4d2e2cb7c187461ca5cc611f2e3b"
+    },
+    "original_inputs": {
+      "path": "qa/fifty-two-website-release-20261021/capture/original-inputs.json",
+      "sha256": "69c2a0fe8c38615fd049e29b07b3fe6f07112f1809e5db3cd1b256e4e5837fce"
+    },
+    "original_fixed52": {
+      "path": "qa/fifty-two-website-release-20261021/source/original-fixed52-input.json",
+      "sha256": "01ed697e60c782b6c8c2d2b25e9d659f640ebe57b33c5713b5aec5a974a3d8ac"
+    },
+    "source_identity_mapping": {
+      "path": "qa/fifty-two-website-release-20261021/source/identity-successors.json",
+      "sha256": "7da24de353fe152f5773b3f901fecf1e6d231505415b63460360f2e268098f51"
+    },
+    "profile_policy_aliases": {
+      "path": "qa/fifty-two-website-release-20261021/source/profile-policy-aliases.json",
+      "sha256": "c49cddd67aeb0d18b44b8eba4e1d3fd47c98078c565c7311c8f745c0a301eeae"
+    },
+    "historical_concepts": {
+      "path": "qa/fifty-two-website-release-20261021/source/historical-concept-identities.json",
+      "sha256": "d11a9537388b2abe339774f3e26b546437b8ef58d6416f9710c7df2158db9cd8"
+    },
+    "release_coordination_profiles": {
+      "path": "qa/fifty-two-website-release-20261021/source/release-coordination-profile-audit.json",
+      "sha256": "61fd160ab90dab58b7fb1c55086d9cd4c2b432654363b2a488616505cea8fabd"
+    },
+    "native_current_profiles": {
+      "path": "qa/fifty-two-website-release-20261021/source/native-current-profile-validation.json",
+      "sha256": "48977c10ddc5636c7ac782843617e7847af512523415c7fc1e0475764b18f5c1"
+    },
+    "final_gallery_status": "ACTUAL_FINAL_SUBJECT_CAPTURE_AND_INDEPENDENT104_PNG_REVIEW_PASSED_BOUNDED_ONLY",
+    "final_gallery_receipt": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-receipt.json",
+      "sha256": "dca5c912d683210e3f4be085e53e9047f6c1fe0b939d0af0724aaf06b6b28b44"
+    },
+    "final_gallery_review": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-independent-review.json",
+      "sha256": "956d17934f6678ae7ed9a105485da663ceb0bd2ae8d9b9a315f5f1bf25f00128"
+    },
+    "final_gallery_artifact_verification": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-artifact-verification.json",
+      "sha256": "b63ce5cb928dc7a7f38d0adedfb9d06de7402c41ff7d92d833fb8345c0bc3f41"
+    }
+  },
+  "excluded_ids": [
+    "braided-river-reach",
+    "crevasse-splay",
+    "kettle-basin"
+  ],
+  "additions": [
+    {
+      "id": "ernietta",
+      "batch": 77,
+      "revision": "r012",
+      "candidate_root": "production/batch77-ernietta-repair/assets/ernietta/r012",
+      "source_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+      "reviewed_source_commit": "d1a3aa6a277908cd3aee66aa38e4d6dca818879b",
+      "original_source_snapshot": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+      "review_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+      "accepted_disposition": "ACCEPT BOUNDED",
+      "metadata": {
+        "path": "assets/additions/ernietta/batch77-20261021/release-metadata.json",
+        "sha256": "9ab46c533d9cdaf2265bfae38c5ba8986f3c1a4c57604e440c5a16e3c793b7c3"
+      },
+      "candidate": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate.json",
+        "sha256": "8a35e5654b9699793b71df4f4c77ced3f7a7481def419a96f35090c9b2ed88a7"
+      },
+      "active_candidate": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate.json",
+        "sha256": "8a35e5654b9699793b71df4f4c77ced3f7a7481def419a96f35090c9b2ed88a7"
+      },
+      "original_profile": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/profile-contract.json",
+        "sha256": "e18158c20e62edaeda3c7546968b4986ce7abd8c22d970fcbe825e5d8ce251f1"
+      },
+      "active_profile": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/profile-contract.json",
+        "sha256": "e18158c20e62edaeda3c7546968b4986ce7abd8c22d970fcbe825e5d8ce251f1"
+      },
+      "original_stage_statuses": {
+        "technical": "unknown",
+        "visual": "unknown",
+        "factual": "unknown",
+        "specification": "unknown",
+        "runtime_parse": "unknown",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "review": {
+        "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
+        "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40"
+      },
+      "active_review": {
+        "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
+        "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40"
+      },
+      "required_qa_documents": [
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
+          "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40"
+        },
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/OWN_QA_MANIFEST.json",
+          "sha256": "7df099fc636f2fa71057d81aea6085e51bb08976473341d811c49cd1c3851786"
+        },
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/handoff.json",
+          "sha256": "342bba0fc3f4280a610b37f1145ff27d25352029bec9419a81ec0b65ec375d4e"
+        }
+      ],
+      "original_metrics": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/metrics.json",
+        "sha256": "02bbc37b2d75c07707e0f2668e5ef241687aebef5b64bba4db39e2a80d76f7dd"
+      },
+      "source_counts": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-vertex-counts.json",
+        "sha256": "e36250d7528296f19cf4a839ea24d3f1d456cedbbc8c78ca515ba234e12b3930"
+      },
+      "proof": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-manifest.json",
+        "sha256": "4e61091e798ed8066b5462c6c9daf3d92ee37ba1f6919da6214783fbe3d1ddea"
+      },
+      "source_preview": {
+        "path": "production/batch77-ernietta-repair/assets/ernietta/r012/preview.png",
+        "sha256": "3fbfcb79f7d56ab51404fb52c3f085cbb3d83ec1f91d4b8fcf84f52d0680b074"
+      },
+      "capture_reference": {
+        "path": "assets/additions/ernietta/batch77-20261021/ernietta.png",
+        "sha256": "11c4d519cad399e7929b285e37aa39093861aeede45bd5b858530b0d90f0083a"
+      },
+      "capture_input_metadata": {
+        "path": "qa/fifty-two-website-release-20261021/capture/input-metadata/ernietta.json",
+        "sha256": "31099871b42daa99ecb47b0d760c29312d6f00405392b7e55b9c39301118139c"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/LICENSES.md",
+      "sha256": "3c85f1aad5eceac3b60086d91acb397df96d069ea57c39ea6805f6beea21aa1c",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/build-config.json",
+      "sha256": "468955e0e3287c2b8bc0049c33e6b9400c70d3021bf01b21fded5cac703b6268",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/build-dependencies.json",
+      "sha256": "5a814378cc976e50edb82c6623651cc5bb14d772ae591b3488c049da6a997deb",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate-brief.json",
+      "sha256": "75f0845911f1a92479081f7911f1714090df64779545623ddaa6cb5ecf80844b",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate-validation.json",
+      "sha256": "a275b9d0d72a02d1787bac71f45161edb26759041fa677abe7f4be9ef018b427",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/candidate.json",
+      "sha256": "8a35e5654b9699793b71df4f4c77ced3f7a7481def419a96f35090c9b2ed88a7",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/concept-evidence.json",
+      "sha256": "0f62c2b3777bb33e4960d8324cbabbb32328103d09ba2dc2aabacf96e30fe688",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/concept-validation.json",
+      "sha256": "dd8b11752fb4a25a48de7ca4331d7d59b29e56a224b6ec440989439336a946c5",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/contact-sheet.png",
+      "sha256": "c206df212ff373a56a62b068e4528dd5cdb3b2217b33b7b1c8df95526c416187",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic-disposition.json",
+      "sha256": "fa50eab99bd661f8c6fd2cb162459e8e50e577457035069d322821feabaa1fb1",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/render-config.json",
+      "sha256": "0ad738e3f05c754d6d37e21da2c95bf223020c484831134ea64d42ca3a9e8ba7",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/render-manifest.json",
+      "sha256": "f6654996094c877c021aee01134d403f282e3e438961f51dc1bef33d11cd839c",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/diagnostic/turntable.json",
+      "sha256": "5f53996d6973f00ac4b22f060a2c8308f001382339972c7c7f29ae6563719722",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/final-rebuild-binding.json",
+      "sha256": "c3223c6f74eafbcb1c4445f3ad45551c81d41fd78f85c7a1e1af866a215122a5",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/fresh-schema-check.json",
+      "sha256": "b7e1aaf377044c8304d60cc88175492fe84dc3ce274819bd6bc5da3cd0641499",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/generator.py",
+      "sha256": "d9c1c204512632e44c35bd2ae1336b90307f1e96b8d374c7e43889f8469e1c18",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/gltf-validator.report.json",
+      "sha256": "bf8cb1368a618c2e7e613cca325e587944e36bb467bac76bc80101691a491ae3",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/lifecycle.jsonl",
+      "sha256": "3b57fca9c85893c63f677a5a04ac56dea9f4fd71447befa867dc4628b841eea4",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/maker-review.md",
+      "sha256": "c102d63f1ab2c09469e5a944eef7cbbe06fddba9583de32ab09741cd78932f07",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/metrics.json",
+      "sha256": "02bbc37b2d75c07707e0f2668e5ef241687aebef5b64bba4db39e2a80d76f7dd",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/model.glb",
+      "sha256": "72b30dfed8b7786a357e63102bd36ff26007cfb45af28923c6393b7314018e6b",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/physical-surfaces.report.json",
+      "sha256": "43e653b5c1a7ca2a31528acb47af8e9bb85679d0d1de8e3eb2817985c96c4b98",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/pixel-inspection.json",
+      "sha256": "8a842091330b4a58f432b6c9149281072e2c58ddc63aa8fd73ec856cfc680053",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/preproof-binding.json",
+      "sha256": "88c97eaa43bb52f38f4d04d0d31a8ea7108632520d60f34db5e68cecf8adb3b0",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/preview.png",
+      "sha256": "3fbfcb79f7d56ab51404fb52c3f085cbb3d83ec1f91d4b8fcf84f52d0680b074",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/profile-contract.json",
+      "sha256": "e18158c20e62edaeda3c7546968b4986ce7abd8c22d970fcbe825e5d8ce251f1",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/clay.png",
+      "sha256": "0990951a3feffcf2f2782d384aff93e7da5e4f90901527bb7ee10161aa09040e",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/front.png",
+      "sha256": "123e7243445278402d8301cdc0a6f3000f4d500d691290b3822b8456f1305dae",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/hero.png",
+      "sha256": "3fbfcb79f7d56ab51404fb52c3f085cbb3d83ec1f91d4b8fcf84f52d0680b074",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/rear.png",
+      "sha256": "c1d187b4deb953bb6d8419f6785d65d8deee1a0931f342aa9cde5fc5e739965f",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-config.json",
+      "sha256": "822e818cae4ac2da85f1377c31aa5d2de0c69eac2b3ee48c18c867dc2d2c52d1",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/render-manifest.json",
+      "sha256": "4e61091e798ed8066b5462c6c9daf3d92ee37ba1f6919da6214783fbe3d1ddea",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/reversehero.png",
+      "sha256": "b3a73c4977b8709265b32d31866fa5ee67b73469bdc8671de0cd7d9f3f97d47c",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/side.png",
+      "sha256": "9fa1e8b1cd1e1090aa9e62d3c3de9a5e6446f8332af546a9f00fadad790d8aab",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/silhouette.png",
+      "sha256": "09356d41975c7c891334e2ce53722431ba3dcefe4b2fed6a362f8fde531de080",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/top.png",
+      "sha256": "d6f65bba118f9b5ef1d29b084ddc4f73894ac257e5fafb8f2d75a9aea2621bcf",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/proof-final/turntable.json",
+      "sha256": "0329a6d35934b1ffe1498bbfbd339719db333a5908b84aae890e32882ad14add",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/qa.json",
+      "sha256": "1bf82fcd45fc5c8b1de2af7fd839e340eacae5e5db9c235548435c6d309a9da8",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/references.json",
+      "sha256": "1d9e1f03ee1c23190ff5c533f5494ec1250331a3c1162444dc23467b278f6f3b",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repair-boundary-check.json",
+      "sha256": "b6166a3a77289d96bc9fffe73d277be8ab38fa5f035c5adf2311112f973b9aa5",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repair-revision-intent.json",
+      "sha256": "03bbd76e1cc477b284ff90606b8c4cd78d4bdd6f0148765d9f2a8c2fc7f29eb9",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repro-final-1.report.json",
+      "sha256": "240767dc66b10adca6a0a06dc609fe2edf8fc5bcd9621b642916c9dbe2ffc941",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/repro-final-2.report.json",
+      "sha256": "e7c72da0c6fafb13525c6e895db93206c14a2e71a47d2938304278d39c914b9d",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/runtime-parse.report.json",
+      "sha256": "64a0cab7135c192d50a826e4c3d2d06c85eaa66da87eb1a21449267012bb32fe",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-final.report.json",
+      "sha256": "92eec30072841d67f24b68fa336971146e11ccd01e554cc44a342a9de158306a",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-metrics.json",
+      "sha256": "0efcc0eace0cd08e138d0f3e006db90300e446fbe43b9d72f8567f53d25ca89d",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source-vertex-counts.json",
+      "sha256": "e36250d7528296f19cf4a839ea24d3f1d456cedbbc8c78ca515ba234e12b3930",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/assets/ernietta/r012/source.blend",
+      "sha256": "41851d81db91af4808dad70bd26bc21dedf88fe4378df69f038ca4c91d8225e3",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/check-physical-surfaces.py",
+      "sha256": "397b55d50000b5556c37aa502659b2c045a80ba0c5204342bf6f10eb2f02b8ad",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/complete-final.py",
+      "sha256": "3c5da8b7785b399145e9991333a202eb02f9354a180b555f98d3f17cc77c6f3d",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/count-source-vertices.py",
+      "sha256": "9211091a8a90fdac820ae374478c7f4b28fe1e799a03b764f69aff7aba23c21f",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/original-freeze/concept-generation.json",
+      "sha256": "3398f991a550ca2f03e063cafb21841801d74d4b9a22d3e2650bb45145c75dca",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/original-freeze/concept-original.png",
+      "sha256": "83e71efc37cd370eb76008b75220a56c48c4f2a0ac0a927abcc44c58d3352a5c",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/original-freeze/concept-prompt.txt",
+      "sha256": "e73aa5153313bd125c39810f07575308e83b96c22a8d65ce1425ac47437f13d7",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/package-final.py",
+      "sha256": "54df2bb3c4c1ab6ac34bc257aa359cba6eb9c493e30d4d2c44249a99b3919fe7",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/publication-policy-reference.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/rebuild-final.sh",
+      "sha256": "c0a8fbe30c6fd601f19173f0abd1defbf5b9a2a1e890d8ae93fe316cef189fe2",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/render-fixed8.py",
+      "sha256": "e3654a0abb9bc8848e52fdf0c37c53ff34396aa876ab5a7ae0bc004607083058",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "production/batch77-ernietta-repair/runtime-parse.mjs",
+      "sha256": "fb938eb6db606a51b904de3f58b2557b618fc5963bfcf225ad990b0b1244164c",
+      "origin": "source",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/OWN_QA_MANIFEST.json",
+      "sha256": "7df099fc636f2fa71057d81aea6085e51bb08976473341d811c49cd1c3851786",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/fresh-render-compare.json",
+      "sha256": "1f7c4d9c729c846adedbf1b4f8d27d195156870862996c293e232b86f5850cd0",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/fresh-validate.mjs",
+      "sha256": "5b1a7ffe37fc479972b1d01b7eb3b1fd6b24e8e0f3636e4dc271f0084f263b2f",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/handoff.json",
+      "sha256": "342bba0fc3f4280a610b37f1145ff27d25352029bec9419a81ec0b65ec375d4e",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/independent-bounds-closure.json",
+      "sha256": "aa2301625520e959301f683972efbcf03d7b7765a95ddb188901afa261d6fb30",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/input-hashes-after.json",
+      "sha256": "3cd849857ce97f25208ebf264016507d0d5be0653e051bac7ddb53e21fe3246c",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/input-hashes-before.json",
+      "sha256": "3cd849857ce97f25208ebf264016507d0d5be0653e051bac7ddb53e21fe3246c",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/integrity-check.json",
+      "sha256": "ce9da5f686608e2bb4ad28cdea0c3d9caf81e7908349619b5ca17423307379a0",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/integrity.py",
+      "sha256": "68d42d01e36cc45d2498dd9f88d3156ed6af96494fcaad9ff46106943e04e091",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/khronos-fresh.json",
+      "sha256": "7c82804efe20924309dff98584b29b79242b47bf85bb641c53187001070e29a8",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/lean-byte-identity.json",
+      "sha256": "f6fc401c133e8ea2a4883254df1335fb6fb251cb7fa8564df93403546e125028",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/no-mutation-check.json",
+      "sha256": "8f63e39af8b15ca5ff4c1982abf1132feaf5dbac2b11f5c0d3cd635d731fd5b9",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/pixel-source-inspection.json",
+      "sha256": "10ad18dfef74885178f9c7e3544127a6ddde79aac29e340a85f8044ef3a6395d",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/project-fresh.json",
+      "sha256": "a275b9d0d72a02d1787bac71f45161edb26759041fa677abe7f4be9ef018b427",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/reopen-diff.py",
+      "sha256": "6b85e2aa9d812a61b45603e761433259b658374eefa86fdc49062863306cebe3",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/reopen-diff.report.json",
+      "sha256": "53abef3ff0af34c270650c0969cb48edb41ab788dab656f2269c0d969ee886b5",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/report.md",
+      "sha256": "b7be1c80bb41b02f7c8fd2a0e503b083b83626ea76c7165a0cd60fb8ccae8d40",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/source-mesh-diff-raw.json",
+      "sha256": "4a7c5ed32680eb2aa9f098dc33b6e5328c3dd41414ff484b6205cd0a1beb90b6",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch77-ernietta-r012/three-fresh.json",
+      "sha256": "d5e316f6062f221b9fb0c475f889399b8a58439919b497391adb0066f437c077",
+      "origin": "review",
+      "owner": "ernietta"
+    },
+    {
+      "path": "qa/next52-g09-release-20261021/retention-summary.json",
+      "sha256": "1aa7fc5686de8e7550d9188da5683292663e99df0ec107b262e447cbbf3bf3e3",
+      "origin": "release",
+      "owner": "$batch"
+    }
+  ]
+}

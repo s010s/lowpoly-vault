@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "sigillaria",
+  "revision": "r001",
+  "labels": {
+    "en": "Sigillaria single ribbed lycopsid column"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "154bd16ac69627421209d227bd4745baa25ac4d4db6f5c50cd0ce0c65bc4d0df"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "919d890a19c0591520b929fe85ea4d2cc7f5fa7a5603e2ef1b88560c507785c1"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "16856d66a867728250045bf3f1e84684972db5dfda0b423644b83c1efa1e2e9c"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "1d9028140b1e906692318438ef825b9455d6755f17cb19a49695bed78fb82d91"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "6334878ad7750881f17a00c0941b17fad0beef4660dffa97d28787587950b3fb"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "9fc0477d34848baeb9caef4c82009a7af00eb9c66a5e1c20af8d9baa5d749da0"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "2cef9399ac8bae46ac9831e9f5f6d9ecbd013322c43a45003d0764424b7b5419"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "80a5724ee76c6cd3aff1b4fd306a9f13a177c835c13f89fc247b15875957f67c"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: retain single column, vertical scar rows and simple crown straps. Make crown less broad and scars less embossed than generated palm-like image; separate scars by visible quiet rib lengths, not touching ornamental scales. Do not borrow branching habit from ribless S.brardii. Small basal rhizomorph beginnings only.",
+    "hidden_surface_decisions": "Concept inspected: retain single column, vertical scar rows and simple crown straps. Make crown less broad and scars less embossed than generated palm-like image; separate scars by visible quiet rib lengths, not touching ornamental scales. Do not borrow branching habit from ribless S.brardii. Small basal rhizomorph beginnings only."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T22:54:47.385961+00:00",
+    "modeling_started_at": null,
+    "note": "Observed invocation/return intervals and original freeze are retained. Provider internal generation time/requestID and exact authoring start unknown, not inferred from mtimes. Actual executed build interval in execution.json."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 44.795,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "2cef9399ac8bae46ac9831e9f5f6d9ecbd013322c43a45003d0764424b7b5419"
+      },
+      "note": "Actual invocation-to-return observed interval, not provider internal generation duration."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 23.7095,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "a639b6d084660f767882ad200f0ce9306d9593b9ec2d724ab1952034210cf558"
+      },
+      "note": "Actual render frame-loop monotonic wall time."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Full stage duration not recorded; original observed process boundaries preserved, no inferred authoring/provider duration."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "GPU/target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "a639b6d084660f767882ad200f0ce9306d9593b9ec2d724ab1952034210cf558"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "875d6847ecacdd8b16105654e53d9fc0869e244e0fcbdf24bfb564b7807f0d68",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "c5dc71fbbf10c45b2b148bd937aaac8d8f3f8ceb443a51dbab4954728b96b9fa"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "c0b7a2040741e5583d957efdd5b0244314a1611bf840965b5b84673e32847b20",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "1a33a0589f759c62bcece246c366dac15c3d37a7459b9dafc2d5095d33fa9d3e"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Dispatch hardcap1MB. Supplemental concept checker advisory, not independent acceptance."
+  }
+}

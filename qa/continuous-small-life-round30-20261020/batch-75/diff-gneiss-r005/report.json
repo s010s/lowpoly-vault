@@ -1,0 +1,93 @@
+{
+  "asset": {
+    "asset_id": "banded-gneiss-outcrop",
+    "baseline_commit": "c9c4fd5ed16d51b5dbe2ea44c1fbf827f476b2e5",
+    "glb_sha256": "c86d8b9ef0bda9b0cbd0bc9820fc7f11d561b619608e8a7e3dc676adf6524fad",
+    "producer_branch": "candidate/small-life-batch75-concept-20261020",
+    "producer_commit": "843e9b80d4aca535c5fe27ebc4c2e264fa9d77b3",
+    "revision": "r005"
+  },
+  "created_at_utc": "2026-10-20T17:47:39Z",
+  "decision": "ACCEPT_STATIC_QA_ONLY",
+  "evidence_paths": {
+    "audit": "/workspace/shared/lowpoly-round30-qa75/diff-gneiss-r005/audit.json",
+    "differential_report": "/workspace/shared/lowpoly-round30-qa75/diff-gneiss-r005/report.md",
+    "machine_report": "/workspace/shared/lowpoly-round30-qa75/diff-gneiss-r005/report.json",
+    "raw_manifest": "/workspace/shared/lowpoly-round30-qa75/diff-gneiss-r005/raw-manifest.json",
+    "rebuild_evidence": "/workspace/shared/lowpoly-round30-qa75/diff-gneiss-r005/rebuild-evidence.json"
+  },
+  "independent_checks": {
+    "exact_frames_and_sheet_bound_to_pre_render_final_glb_brief_references": true,
+    "fresh_physical_check": "pass",
+    "khronos_errors": 0,
+    "khronos_validator_version": "2.0.0-dev.3.10",
+    "khronos_warnings": 0,
+    "other_three_original_assets_and_r003_rejection_unchanged": true,
+    "saved_blend_reopened_and_full_EXPORT_collection_reexported_byte_identical": true,
+    "source_manifest_all_bytes_sha256_git_blobs_match": true,
+    "source_manifest_entries": 160,
+    "three_js_version": "180",
+    "two_distinct_executed_semantic_rebuilds": true
+  },
+  "limits": {
+    "approved_for_brief": false,
+    "concept_timing": "provider-internal ImageGen timestamp and full-stage duration are unavailable; no file timestamps were substituted",
+    "evidence_complete": false,
+    "formal_approval": "not asserted",
+    "gpu_and_composed_scene": "not tested; CPU frames and Node parsing are not hardware or composed-scene evidence",
+    "publication_or_release_approval": "separate; not asserted",
+    "use": "Static independent QA acceptance only. It is not GPU, scene, website, publication, or release clearance.",
+    "user_approval": "not asserted"
+  },
+  "measurements": {
+    "authored_polygons": 3502,
+    "authored_vertices": 1853,
+    "budgets": {
+      "glb_bytes_max": 1000000,
+      "materials_max": 6,
+      "primitives_max": 30,
+      "textures_max": 0,
+      "triangles_max": 14000
+    },
+    "evaluated_polygons": 3502,
+    "evaluated_vertices": 1853,
+    "exported_position_vertices": 10704,
+    "glb_bytes": 283244,
+    "materials": 4,
+    "measured_blender_xyz_m": [
+      3.4980521202087402,
+      1.6197673082351685,
+      2.3452324867248535
+    ],
+    "measured_gltf_y_up_xyz_m": [
+      3.4980520009994507,
+      2.3452324867248535,
+      1.6197673082351685
+    ],
+    "nominal_illustrative_target_blender_xyz_m": [
+      3.4,
+      1.6,
+      2.2
+    ],
+    "primitives": 4,
+    "textures": 0,
+    "triangles": 3702
+  },
+  "rationale": {
+    "continuity": "r003 remains unchanged and its original REVISE report is intact. The r004 cap diagnostic and its 15 rim T-junction failure are retained; r005 boundary-vertex propagation closes that seam. The other three fixed revisions are unchanged from the archive baseline.",
+    "factual": "Consistent with the frozen generic source-informed folded gneiss teaching prop. No locality, exact specimen, BIF identity, crosscutting-vein claim, specific protolith, mineral percentages, age, or pressure-temperature history is inferred.",
+    "geometry": "Fresh saved-source audit found a closed manifold surface, zero nonadjacent self-intersection pairs, and no boundary/nonmanifold edges. This is corroboration of the observed surface, not a universal zero-volume-intersection gate.",
+    "visual": "The original r003 high-contrast sawtooth cap-material boundaries seen in hero/reversehero/top are absent in r005. Coherent cap polygons follow broad mineral-band contours; the unchanged palette, cameras, renderer, and broad folded side profile remain. Clay shows physical folded ribs and coarse facets. Broad banding stays distinct from fine BIF lamination, and the form remains a chunky solid outcrop."
+  },
+  "schema_version": 1,
+  "scope": "Independent differential static QA of banded-gneiss-outcrop r005 only; compare exact final revision with the original frozen brief and r003 visual rejection. No source or original report changed.",
+  "stages": {
+    "factual": "PASS",
+    "gpu": "NOT RUN",
+    "runtime_parse": "PASS",
+    "scene": "NOT RUN",
+    "specification": "PASS",
+    "technical": "PASS",
+    "visual": "PASS"
+  }
+}

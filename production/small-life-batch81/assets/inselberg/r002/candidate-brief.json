@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "inselberg",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: One isolated rounded asymmetric residual rock mass rising abruptly from low surrounding plain; Rounded unequal crest and steep flanks surrounded on all sides by broad nearly flat terrain; Not flat-topped mesa, concentric exfoliation dome, boulder pile or named-site replica. Scope: Original generic geological-form analog of isolated residual rock hill. Government definition and official park photographs inform form, not geological period, named-site DEM, precise dimensions, cultural detail or coexisting ecosystem. Nominal module1100x900x180m with rock roughly500x350x170m, illustrative not measured. No universally igneous origin asserted; public broad Uluru silhouette and Bald Rock granite flank are separate examples, not conflated lithology or site reconstruction.",
+      "required_sources": [
+        "NPS-INSELBERG"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: One isolated rounded asymmetric residual rock mass rising abruptly from low surrounding plain; Rounded unequal crest and steep flanks surrounded on all sides by broad nearly flat terrain; Not flat-topped mesa, concentric exfoliation dome, boulder pile or named-site replica. Scope: Original generic geological-form analog of isolated residual rock hill. Government definition and official park photographs inform form, not geological period, named-site DEM, precise dimensions, cultural detail or coexisting ecosystem. Nominal module1100x900x180m with rock roughly500x350x170m, illustrative not measured. No universally igneous origin asserted; public broad Uluru silhouette and Bald Rock granite flank are separate examples, not conflated lithology or site reconstruction.",
+      "required_sources": [
+        "NPS-INSELBERG"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch81/assets/inselberg/r002/source.blend",
+      "sha256": "31e65324cb6cbe4393baeb655a063950c2d986816fe28932b1ac8f8ea4d826d7"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch81/assets/inselberg/r002/generator.py",
+      "sha256": "8eb3deb47688c0b005ff4e0ec0a86fa7f71f6244af525ead7b6e9ca9f0a4bac4"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch81/assets/inselberg/r002/build-config.json",
+      "sha256": "46528041f27954ddcf7f80b5bf9ffc8e6f09dc17d47c8c92e0d2a33c47fa97d4"
+    }
+  ],
+  "claim_scope": "Original generic geological-form analog of isolated residual rock hill. Government definition and official park photographs inform form, not geological period, named-site DEM, precise dimensions, cultural detail or coexisting ecosystem. Nominal module1100x900x180m with rock roughly500x350x170m, illustrative not measured. No universally igneous origin asserted; public broad Uluru silhouette and Bald Rock granite flank are separate examples, not conflated lithology or site reconstruction.",
+  "nominal_dimensions_blender_xyz_m": [
+    1100,
+    900,
+    180
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "One isolated rounded asymmetric residual rock mass rising abruptly from low surrounding plain",
+    "Rounded unequal crest and steep flanks surrounded on all sides by broad nearly flat terrain",
+    "Not flat-topped mesa, concentric exfoliation dome, boulder pile or named-site replica"
+  ],
+  "concept_decisions": "Retain isolated asymmetrical hill and low plain from concept; round the overly planar top to unequal continuous convex crest, remove loose huge angular talus and square plaque. Integral irregular plain perimeter with low thickness, sparse shallow weathering grooves on hill. Not batch78 exfoliation dome: no giant shell, no concentric sheets; isolation and abrupt foot diagnostic. Public view of Uluru used only broad isolation, no exact form or restricted detail.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:58:19.554546+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T17:03:49.376516+00:00",
+    "frozen_design_brief_sha256": "5003a750981199dbdb748e9fd3f84ddd495cfea6116b171f5499153c57f5afeb",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

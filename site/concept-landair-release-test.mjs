@@ -404,7 +404,8 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
 
 // Batch60/61 delivery selections must not fall back to historical archive anchors.
 {
- const {readFile:readActual,writeFile:writeActual,link,rename:renameActual}=await import('node:fs/promises');const {createHash}=await import('node:crypto');
+ const {readFile:readActual,writeFile:writeActual,stat,rename:renameActual}=await import('node:fs/promises');const {createHash}=await import('node:crypto');
+ const {linkFixtureFile}=await import('./test-fixture-link.mjs');
  const {collectBatches6061Additions}=await import('./concept-landair-release.mjs');
  const {ACCEPTED_BOUNDED_BATCHES}=await import('./accepted-bounded-batches.mjs');
  const descriptors=ACCEPTED_BOUNDED_BATCHES.filter(e=>['assets/releases/batch60-20261020.json','assets/releases/batch61-20261020.json'].includes(e.descriptor.path)).map(e=>e.descriptor);
@@ -413,7 +414,8 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
   const paths=new Set(['site/viewer.js','assets/turntables/index.json','site/public/gallery/resources.json']);
   function pins(v){if(!v||typeof v!=='object')return;if(typeof v.path==='string'&&typeof v.sha256==='string')paths.add(v.path);for(const x of Object.values(v))pins(x);}
   for(const d of descriptors){pins(d);const release=JSON.parse(await readActual(d.path));pins(release);pins(JSON.parse(await readActual(release.source_bundle.path)));const index=JSON.parse(await readActual(release.capture.index.path)),receipt=JSON.parse(await readActual(release.capture.gallery_receipt.path));for(const e of release.additions){const a=JSON.parse(await readActual(e.metadata.path));for(const k of ['glb','blend','preview'])paths.add(a[k]);paths.add(index.posters.find(p=>p.id===e.id).path);for(const f of receipt.rows.find(p=>p.id===e.id).files)paths.add('site/public/'+f.path);}}
-  for(const path of paths){await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await link(resolve(path),resolve(sandbox,path));}
+  const sourceBefore=new Map();
+  for(const path of paths){const source=resolve(path);sourceBefore.set(path,{sha256:createHash('sha256').update(await readActual(source)).digest('hex'),mode:(await stat(source)).mode&0o7777});await mkdir(dirname(resolve(sandbox,path)),{recursive:true});await linkFixtureFile(source,resolve(sandbox,path));}
   const readFile=p=>readActual(resolve(sandbox,p));
   // Atomic replacement detaches shared evidence inodes before every probe.
   const writeFile=async(p,b)=>{const out=resolve(sandbox,p),temp=out+'.private-test';await writeActual(temp,b);await renameActual(temp,out);};
@@ -433,7 +435,7 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
   const mesa=original.additions.find(a=>a.id==='mesa'),proof=await readFile(mesa.proof.path),bad=JSON.parse(proof);bad.subject.brief_sha256='0'.repeat(64);
   try{await writeFile(mesa.proof.path,JSON.stringify(bad));await assert.rejects(()=>collectBatches6061Additions(sandbox,descriptors),/hash mismatch/,'changed v003 render subject');}finally{await writeFile(mesa.proof.path,proof);}
   console.log('Batch60/61: exact8 positive + six isolated historical/active-delivery fail-closed negatives passed; no source re-QA.');
-  }finally{await rm(sandbox,{recursive:true,force:true});}
+  }finally{try{for(const [path,before]of sourceBefore){assert.equal(createHash('sha256').update(await readActual(resolve(path))).digest('hex'),before.sha256,'Fixture source bytes changed: '+path);assert.equal((await stat(resolve(path))).mode&0o7777,before.mode,'Fixture source mode changed: '+path);}}finally{await rm(sandbox,{recursive:true,force:true});}}
  }
 }
 
@@ -443,7 +445,8 @@ if(!process.argv.includes('--batch54-only')&&!process.argv.includes('--batches58
  const {appendBatches5861Release,appendBatches6267Release}=await import('./concept-landair-release.mjs');
  const {appendFortyFourRelease}=await import('./forty-four-release.mjs');
  const {digest}=await import('./model-registry.mjs');
- const manifest=JSON.parse(await readFile('assets/manifest.json'));
+ const {historical295Fixture}=await import('./test-historical295-fixture.mjs');
+ const manifest=historical295Fixture(JSON.parse(await readFile('assets/manifest.json')));
  const expected251=structuredClone(manifest);expected251.assets=expected251.assets.slice(0,251);delete expected251.publication.forty_four_descriptors;
  // assets/manifest.json at 43e40fc89f2b369a5f1858e72fa58a0d10318124,
  // hashed with model-registry digest (the entire canonical manifest, not just IDs).

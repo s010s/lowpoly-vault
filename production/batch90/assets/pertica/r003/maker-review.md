@@ -1,0 +1,5 @@
+# Maker observations, not independent approval
+
+All eight new r003 exact final images individually opened. Wider original-target branch arrangement remains naked, slender and tiered with clear terminal clusters and sterile forks. Actual top shows four ranks; reverse hero shows hidden branches. Front/side/rear contain full base and apex: actual image-pixel bounds check gives foreground y29..482, not clipping. Clay and silhouette preserve real volume and branched outline. R003 wider extent obtained by centerline-only extension, not global scaling; actual90deg insertion azimuths and160bud sizes measured. Basal anchorage artistic and original species/source uncertainty retained.
+
+Every individual final512px frame was personally opened. Final contact sheet is a lossless arrangement without image resampling, not a substitute for individual inspection. Exact subject GLB 70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196. Original source uncertainty retained in frozen brief and ledger. No GPU, scene, formal, independent or user approval.

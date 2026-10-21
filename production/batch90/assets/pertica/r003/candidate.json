@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "asset_id": "pertica",
+  "revision": "r003",
+  "maker": {
+    "id": "batch90 maker",
+    "task_id": "/root/resume_parallel_model_production/produce_batch90_models"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "production/batch90/assets/pertica/r003/model.glb",
+      "sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196"
+    },
+    "brief": {
+      "path": "production/batch90/assets/pertica/r003/candidate-brief.json",
+      "sha256": "fb1522a02979fdd2b9c3f4169d1ab451d1465dbc86bb4b70ead69f2a9cdd51d8"
+    },
+    "references": {
+      "path": "production/batch90/assets/pertica/r003/references.json",
+      "sha256": "6dc47a6e463af37d336d07ede5678f7007af13c25f33677dbb6beb1e1f0ce467"
+    },
+    "source": {
+      "path": "production/batch90/assets/pertica/r003/source.blend",
+      "sha256": "2b9ca6771ea88fe8df2715915431526ccb8fdbc7f8b2004d115d117e33fae1c4"
+    },
+    "generator": {
+      "path": "production/batch90/assets/pertica/r003/generator.py",
+      "sha256": "4e009c2cceefe71ba8469617a6e45d76306278931bad66514783e93da6de901e"
+    },
+    "config": {
+      "path": "production/batch90/assets/pertica/r003/build-config.json",
+      "sha256": "50d86874a524943bf92c7e80b2f3ad4086e23918d167642bbb9d5281d2f22973"
+    }
+  },
+  "supersedes": null,
+  "textures": [],
+  "evidence": [
+    {
+      "id": "exact-glb-fixed8",
+      "stage": "visual",
+      "kind": "render_manifest",
+      "subject": {
+        "revision": "r003",
+        "glb_sha256": "70f0dbec0a276763480e7ceff2c28092f3e69e204fd9c02ca3bd3f02ad62b196",
+        "brief_sha256": "fb1522a02979fdd2b9c3f4169d1ab451d1465dbc86bb4b70ead69f2a9cdd51d8",
+        "references_sha256": "6dc47a6e463af37d336d07ede5678f7007af13c25f33677dbb6beb1e1f0ce467"
+      },
+      "path": "production/batch90/assets/pertica/r003/proof-final/render-manifest.json",
+      "sha256": "b33af49ea961b81d025806182e56fe6ae99d19ed6032f17ef56e198598e6d71c"
+    }
+  ],
+  "stages": {
+    "technical": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "technical-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Automated project audit, Khronos, source reopen, real measured geometry and two separate queue-bound semantic rebuilds pass; independent acceptance pending."
+    },
+    "visual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [
+        "exact-glb-fixed8"
+      ],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "visual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Maker personally opened every exact final512px frame. Independent visual acceptance pending.",
+      "inspected_frames": []
+    },
+    "factual": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "factual-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Primary collection text and actual specimen/reference pixels consulted before original freeze; explicit scientific uncertainties retained, including unavailable1972 Pertica full text. Independent factual acceptance pending."
+    },
+    "specification": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "specification-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Complete original perasset freeze retained; actual source measurements incl caps and outer perturbations supplied; no config-only conformity claim. Independent acceptance pending."
+    },
+    "runtime_parse": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "runtime_parse-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Exact GLB Node Three0.180 GLTFLoader parse passes; not graphics-device rendering."
+    },
+    "gpu": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "gpu-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; CPU stills and Node parser are not GPU evidence."
+    },
+    "scene": {
+      "status": "unknown",
+      "reviewer": null,
+      "subject": null,
+      "evidence": [],
+      "inspected_references": [],
+      "criteria": [
+        {
+          "id": "scene-acceptance",
+          "status": "unknown",
+          "evidence": [],
+          "note": "Fresh independent review required."
+        }
+      ],
+      "note": "Not run; no populated/composed scene or hardware evidence."
+    }
+  },
+  "blockers": [
+    {
+      "id": "pending-independent-qa",
+      "description": "Fresh exact-commit independent four-ID batch review required",
+      "status": "open"
+    },
+    {
+      "id": "pending-runtime-render",
+      "description": "GPU and composed-scene stages not run",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "status": "pending"
+  },
+  "raw_checks": {
+    "metrics.json": {
+      "path": "production/batch90/assets/pertica/r003/metrics.json",
+      "sha256": "10e40b1276896bf754a86327ed32200fb71365949159445fb8408f2b4e5b9e91"
+    },
+    "source-metrics.json": {
+      "path": "production/batch90/assets/pertica/r003/source-metrics.json",
+      "sha256": "f5ddc97cdc49a9b358fc4157acdff934edd1e793b6ccdf98be76a8d40171a0a8"
+    },
+    "qa.json": {
+      "path": "production/batch90/assets/pertica/r003/qa.json",
+      "sha256": "d2aa68534020fd4c1e68da76937bed6ad61840e4c0034caa544616334c5c6cf6"
+    },
+    "project-audit.json": {
+      "path": "production/batch90/assets/pertica/r003/project-audit.json",
+      "sha256": "9a2e3669908075ab47a0bf1bbdde7a051e0aadad97f9957164e12fc5a3deb099"
+    },
+    "source-final.report.json": {
+      "path": "production/batch90/assets/pertica/r003/source-final.report.json",
+      "sha256": "16086be315bf6615acbd57e32377363179d669402ce0800852981da7b863507a"
+    },
+    "source-vertex-counts.json": {
+      "path": "production/batch90/assets/pertica/r003/source-vertex-counts.json",
+      "sha256": "bd826c6fa8a188d6bd294da7bddd3f3a7dd7939ab560458452f8af8a2607b6b6"
+    },
+    "repro-final-1.report.json": {
+      "path": "production/batch90/assets/pertica/r003/repro-final-1.report.json",
+      "sha256": "f93dc88e66cb9a7339c3840cdfb2971a301f228053adf86f7dddbc18431e9792"
+    },
+    "repro-final-2.report.json": {
+      "path": "production/batch90/assets/pertica/r003/repro-final-2.report.json",
+      "sha256": "7709b12774b278a2bf320abbea2b4b057bd050046ffabb78ded57df075e8f958"
+    },
+    "gltf-validator.report.json": {
+      "path": "production/batch90/assets/pertica/r003/gltf-validator.report.json",
+      "sha256": "82b05da3b08f705ec13bf2939efbcd7a9d24dbdfba96b281859eb208fbe4b923"
+    },
+    "runtime-parse.report.json": {
+      "path": "production/batch90/assets/pertica/r003/runtime-parse.report.json",
+      "sha256": "a89880f80ba1961d7ca493fb07ba85d0f566827f2f5466a290287e786dee0f84"
+    },
+    "build-dependencies.json": {
+      "path": "production/batch90/assets/pertica/r003/build-dependencies.json",
+      "sha256": "d1e3fc68cb0f2539911726dea513234bb0addc3a2f0b048b996e3545a39da7c8"
+    },
+    "pixel-inspection.json": {
+      "path": "production/batch90/assets/pertica/r003/pixel-inspection.json",
+      "sha256": "a4bc0cddf39b30710c3c6b3766ec1b26d4de47957582fbc5d4a406594dcb2e76"
+    },
+    "contact-sheet.png": {
+      "path": "production/batch90/assets/pertica/r003/contact-sheet.png",
+      "sha256": "428849a5924b8ae41eedc9e2d93d565f50de8f7687287d742b34e4d3b6588090"
+    },
+    "preproof-binding.json": {
+      "path": "production/batch90/assets/pertica/r003/preproof-binding.json",
+      "sha256": "679829169349c96497f9866d8b7fe763b6bba6074b6e8fea548d299c537d726d"
+    }
+  }
+}

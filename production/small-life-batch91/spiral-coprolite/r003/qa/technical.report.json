@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r003",
+    "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+    "brief_sha256": "477dd4a46201e27dd78d5b87fbc5a2ac1329f80186eebe2db968a67369e68bd5",
+    "references_sha256": "ac2f23f4b59593825d2d56701f9aacee628dcdf79e1c63d3ee3eb22d77ca3d3a"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 4112,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 223988,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "report": {
+        "path": "production/small-life-batch91/spiral-coprolite/r003/qa/static-glb.report.json",
+        "sha256": "e5c124c6b064acc192477ebb195c4095720d6d895dd6e71d841a3cd94e5b810a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "report": {
+        "path": "production/small-life-batch91/spiral-coprolite/r003/artifacts/gltf-validator.report.json",
+        "sha256": "498b7c6d1d21672e7e17babb667671d715f9b4ca362d26a15e8b0cc688899b5a"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "report": {
+        "path": "production/small-life-batch91/spiral-coprolite/r003/qa/source-export.report.json",
+        "sha256": "70d0dc46403a26ce55ffc853ede9fb9859bb13b9762a8a77351dfbc407e84cdb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "report": {
+        "path": "production/small-life-batch91/spiral-coprolite/r003/qa/reproducibility-a.report.json",
+        "sha256": "82cbf8ff64675280f7633906d7fa13ed41353edd8876cecdf0c618c790021985"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "b7646d7a4cad0baf299e6087b7517766272c08d26441b94396e652f6c6e59f86",
+      "report": {
+        "path": "production/small-life-batch91/spiral-coprolite/r003/qa/reproducibility-b.report.json",
+        "sha256": "56dc41eb801e6796f2f81a85b2edd47abe88f9eabe546b599b4df0446323b14d"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.05389999970793724,
+      0.0,
+      -0.026000000536441803
+    ],
+    "max": [
+      0.054999999701976776,
+      0.03551964834332466,
+      0.026000000536441803
+    ],
+    "size": [
+      0.10889999940991402,
+      0.03551964834332466,
+      0.052000001072883606
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "subdued-irregular-matrix",
+      "vertices": 16,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "single-solid-three-turn-spiral-coprolite",
+      "vertices": 2044,
+      "triangles": 4084,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 8168,
+  "created_at": "2026-10-20T22:21:16.154102+00:00"
+}

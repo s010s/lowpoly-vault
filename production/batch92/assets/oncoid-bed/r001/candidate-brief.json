@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "asset_id": "oncoid-bed",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational candidate, not independent or user approval.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate exact static GLB, source reopen, two distinct queued rebuilds, actual vertex counts and budgets, dependencies and scale.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Personally inspect eight exact final512px views; preserve subject identity and full-volume form. Concept hero/top/reverse personally inspected. Keep distinct grains and3 exposed nuclei but reject overly regular onion rings. Integrate uneven discontinuous bands on cut surfaces only, with off-center nuclei; do not wrap stripes around uncut exteriors. Shallow base remains subordinate.",
+      "required_sources": [
+        "UGS168",
+        "UGS-WEB",
+        "HYDRA2021",
+        "INVENTORY-USGS"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Sixteen discrete irregular rounded coated grains rest in a shallow quiet sediment patch; three front grains have deliberate flat teaching cuts. Cut grains show uneven roughly concentric partly interrupted coatings around off-center nuclei; exterior uncut grains are irregular rough rounded bodies, not striped balls. Grains remain separate recognizable volumes, not a continuous stromatolite or thrombolitic mass; continuous closed cutfaces and undersides. Generic pedagogical loose oncoid bed, not reconstruction of a measured Hydra bed or a single source locality. UGS primary slab/core pixels support cm-scale shapes and coating/nucleus relationships; Hydra text supports irregular overlapping lamination but its1.8\u20134.1mm grain dimensions are not imported. Art arrangement,count,color,size and enlarged legibility are explicit; no assertion of a specific organism or unique growth process.",
+      "required_sources": [
+        "UGS168",
+        "UGS-WEB",
+        "HYDRA2021",
+        "INVENTORY-USGS"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify original immutable complete brief, all deliverables and actual geometry against numeric hard ranges and explicit semantic measurement definitions.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB parse using pinned Three.js loader; parsing is not GPU rendering.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target graphics-device render and device/work evidence required; otherwise unknown.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual intended composed scene inspection and scale/contact/runtime evidence required; otherwise unknown.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "8 actual512px final views and lossless sheet; CPU stills do not establishGPU/scene.",
+  "frozen_at": "2026-10-20T22:23:07.047536+00:00",
+  "subject": "Oncoid grain bed with three cut grains",
+  "representation": "geological-reconstruction",
+  "factual_scope": "Generic pedagogical loose oncoid bed, not reconstruction of a measured Hydra bed or a single source locality. UGS primary slab/core pixels support cm-scale shapes and coating/nucleus relationships; Hydra text supports irregular overlapping lamination but its1.8\u20134.1mm grain dimensions are not imported. Art arrangement,count,color,size and enlarged legibility are explicit; no assertion of a specific organism or unique growth process.",
+  "identifying_features": [
+    "Sixteen discrete irregular rounded coated grains rest in a shallow quiet sediment patch; three front grains have deliberate flat teaching cuts.",
+    "Cut grains show uneven roughly concentric partly interrupted coatings around off-center nuclei; exterior uncut grains are irregular rough rounded bodies, not striped balls.",
+    "Grains remain separate recognizable volumes, not a continuous stromatolite or thrombolitic mass; continuous closed cutfaces and undersides."
+  ],
+  "scale": {
+    "units": "meters",
+    "nominal_art_dimensions_blender_xyz_m": [
+      0.24,
+      0.18,
+      0.065
+    ],
+    "hard_overall_bounds_blender_xyz_m": [
+      [
+        0.2,
+        0.29
+      ],
+      [
+        0.15,
+        0.23
+      ],
+      [
+        0.045,
+        0.085
+      ]
+    ],
+    "accuracy": "Nominal dimensions are approximate artistic targets, NOT exact acceptance equalities or measured fossil facts. Hard intervals are intentional broad art envelope."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contactz0, whole footprint centeredXY.",
+  "intended_use": {
+    "role": "Static educational/catalog supporting asset",
+    "viewing": "512px stills then independent QA; noGPU/scene approval"
+  },
+  "surface_profile": "Full-volume closed opaque lowpoly geometry, no textures, transparency, image planes or double-sided concealment.",
+  "palette_srgb": {
+    "sediment": "#A89B7D",
+    "grain": "#999B7D",
+    "grain_shadow": "#797E66",
+    "coating_light": "#D1C7A5",
+    "coating_dark": "#858469",
+    "nucleus": "#686E5D"
+  },
+  "component_and_cause": {
+    "primary": "Sixteen discrete irregular rounded coated grains rest in a shallow quiet sediment patch; three front grains have deliberate flat teaching cuts.",
+    "secondary": "Cut grains show uneven roughly concentric partly interrupted coatings around off-center nuclei; exterior uncut grains are irregular rough rounded bodies, not striped balls.",
+    "tertiary": "Grains remain separate recognizable volumes, not a continuous stromatolite or thrombolitic mass; continuous closed cutfaces and undersides.",
+    "quiet_region": "Shallow sediment contact"
+  },
+  "concept_decisions": "Concept hero/top/reverse personally inspected. Keep distinct grains and3 exposed nuclei but reject overly regular onion rings. Integrate uneven discontinuous bands on cut surfaces only, with off-center nuclei; do not wrap stripes around uncut exteriors. Shallow base remains subordinate.",
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T22:15:59.445522+00:00",
+    "path": "production/batch92/concepts/oncoid-bed-concept.png",
+    "sha256": "56dabf0d2222031b0e58b9daf47409af2773ccb7a6e76131ee007b396dac4ebf"
+  },
+  "parameters": {
+    "bed_width_m": 0.24,
+    "bed_depth_m": 0.18,
+    "base_thickness_m": 0.01,
+    "grain_count": 16,
+    "cut_grains": 3,
+    "grain_nominal_diameter_m": 0.045
+  },
+  "hard_component_constraints": {
+    "grain_count": 16,
+    "cut_grain_count": 3
+  },
+  "measurement_semantics": "Whole world bounds include sediment base, all intact grains and cut grains. Nominal grain diameter is art target only; no per-grain exact width or scientific physical measurement claimed. Count from named semantic objects/groups and actual geometry connectivity; cut count from geometric cutface groups.",
+  "numeric_preflight": {
+    "status": "mutually-satisfiable-before-geometry",
+    "note": "Chosen construction nominal dimensions fall strictly inside every whole-art range with cap/relief allowance. Component limits are distinct local measurements, no hidden equality. Counts selected for art. All explicit ranges/counts will be measured on actual authored/evaluated geometry before finalproof; failure requires geometry repair, not changed freeze."
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and hard measured bounds",
+    "source reopen",
+    "two real distinct queued semantic rebuilds",
+    "project/Khronos/Three parse",
+    "8exact512views/losslesssheet",
+    "seven distinct stages independentpending"
+  ],
+  "prohibited": [
+    "Alter original inventory or ID",
+    "Use generated concept as factual evidence",
+    "Incorporate third-party pixels/meshes",
+    "Change frozen constraints to hide failure",
+    "Self-authorize independentQA/publication"
+  ],
+  "packaging_adapter": {
+    "created_at": "2026-10-20T22:34:03.662939+00:00",
+    "frozen_design_brief_sha256": "f6e5579055746c14917afcc2a67bfa0c81fc5264912a7dfb245e7f65907b37d7",
+    "note": "Derived postbuild source/generator/config closure only. Original complete design and ledger byte-identical."
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/batch92/assets/oncoid-bed/r001/source.blend",
+      "sha256": "115e5fa3532355bdaa000ceeee7725652abbf63174de434c6cd37f50ecb27c1a"
+    },
+    {
+      "role": "generator",
+      "path": "production/batch92/assets/oncoid-bed/r001/generator.py",
+      "sha256": "5d4c6cbe1e60a6880150229b78967d712bea9e6cb58137b24171172ca1132548"
+    },
+    {
+      "role": "config",
+      "path": "production/batch92/assets/oncoid-bed/r001/build-config.json",
+      "sha256": "5f01f8cd530f18ec5a6728098ad62bb4bbe7c0c020e09b790c1120e9259ce5c7"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+    "brief_sha256": "22800d4734df5dab26ef968596a6a9f0b5c144f33ca5bae1e61f1202087c8744",
+    "references_sha256": "fd0994d8f1f42c01c523af8345605dc2884dbea0c4076e680af1201483b5ad54"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 10576,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 544120,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "report": {
+        "path": "production/small-life-batch89/psilophyton/r001/qa/static-glb.report.json",
+        "sha256": "e5a638645ff9108faabaa7cb5bfa95ce677782ed3a39aec3500905c21e64a5cb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "report": {
+        "path": "production/small-life-batch89/psilophyton/r001/artifacts/gltf-validator.report.json",
+        "sha256": "6d86119570e63b6759d770b45b852a16ec93b9039ea6f548a45d868b7a25b53b"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "report": {
+        "path": "production/small-life-batch89/psilophyton/r001/qa/source-export.report.json",
+        "sha256": "a20c901dd4f70df1dcdf01b65dd8c1363dd2ee425f1bcf4a5b3f5d57507926c4"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "report": {
+        "path": "production/small-life-batch89/psilophyton/r001/qa/reproducibility-a.report.json",
+        "sha256": "00d0688f94460335d97e09a06c357666d46eee4ce3cd9cf2abb6288b8dd52fce"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "d729d9210e9a1df61a4ccde757e144fc5113914d92b2ea017b74c8ccfc975118",
+      "report": {
+        "path": "production/small-life-batch89/psilophyton/r001/qa/reproducibility-b.report.json",
+        "sha256": "52c7d9370538cf5375f658614ec68a4e861e930b428d2ef47ff8298953459a9f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.17662429809570312,
+      0.0,
+      -0.18885476887226105
+    ],
+    "max": [
+      0.19774092733860016,
+      0.7205957770347595,
+      0.17729705572128296
+    ],
+    "size": [
+      0.3743652254343033,
+      0.7205957770347595,
+      0.366151824593544
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "dominant-naked-axis-dichotomized-sprays-paired-sporangia",
+      "vertices": 5832,
+      "triangles": 10576,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 19860,
+  "created_at": "2026-10-20T21:44:51.234204+00:00"
+}

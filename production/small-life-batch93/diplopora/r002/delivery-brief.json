@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "asset_id": "diplopora",
+  "brief_version": "delivery-r002",
+  "profile": "production",
+  "purpose": "Static low-poly catalog candidate preparation; independent acceptance, GPU, scene and release separate.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all exact final views against original scope. Concept personally inspected22:34:23UTC. Keep real hollow lumen and wall pores. Correct concept single pore rows to two whorls per annular segment, reduce oversized openings and castellated broken rim. Pale fossil shell rather than live green alga.",
+      "required_sources": [
+        "HERAK1965"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Verify One hollow calcified cylindrical fossil thallus fragment with an open axial lumen, distinct wall thickness and both open ends. Three restrained annular segments each carry two whorls of16 real radial pore channels through the wall, not painted dots or closed bumps. Slight irregular broken rims and quiet pale carbonate surface, no soft green foliage, roots, axial branching, flowers or arbitrary organism appendages. Fossil specimen morphology only, not a whole living alga. Herak1965 D. annulata sensu stricto PlateVI2\u20134 and description support cylindrical annulated thallus, central lumen and lateral canals. Do not use PlateVI1 old D.dolomitica/Kantia morphology. Hand-scale0.10m display is intentionally enlarged from millimetric fossils, not a fossil measurement. Three segments and96 channels are schematic counts; pore layout and size enhance readability and do not reproduce taxonomic microstructure or claim all lateral tuft branches are individually resolved.",
+      "required_sources": [
+        "HERAK1965"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Eight exact512px views and lossless contact sheet, independent review separate; GPU/scene unknown unrun.",
+  "frozen_at": "2026-10-20T22:41:47.170277+00:00",
+  "subject": "Diplopora annulated hollow calcareous fragment",
+  "representation": "fossil-specimen-concept",
+  "factual_scope": "Fossil specimen morphology only, not a whole living alga. Herak1965 D. annulata sensu stricto PlateVI2\u20134 and description support cylindrical annulated thallus, central lumen and lateral canals. Do not use PlateVI1 old D.dolomitica/Kantia morphology. Hand-scale0.10m display is intentionally enlarged from millimetric fossils, not a fossil measurement. Three segments and96 channels are schematic counts; pore layout and size enhance readability and do not reproduce taxonomic microstructure or claim all lateral tuft branches are individually resolved.",
+  "identifying_features": [
+    "One hollow calcified cylindrical fossil thallus fragment with an open axial lumen, distinct wall thickness and both open ends.",
+    "Three restrained annular segments each carry two whorls of16 real radial pore channels through the wall, not painted dots or closed bumps.",
+    "Slight irregular broken rims and quiet pale carbonate surface, no soft green foliage, roots, axial branching, flowers or arbitrary organism appendages."
+  ],
+  "scale": {
+    "units": "meters",
+    "art_target_bounds_blender_xyz_m": [
+      0.032,
+      0.032,
+      0.1
+    ],
+    "bounds_interpretation": "ART PLANNING TARGETS ONLY, not independent hard equality/minimum/maximum thresholds. Measure and disclose final bounds. Frozen component counts, real open lumen/radial channels and named identifying morphology are mandatory; no threshold may be invented from this bbox.",
+    "accuracy": "Artistic, not measured complete specimen or exact track-site cast."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom support contact z0; horizontal center of support footprint.",
+  "intended_use": {
+    "role": "static educational museum/catalog rotation candidate",
+    "viewing": "512px diagnostic stills, later web inspection",
+    "limits": "No GPU/composed-scene/collision/dynamics acceptance established."
+  },
+  "surface_profile": "Full-volume flat faceted opaque palette; no textures, emission, transparent planes or double-sided concealment.",
+  "palette_srgb": [
+    "#B8AC8F",
+    "#9F9278",
+    "#CDC2A5"
+  ],
+  "component_and_cause": {
+    "primary": "One hollow calcified cylindrical fossil thallus fragment with an open axial lumen, distinct wall thickness and both open ends.",
+    "secondary": "Three restrained annular segments each carry two whorls of16 real radial pore channels through the wall, not painted dots or closed bumps.",
+    "tertiary": "Slight irregular broken rims and quiet pale carbonate surface, no soft green foliage, roots, axial branching, flowers or arbitrary organism appendages.",
+    "quiet_region": "Bare lower stem or subdued calcified surface"
+  },
+  "concept_inspection": {
+    "recorded_at": "2026-10-20T22:41:47.170277+00:00",
+    "path": "production/small-life-batch93/concepts/diplopora-concept.png",
+    "sha256": "5f202471ed9a084d79d6f4f66e233fced1701af45494110a278a89469c008a2b",
+    "decisions": "Concept personally inspected22:34:23UTC. Keep real hollow lumen and wall pores. Correct concept single pore rows to two whorls per annular segment, reduce oversized openings and castellated broken rim. Pale fossil shell rather than live green alga."
+  },
+  "parameters": {
+    "art_fragment_height_m": 0.1,
+    "outer_radius_m": 0.016,
+    "inner_radius_m": 0.0085,
+    "annular_segments": 3,
+    "pore_whorls_per_segment": 2,
+    "pores_per_whorl": 16,
+    "pore_half_cell_angular_fraction": 0.19,
+    "pore_half_cell_axial_fraction": 0.13,
+    "annular_groove_depth_m": 0.0013,
+    "rim_irregularity_m": 0.002
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "authored/evaluated/exported counts and bounds",
+    "source reopen",
+    "two distinct real queued semantic rebuilds",
+    "project/Khronos/Three.js parse",
+    "eight actual512px final images and lossless sheet"
+  ],
+  "prohibited": [
+    "Alter original inventory or frozen scope",
+    "Treat concept as primary evidence",
+    "Copy source imagery/meshes",
+    "Hide defects with renderer tricks",
+    "Claim CPU or Node parse proves GPU/scene"
+  ],
+  "derived_from_original_brief": {
+    "path": "production/small-life-batch93/diplopora/r001/original-brief.json",
+    "sha256": "84921b27da781527956972e0659b017910834525b388d7dde12b5acd89e8ae4c"
+  },
+  "delivery_bound_at": "2026-10-20T22:48:36.563604+00:00",
+  "scope_changed": false,
+  "original_design_parameters_preserved_in_original_brief": true,
+  "geometric_repair_note": "Actual diagnostic shell had distracting checkerboard patches and weak annulation. Remove large color patches, deepen nominal annular crease and modest irregular broken rims. Three segments, six whorls and96 true through channels unchanged.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch93/diplopora/r002/artifacts/diplopora.blend",
+      "sha256": "f557f510fd6f0b917354f13e1ce3be079c55dd8162329ac14fa934598fa2a382"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch93/tools/generate-r002.py",
+      "sha256": "881ff2638624624bebcf43917924be3422bf897078901c4eb0adafc7a4b81e0f"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch93/diplopora/r002/config.json",
+      "sha256": "f56cc54f0c14145589a02a6ec714d1e2db15faae2ccfa95b373c3a50d4cc2431"
+    },
+    {
+      "role": "dependencies",
+      "path": "production/small-life-batch93/dependencies.json",
+      "sha256": "4d82bbae50d1fa0448ef24d2ee1085f0cbb53a38da029e0e85035c24d28203b8"
+    }
+  ]
+}

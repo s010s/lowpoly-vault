@@ -1,0 +1,24 @@
+{
+  "command": [
+    "flock",
+    "/tmp/lowpoly-production-blender.lock",
+    "/usr/bin/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/shared/lowpoly-batch88-independent-qa-20261020/inspect-source.py",
+    "--",
+    "planolites-smooth-burrow",
+    "r003"
+  ],
+  "runner_pid": 74,
+  "started_at": "2026-10-20T21:52:59.239604+00:00",
+  "ended_at": "2026-10-20T21:53:02.061387+00:00",
+  "wall_seconds": 2.821821032994194,
+  "exit_code": 0
+}

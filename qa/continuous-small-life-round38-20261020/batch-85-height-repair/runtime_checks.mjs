@@ -1,0 +1,12 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import{createRequire}from'node:module';
+import {GLTFLoader} from '/workspace/shared/lowpoly-landair-web-integration/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import{Box3,Vector3,REVISION}from'/workspace/shared/lowpoly-landair-web-integration/node_modules/three/build/three.module.js';
+const req=createRequire('/workspace/shared/lowpoly-landair-web-integration/package.json');const validator=req('gltf-validator');const root='/workspace/shared/lowpoly-batch85-height-repair-20261020/';const out='/workspace/shared/lowpoly-batch85-height-repair-independent-qa-20261020/';
+for(const a of JSON.parse(fs.readFileSync(root+'production/small-life-batch85-height-repair/maker-handoff.json')).items){
+ const b=fs.readFileSync(root+a.artifacts.glb.path);const hash=crypto.createHash('sha256').update(b).digest('hex');if(hash!==a.artifacts.glb.sha256)throw Error('hash changed');
+ const kr=await validator.validateBytes(new Uint8Array(b),{uri:'model.glb',maxIssues:10000,externalResourceFunction:async uri=>{throw Error('External resource:'+uri);}});
+ fs.writeFileSync(out+a.asset_id+'/khronos-fresh.json',JSON.stringify({created_at:new Date().toISOString(),glb_sha256:hash,validator_version:validator.version(),default_severities:true,report:kr},null,2)+'\n');
+ const g=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');g.scene.updateMatrixWorld(true);let triangles=0,positions=0,meshes=0;const materials=[];g.scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;positions+=o.geometry.attributes.position.count;materials.push({name:o.material.name,color:o.material.color.toArray(),roughness:o.material.roughness,metalness:o.material.metalness,side:o.material.side});}});
+ const report={created_at:new Date().toISOString(),glb_sha256:hash,three_revision:REVISION,three_version:JSON.parse(fs.readFileSync('/workspace/shared/lowpoly-landair-web-integration/node_modules/three/package.json')).version,triangles,position_stream_vertices:positions,meshes,materials,bounds_glb_xyz_m:new Box3().setFromObject(g.scene).getSize(new Vector3()).toArray(),gpu:'not_run',scene:'not_run',limitations:'Node loader only; no actual GPU/browser or composed-scene evidence.',status:'pass'};
+ fs.writeFileSync(out+a.asset_id+'/runtime-fresh.json',JSON.stringify(report,null,2)+'\n');console.log(a.asset_id,kr.issues.numErrors,kr.issues.numWarnings,triangles,positions);
+}

@@ -1,0 +1,882 @@
+{
+  "version": 1,
+  "scope": "next52-g20-release-20261021",
+  "authorization": "owner_authorized_fixed52_after_required_checks",
+  "acceptance_scope": "independent_qa_accepted_stylized_prop",
+  "formal_profile_acceptance": "BLOCKED",
+  "hardware_gpu_verified": false,
+  "target_scene_verified": false,
+  "provider_generation_timestamp": "unknown",
+  "source_commit": "d5ce0e66b1b3d5f3e83a43fe43d8fc58ffd52dbe",
+  "review_commit": "c1e3061c4dfdda6c5a0efaa112baaca9de983347",
+  "publication_policy": {
+    "path": "production/policies/qa-passed-batch-publication-20261018.json",
+    "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+  },
+  "source_bundle": {
+    "path": "qa/next52-g20-release-20261021/source-bundle.json",
+    "sha256": "8baeaa7b7162a6378175831cce8c157389be8d4d4b57e05eec5593c12f3bf5ec"
+  },
+  "protected_source_inputs": [
+    {
+      "path": "production/policies/qa-passed-batch-publication-20261018.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+    },
+    {
+      "path": "production/small-life-batch81/publication-policy-reference.json",
+      "sha256": "be9d5685f41b6737525aa149c105836b5071ae3502a8f80a758a91387c325256"
+    },
+    {
+      "path": "scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "scripts/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2"
+    },
+    {
+      "path": "scripts/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a"
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "scripts/rebuild_frozen_blender.py",
+      "sha256": "c5971fab63b69fa3720d52b9884789eb56f6c2b1d2db4d6c9d3fa2bc77a59db6"
+    },
+    {
+      "path": "scripts/run_asset_queue.py",
+      "sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e"
+    },
+    {
+      "path": "scripts/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7"
+    }
+  ],
+  "independent_reviews": [
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/handoff.json",
+      "sha256": "e206f2b049791f7f091ad365aee7b10858539344f33440274629fc370633f4b4"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
+      "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/own-evidence-manifest.json",
+      "sha256": "8db267aa5cc5e4763adc837479e3638c2c5cf963e7e07f9cf5ea3681a18345f4"
+    }
+  ],
+  "capture": {
+    "report": {
+      "path": "qa/fifty-two-website-release-20261021/capture/render-report.json",
+      "sha256": "7a4dd79a333cde8c85247d766cbece0283368ed58538e087fd2745788acff6f7"
+    },
+    "index": {
+      "path": "qa/fifty-two-website-release-20261021/capture/card-index.json",
+      "sha256": "428e02f49a3e1f7a365e36a2df1e8303be5db86446b8fc5c3a9aa4dae76c104f"
+    },
+    "artifact_verification": {
+      "path": "qa/fifty-two-website-release-20261021/capture/artifact-verification.json",
+      "sha256": "2331174af34d46228f10f64a97c21fc5c9bd60c0b9d9ea8f18a4c4e932bdcc73"
+    },
+    "independent_review": {
+      "path": "qa/fifty-two-website-release-20261021/capture/independent-card-review.json",
+      "sha256": "44df62beec02610e4b2f919d10fd0230e1296e484fbb4890242c536dfb7acd86"
+    },
+    "reviewer_evidence": {
+      "path": "qa/fifty-two-website-release-20261021/capture/reviewer-evidence-pin.json",
+      "sha256": "12f9578268cdcb28a714536319849cbc041ccfd7a9c44c9f1641289699bef0e0"
+    },
+    "review_inputs": {
+      "path": "qa/fifty-two-website-release-20261021/capture/review-inputs.json",
+      "sha256": "ac8680fc2c5348ebda8079c4d53e24b5d7ac4d2e2cb7c187461ca5cc611f2e3b"
+    },
+    "original_inputs": {
+      "path": "qa/fifty-two-website-release-20261021/capture/original-inputs.json",
+      "sha256": "69c2a0fe8c38615fd049e29b07b3fe6f07112f1809e5db3cd1b256e4e5837fce"
+    },
+    "original_fixed52": {
+      "path": "qa/fifty-two-website-release-20261021/source/original-fixed52-input.json",
+      "sha256": "01ed697e60c782b6c8c2d2b25e9d659f640ebe57b33c5713b5aec5a974a3d8ac"
+    },
+    "source_identity_mapping": {
+      "path": "qa/fifty-two-website-release-20261021/source/identity-successors.json",
+      "sha256": "7da24de353fe152f5773b3f901fecf1e6d231505415b63460360f2e268098f51"
+    },
+    "profile_policy_aliases": {
+      "path": "qa/fifty-two-website-release-20261021/source/profile-policy-aliases.json",
+      "sha256": "c49cddd67aeb0d18b44b8eba4e1d3fd47c98078c565c7311c8f745c0a301eeae"
+    },
+    "historical_concepts": {
+      "path": "qa/fifty-two-website-release-20261021/source/historical-concept-identities.json",
+      "sha256": "d11a9537388b2abe339774f3e26b546437b8ef58d6416f9710c7df2158db9cd8"
+    },
+    "release_coordination_profiles": {
+      "path": "qa/fifty-two-website-release-20261021/source/release-coordination-profile-audit.json",
+      "sha256": "61fd160ab90dab58b7fb1c55086d9cd4c2b432654363b2a488616505cea8fabd"
+    },
+    "native_current_profiles": {
+      "path": "qa/fifty-two-website-release-20261021/source/native-current-profile-validation.json",
+      "sha256": "48977c10ddc5636c7ac782843617e7847af512523415c7fc1e0475764b18f5c1"
+    },
+    "final_gallery_status": "ACTUAL_FINAL_SUBJECT_CAPTURE_AND_INDEPENDENT104_PNG_REVIEW_PASSED_BOUNDED_ONLY",
+    "final_gallery_receipt": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-receipt.json",
+      "sha256": "dca5c912d683210e3f4be085e53e9047f6c1fe0b939d0af0724aaf06b6b28b44"
+    },
+    "final_gallery_review": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-independent-review.json",
+      "sha256": "956d17934f6678ae7ed9a105485da663ceb0bd2ae8d9b9a315f5f1bf25f00128"
+    },
+    "final_gallery_artifact_verification": {
+      "path": "qa/fifty-two-website-release-20261021/capture/final-gallery-artifact-verification.json",
+      "sha256": "b63ce5cb928dc7a7f38d0adedfb9d06de7402c41ff7d92d833fb8345c0bc3f41"
+    }
+  },
+  "excluded_ids": [
+    "braided-river-reach",
+    "crevasse-splay",
+    "kettle-basin"
+  ],
+  "additions": [
+    {
+      "id": "charnia",
+      "batch": 81,
+      "revision": "r006",
+      "candidate_root": "production/small-life-batch81/assets/charnia/r006",
+      "source_commit": "d5ce0e66b1b3d5f3e83a43fe43d8fc58ffd52dbe",
+      "reviewed_source_commit": "47e3b51172f44176cd0bb2ad52bc01d7de32fddc",
+      "original_source_snapshot": "c1e3061c4dfdda6c5a0efaa112baaca9de983347",
+      "review_commit": "c1e3061c4dfdda6c5a0efaa112baaca9de983347",
+      "accepted_disposition": "ACCEPT BOUNDED",
+      "metadata": {
+        "path": "assets/additions/charnia/batch81-20261021/release-metadata.json",
+        "sha256": "9804513cf1b3eb428a0e27f685f6bc152d92ae09cbee312db16f2fb9a379b18f"
+      },
+      "candidate": {
+        "path": "production/small-life-batch81/assets/charnia/r006/candidate.json",
+        "sha256": "689ae9ce9997551c60d01bc24fd9d17546c5fcc1efcee8a60960405053ab6e79"
+      },
+      "active_candidate": {
+        "path": "production/small-life-batch81/assets/charnia/r006/candidate.json",
+        "sha256": "689ae9ce9997551c60d01bc24fd9d17546c5fcc1efcee8a60960405053ab6e79"
+      },
+      "original_profile": {
+        "path": "production/small-life-batch81/assets/charnia/r006/profile-contract.json",
+        "sha256": "4cd807bf398870f5c66978ff74b72390d107c515191b3c0ba6b8c6e499a6aa16"
+      },
+      "active_profile": {
+        "path": "production/small-life-batch81/assets/charnia/r006/profile-contract.json",
+        "sha256": "4cd807bf398870f5c66978ff74b72390d107c515191b3c0ba6b8c6e499a6aa16"
+      },
+      "original_stage_statuses": {
+        "technical": "unknown",
+        "visual": "unknown",
+        "factual": "unknown",
+        "specification": "unknown",
+        "runtime_parse": "unknown",
+        "gpu": "unknown",
+        "scene": "unknown"
+      },
+      "review": {
+        "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
+        "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4"
+      },
+      "active_review": {
+        "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
+        "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4"
+      },
+      "required_qa_documents": [
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
+          "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4"
+        },
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/own-evidence-manifest.json",
+          "sha256": "8db267aa5cc5e4763adc837479e3638c2c5cf963e7e07f9cf5ea3681a18345f4"
+        },
+        {
+          "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/handoff.json",
+          "sha256": "e206f2b049791f7f091ad365aee7b10858539344f33440274629fc370633f4b4"
+        }
+      ],
+      "original_metrics": {
+        "path": "production/small-life-batch81/assets/charnia/r006/metrics.json",
+        "sha256": "ea44fae29a46dabf4d0b53e1a4447bd56c48915e88aee278736e8d1d7098f56d"
+      },
+      "source_counts": {
+        "path": "production/small-life-batch81/assets/charnia/r006/source-vertex-counts.json",
+        "sha256": "be3124233a4f7cd8d04f3acdf9cb898baa06c11a0ab47796f075f2422266af21"
+      },
+      "proof": {
+        "path": "production/small-life-batch81/assets/charnia/r006/proof-final/render-manifest.json",
+        "sha256": "1680ea8808e11f671934d8ed4d5e054489a8634c5c892e742343b61d170e5abc"
+      },
+      "source_preview": {
+        "path": "production/small-life-batch81/assets/charnia/r006/preview.png",
+        "sha256": "94e9bb8b422eb4c83d2ca9f9537318a5b03964eb319e3fa0730f3433c755e1ad"
+      },
+      "capture_reference": {
+        "path": "assets/additions/charnia/batch81-20261021/charnia.png",
+        "sha256": "ff3d6627e074c691e4b9cc64334910de00c5cb22f55ac4748223fd8afc043a99"
+      },
+      "capture_input_metadata": {
+        "path": "qa/fifty-two-website-release-20261021/capture/input-metadata/charnia.json",
+        "sha256": "0735ac9b5d631647cebed401c88b5534ec30252e26c9dbffc1ef2c1c32611719"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/build-config.json",
+      "sha256": "2a00c944c725394b7ed6f2ed67da6aa8bc7907da57482c8e161df7e9a9f7e15c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/candidate-brief.json",
+      "sha256": "81300b6032ab5f7e5b42369217e59192f1f88a66b123c87ffe9ab547b553bcbc",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/candidate.json",
+      "sha256": "84ba5240448b8bd6e81c0046eb162313f1163ef6c88db9eea36ed4dfc81d383c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/concept-generation.json",
+      "sha256": "f1112f3d64f24d6fb675a69ae68b65ca6ea184580c8b4ca4fad286cedaec04d6",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/concept-original.png",
+      "sha256": "8534ff98f9908fdc8d66494e2428e25ba17797fdfa985b7a84002d4dcbce1317",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/concept-prompt.txt",
+      "sha256": "fa109b8386877e657df145621d0fe36f06866341e6a0e5b3ae9396983d7b3046",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/generator.py",
+      "sha256": "a207d5107cb7330880fdcdea4ccb32ad87d547f6f9bbb8fdf7b236493e98bb03",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/gltf-validator.report.json",
+      "sha256": "840626405ffef0e67546b6c5caa09cc4d94cadddce91a8771a8797720492a0e6",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/maker-review.md",
+      "sha256": "37a892b70ab4fee47771e299c2ecba33bfb264ddc24fb3aa0545beda8d587c7d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/proof-final/render-manifest.json",
+      "sha256": "0498911f1c579847dab73876050a8a0e3967a96afceaf9887aff90993343c26d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r003/references.json",
+      "sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/LICENSES.md",
+      "sha256": "6e175466ea5cf2519c0242493819b9324f1cd4bfbb9e93771588d9f27d6bc752",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/authorship.json",
+      "sha256": "85ed2185e49c201ce55b52b0d01056f12985742b0909f10b5d148335e58f8756",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/brief.json",
+      "sha256": "e8b61e8956089e8a4b748ce401556b986d28c6aee53347c7cc8e78806b8c8755",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/brief.md",
+      "sha256": "35a2436d5e645e63760e54f1ff719e8a7768409ed204cd7db62916fc5b5f1334",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/build-config.json",
+      "sha256": "d2b30c9dcc745432de47b46da0b0ce8d68f6767994931bb9b7ef2b24af02361c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/build-dependencies.json",
+      "sha256": "4dd76c30255b62bfd2ceeb72ef808e3fb37d8c9fc0fbaaf4dc9f1f9ac53c01c8",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/candidate-brief.json",
+      "sha256": "fa9c75c31fe42b8d8b608c4bdf397e96c20ff2b13ee389e7f1ed052cd4ee12eb",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/candidate-validation.json",
+      "sha256": "0c54082bf0c07bb4d9d0c1b19c343a24427f6e63beff0d773cd096f2009fa415",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/candidate.json",
+      "sha256": "689ae9ce9997551c60d01bc24fd9d17546c5fcc1efcee8a60960405053ab6e79",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/metrics.json",
+      "sha256": "f55aa79e09f1643ec3806221db677be2e88ebf8e6b0e03f81d0ee41c010e9f74",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/request.json",
+      "sha256": "4f958aa8beac0e69f57e4c2ebed4ebcd97463ac834a3ec0d1de6a7bd485351c0",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/result.json",
+      "sha256": "6ff0050322e88bea828ade8a81e7b1fd2258396bd0988e0e4e1cb4fabc7a0a00",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-1/source-metrics.json",
+      "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/metrics.json",
+      "sha256": "7820a153d92ad5eb918c9c3b55d68cd4643a810174deac8460beb0f9552e5962",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/request.json",
+      "sha256": "3cdaa22eca3cb03e7d3a4e9737c788db5a03b7622aede2edc7a14f379cb9c287",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/result.json",
+      "sha256": "42f5a83a77edaf8f9551ca91c26019133b21c63f29ed181014d85c7e05315b5d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/compact-rebuild-provenance/semantic-rebuild-2/source-metrics.json",
+      "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/concept-evidence.json",
+      "sha256": "fbb71471c3de7641baffdc08d4a36c2027f998da1744e261b9eec9098f3501e3",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/concept-generation.json",
+      "sha256": "f1112f3d64f24d6fb675a69ae68b65ca6ea184580c8b4ca4fad286cedaec04d6",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/concept-original.png",
+      "sha256": "8534ff98f9908fdc8d66494e2428e25ba17797fdfa985b7a84002d4dcbce1317",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/concept-prompt.txt",
+      "sha256": "fa109b8386877e657df145621d0fe36f06866341e6a0e5b3ae9396983d7b3046",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/concept-validation.json",
+      "sha256": "459022c5603875bac013e5097356f0262164c39b2d01f7f072c2358e666fc13a",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/contact-sheet.png",
+      "sha256": "d88de2cd84af909907f54827702b5143645d345cb6fcbbd9c2d142348a8be8d2",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/diagnostic-disposition.json",
+      "sha256": "537bc71598c7073a4479c38864a16fafeb972c63e4ea31f29ae5586cb336e46a",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/final-rebuild-binding.json",
+      "sha256": "ccf8595846f7225c981438055af476f77a16fce364a9253bbbd86df42b4b2a51",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/generator.py",
+      "sha256": "b2d3e56c887c504cfb4e42070558d377fdb97ef37ca8e2cbc09300903180a024",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/gltf-validator.report.json",
+      "sha256": "20033af33262bb1d24517cb9674656104a6487f4b77a2b62e46ad8d0d1ee46b7",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/khronos-raw-summary.json",
+      "sha256": "a293aa56a8f838d1c66c99575582edb8cfe69badc1a5d7461443b17f37920dc6",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/lifecycle.jsonl",
+      "sha256": "dd163ccc8bf81267459f7b4a6ed5098e1ff50d1cca8f8e0508b18579e15ae468",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/maker-review.md",
+      "sha256": "c4b7afdca4a621cf64d9d197acebeaebf58b60f76be8a54489ca971a8400bcc3",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/metadata.json",
+      "sha256": "9ca0c32a46f21addbd0363c9826f3036061de5951beaa9acf1fc9d98137b1297",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/metrics.json",
+      "sha256": "ea44fae29a46dabf4d0b53e1a4447bd56c48915e88aee278736e8d1d7098f56d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/model.glb",
+      "sha256": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/original-build-config.json",
+      "sha256": "2a00c944c725394b7ed6f2ed67da6aa8bc7907da57482c8e161df7e9a9f7e15c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/original-modeling-freeze.json",
+      "sha256": "0c41b1df42fd16cae3a4bb1bef4c98886d36ed2c29dba58f948f3e85dd4ee691",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/original-premodel-schema-check.json",
+      "sha256": "abb4b8e6c76e80f12e489718d104bbf999870e386a476450fd02611380edc77f",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/original-r003-concept-evidence.json",
+      "sha256": "9ff0f836aee920af14f178ca9d491af3cec3f44253357bd1ddb4d6008f954d4e",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/original-scope-continuity.json",
+      "sha256": "413ed18523928123a35b7ed19accf91a88f1a0f9f529413aace2372f192d75c2",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/physical-surfaces.report.json",
+      "sha256": "85c7638062d387355b7256c41592e746c9090a6cf65a0ea81f5296775cb7d788",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/pixel-inspection.json",
+      "sha256": "e7b58406e3ee1db802491e7757a5a3a686487564725db53060e77fa0b4158dac",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/preproof-binding.json",
+      "sha256": "9b42a125134206ff01438aa8946b2a7d2beb2f0e264f1430f38186717284478b",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/preview.png",
+      "sha256": "94e9bb8b422eb4c83d2ca9f9537318a5b03964eb319e3fa0730f3433c755e1ad",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/profile-contract.json",
+      "sha256": "4cd807bf398870f5c66978ff74b72390d107c515191b3c0ba6b8c6e499a6aa16",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/clay.png",
+      "sha256": "00127551a5b541e22fc55b2b0e84b26b323d3a9869478d9835e6e3dca13a7edd",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/front.png",
+      "sha256": "cc1ff3bf687ff79ba1f945dcfc8b686a8a41bc0fcbbe08d1a15314ee7686c69e",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/hero.png",
+      "sha256": "94e9bb8b422eb4c83d2ca9f9537318a5b03964eb319e3fa0730f3433c755e1ad",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/rear.png",
+      "sha256": "4ba772d45403d4af92d36dbf932270628cfedf899ea11e2b537ac1b67c9e1b2a",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/render-config.json",
+      "sha256": "49b6cb234c19657670de56a1e7576714ae5d9b8a8cba79ece9ad36a6e400ecc9",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/render-manifest.json",
+      "sha256": "1680ea8808e11f671934d8ed4d5e054489a8634c5c892e742343b61d170e5abc",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/reversehero.png",
+      "sha256": "c167ebf00b646c43df4bc3d6f111fd0d8d99af9401d5f3a3f68dd49f6c4f3b93",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/side.png",
+      "sha256": "d5d4f4480705f998638d840f067926705860e11589ea59b390668e28697387f6",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/silhouette.png",
+      "sha256": "ab63bc1904196cd4319e7f8240fc0c43d6ac514bf40453cdd9c3c2b6b4b945ff",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/top.png",
+      "sha256": "acf2248ce5d8389ee49b2b1f33f9ce626cec067f09de96f828d27e904035674a",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/proof-final/turntable.json",
+      "sha256": "b64955f6c56548ce420c696dc905ac0ed50b760a04bafcfc2c5cf41b4ca89224",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/qa.json",
+      "sha256": "e01951bfa0b00ecf5aad868113f4b74bf09893eec484f1755ff6205cd1e0732c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/queue-semantic-rebuild-1.json",
+      "sha256": "96d6b734c8a4f8892a9451a9e5572e752736f4e5ef839a28610cbdf2751c70e8",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/queue-semantic-rebuild-2.json",
+      "sha256": "e4a09aabf3dfb93206242e25ca58e51bb06eadf2b1358fd6815a4d07a272f84f",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/references.json",
+      "sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/repair-freeze.json",
+      "sha256": "2f495257182c0532427c455173e47dc5b3ccacf508c8b328b9cba2ebcf83c462",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/repro-final-1.report.json",
+      "sha256": "789133adc36357e1f886823d09e471131b06eb32458f863cc73a3db362985244",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/repro-final-2.report.json",
+      "sha256": "d39c4026772078259ed79be1dd5abf7ee17de6a4a4db6ecc34304753f850fb31",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/runtime-parse.report.json",
+      "sha256": "a611fd17b8b9980664770013b747ef586c401a4e5bc256ad2001402e603b8713",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/saved-source-reexport/source-reexport.report.json",
+      "sha256": "be17dfb8e212a7a61b5f5c3693b6818ab64bd9a8e8503fe96bc2db4e79d14eeb",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/source-final.report.json",
+      "sha256": "83059227ce12ee9b21473a9a5d818de0e0f9170ef41a9578c2ac6da232efc4aa",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/source-metrics.json",
+      "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/source-vertex-counts.json",
+      "sha256": "be3124233a4f7cd8d04f3acdf9cb898baa06c11a0ab47796f075f2422266af21",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/assets/charnia/r006/source.blend",
+      "sha256": "041801bb23c5bfca3d9bf9aa0e0f2a04714f0cc295713029cf692a17cdcdc96b",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/charnia-repair-tools/check-physical-surfaces.py",
+      "sha256": "470f371dabe34231ee0a3e4c6856e5ae57751300aa563eb2c53570f7bed11d42",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/charnia-repair-tools/count-source-vertices.py",
+      "sha256": "9211091a8a90fdac820ae374478c7f4b28fe1e799a03b764f69aff7aba23c21f",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/charnia-repair-tools/render-fixed8.py",
+      "sha256": "e3654a0abb9bc8848e52fdf0c37c53ff34396aa876ab5a7ae0bc004607083058",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/charnia-repair-tools/runtime-parse.mjs",
+      "sha256": "fb938eb6db606a51b904de3f58b2557b618fc5963bfcf225ad990b0b1244164c",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "production/small-life-batch81/charnia-repair-tools/source-reexport.py",
+      "sha256": "b3d1df248cd30bcdd2e5941ddace47e63e750251a081b349a72c91b037679ad8",
+      "origin": "source",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/REPORT.md",
+      "sha256": "402004b9dfc58cef13185d4751669d8d81e0d833ffc4613f764f047b40d3708d",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/audit_inputs.py",
+      "sha256": "50ff867597fd30a49682cf6bacea33977bde3240c4373faa86f347f3b71bed2a",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/audit_inputs_initial.py",
+      "sha256": "26c3bbeaba1b85f34b0da56249f51cd9ce8e4326d03d43b8faefb88a70e94ddd",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/candidate-profile-fresh.json",
+      "sha256": "0c54082bf0c07bb4d9d0c1b19c343a24427f6e63beff0d773cd096f2009fa415",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/candidate-profile-fresh.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/concept-fresh.json",
+      "sha256": "459022c5603875bac013e5097356f0262164c39b2d01f7f072c2358e666fc13a",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/concept-fresh.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/finalize_report.py",
+      "sha256": "fa562a3499b73c051e0f5667b42ec573c68bd0a72aca32f9d6a33b0997c68847",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/fresh-processes.json",
+      "sha256": "24a0e8f7e10bd6256cb24e333132efedc550f8c1ba4af2d262fa9b250d7bd69f",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/handoff.json",
+      "sha256": "e206f2b049791f7f091ad365aee7b10858539344f33440274629fc370633f4b4",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/independent-qa.report.json",
+      "sha256": "fd933c0eef0e22dcf25b17416f1e3ee74fa0820666a36aa7ccfbcd18229220e4",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/initial-audit-diagnostic.json",
+      "sha256": "0cca4f975cf7c0e8620206d4e66aecc411baf65b3875b6c838cf5619dd11bcf9",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/input-provenance-audit.json",
+      "sha256": "1b9bc1f508157dc55b8fb03246ad0e0f112ed9a0293a0208408515a08450ab72",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/khronos-fresh.json",
+      "sha256": "90e8e6c4e414321229b151617fa99322446a4e13a5ff091450d90c3f282e0cad",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/lean-byte-identity.json",
+      "sha256": "990e3805d57a1e8b69ae78bd31b995b945ff8e5c34af9f463528b62ab5c87bcc",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/own-evidence-manifest.json",
+      "sha256": "8db267aa5cc5e4763adc837479e3638c2c5cf963e7e07f9cf5ea3681a18345f4",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/render_supplemental_topclay.py",
+      "sha256": "8940a365e40ac5c09ada6e3faa2ae50ffa6884915e7d76cded7af77b18cbf954",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/run_fresh.py",
+      "sha256": "649abd1eeb536e0e2b8a295ac39d1bfdc5b3b4f6ae5b32208b06750d1ae15095",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/runtime-fresh.json",
+      "sha256": "673f36eebe970f051caba4a78a8aac2f45c814f4e0fa885a434c191fc7d42d7d",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/runtime_checks.mjs",
+      "sha256": "c15178e2a508f73cedd5fd760bae2942eb818730c1ff54ddb8a17addaf7448cf",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/semantic-rebuild-1-fresh-comparison.json",
+      "sha256": "e8b40f06d4a035b4b1cf0ca8e6f8a33512d16e85e6987a72cb911a52638cd54b",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/semantic-rebuild-2-fresh-comparison.json",
+      "sha256": "06691f083c96d819c48fb2145dc11efdb055979f4e754bc11140f35e7e35e808",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/source_reexport.py",
+      "sha256": "7b05a23975f06492ea121238555f820fe2c31f3a0c75636c57d3f926b0750f2f",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/continuous-small-life-round37-20261020/batch-81-charnia-r006/static-fresh.json",
+      "sha256": "f6265b1e21d1da886c95b214cfac418d8e752b42865a3bf4b0b958db8ba03b93",
+      "origin": "review",
+      "owner": "charnia"
+    },
+    {
+      "path": "qa/next52-g20-release-20261021/retention-summary.json",
+      "sha256": "a6cc34a497f75a0dbfdf7110e0ef5bb56c97d0172477bd63e4b900906dd2adb7",
+      "origin": "release",
+      "owner": "$batch"
+    }
+  ]
+}

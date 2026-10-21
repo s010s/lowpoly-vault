@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "charnia",
+  "revision": "r003",
+  "labels": {
+    "en": "charnia"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "286d44421e7601638e0dcb841331a068d0fd1e5e68b7eaed7b7202683825578b"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "81300b6032ab5f7e5b42369217e59192f1f88a66b123c87ffe9ab547b553bcbc"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "1e27164f6769ec85e2ea51b17a6ea67fed9249e9e8611ebd94bc275c7b1209a3"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "a207d5107cb7330880fdcdea4ccb32ad87d547f6f9bbb8fdf7b236493e98bb03"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "2a00c944c725394b7ed6f2ed67da6aa8bc7907da57482c8e161df7e9a9f7e15c"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "fa109b8386877e657df145621d0fe36f06866341e6a0e5b3ae9396983d7b3046"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f1112f3d64f24d6fb675a69ae68b65ca6ea184580c8b4ca4fad286cedaec04d6"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "8534ff98f9908fdc8d66494e2428e25ba17797fdfa985b7a84002d4dcbce1317"
+      }
+    ],
+    "cross_view_consistency_note": "Concept has attractive slab relief but too many thin fern-like leaflets, invented central stalk, reconstructed basal disk and hand. Remove hand/stalk/disk; use broad tightly packed sigmoidal alternating units, nested shorter secondary furled ridges inside units, shallow negative integral relief. Axial slight bend indicates preservation only, not movement. Fossil no photographic grain. Slab thin with irregular corners; source Fig1F latex mould tonal polarity is not copied as exact fossil morphology. No equivalence between GB3D SM A48259 and paper LEIUG2328 asserted; BGS GSM105873 caption unambiguous.",
+    "hidden_surface_decisions": "Concept has attractive slab relief but too many thin fern-like leaflets, invented central stalk, reconstructed basal disk and hand. Remove hand/stalk/disk; use broad tightly packed sigmoidal alternating units, nested shorter secondary furled ridges inside units, shallow negative integral relief. Axial slight bend indicates preservation only, not movement. Fossil no photographic grain. Slab thin with irregular corners; source Fig1F latex mould tonal polarity is not copied as exact fossil morphology. No equivalence between GB3D SM A48259 and paper LEIUG2328 asserted; BGS GSM105873 caption unambiguous."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T16:58:19.491030+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 10.1903,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "0498911f1c579847dab73876050a8a0e3967a96afceaf9887aff90993343c26d"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "0498911f1c579847dab73876050a8a0e3967a96afceaf9887aff90993343c26d"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "7ecede6294b9b9bc8a3bcecaa00c16689be13c00f11b2231dd3d239789a52347",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "37a892b70ab4fee47771e299c2ecba33bfb264ddc24fb3aa0545beda8d587c7d"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "286d44421e7601638e0dcb841331a068d0fd1e5e68b7eaed7b7202683825578b",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "840626405ffef0e67546b6c5caa09cc4d94cadddce91a8771a8797720492a0e6"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

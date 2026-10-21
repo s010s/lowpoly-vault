@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight exact final512px r002 frames personally inspected. Continuous gently curved blue-white tongue connected to uphill broad snow source, confined by higher unequal gray bedrock ridges, blunt confined lower end with short forevalley. Top shows subordinate transverse cracks, low-angle walls partly occlude tongue. Crop boundaries are terrain module cuts, not claimed natural glacier outline. Simplified ice/rock edge triangulation visible, no voids or detached blocks. Not broad piedmont fan. Original r001 historical source-byte limitation documented separately, no final r002 provenance inference from old pixels.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 32ed50dddd1611d06d0ddcaa9d96a9b1af6b58e904a932879ba26f812b3f036d. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

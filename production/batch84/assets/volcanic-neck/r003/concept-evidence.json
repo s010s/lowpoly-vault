@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "volcanic-neck",
+  "revision": "r003",
+  "labels": {
+    "en": "volcanic-neck"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "05835435c89f1570f7e90b5b73c338ef7236ec156e8cf42109473360f9f7ff5d"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "cfcdfcf85c0b483baf3bd6b31100e0494dfedca2c3fe8409baa4498843c9c104"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "843820189078606d0afd6a4b6a62bc3e26dce40460aec06e6db2270a9182df43"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "53648bbccbc0b27f28e9585d5bdd5911019cb41d3b6b33bb42a17d378a09b68b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "59150bd7363e4887e05a670be5cf0877eb14f19d85fac2c50fbf3449b6c998e6"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "be7177849cbd3e8a298b6d8d931ca4724c72f340031ae212232574ee634d03e7"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "89e1edc3047da514ea44145db5315fda8e17fb222fe8adbb08eb597945ea3596"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "9b2c018103a6a1cd2eaf763f60cc76e623c2f219b992528d9045803e8f075550"
+      }
+    ],
+    "cross_view_consistency_note": "Keep concept tall near-vertical irregular resistant rock core and low eroded apron, remove excessive regular parallel pillar texture. Use uneven diameter, nonuniform joint facets and asymmetrical shoulders/crown; no perfect polygon cylinder. Make base continuous with steep core without stacked exposed overlapping slab faces. Photo Beacon Rock has vegetation and water; omitted. NPS clearly identifies Beacon Rock as neck; do not rely on uncertain Elephant Tusk or Devils Tower classifications.",
+    "hidden_surface_decisions": "Keep concept tall near-vertical irregular resistant rock core and low eroded apron, remove excessive regular parallel pillar texture. Use uneven diameter, nonuniform joint facets and asymmetrical shoulders/crown; no perfect polygon cylinder. Make base continuous with steep core without stacked exposed overlapping slab faces. Photo Beacon Rock has vegetation and water; omitted. NPS clearly identifies Beacon Rock as neck; do not rely on uncertain Elephant Tusk or Devils Tower classifications."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:32:28.147697+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; shared geology generator followed geology freezes, separate leaf generator followed leaf freeze. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.0335,
+      "measurement_record": {
+        "path": "proof-final3/render-manifest.json",
+        "sha256": "a2e05ffaccb7cc96598bb0c87b040246e81f462fa7391d8999175eb2ee589d29"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final3/render-manifest.json",
+    "sha256": "a2e05ffaccb7cc96598bb0c87b040246e81f462fa7391d8999175eb2ee589d29"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "f52ef04f6784efd222f52140efaa41a20ab25c530689df7c9db61df986fe90b0",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "4084b1f3ed8a3d32a8f1072d0fdf95e6be62a8e524080279c7e3127a48fafef6"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "a1e302c4c4b1042274828a1287a0a28598bd652681a5efa546b291b13d4a1c74",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "0a675ae63396cc4aa0d3ae7771f463076c8024442d877d5c6ee9b4868c8a2bbe"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

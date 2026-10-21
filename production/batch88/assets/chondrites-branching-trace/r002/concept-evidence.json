@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "chondrites-branching-trace",
+  "revision": "r002",
+  "labels": {
+    "en": "chondrites-branching-trace"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "72a9922ede8d80e1c7c15795c66bf37fffd5dd066cdfaa5f419683f947f05cfe"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "f69c69adf836da58e7f1d5260887f4f7abb58272970422d1fc38b78ca85605c2"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "bd4b74f7dbeabe0a9e1e86cd37f2b2a56919e0ddfaaa9391485f6a075783c934"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "481f62bc1705a31a517cfee69b24088c655a909f685b9592634e52c25174241a"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "4acd7af382207a61502363db87015d73a93d5825b2ce6c0e436361f3fc18a28b"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "9ab36efef921acbf278f162e6bb61a649dd14a23c375980cf7cab965c2639690"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "e0d58ebbcee0da4fda72cfa3693c16446afeef0e024bdc20dbee50ca7fe22654"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "659d07cd916856156d502736e8d7e551d50cc45bb23eaf95acc4fe439ccf755e"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "74675f4a00a80f9278656281c58fc38e1e9a730b99fb1e23bd997903fa1cc40d"
+      }
+    ],
+    "cross_view_consistency_note": "Concept pixels inspected. Retain delicate branched relief and quiet substrate, but correct its overly thick trunk and large isolated cut circle: use approximately1.8-2.2mm near-constant tunnel width and at least three branch orders, not a woody tapering tree. Connect every displayed branch logically; no disconnected circle pretending to be its section. One principal and one small independent system are one composition, not counted variants. Rounded tips, no broad lobes or pellet wall. Fine branches must remain readable from top and clay at512px. Use original integrated substrate surface with branching relief, avoiding coplanar tube/slab overlaps.",
+    "hidden_surface_decisions": "Concept pixels inspected. Retain delicate branched relief and quiet substrate, but correct its overly thick trunk and large isolated cut circle: use approximately1.8-2.2mm near-constant tunnel width and at least three branch orders, not a woody tapering tree. Connect every displayed branch logically; no disconnected circle pretending to be its section. One principal and one small independent system are one composition, not counted variants. Rounded tips, no broad lobes or pellet wall. Fine branches must remain readable from top and clay at512px. Use original integrated substrate surface with branching relief, avoiding coplanar tube/slab overlaps."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T21:10:14.897649+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; all four per-asset freezes preceded the common generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 59.646,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "659d07cd916856156d502736e8d7e551d50cc45bb23eaf95acc4fe439ccf755e"
+      },
+      "note": "Actual orchestrator invocation-to-return observation interval; provider internal timing unavailable."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 18.3508,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "dfbf0e99d420dc07c63be0deb0d01c29a36320f8657ae8edbd90e98bc0757536"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "dfbf0e99d420dc07c63be0deb0d01c29a36320f8657ae8edbd90e98bc0757536"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "fcd6c676cf5e4ef25cff5ac0880fb6ae19eae6997d39a175da0fb3954bf22543",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "2e8b5e9704ad4669a70892693f898c618bd775939d194a9cce853ee48f59e743"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "72a9922ede8d80e1c7c15795c66bf37fffd5dd066cdfaa5f419683f947f05cfe",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "dc99b71afd9b0f7d8ef9e7f1da94d8d74cc72c1ffa6cf1efc7bfcc721a6cd85f"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

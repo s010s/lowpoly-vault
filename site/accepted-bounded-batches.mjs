@@ -443,5 +443,277 @@ export const ACCEPTED_BOUNDED_BATCHES = [
     ],
     "source_commit": "feee5ddb6406bef351b358737295666e839bd443",
     "independent_review_commit": "feee5ddb6406bef351b358737295666e839bd443"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g01-20261021.json",
+      "sha256": "e511adfb9fc2de13be8a7de0169ccd08118aae7b16836fea9cb17aa7d0f2b636"
+    },
+    "asset_ids": [
+      "diplopora",
+      "nathorstiana"
+    ],
+    "source_commit": "06af65fa6e7206f186ab49856d40da5498b35395",
+    "independent_review_commit": "06af65fa6e7206f186ab49856d40da5498b35395"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g02-20261021.json",
+      "sha256": "14286848cf87958f42c346f6822af53dc368e7e386cc8a280a43b47903379d98"
+    },
+    "asset_ids": [
+      "banded-gneiss-outcrop"
+    ],
+    "source_commit": "074d56440818359bad76494599209e3f40a155cc",
+    "independent_review_commit": "074d56440818359bad76494599209e3f40a155cc"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g03-20261021.json",
+      "sha256": "dbcb870b57adb26777faf93a1fef182e582dcb5bb21ef723748b9a00bf17e646"
+    },
+    "asset_ids": [
+      "cloudina",
+      "impact-crater",
+      "lava-tube-entrance"
+    ],
+    "source_commit": "284d9a257a4d4a866d272d2b490cfab01c61d8f0",
+    "independent_review_commit": "bc53aa6cda153da6ca84b7949753291ecf10febf"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g04-20261021.json",
+      "sha256": "9d570e4ca2c571d74f2bafd6a12e8246e5cc98b0ebc3d58f9473ef60d5fe2a96"
+    },
+    "asset_ids": [
+      "chondrites-branching-trace",
+      "planolites-smooth-burrow"
+    ],
+    "source_commit": "44da0b1831c97ea45f2f68b46c3a119dc168befd",
+    "independent_review_commit": "44da0b1831c97ea45f2f68b46c3a119dc168befd"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g05-20261021.json",
+      "sha256": "c6124c279af649fee231f8ab6554f1e7988e1f433d55723c06fc72c913e17457"
+    },
+    "asset_ids": [
+      "skolithos-pipe-field"
+    ],
+    "source_commit": "4888640f243df6aa50e6057f7465cc2d32147829",
+    "independent_review_commit": "4888640f243df6aa50e6057f7465cc2d32147829"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g06-20261021.json",
+      "sha256": "45aae7643fee2f94c12365c5c6fe8712c7bb490ee179729e72ee3e28d696376c"
+    },
+    "asset_ids": [
+      "psilophyton",
+      "rosselia-concentrically-filled-burrow",
+      "teichichnus-spreite-wall"
+    ],
+    "source_commit": "4888640f243df6aa50e6057f7465cc2d32147829",
+    "independent_review_commit": "4888640f243df6aa50e6057f7465cc2d32147829"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g07-20261021.json",
+      "sha256": "004926f9d9e2d9cde02c3cae8f3082e32c3f4594882e9561157c4b19520e291d"
+    },
+    "asset_ids": [
+      "namacalathus"
+    ],
+    "source_commit": "4eeb65eb2796a5543067e3df18c52467512dfdc5",
+    "independent_review_commit": "4eeb65eb2796a5543067e3df18c52467512dfdc5"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g08-20261021.json",
+      "sha256": "6ae95b1938429a078dcb9b8e331ad65650c7cab0c4c117a52b6b78070c3d41a9"
+    },
+    "asset_ids": [
+      "karst-polje",
+      "lava-channel",
+      "piedmont-glacier"
+    ],
+    "source_commit": "4eeb65eb2796a5543067e3df18c52467512dfdc5",
+    "independent_review_commit": "4eeb65eb2796a5543067e3df18c52467512dfdc5"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g09-20261021.json",
+      "sha256": "282df59ac09a11f1e24c2c4b1d5bb112be8c746f10f2364c3c931cd1bb1c4b95"
+    },
+    "asset_ids": [
+      "ernietta"
+    ],
+    "source_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262",
+    "independent_review_commit": "52da64de4c4609b69bd4df22d634aa79fdfc4262"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g10-20261021.json",
+      "sha256": "e70efcb67da3d74d1208ac3cb356b0b9db07ebbc4dae65daa2f0c44640be64f2"
+    },
+    "asset_ids": [
+      "caytonia",
+      "eophyllophyton",
+      "oncoid-bed",
+      "thrombolite-mound"
+    ],
+    "source_commit": "6ac756468136cc76625b3c94778f17417c0cf88a",
+    "independent_review_commit": "6ac756468136cc76625b3c94778f17417c0cf88a"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g11-20261021.json",
+      "sha256": "37599d72d122a30bee340c961d2df7d1c802f562efbd6fecb47848d060f3a7b3"
+    },
+    "asset_ids": [
+      "badlands-ridge-network",
+      "kimberella",
+      "playa-basin"
+    ],
+    "source_commit": "6f8cab54bd17583d3f8a5791713f9eb500459b48",
+    "independent_review_commit": "667f54fc09d57c03c4bc1a62d19133bc069b4f95"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g12-20261021.json",
+      "sha256": "5e171abf0fd348542f43f8cacc4ff80de8ac5822fe526abfe51ad64138311cc8"
+    },
+    "asset_ids": [
+      "stratovolcano"
+    ],
+    "source_commit": "6f8cab54bd17583d3f8a5791713f9eb500459b48",
+    "independent_review_commit": "667f54fc09d57c03c4bc1a62d19133bc069b4f95"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g13-20261021.json",
+      "sha256": "aae7fd440cdeae55455e4c93b5b1a3d9b2cd85f12d380f779084539ba0f4a69a"
+    },
+    "asset_ids": [
+      "arroyo-wash",
+      "dickinsonia",
+      "shield-volcano"
+    ],
+    "source_commit": "7b223cb128101d2ffd4c5bdaf1725205b53aa1ef",
+    "independent_review_commit": "7b223cb128101d2ffd4c5bdaf1725205b53aa1ef"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g14-20261021.json",
+      "sha256": "02f48c7f31d0a2f00258c4beeae68b94fb3a291601c026315f516dc8458948dc"
+    },
+    "asset_ids": [
+      "beach-cusp-field",
+      "cinder-cone",
+      "tower-karst"
+    ],
+    "source_commit": "7d2243195a1fc19f216140eae2f8eca6916f68ff",
+    "independent_review_commit": "7d2243195a1fc19f216140eae2f8eca6916f68ff"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g15-20261021.json",
+      "sha256": "bfc8d73d0e3270ebeb81c9a88d7654011718e5d2dd3fba0f6fdcce276a8ca26a"
+    },
+    "asset_ids": [
+      "kame-mound",
+      "pediment",
+      "spriggina"
+    ],
+    "source_commit": "a7cb42265e06ca7573b7554ae5ae3d924766215c",
+    "independent_review_commit": "a7cb42265e06ca7573b7554ae5ae3d924766215c"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g16-20261021.json",
+      "sha256": "18d8eb6bcfb1db16a48aa3cb1a4706bee44c994a3bd5e3d66f77bf0739fa7b15"
+    },
+    "asset_ids": [
+      "spatter-cone",
+      "travertine-terrace-pools"
+    ],
+    "source_commit": "bf13b45a810871434efd525b5d99c329869223d8",
+    "independent_review_commit": "bf13b45a810871434efd525b5d99c329869223d8"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g17-20261021.json",
+      "sha256": "a26911949ddc474c20a4581b8f622babb096af7495f2382a51b90d0d5d337d67"
+    },
+    "asset_ids": [
+      "glossopteris",
+      "volcanic-neck"
+    ],
+    "source_commit": "c3bc13e41e387061f951d9598c67e8f4b8f13ed9",
+    "independent_review_commit": "c3bc13e41e387061f951d9598c67e8f4b8f13ed9"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g18-20261021.json",
+      "sha256": "4f343bebae61ed3fb95dd2e2828d1eba26a75dc47d9aeb4b8c60786230851568"
+    },
+    "asset_ids": [
+      "pterosaur-manus-pes-trackway",
+      "sauropod-manus-pes-trackway",
+      "spiral-coprolite"
+    ],
+    "source_commit": "c6a511b6996055e9ce3803faa2517ab27ea36bbc",
+    "independent_review_commit": "c6a511b6996055e9ce3803faa2517ab27ea36bbc"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g19-20261021.json",
+      "sha256": "129b72b70b72f6c909709062861fff2420b6d0526ca9b791ac6e7c85f5ab18fc"
+    },
+    "asset_ids": [
+      "inselberg",
+      "patterned-stone-circles",
+      "valley-glacier"
+    ],
+    "source_commit": "d5ce0e66b1b3d5f3e83a43fe43d8fc58ffd52dbe",
+    "independent_review_commit": "c1e3061c4dfdda6c5a0efaa112baaca9de983347"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g20-20261021.json",
+      "sha256": "98badecd497e8264d4ab687f6ba2acd7957a0a36888287678ae87a9f2e974751"
+    },
+    "asset_ids": [
+      "charnia"
+    ],
+    "source_commit": "d5ce0e66b1b3d5f3e83a43fe43d8fc58ffd52dbe",
+    "independent_review_commit": "c1e3061c4dfdda6c5a0efaa112baaca9de983347"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g21-20261021.json",
+      "sha256": "70bd3930f9f2323e4380c190d323a1cc8977e0c492a16196b0eec38dbbd9ea56"
+    },
+    "asset_ids": [
+      "calamites",
+      "pseudobornia",
+      "rhacophyton",
+      "sigillaria"
+    ],
+    "source_commit": "ddc3ea7f58313e95f426b46f648dfd99b52927ab",
+    "independent_review_commit": "ddc3ea7f58313e95f426b46f648dfd99b52927ab"
+  },
+  {
+    "descriptor": {
+      "path": "assets/releases/next52-g22-20261021.json",
+      "sha256": "2c184eeab4be5c236f64b0bd65ecd0332a08e83d2c62660b296ca24b2d5bb41e"
+    },
+    "asset_ids": [
+      "lumbricaria-thread-like-coprolite",
+      "pertica",
+      "zoophycos-spiral-spreite"
+    ],
+    "source_commit": "ee1eaa334f5e56a2716f30edb125e01cf193da6f",
+    "independent_review_commit": "ee1eaa334f5e56a2716f30edb125e01cf193da6f"
   }
 ];

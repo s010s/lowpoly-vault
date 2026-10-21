@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight original512px final frames personally opened. Main collector and unequal joining tributary/secondary gullies clearly visible in top, hero and reversehero. Remaining high divides are connected and narrowed, with sharp ridge crests rather than a checker of standalone cones. Clay preserves same geometric drainage organization. Orthogonal edge views document full-volume cut section and height variation; no separate coplanar cards, stacked stones or flashing floor patches observed. The deliberate cut boundary is terrain-module extent, not a surveyed site boundary. Measured99.59m height versus nominal75m is retained explicitly; no exact scale-fit claim.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash b0127ad07c326e85373ff207610051646349205b18b46524c4ce13cc47c87091. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

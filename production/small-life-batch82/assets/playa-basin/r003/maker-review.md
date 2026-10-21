@@ -1,0 +1,5 @@
+# Maker pixel observations, not independent approval
+
+All eight original512px final frames personally opened. Clean broad planar dry floor enclosed by continuous low irregular margin, no through-flow outlet or high volcanic/impact rim. Hero/reversehero/top show wide shallow basin; clay preserves subtle real rim and floor depression even without palette bands. Edge views show intentionally very low landscape relief and full bottom contact. The prior angular floor patches are gone after real underside replacement; no intersecting exposed floor patches observed. No water, riverbed groove, salt-polygon carpet or copied photograph. Thin cut edge is module extent, not a raised display platter.
+
+Inspected every individual512x512 original-resolution final frame and lossless2048x1060 contact sheet. Exact final clean-import GLB hash 9b6bdef5c02948e1cb0941b531449bf44825bd3c4b7d9f5a858e3ff29183127e. Independent visual/factual/specification review pending. No GPU, browser-rendering, hardware, populated-scene, formal or user approval claimed.

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "lava-tube-entrance",
+  "revision": "r003",
+  "labels": {
+    "en": "lava-tube-entrance"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "b7022acdc470a85c3ff76fa13025e3a95e75ac6fe7a5b9b6a3ee2d98c3789f00"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "e69bebb5da55886b1fe3225f0b19c91d9fa68da9b9356dd1b8e46c0b2845198d"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "4387992e9081824da43f6c2674925ccddb1a52f2df9b99a74a7ddadfbf018470"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "784c0805c89ad662a2b620fcb7350bf917801ed44cf7b5609d548228395d2410"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "556a3d7cf2d564085874f021de56c299be923255bb4a15baa046a2bc87023c69"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "005c66b7f57787d856fc25480a664fde79850e9e35e246fc7c5c077047c2df51"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "61f0adf3e35d44c518dde840e7f0426db9a245e38af0e7528089750483273e04"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "f874d8c88b353e679bd0fb87a4bda9edab3ea3178c3f6c9b59990e0306e7c0af"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "7ddc1866e71c3e56bc4a8093615c29d953d6cfa235d7c801127c8c7de7d320bb"
+      }
+    ],
+    "cross_view_consistency_note": "Concept low broad flattened opening and roof mass useful; remove photoreal texture, excessive loose-rock pile and implied enormous cave. Model continuous full-volume arch roof/walls with varying external profile and a real short tunnel, then a modeled rear wall beyond visible interior. Floor slopes modestly inward with low frozen flow ridges integrated in the mesh; no secondary overlaid coplanar slabs. Irregular basalt facets and muted weathered patches. Keep exterior low and wide, entrance opening visible from front/hero with side/top showing substantial roof not free bridge.",
+    "hidden_surface_decisions": "Concept low broad flattened opening and roof mass useful; remove photoreal texture, excessive loose-rock pile and implied enormous cave. Model continuous full-volume arch roof/walls with varying external profile and a real short tunnel, then a modeled rear wall beyond visible interior. Floor slopes modestly inward with low frozen flow ridges integrated in the mesh; no secondary overlaid coplanar slabs. Irregular basalt facets and muted weathered patches. Keep exterior low and wide, entrance opening visible from front/hero with side/top showing substantial roof not free bridge."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T17:27:08Z",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. All four complete premodel freezes preceded generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 12.1233,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "a466eb5d4271a7e535c268db3bc4096b17b60cb176d468e404cc791d05870b16"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "a466eb5d4271a7e535c268db3bc4096b17b60cb176d468e404cc791d05870b16"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "ada2caeb754c82b8deed5b806b9e6acd78461373f66f7cc8982a8cbe72b28223",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "68b9ca0a8ba23c3c2c58c77474c49a0fd28c2f2bba2711b42a198e9476fda0aa"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "b7022acdc470a85c3ff76fa13025e3a95e75ac6fe7a5b9b6a3ee2d98c3789f00",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "8db4da4de43172cb58b47e0e4976d3709308bf9a7247c7fba76e485db7752a5c"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}

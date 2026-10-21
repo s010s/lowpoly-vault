@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "/usr/bin/blender",
+    "--background",
+    "-t",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--factory-startup",
+    "--python",
+    "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/generator.py",
+    "--",
+    "--config",
+    "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/build-config.json",
+    "--output",
+    "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/charnia-repair-rebuild-runs/build/charnia/r006/semantic-rebuild-2/e4f0ed7a359303c247580df5093903bc6c9532ecf3c520bdbbae919ebea0235d/20261020T210338-0548aebe40a7465aae9159146b032252/outputs"
+  ],
+  "created_at": "2026-10-20T21:03:38.196250+00:00",
+  "fingerprint": "e4f0ed7a359303c247580df5093903bc6c9532ecf3c520bdbbae919ebea0235d",
+  "identity": {
+    "executable": {
+      "bytes": 94967000,
+      "path": "/usr/bin/blender",
+      "sha256": "0dfe9af0f3e67643ecf15327fa5e14e7315f61d1a81afdcafe76a71b1918e2b4"
+    },
+    "inputs": {
+      "audit": {
+        "bytes": 13344,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      },
+      "brief": {
+        "bytes": 7265,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/brief.json",
+        "sha256": "e8b61e8956089e8a4b748ce401556b986d28c6aee53347c7cc8e78806b8c8755"
+      },
+      "config": {
+        "bytes": 1685,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/build-config.json",
+        "sha256": "d2b30c9dcc745432de47b46da0b0ce8d68f6767994931bb9b7ef2b24af02361c"
+      },
+      "generator": {
+        "bytes": 6861,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/generator.py",
+        "sha256": "b2d3e56c887c504cfb4e42070558d377fdb97ef37ca8e2cbc09300903180a024"
+      },
+      "helper": {
+        "bytes": 26367,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      },
+      "references": {
+        "bytes": 3391,
+        "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/references.json",
+        "sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d"
+      }
+    },
+    "job": {
+      "argv": [
+        "{blender}",
+        "--factory-startup",
+        "--python",
+        "{input:generator}",
+        "--",
+        "--config",
+        "{input:config}",
+        "--output",
+        "{output_dir}"
+      ],
+      "asset_id": "charnia",
+      "inputs": {
+        "audit": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/scripts/qa_glb.py",
+        "brief": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/brief.json",
+        "config": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/build-config.json",
+        "generator": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/generator.py",
+        "helper": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/scripts/asset_common.py",
+        "references": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/assets/charnia/r006/references.json"
+      },
+      "job_id": "semantic-rebuild-2",
+      "outputs": [
+        "model.glb",
+        "source.blend",
+        "metrics.json",
+        "source-metrics.json"
+      ],
+      "revision": "r006"
+    },
+    "lane": "build",
+    "memory_mb": 0,
+    "runner_schema": 1,
+    "runner_sha256": "c39174028b94513487f6936d0641b7fb4aa5a6da340526e3da49a724ecd5fd7e",
+    "threads": 2,
+    "timeout_seconds": 120.0
+  },
+  "run_id": "20261020T210337-71959e5ddefc427cadd6da29740fb9fa"
+}

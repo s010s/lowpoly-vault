@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+    "brief_sha256": "96210f9dc574d69b2506c74d433149859370bfe5840b8c7942b74d3afde7a610",
+    "references_sha256": "462acade525357722fbc24fd3391970e666b7550fc3baf026c4bf6d7159a60be"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All exact r002 checks passed with zero errors and warnings; original QA stage passes are not inherited.",
+    "Two actually executed queued semantic rebuilds have different Blender PIDs9 and32 and identical final GLB bytes.",
+    "Fresh source reopen and reexport matches exact GLB bytes; authored/evaluated/exported counts and bounds agree.",
+    "All7 actual world-space shaft circumradius ranges pass the original [0.0026,0.0048]m without tolerance; other6 shaft vertex sets unchanged."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 652,
+    "materials": 2,
+    "primitives": 2,
+    "glb_bytes": 30172,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/static-glb.report.json",
+        "sha256": "66a3e10911b791f0e1b5a1d236b42ddd40a6990584a9fd30f575d02d1667f452"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r002/artifacts/gltf-validator.report.json",
+        "sha256": "bd73600178438179dee4e36eb29e234994f629c5f5e2fe060876e540586ebd9f"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/source-export.report.json",
+        "sha256": "c68813862620a662970211731397f145995b33efb7750a84670c730f3da727b9"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/reproducibility-a.report.json",
+        "sha256": "09573b1f6d183ed721998e2dec0c27db2232e2053c9f7c4c6c89307ad4c176bb"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "6e729192850db1f29bd886d2d5d07518ae4e8ff2b4d373d245cb8493eef3fbd3",
+      "report": {
+        "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/reproducibility-b.report.json",
+        "sha256": "711d830257fe3afcd709db08a75867bca8e865bc8903fc381c7ea4ea9de19d7f"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.05000000074505806,
+      0.0,
+      -0.03500000014901161
+    ],
+    "max": [
+      0.05000000074505806,
+      0.06560000032186508,
+      0.03500000014901161
+    ],
+    "size": [
+      0.10000000149011612,
+      0.06560000032186508,
+      0.07000000029802322
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "sectioned-host-sandstone",
+      "vertices": 334,
+      "triangles": 652,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 998,
+  "created_at": "2026-10-20T22:51:44.949061+00:00",
+  "additional_radius_report": {
+    "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/final-world-radius-measurements.json",
+    "sha256": "a1414d79a6f7198706d31b00e705a61b2d15241b9845a85dddc633d934b3e1bd"
+  },
+  "fresh_source_reexport_report": {
+    "path": "production/small-life-batch89/skolithos-pipe-field/r002/qa/maker-source-reopen-reexport.json",
+    "sha256": "da7af3d8a97efbb8580f35d459ec808341ffba69aec7436e25fe04ddd4661bb9"
+  }
+}

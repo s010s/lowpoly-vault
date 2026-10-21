@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "batch84-local-candidate-production-boundary",
+  "scope": "s010s/lowpoly-vault batch84",
+  "authority": "Local maker task only; parent owns any separate release workflow",
+  "candidate_gate_grants_publication": false,
+  "authorization_source": "Current maker dispatch with exact four reserved IDs and no push/upload/merge instructions; independent review later.",
+  "boundary": "No push, upload, PR state change, merge, publication, old-model/site/CI/access/credential edits. Candidate integrity does not grant release approval.",
+  "restrictions": [
+    "No push/upload/merge",
+    "No force push",
+    "No branch deletion",
+    "No access or credential changes"
+  ]
+}

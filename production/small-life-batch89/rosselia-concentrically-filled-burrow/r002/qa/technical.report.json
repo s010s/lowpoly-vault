@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+    "brief_sha256": "110584bb28ab87cf77ee4605c254ba356e2a248e9b8baf87d058f63a19df41a4",
+    "references_sha256": "761d4872d3b98a3c51c24bb8c1a4f7429fc6dfe3226ccdde0b634c29228b8162"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed, errors0; separate rebuild process/time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 9120,
+    "materials": 5,
+    "primitives": 5,
+    "glb_bytes": 427128,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "report": {
+        "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/static-glb.report.json",
+        "sha256": "227f419e7be15ef594d7cd883ff4d4a33661e3c821f2a47e0735a9a5c5782bc8"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "report": {
+        "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/artifacts/gltf-validator.report.json",
+        "sha256": "6a771bf0e10fab819ff022c9ad5fe5474c2fd83be37e19fec6d69a79062caebf"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "report": {
+        "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/source-export.report.json",
+        "sha256": "ef9a7b8c3292a1d3171458786d119de524a084d934c2e9956976a424414e847e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "report": {
+        "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/reproducibility-a.report.json",
+        "sha256": "568eec78432d61b04cd5c07028c4dc76870d89450bea7291666a206e166a9099"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "0f839c90ab884478b9a57062107ce84d42f51d1fdd6e153a30c9de8a90d8ca07",
+      "report": {
+        "path": "production/small-life-batch89/rosselia-concentrically-filled-burrow/r002/qa/reproducibility-b.report.json",
+        "sha256": "77a02a830583fe6a16b189ad7d40ec510371bcd8a53b510524ae116dfd9f550a"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.03221607580780983,
+      0.0,
+      -0.031751636415719986
+    ],
+    "max": [
+      0.03281640261411667,
+      0.04500000178813934,
+      0.0005799999926239252
+    ],
+    "size": [
+      0.0650324784219265,
+      0.04500000178813934,
+      0.03233163640834391
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "volumetric-concentric-funnel-exposed-ribs",
+      "vertices": 4574,
+      "triangles": 9120,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 15311,
+  "created_at": "2026-10-20T21:44:52.358051+00:00"
+}

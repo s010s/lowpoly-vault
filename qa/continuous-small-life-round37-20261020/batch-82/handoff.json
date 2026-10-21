@@ -1,0 +1,95 @@
+{
+  "batch": 82,
+  "completed_at": "2026-10-20T20:50:12.356969+00:00",
+  "immutable_source_commit": "13556c314fbf5ee1a4469fb92fc4a3fa84f1771d",
+  "source_root": "/workspace/shared/lowpoly-batch82-20261020",
+  "qa_root": "/workspace/shared/lowpoly-batch82-independent-qa-20261020",
+  "report": {
+    "path": "independent-qa.report.json",
+    "sha256": "9a70e16bba928fe3ffb9fec5317ec0304a38e5ab60e7f86d3e194fe189ace753"
+  },
+  "human_report": {
+    "path": "REPORT.md",
+    "sha256": "0335e3346e5bb4e23e844b7569b4be3750d7fb0cb36b2fc485da2948ab23f11d"
+  },
+  "own_evidence_manifest": {
+    "path": "own-evidence-manifest.json",
+    "sha256": "4d95737bc4527be4422cdb9faf722118b31deaa10087bb8d658918d0a8e9d07a"
+  },
+  "local_five_stage_results": [
+    {
+      "asset_id": "kimberella",
+      "revision": "r002",
+      "glb_sha256": "6437dec0dada749eba5bdf2a7be12b03bc634da4d651b571bf92c6d99aba1947",
+      "verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "defects": []
+    },
+    {
+      "asset_id": "badlands-ridge-network",
+      "revision": "r002",
+      "glb_sha256": "b0127ad07c326e85373ff207610051646349205b18b46524c4ce13cc47c87091",
+      "verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "defects": []
+    },
+    {
+      "asset_id": "playa-basin",
+      "revision": "r003",
+      "glb_sha256": "9b6bdef5c02948e1cb0941b531449bf44825bd3c4b7d9f5a858e3ff29183127e",
+      "verdict": "PASS",
+      "stages": {
+        "technical": "pass",
+        "visual": "pass",
+        "factual": "pass",
+        "specification": "pass",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "defects": []
+    },
+    {
+      "asset_id": "stratovolcano",
+      "revision": "r006",
+      "glb_sha256": "94a39e7d4d31e22df87b33cbf48c7db332920566d24cef297874f26b229679a4",
+      "verdict": "REVISE",
+      "stages": {
+        "technical": "pass",
+        "visual": "fail",
+        "factual": "pass",
+        "specification": "fail",
+        "runtime_parse": "pass",
+        "gpu": "not_run",
+        "scene": "not_run"
+      },
+      "defects": [
+        "B82-STRATO-01"
+      ]
+    }
+  ],
+  "formal_acceptance": false,
+  "user_acceptance": false,
+  "website_acceptance": false,
+  "publication_acceptance": false,
+  "source_records_unchanged": true,
+  "copied_scientific_conclusions": false,
+  "next_step": "Repair stratovolcano B82-STRATO-01 in new immutable revision under original frozen scope. Other three can retain local QA only when exact bytes and subject bindings preserved. Later runtime/scene/publication are separate.",
+  "lean_copy_contract": "Preserve original historical source paths and bytes. immutable-input-audit.json supplies original path, Git blob and SHA-256 identity map for later lean copies. Do not rewrite historical absolute provenance paths; map copies explicitly."
+}

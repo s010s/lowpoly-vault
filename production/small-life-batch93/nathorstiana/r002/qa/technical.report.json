@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "technical_report",
+  "stage": "technical",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+    "brief_sha256": "26e3319f5635e3717537447ebb4661aab0b34a74bad499bbb33c276695f576e9",
+    "references_sha256": "2c07b8a649bae0df8d97e61cfb457aeb753b3323cda448a905da1b55d160812d"
+  },
+  "status": "pass",
+  "method": "Project static audit, official Khronos Validator, actual editable source reopen with evaluated counts/bounds, two distinct executed queued deterministic rebuilds; no geometry inferred from images.",
+  "observations": [
+    "All five named checks passed with zero errors; separate rebuild process and time provenance retained.",
+    "Grounded source-to-export bounds and triangle counts agree. Authored and evaluated counts recorded separately.",
+    "No texture payloads or unsupported extensions; original source scope and premodel freeze retained."
+  ],
+  "errors": [],
+  "warnings": [],
+  "warning_review": [],
+  "measurements": {
+    "triangles": 1380,
+    "materials": 3,
+    "primitives": 3,
+    "glb_bytes": 78672,
+    "texture_count": 0,
+    "texture_max_dimension": 0,
+    "texture_bytes": 0,
+    "decoded_texture_bytes_estimate": 0
+  },
+  "checks": [
+    {
+      "name": "static_glb",
+      "status": "pass",
+      "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "report": {
+        "path": "production/small-life-batch93/nathorstiana/r002/qa/static-glb.report.json",
+        "sha256": "7f07048e16350099e1f8ff4deedb4447e1cb1cd160069978ed7e35c075b8f31e"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "khronos_validator",
+      "status": "pass",
+      "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "report": {
+        "path": "production/small-life-batch93/nathorstiana/r002/artifacts/gltf-validator.report.json",
+        "sha256": "030b2217d1d8727b41ff57eed111a9e32ed61e029b27988e77bf1c76adc1e257"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "source_export",
+      "status": "pass",
+      "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "report": {
+        "path": "production/small-life-batch93/nathorstiana/r002/qa/source-export.report.json",
+        "sha256": "407a3c695504a0778199d7255d348a1962d28a90706785ada9154e5d739c1ac1"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility",
+      "status": "pass",
+      "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "report": {
+        "path": "production/small-life-batch93/nathorstiana/r002/qa/reproducibility-a.report.json",
+        "sha256": "6d0a0f9632372fb3a3474ec8f3065d43bfcdde2bdbeff0544dfbd7d4ab6e134c"
+      },
+      "warning_review": []
+    },
+    {
+      "name": "reproducibility_second",
+      "status": "pass",
+      "glb_sha256": "8f676c164eaf7e82c5a372d533f115f757e1682e8c90af4f16cb78dc1df9f3dc",
+      "report": {
+        "path": "production/small-life-batch93/nathorstiana/r002/qa/reproducibility-b.report.json",
+        "sha256": "eb02e83c97658c5942a1d8d347f49b35c3201e0e67318f8f5955b4621397058e"
+      },
+      "warning_review": []
+    }
+  ],
+  "reviewed_evidence": [],
+  "bounds_glb_m": {
+    "min": [
+      -0.08753181993961334,
+      0.0,
+      -0.08245515823364258
+    ],
+    "max": [
+      0.07609213143587112,
+      0.2199999988079071,
+      0.07495513558387756
+    ],
+    "size": [
+      0.16362395137548447,
+      0.2199999988079071,
+      0.15741029381752014
+    ]
+  },
+  "evaluated_source_parts": [
+    {
+      "name": "short-unbranched-stem-quill-crown-ribbed-rooting-base",
+      "vertices": 768,
+      "triangles": 1380,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "exported_position_vertices": 2796,
+  "created_at": "2026-10-20T23:28:22.221955+00:00"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "valley-glacier",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form educational landscape module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: One continuous solid blue-white ice tongue confined between higher unequal bedrock valley sides; Uphill snow source connects continuously to gently curving downhill narrower blunt terminus; Unequal shallow crevasses near lower tongue, not disconnected ice cubes, empty U valley or piedmont spreading lobe. Scope: Original generic geological-form analog of valley glacier informed by NPS Fraser Glacier photograph and valley-versus-piedmont explanation. Not Fraser Glacier reconstruction, exact DEM, current retreat/melting chronology or assigned prehistoric period/ecosystem. Illustrative nominal900x1600x350m landscape, ice width roughly250m, no exact site measurement. Continuous full volume ice surface visible above valley floor, side bedrock rises higher. Crevasses shallow subordinate relief, not deep cuts severing tongue.",
+      "required_sources": [
+        "NPS-VALLEY"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: One continuous solid blue-white ice tongue confined between higher unequal bedrock valley sides; Uphill snow source connects continuously to gently curving downhill narrower blunt terminus; Unequal shallow crevasses near lower tongue, not disconnected ice cubes, empty U valley or piedmont spreading lobe. Scope: Original generic geological-form analog of valley glacier informed by NPS Fraser Glacier photograph and valley-versus-piedmont explanation. Not Fraser Glacier reconstruction, exact DEM, current retreat/melting chronology or assigned prehistoric period/ecosystem. Illustrative nominal900x1600x350m landscape, ice width roughly250m, no exact site measurement. Continuous full volume ice surface visible above valley floor, side bedrock rises higher. Crevasses shallow subordinate relief, not deep cuts severing tongue.",
+      "required_sources": [
+        "NPS-VALLEY"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views. CPU proof is not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch81/assets/valley-glacier/r002/source.blend",
+      "sha256": "57549c6b090fef0ae135a146411c1f22cc5e45efb337b8d3de37e99eb0925459"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch81/assets/valley-glacier/r002/generator.py",
+      "sha256": "50dc619a61f4e8569619e5f0ac93279320ad99834196952c8f90d8936db210bd"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch81/assets/valley-glacier/r002/build-config.json",
+      "sha256": "ef89d0df3d65460705cd9b80dadf5959542f9264d81498ba7cf8b1448fbe37dc"
+    }
+  ],
+  "claim_scope": "Original generic geological-form analog of valley glacier informed by NPS Fraser Glacier photograph and valley-versus-piedmont explanation. Not Fraser Glacier reconstruction, exact DEM, current retreat/melting chronology or assigned prehistoric period/ecosystem. Illustrative nominal900x1600x350m landscape, ice width roughly250m, no exact site measurement. Continuous full volume ice surface visible above valley floor, side bedrock rises higher. Crevasses shallow subordinate relief, not deep cuts severing tongue.",
+  "nominal_dimensions_blender_xyz_m": [
+    900,
+    1600,
+    350
+  ],
+  "dimension_status": "Illustrative nominal target, not measured natural dimensions; actual export measured separately.",
+  "recognition_features": [
+    "One continuous solid blue-white ice tongue confined between higher unequal bedrock valley sides",
+    "Uphill snow source connects continuously to gently curving downhill narrower blunt terminus",
+    "Unequal shallow crevasses near lower tongue, not disconnected ice cubes, empty U valley or piedmont spreading lobe"
+  ],
+  "concept_decisions": "Keep concept long confined continuous ice and mountain shoulders. Simplify unnecessary grass, tributary tributary complexity and too-dense terminal ice teeth. Unequal lower transverse crevasses integrated into same ice surface volume, visible blunt confined terminus before short forevalley, lateral debris narrow. No disconnected blocks or broad foreland lobe, no regular grid. Terrain and ice share boundary without exposed coplanar overlapping faces, one integrated solid landscape mesh.",
+  "style": "Original faceted full-volume palette-only low-poly",
+  "intended_use": "Static supporting landscape geological module at256-512px; preserve world scale",
+  "created_at": "2026-10-20T16:58:19.569201+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T17:08:18.198028+00:00",
+    "frozen_design_brief_sha256": "9661bb45709a34543a543b000e9d432d8eec762b95dffa64a06e656f24e407a6",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

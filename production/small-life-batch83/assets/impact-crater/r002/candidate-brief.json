@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "asset_id": "impact-crater",
+  "brief_version": "r001",
+  "profile": "production",
+  "purpose": "Original geological process/form landscape teaching module",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 256,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every frozen diagnostic and turntable frame against references; silhouette, construction, proportions and materials must meet the brief. Required: Deep excavated bowl lies below broad surrounding plain with raised irregular disrupted rim; Subdued ejecta apron slopes outwards into plain; steep inward walls and small low central bowl floor; Simple terrestrial impact form without central peak, volcanic cone, lava, explosion or copied buildings. Scope: Generic small simple terrestrial impact-crater process/form artistic concept informed by NASA/USGS Barringer aerial image, not exact Meteor Crater DEM, measured real dimensions, locality, age or geological confirmation from shape alone. Nominal2400x2200x420m educational terrain module includes plain with bowl substantially below surrounding level and raised rim. Original irregular outline and radial erosion simplified; no shock metamorphism or impact-origin proof represented. No central peak because frozen scope simple crater. Colors and erosion exaggerated only within illustrative readability, not measured stratigraphy.",
+      "required_sources": [
+        "NASA-USGS-CRATER"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare every diagnostic anatomical/botanical/geological feature with cited sources and label reconstruction uncertainty. Required: Deep excavated bowl lies below broad surrounding plain with raised irregular disrupted rim; Subdued ejecta apron slopes outwards into plain; steep inward walls and small low central bowl floor; Simple terrestrial impact form without central peak, volcanic cone, lava, explosion or copied buildings. Scope: Generic small simple terrestrial impact-crater process/form artistic concept informed by NASA/USGS Barringer aerial image, not exact Meteor Crater DEM, measured real dimensions, locality, age or geological confirmation from shape alone. Nominal2400x2200x420m educational terrain module includes plain with bowl substantially below surrounding level and raised rim. Original irregular outline and radial erosion simplified; no shock metamorphism or impact-origin proof represented. No central peak because frozen scope simple crater. Colors and erosion exaggerated only within illustrative readability, not measured stratigraphy.",
+      "required_sources": [
+        "NASA-USGS-CRATER"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 canonical eight512px views; CPU images not hardware or scene evidence.",
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "production/small-life-batch83/assets/impact-crater/r002/source.blend",
+      "sha256": "eea31ceef4f9fc84b0cfd79b5b5927e3b321c469d52495f726a1e3236db07c25"
+    },
+    {
+      "role": "generator",
+      "path": "production/small-life-batch83/assets/impact-crater/r002/generator.py",
+      "sha256": "e4fb6c38ddb9499cb23070dfac0583eda37188daf37b7cc98a032cf9de92a4f4"
+    },
+    {
+      "role": "config",
+      "path": "production/small-life-batch83/assets/impact-crater/r002/build-config.json",
+      "sha256": "ddd64c66f5964a14e25b4c235514ddc39199beb4fb96fa3d361023452e80ffb7"
+    }
+  ],
+  "claim_scope": "Generic small simple terrestrial impact-crater process/form artistic concept informed by NASA/USGS Barringer aerial image, not exact Meteor Crater DEM, measured real dimensions, locality, age or geological confirmation from shape alone. Nominal2400x2200x420m educational terrain module includes plain with bowl substantially below surrounding level and raised rim. Original irregular outline and radial erosion simplified; no shock metamorphism or impact-origin proof represented. No central peak because frozen scope simple crater. Colors and erosion exaggerated only within illustrative readability, not measured stratigraphy.",
+  "nominal_dimensions_blender_xyz_m": [
+    2400,
+    2200,
+    420
+  ],
+  "dimension_status": "Illustrative nominal art dimensions; actual exported bounds measured separately, not exact natural/site size.",
+  "recognition_features": [
+    "Deep excavated bowl lies below broad surrounding plain with raised irregular disrupted rim",
+    "Subdued ejecta apron slopes outwards into plain; steep inward walls and small low central bowl floor",
+    "Simple terrestrial impact form without central peak, volcanic cone, lava, explosion or copied buildings"
+  ],
+  "concept_decisions": "Concept has correct lowered bowl and raised rim; remove photograph-like grain and orderly horizontal cut-base stripes, no central raised object. Build continuous volume irregular near-round terrain apron with plain level around260m, broken rim around380-420m, bowl floor around35m above lower cut. Bowl remains below surrounding plain, not cone with summit pit. Small irregular radial erosional cuts integrated into inward walls; natural asymmetry avoiding donut torus and perfectly repeated sectors. Ejecta apron merges gradually into plain, no separate clasts crossing coplanar surfaces.",
+  "style": "Original full-volume faceted low-poly palette-only geometry",
+  "intended_use": "Static supporting educational geological landscape module at256-512px, world scale preserved",
+  "created_at": "2026-10-20T17:28:48.529237+00:00",
+  "validation_profile": "static-stylized-v1",
+  "packaging_adapter": {
+    "created_at": "2026-10-20T17:38:05.287813+00:00",
+    "frozen_design_brief_sha256": "b04bebbfeb6d831c4f33ce81ea32ed9795c449c186e24b4466e14eac5e3e3945",
+    "note": "Postbuild artifact path/hash closure only. No design/scope/budget or source change, original premodel brief unchanged."
+  }
+}

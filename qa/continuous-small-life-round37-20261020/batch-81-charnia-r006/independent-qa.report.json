@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "kind": "independent-targeted-difference-review",
+  "batch": 81,
+  "asset_id": "charnia",
+  "revision": "r006",
+  "review_completed_at": "2026-10-20T21:20:48.651166+00:00",
+  "reviewer": "Fresh-context independent QA; not repair maker",
+  "verdict": "PASS",
+  "verdict_scope": "Bounded independent local C81-01 repair and regression acceptance only. Not accepted_for_brief, not full seven-stage approval, not user/site/publication approval.",
+  "review_source_commit": "47e3b51172f44176cd0bb2ad52bc01d7de32fddc",
+  "review_source_parent": "7576247b611e1b357313e5409c18c7912197cf2b",
+  "input_handoff_sha256": "366829bc478f849d671235c1347bb5e29ff003803254b3124abcc3ba695242d9",
+  "subject": {
+    "revision": "r006",
+    "glb_sha256": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934",
+    "brief_sha256": "fa9c75c31fe42b8d8b608c4bdf397e96c20ff2b13ee389e7f1ed052cd4ee12eb",
+    "references_sha256": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d"
+  },
+  "fixed_artifact_hashes": {
+    "glb": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934",
+    "brief": "fa9c75c31fe42b8d8b608c4bdf397e96c20ff2b13ee389e7f1ed052cd4ee12eb",
+    "references": "79013203822a7e4d7599545b1b4d0edbfcf5169c7e55f4b05228394fdca4a88d",
+    "source": "041801bb23c5bfca3d9bf9aa0e0f2a04714f0cc295713029cf692a17cdcdc96b",
+    "generator": "b2d3e56c887c504cfb4e42070558d377fdb97ef37ca8e2cbc09300903180a024",
+    "config": "d2b30c9dcc745432de47b46da0b0ce8d68f6767994931bb9b7ef2b24af02361c"
+  },
+  "unchanged_original_failure": {
+    "report": "/workspace/shared/lowpoly-batch81-independent-qa-20261020/independent-qa.report.json",
+    "sha256": "dc4306ca243388a7dee077231b50b976e7a2c318d2e37cf811e03f12ed3e62a5",
+    "original_revision": "r003",
+    "original_verdict": "REVISE",
+    "edited": false
+  },
+  "stages": {
+    "technical": "pass",
+    "visual": "pass",
+    "factual": "pass_with_original_uncertainties",
+    "specification": "pass_for_frozen_local_scope_and_artifacts_only",
+    "runtime_parse": "pass",
+    "gpu": "not_run",
+    "scene": "not_run"
+  },
+  "workflow_gates": {
+    "geometry": "pass",
+    "freeze": "pass",
+    "source": "pass",
+    "rebuild": "pass",
+    "visual": "pass",
+    "independent_difference_review": "pass",
+    "scene_release": "blocked_unrun_GPU_and_scene",
+    "user_acceptance": "not_run",
+    "website_or_formal_publication": "not_run"
+  },
+  "approved_for_brief": false,
+  "publication_approved": false,
+  "user_approved": false,
+  "criteria": [
+    {
+      "id": "C81-01",
+      "status": "pass",
+      "closure": "closed_for_r006_only",
+      "finding": "At actual 512 pixels, top/reversehero and a freshly generated neutral-gray top show a tapering whole-frond envelope, continuous alternating broad primary boundaries, and smaller nested secondary divisions contained inside those boundaries. The new gray-top relief is geometrical, not a material-only cue. This satisfies the original frozen nested-subordinate criterion; original r003 REVISE remains unchanged.",
+      "qualification": "Three readable organizational scales means frond envelope → primary unit → nested secondary division. Three short divisions per unit are an artistic simplification, not a claim of three anatomical branch orders. Independent third/fourth-order anatomy is neither required by the frozen C81-01 criterion nor established by this asset."
+    },
+    {
+      "id": "fossil-impression-and-specimen-scope",
+      "status": "pass",
+      "finding": "Still a shallow integral negative relief on one solid slab, informed by Dunn2019 Fig1F captioned BGS GSM105873 latex mould. Not a scan or exact facsimile, not the LEIUG2328 or SM A48259 holotype. No new stem, holdfast, roots, eyes, living leaflets or reconstructed organism underside. Gentle axial displacement is retained as preservation interpretation. Biological affinity, true color/thickness/posture, specimen measurement and underside uncertainties remain unchanged."
+    },
+    {
+      "id": "rounded-slab-and-scale-regression",
+      "status": "pass",
+      "finding": "The r005 end-corner regression is visibly repaired by redistributing blank-end vertices only. r003/r006 silhouette mask IoU is 0.9998328924 with 6 differing pixels versus 99 for r005. Bounds remain approximately 0.1223494 × 0.26 × 0.01112 m in Blender XYZ. Nominal target remains 0.12 × 0.26 × 0.012 m, explicitly illustrative and not a measured BGS specimen."
+    },
+    {
+      "id": "palette-camera-lighting-regression",
+      "status": "pass",
+      "finding": "All three exported material records match r003 exactly. Renderer source SHA is identical. Camera angles, directions, world, samples, exposure and color management remain identical. Enclosing-radius normalization from changed vertex sampling alters framing/light size by only 0.00385718% and energy by about 0.00771%; this is not a manual camera/light substitution.",
+      "derived_numeric_changes": {
+        "orthographic_scale_old_m": 0.2988708890509443,
+        "orthographic_scale_new_m": 0.2988824170377697,
+        "automatic_radius_ratio": 1.0000385717955402,
+        "scale_change_percent": 0.0038571795540232046,
+        "light_size_scales_by_same_ratio": true,
+        "light_energy_scales_by_radius_squared": true,
+        "directions_world_color_exposure_samples_camera_angles_identical": true,
+        "interpretation": "Same exact renderer calculates enclosing radius from changed surface sample distribution; 0.00386 percent framing/size and 0.00771 percent energy shifts are automatic normalization, not manual lighting/camera replacement."
+      }
+    },
+    {
+      "id": "geometry-and-budget",
+      "status": "pass",
+      "finding": "Fresh source reopen/export measured 6608 authored/evaluated vertices, 13212 triangles, 3 materials/primitives, 0 textures, and 995580 GLB bytes. Within original 14000-triangle/1000000-byte limits. No boundary/nonmanifold triangle edges, duplicate triangles or nonadjacent BVH intersection pairs detected; positive volume and identity object transform.",
+      "budget_headroom": {
+        "triangles": 788,
+        "glb_bytes": 4420
+      },
+      "qualification": "BVH test excludes shared-vertex adjacency and is not exhaustive artifact proof. File budget has little spare room; future changes must remeasure exact exported bytes."
+    },
+    {
+      "id": "original-freeze-and-triplet-binding",
+      "status": "pass",
+      "finding": "All 81 original tracked Charnia r001/r003 files and 100 changed repair commit files match Git bytes. Original freeze, brief, references, concept and immutable failure report match hashes. Repair changes only revision/geometry parameters; derived brief adds only deliverable closure/packaging. Exact GLB/brief/references triplet binds all 8 final frames and candidate evidence."
+    },
+    {
+      "id": "saved-source-reexport",
+      "status": "pass",
+      "finding": "Fresh read-only source reopen and actual export produced a byte-identical GLB and the same decoded-static-content semantic digest. The original source/GLB were not saved over or modified.",
+      "fresh_blender_pid": 8,
+      "semantic_sha256": "68041f65c646e8812fe16bacbce7bd25cb940cf5c9d7f52f28802ce8d5393ff8"
+    },
+    {
+      "id": "two-real-queued-semantic-rebuilds",
+      "status": "pass",
+      "finding": "Distinct retained queued runs with Blender PIDs 118 and 145, unique job IDs/paths, started/finished times, request/result/stdout, all inputs/executable/runner hashes and all actual output files verified. Both fresh semantic comparisons pass and actual rebuilt GLBs are byte-identical.",
+      "qualification": "Historical process records and stdout are checked evidence, not a new observation of those past processes or cryptographic proof."
+    },
+    {
+      "id": "validators-and-runtime",
+      "status": "pass",
+      "finding": "Fresh project static audit and default-severity Khronos validation pass with 0 errors and 0 warnings. Pinned Three.js 0.180.0 Node GLTFLoader parses the exact GLB and independently measures matching topology, materials and bounds. Correct static-stylized-v1 candidate contract is valid but not approved.",
+      "qualification": "Legacy profile diagnostic requires turntable>=2 and is not the selected frozen profile. Concept integrity is valid but provider-internal generation time/request ID and precise modeling start remain unknown, exactly as before."
+    },
+    {
+      "id": "failed-attempt-retention",
+      "status": "pass",
+      "finding": "All 183 raw-index entries, including r004 failed readability diagnostics and r005 full lifecycle/corner-regression evidence, are retained and hash verified. No original report, failed candidate, proof or source overwritten. r006 generator diff changes blank-end coordinate distribution only relative to r005, leaving branch formulas/parameters unchanged."
+    },
+    {
+      "id": "gpu-acceptance",
+      "status": "not_run",
+      "finding": "No exact-export target GPU/browser rendering was performed. CPU Cycles proof and Node parse do not satisfy this gate."
+    },
+    {
+      "id": "scene-acceptance",
+      "status": "not_run",
+      "finding": "No composed production-scene scale/contact/material/performance evaluation was performed."
+    },
+    {
+      "id": "user-and-publication-approval",
+      "status": "not_run",
+      "finding": "No user acceptance, website acceptance, PR/push/merge/deploy/release or publication approval is implied or performed."
+    }
+  ],
+  "inspected_final_frames": [
+    {
+      "view": "hero",
+      "sha256": "94e9bb8b422eb4c83d2ca9f9537318a5b03964eb319e3fa0730f3433c755e1ad",
+      "width": 512,
+      "height": 512,
+      "observation": "Shallow negative impression remains within the slab. Short nested divisions now form a repeated internal rhythm instead of the original nearly flat slash patch; grazing illumination still makes this less diagnostic than top."
+    },
+    {
+      "view": "reversehero",
+      "sha256": "c167ebf00b646c43df4bc3d6f111fd0d8d99af9401d5f3a3f68dd49f6c4f3b93",
+      "width": 512,
+      "height": 512,
+      "observation": "Broad inclined primary boundaries remain continuous and alternating. Shorter divisions sit inside them, not as independent fern leaflets. The major-to-subordinate hierarchy is legible at the actual 512 pixel scale."
+    },
+    {
+      "view": "front",
+      "sha256": "cc1ff3bf687ff79ba1f945dcfc8b686a8a41bc0fcbbe08d1a15314ee7686c69e",
+      "width": 512,
+      "height": 512,
+      "observation": "Closed thin rock edge with grounded base, no floating relief or visible open seam. Edge-on view cannot establish branching and is not used to claim it."
+    },
+    {
+      "view": "side",
+      "sha256": "d5d4f4480705f998638d840f067926705860e11589ea59b390668e28697387f6",
+      "width": 512,
+      "height": 512,
+      "observation": "Slab thickness and long profile remain unchanged at the intended scale; no tall living frond or separate underside appears."
+    },
+    {
+      "view": "rear",
+      "sha256": "4ba772d45403d4af92d36dbf932270628cfedf899ea11e2b537ac1b67c9e1b2a",
+      "width": 512,
+      "height": 512,
+      "observation": "Closed opposite slab edge. No new layered-skin artifact visible in this fixed frame."
+    },
+    {
+      "view": "top",
+      "sha256": "acf2248ce5d8389ee49b2b1f33f9ce626cec067f09de96f828d27e904035674a",
+      "width": 512,
+      "height": 512,
+      "observation": "Clear tapering frond envelope, staggered broad primary units meeting at the central zigzag boundary, and shorter gently curved nearly longitudinal secondary grooves inside those units. Middle and lower interior units now resolve as nested regions rather than the former isolated diagonal slash facets. Finest apical divisions naturally merge at 512 pixels; no claim of every tiny branch being resolved."
+    },
+    {
+      "view": "clay",
+      "sha256": "00127551a5b541e22fc55b2b0e84b26b323d3a9869478d9835e6e3dca13a7edd",
+      "width": 512,
+      "height": 512,
+      "observation": "The same subordinate relief remains visible without the darker impression palette. The oblique clay view is weaker than the neutral-gray top, but does not collapse to the former near-flat patch."
+    },
+    {
+      "view": "silhouette",
+      "sha256": "ab63bc1904196cd4319e7f8240fc0c43d6ac514bf40453cdd9c3c2b6b4b945ff",
+      "width": 512,
+      "height": 512,
+      "observation": "Rounded slab end corners match the original rounded outline. This is rock outline evidence, not proof of fossil branch recognition."
+    }
+  ],
+  "supplemental_neutral_gray_top": {
+    "path": "/workspace/shared/lowpoly-batch81-charnia-r006-independent-qa-20261020/supplemental-topclay/clay.png",
+    "sha256": "c20db4a5d4d1a2c0a20b4c08968952615b5f5e917dc14524bb1958846dbe57a2",
+    "resolution": [
+      512,
+      512
+    ],
+    "fresh": true,
+    "observation": "Primary grooves are continuous and shorter secondary divisions are readable inside their parent units through the middle/lower frond. Top-to-bottom organization survives a uniform gray material. Same rendering procedure as original independent gray-top diagnostic; not a recolored image or substitute final proof."
+  },
+  "sources_consulted": {
+    "primary_paper": "https://nora.nerc.ac.uk/id/eprint/522571/",
+    "retained_primary": [
+      {
+        "path": "/workspace/shared/lowpoly-batch81-reference-consult/charnia.pdf",
+        "sha256": "598fb2062f95135582f314a3202ce74f51bf5e6d3ab4e8351f5eb60a581e478f"
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch81-reference-consult/charnia.txt",
+        "sha256": "49efee870af57ad60f23f1291b878ac3c7062933bc49b873f0e649dea87af9d8"
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch81-reference-consult/charnia-p3.png",
+        "sha256": "284a73aa7947fead9c1ed9e2eb68c7ae01881aec7b5b2a123ede021cbb94cedf"
+      },
+      {
+        "path": "/workspace/shared/lowpoly-batch81-reference-consult/charnia-p6.png",
+        "sha256": "dd5e55e6f44303173863ef9be38abadf33876e3f6ff49a603953464eb7a50b2c"
+      }
+    ],
+    "actual_pixels_opened": [
+      "Dunn2019 Fig1 page with Fig1F and caption",
+      "Original ImageGen concept",
+      "All 8 original r003 512 PNGs",
+      "Original independent r003 gray-top PNG",
+      "All 8 final r006 512 PNGs",
+      "r004 gray-top failed diagnostic",
+      "r005 top and silhouette",
+      "Fresh independent r006 gray-top PNG"
+    ],
+    "source_boundary": "Figure1F identity and morphology, not living-fern reconstruction; Fig1A-C holotype labels are not transferred to this model."
+  },
+  "measurements": {
+    "triangles": 13212,
+    "glb_bytes": 995580,
+    "authored_vertices": 6608,
+    "evaluated_vertices": 6608,
+    "exported_position_stream_vertices": 38036,
+    "materials": 3,
+    "primitives": 3,
+    "textures": 0,
+    "bounds_blender_xyz_m": {
+      "min": [
+        -0.061174698173999786,
+        -0.12999999523162842,
+        0.0
+      ],
+      "max": [
+        0.061174698173999786,
+        0.12999999523162842,
+        0.01111999899148941
+      ],
+      "size": [
+        0.12234939634799957,
+        0.25999999046325684,
+        0.01111999899148941
+      ]
+    },
+    "bounds_gltf_xyz_m": {
+      "min": [
+        -0.061174698173999786,
+        0.0,
+        -0.12999999523162842
+      ],
+      "max": [
+        0.061174698173999786,
+        0.01111999899148941,
+        0.12999999523162842
+      ],
+      "size": [
+        0.12234939634799957,
+        0.01111999899148941,
+        0.25999999046325684
+      ]
+    }
+  },
+  "rebuild_runs": [
+    {
+      "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/charnia-repair-rebuild-runs/build/charnia/r006/semantic-rebuild-1/4015879d70848a49a1935d7e88c2bdc7813fd5df2c9cb80e3eb09e46b946ad32/20261020T210332-5ad98999ea6c41b0adf60179095a8d75",
+      "pid": 118,
+      "job_id": "semantic-rebuild-1",
+      "started_at": "2026-10-20T21:03:32.274017+00:00",
+      "finished_at": "2026-10-20T21:03:36.531266+00:00",
+      "request_sha256": "4f958aa8beac0e69f57e4c2ebed4ebcd97463ac834a3ec0d1de6a7bd485351c0",
+      "result_sha256": "6ff0050322e88bea828ade8a81e7b1fd2258396bd0988e0e4e1cb4fabc7a0a00",
+      "stdout_sha256": "b86f3d44bb8e729a858173c51d54f0ef15e161258b58941bb7d04b6030d4ab9d",
+      "outputs_verified": {
+        "metrics.json": {
+          "bytes": 3186,
+          "sha256": "f55aa79e09f1643ec3806221db677be2e88ebf8e6b0e03f81d0ee41c010e9f74"
+        },
+        "model.glb": {
+          "bytes": 995580,
+          "sha256": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934"
+        },
+        "source-metrics.json": {
+          "bytes": 681,
+          "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131"
+        },
+        "source.blend": {
+          "bytes": 1178788,
+          "sha256": "915cfdb7e9b496625f7a6d49c7b81ea1ac931c2aec5af8924bc668d8094cb23f"
+        }
+      },
+      "semantic_sha256": "68041f65c646e8812fe16bacbce7bd25cb940cf5c9d7f52f28802ce8d5393ff8",
+      "semantic_match": true,
+      "byte_identical": true
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/charnia-repair-rebuild-runs/build/charnia/r006/semantic-rebuild-2/e4f0ed7a359303c247580df5093903bc6c9532ecf3c520bdbbae919ebea0235d/20261020T210338-0548aebe40a7465aae9159146b032252",
+      "pid": 145,
+      "job_id": "semantic-rebuild-2",
+      "started_at": "2026-10-20T21:03:38.199310+00:00",
+      "finished_at": "2026-10-20T21:03:41.661557+00:00",
+      "request_sha256": "3cdaa22eca3cb03e7d3a4e9737c788db5a03b7622aede2edc7a14f379cb9c287",
+      "result_sha256": "42f5a83a77edaf8f9551ca91c26019133b21c63f29ed181014d85c7e05315b5d",
+      "stdout_sha256": "0ee21474a24aec67ad7b9f752365cc8ba536f3c43938eedfaba882c8f9e4cc6f",
+      "outputs_verified": {
+        "metrics.json": {
+          "bytes": 3186,
+          "sha256": "7820a153d92ad5eb918c9c3b55d68cd4643a810174deac8460beb0f9552e5962"
+        },
+        "model.glb": {
+          "bytes": 995580,
+          "sha256": "127650cc0c7dc1c00faf6606097dada8500846b2ec13401aba4966c12881a934"
+        },
+        "source-metrics.json": {
+          "bytes": 681,
+          "sha256": "c18e62b0e548ff66bcf4f96f766fe9dde20d2054a52908c567977a2ddaa9a131"
+        },
+        "source.blend": {
+          "bytes": 1178788,
+          "sha256": "0b7676c56fce340db6e2904e04b1a78d89942594c41746a86f751ff5244c3922"
+        }
+      },
+      "semantic_sha256": "68041f65c646e8812fe16bacbce7bd25cb940cf5c9d7f52f28802ce8d5393ff8",
+      "semantic_match": true,
+      "byte_identical": true
+    }
+  ],
+  "silhouette_comparisons": {
+    "r003_vs_r005": {
+      "iou": 0.997246251842786,
+      "different_pixels": 99,
+      "original_foreground_pixels": 35905,
+      "revised_foreground_pixels": 35898
+    },
+    "r003_vs_r006": {
+      "iou": 0.9998328923548252,
+      "different_pixels": 6,
+      "original_foreground_pixels": 35905,
+      "revised_foreground_pixels": 35899
+    }
+  },
+  "input_manifests": [
+    {
+      "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/charnia-repair-records/lean-manifest.json",
+      "sha256": "7064dc1d51b125a02c568a0143278f9f493730179a12fca30334522652208502",
+      "files_verified": 97,
+      "bytes_verified": 7100443
+    },
+    {
+      "path": "/workspace/shared/lowpoly-batch81-charnia-repair-20261020/production/small-life-batch81/charnia-repair-records/local-raw-evidence-index.json",
+      "sha256": "5a532c3d2da5af6674c6fb373936fdfdc418636f354dfe8bb4844b8ee722608c",
+      "files_verified": 183,
+      "bytes_verified": 22326262
+    }
+  ],
+  "technical_evidence": [
+    "input-provenance-audit.json",
+    "saved-source/source-reexport.report.json",
+    "static-fresh.json",
+    "khronos-fresh.json",
+    "runtime-fresh.json",
+    "candidate-profile-fresh.json",
+    "concept-fresh.json",
+    "semantic-rebuild-1-fresh-comparison.json",
+    "semantic-rebuild-2-fresh-comparison.json",
+    "fresh-processes.json"
+  ],
+  "diagnostic_note": "Initial strict numeric renderer-equality assertion rejected the tiny automatic radius-derived changes. Original audit script and diagnostic retained; final audit verifies exact renderer source plus scale/energy normalization invariants. No candidate alteration was made to satisfy the check.",
+  "remaining_blockers": [
+    "Exact-export target GPU/browser render not run",
+    "Populated-scene scale/contact/material/performance tests not run",
+    "User acceptance and formal publication separate and not performed",
+    "Original concept provider-internal generation time/request ID and exact authoring start unavailable"
+  ],
+  "resources": "Own QA directory only; about 1.3 MB additional evidence. Exactly two fresh Blender processes, each blocking global flock and 2 threads, released at process exit. No other batch rerun, cloning, installation, cleanup, push, PR, merge or release."
+}

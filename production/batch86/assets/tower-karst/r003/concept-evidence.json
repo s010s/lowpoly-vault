@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "concept_evidence",
+  "scope": "provisional-study",
+  "asset_id": "tower-karst",
+  "revision": "r003",
+  "labels": {
+    "en": "tower-karst"
+  },
+  "artifacts": {
+    "glb": {
+      "path": "model.glb",
+      "sha256": "897aea54745d39fe910db3e9543988ddda2445b81120a9ee4e49fc1268a73083"
+    },
+    "brief": {
+      "path": "candidate-brief.json",
+      "sha256": "3b8fc10a2ed9a3d93d7c43909c13887b0768d3cedcd03432adc93d156326bc22"
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "19b3694904210b0e9622162fec779edb388c38ec0eee1cb96d64fc8487ea062e"
+    },
+    "source": {
+      "path": "source.blend",
+      "sha256": "f4dcace9d23dca638cc93e3a482414e6d857e2479037fdff422b02d795271723"
+    },
+    "generator": {
+      "path": "generator.py",
+      "sha256": "b2c50312dee4ee55c88e54ed182dee6163f5c1a480fd13fadffd76a03d2add51"
+    },
+    "config": {
+      "path": "build-config.json",
+      "sha256": "bb97e56594ca58f2874fbe82bc65b4ee5c31c5e9bab853140433accf7c2857be"
+    }
+  },
+  "concept": {
+    "provider": "ImageGen",
+    "prompt": {
+      "path": "concept-prompt.txt",
+      "sha256": "614f2a2c5904c949a887bbc8e30cdd44064a9ba2a14a280247e89f9fd3fb0d10"
+    },
+    "generation_record": {
+      "path": "concept-generation.json",
+      "sha256": "56b5ece9eb77d1955f699b9d5eb4e15749152082226c409cfb57cbf3198b20c6"
+    },
+    "images": [
+      {
+        "id": "original-concept-sheet",
+        "view": "hero",
+        "path": "concept-original.png",
+        "sha256": "5252d37d0c2e4cd53ac73e23f87496d4a9136882cd0b5c7ca8b2859405e36203"
+      }
+    ],
+    "cross_view_consistency_note": "Concept inspected: retain four different-size separated towers and broad low corridors. Reduce concept numerous masonry-like rectangular blocks to broad natural dissolution facets, rounded asymmetric crowns and occasional subdued bedding steps. No central high ridge connecting towers. Towers emerge from low plain through continuous foot geometry, not stacked exposed coplanar slabs. Generic muted limestone, no huge leafy crowns, identical straight cylinders or stone-forest needles.",
+    "hidden_surface_decisions": "Concept inspected: retain four different-size separated towers and broad low corridors. Reduce concept numerous masonry-like rectangular blocks to broad natural dissolution facets, rounded asymmetric crowns and occasional subdued bedding steps. No central high ridge connecting towers. Towers emerge from low plain through continuous foot geometry, not stacked exposed coplanar slabs. Generic muted limestone, no huge leafy crowns, identical straight cylinders or stone-forest needles."
+  },
+  "chronology": {
+    "concept_generated_at": null,
+    "concept_inspected_at": "2026-10-20T20:39:34.391119+00:00",
+    "modeling_started_at": null,
+    "note": "Actual tool observer invocation/result boundaries retained separately; provider internal generation timestamp unavailable. Each asset complete original freeze preceded its own generator authoring; all four per-asset freezes preceded the common generator authoring. Actual build/source/render/rebuild intervals in lifecycle and queue records; authoring start not precisely measured. No mtime-derived chronology."
+  },
+  "stage_timings": [
+    {
+      "stage": "imagegen",
+      "status": "measured",
+      "wall_seconds": 38.975,
+      "measurement_record": {
+        "path": "concept-generation.json",
+        "sha256": "56b5ece9eb77d1955f699b9d5eb4e15749152082226c409cfb57cbf3198b20c6"
+      },
+      "note": "Actual orchestrator invocation-to-return observation interval; provider internal timing unavailable."
+    },
+    {
+      "stage": "interpretation",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "modeling_export",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "proof_rendering",
+      "status": "measured",
+      "wall_seconds": 17.633,
+      "measurement_record": {
+        "path": "proof-final/render-manifest.json",
+        "sha256": "b6f1bf38ac26050a40d18aa468673412db25c9710c53e31d419a04e1bca53bca"
+      },
+      "note": "Actual frame-loop monotonic wall measurement excluding process startup."
+    },
+    {
+      "stage": "visual_review",
+      "status": "unrecorded",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Actual process intervals retained in lifecycle.jsonl, but exact full-stage authoring/provider duration not captured. Do not infer from mtime."
+    },
+    {
+      "stage": "target_browser",
+      "status": "not_run",
+      "wall_seconds": null,
+      "measurement_record": null,
+      "note": "Target browser not run."
+    }
+  ],
+  "coverage": {
+    "required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "turntable_frames": 0
+  },
+  "render_manifest": {
+    "path": "proof-final/render-manifest.json",
+    "sha256": "b6f1bf38ac26050a40d18aa468673412db25c9710c53e31d419a04e1bca53bca"
+  },
+  "thumbnail": {
+    "path": "preview.png",
+    "sha256": "a65ca0ab07b1302283b43cb6641acf9f9e3f0296d54797f144c2a02b8f104cfb",
+    "source_frame_id": "hero"
+  },
+  "review_note": {
+    "path": "maker-review.md",
+    "sha256": "94875c864ce16f28d22bfc81c5fa9bc58488acd0c2ac485078c16f1d069e22b3"
+  },
+  "inspected_frames": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "khronos": {
+    "glb_sha256": "897aea54745d39fe910db3e9543988ddda2445b81120a9ee4e49fc1268a73083",
+    "report": {
+      "path": "gltf-validator.report.json",
+      "sha256": "89738f03015d2ec36af4d86424ad4d84e7534828dedf25ad2d57a7fd40068a22"
+    },
+    "warning_review": []
+  },
+  "budget": {
+    "target_glb_bytes": 1000000,
+    "enforcement": "advisory",
+    "rationale": "Static supporting teaching model dispatch hardcap1MB; concept checker advisory only, not candidate acceptance."
+  }
+}
