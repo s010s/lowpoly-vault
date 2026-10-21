@@ -1,0 +1,111 @@
+{
+  "created_at": "2026-10-21T00:10:55.415131+00:00",
+  "note": "A base center outside an intersecting host is not a disconnected component. For each such case inspect actual vertices within actual host closed geometry. No universal full-base-center containment rule is imposed.",
+  "cases": [
+    {
+      "base_center_test": {
+        "kind": "spray_to_limb",
+        "first": 5013,
+        "host_first": 4884,
+        "winding": 1.4135798584282297e-16
+      },
+      "component_has_vertices_inside_actual_host_volume": true,
+      "overlaps": [
+        {
+          "host_first": 4884,
+          "inside_vertex_ids": [
+            5014,
+            5015
+          ],
+          "max_winding": 1.0000000000000002
+        }
+      ]
+    },
+    {
+      "base_center_test": {
+        "kind": "spray_to_limb",
+        "first": 5364,
+        "host_first": 5346,
+        "winding": 2.8271597168564594e-16
+      },
+      "component_has_vertices_inside_actual_host_volume": true,
+      "overlaps": [
+        {
+          "host_first": 5346,
+          "inside_vertex_ids": [
+            5364,
+            5365,
+            5366
+          ],
+          "max_winding": 0.9999999999999999
+        }
+      ]
+    },
+    {
+      "base_center_test": {
+        "kind": "spray_to_limb",
+        "first": 5475,
+        "host_first": 5346,
+        "winding": 1.3075613690461124e-15
+      },
+      "component_has_vertices_inside_actual_host_volume": true,
+      "overlaps": [
+        {
+          "host_first": 5346,
+          "inside_vertex_ids": [
+            5476,
+            5477
+          ],
+          "max_winding": 1.000000000000003
+        }
+      ]
+    },
+    {
+      "base_center_test": {
+        "kind": "scar_to_trunk",
+        "first": 5808,
+        "host_first": 0,
+        "winding": 2.5621134934011665e-16
+      },
+      "component_has_vertices_inside_actual_host_volume": true,
+      "overlaps": [
+        {
+          "host_first": 0,
+          "inside_vertex_ids": [
+            5808,
+            5809,
+            5812,
+            5813,
+            5814,
+            5815
+          ],
+          "max_winding": 1.0000000000000007
+        }
+      ]
+    },
+    {
+      "base_center_test": {
+        "kind": "scar_to_trunk",
+        "first": 5824,
+        "host_first": 0,
+        "winding": 1.2203169871587452e-16
+      },
+      "component_has_vertices_inside_actual_host_volume": true,
+      "overlaps": [
+        {
+          "host_first": 0,
+          "inside_vertex_ids": [
+            5826,
+            5827,
+            5828,
+            5829,
+            5830,
+            5831
+          ],
+          "max_winding": 1.0000000000000002
+        }
+      ]
+    }
+  ],
+  "all_actual_attachments_have_geometric_overlap": true
+}
