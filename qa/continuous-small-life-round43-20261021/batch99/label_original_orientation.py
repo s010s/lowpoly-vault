@@ -1,0 +1,10 @@
+import bpy,sys,json,pathlib,collections,hashlib
+W=pathlib.Path('/workspace/shared/lowpoly-batch99-20261021/production/small-life-batch99');Q=pathlib.Path('/workspace/shared/lowpoly-batch99-independent-qa-20261021');a=sys.argv[sys.argv.index('--')+1];r='r002' if a=='proterocladus' else 'r001';src=W/a/r/'artifacts'/(a+'.blend');bpy.ops.wm.open_mainfile(filepath=str(src),load_ui=False,use_scripts=False);con=json.loads(bpy.data.texts['BATCH99_COMPONENT_CONTRACT.json'].as_string());o=bpy.data.objects[con['object_name']];c=next(c for c in con['components'] if c['tag']=='enlarged_label');ids=set(c['vertices']);coords={i:tuple(o.matrix_world@o.data.vertices[i].co) for i in ids};faces=[list(f.vertices) for f in o.data.polygons if all(i in ids for i in f.vertices)];edges=collections.defaultdict(list);coordedges=collections.defaultdict(list)
+for fi,f in enumerate(faces):
+ for x,y in zip(f,f[1:]+f[:1]):
+  edges[tuple(sorted((x,y)))].append([x,y,fi]);p,q=coords[x],coords[y];coordedges[tuple(sorted((p,q)))].append([p,q,fi])
+boundary=[e[0] for e in edges.values() if len(e)==1];same_orientation=[];unpaired=[]
+for k,es in coordedges.items():
+ if len(es)!=2:unpaired.append({'coordinate_edge':k,'use_count':len(es)})
+ elif es[0][:2]!=list(reversed(es[1][:2])):same_orientation.append({'coordinate_edge':k,'faces':[x[2] for x in es]})
+r={'asset_id':a,'source_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'method':'Read original unmodified mesh. Group exact IEEE world coordinate edges, without welding or recalculating normals; compare original directed edge orientation. This is not the virtual repaired copy.','source_mutated':False,'label_vertices':len(ids),'raw_boundary_edges':len(boundary),'exact_unique_coordinates':len(set(coords.values())),'coordinate_edge_count':len(coordedges),'unpaired_coordinate_edges':unpaired,'same_direction_shared_coordinate_edges':same_orientation,'original_boundary_index_pairs':boundary};(Q/(a+'-original-label-orientation.json')).write_text(json.dumps(r,indent=2)+'\n');print(a,len(boundary),'exactcoord',len(set(coords.values())),'unpaired',len(unpaired),'orientation',len(same_orientation))

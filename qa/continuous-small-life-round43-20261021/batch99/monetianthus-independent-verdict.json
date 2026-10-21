@@ -1,0 +1,90 @@
+{
+  "asset_id": "monetianthus",
+  "revision": "r001",
+  "subject": {
+    "revision": "r001",
+    "glb_sha256": "91dfc20f850956d3ebb22088a4b6af4f9ff832d33bd1a6357f183ed3444d889e",
+    "brief_sha256": "4b80bcf6950e1dec334f32de4939e465950ab97c5650fe3425788bf06efaea0f",
+    "references_sha256": "110c3a003bae1dae67920b1f5040281135dca33bd1cce196ccf7cd8c26b41031",
+    "source_sha256": "70dab2d5055c78a68be2ac4048033842fa5303bfb0ed6a4ee012ac03a85b6933"
+  },
+  "independent_stage_statuses": {
+    "technical": "fail",
+    "visual": "fail",
+    "factual": "pass",
+    "specification": "fail",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "stage_reasons": {
+    "technical": "Fresh project/Khronos/source/geometry and raw rebuild checks completed. Original label shell inconsistent; automatic validator success is not full acceptance.",
+    "visual": "All actual final pixels and anatomical form accepted, but the original visual criterion also explicitly requires closed volume; label closure/orientation remains a blocker. No additional anatomical/pixel repair requested.",
+    "factual": "Primary source external morphology and explicit scientific limitations retained.",
+    "specification": "Frozen documents and complete dependency closure preserved, but delivered label violates the stated full-volume surface contract.",
+    "runtime_parse": "Fresh Three GLTFLoader parse of exact pinned GLB passed.",
+    "gpu": "Not run on actual intended graphics device/target renderer. CPU Cycles/Node parse are not GPU evidence.",
+    "scene": "No intended composed-scene acceptance actually run. No scene PASS inferred."
+  },
+  "candidate_stage_eligible": false,
+  "all_seven_stages_pass": false,
+  "publication_approved": false,
+  "measured": {
+    "triangles": 2956,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 158724,
+    "bounds_blender_m": {
+      "min": [
+        -0.07175000011920929,
+        -0.0494999997317791,
+        0.0
+      ],
+      "max": [
+        0.07175000011920929,
+        0.0494999997317791,
+        0.148991659283638
+      ],
+      "size": [
+        0.14350000023841858,
+        0.0989999994635582,
+        0.148991659283638
+      ]
+    },
+    "components": 70,
+    "component_kind_counts": {
+      "gynoecium_body": 1,
+      "central_column": 1,
+      "free_carpel_tip": 12,
+      "ventral_crest": 24,
+      "tepal_or_bract_scar": 10,
+      "stamen_base_scar": 20,
+      "display_mount": 1,
+      "display_label": 1
+    },
+    "contact_count": 67,
+    "detached_contacts": [],
+    "unexposed_components": [],
+    "hard_organ_ranges": [],
+    "range_interpretation": "No frozen organ hard ranges exist. All component bounds/oriented dimensions measured from actual transformed source. Art targets are not pass gates.",
+    "texture_count": 0,
+    "source_eval_export_triangle_match": true,
+    "source_glb_bounds_max_delta_m": 0.0
+  },
+  "inspection": {
+    "source_reading": "Read Friis et al.2009 original published abstract and author-hosted original Fig1/2 captions; inspected actual holotype S122015 Fig1 A–E and Fig2 A–F pixels. Publisher full-text route returned the abstract/access page, so no claim to reading an unavailable complete16-page paper. Abstract/captions plus original plates directly support the external scope being modeled.",
+    "sources": [
+      "https://www.journals.uchicago.edu/doi/abs/10.1086/605120",
+      "https://www.academia.edu/1071191/Monetianthus_mirus_gen_et_sp_nov_a_Nymphaealean_Flower_from_the_Early_Cretaceous_of_Portugal"
+    ],
+    "anatomy": "Final top shows12 distinct free tips and paired inner ventral crests. Hero/reversehero reveal short central column, ring opening, tapered pear body and basal stump.10 elliptical outer scars and20 smaller stamen-base scars are actual named components, not complete tepals/stamens. No external ovules or invented living flower. Artistic regularization, enlarged dimensions and missing backs are explicitly interpretive.",
+    "views": "Eight512 frames and sheet reviewed. No clipped model, floating anatomical contact, obvious coplanar interference or omitted required organ. Frontal/side foreshortening of opposite tips is expected; top resolves12 tips. ENLARGED front text is readable; rear label face is naturally hidden. CPU images do not prove single-sided runtime behavior.",
+    "concept": "Original ImageGen crown is more flame-like and inflated; final uses blunt shorter outward free tips and low scars, not complete petals. Concept is planning only.",
+    "issues": [
+      "B99-LABEL-ORIENTATION"
+    ]
+  },
+  "required_repair_ids": [
+    "B99-LABEL-ORIENTATION"
+  ]
+}

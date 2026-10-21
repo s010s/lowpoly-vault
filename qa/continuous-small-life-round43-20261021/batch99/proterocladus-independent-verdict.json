@@ -1,0 +1,88 @@
+{
+  "asset_id": "proterocladus",
+  "revision": "r002",
+  "subject": {
+    "revision": "r002",
+    "glb_sha256": "3ca3eb44781d6d7b5899a602a402651c934bbc081a9fcbaf3d7cfaff727af891",
+    "brief_sha256": "9a15c6996bd34c8f7272f06a6a7fc70f86bc487f961d2b9fe35ad84d3dd47f7c",
+    "references_sha256": "3ef492022d3837a6f91b066c8ecd38c5935950c1fcd43382c08afe8a50954bd3",
+    "source_sha256": "91cdc12565f1a1e73b40c3317a103f3fe514cb2933f6c7f1ae40ec86b7edc0cf"
+  },
+  "independent_stage_statuses": {
+    "technical": "fail",
+    "visual": "fail",
+    "factual": "pass",
+    "specification": "fail",
+    "runtime_parse": "pass",
+    "gpu": "unknown",
+    "scene": "unknown"
+  },
+  "stage_reasons": {
+    "technical": "Fresh project/Khronos/source/geometry and raw rebuild checks completed. Original label shell inconsistent; automatic validator success is not full acceptance.",
+    "visual": "All actual final pixels and anatomical form accepted, but the original visual criterion also explicitly requires closed volume; label closure/orientation remains a blocker. No additional anatomical/pixel repair requested.",
+    "factual": "Primary source external morphology and explicit scientific limitations retained.",
+    "specification": "Frozen documents and complete dependency closure preserved, but delivered label violates the stated full-volume surface contract.",
+    "runtime_parse": "Fresh Three GLTFLoader parse of exact pinned GLB passed.",
+    "gpu": "Not run on actual intended graphics device/target renderer. CPU Cycles/Node parse are not GPU evidence.",
+    "scene": "No intended composed-scene acceptance actually run. No scene PASS inferred."
+  },
+  "candidate_stage_eligible": false,
+  "all_seven_stages_pass": false,
+  "publication_approved": false,
+  "measured": {
+    "triangles": 1636,
+    "materials": 4,
+    "primitives": 4,
+    "glb_bytes": 86008,
+    "bounds_blender_m": {
+      "min": [
+        -0.06750000268220901,
+        -0.005400000140070915,
+        0.0
+      ],
+      "max": [
+        0.06750000268220901,
+        0.005400000140070915,
+        0.1899999976158142
+      ],
+      "size": [
+        0.13500000536441803,
+        0.01080000028014183,
+        0.1899999976158142
+      ]
+    },
+    "components": 23,
+    "component_kind_counts": {
+      "display_mount": 2,
+      "holdfast": 1,
+      "main_cell": 8,
+      "primary_lateral": 5,
+      "apical_extension": 4,
+      "secondary_lateral": 2,
+      "display_label": 1
+    },
+    "contact_count": 20,
+    "detached_contacts": [],
+    "unexposed_components": [],
+    "hard_organ_ranges": [],
+    "range_interpretation": "No frozen organ hard ranges exist. All component bounds/oriented dimensions measured from actual transformed source. Art targets are not pass gates.",
+    "texture_count": 0,
+    "source_eval_export_triangle_match": true,
+    "source_glb_bounds_max_delta_m": 0.0
+  },
+  "inspection": {
+    "source_reading": "Read Tang et al.2020 primary manuscript emended genus diagnosis, species diagnosis and description and original Fig1/2 captions. Inspected actual Fig1 a–l and Fig2 a–k, including specimen branching, septal constrictions, modest heteromorphic cells and holdfast.",
+    "sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8668152/"
+    ],
+    "anatomy": "Eight connected main cells,5 asymmetric upward primary laterals,2 secondary laterals,4 narrow apical extensions and1 tiny holdfast are actual geometry. Independent ring-center measurements place the5 main lateral bases2.470–2.489mm below the next septal constriction in enlarged display units, rather than the old midpoint origin. Secondary origins also lie below their next constriction. Final lateral2 distal radius reaches~1.9mm versus~1.2mm ordinary distal cells: modest closed club-like widening, not a hollow goblet.",
+    "views": "All eight512 frames and sheet, pinned maker exact-r002 detail and a fresh exact-GLB closeup reviewed. Main/secondary asymmetric topology and enlarged text readable from front/hero; segmentation is subtle at whole512 view and confirmed in the exact closeup. Back and reversehero legitimately show the tablet reverse; top/side prove thickness and relief. No woody joint collars, berries, giant hollow cells or texture decal.",
+    "concept": "Rejected concept goblet, pods and stone surface are not reproduced. Original r001 failed views and49 retained local files are rehashed intact. r002 geometric corrections have not altered the original frozen brief/config.",
+    "issues": [
+      "B99-LABEL-ORIENTATION"
+    ]
+  },
+  "required_repair_ids": [
+    "B99-LABEL-ORIENTATION"
+  ]
+}
