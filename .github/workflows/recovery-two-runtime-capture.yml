@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      RECOVERY_RECIPE_SHA256: 'c8ac25593f24ac696e8b327206dff97964d067eea7ab7d3a0a8672d8f14e7a3b'
+      RECOVERY_RECIPE_SHA256: '99bb660e181e547546c1516dc1c0d7d3d9061447368335046b54439d7c855517'
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
-          fetch-depth: 2
+          fetch-depth: 3
           persist-credentials: false
           sparse-checkout-cone-mode: false
           sparse-checkout: |

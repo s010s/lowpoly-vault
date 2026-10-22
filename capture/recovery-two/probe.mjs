@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile, writeFile, mkdir, realpath} from 'node:fs/promises';
 import {resolve, sep} from 'node:path';
-import {preflight, PREFIX, LAUNCH_ARGS, sha256, readLocal, checkMeasurement, makePendingReport} from './contract.mjs';
+import {preflight, PREFIX, LAUNCH_ARGS, sha256, readLocal, checkMeasurement, checkTransfers, makePendingReport} from './contract.mjs';
 
 // Finish every input/event/source check before importing or launching a browser.
 const root = process.cwd();
@@ -13,11 +13,18 @@ const out = resolve(root, 'qa/ci-recovery-two-runtime');
 await mkdir(resolve(root, 'qa'), {recursive: true});
 await mkdir(out); // Refuse stale output reuse.
 const writeJson = async (path, data) => writeFile(resolve(out, path), JSON.stringify(data, null, 2) + '\n', {flag: 'wx'});
-const receipt = {schema_version: 1, kind: 'two-candidate-runtime-capture', measured_status: 'running', formal_acceptance: 'BLOCKED', independent_pixel_review: 'pending', physical_gpu_verified: false, external_target_scene_verified: false, started_at: new Date().toISOString(), provenance, limitations: input.limitations, errors: [], warnings: [], captures: [], stages: []};
+const receipt = {schema_version: 1, kind: 'two-candidate-runtime-capture', measured_status: 'running', formal_acceptance: 'BLOCKED', independent_pixel_review: 'pending', physical_gpu_verified: false, external_target_scene_verified: false, started_at: new Date().toISOString(), provenance, limitations: input.limitations, errors: [], warnings: [], captures: [], capture_attempts: [], server_requests: [], stages: []};
 const pageSource = await readLocal(root, `${PREFIX}/page.mjs`);
 const moduleRoot = await realpath(resolve(root, 'node_modules/three'));
 const html = '<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><style>html,body{margin:0;background:#e8e4dc}canvas{display:block}</style><script type="importmap">{"imports":{"three":"/modules/build/three.module.js"}}</script></head><body></body></html>';
+let activeCapture = null;
 const server = createServer(async (req, res) => {
+  const trace = {capture_id: activeCapture, path: req.url, method: req.method, started_at: new Date().toISOString(), events: ['request']};
+  receipt.server_requests.push(trace);
+  req.on('aborted', () => { trace.events.push('request-aborted'); receipt.errors.push(`Server request aborted: ${req.url}`); });
+  res.on('finish', () => { trace.events.push('response-finish'); trace.status = res.statusCode; trace.headers = res.getHeaders(); });
+  res.on('close', () => { trace.events.push('response-close'); trace.writable_finished = res.writableFinished; if (!res.writableFinished) receipt.errors.push(`Server response closed before finish: ${req.url}`); });
+  res.on('error', error => { trace.events.push('response-error'); receipt.errors.push(`Server response error: ${req.url}: ${error.message}`); });
   try {
     const url = new URL(req.url, 'http://127.0.0.1');
     assert.equal(req.method, 'GET');
@@ -29,7 +36,13 @@ const server = createServer(async (req, res) => {
     if (path === '/') { res.setHeader('Content-Type', 'text/html'); res.end(html); return; }
     if (path === '/page.mjs') { res.setHeader('Content-Type', 'text/javascript'); res.end(pageSource); return; }
     const model = /^\/models\/([a-z]+)\.glb$/.exec(path);
-    if (model && files.has(model[1])) { res.setHeader('Content-Type', 'model/gltf-binary'); res.end(files.get(model[1])); return; }
+    if (model && files.has(model[1])) {
+      const bytes = files.get(model[1]);
+      res.setHeader('Content-Type', 'model/gltf-binary');
+      res.setHeader('Content-Length', String(bytes.length));
+      res.end(bytes);
+      return;
+    }
     assert(/^\/modules\/[a-zA-Z0-9_./-]+\.js$/.test(path));
     const relative = path.slice('/modules/'.length);
     assert(relative.split('/').every(s => s && s !== '..' && s !== '.'));
@@ -60,37 +73,89 @@ try {
   receipt.browser = browser.version();
   async function capture(items, view, prefix, stage) {
     const width = stage === 'scene' ? 1280 : 768, height = stage === 'scene' ? 720 : 768;
+    activeCapture = `${prefix}-${view}`;
+    const attempt = {capture_id: activeCapture, stage, assets: items.map(item => item.id), view, status: 'running', measured: null, network: [], errors: [], warnings: []};
+    receipt.capture_attempts.push(attempt);
     const page = await browser.newPage({viewport: {width, height}, deviceScaleFactor: 1, reducedMotion: 'reduce', serviceWorkers: 'block'});
     page.setDefaultTimeout(60000);
-    const errors = [], warnings = [];
+    const errors = attempt.errors, warnings = attempt.warnings, requests = new Map();
+    const begin = request => {
+      if (!requests.has(request)) {
+        const row = {id: requests.size + 1, path: new URL(request.url()).pathname, url: request.url(), method: request.method(), resource_type: request.resourceType(), events: [], terminal: 'pending', status: null, headers: {}, failure: null, response_finished: 'pending'};
+        row.done = new Promise(resolve => { row.resolve = resolve; });
+        requests.set(request, row);
+      }
+      return requests.get(request);
+    };
+    const networkSnapshot = () => [...requests.values()].map(({done, resolve, responseDone, ...row}) => structuredClone(row));
+    page.on('request', request => begin(request).events.push('request'));
     page.on('pageerror', error => errors.push(error.message));
-    page.on('requestfailed', request => errors.push(`requestfailed: ${request.url()}: ${request.failure()?.errorText}`));
-    page.on('response', response => { if (response.status() >= 400) errors.push(`HTTP ${response.status()}: ${response.url()}`); });
+    page.on('requestfailed', request => {
+      const row = begin(request);
+      row.events.push('requestfailed'); row.terminal = 'failed'; row.failure = request.failure()?.errorText ?? 'unknown failure';
+      errors.push(`requestfailed: ${request.url()}: ${row.failure}`);
+      row.resolve();
+    });
+    page.on('requestfinished', request => { const row = begin(request); row.events.push('requestfinished'); row.terminal = 'finished'; row.resolve(); });
+    page.on('response', response => {
+      const row = begin(response.request()); row.events.push('response'); row.status = response.status(); row.headers = response.headers();
+      if (response.status() >= 400) errors.push(`HTTP ${response.status()}: ${response.url()}`);
+      row.responseDone = response.finished().then(() => { row.response_finished = 'success'; row.events.push('response.finished'); }, error => { row.response_finished = 'failed'; row.response_finished_error = error.message; errors.push(`response.finished failed: ${response.url()}: ${error.message}`); });
+    });
     page.on('console', message => {
       if (message.type() === 'error') errors.push(message.text());
       if (message.type() === 'warning') warnings.push(message.text());
     });
     await page.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort('blockedbyclient'));
+    async function completeRequests() {
+      let timer;
+      try {
+        await Promise.race([
+          (async () => { await Promise.all([...requests.values()].map(row => row.done)); await Promise.all([...requests.values()].map(row => row.responseDone)); })(),
+          new Promise((_, reject) => { timer = setTimeout(() => reject(Error('Network completion timed out; pending requests are not accepted')), 15000); }),
+        ]);
+      } finally { clearTimeout(timer); }
+      attempt.network = networkSnapshot();
+      checkTransfers(attempt.network, items);
+      assert.deepEqual(errors, [], 'Browser errors, including every requestfailed/response.finished failure');
+    }
+    let failure = null, measured = null;
     try {
       await page.goto(origin + '/', {waitUntil: 'networkidle'});
-      const measured = await page.evaluate(async args => (await import('/page.mjs')).renderFrame(args), {items, view, browserVersion: browser.version(), width, height, gap: input.scene.gap_m});
+      measured = await page.evaluate(async args => (await import('/page.mjs')).renderFrame(args), {items, view, browserVersion: browser.version(), width, height, gap: input.scene.gap_m});
+      attempt.measured = measured; // Preserve actual observations even if a later lifecycle assertion fails.
       checkMeasurement(measured, items, browser.version());
-      assert.deepEqual(errors, [], 'Browser errors');
+      await completeRequests();
       const path = `${prefix}-${view}.png`;
       const bytes = await page.locator('canvas').screenshot({type: 'png'});
       assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
       assert.deepEqual([bytes.readUInt32BE(16), bytes.readUInt32BE(20)], [width, height]);
-      assert.deepEqual(errors, [], 'Capture errors');
+      await completeRequests();
       await writeFile(resolve(out, path), bytes, {flag: 'wx'});
-      const shot = {path, bytes: bytes.length, sha256: sha256(bytes), width, height};
-      measured.screenshot = shot;
+      measured.screenshot = {path, bytes: bytes.length, sha256: sha256(bytes), width, height};
       measured.errors = errors;
       measured.warnings = warnings;
-      receipt.captures.push({stage, assets: items.map(i => i.id), view, screenshot: shot, measured});
-      receipt.warnings.push(...warnings.map(warning => ({capture: path, warning})));
-      console.log(`Measured and captured ${path}: ${measured.runtime.draw_calls} calls, ${measured.runtime.triangles} triangles, ${measured.foreground_pixels} non-background pixels.`);
-      return measured;
-    } finally { await page.close(); }
+    } catch (error) {
+      failure = error;
+      try { attempt.browser_progress = await page.evaluate(() => globalThis.__recoveryProgress ?? null); }
+      catch (progressError) { attempt.browser_progress_unavailable = progressError.message; }
+    } finally {
+      attempt.network_before_close = networkSnapshot();
+      await page.close();
+      attempt.network = networkSnapshot();
+      activeCapture = null;
+    }
+    if (failure) { attempt.status = 'fail'; attempt.error = failure.stack ?? String(failure); throw failure; }
+    try {
+      checkTransfers(attempt.network, items);
+      assert.deepEqual(errors, [], 'Capture or teardown errors');
+    } catch (error) { attempt.status = 'fail'; attempt.error = error.stack; throw error; }
+    attempt.status = 'pass';
+    measured.network = attempt.network;
+    receipt.captures.push({stage, assets: items.map(i => i.id), view, screenshot: measured.screenshot, measured});
+    receipt.warnings.push(...warnings.map(warning => ({capture: measured.screenshot.path, warning})));
+    console.log(`Measured and captured ${measured.screenshot.path}: ${measured.runtime.draw_calls} calls, ${measured.runtime.triangles} triangles, ${measured.foreground_pixels} non-background pixels.`);
+    return measured;
   }
   async function writeStage(item, stage, frames) {
     const images = frames.map(frame => ({id: `${item.id}-${stage}-${frame.view}`, kind: 'rendered_image', stage, subject: item.subject, ...frame.screenshot}));
@@ -124,8 +189,9 @@ try {
   process.exitCode = 1;
   console.error(error);
 } finally {
-  receipt.finished_at = new Date().toISOString();
-  await writeJson('capture-receipt.json', receipt);
   await browser?.close();
   if (server.listening) await new Promise(resolve => server.close(resolve));
+  if (receipt.errors.length) { receipt.measured_status = 'fail'; process.exitCode = 1; }
+  receipt.finished_at = new Date().toISOString();
+  await writeJson('capture-receipt.json', receipt);
 }

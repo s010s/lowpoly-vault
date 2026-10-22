@@ -2,7 +2,24 @@
 import * as T from 'three';
 import {GLTFLoader} from '/modules/examples/jsm/loaders/GLTFLoader.js';
 
+// Native body consumption avoids FileLoader's secondary ReadableStream wrapper.
+// Retain no-store, a fresh context per view, exact bytes, and the same GLTFLoader parser.
+export async function fetchPinnedModel(item) {
+  const response = await fetch(`/models/${item.id}.glb`, {cache: 'no-store'});
+  const transfer = {asset_id: item.id, status: response.status, content_length: response.headers.get('content-length'), content_type: response.headers.get('content-type'), cache_control: response.headers.get('cache-control'), transfer_encoding: response.headers.get('transfer-encoding'), phase: 'headers'};
+  (globalThis.__recoveryProgress ??= {transfers: []}).transfers.push(transfer);
+  if (response.status !== 200 || transfer.content_length !== String(item.bytes) || transfer.content_type !== 'model/gltf-binary' || transfer.cache_control !== 'no-store' || transfer.transfer_encoding !== null) throw Error('Exact model HTTP framing rejected');
+  const bytes = await response.arrayBuffer();
+  transfer.phase = 'native-body-complete';
+  transfer.bytes = bytes.byteLength;
+  transfer.sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(x => x.toString(16).padStart(2, '0')).join('');
+  if (transfer.bytes !== item.bytes || transfer.sha256 !== item.subject.glb_sha256) throw Error('Downloaded model bytes or SHA256 differ from frozen subject');
+  transfer.phase = 'exact-bytes-verified';
+  return {bytes, transfer};
+}
+
 export async function renderFrame({items, view, browserVersion, width, height, gap}) {
+  globalThis.__recoveryProgress = {phase: 'loading', transfers: []};
   const shaderErrors = [];
   const scene = new T.Scene();
   scene.background = new T.Color('#e8e4dc');
@@ -21,7 +38,9 @@ export async function renderFrame({items, view, browserVersion, width, height, g
   scene.add(key);
   const loaded = [];
   for (const item of items) {
-    const gltf = await new GLTFLoader().loadAsync(`/models/${item.id}.glb`);
+    const {bytes, transfer} = await fetchPinnedModel(item);
+    const gltf = await new GLTFLoader().parseAsync(bytes, '/');
+    transfer.phase = 'GLTFLoader-parse-complete';
     const group = new T.Group();
     group.add(gltf.scene);
     group.updateMatrixWorld(true);
@@ -89,6 +108,7 @@ export async function renderFrame({items, view, browserVersion, width, height, g
   // Leave the static canvas intact for the Node-side screenshot and SHA256.
   return {
     view, runtime: {engine: 'Three.js', version: T.REVISION, renderer: unmaskedRenderer ?? gl.getParameter(gl.RENDERER), device: unmaskedRenderer ?? 'unmasked device unavailable', browser: browserVersion, context: gl instanceof WebGL2RenderingContext ? 'WebGL2' : 'not-WebGL2', output_color_space: renderer.outputColorSpace, tone_mapping: renderer.toneMapping === T.ACESFilmicToneMapping ? 'ACESFilmicToneMapping' : String(renderer.toneMapping), exposure: renderer.toneMappingExposure, context_created: true, rendered: renderer.info.render.calls > 0, rendered_frames: 3, draw_calls: renderer.info.render.calls, triangles: renderer.info.render.triangles},
+    transport: {method: 'native Fetch Response.arrayBuffer + Three r180 GLTFLoader.parseAsync', transfers: globalThis.__recoveryProgress.transfers},
     assets, context_lost: gl.isContextLost(), gl_error: gl.getError(), shader_errors: shaderErrors,
     foreground_pixels: foreground, framebuffer_rgba_sha256: pixelDigest,
     framebuffer: {width, height, bytes: pixels.length, row_origin: 'bottom-left'},
