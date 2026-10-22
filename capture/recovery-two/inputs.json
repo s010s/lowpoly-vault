@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "kind": "two-candidate-runtime-inputs",
+  "repository": "s010s/lowpoly-vault",
+  "base_commit": "8423d2aaf6de34be5ffe1a5fd02f04b12267f674",
+  "branch": "validation/recovery-two-webgl-20261022",
+  "scope": "capture-only software WebGL2 functional test; no publication approval",
+  "items": [
+    {
+      "id": "spyroceras",
+      "path": "capture/recovery-two/models/spyroceras.glb",
+      "bytes": 684656,
+      "subject": {
+        "revision": "recovery-r001-attempt004",
+        "glb_sha256": "9238b8282f288bd22277698edf9b368a53cd64e804e7758f3e507777c3f2f7ab",
+        "brief_sha256": "af57ddf7211a136cf205c3af16af62f32bb8b5d304a5cfe3ef9021007ae84beb",
+        "references_sha256": "ebd460a9d70091f05de7747ca42f38274cce2d519e568e3fc9d3691df966047a"
+      },
+      "expected": {
+        "triangles": 12626,
+        "primitive_meshes": 2,
+        "materials": 2,
+        "bounds": {
+          "min": [
+            -0.005923429969698191,
+            0.0,
+            -0.005966978147625923
+          ],
+          "max": [
+            0.005868340376764536,
+            0.08900000154972076,
+            0.005987036041915417
+          ]
+        }
+      },
+      "criteria": {
+        "gpu": "gpu",
+        "scene": "scene"
+      }
+    },
+    {
+      "id": "phragmoceras",
+      "path": "capture/recovery-two/models/phragmoceras.glb",
+      "bytes": 232360,
+      "subject": {
+        "revision": "recovery-r001-c003",
+        "glb_sha256": "9705668068410df47f4a528e07b88af671b0a25ca11775e3f5487ba8835dacfa",
+        "brief_sha256": "1d83401b0fe0f91acb0fb06edc685054a5273887365521a056ced324d5d17a9c",
+        "references_sha256": "8dbf558fa66638ab294e0d1f318b33b133964b004c94ddd1403250acbb34b0f6"
+      },
+      "expected": {
+        "triangles": 4182,
+        "primitive_meshes": 4,
+        "materials": 4,
+        "bounds": {
+          "min": [
+            -0.009517187252640724,
+            0.0,
+            -0.013774098828434944
+          ],
+          "max": [
+            0.009517187252640724,
+            0.043068189173936844,
+            0.013774098828434944
+          ]
+        }
+      },
+      "criteria": {
+        "gpu": "gpu-acceptance",
+        "scene": "scene-acceptance"
+      }
+    }
+  ],
+  "toolchain": {
+    "node_major": 22,
+    "three": "0.180.0",
+    "playwright": "1.56.1",
+    "chromium": "141.0.7390.37"
+  },
+  "unchanged_baseline_files": [
+    {
+      "path": ".github/workflows/asset-pipeline.yml",
+      "sha256": "1948baec81bca7a5608e9b8bb90793cc3292890fd4cc6c060720a4e7ae74398a",
+      "bytes": 2769
+    },
+    {
+      "path": ".github/workflows/full-release-review.yml",
+      "sha256": "418d3048135a05cb3e3534a9b95b4c56dbe9d174acfb1aa90b38eba7c6e7462d",
+      "bytes": 13726
+    },
+    {
+      "path": ".github/workflows/gallery-review.yml",
+      "sha256": "46841345ffbaeb95d96cabea15509ca01889af6ec4900bee7a2ecf0e6fd254dd",
+      "bytes": 2544
+    },
+    {
+      "path": ".github/workflows/hover-reveal-review.yml",
+      "sha256": "a13c377a2b7932cc0ce01592d6c0c562258e5636368dbef1c3197badf91506d8",
+      "bytes": 1550
+    },
+    {
+      "path": ".github/workflows/modal-motion-review.yml",
+      "sha256": "cab835b7365be9ebb164ec61ba540d28c8079aeae5c5e19ea25bed091cfa49a8",
+      "bytes": 1943
+    },
+    {
+      "path": ".github/workflows/modal-raster-review.yml",
+      "sha256": "92844be0fb4d13bd3fa314c9cc56bbfd17f8ef6be6cbd6a62605d65c7d7e62d6",
+      "bytes": 3384
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "39d26f19ce4c8709d414be87be1c76969f1fb9812f81febebbaf5584d5ce8aab",
+      "bytes": 8361
+    },
+    {
+      "path": ".github/workflows/publication-poster-capture.yml",
+      "sha256": "ba218a08992e88fee9f6d8cffe9745814d5d75f9722c18a8afb9270f7e5ab7e2",
+      "bytes": 3378
+    },
+    {
+      "path": ".github/workflows/publication-regressions.yml",
+      "sha256": "70886f4e0c1a988d089d49f58686998de03e9f6745aab899c12d526c79b05fe6",
+      "bytes": 3801
+    },
+    {
+      "path": ".github/workflows/render-card-previews.yml",
+      "sha256": "b97a3b4bb5601af28562066dcb9193734c5b356d9d2b8a71b9b40888c6f92244",
+      "bytes": 1188
+    },
+    {
+      "path": ".github/workflows/scrollbar-modal-comparison.yml",
+      "sha256": "310581e6476d49d96ff6c9426ef73207181a0df8c2a8bc835938ea305ef86494",
+      "bytes": 2055
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+      "bytes": 37035
+    },
+    {
+      "path": "package.json",
+      "sha256": "1bddf73367b09c1c72034cca826c1dfcebc1ae35e1480d9da99b8fd202a34b1b",
+      "bytes": 3697
+    },
+    {
+      "path": "site/ci-install-chromium.mjs",
+      "sha256": "4c259b6954f5a3c5cf35ab6d6daf52feee8b796fd781b8337c4a6144e7459abd",
+      "bytes": 1710
+    }
+  ],
+  "scene": {
+    "id": "two-specimen-museum-pair-v1",
+    "description": "Representative museum-catalog comparison scene of exactly one Spyroceras and one Phragmoceras specimen, side by side at their authored meter dimensions. Presentation translations only, no object rescaling or altered model geometry/materials. Neutral warm background and shared hemisphere/directional lighting; orthographic hero and reverse-hero cameras. This new two-candidate scene does not replace the existing twelve-asset publication scene, certify an unspecified external scene, or establish physical GPU/performance behavior.",
+    "instances_per_asset": 1,
+    "gap_m": 0.025,
+    "views": [
+      "hero",
+      "reversehero"
+    ]
+  },
+  "gpu_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom"
+  ],
+  "limitations": [
+    "Software WebGL2 on Chromium ANGLE SwiftShader, not physical GPU or FPS certification.",
+    "Representative two-specimen scene only; frozen brief target suitability requires independent review.",
+    "Successful measurements are not independent visual review or formal candidate approval.",
+    "Brief and reference documents are not included: their full subject hashes are frozen here and original bytes remain in the existing candidate handoff."
+  ]
+}

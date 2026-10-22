@@ -1,0 +1,60 @@
+name: Capture exact two recovery candidates
+'on':
+  push:
+    branches: ['validation/recovery-two-webgl-20261022']
+    paths:
+      - 'capture/recovery-two/**'
+      - '.github/workflows/recovery-two-runtime-capture.yml'
+permissions:
+  contents: read
+concurrency:
+  group: recovery-two-runtime-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.event_name == 'push' && github.repository == 's010s/lowpoly-vault' && github.ref == 'refs/heads/validation/recovery-two-webgl-20261022' && github.event.forced == false && github.event.deleted == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RECOVERY_RECIPE_SHA256: 'c8ac25593f24ac696e8b327206dff97964d067eea7ab7d3a0a8672d8f14e7a3b'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 2
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/
+            /package.json
+            /package-lock.json
+            /site/ci-install-chromium.mjs
+            /capture/recovery-two/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Fail closed on event, base, exact payload and frozen inputs
+        run: node capture/recovery-two/contract.mjs --preflight
+      - name: Unit and refusal boundaries, not GPU evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test capture/recovery-two/test.mjs | tee "$RUNNER_TEMP/recovery-two-static-tests.log"
+      - run: npm ci --ignore-scripts
+      - run: node site/ci-install-chromium.mjs
+      - name: Capture real individual frames and representative pair scene
+        run: node capture/recovery-two/probe.mjs
+      - name: Preserve raw evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-two-runtime-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            qa/ci-recovery-two-runtime/
+            ${{ runner.temp }}/recovery-two-static-tests.log
+          if-no-files-found: error
+          retention-days: 7
+      - name: State review boundary
+        if: always()
+        run: echo 'Capture-only software WebGL2 evidence. Independent pixel review and frozen-brief scope review remain pending. No formal approval or publication authority is granted.' >> "$GITHUB_STEP_SUMMARY"
