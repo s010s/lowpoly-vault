@@ -32,8 +32,8 @@ async function queueContracts(){
 const queue_cases=await queueContracts();
 if(process.env.QA_QUEUE_CONTRACT_ONLY==='1'){const result={status:'PASS',scope:'Deterministic event/response lifecycle contracts only; Chromium NOT_RUN.',cases:queue_cases};await writeFile(resolve(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));process.exit(0);}
 
-// Stream enough real JS bytes for Chromium to deliver response headers before EOF.
-// Completion is controlled explicitly below, never inferred from elapsed time.
+// Real JS response bytes. Body completion is controlled explicitly below.
+// Fetch exposes the stream without waiting for classic-script compilation at EOF.
 const bytes=Buffer.from('/*'+ 'streaming-fixture '.repeat(2048)+'*/\nwindow.fixtureLoaded = true;\n'),hash=b=>createHash('sha256').update(b).digest('hex');
 const report={status:'RUNNING',scope:'Real local Chromium fixtures, not public deployment acceptance.',cases:queue_cases};
 let browser;const contexts=[];let heldResponse,releaseHeldBody;
@@ -62,9 +62,25 @@ try{
   try{await fn({page,result,observe:(files=pins,timeoutMs=3000)=>audit=createRuntimeEntryAudit(page,{base,files,report:result,timeoutMs})});report.cases.push({name,status:'PASS',...result});}
   finally{audit?.detach();await context.close();}
  }
+ // Observe a real browser fetch, not a classic-script loader that may withhold
+ // its response event until compilation/EOF and deadlock the release handshake.
+ // Actual script navigation/cache coverage remains in the following fixture.
+ async function streamEntry(page,mode){
+  await page.goto(base+'away');
+  const first=await page.evaluate(async mode=>{
+   const response=await fetch('/entry.js?mode='+mode),reader=response.body.getReader(),first=await reader.read();
+   // Reading a genuine non-final browser chunk is the handshake. Do not make
+   // release depend on the classic-script loader's separate response event.
+   window.fixtureFetch=(async()=>{const chunks=[first.value];for(;;){const next=await reader.read();if(next.done)break;chunks.push(next.value);}return new TextDecoder().decode(await new Blob(chunks).arrayBuffer());})();
+   // The unfinished negative closes its context; the unchanged audit owns
+   // rejection of unfinished, unreadable, wrong-size and wrong-hash bodies.
+   void window.fixtureFetch.catch(()=>{});
+   return {status:response.status,done:first.done,bytes:first.value?.byteLength||0};
+  },mode);
+  assert.equal(first.status,200);assert.equal(first.done,false);assert(first.bytes>0&&first.bytes<bytes.length);return first;
+ }
  await fixture('held-actual-response-cannot-finish-before-explicit-release',async({page,result,observe})=>{
-  const audit=observe(),response=page.waitForResponse(r=>r.url().includes('/entry.js'));
-  await page.goto(base+'page?mode=slow',{waitUntil:'commit'});await response;
+  const audit=observe();await streamEntry(page,'slow');
   assert(heldResponse&&releaseHeldBody,'The genuine streaming response must be held by the server');
   assert.equal(heldResponse.writableEnded,false);
   let settled=false;const draining=audit.drain();void draining.then(()=>{settled=true;},()=>{settled=true;});
@@ -74,6 +90,7 @@ try{
   assert.equal(heldResponse.writableEnded,false);assert.equal(settled,false,'Drain must remain pending while the actual body is held');
   assert.deepEqual(result.loaded_entries,[]);releaseHeldBody();await draining;
   assert.equal(heldResponse.writableEnded,true);assert.deepEqual(result.loaded_entries,['entry.js']);
+  assert.equal(await page.evaluate(()=>window.fixtureFetch),bytes.toString(),'The actual browser must receive the complete exact body');
   await page.goto(base+'away');
  });
  await fixture('cached-navigation-and-reload-retain-exact-bodies',async({page,result,observe})=>{const audit=observe();for(let i=0;i<4;i++){await audit.drain();await page.goto(base+'page');await audit.drain();await page.reload();}await audit.drain();assert.equal(result.loaded_entries.length,8);assert.deepEqual(result.entry_errors,[]);});
@@ -84,7 +101,7 @@ try{
   ['missing-entry-is-rejected',pins,'404',/HTTP 404/],
   ['failed-request-is-rejected',pins,'reset',/ERR_EMPTY_RESPONSE/]
  ])await fixture(name,async({page,result,observe})=>{const audit=observe(files);await page.goto(base+'page?mode='+mode);await assert.rejects(()=>audit.drain());assert.match(result.entry_errors.join('\n'),pattern);assert.equal(result.loaded_entries.length,0);});
- await fixture('unfinished-response-cannot-pass',async({page,result,observe})=>{const audit=observe(pins,60),response=page.waitForResponse(r=>r.url().includes('/entry.js'));await page.goto(base+'page?mode=hold',{waitUntil:'commit'});await response;await assert.rejects(()=>audit.drain(),/Unfinished runtime entries: entry.js/);assert.equal(result.loaded_entries.length,0);});
+ await fixture('unfinished-response-cannot-pass',async({page,result,observe})=>{const audit=observe(pins,60);await streamEntry(page,'hold');await assert.rejects(()=>audit.drain(),/Unfinished runtime entries: entry.js/);assert.equal(result.loaded_entries.length,0);});
  // Simulate protocol eviction on a genuine browser response. It must remain a
  // hard failure, never be replaced by a fresh API request or ignored catch.
  await fixture('unreadable-browser-body-cannot-pass',async({page,result,observe})=>{const originalOn=page.on.bind(page);page.on=(event,handler)=>originalOn(event,event==='response'?response=>handler(new Proxy(response,{get(target,key){if(key==='body')return async()=>{throw Error('Network.getResponseBody: No resource with given identifier found');};const value=target[key];return typeof value==='function'?value.bind(target):value;}})):handler);const audit=observe();await page.goto(base+'page');await assert.rejects(()=>audit.drain());assert.match(result.entry_errors.join('\n'),/Network.getResponseBody/);assert.equal(result.loaded_entries.length,0);});
