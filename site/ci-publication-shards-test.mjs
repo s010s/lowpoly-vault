@@ -85,7 +85,7 @@ try{
  assert.match(workflow,/workflow_call:/);assert.match(workflow,/max-parallel: 4/);assert.match(workflow,/shard: \[0, 1, 2, 3\]/);assert.match(workflow,/fail-fast: false/);
  assert.match(workflow,/shards:[\s\S]*needs: plan[\s\S]*runs-on: ubuntu-latest/);
  assert.match(workflow,/aggregate:[\s\S]*if: always\(\)[\s\S]*needs: \[plan, shards\]/);
- assert.match(workflow,/node site\/ci-timed\.mjs publication --plan/);assert.match(workflow,/node site\/ci-publication-shards\.mjs aggregate/);
+ assert.match(workflow,/node site\/ci-release-publication\.mjs shard/);assert.match(workflow,/node site\/ci-release-publication\.mjs aggregate/);
  assert.match(workflow,/merge-multiple: false/);assert.match(workflow,/PLAN_RESULT: \$\{\{ needs\.plan\.result \}\}/);assert.match(workflow,/SHARDS_RESULT: \$\{\{ needs\.shards\.result \}\}/);
  assert.match(workflow,/test "\$PLAN_RESULT" = success && test "\$SHARDS_RESULT" = success/);
  assert.doesNotMatch(workflow,/continue-on-error:|steps\.reuse|npm run test:publication/);checks++;
@@ -93,7 +93,7 @@ try{
  const job=(yaml,name)=>{const body=yaml.split(`\n  ${name}:\n`)[1]||'',end=body.search(/\n  [a-zA-Z][\w-]*:/);return end===-1?body:body.slice(0,end);};
  for(const caller of [pages,pipeline]){assert.match(job(caller,'publication'),/uses: \.\/\.github\/workflows\/publication-regressions\.yml/);assert.doesNotMatch(job(caller,'publication'),/\bif:|needs:/);assert.doesNotMatch(caller,/run: npm run test:publication/);}
  assert.match(job(pages,'deploy'),/needs: \[build, publication\]/);assert.doesNotMatch(job(pages,'deploy').split('    steps:')[0],/always\(\)|continue-on-error/);assert.doesNotMatch(job(pages,'deploy'),/continue-on-error/);
- assert.doesNotMatch(pages,/node site\/ci-reuse\.mjs|node site\/ci-provenance\.mjs pages/,'Old browser-bound build reuse cannot bypass new static gates');assert.match(pages,/run: npm run build/);
+ assert.doesNotMatch(pages,/node site\/ci-reuse\.mjs|node site\/ci-provenance\.mjs pages/,'Old browser-bound build reuse cannot bypass new static gates');assert.match(pages,/run: node site\/ci-release-fast-path\.mjs build/);
  assert.match(pipeline,/workflow_dispatch:/);assert.match(pipeline,/branches: \[main, 'quality\/\*\*'\]/);
  assert.match(pipeline,/site\/ci-publication-shards\*\.mjs/);assert.match(pipeline,/\.github\/workflows\/publication-regressions\.yml/);checks++;
  assert.equal(JSON.parse(readFileSync('package.json')).scripts['test:publication'],'node site/ci-timed.mjs publication');checks++;
