@@ -3,12 +3,16 @@
  * Process evidence stays in the private archive; one detached review binds its projection.
  */
 import assert from 'node:assert/strict';
-import {inspectTypedProductionRelease,verifyTypedProjectionReviews,loadProductionRegistry,resolveImplementationCompatibility} from './typed-production-release.mjs';
+import {inspectTypedProductionRelease,verifyTypedProjectionReviews,loadProductionRegistry,resolveImplementationCompatibility,productionSourceClosure as sourceClosure} from './typed-production-release.mjs';
 import {readFile,realpath,stat} from 'node:fs/promises';
+import {readFileSync} from 'node:fs';
 import {resolve,sep,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {isDeepStrictEqual} from 'node:util';
+import {immutableGitEnv} from './ci-git.mjs';
+import {fetchVerifiedProductionBase,authenticatedProductionBase} from './ci-production-baseline.mjs';
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const digest=v=>typeof v==='string'&&/^[a-f0-9]{64}$/.test(v);
 const roles=['brief','config','references','generator','dependency-list','finalGLB','finalBlend'];
@@ -32,10 +36,108 @@ function productionStages(record){
  assert(Object.values(gates).every(v=>v.status==='PASS'),'Real quality failure remains blocking');
  assert(Object.values(gates).every(v=>Array.isArray(v.source_evidence_sha256)&&v.source_evidence_sha256.length>0&&v.source_evidence_sha256.every(digest)),'Each production gate needs original evidence hash anchors');
 }
+
+// An optimization of the original checks, never a caller-supplied ID allowlist.
+// Scope is established from the PR event and actual Git objects. Unknown inputs stay full.
+const productionPlans=new Map();
+const sha40=x=>typeof x==='string'&&/^[a-f0-9]{40}$/.test(x)&&!/^0+$/.test(x);
+async function resolveProductionValidationPlan(root='.'){
+ const key=resolve(root);if(productionPlans.has(key))return productionPlans.get(key);
+ const pending=(async()=>{
+  const full=reason=>({mode:'full',reason,reusedIds:[],descriptors:new Map()});let checkingGlobal=false;
+  const git=(...args)=>execFileSync('git',args,{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).trim();
+  try{
+   if(process.env.GITHUB_EVENT_NAME!=='pull_request'||!process.env.GITHUB_EVENT_PATH)return full('No authenticated PR event context');
+   if(['GIT_DIR','GIT_WORK_TREE','GIT_INDEX_FILE','GIT_ALTERNATE_OBJECT_DIRECTORIES'].some(k=>process.env[k]))return full('Custom Git storage/index context');
+   if(git('rev-parse','--show-toplevel')!==key)return full('Source root differs from Git checkout');
+   const contextKeys=['GITHUB_EVENT_NAME','GITHUB_EVENT_PATH','GITHUB_REPOSITORY','GITHUB_SHA'],context=contextKeys.map(k=>process.env[k]);
+   const eventBytes=await readFile(process.env.GITHUB_EVENT_PATH),event=JSON.parse(eventBytes),pr=event.pull_request;
+   if(!pr||pr.base?.ref!=='main'||pr.base?.repo?.full_name!==process.env.GITHUB_REPOSITORY||pr.head?.repo?.full_name!==process.env.GITHUB_REPOSITORY)return full('Unsupported PR repository/base');
+   const base=pr.base.sha,head=pr.head.sha,checkout=git('rev-parse','HEAD');
+   if(!sha40(base)||!sha40(head)||!sha40(checkout)||process.env.GITHUB_SHA!==checkout)return full('Invalid exact Git provenance');
+   const parents=git('show','-s','--format=%P',checkout).split(' ');
+   if(checkout!==head&&!(parents.length===2&&parents[0]===base&&parents[1]===head))return full('PR merge checkout does not bind exact base/head');
+   git('merge-base','--is-ancestor',base,checkout);
+   const clean=()=>contextKeys.every((k,i)=>process.env[k]===context[i])&&readFileSync(context[1]).equals(eventBytes)&&git('rev-parse','HEAD')===checkout&&git('status','--porcelain','--untracked-files=no')===''&&execFileSync('git',['ls-files','-v','-z'],{cwd:key,env:immutableGitEnv(),encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:32*1024*1024}).split('\0').filter(Boolean).every(line=>line.startsWith('H '));
+   if(!clean())return full('Tracked worktree/index changed');
+   const authenticated=await fetchVerifiedProductionBase({root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
+   if(!authenticated.capability)return full(authenticated.reasons.join('; '));
+   const baseline=authenticatedProductionBase(authenticated.capability,{root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
+   const prior=JSON.parse(git('show',`${base}:assets/manifest.json`)),current=JSON.parse(await readFile(resolve(key,'assets/manifest.json')));
+   checkingGlobal=true;
+   const unique=m=>Array.isArray(m.assets)&&new Set(m.assets.map(a=>a.id)).size===m.assets.length;
+   assert(unique(prior)&&unique(current),'Duplicate/missing catalog IDs');
+   for(const a of prior.assets)assert(isDeepStrictEqual(a,current.assets.find(b=>b.id===a.id)),'Append-only historical metadata changed');
+   const registry=current.publication?.production_registry;
+   if(!registry||registry!==prior.publication?.production_registry||current.publication.production_descriptor)return full('Production route transition');
+   const {assets:priorAssets,...priorShared}=prior,{assets:currentAssets,...currentShared}=current;
+   if(!isDeepStrictEqual(priorShared,currentShared))return full('Shared publication metadata changed');
+   const previousRegistry=JSON.parse(git('show',`${base}:${registry}`)),nextRegistry=await loadProductionRegistry(key,registry);
+   assert(isDeepStrictEqual(nextRegistry.descriptors.slice(0,previousRegistry.descriptors.length),previousRegistry.descriptors),'Old registered descriptor changed');
+   assert(isDeepStrictEqual(nextRegistry.asset_ids.slice(0,previousRegistry.asset_ids.length),previousRegistry.asset_ids),'Old registered IDs changed');
+   const allPaths=new Set(await sourceClosure(key,current));
+   // Reuse the existing global registry composition and append-only validators.
+   const {readRegistry,readRegistryAtCommit}=await import('./model-registry-cli.mjs');
+   const {assertRegistryAppend,composeRegistry,LEGACY_OUTPUTS,recordReference}=await import('./model-registry.mjs');
+   const previousModels=readRegistryAtCommit(key,base),currentModels=readRegistry(key);
+   const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=composeRegistry(currentModels);
+   assert.deepEqual(current.assets.map(a=>a.id).sort(),currentModels.records.map(r=>r.id).sort(),'Registry/manifest ID coverage differs');
+   for(const record of currentModels.records)assert.deepEqual(record.asset,current.assets.find(a=>a.id===record.id),'Registry/manifest metadata differs');
+   for(const [kind,path]of Object.entries(LEGACY_OUTPUTS)){
+    if(kind!=='manifest')assert.deepEqual(JSON.parse(await read(key,path)),composed[kind],'Derived registry output differs: '+path);
+    allPaths.add(path);
+   }
+   allPaths.add('registry/baseline.json');
+   for(const record of currentModels.records){allPaths.add(recordReference(record).path);if(record.asset.credits){assert(record.asset.credits.startsWith(`assets/additions/${record.id}/`)&&record.asset.credits.endsWith('/CREDITS.txt'),'Invalid owned credits path');allPaths.add(record.asset.credits);}}
+   const oldBatches=new Set(previousModels.batches.map(b=>b.id));
+   for(const batch of currentModels.batches){allPaths.add(`registry/batches/${batch.id}.json`);if(!oldBatches.has(batch.id)){assert(batch.records.every(r=>added.has(r.id)),'New batch must own only added IDs');for(const pin of batch.evidence){assert(allPaths.has(pin.path),'New evidence is not in production source closure');assert.equal(hash(await read(key,pin.path)),pin.sha256,'Registry evidence hash changed');}}}
+
+   // No directory exemptions: new catalog-side inputs must enter a validated graph.
+   const paths=execFileSync('git',['diff','--no-renames','--name-only','-z',base,checkout],{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean);
+   const derivedPaths=new Set(Object.values(LEGACY_OUTPUTS));
+   if(paths.some(p=>/^(?:site\/|scripts\/|\.github\/|schemas\/)|(?:^|\/)package(?:-lock)?\.json$/.test(p)&&!derivedPaths.has(p)&&!p.startsWith('site/public/gallery/posters/')))return full('Shared implementation/runtime changed');
+   if(paths.some(p=>!allPaths.has(p)))return full('Changed path outside validated source closure');
+   const objects=ref=>new Map(execFileSync('git',['ls-tree','-r','-z',ref],{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean).map(row=>{const tab=row.indexOf('\t');assert(tab>0,'Malformed Git tree entry');return [row.slice(tab+1),row.slice(0,tab)];}));
+   const baseObjects=objects(base),headObjects=objects(checkout);
+   const descriptors=new Map(),reusedIds=[];
+   for(const entry of previousRegistry.descriptors){
+    const descriptorJSON=JSON.parse(await read(key,entry.path));
+    const creditPaths=descriptorJSON.assets.map(a=>current.assets.find(b=>b.id===a.id)?.credits).filter(Boolean);
+    const closure=[...await sourceClosure(key,current,[entry.path]),...creditPaths].filter(p=>p!=='assets/manifest.json'&&p!==registry);
+    if(!closure.every(p=>{const b=baseObjects.get(p),h=headObjects.get(p);return /^100644 blob [a-f0-9]{40}$/.test(b||'')&&b===h;}))continue;
+    const raw=await read(key,entry.path),descriptor=JSON.parse(raw),assets=[],records=[];
+    for(const item of descriptor.assets){const asset=JSON.parse(await pinned(key,item.metadata)),record=JSON.parse(await pinned(key,item.evidence));assert.equal(asset.id,item.id);assert.equal(record.asset_id,item.id);assert(isDeepStrictEqual(asset,prior.assets.find(a=>a.id===item.id)),'Baseline metadata projection differs');assets.push(asset);records.push(record);}
+    descriptors.set(entry.path,{descriptor,descriptor_sha256:hash(raw),assets,records,audits:assets.map(a=>({id:a.id,status:'UNCHANGED_BASELINE'})),productionAccepted:true,releaseChecks:'UNCHANGED_BASELINE',postReleaseVerified:[...new Set(records.map(r=>r.postReleaseVerified?.status))].filter(Boolean).join(',')||'NOT_RECHECKED',publication_authorized:false,unchanged_baseline:{base,head,checkout}});
+    reusedIds.push(...assets.map(a=>a.id));
+   }
+   return {mode:'incremental',base,head,checkout,registry,baseline,reusedIds,descriptors,clean};
+  }catch(error){if(checkingGlobal)throw error;return full('Scope unavailable: '+error.message);}
+ })();productionPlans.set(key,pending);return pending;
+}
+
+export async function productionValidationPlan(root='.') {
+ const plan=await resolveProductionValidationPlan(root);if(plan.clean)assert(plan.clean(),'Tracked inputs changed after scope resolution');
+ const {descriptors,clean,...summary}=plan;return structuredClone(summary);
+}
+const incrementalInspections=new Map(),incrementalCollections=new Map();
+async function memoizedIncremental(cache,root,descriptorPath,registryPath,run){
+ const plan=await resolveProductionValidationPlan(root);
+ if(plan.mode!=='incremental')return run();
+ assert(plan.clean(),'Tracked inputs changed after scope resolution');
+ if(registryPath!==undefined)assert.equal(registryPath,plan.registry,'Different production registry contexts');
+ const key=JSON.stringify([resolve(root),plan.checkout,descriptorPath,registryPath||plan.registry]);
+ if(!cache.has(key))cache.set(key,run().catch(error=>{cache.delete(key);throw error;}));
+ return structuredClone(await cache.get(key));
+}
 export async function inspectProductionRelease(root,descriptorPath,registryPath){
+ const plan=await resolveProductionValidationPlan(root);
+ if(plan.descriptors.has(descriptorPath)){if(registryPath!==undefined)assert.equal(registryPath,plan.registry,'Different production registry contexts');assert(plan.clean(),'Tracked inputs changed after scope resolution');return structuredClone(plan.descriptors.get(descriptorPath));}
+ return memoizedIncremental(incrementalInspections,root,descriptorPath,registryPath,()=>inspectProductionReleaseFully(root,descriptorPath,registryPath));
+}
+async function inspectProductionReleaseFully(root,descriptorPath,registryPath){
  const raw=await read(root,descriptorPath),descriptor=JSON.parse(raw);
+ if(descriptor.kind==='typed-production-release-v1')return inspectTypedProductionRelease(root,descriptorPath,raw,registryPath);
  const compatibilityPins=await resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath);
- if(descriptor.kind==='typed-production-release-v1')return inspectTypedProductionRelease(root,descriptorPath,raw);
  assert.equal(descriptor.schema_version,1);assert.equal(descriptor.kind,'production-release-v1');assert.equal(descriptor.publication_authorized,false,'Production projection cannot grant publication');
  assert(/^[0-9a-f]{40}$/.test(descriptor.baseline_commit),'Exact production baseline required');
  assert(Array.isArray(descriptor.implementation)&&descriptor.implementation.length>0,'Bound adapter implementation required');for(const file of compatibilityPins||descriptor.implementation)await pinned(root,file);await pinned(root,descriptor.scope_document);
@@ -80,14 +182,18 @@ export async function inspectProductionRelease(root,descriptorPath,registryPath)
  return {descriptor,descriptor_sha256:hash(raw),assets,records,audits,productionAccepted:true,releaseChecks:'PENDING_INDEPENDENT_PROJECTION_REVIEW',postReleaseVerified:'NOT_PUBLISHED',publication_authorized:false};
 }
 export async function collectProductionRelease(root,descriptorPath,registryPath){
- const result=await inspectProductionRelease(root,descriptorPath,registryPath),review=JSON.parse(await read(root,result.descriptor.review_path));
+ return memoizedIncremental(incrementalCollections,root,descriptorPath,registryPath,()=>collectProductionReleaseFully(root,descriptorPath,registryPath));
+}
+async function collectProductionReleaseFully(root,descriptorPath,registryPath){
+ const result=await inspectProductionRelease(root,descriptorPath,registryPath);if(result.unchanged_baseline)return result.assets;
+ const review=JSON.parse(await read(root,result.descriptor.review_path));
  assert.equal(review.schema_version,1);assert.equal(review.kind,'independent-production-projection-review-v1');assert.equal(review.status,'PASS','Independent production projection review is pending');
  assert.equal(review.reviewed_descriptor_sha256,result.descriptor_sha256,'Stale projection review');independent(review.reviewer,result.descriptor.producer);
  for(const record of result.records)independent(review.reviewer,record.maker);
  assert.deepEqual(review.blocking_findings,[]);for(const key of PRODUCTION_CHECKS)assert.equal(review.checks?.[key],'PASS','Independent projection subcheck missing/nonpassing: '+key);
  assert.equal(review.publication_authorized,false,'Projection review never grants publication');
  const acceptances=[...new Set(result.records.map(r=>r.original_acceptance.sha256))].sort();assert.deepEqual(review.original_acceptance_sha256?.slice().sort(),acceptances,'Missing independent original acceptance binding');
- for(let i=0;i<result.assets.length;i++)await verifyProductionPosters(root,result.assets[i],result.records[i]);
+ if(!result.unchanged_baseline)for(let i=0;i<result.assets.length;i++)await verifyProductionPosters(root,result.assets[i],result.records[i]);
  if(result.descriptor.kind==='typed-production-release-v1')await verifyTypedProjectionReviews(root,result,review);
  return result.assets;
 }
