@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
@@ -36,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v4
         id: setup
         with:
-          node-version: '22'
+          node-version: '22.23.4'
           cache: npm
       - name: Set isolated publication memo path
         id: memo
@@ -45,20 +46,28 @@ jobs:
         id: dependencies
       - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
         id: contracts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Layered workflow and exact affected scope contracts
-        run: node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs
+        run: node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs && node site/ci-production-baseline-test.mjs && node site/ci-production-incremental-test.mjs
         id: layered
       - name: Brand source contracts when present
         id: brand
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
       - name: Validate production science, source, standard GLB and final media
         id: production
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: node site/ci-production-release-check.mjs
       - name: All six mandatory production/static build phases
         id: build
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: npm run build
       - name: Complete non-browser source and delivery contracts
         id: delivery
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
       - name: Stamp exact source build after all six mandatory audit phases
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

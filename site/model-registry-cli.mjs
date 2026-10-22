@@ -90,6 +90,17 @@ export function readRegistry(root) {
   });
   const registry = {baseline, batches, records}; composeRegistry(registry); return registry;
 }
+/** The same registry validator over exact immutable Git JSON, without a second checkout. */
+export function readRegistryAtCommit(root,commit){
+ const read=gitReader(root,commit);
+ const paths=execFileSync('git',['ls-tree','-r','--name-only','-z',commit,'--','registry'],{cwd:root,env:immutableGitEnv(),encoding:'utf8',maxBuffer:16*1024*1024}).split('\0').filter(Boolean);
+ const baseline=JSON.parse(read('registry/baseline.json'));
+ const batches=paths.filter(p=>p.startsWith('registry/batches/')).sort().map(path=>{const batch=JSON.parse(read(path));assert.equal(path,`registry/batches/${batch.id}.json`);return batch;});
+ const refs=[...baseline.records,...batches.flatMap(b=>b.records)];
+ assert.deepEqual(paths.filter(p=>p.startsWith('registry/models/')).sort(),refs.map(r=>r.path).sort(),'Git registry inventory differs from selected records');
+ const records=refs.map(ref=>{const bytes=read(ref.path),record=JSON.parse(bytes);assert.equal(digest(record),ref.sha256);assert.equal(hashBytes(bytes),ref.sha256);assert.deepEqual(recordReference(record),ref);return record;});
+ const registry={baseline,batches,records};composeRegistry(registry);return registry;
+}
 /** A fresh output tree only, atomically renamed after every file is ready. */
 export function writeFreshTree(destination, files) {
   const target = resolve(destination), parent = dirname(target);

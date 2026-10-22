@@ -10,6 +10,7 @@ on:
         default: ''
 permissions:
   contents: read
+  actions: read
 env:
   SITE_BASE: ${{ inputs.site_base }}
   SITE_ORIGIN: ${{ inputs.site_origin }}
@@ -22,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.23.4'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -47,9 +48,11 @@ jobs:
         shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.23.4'
           cache: npm
       - uses: actions/setup-python@v5
         with:
@@ -62,6 +65,7 @@ jobs:
       - name: Run unchanged rejection suites sequentially in this isolated checkout
         env:
           CI_ISOLATE_HISTORICAL: '1'
+          GITHUB_TOKEN: ${{ github.token }}
         run: node site/ci-timed.mjs publication --plan "$RUNNER_TEMP/publication-plan/plan.json" --shard '${{ matrix.shard }}' --output 'qa/ci-publication/shard-${{ matrix.shard }}.json'
       - uses: actions/upload-artifact@v4
         if: always()
@@ -79,7 +83,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22.23.4'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

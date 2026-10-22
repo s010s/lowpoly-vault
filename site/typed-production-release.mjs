@@ -12,11 +12,12 @@ async function pinned(root,pin){assert(pin&&digest(pin.sha256)&&Number.isSafeInt
 const bilingual=x=>{for(const l of ['en','zh'])assert(text(x?.[l]),'Typed bilingual text required');};
 function identity(x){for(const key of ['id','task_id'])assert(text(x?.[key]),'Typed maker/preparer identity missing');}
 
-export async function inspectTypedProductionRelease(root,descriptorPath,raw){
+export async function inspectTypedProductionRelease(root,descriptorPath,raw,registryPath){
  raw=raw||await read(root,descriptorPath);const descriptor=JSON.parse(raw);
+ const compatibilityPins=await resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath);
  assertProductionMaterial(descriptor);
  assert.equal(descriptor.kind,'typed-production-release-v1');assert.equal(descriptor.schema_version,1);assert.equal(descriptor.publication_authorized,false);assert(/^[a-f0-9]{40}$/.test(descriptor.baseline_commit));identity(descriptor.producer);
- assert(Array.isArray(descriptor.implementation)&&new Set(descriptor.implementation.map(p=>p.path)).size===descriptor.implementation.length);for(const path of ['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py'])assert(descriptor.implementation.some(p=>p.path===path),'Missing typed implementation dependency '+path);for(const pin of descriptor.implementation)await pinned(root,pin);await pinned(root,descriptor.scope_document);
+ assert(Array.isArray(descriptor.implementation)&&new Set(descriptor.implementation.map(p=>p.path)).size===descriptor.implementation.length);for(const path of ['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py'])assert(descriptor.implementation.some(p=>p.path===path),'Missing typed implementation dependency '+path);for(const pin of compatibilityPins||descriptor.implementation)await pinned(root,pin);await pinned(root,descriptor.scope_document);
  assert(Array.isArray(descriptor.assets)&&descriptor.assets.length);const ids=new Set(),assets=[],records=[],audits=[];
  for(const item of descriptor.assets){
   assert(/^[a-z0-9][a-z0-9-]*$/.test(item.id)&&!ids.has(item.id));ids.add(item.id);
@@ -68,7 +69,7 @@ export async function verifyTypedProjectionReviews(root,result,projectionReview)
 const jsonHash=value=>sha256(Buffer.from(JSON.stringify(value)));
 const exactKeys=(value,keys,label)=>assert.deepEqual(Object.keys(value||{}).sort(),keys.slice().sort(),'Unknown/missing '+label+' fields');
 const exactPin=pin=>exactKeys(pin,['path','bytes','sha256'],'pin');
-export const COMPATIBILITY_CURRENT_PATHS=Object.freeze(['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py','site/production-publication.mjs','site/ci-production-release-check.mjs','site/ci-historical-publication.mjs','site/ci-poster-approval-test.mjs','site/turntable-delivery-test.mjs','site/model-registry.mjs','site/model-registry-sync.mjs','site/model-registry-cli.mjs']);
+export const COMPATIBILITY_CURRENT_PATHS=Object.freeze(['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py','site/production-publication.mjs','site/ci-production-release-check.mjs','site/ci-historical-publication.mjs','site/ci-poster-approval-test.mjs','site/turntable-delivery-test.mjs','site/model-registry.mjs','site/model-registry-sync.mjs','site/model-registry-cli.mjs','site/ci-production-baseline.mjs','site/ci-proof-fetch.mjs','site/ci-proof-budget.mjs','site/ci-git.mjs']);
 export async function loadProductionRegistry(root,path){
  const registry=JSON.parse(await read(root,path));exactKeys(registry,['schema_version','kind','descriptors','asset_ids'],'production registry');assert.equal(registry.schema_version,1);assert.equal(registry.kind,'production-release-set-v1');
  assert(Array.isArray(registry.descriptors)&&registry.descriptors.length>0);assert(Array.isArray(registry.asset_ids)&&registry.asset_ids.length>0&&new Set(registry.asset_ids).size===registry.asset_ids.length);assert(registry.asset_ids.every(id=>/^[a-z0-9][a-z0-9-]*$/.test(id)));
@@ -84,7 +85,7 @@ export async function resolveImplementationCompatibility(root,descriptorPath,des
  if(current?.publication?.production_registry)assert.equal(registryPath,current.publication.production_registry,'Different production registry contexts');
  const registry=await loadProductionRegistry(root,registryPath),entry=registry.descriptors.find(p=>p.path===descriptorPath);assert(entry,'Descriptor is not in the explicit production registry');assert.equal(entry.sha256,sha256(raw));assert.equal(entry.bytes,raw.length);
  if(!entry.compatibility)return null;
- assert.equal(descriptor.kind,'production-release-v1','Implementation bridge only preserves existing legacy-v1 behavior');
+ assert(['production-release-v1','typed-production-release-v1'].includes(descriptor.kind),'Implementation bridge requires an existing supported production schema');
  const bridgeRaw=await pinned(root,entry.compatibility),bridge=JSON.parse(bridgeRaw);assertProductionMaterial(bridge);
  exactKeys(bridge,['schema_version','kind','producer','original_descriptor','original_review','original_implementation','current_implementation','subjects','previous_manifest','preserved_records','review_path','publication_authorized'],'implementation bridge');
  assert.equal(bridge.schema_version,1);assert.equal(bridge.kind,'exact-implementation-compatibility-v1');assert.equal(bridge.publication_authorized,false);identity(bridge.producer);
@@ -109,13 +110,13 @@ export async function resolveImplementationCompatibility(root,descriptorPath,des
  return bridge.original_implementation.map(row=>row.preserved);
 }
 /** Exact closure for isolated CI fixtures; callers must run normal collection first. */
-export async function productionSourceClosure(root,manifest){
+export async function productionSourceClosure(root,manifest,descriptorPaths){
  const paths=new Set(['assets/manifest.json']),registryPath=manifest.publication?.production_registry;
  assert(!(registryPath&&manifest.publication?.production_descriptor),'Ambiguous production routes');
  const entries=registryPath?(await loadProductionRegistry(root,registryPath)).descriptors:manifest.publication?.production_descriptor?[{path:manifest.publication.production_descriptor}]:[];
  if(registryPath)paths.add(registryPath);
  const add=pin=>{assert(pin&&typeof pin.path==='string');paths.add(pin.path);};
- for(const entry of entries){paths.add(entry.path);const descriptor=JSON.parse(await read(root,entry.path));paths.add(descriptor.review_path);descriptor.implementation.forEach(add);add(descriptor.scope_document);
+ for(const entry of entries){if(descriptorPaths&&!descriptorPaths.includes(entry.path))continue;paths.add(entry.path);const descriptor=JSON.parse(await read(root,entry.path));paths.add(descriptor.review_path);descriptor.implementation.forEach(add);add(descriptor.scope_document);
   if(entry.compatibility){add(entry.compatibility);const bridge=JSON.parse(await pinned(root,entry.compatibility));paths.add(bridge.review_path);add(bridge.original_descriptor);add(bridge.original_review);add(bridge.previous_manifest);bridge.preserved_records.forEach(add);bridge.original_implementation.forEach(p=>add(p.preserved));bridge.current_implementation.forEach(add);}
   for(const item of descriptor.assets){add(item.metadata);add(item.evidence);const record=JSON.parse(await pinned(root,item.evidence));Object.values(record.roles).forEach(add);record.build_closure.forEach(add);add(record.preview);if(record.typed_compatibility)add(record.typed_compatibility);for(const p of record.independence_evidence||[])add(p);const posters=record.final_posters;add(posters.recipe);for(const kind of ['detail','wheel']){add(posters[kind]);add(posters[kind].render_config);}const recipe=JSON.parse(await pinned(root,posters.recipe));recipe.files.forEach(add);}
  }
