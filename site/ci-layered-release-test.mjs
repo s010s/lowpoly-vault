@@ -20,8 +20,8 @@ function assertLayeredGraph(pages,review){
  const build=job(pages,'build'),deploy=job(pages,'deploy'),runtime=job(review,'deployed-runtime');
  assert.match(deploy,/needs: \[build, publication\]/);assert.doesNotMatch(deploy,/needs:.*(?:runtime|review|browser)|(?:run|uses):.*(?:runtime|review|browser)|continue-on-error/);
  assert.doesNotMatch(build,/ci-install-chromium\.mjs|capture-gallery-posters\.mjs|gallery:posters|site\/[a-z0-9-]*-browser-test\.mjs|npm run [a-z:]*:browser|run: .*test:parser|ci-reuse\.mjs|continue-on-error/);
- assert.match(build,/run: npm run build/);assert.match(build,/run: node site\/ci-production-release-check\.mjs/);
- assert.match(build,/npm run test:manifest.*npm run test:gallery/);
+ assert.match(build,/run: node site\/ci-release-fast-path\.mjs build/);assert.match(build,/run: node site\/ci-production-release-check\.mjs/);
+ assert.match(build,/node site\/ci-release-fast-path\.mjs contracts/); assert.match(readFileSync("site/ci-release-fast-path.mjs","utf8"),/npm run test:manifest.*npm run test:gallery/);
  const trigger=review.slice(0,review.indexOf('permissions:'));assert.match(trigger,/workflow_run:/);assert.doesNotMatch(trigger,/\n  push:|\n  pull_request:/);
  assert.match(runtime,/id: checkout\n        if: github.event.workflow_run.conclusion == 'success'/);assert.match(runtime,/workflow_run\.event == 'push'/);assert.match(runtime,/workflow_run\.head_repository\.full_name == github\.repository/);
  assert.match(runtime,/ref: \$\{\{ github.event.workflow_run.head_sha \}\}/);assert.match(runtime,/run-id: \$\{\{ github.event.workflow_run.id \}\}/);
@@ -31,7 +31,7 @@ function assertLayeredGraph(pages,review){
  assert.match(review,/npm run gallery:posters && node site\/gallery-assets\.mjs --dist --complete/,'Historical browser proof path preserved, not rewritten');
 }
 assertLayeredGraph(pages,review);checks++;
-for(const [p,r]of [[pages.replace('needs: [build, publication]','needs: [build, publication, deployed-runtime]'),review],[pages.replace('run: npm run build','run: npm run gallery:posters'),review],[pages,review.replace('workflow_run:', 'pull_request:')],[pages,review.replace("workflow_run.conclusion == 'success'","workflow_run.conclusion != 'success'")]]){assert.throws(()=>assertLayeredGraph(p,r));checks++;}
+for(const [p,r]of [[pages.replace('needs: [build, publication]','needs: [build, publication, deployed-runtime]'),review],[pages.replace('run: node site/ci-release-fast-path.mjs build','run: npm run gallery:posters'),review],[pages,review.replace('workflow_run:', 'pull_request:')],[pages,review.replace("workflow_run.conclusion == 'success'","workflow_run.conclusion != 'success'")]]){assert.throws(()=>assertLayeredGraph(p,r));checks++;}
 ok(publication.includes("CI_ISOLATE_HISTORICAL: '1'"),'CI explicitly uses isolated historical fixtures');
 ok(publication.includes('needs: [plan, shards]')&&!publication.includes('continue-on-error'),'All 25 rejection suites remain blocking');
 const timed=readFileSync('site/ci-timed.mjs','utf8');

@@ -48,7 +48,12 @@ export function stampDeployment({root='.',identity}={}){
  assertIdentity(identity);assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),identity.head,'Marker source checkout differs');
  const timings=JSON.parse(readFileSync(resolve(root,'qa/ci-timings/build.json')));
  assert.equal(timings.status,'pass','All six build phases must pass before stamping');
- assert.deepEqual(timings.phases.map(p=>p.name),['publication-check','registry-check','vite','seal-render-template','copy-and-package','full-release-audit']);
+ if(timings.mode==='additive'){
+  assert(timings.baseline&&sha(timings.baseline.source_commit)&&number(timings.artifact_id),'Authenticated baseline identity required');
+  assert.match(timings.artifact_digest||'',/^sha256:[a-f0-9]{64}$/);
+  assert.deepEqual(timings.reused,['vite','historical-package-generation']);
+  assert.deepEqual(timings.phases.map(p=>p.name),['publication-check','registry-check','incremental-copy-and-package','full-release-audit']);
+ }else assert.deepEqual(timings.phases.map(p=>p.name),['publication-check','registry-check','vite','seal-render-template','copy-and-package','full-release-audit']);
  for(const p of timings.phases){assert.equal(p.exit_code,0);assert.equal(p.signal,null);}
  const dist=resolve(root,'dist');assert(!existsSync(resolve(dist,MARKER_PATH)),'Existing deployment marker cannot be silently replaced');
  const files=inventory(dist),marker={schema_version:1,kind:'exact-pages-build-v1',...identity,build_digest:hash(JSON.stringify(files)),files};

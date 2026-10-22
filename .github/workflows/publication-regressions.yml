@@ -14,6 +14,8 @@ permissions:
 env:
   SITE_BASE: ${{ inputs.site_base }}
   SITE_ORIGIN: ${{ inputs.site_origin }}
+  BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+  GITHUB_TOKEN: ${{ github.token }}
 jobs:
   plan:
     name: Plan exact publication coverage
@@ -21,16 +23,19 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22.23.4'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: npm ci --ignore-scripts
       - name: Test coverage and fail-closed workflow contracts
         run: node site/ci-publication-shards-test.mjs && node site/ci-timed-test.mjs
       - name: Bind every mandatory suite to this exact source and runtime
-        run: node site/ci-publication-shards.mjs plan "$RUNNER_TEMP/publication-plan/plan.json"
+        run: node site/ci-release-publication.mjs plan "$RUNNER_TEMP/publication-plan/plan.json"
       - uses: actions/upload-artifact@v4
         with:
           name: publication-plan-${{ github.run_attempt }}
@@ -66,7 +71,7 @@ jobs:
         env:
           CI_ISOLATE_HISTORICAL: '1'
           GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-timed.mjs publication --plan "$RUNNER_TEMP/publication-plan/plan.json" --shard '${{ matrix.shard }}' --output 'qa/ci-publication/shard-${{ matrix.shard }}.json'
+        run: node site/ci-release-publication.mjs shard "$RUNNER_TEMP/publication-plan/plan.json" '${{ matrix.shard }}' 'qa/ci-publication/shard-${{ matrix.shard }}.json'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -81,12 +86,15 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22.23.4'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: npm ci --ignore-scripts
       - uses: actions/download-artifact@v4
         with:
           name: publication-plan-${{ github.run_attempt }}
@@ -97,7 +105,7 @@ jobs:
           path: ${{ runner.temp }}/publication-results
           merge-multiple: false
       - name: Reject incomplete, duplicate, failed or mismatched coverage
-        run: node site/ci-publication-shards.mjs aggregate "$RUNNER_TEMP/publication-plan/plan.json" "$RUNNER_TEMP/publication-results" qa/ci-publication/aggregate.json
+        run: node site/ci-release-publication.mjs aggregate "$RUNNER_TEMP/publication-plan/plan.json" "$RUNNER_TEMP/publication-results" qa/ci-publication/aggregate.json
       - name: Require independently successful prerequisite jobs
         env:
           PLAN_RESULT: ${{ needs.plan.result }}

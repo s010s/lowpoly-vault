@@ -49,7 +49,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Layered workflow and exact affected scope contracts
-        run: node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs && node site/ci-production-baseline-test.mjs && node site/ci-production-incremental-test.mjs
+        run: node site/ci-release-fast-scope-test.mjs && node site/ci-release-fast-archive-test.mjs && node site/ci-release-fast-deployment-test.mjs && node site/ci-release-fast-contracts-test.mjs && node site/ci-release-publication-evidence-test.mjs && node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs && node site/ci-production-baseline-test.mjs && node site/ci-production-incremental-test.mjs
         id: layered
       - name: Brand source contracts when present
         id: brand
@@ -63,12 +63,25 @@ jobs:
         id: build
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: npm run build
+        run: node site/ci-release-fast-path.mjs build
       - name: Complete non-browser source and delivery contracts
         id: delivery
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
+        run: node site/ci-release-fast-path.mjs contracts
+      - name: Seal reusable static build after fresh output audit
+        id: baseline_seal
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: node site/ci-release-fast-path.mjs seal
+      - uses: actions/upload-artifact@v4
+        id: baseline_upload
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: release-fast-base-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa/release-fast-base/base.tar.gz
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
       - name: Stamp exact source build after all six mandatory audit phases
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: stamp
@@ -104,10 +117,10 @@ jobs:
           import json, os, pathlib
           e = os.environ
           steps = json.loads(e['STEP_OUTCOMES'])
-          names = ['checkout', 'setup', 'memo', 'dependencies', 'contracts', 'layered', 'brand', 'production', 'build', 'delivery', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
+          names = ['checkout', 'setup', 'memo', 'dependencies', 'contracts', 'layered', 'brand', 'production', 'build', 'delivery', 'baseline_seal', 'baseline_upload', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
           outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
           failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
-          mandatory = [name for name in names if name not in ['stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
+          mandatory = [name for name in names if name not in ['baseline_seal', 'baseline_upload', 'stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
           passed = all(outcomes[name] == 'success' for name in mandatory)
           report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['GITHUB_SHA'], 'expected_run_id': e['GITHUB_RUN_ID'], 'expected_run_attempt': e['GITHUB_RUN_ATTEMPT'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'downstream': {'deployment': 'NOT_RUN', 'browser': 'NOT_RUN_IN_PRODUCTION_WORKFLOW'}}
           target = pathlib.Path(e['RUNNER_TEMP']) / 'production-summary' / 'report.json'
