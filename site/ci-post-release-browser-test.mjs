@@ -1,0 +1,82 @@
+/** Real Chromium regression fixtures for entry-body lifecycle and the 160 ms UI handoff.
+ * No production records, deployment proof, or model bytes are changed by these tests. */
+import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import {createHash} from 'node:crypto';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {chromium} from 'playwright';
+import {EventEmitter} from 'node:events';
+import {createRuntimeEntryAudit} from './ci-post-release-browser.mjs';
+import {runThumbnailRevealBrowserTests} from './gallery-thumbnail-reveal-browser-test.mjs';
+const output=resolve(process.env.QA_OUTPUT_DIR||'qa/post-release-browser-regression');await mkdir(output,{recursive:true});
+// Deterministic queue contract cases execute without Chromium. They are not
+// reported as an actual-browser result when the browser environment is blocked.
+async function queueContracts(){
+ const rows=[],body=Buffer.from('actual browser response'),pin={path:'entry.js',bytes:body.length,sha256:createHash('sha256').update(body).digest('hex')};
+ async function test(name,fn){await fn();rows.push({name,status:'PASS'});}
+ function fixture({files=[pin],read=async()=>body,ok=true,timeoutMs=1000}={}){const page=new EventEmitter(),report={entry_errors:[],loaded_entries:[]},request={url:()=> 'https://fixture.invalid/app/entry.js',failure:()=>({errorText:'ABORTED'})},response={request:()=>request,ok:()=>ok,status:()=>ok?200:404,body:read},audit=createRuntimeEntryAudit(page,{base:'https://fixture.invalid/app/',files,report,timeoutMs});return {page,report,request,response,audit,emit(){page.emit('request',request);page.emit('response',response);}};}
+ await test('pending-body-must-settle-before-drain',async()=>{let release;const x=fixture({read:()=>new Promise(r=>release=r)});x.emit();let complete=false;const wait=x.audit.drain().then(()=>complete=true);await new Promise(r=>setTimeout(r,20));assert.equal(complete,false);assert.deepEqual(x.report.loaded_entries,[]);release(body);await wait;assert.deepEqual(x.report.loaded_entries,['entry.js']);x.audit.detach();assert.equal(x.page.listenerCount('response'),0);});
+ for(const [name,options,pattern] of [
+  ['reject-wrong-hash',{files:[{...pin,sha256:'0'.repeat(64)}]},/hash differs/],
+  ['reject-wrong-size',{files:[{...pin,bytes:pin.bytes+1}]},/size differs/],
+  ['reject-unknown-entry',{files:[]},/Unexpected runtime entry/],
+  ['reject-HTTP-failure',{ok:false},/HTTP 404/],
+  ['reject-unreadable-CDP-body',{read:async()=>{throw Error('Network.getResponseBody missing');}},/Network.getResponseBody/]
+ ])await test(name,async()=>{const x=fixture(options);x.emit();await assert.rejects(()=>x.audit.drain());assert.match(x.report.entry_errors.join(' '),pattern);assert.deepEqual(x.report.loaded_entries,[]);x.audit.detach();});
+ await test('reject-unfinished-request-without-response',async()=>{const x=fixture({timeoutMs:20});x.page.emit('request',x.request);await assert.rejects(()=>x.audit.drain(),/Unfinished runtime entries/);assert.deepEqual(x.report.loaded_entries,[]);x.page.emit('requestfailed',x.request);await assert.rejects(()=>x.audit.drain(),/Actual loaded entry verification failed/);x.audit.detach();});
+ await test('requests-arriving-while-draining-are-also-awaited',async()=>{let releaseA,releaseB;const x=fixture({read:()=>new Promise(r=>releaseA=r)});x.emit();const requestB={...x.request},responseB={...x.response,request:()=>requestB,body:()=>new Promise(r=>releaseB=r)};let done=false;const waiting=x.audit.drain().then(()=>done=true);x.page.emit('request',requestB);x.page.emit('response',responseB);releaseA(body);await new Promise(r=>setTimeout(r,10));assert.equal(done,false);releaseB(body);await waiting;assert.equal(x.report.loaded_entries.length,2);x.audit.detach();});
+ return rows;
+}
+const queue_cases=await queueContracts();
+if(process.env.QA_QUEUE_CONTRACT_ONLY==='1'){const result={status:'PASS',scope:'Deterministic event/response lifecycle contracts only; Chromium NOT_RUN.',cases:queue_cases};await writeFile(resolve(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));process.exit(0);}
+
+const bytes=Buffer.from('window.fixtureLoaded = true;\n'),hash=b=>createHash('sha256').update(b).digest('hex');
+const report={status:'RUNNING',scope:'Real local Chromium fixtures, not public deployment acceptance.',cases:queue_cases};
+let browser;const contexts=[],timers=new Set();
+const server=createServer((req,res)=>{const u=new URL(req.url,'http://fixture');
+ if(u.pathname==='/page'){res.setHeader('Content-Type','text/html');res.end(`<script src="/entry.js?mode=${u.searchParams.get('mode')||'normal'}"></script>`);return;}
+ if(u.pathname==='/away'){res.end('<p>away</p>');return;}
+ if(u.pathname==='/entry.js'){
+  res.setHeader('Content-Type','text/javascript');res.setHeader('Cache-Control','public,max-age=3600');
+  const mode=u.searchParams.get('mode');
+  if(mode==='404'){res.writeHead(404);res.end('missing');return;}
+  if(mode==='reset'){req.socket.destroy();return;}
+  if(mode==='slow'||mode==='hold'){res.writeHead(200);res.write(bytes.subarray(0,1));if(mode==='slow'){const timer=setTimeout(()=>{res.end(bytes.subarray(1));timers.delete(timer);},350);timers.add(timer);}return;}
+  res.end(bytes);return;
+ }
+ res.writeHead(404).end();
+});
+await new Promise(done=>server.listen(0,'127.0.0.1',done));const base=`http://127.0.0.1:${server.address().port}/`;
+const pins=[{path:'entry.js',bytes:bytes.length,sha256:hash(bytes)}];
+try{
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage']});report.browser=browser.version();
+ async function fixture(name,fn){const context=await browser.newContext();contexts.push(context);const page=await context.newPage();const result={entry_errors:[],loaded_entries:[]};let audit;
+  try{await fn({page,result,observe:(files=pins,timeoutMs=3000)=>audit=createRuntimeEntryAudit(page,{base,files,report:result,timeoutMs})});report.cases.push({name,status:'PASS',...result});}
+  finally{audit?.detach();await context.close();}
+ }
+ await fixture('slow-actual-response-settles-before-navigation',async({page,result,observe})=>{const audit=observe(),response=page.waitForResponse(r=>r.url().includes('/entry.js'));await page.goto(base+'page?mode=slow',{waitUntil:'commit'});await response;const start=Date.now();await audit.drain();assert(Date.now()-start>=150,'Drain must wait for the real, unfinished response');assert.deepEqual(result.loaded_entries,['entry.js']);await page.goto(base+'away');});
+ await fixture('cached-navigation-and-reload-retain-exact-bodies',async({page,result,observe})=>{const audit=observe();for(let i=0;i<4;i++){await audit.drain();await page.goto(base+'page');await audit.drain();await page.reload();}await audit.drain();assert.equal(result.loaded_entries.length,8);assert.deepEqual(result.entry_errors,[]);});
+ for(const [name,files,mode,pattern] of [
+  ['wrong-hash-is-rejected',[{...pins[0],sha256:'0'.repeat(64)}],'normal',/hash differs/],
+  ['wrong-size-is-rejected',[{...pins[0],bytes:bytes.length+1}],'normal',/size differs/],
+  ['unknown-entry-is-rejected',[],'normal',/Unexpected runtime entry/],
+  ['missing-entry-is-rejected',pins,'404',/HTTP 404/],
+  ['failed-request-is-rejected',pins,'reset',/ERR_EMPTY_RESPONSE/]
+ ])await fixture(name,async({page,result,observe})=>{const audit=observe(files);await page.goto(base+'page?mode='+mode);await assert.rejects(()=>audit.drain());assert.match(result.entry_errors.join('\n'),pattern);assert.equal(result.loaded_entries.length,0);});
+ await fixture('unfinished-response-cannot-pass',async({page,result,observe})=>{const audit=observe(pins,60),response=page.waitForResponse(r=>r.url().includes('/entry.js'));await page.goto(base+'page?mode=hold',{waitUntil:'commit'});await response;await assert.rejects(()=>audit.drain(),/Unfinished runtime entries: entry.js/);assert.equal(result.loaded_entries.length,0);});
+ // Simulate protocol eviction on a genuine browser response. It must remain a
+ // hard failure, never be replaced by a fresh API request or ignored catch.
+ await fixture('unreadable-browser-body-cannot-pass',async({page,result,observe})=>{const originalOn=page.on.bind(page);page.on=(event,handler)=>originalOn(event,event==='response'?response=>handler(new Proxy(response,{get(target,key){if(key==='body')return async()=>{throw Error('Network.getResponseBody: No resource with given identifier found');};const value=target[key];return typeof value==='function'?value.bind(target):value;}})):handler);const audit=observe();await page.goto(base+'page');await assert.rejects(()=>audit.drain());assert.match(result.entry_errors.join('\n'),/Network.getResponseBody/);assert.equal(result.loaded_entries.length,0);});
+ const run=process.env.QA_ORIGINAL_THUMBNAIL_SCRIPT?(await import(pathToFileURL(resolve(process.env.QA_ORIGINAL_THUMBNAIL_SCRIPT)))).runThumbnailRevealBrowserTests:runThumbnailRevealBrowserTests;
+ // Introduce a 250 ms controller round trip around the fragile handoff. The
+ // image's real 160 ms CSS transition still runs inside Chromium, unchanged.
+ const delayedBrowser=new Proxy(browser,{get(target,key){if(key==='newContext')return async(...args)=>{const context=await target.newContext(...args);return new Proxy(context,{get(ctx,k){if(k==='newPage')return async()=>{const page=await ctx.newPage(),evaluate=page.evaluate.bind(page);page.evaluate=async(fn,arg)=>{const result=await evaluate(fn,arg);if(String(fn).includes('resolvers[7]'))await new Promise(done=>setTimeout(done,250));return result;};return page;};const value=ctx[k];return typeof value==='function'?value.bind(ctx):value;}});};const value=target[key];return typeof value==='function'?value.bind(target):value;}});
+ const thumbnail=await run({browser:delayedBrowser,output:resolve(output,'thumbnail')});
+ if(process.env.QA_ORIGINAL_THUMBNAIL_SCRIPT){assert.equal(thumbnail.status,'fail');assert.match(thumbnail.failure,/Exercise hover during a running arrival transition/);report.cases.push({name:'original-controller-race-reproduced',status:'PASS'});}
+ else{assert.equal(thumbnail.status,'pass',thumbnail.failure);const handoff=thumbnail.cases.find(c=>c.name==='hover-during-arrival-cancels-only-ui-fade');assert(handoff);assert.equal(handoff.handoff.running,true);assert(handoff.handoff.arrivalOpacity>0&&handoff.handoff.arrivalOpacity<1);report.cases.push({name:'all-thumbnail-fixtures-with-controller-delay',status:'PASS',checks:thumbnail.cases.length,handoff:handoff.handoff});}
+ // Navigation and closure consume the queue; no late-only Promise.all remains.
+ const source=await readFile(new URL('./ci-post-release-browser.mjs',import.meta.url),'utf8');assert.match(source,/const navigate=async url=>\{await entries.drain\(\);return page.goto\(url\);\}/);assert.match(source,/const reload=async\(\)=>\{await entries.drain\(\);return page.reload\(\);\}/);assert.match(source,/finally\{try\{await entries.drain\(\);\}finally\{entries.detach\(\);await context.close\(\);\}\}/);report.status='PASS';
+}catch(error){report.status='FAIL';report.error=error.stack;process.exitCode=1;}
+finally{for(const timer of timers)clearTimeout(timer);await Promise.all(contexts.map(c=>c.close().catch(()=>{})));await browser?.close();server.closeAllConnections();await new Promise(done=>server.close(done));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));}
