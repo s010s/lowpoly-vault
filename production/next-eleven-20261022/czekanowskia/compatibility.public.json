@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "czekanowskia",
+  "representation": "fossil-specimen",
+  "original_acceptance_sha256": "ff91f2b34858bddea1eb755312c1cb1898f0b2cec820647e0422fbcd90a3def3",
+  "private_derivation_sha256": "c8478b9e21c1ad2736d37ff6eb5bcce23316c16dc6cd65c4af7d10f048d510c0",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "czekanowskia",
+    "representation": "fossil-specimen",
+    "source_layout": "structured-subject-v1",
+    "source_field_map": {
+      "subject": {
+        "taxon_inspiration": "czekanowskia",
+        "inventory_name": {
+          "en": "Czekanowskia forked-thread short shoots",
+          "zh": "Czekanowskia 茨康叶植物"
+        },
+        "category": "plants",
+        "subcategory": "leaf-specimen",
+        "planning_eras": [
+          "jurassic"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen",
+        "pose": "Static preserved foliage-organ teaching specimen."
+      },
+      "claim_scope": "Preserved compact short shoots and repeatedly forked narrow leaves only; no whole crown, reproductive linkage or asserted modern species.",
+      "distinctness": {
+        "en": "Threadlike forks differ from Ginkgo's broad fan and Phoenicopsis's undivided straps.",
+        "zh": "线状二叉叶区别于银杏宽扇叶及Phoenicopsis不分裂带叶。"
+      },
+      "modeling_brief": {
+        "en": "Use grouped thin angular ribbons emerging from compact short shoots; avoid needle-clump textures that conceal the forks.",
+        "zh": "用成组细角状带片从紧凑短枝伸出，避免以针叶贴图掩盖分叉。"
+      },
+      "reference_policy": {
+        "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+        "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+        "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+        "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+        "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+        "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+      },
+      "scale": {
+        "meters": 0.18,
+        "axis": "preserved short-shoot foliage span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "artistic_choices": [
+        "Nominal scale, colors and conservative thickness/curvature are artistic choices, not new fossil measurements.",
+        "Preserve original shell/tube or isolated botanical organ scope; never infer associated whole organisms or extra organs."
+      ]
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000,
+      "soft_glb_bytes": 500000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 1,
+      "max_dimension": 256,
+      "max_total_bytes": 65536,
+      "max_decoded_bytes": 524288
+    },
+    "original_criteria": [
+      {
+        "id": "technical-integrity",
+        "stage": "technical",
+        "critical": true,
+        "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+        "required_sources": []
+      },
+      {
+        "id": "normal-view-craft",
+        "stage": "visual",
+        "critical": true,
+        "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+        "required_sources": []
+      },
+      {
+        "id": "basic-form-and-scope",
+        "stage": "factual",
+        "critical": true,
+        "description": "仅原短枝/叶标本，细角状带片从紧凑短枝长出、主要二叉可读；不是针叶丛贴图或Pseudofrenelopsis加叶数。不假设整树冠、繁殖联系或现代银杏物种。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+        "required_sources": [
+          "FL-ginkgo-museum"
+        ]
+      },
+      {
+        "id": "deliverables-and-label",
+        "stage": "specification",
+        "critical": true,
+        "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+        "required_sources": []
+      },
+      {
+        "id": "target-loader",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+        "required_sources": []
+      },
+      {
+        "id": "functional-render",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+        "required_sources": []
+      },
+      {
+        "id": "representative-scene",
+        "stage": "scene",
+        "critical": true,
+        "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "FL-ginkgo-museum"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Stylized preserved foliage-organ teaching specimen: grouped narrow leaves repeatedly fork from a compact short shoot. No whole crown, reproductive linkage, exact species or museum specimen is reconstructed. Leaf arrangement, thickness, palette and nominal 18 cm foliage span are artistic choices rather than fossil measurements.",
+    "zh": "风格化保存叶器官教学标本：成组细长叶片由紧凑短枝伸出并重复分叉。不复原整株树冠、繁殖器官关联、精确种或馆藏标本；叶序、厚度、配色及名义18厘米叶丛跨度均属美术选择，并非化石测量。"
+  },
+  "acceptance": {
+    "profile": "named-gates-original-source-v1",
+    "original_schema": "independent-production-acceptance-v1",
+    "original_schema_version": null,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "productionAcceptance",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "mandatory_repairs",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "source_and_rebuild.two_fresh_clean_rebuilds",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "source_and_rebuild.both_byte_match_original",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "source_and_rebuild.actual_blend_reexport",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "source_and_rebuild.reexport_byte_match_original",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "standard_glb.errors",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "standard_glb.warnings",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "science.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "visual.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "budget.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "provenance.required_seven_roles_present",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "original_history_preserved.approved",
+        "kind": "equal",
+        "expected": false
+      },
+      {
+        "path": "production_gates",
+        "kind": "gates",
+        "allowed": {
+          "science": "PASS",
+          "actual_visual_shape": "PASS",
+          "geometry_and_budget": "PASS",
+          "standard_glb": "PASS",
+          "source_and_clean_rebuild": "PASS",
+          "provenance_and_delivery": "PASS"
+        }
+      }
+    ],
+    "gate_values": [
+      "PASS",
+      [],
+      "PASS",
+      true,
+      "PASS",
+      true,
+      0,
+      0,
+      "PASS",
+      "PASS",
+      "PASS",
+      true,
+      false,
+      {
+        "science": "PASS",
+        "actual_visual_shape": "PASS",
+        "geometry_and_budget": "PASS",
+        "standard_glb": "PASS",
+        "source_and_clean_rebuild": "PASS",
+        "provenance_and_delivery": "PASS"
+      }
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "science.finding",
+        "value": "Primary observed evidence now supports compact short-shoot foliage with narrow dichotomous leaf divisions. Sun et al. 2015 Fig. 3A–E visibly shows narrow leaves bundled at a short shoot, with branching; its diagnosis allows occasional second dichotomy. Pott and Jiang 2017 Plate 4 figure 3 visibly corroborates thin divided foliage and a compact basal shoot.",
+        "original_value_sha256": "389de5ad8b1fce80e13e7b6931f47ed57a8c719138202f24047c0fe29e0c71b4"
+      },
+      {
+        "source_field": "science.uncertainty",
+        "value": "Five leaves, two divisions per modeled leaf, fan spread, thickness and color are generic teaching-art choices, not an exact specimen replica.",
+        "original_value_sha256": "8ae5a520160be8504abc8abfc896a26477d328eabedfb5d8b44b8583c6864ec2"
+      },
+      {
+        "source_field": "science.not_established",
+        "value": [
+          "Museum CH250 pixels have not been inspected.",
+          "Exact fossil-specimen identity, dimensions, species, cuticle, whole plant and reproductive affiliation are not certified."
+        ],
+        "original_value_sha256": "87f44a3c64430633a22dcaffcb64ba79b45fd96b46aed7df3ca736df83887a58"
+      },
+      {
+        "source_field": "science.inherited_source_limitations",
+        "value": "HKU named museum listing re-opened as text only. The image-link retrieval supplied no inspectable pixels; prior maker shell403 remains. Ash1994 indexed filiform description remains inherited. Neither old source is silently relabeled pixel-verified.",
+        "original_value_sha256": "eb0f10804d598dcb93e2e35f2ad6393ce317568f62420a10ee76d48519e17844"
+      },
+      {
+        "source_field": "science.applicability",
+        "value": "The frozen brief requires the named basic organ form, not replication of an identified museum specimen. New primary evidence establishes that original requirement; it does not identify this teaching model as either published species or either exact fossil. No genus downgrade or gate relaxation.",
+        "original_value_sha256": "479803fb4408fcbc83032d33efcbf0725aa4996b9a90ff3cfd57b274d9aa7e12"
+      },
+      {
+        "source_field": "science.frozen_scope_quotes",
+        "value": {
+          "claim_scope": "Preserved compact short shoots and repeatedly forked narrow leaves only; no whole crown, reproductive linkage or asserted modern species.",
+          "minimum_reference_sentence": "No mandatory species/specimen matching beyond the basic form actually claimed."
+        },
+        "original_value_sha256": "f264a9ed3ad9cd4b7389654700cc4816aa4097d87951850f468a760559c30b1c"
+      },
+      {
+        "source_field": "science.sources.0.url",
+        "value": "https://www.geobotanica.ru/bp/2015_04_02/BP_2015_4_2_sun.pdf",
+        "original_value_sha256": "8f41c548138c6051961cf731d46ea1acb92be560db5453a2af298bda856bf278"
+      },
+      {
+        "source_field": "science.sources.0.citation",
+        "value": "Sun et al. 2015, Botanica Pacifica 4(2):149–155, diagnosis p.150 and Fig.3 p.151 (PDF page 3).",
+        "original_value_sha256": "bed47d71d55f69f9f174d2794b023d0b55c57c57cc02b22b5b1e90ca33aedba9"
+      },
+      {
+        "source_field": "science.sources.0.access",
+        "value": "Actual PDF bytes fetched; local page rendered and pixels inspected.",
+        "original_value_sha256": "0fb8925055b97293834ac62ca774f2dc3b8ddecdde45d556fe64c478ba5a938a"
+      },
+      {
+        "source_field": "science.sources.0.use",
+        "value": "consulted-only",
+        "original_value_sha256": "7b9dd6b81a18923f4b2da75c5c207775c280b84a26546b96062dca728600c62a"
+      },
+      {
+        "source_field": "science.sources.0.license",
+        "value": "No media republication license verified; exclude from publication package.",
+        "original_value_sha256": "f155e69e4a3f556409e0255128409c978c2b5cbd291e03805ff138db1a41d32c"
+      },
+      {
+        "source_field": "science.sources.1.url",
+        "value": "https://acpa.botany.pl/pdf-118661-47540?filename=Plant-remains-from-the-Mi.pdf",
+        "original_value_sha256": "a7d6699164442e7848c6f5d1ce9505de17897837347167fe0925c8a8d6bbf52e"
+      },
+      {
+        "source_field": "science.sources.1.citation",
+        "value": "Pott and Jiang 2017, Acta Palaeobotanica 57(2):185–222; description p.201 and Plate4 fig.3 p.202 (PDF page18).",
+        "original_value_sha256": "dff7b969027c1f1bb576d50d7ce26b721d1cfd7dd1574b75a6ada50eccd13505"
+      },
+      {
+        "source_field": "science.sources.1.access",
+        "value": "Actual PDF bytes fetched; local page rendered and pixels inspected.",
+        "original_value_sha256": "0fb8925055b97293834ac62ca774f2dc3b8ddecdde45d556fe64c478ba5a938a"
+      },
+      {
+        "source_field": "science.sources.1.use",
+        "value": "consulted-only",
+        "original_value_sha256": "7b9dd6b81a18923f4b2da75c5c207775c280b84a26546b96062dca728600c62a"
+      },
+      {
+        "source_field": "science.sources.1.license",
+        "value": "No media republication license verified; exclude from publication package.",
+        "original_value_sha256": "f155e69e4a3f556409e0255128409c978c2b5cbd291e03805ff138db1a41d32c"
+      }
+    ],
+    "original_field_hashes": {
+      "asset_id": "11e91420a7f21c021d8766cdcd48dc17f768aa525bcd286e031e4e883ba7e801",
+      "productionAcceptance": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "mandatory_repairs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "source_and_rebuild.two_fresh_clean_rebuilds": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "source_and_rebuild.both_byte_match_original": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "source_and_rebuild.actual_blend_reexport": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "source_and_rebuild.reexport_byte_match_original": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "standard_glb.errors": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "standard_glb.warnings": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "science.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "visual.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "budget.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "provenance.required_seven_roles_present": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "original_history_preserved.approved": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "production_gates": "3a8e281f564f2dd3c3392190b48bebc5cb3afbc80fa0af4506b4b6a705a4bf0c",
+      "science": "9255f92b187c336da1e3ba140bc96978096e229e5bc13fa45d3727dd1930e7a1",
+      "reviewer": "245dc7a7b7bcc2847b9ee06c7f6b9576433bd2cf596cace44e806071837e6ebf",
+      "final_glb": "4002c1b73f66fef0317c7177d07539db479fdf9293eb8f445096f2ff0878c7a0",
+      "final_blend": "83679a6dba9069981875578d95faa05015537ba83617fc5a1c6342f5218fa5dd",
+      "frozen_brief": "334ab76106cf2daa85a05eed72bda0cac783364cda77cf7e3127d27fef3cc50c",
+      "original_history_preserved": "80c2d66fd69d975bd833996751380845341efd40956f256fbcfb9a80e174b301",
+      "postReleaseVerified": "0f15dc23249e5ae41849d7f070b24f8aea5d052fe3d20972b004e8b9e07349ba",
+      "releaseChecks": "0f15dc23249e5ae41849d7f070b24f8aea5d052fe3d20972b004e8b9e07349ba"
+    },
+    "original_reviewer_identity": null
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "d8846adc18d61ed550866839bde2c5e90cf8f3fcc9b8230215df935d9acd6912",
+      "bytes": 11084,
+      "original_path_sha256": "310264857f070c667c81ab0a93c73cacafb969dc7dbfe2ff31fa06a932a9d20a",
+      "source_document_sha256": "ff91f2b34858bddea1eb755312c1cb1898f0b2cec820647e0422fbcd90a3def3",
+      "source_pointer_sha256": "e7eb13b14f3ea8eaa710edb9290c4f4a6a58292cec996c8951ee0ecf99dcad33"
+    },
+    "config": {
+      "sha256": "e28b48b53df7472f2485639e88fd04b1e6f3b6882eca00b5a42930b2fa27969a",
+      "bytes": 2348,
+      "original_path_sha256": "56f576158b5edaece3a73c605e86cf36323d9c795e354820ed05ca9b0e0585d1",
+      "source_document_sha256": "e559b0e1c6d84d7ba213d2c4015a8d764166a58edfa999a9849f703d65c2fdfe",
+      "source_pointer_sha256": "19bfec30d98bc0f9f39a30ce3393ce322b78ebc850453421449e64d92bb65c0e"
+    },
+    "references": {
+      "sha256": "fb033099d1c0e16e77a9050c81e787f2c82b60cde98c9027f93c2a5c3fbcbf82",
+      "bytes": 3090,
+      "original_path_sha256": "74d3b0be1fa0e696ac8b8f20be6e0aef5b37f46f234a57f419bb60d71c3336b6",
+      "source_document_sha256": "e559b0e1c6d84d7ba213d2c4015a8d764166a58edfa999a9849f703d65c2fdfe",
+      "source_pointer_sha256": "5e71fb0cc0b35d8b09444babdbc82990b93ed410085d86dad467125c9c9b94f6"
+    },
+    "generator": {
+      "sha256": "4c65bd91e7e5ebfdb4239d49c846c192c7e52d9016a3a3cf3fe449aef2b9138f",
+      "bytes": 4768,
+      "original_path_sha256": "f3ec35b5ea365b46a0a938ee4cc58f92684f44d2f7e116b76371e1b7e5aa278b",
+      "source_document_sha256": "e559b0e1c6d84d7ba213d2c4015a8d764166a58edfa999a9849f703d65c2fdfe",
+      "source_pointer_sha256": "64e89ca923ea30f71b2138620f5165e0920c7751dc8a93768c00b854f997aded"
+    },
+    "dependency-list": {
+      "sha256": "db66b8f077dff794264d943b52a33c8ee93dc3b459ae53ae26bcac0c8dcb5aef",
+      "bytes": 7234,
+      "original_path_sha256": "bef3abf962551481a3d238e8b63d2653b8276a39f41cc163cb96915e93fcfc5f",
+      "source_document_sha256": "e559b0e1c6d84d7ba213d2c4015a8d764166a58edfa999a9849f703d65c2fdfe",
+      "source_pointer_sha256": "8f9f8252211394ffc45283442fef414367d13fe2548fe2cfccf3689423dafa76"
+    },
+    "finalGLB": {
+      "sha256": "c9a8010c6327466957ff10ec0cf3efcdce118c91e5e5bc189ca411c0a2e42a70",
+      "bytes": 35384,
+      "original_path_sha256": "b2ca167c45e06813358f373e1f03b802ef16bccd39d05e03ca39aca402dee891",
+      "source_document_sha256": "ff91f2b34858bddea1eb755312c1cb1898f0b2cec820647e0422fbcd90a3def3",
+      "source_pointer_sha256": "088f72924db1b9a5d6c40989529eebb456fad54fb87ec9d371c87ce8ed6644cf"
+    },
+    "finalBlend": {
+      "sha256": "ce2a8c799e699a45f2b2b122a5d52dcd791b84adcbb36c1eaa6025d8100c55cc",
+      "bytes": 516200,
+      "original_path_sha256": "e78449c5cc83d1eb8b9c45a464490a5c40d040ca0d77eed89decca03aa87b34e",
+      "source_document_sha256": "ff91f2b34858bddea1eb755312c1cb1898f0b2cec820647e0422fbcd90a3def3",
+      "source_pointer_sha256": "c6c9f14afea3570f3b75d63bc6eb750aba4480239b622c71055f50c67864b059"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}

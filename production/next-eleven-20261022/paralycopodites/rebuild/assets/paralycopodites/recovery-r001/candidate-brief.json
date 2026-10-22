@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "asset_id": "paralycopodites",
+  "brief_version": "original-v001",
+  "profile": "production",
+  "purpose": "Static educational lowpoly candidate, not independent acceptance.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "view_exemptions": {},
+  "coverage_justification": "Eight genuine fixed final512px views under static-stylized-v1; no turntable required. CPU imagery is not GPU/scene proof.",
+  "frozen_at": "2026-10-20T23:51:48.497976+00:00",
+  "subject": "Paralycopodites opposite-row compact lateral-branch lycopsid",
+  "representation": "living-reconstruction",
+  "factual_scope": "Genus-level living reconstruction, not exact fossil individual. Lateral row position and determinate branching use DiMichele and Bateman2020 primary text. Cone and leaf dimensions are illustrative choices near described specimens, not universal fossil ranges. Anatomy pixels are Seward1910 fig186A/B under a historical name linked to Paralycopodites by DiMichele1980; they do not directly demonstrate whole architecture. Exact height, counts, colors and complete outline are artistic.",
+  "identifying_features": [
+    "One columnar main trunk ending in a limited two-leader fork; ten compact lateral systems in two opposite vertical rows on the main trunk, and four continuing those rows on crown axes. Not helical or radial branch whorls.",
+    "Each of fourteen lateral systems forms four unequal terminal axes on a broadly planar anisotomous scaffold; fifty-six slender terminal strobili, small persistent narrow microphylls on twigs and trunk.",
+    "Four subdued basal rhizomorph beginnings. No flowers, fruit, spherical cones, terminal-only Lepidodendron crown, coarse diamond bark armor or invented expansive modern tree roots."
+  ],
+  "scale": {
+    "units": "meters",
+    "nominal_art_dimensions_blender_xyz_m": [
+      2.5,
+      1.4,
+      4.7
+    ],
+    "accuracy": "Nominal artistic targets only, not exact hard equalities or fossil measurements. No invented micrometre-scale geometric gate."
+  },
+  "axes": {
+    "up": "+Z",
+    "front": "-Y",
+    "export_up": "+Y",
+    "export_front": "+Z"
+  },
+  "origin": "Bottom contact at z0 and full footprint centeredXY.",
+  "intended_use": {
+    "role": "Educational/catalog static candidate",
+    "viewing": "512px static inspection before independent QA; graphics-device and composed scene not run."
+  },
+  "surface_profile": "Closed full-volume opaque lowpoly surfaces; no textures, image planes or double-sided masking.",
+  "palette_srgb": {
+    "axis": "#8A8366",
+    "leaf": "#6F804E",
+    "young": "#95A266",
+    "cone": "#ACAA6D"
+  },
+  "component_and_cause": {
+    "primary": "One columnar main trunk ending in a limited two-leader fork; ten compact lateral systems in two opposite vertical rows on the main trunk, and four continuing those rows on crown axes. Not helical or radial branch whorls.",
+    "secondary": "Each of fourteen lateral systems forms four unequal terminal axes on a broadly planar anisotomous scaffold; fifty-six slender terminal strobili, small persistent narrow microphylls on twigs and trunk.",
+    "tertiary": "Four subdued basal rhizomorph beginnings. No flowers, fruit, spherical cones, terminal-only Lepidodendron crown, coarse diamond bark armor or invented expansive modern tree roots.",
+    "quiet_region": "Bare axis intervals and open negative space."
+  },
+  "concept_decisions": "Actual generated image inspected. Keep paired opposite-row compact side systems and limited crown fork. Reduce overlarge cones to approximately 55mm length in metre-scale geometry; retain narrow cigars not balls. Reject coarse diamond bark armor and woody modern spreading roots; show small persistent microphyll cues and four short subdued basal rhizomorph beginnings. Make trunk continuous and branch systems planar but occupy true depth.",
+  "concept_inspection": {
+    "inspected_at": "2026-10-20T23:51:48.497976+00:00",
+    "path": "production/batch96/concepts/paralycopodites-concept.png",
+    "sha256": "04e133a92844921ff14b3ae05ee8114eb2c362daab3e3d0f5cdde75325c8adc8"
+  },
+  "parameters": {
+    "trunk_height_m": 3.3,
+    "trunk_radius_m": 0.15,
+    "crown_leaders": 2,
+    "crown_extension_m": 1.1,
+    "main_lateral_systems": 10,
+    "crown_lateral_systems": 4,
+    "terminal_axes_per_system": 4,
+    "microphylls_per_terminal": 7,
+    "trunk_microphylls": 72,
+    "cone_length_m": 0.055,
+    "cone_width_m": 0.011,
+    "rhizomorphs": 4
+  },
+  "hard_component_counts": {
+    "main-axis": 1,
+    "crown-": 2,
+    "lateral-": 14,
+    "twig-": 56,
+    "cone-": 56,
+    "leaf-": 464,
+    "root-": 4
+  },
+  "measurement_semantics": "Technical ceilings and semantic nonempty component counts are hard. Dimensions are nominal art targets, not narrow fossil equality gates. Measure all actual final vertices in world space after grounding and transforms, including local component bounds and leaf/branch attachment. Preserve frozen morphology; ordinary intersecting joints allowed but exposed coplanar interference not allowed.",
+  "numeric_preflight": {
+    "status": "mutually-satisfiable-before-geometry",
+    "note": "No arbitrary narrow dimensional hard bounds. Count and technical budget estimates compatible. Leaf/radius dimensions remain nominal. Final authored/evaluated/exported counts, full world bounds and component extents measured before final proof; hard failures require geometry repairs, never freeze relaxation."
+  },
+  "deliverable_plan": [
+    "editable Blend",
+    "GLB",
+    "deterministic generator/config/seed/dependency closure",
+    "actual authored/evaluated/exported counts and component bounds",
+    "source reopen",
+    "two real distinct queued semantic rebuilds",
+    "project/Khronos/Three parse",
+    "eight exact512px views and lossless sheet",
+    "seven stage states with independent acceptance pending"
+  ],
+  "prohibited": [
+    "Alter inventory or stable ID",
+    "Use generated concept as factual source",
+    "Incorporate third-party pixels or meshes",
+    "Loosen original frozen requirements after geometry",
+    "Self-authorize independent QA or publication"
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact budgets, closed topology, editable source reopen, dependencies and two distinct real queued rebuilds.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect every exact final512px view; volumetric morphology, coherent attachment and no exposed surface interference. Actual generated image inspected. Keep paired opposite-row compact side systems and limited crown fork. Reduce overlarge cones to approximately 55mm length in metre-scale geometry; retain narrow cigars not balls. Reject coarse diamond bark armor and woody modern spreading roots; show small persistent microphyll cues and four short subdued basal rhizomorph beginnings. Make trunk continuous and branch systems planar but occupy true depth.",
+      "required_sources": []
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "One columnar main trunk ending in a limited two-leader fork; ten compact lateral systems in two opposite vertical rows on the main trunk, and four continuing those rows on crown axes. Not helical or radial branch whorls. Each of fourteen lateral systems forms four unequal terminal axes on a broadly planar anisotomous scaffold; fifty-six slender terminal strobili, small persistent narrow microphylls on twigs and trunk. Four subdued basal rhizomorph beginnings. No flowers, fruit, spherical cones, terminal-only Lepidodendron crown, coarse diamond bark armor or invented expansive modern tree roots. Genus-level living reconstruction, not exact fossil individual. Lateral row position and determinate branching use DiMichele and Bateman2020 primary text. Cone and leaf dimensions are illustrative choices near described specimens, not universal fossil ranges. Anatomy pixels are Seward1910 fig186A/B under a historical name linked to Paralycopodites by DiMichele1980; they do not directly demonstrate whole architecture. Exact height, counts, colors and complete outline are artistic.",
+      "required_sources": [
+        "DIMICHELE2020"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify original freeze unchanged, exact hard counts and budgets measured on actual final world geometry; nominal dimensions reported without invented tolerances.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB Three.js GLTFLoader parse, not hardware evidence.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual graphics-device test required or unknown.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed-scene test required or unknown.",
+      "required_sources": []
+    }
+  ],
+  "packaging_adapter": {
+    "created_at": "2026-10-22T05:36:26.680073+00:00",
+    "derived": true,
+    "derived_from": {
+      "path": "originals/production/batch96/assets/paralycopodites/r002/candidate-brief.json",
+      "sha256": "cab756f61ffd20bff15cd16558cc28b89ec13da590bcae3ec7be766d2e50c334",
+      "bytes": 10797
+    },
+    "frozen_design_brief": {
+      "path": "originals/production/batch96/assets/paralycopodites/r002/brief.json",
+      "sha256": "e17b789f5f9de5e3f49f082bb51d854c578d71edd0c92e8a02afd288af132fd7",
+      "bytes": 9857
+    },
+    "note": "New recovery delivery bindings only. Every original design field, numerical budget and criterion is preserved. This adapter is not a replacement historical freeze."
+  },
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "repair/assets/paralycopodites/recovery-r001/source.blend",
+      "sha256": "5f02eb7231dfbb5c0f2933393541fc48366bfa00a5d8fb760c03afca66158ba6",
+      "bytes": 1228836
+    },
+    {
+      "role": "generator",
+      "path": "repair/assets/paralycopodites/recovery-r001/generator.py",
+      "sha256": "72a0c2986adb1d413fa157018bee74ec9d65b2834b06f2d7965ef3bd018dc2e3",
+      "bytes": 14499
+    },
+    {
+      "role": "config",
+      "path": "repair/assets/paralycopodites/recovery-r001/build-config.json",
+      "sha256": "dafc15662fe5e28229682c0246b5c884f4ab0c5b3b9f9e9f87259dd823f174f1",
+      "bytes": 1301
+    }
+  ]
+}

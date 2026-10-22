@@ -5,15 +5,13 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { collectTurntables, webpDimensions, publishedImagePaths } from './turntable-delivery.mjs';
 import { collectInitialRelease } from './initial-release.mjs';
-import {collectProductionRelease} from './production-release.mjs';
+import {collectManifestProduction} from './production-publication.mjs';
 import {projectHistoricalManifest} from './ci-historical-publication.mjs';
 const root=process.cwd(),publishedManifest=JSON.parse(await readFile('assets/manifest.json'));const hash=b=>createHash('sha256').update(b).digest('hex');
 // Production PNGs are not WebP card/turntable files. Verify their real accepted
 // closure first, then exercise every unchanged historical negative on exact352.
-const descriptor=publishedManifest.publication?.production_descriptor;
-const production=descriptor?await collectProductionRelease(root,descriptor):[];
-assert(publishedManifest.publication?.production_descriptor || !publishedManifest.assets.some(asset=>asset.production_release),'Production assets require a bound descriptor');
-const manifest=publishedManifest.publication?.production_descriptor?projectHistoricalManifest(publishedManifest,production):publishedManifest;
+const production=await collectManifestProduction(root,publishedManifest);
+const manifest=production.length?projectHistoricalManifest(publishedManifest,production):publishedManifest;
 const initial=await collectTurntables(manifest),published=await collectTurntables(publishedManifest);
 assert.deepEqual(published,initial,'Production routing must retain every legacy frame/poster byte and no synthetic sequence');
 assert.equal(initial.descriptors.size,10);assert.equal(initial.posters.size,manifest.assets.length);

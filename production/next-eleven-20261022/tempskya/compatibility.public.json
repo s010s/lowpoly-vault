@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "tempskya",
+  "representation": "fossil-specimen",
+  "original_acceptance_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+  "private_derivation_sha256": "218b860f642ef1a6c3576c758181caa39fd331e8c0b34563da531efdeb3a48f1",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "tempskya",
+    "representation": "fossil-specimen",
+    "source_layout": "structured-subject-v1",
+    "source_field_map": {
+      "subject": {
+        "taxon_inspiration": "tempskya",
+        "inventory_name": {
+          "en": "Tempskya composite false-trunk specimen",
+          "zh": "Tempskya 假干蕨"
+        },
+        "category": "plants",
+        "subcategory": "stem-cluster",
+        "planning_eras": [
+          "cretaceous"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen",
+        "pose": "Static cut specimen with readable internal composite structure; no invented whole fern."
+      },
+      "claim_scope": "One cut composite false-trunk specimen showing small stem islands embedded in interwoven roots; no living crown or unsupported leaf arrangement.",
+      "distinctness": {
+        "en": "A many-stem cross-section differs structurally from the single-stem root mantle of Psaronius.",
+        "zh": "多茎横截面在结构上区别于Psaronius的单干根套。"
+      },
+      "modeling_brief": {
+        "en": "Use one cut false-trunk specimen with uneven rounded stem islands and interwoven root bands; no added living crown.",
+        "zh": "制作单件切面假干标本，以不规则小茎岛和交织根带表现，不添加活体树冠。"
+      },
+      "reference_policy": {
+        "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+        "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+        "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+        "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+        "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+        "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+      },
+      "scale": {
+        "meters": 0.38,
+        "axis": "cut false-trunk specimen span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "artistic_choices": [
+        "Nominal scale, colors and conservative thickness/curvature are artistic choices, not new fossil measurements.",
+        "Preserve original shell/tube or isolated botanical organ scope; never infer associated whole organisms or extra organs."
+      ]
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000,
+      "soft_glb_bytes": 500000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 1,
+      "max_dimension": 256,
+      "max_total_bytes": 65536,
+      "max_decoded_bytes": 524288
+    },
+    "original_criteria": [
+      {
+        "id": "technical-integrity",
+        "stage": "technical",
+        "critical": true,
+        "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+        "required_sources": []
+      },
+      {
+        "id": "normal-view-craft",
+        "stage": "visual",
+        "critical": true,
+        "description": "Gray cut face shows uneven small stem islands inside interwoven root bands, not concentric ordinary wood rings or uniform punched holes. Outer log silhouette alone does not establish composite false trunk.",
+        "required_sources": []
+      },
+      {
+        "id": "basic-form-and-scope",
+        "stage": "factual",
+        "critical": true,
+        "description": "仅一件切面假干标本，以不规则小茎岛和交织根带表达内部复合构造；不是枯木端面打同心圆孔。不加未知活体树冠/叶序，也不把多根小茎另计多个资产。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+        "required_sources": [
+          "FL-tempskya",
+          "FL-fern-lab"
+        ]
+      },
+      {
+        "id": "deliverables-and-label",
+        "stage": "specification",
+        "critical": true,
+        "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+        "required_sources": []
+      },
+      {
+        "id": "target-loader",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+        "required_sources": []
+      },
+      {
+        "id": "functional-render",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+        "required_sources": []
+      },
+      {
+        "id": "representative-scene",
+        "stage": "scene",
+        "critical": true,
+        "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "FL-fern-lab",
+      "FL-tempskya"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Original Tempskya-inspired cut composite false-trunk specimen only: unequal rounded/lobed small stem islands are embedded in a dense root matrix, with interwoven cable-like root bands across the cut and outer side. Filled stem sections are larger than root strands, not concentric ordinary wood rings or punched holes. Nominal38cm, organ counts, cut relief and color are artistic; no living crown, leaves or whole fern inferred.",
+    "zh": "原创Tempskya启发切面复合假干标本：不等大圆/浅裂小茎岛包埋于密集根基质，切面与外侧有交织绳状根带，实心茎切面大于细根而非普通木纹同心圆孔。名义38厘米、数量裁面起伏与配色属美术，不推全株冠叶。"
+  },
+  "acceptance": {
+    "profile": "criteria-seven-role-identity-v1",
+    "original_schema": "independent-production-acceptance-v1",
+    "original_schema_version": null,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "productionAccepted",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "productionVerdict",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "required_repairs",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "reproducibility.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "historical_preservation.old_approved_false_unchanged",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "historical_preservation.input_tree_unchanged",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "criteria",
+        "kind": "criteria",
+        "allowed": {
+          "technical-integrity": [
+            "PASS",
+            "pass"
+          ],
+          "normal-view-craft": [
+            "PASS",
+            "pass"
+          ],
+          "basic-form-and-scope": [
+            "PASS",
+            "pass"
+          ],
+          "deliverables-and-label": [
+            "PASS",
+            "pass"
+          ],
+          "target-loader": [
+            "PASS",
+            "pass"
+          ],
+          "functional-render": [
+            "PASS_CPU_ONLY"
+          ],
+          "representative-scene": [
+            "PASS_DECLARED_NEUTRAL_CPU_SCENE"
+          ]
+        }
+      }
+    ],
+    "gate_values": [
+      true,
+      "PASS",
+      [],
+      "PASS",
+      true,
+      true,
+      [
+        {
+          "id": "technical-integrity",
+          "status": "PASS",
+          "evidence_count": 3,
+          "evidence_sha256": "d7203c59d76c20e5668b7863585d358d9f7291737b7735cfea45b63c20b61a8a"
+        },
+        {
+          "id": "normal-view-craft",
+          "status": "PASS",
+          "evidence_count": 10,
+          "evidence_sha256": "d44b96e267d2a8e4b1ae0a98aa73327335faf3e8cdb02b9749c49f2544414e9f"
+        },
+        {
+          "id": "basic-form-and-scope",
+          "status": "PASS",
+          "evidence_count": 4,
+          "evidence_sha256": "935a4e0d208d570846ba1e5b9919e3c37db6c6b8a5c98e8c33de28c3db370b53"
+        },
+        {
+          "id": "deliverables-and-label",
+          "status": "PASS",
+          "evidence_count": 5,
+          "evidence_sha256": "739c4cf22756bc159e85cc005c8000620a56d30485759c2901358eed2a57e1d8"
+        },
+        {
+          "id": "target-loader",
+          "status": "PASS",
+          "evidence_count": 2,
+          "evidence_sha256": "283cdbcd4a13761aaff7349aa744fc10772ced4d96975ce77ddbad76f895f869"
+        },
+        {
+          "id": "functional-render",
+          "status": "PASS_CPU_ONLY",
+          "evidence_count": 3,
+          "evidence_sha256": "b93e187a879ba801c3ecb2c0037320f4a010e2306fcc241a46c21e3d823ede68"
+        },
+        {
+          "id": "representative-scene",
+          "status": "PASS_DECLARED_NEUTRAL_CPU_SCENE",
+          "evidence_count": 3,
+          "evidence_sha256": "536ec87d84964d12b65a2bcc8eab740c463270615fbab1cb9e3017c5e23bbd9e"
+        }
+      ]
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "scope",
+        "value": {
+          "accepted": "One cut composite false-trunk teaching specimen with uneven rounded/lobed filled larger stem islands inside finer interwoven roots and surface-hugging exterior cables. Original batch50 scope only.",
+          "not_claimed": [
+            "Whole living fern",
+            "Crown, leaves or unsupported leaf arrangement",
+            "Exact species or exact photographed specimen",
+            "Measured fossil dimensions",
+            "Microscopic anatomy",
+            "Boolean-unified single mesh",
+            "Physical GPU or browser performance"
+          ],
+          "artistic": [
+            "Nominal 0.38 m display span",
+            "Palette",
+            "Counts and proportions",
+            "Raised cut-face relief and simplified interwoven bands"
+          ]
+        },
+        "original_value_sha256": "583fabf1c728fdabbdf6ee48e1486ab802a67ac2dce71c6f6a0681f115d376b8"
+      },
+      {
+        "source_field": "criteria.2.findings",
+        "value": "Opened the two cited institutional/museum pages and inspected the stored Figure 2/3 image pixels. Museum text and images support lobed/circular larger stems among finer root mass, with cable-like exterior. University labels identify Tempskya from Idaho/Cretaceous but are not treated as microscopic or image-specific proof. Model is accepted as the original generic stylized cut specimen, not a new exact-specimen reconstruction. The cross-cut bands are declared schematic relief, not a claim that the fossil microstructure matches them.",
+        "original_value_sha256": "0a0e33e8d60c5dc813e43c22d03575302dc4d468baed0037083cf51acda2554d"
+      }
+    ],
+    "original_field_hashes": {
+      "productionAccepted": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "productionVerdict": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "required_repairs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reproducibility.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "historical_preservation.old_approved_false_unchanged": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "historical_preservation.input_tree_unchanged": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "criteria": "6a156e2cf309d3fdfafc5580113544afbbca16a41da335b35792b25f44cf164f",
+      "identity": "8e0b87f8f60cf162a6ab28fa5301808bb00a58b81513b596f351d7dbbe39e9b3",
+      "review_kind": "0fe652d2e29e7dc3bb72b13031bda45b1a540b8fe47b45b899f8b847f2621af3",
+      "scope": "583fabf1c728fdabbdf6ee48e1486ab802a67ac2dce71c6f6a0681f115d376b8",
+      "reproducibility": "c9a4c0a62f509ec98cc7ac761e5c7410ab765d5e8ad21b54ea100a9e99df4753",
+      "historical_preservation": "473edce563db263eca583cd94ac0671d80a316d47b4d84d7247ecc38e4af6e71",
+      "postrelease": "130784fdd6a12e4ec895251bbe0e78990aad4a0cce4e801df0e3bf3ab371dcdf"
+    },
+    "original_reviewer_identity": null
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "04cd1c2507e99552f51a44af8fad7fb2bbb1b547535d36fb6c64002f049f8c83",
+      "bytes": 11158,
+      "original_path_sha256": "3836f6fa7648ad5b5590110785d0c825c636c9d7f4b39b58da05849bae7e8551",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "d278421f79289171f147ae86b6d8a43af7769dc29601ea70b5f3115c003fc0e4"
+    },
+    "config": {
+      "sha256": "289ccfd109fa172da0867bdf8850ad28b231e70758bfe7720f69be17309e4660",
+      "bytes": 3421,
+      "original_path_sha256": "a4ba06af29342bf37784774b8421d69515f1e60b4724fe9662a9e5197703e6db",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "891e6b7d7e29875a1c3e7b40136d593e83bf4f891d7561bc89edf90c45c6209f"
+    },
+    "references": {
+      "sha256": "0e6d4458cfa3ab25e7be7d950946d9a6d6e6b1aa514727770ad7d939e653d9de",
+      "bytes": 1781,
+      "original_path_sha256": "3f635312e1c0e24854bfb52ba1e4262bff41071e38b1dc5c644601badf8a692f",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "a4fb40d7a67cbc33c105e0d5fca4376876d420c7a7253d304daa8573898bd685"
+    },
+    "generator": {
+      "sha256": "9718b9101281b47cfc1fbde3986ce4cff77f6a8a327bb255a02f4950689de6ce",
+      "bytes": 13800,
+      "original_path_sha256": "dbf03746df6e05cde1b7cdc856542b2e853e615886301b569b9ec750f1ba180f",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "ce8e0466b8e4c5ad9909b247d64ff18c52db8564cc5d3e1069af6d62c1cc525f"
+    },
+    "dependency-list": {
+      "sha256": "56cebd2309ace370cd8b6ce971f3dedca41f37fe474bfd63eabd07ae6b7ae71e",
+      "bytes": 3452,
+      "original_path_sha256": "96b6c32a05a99cf5badf605ea166cb1561c3eadfa1a4bb15d5624fd40e6ff8fb",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "00a7677f891616abaf78267314ade9c8118622bdcfd61774641a7294c6bd9266"
+    },
+    "finalGLB": {
+      "sha256": "dc4f673361183f5cacaaad6907dca76515bff4d51f6db35182c4b1a7bfb1c829",
+      "bytes": 256608,
+      "original_path_sha256": "2cf422145b5eec0a17c79af6e7da54662b54bbeca5f7583ac7dee3a6a7958b25",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "058469a97c36bf09d17456c4768c22f0f78275a3064a98c6a3e4987f73d40d0f"
+    },
+    "finalBlend": {
+      "sha256": "b448280ab92cc5a626d68c216a54a924d0f5b1ab34004c0fdc1655045ba54f86",
+      "bytes": 951340,
+      "original_path_sha256": "d76921554eef6402b383349f4daf9015b24432a2370edd2055902ded0acf3f92",
+      "source_document_sha256": "d1bec627893b152ee21dda116381f9ff178ff72185e2fb7d3588e0e9f12923ba",
+      "source_pointer_sha256": "5beda286e8ca0ccb3214a2fb6063de02545f8176071d0ea0ad006f3cd3c0cdfd"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "executable-original-deterministic-generator-config",
+  "asset_id": "tempskya",
+  "batch_id": "batch-50",
+  "revision": "recovery-r001",
+  "maker_model": "current assigned maker",
+  "maker_reasoning_effort": "inherited",
+  "environment": "authorized selected cloud only",
+  "seed": 2026101812,
+  "representation": "fossil-specimen",
+  "reconstruction_type": "specimen",
+  "nominal_scale": {
+    "meters": 0.38,
+    "axis": "cut false-trunk specimen span",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "preview": {
+    "resolution": 600,
+    "samples": 24,
+    "poster_view": "hero",
+    "transparent": true
+  },
+  "static_only": true,
+  "animation_ready_claim": false,
+  "start_gate": "Current coordinator exclusive local build direction 2026-10-22; publication is not authorized.",
+  "concurrency": "Exclusive root, shared flock, Blender -t 2",
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "geometry_choices": {
+    "en": "Original Tempskya-inspired cut composite false-trunk specimen only: unequal rounded/lobed small stem islands are embedded in a dense root matrix, with interwoven cable-like root bands across the cut and outer side. Filled stem sections are larger than root strands, not concentric ordinary wood rings or punched holes. Nominal38cm, organ counts, cut relief and color are artistic; no living crown, leaves or whole fern inferred.",
+    "zh": "原创Tempskya启发切面复合假干标本：不等大圆/浅裂小茎岛包埋于密集根基质，切面与外侧有交织绳状根带，实心茎切面大于细根而非普通木纹同心圆孔。名义38厘米、数量裁面起伏与配色属美术，不推全株冠叶。"
+  },
+  "source_role": "New local continuation derived from original prepared-only r001, not original recovered geometry",
+  "geometry_revision": "c003",
+  "resolved_maker_defects": [
+    "Center cut root mass coverage, not only a perimeter nest.",
+    "Flank cables seated into matching matrix surface rather than loose floating ends.",
+    "Filled island caps made flat rather than pillow-smoothed; no ordinary wood rings.",
+    "Required technical correction: replace fixed-axis tube frames with transported frames after self-intersection audit caught flips in 7 curved cut roots."
+  ]
+}

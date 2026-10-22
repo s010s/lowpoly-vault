@@ -6,16 +6,18 @@ import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
 import {execFileSync,spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {collectProductionRelease,assertProductionMetadata} from './production-release.mjs';
+import {assertProductionMetadata} from './production-release.mjs';
+import {collectManifestProduction} from './production-publication.mjs';
 import {historical295Fixture} from './test-historical295-fixture.mjs';
 export const HISTORICAL_PUBLICATION_SUITES=Object.freeze(['concept-landair-release','forty-four-release','fifty-two-release','final-five-release']);
 const hash=b=>createHash('sha256').update(b).digest('hex');
 export function projectHistoricalManifest(manifest,reviewed){
  const result=structuredClone(manifest);
- if(result.publication?.production_descriptor){
+ assert(!(Object.hasOwn(result.publication||{},'production_registry')&&Object.hasOwn(result.publication||{},'production_descriptor')),'Ambiguous production routes');
+ if(Object.hasOwn(result.publication||{},'production_registry')||Object.hasOwn(result.publication||{},'production_descriptor')){
   const actual=result.assets.filter(a=>a.production_release);assert.deepEqual(actual.map(a=>a.id).sort(),reviewed.map(a=>a.id).sort(),'Only exact reviewed production assets may be projected');
   for(const asset of actual)assertProductionMetadata(reviewed.find(a=>a.id===asset.id),asset);
-  const ids=new Set(reviewed.map(a=>a.id));result.assets=result.assets.filter(a=>!ids.has(a.id));delete result.publication.production_descriptor;
+  const ids=new Set(reviewed.map(a=>a.id));result.assets=result.assets.filter(a=>!ids.has(a.id));delete result.publication.production_descriptor;delete result.publication.production_registry;
  }else assert.equal(reviewed.length,0,'No unbound production projection');
  historical295Fixture(result);return result;
 }
@@ -28,8 +30,8 @@ function dependencyInventory(root){
 }
 export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tmpdir()}={}){
  assert(HISTORICAL_PUBLICATION_SUITES.includes(name),'Unsupported historical suite');
- const original=readFileSync(resolve(source,'assets/manifest.json')),manifest=JSON.parse(original),descriptor=manifest.publication?.production_descriptor;
- const reviewed=descriptor?await collectProductionRelease(source,descriptor):[],projected=projectHistoricalManifest(manifest,reviewed);
+ const original=readFileSync(resolve(source,'assets/manifest.json')),manifest=JSON.parse(original);
+ const reviewed=await collectManifestProduction(source,manifest),projected=projectHistoricalManifest(manifest,reviewed);
  const paths=execFileSync('git',['ls-files','-z'],{cwd:source,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean);
  assert(paths.includes('assets/manifest.json')&&paths.includes(`site/${name}-test.mjs`),'Real tracked source inventory required');
  const snapshot=paths.map(path=>{const f=resolve(source,path);assert(existsSync(f),'Complete checkout required; missing tracked input: '+path+'; no downloads attempted');assert(lstatSync(f).isFile()&&!lstatSync(f).isSymbolicLink(),'Complete ordinary tracked source required: '+path);return {path,sha256:hash(readFileSync(f)),mode:lstatSync(f).mode&0o7777,bytes:lstatSync(f).size};});

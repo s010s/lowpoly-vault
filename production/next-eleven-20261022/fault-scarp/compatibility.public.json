@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "fault-scarp",
+  "representation": "geological-form",
+  "original_acceptance_sha256": "a38a8d67effe7ce4223f865148c56c88a6934f749526626a3cddcbcfab622e90",
+  "private_derivation_sha256": "7164f6381e71a0d2486b9c62b5c2d7c8e628b4a7f7b794eea4804741d7c806cb",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "fault-scarp",
+    "representation": "geological-form",
+    "source_layout": "structured-subject-v1",
+    "source_field_map": {
+      "subject": {
+        "inventory_name": {
+          "en": "Fault scarp",
+          "zh": "断层崖"
+        },
+        "category": "terrain",
+        "subcategory": "tectonic",
+        "planning_eras": [],
+        "representation": "geological-form",
+        "reconstruction_type": "artistic-concept",
+        "pose": "Static teaching presentation, no exact paleolocality or co-occurrence claim.",
+        "process_inspiration": "fault-scarp"
+      },
+      "claim_scope": "Original stylized natural-process or trace-morphology teaching concept; not exact site, dated stratum or excavated specimen duplication.",
+      "distinctness": {
+        "en": "Offset ground surfaces joined by a sharp planar step.",
+        "zh": "被清晰平面陡坎错开的两侧地面。"
+      },
+      "modeling_brief": {
+        "en": "Use original low-poly facets to emphasize: offset ground surfaces joined by a sharp planar step. Keep secondary texture subordinate to the diagnostic geometry; choose one composition, not counted variants.",
+        "zh": "采用原创低多边形几何突出：被清晰平面陡坎错开的两侧地面。次要纹理服从识别结构；只计一种构图，不靠变体增数。"
+      },
+      "reference_policy": {
+        "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+        "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+        "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+        "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+        "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+        "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+      },
+      "scale": {
+        "meters": 8,
+        "axis": "representative offset ground patch width",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "artistic_choices": [
+        "Nominal size, palette and interpretive exposure/section/layout are artistic choices, not measured site data.",
+        "One original inventory ID counts once; color, damage, density and display revisions are not new entries."
+      ]
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000,
+      "soft_glb_bytes": 500000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 1,
+      "max_dimension": 256,
+      "max_total_bytes": 65536,
+      "max_decoded_bytes": 524288
+    },
+    "original_criteria": [
+      {
+        "id": "technical-integrity",
+        "stage": "technical",
+        "critical": true,
+        "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+        "required_sources": []
+      },
+      {
+        "id": "normal-view-craft",
+        "stage": "visual",
+        "critical": true,
+        "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+        "required_sources": []
+      },
+      {
+        "id": "basic-form-and-scope",
+        "stage": "factual",
+        "critical": true,
+        "description": "两侧地面及可对照结构被一处平面阶坎错开，灰色露面有方向/高差，不是旧台阶地形换色或直线切两块石。不声称地震事件、滑移量或实际古地点，8m是示意裁片。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+        "required_sources": [
+          "EN-TE"
+        ]
+      },
+      {
+        "id": "deliverables-and-label",
+        "stage": "specification",
+        "critical": true,
+        "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+        "required_sources": []
+      },
+      {
+        "id": "target-loader",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+        "required_sources": []
+      },
+      {
+        "id": "functional-render",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+        "required_sources": []
+      },
+      {
+        "id": "representative-scene",
+        "stage": "scene",
+        "critical": true,
+        "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "EN-TE"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Original stylized normal-fault teaching crop: one continuous scarp separates matching high and low ground, corresponding displaced sediment bands and a shallow channel. A rounded shoulder and real cut-face bedding relief remain visible in clay. Nominal 8 m width, 1.1 m model offset, palette, crop and weathering are artistic choices, not measured site or earthquake data.",
+    "zh": "原创风格化正断层教学裁片：一处连续断层崖连接高低地面，对应沉积层和浅槽发生错移；灰模可见圆化崖肩与实体层理浅凹。名义8米宽、模型1.1米高差、配色、裁面及风化均为美术选择，不是实测地点或地震数据。"
+  },
+  "acceptance": {
+    "profile": "criteria-source-lineage-v1",
+    "original_schema": "independent-production-acceptance-v1",
+    "original_schema_version": null,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "productionAccepted",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "verdict",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "critical_findings",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "required_repairs",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "workflow.legacy_approved",
+        "kind": "equal",
+        "expected": false
+      },
+      {
+        "path": "workflow.production_acceptance_is_additive_only",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "criteria",
+        "kind": "criteria",
+        "allowed": {
+          "exact-subject-and-source-lineage": [
+            "PASS",
+            "pass"
+          ],
+          "technical-integrity-and-budget": [
+            "PASS",
+            "pass"
+          ],
+          "closed-volumes-and-contact": [
+            "PASS",
+            "pass"
+          ],
+          "basic-form-and-scientific-scope": [
+            "PASS",
+            "pass"
+          ],
+          "normal-view-craft": [
+            "PASS",
+            "pass"
+          ],
+          "canonical-cover": [
+            "PASS",
+            "pass"
+          ],
+          "editable-source-and-reproducibility": [
+            "PASS",
+            "pass"
+          ],
+          "delivery-label-and-provenance": [
+            "PASS",
+            "pass"
+          ]
+        }
+      }
+    ],
+    "gate_values": [
+      "PASS",
+      "PASS",
+      [],
+      [],
+      false,
+      true,
+      [
+        {
+          "id": "exact-subject-and-source-lineage",
+          "status": "PASS",
+          "evidence_count": 2,
+          "evidence_sha256": "50595b866eade463b51a18283d9143d04ba8cd8726345888481a8348f74c1243"
+        },
+        {
+          "id": "technical-integrity-and-budget",
+          "status": "PASS",
+          "evidence_count": 3,
+          "evidence_sha256": "82b77061153476effabe0cc6c60b08c7d4d4f298e85656768204b2ff22fa1118"
+        },
+        {
+          "id": "closed-volumes-and-contact",
+          "status": "PASS",
+          "evidence_count": 2,
+          "evidence_sha256": "80b50d77923dc1dec1b26fe0acd2640c9b227db068681e4484472d775e33e699"
+        },
+        {
+          "id": "basic-form-and-scientific-scope",
+          "status": "PASS",
+          "evidence_count": 5,
+          "evidence_sha256": "131e6c58f5ca7b13571035c4a3993c295048fd8bc400bb63029c0e7f8689deb7"
+        },
+        {
+          "id": "normal-view-craft",
+          "status": "PASS",
+          "evidence_count": 3,
+          "evidence_sha256": "80c8f6d4687b330e2cf3683c7f9d1c439ae199dc468086edb68583bc171c4cc6"
+        },
+        {
+          "id": "canonical-cover",
+          "status": "PASS",
+          "evidence_count": 1,
+          "evidence_sha256": "1fae16561c274dd065da6e15e58f0fe62a5b0552c9930b1b44204198dbf345eb"
+        },
+        {
+          "id": "editable-source-and-reproducibility",
+          "status": "PASS",
+          "evidence_count": 3,
+          "evidence_sha256": "a46ef5d2a3e8b6af81b9467d1d3f379d41680cc05af70dceb842c851609dd863"
+        },
+        {
+          "id": "delivery-label-and-provenance",
+          "status": "PASS",
+          "evidence_count": 3,
+          "evidence_sha256": "9090255dfb285be7fab52c86a79d0aa8927ec5bef21e1c3bb0be94508b37347c"
+        }
+      ]
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "limitations",
+        "value": [
+          "Static stylized geological teaching crop only; not photorealism, exact location, event chronology or geological slip measurement.",
+          "No browser/GPU deployment, museum integration, physical-device performance or postrelease multi-copy scene result is claimed.",
+          "2 source solids intentionally share part of one fault plane. They are not intended as a single manifold union or as zero-contact separate props.",
+          "Normal-view review covers 80/240/480 px, not microscopic enlargement."
+        ],
+        "original_value_sha256": "1571dd7fec5724bd4981cd00c211defe272c105aa4e607aab0a87d3734d10cfb"
+      },
+      {
+        "source_field": "criteria.3.finding",
+        "value": "One continuous inclined scarp separates high +X footwall from lower -X hanging wall. Plane dips toward -X, so the relative downthrow is correct for a normal-fault teaching concept. Corresponding layer bands and actual shallow grooves are vertically offset; the cross-surface shallow channel is another matching feature. Softened faceted upper shoulder remains apparent. It is a connected geological cutaway, not recolored unrelated stones or repeated stairs. Generic geological-form/artistic-concept label is retained; 8 m width, 1.1 m illustrative offset, palette/crop/weathering are art direction, not actual site/event/age/slip measurements.",
+        "original_value_sha256": "b1edfc017251db6c7584077265e7ae719a69bbe20c96ef0b422616afab78ed15"
+      },
+      {
+        "source_field": "reference_verification.source_support",
+        "value": "NPS explains relative normal-fault downsliding, rounded scarp tops from erosion and offset sediment layers. Reference supports basic generic form only, not this crop dimension or actual event reconstruction. Maker pixel-view provenance is retained; reviewer does not claim a new photo-matching reconstruction.",
+        "original_value_sha256": "39dfcc786bb74262a78bb2862899bfdcc55ad3f76d5c0ce0a8cd2af09da91871"
+      },
+      {
+        "source_field": "reference_verification.no_reference_media_copied",
+        "value": true,
+        "original_value_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+      },
+      {
+        "source_field": "reference_verification.pages_independently_read",
+        "value": [
+          "https://www.nps.gov/articles/faults-and-fractures.htm",
+          "https://www.nps.gov/grte/learn/nature/faults.htm"
+        ],
+        "original_value_sha256": "600d7ac68cb62d61266ebca1e04e643befc85aad5ec7f622e0bb49d609b38a79"
+      }
+    ],
+    "original_field_hashes": {
+      "asset_id": "db4399b4ad4406bcf8b7ac2fe3e2ba9e0c2250f7690e27073a1929ec3f655198",
+      "productionAccepted": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "verdict": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "critical_findings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "required_repairs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "workflow.legacy_approved": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "workflow.production_acceptance_is_additive_only": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "criteria": "7f0dadb77300aef0181d1721e1060b6f27c629e58a9f336820b854ff8fde0343",
+      "reviewer_role": "6eebbf2f50adbff93fea5170270e52d56cc7f473ef6cf95554b73e4980d1d157",
+      "final_glb": "e9efeeb697a1936b6bf21650a805ea66abe627bb31526cc48b6607a677812437",
+      "final_blend": "240bf0cda9e35f8af5097ea4470ce57684dc65f86ddd855f317061d4cf312acc",
+      "maker_handoff_sha256": "0c0af2fd84e1370a68696c37183fb1401aad94368b2869091608fdde15e53341",
+      "reference_verification": "ea452808a41ec03d932c88cef9d19bdfc7897ea0d69fa26f19433c716ab5e985",
+      "workflow": "71fdbc8e8b5270c7b0ed747001c147dd1e8be82006fa9d956238f758447b3836",
+      "limitations": "1571dd7fec5724bd4981cd00c211defe272c105aa4e607aab0a87d3734d10cfb"
+    },
+    "original_reviewer_identity": null
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "d53055efb973a87eaf4c0185c2f7d1d69bcaeaf9edd2236b1999931bd85b20dc",
+      "bytes": 11019,
+      "original_path_sha256": "6b1e2d0d1a533b27a3d013f62fdbc965260c2a8225af4db94e569d22d1cda010",
+      "source_document_sha256": "f0dc2119996aba8168556c010211fbe744946470c90038094e86ff7ffeff09ad",
+      "source_pointer_sha256": "9089f466ef3a65a96f984c5b90a35debbb68fe2e9db855a8aa3c9e0ca5a93992"
+    },
+    "config": {
+      "sha256": "dae5ba8604c6acce445eef54914d81a751d4d59197b28f69943bbd712d062555",
+      "bytes": 3402,
+      "original_path_sha256": "90ad134b6ef9a6c52dfd37e06db820c8c8ce38f583406ccdc2166c49115e2b92",
+      "source_document_sha256": "f0dc2119996aba8168556c010211fbe744946470c90038094e86ff7ffeff09ad",
+      "source_pointer_sha256": "486f995f8e8b33ae0b4d9264a673eb8c05bb98f34cd3271d85251312203a71a1"
+    },
+    "references": {
+      "sha256": "4dfc9aeb6fc9c2fe8bdb94017f0eb73ed707d5a8c7c4173cdaf8801b3dd75ea7",
+      "bytes": 2039,
+      "original_path_sha256": "88c78c07e1d2edfd4d110f0fb21a71644c70b76cd7dfd7b88bc426ea7c18e658",
+      "source_document_sha256": "f0dc2119996aba8168556c010211fbe744946470c90038094e86ff7ffeff09ad",
+      "source_pointer_sha256": "c68da80a8bf33d10123ccb5f6eed589fa6277f606083a3cde4b35af8758289ac"
+    },
+    "generator": {
+      "sha256": "469af16ce5e07353719128af503aadc21a4e95fe79ff26e1de5f3fa61ac25b7c",
+      "bytes": 6136,
+      "original_path_sha256": "9c0399e6b9df47129e9e93d17179455c8cb2eb9698f5b9619106d5f4166a8915",
+      "source_document_sha256": "f0dc2119996aba8168556c010211fbe744946470c90038094e86ff7ffeff09ad",
+      "source_pointer_sha256": "4b3bc1363a70ce08ae821b19908529807b981d11e4f62f03d376a988969bf64d"
+    },
+    "dependency-list": {
+      "sha256": "36a5da2ce2203f59fdf944e1a7b86544c38a4c5a123e5febd895f8daf67b7121",
+      "bytes": 32585,
+      "original_path_sha256": "749301ee4a8d6189de229a3a93f15f6f4acc310710ef062003bfa828a16cbebb",
+      "source_document_sha256": "f0dc2119996aba8168556c010211fbe744946470c90038094e86ff7ffeff09ad",
+      "source_pointer_sha256": "f65ad573402e1f5bf0f07731369baf274191e13e46f6c814dd1b37e5a8355901"
+    },
+    "finalGLB": {
+      "sha256": "dcc8d8e512a678320d25d6a6540679d9df4a3d4f5408935acdbf630a84785810",
+      "bytes": 80540,
+      "original_path_sha256": "712c7309be42b5f9c3bc70731ff4ec2a2770817ec1f82009c4081431de830ee4",
+      "source_document_sha256": "a38a8d67effe7ce4223f865148c56c88a6934f749526626a3cddcbcfab622e90",
+      "source_pointer_sha256": "088f72924db1b9a5d6c40989529eebb456fad54fb87ec9d371c87ce8ed6644cf"
+    },
+    "finalBlend": {
+      "sha256": "93bb36c1f3df557944500331d300f33a4866db415dc2ac4f302dcf7b893248cb",
+      "bytes": 575240,
+      "original_path_sha256": "1cdb84c62dcf9320e00bd36d57910d9a402e796ad500e22cca86761a8954254a",
+      "source_document_sha256": "a38a8d67effe7ce4223f865148c56c88a6934f749526626a3cddcbcfab622e90",
+      "source_pointer_sha256": "c6c9f14afea3570f3b75d63bc6eb750aba4480239b622c71055f50c67864b059"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}
