@@ -1,5 +1,7 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
 import {assertHistoricalPosterRecipe,assertHistoricalPosterApprovals} from './gallery-poster-compat.mjs';
+import {appendProductionPosterInputState} from './production-release.mjs';
+import {assertMain842PosterRecipe} from './gallery-main842-compat.mjs';
 const historicalRecipes=new WeakMap();
 // END GALLERY POSTER V3 ORCHESTRATION
 /** Versioned WebGL poster recipe. UI styles/fonts are not rasterized into these transparent canvases. */
@@ -61,6 +63,12 @@ export async function posterInputState(manifest,resources,{root=process.cwd()}={
  let baseline;try{baseline=JSON.parse(await readFile(resolve(root,'site/gallery/approved-poster-inputs.json')));}catch{baseline=null;}
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
  await assertHistoricalPosterApprovals({root,baseline});
+ const production=manifest.assets.filter(asset=>asset.production_release);
+ if(production.length){
+  for(const asset of production)assert(!baseline?.posters?.[asset.id],'Production route cannot replace a historical golden approval');
+  const legacy=await posterInputState({...manifest,assets:manifest.assets.filter(asset=>!asset.production_release)},resources,{root});
+  return appendProductionPosterInputState(root,production,resources,legacy);
+ }
 // END GALLERY POSTER V3 ORCHESTRATION
  const valid=[],stale=[],approvedIds=[];
  for(const asset of manifest.assets){
@@ -74,6 +82,12 @@ export async function posterInputState(manifest,resources,{root=process.cwd()}={
    assert.equal(approved.poster_sha256,hash(JSON.stringify({poster,seals})),`Approved poster pixels or metadata changed: ${asset.id}; explicitly review a new baseline`);
    assert.equal(approved.input_sha256,posterInputKey(asset,historical),`Approved poster inputs changed: ${asset.id}; explicitly review a new baseline`);
    valid.push(asset.id);approvedIds.push(asset.id);continue;
+  }
+  // Existing non-golden consistency is retained only for the exact main842 v3
+  // recipe. These captures remain unapproved and stay in the fresh-capture list.
+  if(!approved&&baseline?.shared){
+   const main842=await assertMain842PosterRecipe({root,shared});
+   if(poster.input_sha256===posterInputKey(asset,main842)&&poster.browser_version===main842.browser){valid.push(asset.id);continue;}
   }
 // END GALLERY POSTER V3 ORCHESTRATION
   // Golden approved pixels are preserved, never silently re-signed for a changed recipe.

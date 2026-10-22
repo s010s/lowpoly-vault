@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "kind": "production-release-v1",
+  "baseline_commit": "8423d2aaf6de34be5ffe1a5fd02f04b12267f674",
+  "scope": "Exactly these three model-production-accepted recovery candidates. No historical next10 or test-branch import. No inventory increment.",
+  "producer": {
+    "id": "local-main842-fixed3-integrator",
+    "task_id": "/root/resume_parallel_model_production/assemble_three_release_baseline"
+  },
+  "review_path": "production/recovery-20261022/projection-review.json",
+  "assets": [
+    {
+      "id": "spyroceras",
+      "metadata": {
+        "path": "assets/additions/spyroceras/recovery-r001/metadata.production.json",
+        "sha256": "a978380aa8d56738c4657f237882f5458304b1827839fc9a1312a11cc9a33d23",
+        "bytes": 3344
+      },
+      "evidence": {
+        "path": "production/recovery-20261022/spyroceras/evidence.json",
+        "sha256": "f667f867d183dbeab947aaa6be2373190d5ef9f88bc71f8ef11718b767205677",
+        "bytes": 11240
+      }
+    },
+    {
+      "id": "phragmoceras",
+      "metadata": {
+        "path": "assets/additions/phragmoceras/recovery-r001/metadata.production.json",
+        "sha256": "826f9bdceb0d840f75a68e6b0c5a08ebfd3d62f432aac7109de1126691589f5c",
+        "bytes": 3720
+      },
+      "evidence": {
+        "path": "production/recovery-20261022/phragmoceras/evidence.json",
+        "sha256": "4c9168e6f3cac00b44de8480c280480635dcbe97a602c9cda810f7f7b1a9c702",
+        "bytes": 11968
+      }
+    },
+    {
+      "id": "lituites",
+      "metadata": {
+        "path": "assets/additions/lituites/recovery-r001/metadata.production.json",
+        "sha256": "0ba40af55c1af69d39d8e41c244f0dec76dd32e80be65ef93e50dfe1089ac91a",
+        "bytes": 3517
+      },
+      "evidence": {
+        "path": "production/recovery-20261022/lituites/evidence.json",
+        "sha256": "3b86cdc4611a6c048a12a97fa770c19d754fb232261b576cd603005b71ad72ca",
+        "bytes": 12262
+      }
+    }
+  ],
+  "postReleaseVerified": {
+    "status": "NOT_PUBLISHED",
+    "browser_check_required_after_actual_deployment": true
+  },
+  "publication_authorized": false,
+  "implementation": [
+    {
+      "path": "site/production-release.mjs",
+      "sha256": "9d84a422556164ed0b1567966a05d2276a6ced14a4fc0b7025bbc8f1ede169f4",
+      "bytes": 16646
+    },
+    {
+      "path": "site/production-release-test.mjs",
+      "sha256": "71ca8c1399a49855b1d408e5b2a78b223805bf90b3d5f649310b11fbcb9da5fb",
+      "bytes": 7854
+    },
+    {
+      "path": "site/initial-release.mjs",
+      "sha256": "da6fe252c91656b5d71de66e3ab73fdf8b349bb0121f8c50144342a68713543b",
+      "bytes": 9927
+    },
+    {
+      "path": "site/asset-delivery.mjs",
+      "sha256": "69dd7f628485efe00d966ed1dbb463a90652829a823384ecdbea300338895e3a",
+      "bytes": 7687
+    },
+    {
+      "path": "site/gallery-assets.mjs",
+      "sha256": "fd4fd63d387fd47caaf40d59217e4253420ae8035d551647324688ab59b0757e",
+      "bytes": 9111
+    },
+    {
+      "path": "site/gallery-poster-inputs.mjs",
+      "sha256": "08f40690c7f9b3059b2bb5dc1b801e1bac4371cf951a529d9d8f752ef180cdb9",
+      "bytes": 7898
+    },
+    {
+      "path": "site/turntable-delivery.mjs",
+      "sha256": "8208ff97a9c4ccb92a13816840d74a17c31f738a6186ba3ad7bec06dac20b01a",
+      "bytes": 11052
+    },
+    {
+      "path": "site/copy-assets.mjs",
+      "sha256": "d9b35d4dbdf8f7acb302618b9a43192fe4abefafb7e599286a4a805c91a2f292",
+      "bytes": 2088
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "bytes": 13344
+    },
+    {
+      "path": "site/production-poster-compat-test.mjs",
+      "sha256": "bd4696da0dbc0cd31a65a2e11548cb4f5a4ce498dcb635a2062db2fcd48c2205",
+      "bytes": 3970
+    },
+    {
+      "path": "site/gallery-main842-compat.mjs",
+      "sha256": "ee5528314b50ac5a6b2573f0b80b3b4ac2b909ae24a652389fb3c30853a879d7",
+      "bytes": 5206
+    },
+    {
+      "path": "site/gallery-publication-recipe-compat.mjs",
+      "sha256": "f17cc1ce8dce6af6f8e48f5ca8e6c46d5baae9086f88d6ede2ac2e292a2f9f36",
+      "bytes": 782
+    },
+    {
+      "path": "site/gallery-publication-recipe-compat-test.mjs",
+      "sha256": "e2efc5a24cffe34938f6bfba26d1d7cbe792581bca7ae440b388047c25172287",
+      "bytes": 3000
+    },
+    {
+      "path": "site/forty-four-release.mjs",
+      "sha256": "f450ef096c2aa32b665f6fd8056e783c289de4dfad8b37ba9bab7b72bbbb0016",
+      "bytes": 23542
+    },
+    {
+      "path": "site/fifty-two-release.mjs",
+      "sha256": "4f84a54816e8e9f89d539a4904d83c5f49d97c87591eaa3aac64a5b8101a7840",
+      "bytes": 27556
+    },
+    {
+      "path": "site/final-five-release.mjs",
+      "sha256": "bc986645fcfb4bebc57bdb963c97e9a53c09dfb946e52d7a97fd7b4fb8809dce",
+      "bytes": 6021
+    }
+  ],
+  "scope_document": {
+    "path": "production/recovery-20261022/SCOPE.md",
+    "sha256": "9eba89d2a7df66614f13181168f2ff12f2ad88caaa4288f9e766f5d991bb23f4",
+    "bytes": 1935
+  },
+  "preparation_revision": "r004-local-integration",
+  "supersedes_local_descriptor_sha256": "b83e33b1d04381b1148a009e7613c84b3ec27ad00ce72aa0d061c657c4bf48d8"
+}

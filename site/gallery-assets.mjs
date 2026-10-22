@@ -1,3 +1,4 @@
+import {productionGalleryResources} from './production-release.mjs';
 /** Validate the explicit gallery resource allowlist without selecting catalog assets. */
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -41,7 +42,9 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
   assert.equal(hash(reviewedBytes), REVIEWED_RESOURCES_SHA256, 'Approved gallery baseline changed');
   const reviewed = JSON.parse(reviewedBytes);
   const resourceRoot = outputRoot ? resolve(outputRoot) : publicRoot;
-  const resources = JSON.parse(await verifiedFile(resourceRoot, 'gallery/resources.json'));
+  const storedResources = JSON.parse(await verifiedFile(resourceRoot, 'gallery/resources.json'));
+  // The source baseline stays byte-for-byte historical; only explicit reviewed additions extend it.
+  const resources = await productionGalleryResources(root,manifest,storedResources);
   assert.equal(resources.version, 1, 'Unsupported gallery resource version');
   assert(resources.posters && resources.references && Array.isArray(resources.files), 'Invalid gallery resources');
   for (const key of ['approved_site_commit', 'runtime_revision', 'source_renderer_sha256']) assert.equal(resources[key], reviewed[key], `Reviewed gallery provenance changed: ${key}`);
@@ -84,6 +87,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
       assert.deepEqual([bytes.readUInt32BE(16), bytes.readUInt32BE(20)], kind === 'wheel' ? [768, 432] : [512, 512], `Invalid ${kind} dimensions: ${id}`);
       assert([4, 6].includes(bytes[25]), `Transparent ${kind} PNG required: ${id}`);
     }
+    if(poster.render_route==='blender-cycles-cpu-v1')continue; // Exact new route verified by detached production review.
     const spec = poster.wheelSpec;
     assert(spec && [spec.azimuth, spec.elevation, spec.zoom, spec.aspect].every(Number.isFinite) && spec.zoom > 0 && Math.abs(spec.aspect - 16 / 9) < 1e-9, `Invalid wheel camera: ${id}`);
     assert(Array.isArray(spec.offset) && spec.offset.length === 2 && spec.offset.every(Number.isFinite), `Invalid wheel offset: ${id}`);

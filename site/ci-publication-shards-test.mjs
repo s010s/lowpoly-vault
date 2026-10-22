@@ -92,8 +92,8 @@ try{
  const pages=readFileSync('.github/workflows/pages.yml','utf8'),pipeline=readFileSync('.github/workflows/asset-pipeline.yml','utf8');
  const job=(yaml,name)=>{const body=yaml.split(`\n  ${name}:\n`)[1]||'',end=body.search(/\n  [a-zA-Z][\w-]*:/);return end===-1?body:body.slice(0,end);};
  for(const caller of [pages,pipeline]){assert.match(job(caller,'publication'),/uses: \.\/\.github\/workflows\/publication-regressions\.yml/);assert.doesNotMatch(job(caller,'publication'),/\bif:|needs:/);assert.doesNotMatch(caller,/run: npm run test:publication/);}
- assert.match(job(pages,'deploy'),/needs: \[build, publication\]/);assert.doesNotMatch(job(pages,'deploy'),/always\(\)|continue-on-error/);
- assert.match(pages,/node site\/ci-reuse\.mjs/);assert.match(pages,/node site\/ci-provenance\.mjs pages/);
+ assert.match(job(pages,'deploy'),/needs: \[build, publication\]/);assert.doesNotMatch(job(pages,'deploy').split('    steps:')[0],/always\(\)|continue-on-error/);assert.doesNotMatch(job(pages,'deploy'),/continue-on-error/);
+ assert.doesNotMatch(pages,/node site\/ci-reuse\.mjs|node site\/ci-provenance\.mjs pages/,'Old browser-bound build reuse cannot bypass new static gates');assert.match(pages,/run: npm run build/);
  assert.match(pipeline,/workflow_dispatch:/);assert.match(pipeline,/branches: \[main, 'quality\/\*\*'\]/);
  assert.match(pipeline,/site\/ci-publication-shards\*\.mjs/);assert.match(pipeline,/\.github\/workflows\/publication-regressions\.yml/);checks++;
  assert.equal(JSON.parse(readFileSync('package.json')).scripts['test:publication'],'node site/ci-timed.mjs publication');checks++;

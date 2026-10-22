@@ -1,0 +1,618 @@
+{
+  "schema_version": 1,
+  "kind": "independent-production-projection-review-v1",
+  "status": "PASS",
+  "reviewer": {
+    "id": "independent-three-release-integration-r004",
+    "task_id": "/root/resume_parallel_model_production/review_release_recipe_adapter"
+  },
+  "reviewed_descriptor_sha256": "e8ec45a3426d5757675e203d4236c18a450892afdd5aa6a62fbb7e12dd19f25e",
+  "reviewed_seal_sha256": "108b9d39c28688d6da13b5cbb48ab64d30153929a25d32c7e75d1ea5fbf25237",
+  "reviewed_manifest_sha256": "8a08d8db8589367e99ff343fb52b8ead4491cba7856bc259c7b6b91075517557",
+  "reviewed_implementation": [
+    {
+      "path": "site/production-release.mjs",
+      "sha256": "9d84a422556164ed0b1567966a05d2276a6ced14a4fc0b7025bbc8f1ede169f4",
+      "bytes": 16646
+    },
+    {
+      "path": "site/production-release-test.mjs",
+      "sha256": "71ca8c1399a49855b1d408e5b2a78b223805bf90b3d5f649310b11fbcb9da5fb",
+      "bytes": 7854
+    },
+    {
+      "path": "site/initial-release.mjs",
+      "sha256": "da6fe252c91656b5d71de66e3ab73fdf8b349bb0121f8c50144342a68713543b",
+      "bytes": 9927
+    },
+    {
+      "path": "site/asset-delivery.mjs",
+      "sha256": "69dd7f628485efe00d966ed1dbb463a90652829a823384ecdbea300338895e3a",
+      "bytes": 7687
+    },
+    {
+      "path": "site/gallery-assets.mjs",
+      "sha256": "fd4fd63d387fd47caaf40d59217e4253420ae8035d551647324688ab59b0757e",
+      "bytes": 9111
+    },
+    {
+      "path": "site/gallery-poster-inputs.mjs",
+      "sha256": "08f40690c7f9b3059b2bb5dc1b801e1bac4371cf951a529d9d8f752ef180cdb9",
+      "bytes": 7898
+    },
+    {
+      "path": "site/turntable-delivery.mjs",
+      "sha256": "8208ff97a9c4ccb92a13816840d74a17c31f738a6186ba3ad7bec06dac20b01a",
+      "bytes": 11052
+    },
+    {
+      "path": "site/copy-assets.mjs",
+      "sha256": "d9b35d4dbdf8f7acb302618b9a43192fe4abefafb7e599286a4a805c91a2f292",
+      "bytes": 2088
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "bytes": 13344
+    },
+    {
+      "path": "site/production-poster-compat-test.mjs",
+      "sha256": "bd4696da0dbc0cd31a65a2e11548cb4f5a4ce498dcb635a2062db2fcd48c2205",
+      "bytes": 3970
+    },
+    {
+      "path": "site/gallery-main842-compat.mjs",
+      "sha256": "ee5528314b50ac5a6b2573f0b80b3b4ac2b909ae24a652389fb3c30853a879d7",
+      "bytes": 5206
+    },
+    {
+      "path": "site/gallery-publication-recipe-compat.mjs",
+      "sha256": "f17cc1ce8dce6af6f8e48f5ca8e6c46d5baae9086f88d6ede2ac2e292a2f9f36",
+      "bytes": 782
+    },
+    {
+      "path": "site/gallery-publication-recipe-compat-test.mjs",
+      "sha256": "e2efc5a24cffe34938f6bfba26d1d7cbe792581bca7ae440b388047c25172287",
+      "bytes": 3000
+    },
+    {
+      "path": "site/forty-four-release.mjs",
+      "sha256": "f450ef096c2aa32b665f6fd8056e783c289de4dfad8b37ba9bab7b72bbbb0016",
+      "bytes": 23542
+    },
+    {
+      "path": "site/fifty-two-release.mjs",
+      "sha256": "4f84a54816e8e9f89d539a4904d83c5f49d97c87591eaa3aac64a5b8101a7840",
+      "bytes": 27556
+    },
+    {
+      "path": "site/final-five-release.mjs",
+      "sha256": "bc986645fcfb4bebc57bdb963c97e9a53c09dfb946e52d7a97fd7b4fb8809dce",
+      "bytes": 6021
+    }
+  ],
+  "reviewed_scope_document": {
+    "path": "production/recovery-20261022/SCOPE.md",
+    "sha256": "9eba89d2a7df66614f13181168f2ff12f2ad88caaa4288f9e766f5d991bb23f4",
+    "bytes": 1935
+  },
+  "original_acceptance_sha256": [
+    "9e3dbd861be748c123db5ac074ab2782e6d384dc08d1f5550f698ed5cf954633",
+    "aa8e41dce965c19bb181d724ab488e363b34735d18d547be2c4612c99063cc01"
+  ],
+  "checks": {
+    "adapter_code_and_legacy_compatibility": "PASS",
+    "independent_source_acceptance": "PASS",
+    "exact_subject_and_source": "PASS",
+    "scientific_scope_and_limits": "PASS",
+    "geometry_and_topology": "PASS",
+    "source_reproducibility": "PASS",
+    "standard_glb_and_decode": "PASS",
+    "final_preview_and_posters": "PASS",
+    "compact_provenance_and_credits": "PASS"
+  },
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "r004-pinned-historical-publication-recipe-equality",
+      "status": "CLOSED_FOR_EXACT_R004_LOCAL_PROJECTION",
+      "evidence_sha256": "2c057eff69f8ce44e1a24a97506e13c10bbe97aabcb5bb16860f8dc4675fbf43",
+      "scope": "Fixed44/52/5 recorded recipes accepted only through exact current equality or full actual-main842 input byte proof; independent fixed44/52/5 reruns PASS59/65/45. No old approval, input or pixel rewrite."
+    }
+  ],
+  "reviewed_subjects": [
+    {
+      "id": "spyroceras",
+      "revision": "recovery-r001-attempt004",
+      "source_role_sha256": {
+        "brief": "470916d5f803b21f6471a6f118a53d5ba0fc38ff0f365e280b2262f45f65fec2",
+        "config": "12f2f42ae32c33f007906315a858e64882031efecbbbd553cf73c9cb8d844c98",
+        "references": "814d0f02705dab4a5a74a03f8a1fb866d7e8ac0038ed990f5374ccce647b133f",
+        "generator": "54d86b4279bcd6ccdce0c67e0952356666a936c4a49d9c508438e051859b6a40",
+        "dependency-list": "d2e7d0f35e41607c8e497c03b6c7379ac7180f8e9ca5ff61df9303117b3f7c60",
+        "finalGLB": "9238b8282f288bd22277698edf9b368a53cd64e804e7758f3e507777c3f2f7ab",
+        "finalBlend": "a5457422df18bbac2f5e9cbb12316d9ec733a00178d58d5b7301274c155d9b79"
+      },
+      "canonical_preview": {
+        "path": "assets/additions/spyroceras/recovery-r001/preview-hero.png",
+        "sha256": "8ce0c4bd0d44d830d92a48b2682d6574708bc30cc80af02172f8313ef903b5ae",
+        "bytes": 387138
+      },
+      "final_posters": {
+        "detail": {
+          "path": "site/public/gallery/posters/spyroceras.png",
+          "sha256": "81923888cb5551327cc68a6cc20bcc9406eba01677f20f1c8dbc6c8725a617fd",
+          "bytes": 184958,
+          "pixel_sha256": "6df5f89892c593ca982c853585e505226a340a5b88ade4bf3df710751a444e57",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            186,
+            21,
+            326,
+            486
+          ],
+          "source_glb_sha256": "9238b8282f288bd22277698edf9b368a53cd64e804e7758f3e507777c3f2f7ab",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/spyroceras/presentation/detail-config.json",
+            "sha256": "2a5166c3752fc6b9afaf419ddbb7f21f07b0c1dda71748623f6829a2cf64a8d2",
+            "bytes": 3686
+          }
+        },
+        "wheel": {
+          "path": "site/public/gallery/posters/spyroceras-wheel.png",
+          "sha256": "2ec7bc99b039d8833de647aa05790cb63b91bb8ffedf80a64cdf62ffc3fc7733",
+          "bytes": 209402,
+          "pixel_sha256": "059081e266cddc9bc79a114eee456f13448575a1a127f05a9b770f512190f226",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            325,
+            18,
+            443,
+            410
+          ],
+          "source_glb_sha256": "9238b8282f288bd22277698edf9b368a53cd64e804e7758f3e507777c3f2f7ab",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/spyroceras/presentation/wheel-config.json",
+            "sha256": "03d4f03ad083167709337878d32f41f57f9ad4a550c39946635eebd68dd25cc6",
+            "bytes": 3686
+          }
+        }
+      },
+      "recipe": {
+        "path": "production/recovery-20261022/spyroceras/presentation/recipe.json",
+        "sha256": "9000a2102e60f93ced6e3cd2007dfbf88c2b3c1fe32b2ddb1a0bf6b4af2e6a46",
+        "bytes": 1257
+      },
+      "original_acceptance": {
+        "sha256": "aa8e41dce965c19bb181d724ab488e363b34735d18d547be2c4612c99063cc01",
+        "kind": "layered-production-acceptance-v001",
+        "reviewer": {
+          "id": "independent-two-candidate-runtime-evidence-r001",
+          "task_id": "review_two_candidate_probe"
+        },
+        "subject": {
+          "revision": "recovery-r001-attempt004",
+          "glb_sha256": "9238b8282f288bd22277698edf9b368a53cd64e804e7758f3e507777c3f2f7ab",
+          "brief_sha256": "af57ddf7211a136cf205c3af16af62f32bb8b5d304a5cfe3ef9021007ae84beb",
+          "references_sha256": "ebd460a9d70091f05de7747ca42f38274cce2d519e568e3fc9d3691df966047a"
+        }
+      }
+    },
+    {
+      "id": "phragmoceras",
+      "revision": "recovery-r001-c003",
+      "source_role_sha256": {
+        "brief": "8e8ac736eecc05e14d95bea2c17c60b1fd958ec160155fdac8f3d6bb99b8d621",
+        "config": "2ebe594e5aa99c115cfdb44a166a13c60a9cf8ef3bc9e7062591312470ea4ac8",
+        "references": "34cd9c9ea15387a60830e8fec60f986a627fb6811671e692c424690668be1d7b",
+        "generator": "0d6178fd83425b48bcda78eff48f4f5f16bbba158f08139458171e3d0e58cccb",
+        "dependency-list": "5a61761ee26a4aa454f905dad7a40102af02d8919291c9a454233574d143bd15",
+        "finalGLB": "9705668068410df47f4a528e07b88af671b0a25ca11775e3f5487ba8835dacfa",
+        "finalBlend": "147e5168ee17fdf64083b2a8695c923e0010180d83eb93b399061788316533f7"
+      },
+      "canonical_preview": {
+        "path": "assets/additions/phragmoceras/recovery-r001/preview-hero.png",
+        "sha256": "93f56e5bff6f25afb123aad57f80be415445cfb99d5fe15b9766f080b4b802f3",
+        "bytes": 227493
+      },
+      "final_posters": {
+        "detail": {
+          "path": "site/public/gallery/posters/phragmoceras.png",
+          "sha256": "5f1bf421ccde2a7f2b388396d6c0f480955d6a3c9b92438416e8c0327cf76b80",
+          "bytes": 244044,
+          "pixel_sha256": "1cf9400672d3abd552652f17360178a202bee76573ab7ad21ab6de38bab4ff56",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            110,
+            51,
+            402,
+            512
+          ],
+          "source_glb_sha256": "9705668068410df47f4a528e07b88af671b0a25ca11775e3f5487ba8835dacfa",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/phragmoceras/presentation/detail-config.json",
+            "sha256": "0b21455ca2bdaf521414893c57fb74d8b80392816e5cf987df41db7bb8ee5ff1",
+            "bytes": 3613
+          }
+        },
+        "wheel": {
+          "path": "site/public/gallery/posters/phragmoceras-wheel.png",
+          "sha256": "b3c1d5984179f7837f5b144cea3108df736a3a77dd501fce52536143c568d48a",
+          "bytes": 256027,
+          "pixel_sha256": "550ae5f72972e93f8cfc1a84f8c9f9b60e39e97a7da5a42fcfdf542d5388299a",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            261,
+            43,
+            508,
+            432
+          ],
+          "source_glb_sha256": "9705668068410df47f4a528e07b88af671b0a25ca11775e3f5487ba8835dacfa",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/phragmoceras/presentation/wheel-config.json",
+            "sha256": "4e56a90e5d8b76eab556201ff3d0a6fa70194a6bb6697ce5a83cc73b2fce1719",
+            "bytes": 3613
+          }
+        }
+      },
+      "recipe": {
+        "path": "production/recovery-20261022/phragmoceras/presentation/recipe.json",
+        "sha256": "5625fa2bc3d059e2722e583a902edfd07e1dd4bd36e22c59df944a911efa2159",
+        "bytes": 1257
+      },
+      "original_acceptance": {
+        "sha256": "aa8e41dce965c19bb181d724ab488e363b34735d18d547be2c4612c99063cc01",
+        "kind": "layered-production-acceptance-v001",
+        "reviewer": {
+          "id": "independent-two-candidate-runtime-evidence-r001",
+          "task_id": "review_two_candidate_probe"
+        },
+        "subject": {
+          "revision": "recovery-r001-c003",
+          "glb_sha256": "9705668068410df47f4a528e07b88af671b0a25ca11775e3f5487ba8835dacfa",
+          "brief_sha256": "1d83401b0fe0f91acb0fb06edc685054a5273887365521a056ced324d5d17a9c",
+          "references_sha256": "8dbf558fa66638ab294e0d1f318b33b133964b004c94ddd1403250acbb34b0f6"
+        }
+      }
+    },
+    {
+      "id": "lituites",
+      "revision": "recovery-r001-attempt003-r4",
+      "source_role_sha256": {
+        "brief": "554f4d82e1eb017e109e7b3ea95bd778f98922f50027d5bc0452d8a3380a236c",
+        "config": "f7a65ef00a7459f4d6094db579a6704fc11896ebf305232207f6a99ff91e95f0",
+        "references": "f992b8890250fdf9428bfdee518bbeddb6469e822adfd8a1064ac5684fa84428",
+        "generator": "1b49cd24755ac184d9d48dfb8710bf0b5ae097bc8e5c16b7f30e01f76cc68ed9",
+        "dependency-list": "761a6d156eab1bcf0cf5f981fd22274aadab1ba8fcb7eddd486bc2467bce151d",
+        "finalGLB": "35551215aebfa9a29211a3309ae8464090afbd9799e644d3a4dfe952982db319",
+        "finalBlend": "f138635a21c54ffe82126694ec8cdd20276849eccebd65d8ca80a25f81951d61"
+      },
+      "canonical_preview": {
+        "path": "assets/additions/lituites/recovery-r001/preview-hero.png",
+        "sha256": "43468cd03695d81d3dea09f0ce1f2336c2d936de40a9bea22a86352d3d14a86d",
+        "bytes": 368894
+      },
+      "final_posters": {
+        "detail": {
+          "path": "site/public/gallery/posters/lituites.png",
+          "sha256": "00aa86401500ad0d117a9718f828ab05e75b854d180698d2d48cb89723e053af",
+          "bytes": 173384,
+          "pixel_sha256": "17c9c1fb1f5f3fb067cbc74d356918a8d4bc949c11c61bbb1e4869b6d4aeb529",
+          "dimensions": [
+            512,
+            512
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            187,
+            21,
+            325,
+            486
+          ],
+          "source_glb_sha256": "35551215aebfa9a29211a3309ae8464090afbd9799e644d3a4dfe952982db319",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/lituites/presentation/detail-config.json",
+            "sha256": "f69a4d6400f4594bca6cf1ce082ff869c9854fcab7164ed8d5abfd621dbf6834",
+            "bytes": 3639
+          }
+        },
+        "wheel": {
+          "path": "site/public/gallery/posters/lituites-wheel.png",
+          "sha256": "2407afa86d99673f2f553dd1707d39e2dfcc68a6d8500f652d1052569edf07b2",
+          "bytes": 199122,
+          "pixel_sha256": "a4adf29e8131384b3fd74d4315b70283c80057800a070798a2188b6e0eb86753",
+          "dimensions": [
+            768,
+            432
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "nonempty_bounds": [
+            325,
+            18,
+            442,
+            411
+          ],
+          "source_glb_sha256": "35551215aebfa9a29211a3309ae8464090afbd9799e644d3a4dfe952982db319",
+          "camera_degrees": [
+            42,
+            23.3
+          ],
+          "render_config": {
+            "path": "production/recovery-20261022/lituites/presentation/wheel-config.json",
+            "sha256": "57e46763bd9c26a9399c39be838a6e2f72047b884361fda72f6af3ac7f7611b7",
+            "bytes": 3639
+          }
+        }
+      },
+      "recipe": {
+        "path": "production/recovery-20261022/lituites/presentation/recipe.json",
+        "sha256": "ec11cd3b13a862d370f8a672cbacde23de3fc2e8c3869d6ec3b67e777126eccf",
+        "bytes": 1257
+      },
+      "original_acceptance": {
+        "sha256": "9e3dbd861be748c123db5ac074ab2782e6d384dc08d1f5550f698ed5cf954633",
+        "kind": "independent-production-review-receipt",
+        "reviewer": {
+          "id": "independent-lituites-c003-r001",
+          "task_id": "/root/resume_parallel_model_production/review_lituites_candidate"
+        },
+        "subject": {
+          "glb_sha256": "35551215aebfa9a29211a3309ae8464090afbd9799e644d3a4dfe952982db319",
+          "blend_sha256": "f138635a21c54ffe82126694ec8cdd20276849eccebd65d8ca80a25f81951d61",
+          "scientific_brief_sha256": "554f4d82e1eb017e109e7b3ea95bd778f98922f50027d5bc0452d8a3380a236c",
+          "handoff_sha256": "b27b19343da772038ae43c21648d8268181f297ac405988fb7c4d5ceb2b6d684",
+          "maker_stage24_sha256": "2ec0f58495981c84c16ed98a35c54fae44aaa114d32393adfed8c74073087129"
+        },
+        "manifest_sha256": "f4a7141630222a215d448bced6444492786f0def65e3b52f865541824578bfbf"
+      }
+    }
+  ],
+  "unchanged_review_reused": {
+    "review_sha256": "8ed4b8321796f8c453b94b9626a482055ced7cfef5dc7b443d2a5d84c8ce89e4",
+    "manifest_sha256": "72038ae1a9c45fd176ddec9afbe770074cf4f6b3574b0b6c4d56f56d49973999",
+    "earlier_scientific_source_review_sha256": "7116f473adf3d6ec9fb0e2dd41410cc99bfe387c4e7101006e6ecc03ed3f57aa",
+    "scope": "Only exactly unchanged scientific/source/geometry/rebuild/standard-GLB/original-acceptance/visual conclusions. All role and six RGBA pixel hashes independently rechecked. No changed-code acceptance inherited."
+  },
+  "productionAccepted": "UNCHANGED_EXISTING_THREE_ACCEPTANCES",
+  "releaseChecks": {
+    "local_r004_projection_review": "PASS",
+    "full_355_static_build": "NOT_RUN_BY_THIS_REVIEW",
+    "complete_gallery": "FAIL_PREEXISTING_8_PRESERVED",
+    "global_status": "INCOMPLETE"
+  },
+  "postReleaseVerified": "NOT_PUBLISHED_NOT_RUN",
+  "publication_authorized": false,
+  "inventory_count_delta": 0,
+  "report": "REPORT.md",
+  "reviewed_candidate_scope": {
+    "path": "CANDIDATE-MANIFEST.json",
+    "sha256": "7c0f334aa356b9dd422f038b665b0e9afe6f213e745a15e995665ce8bc86b6fc",
+    "bytes": 23583,
+    "baseline_commit": "8423d2aaf6de34be5ffe1a5fd02f04b12267f674",
+    "candidate_overlay_files": 83,
+    "candidate_overlay_bytes": 11381824,
+    "scope_ids": [
+      "spyroceras",
+      "phragmoceras",
+      "lituites"
+    ],
+    "local_candidate_assets": 355,
+    "publication_authorized": false
+  },
+  "legacy_poster_state": {
+    "valid": 344,
+    "stale": [
+      "emeraldella",
+      "burgessia",
+      "tuzoia",
+      "sanctacaris",
+      "sapeornis",
+      "longirostravis",
+      "dunbaria",
+      "chimerarachne"
+    ],
+    "approved": 182,
+    "future_capture_required": 170,
+    "full_gallery_status": "FAIL_PREEXISTING_8_PRESERVED"
+  },
+  "permitted_candidate_binding": {
+    "operations": [
+      "Replace only the PENDING projection-review.json in a separate candidate copy with these exact detached bytes.",
+      "Update only the corresponding sha256 in the ordinary preserved-fossil-molluscs-20261022 batch evidence entry to the hash of these detached bytes."
+    ],
+    "does_not_modify_sealed_source": true,
+    "further_substantive_changes_require_fresh_review": true
+  },
+  "independent_execution": {
+    "node_version": "22.23.4",
+    "node_binary_sha256": "94efd062ed066c1a0b332e18249859c905e920eeada5df55d24c99b919629a90",
+    "new_recorded_recipe_cases": 26,
+    "new_recorded_recipe_cases_detail": "2 positive and24 negative checks",
+    "main842_352_identity_and_tamper_cases": 26,
+    "fixed44_unchanged_suite": 59,
+    "fixed52_unchanged_suite": 65,
+    "fixed5_rejection_cases": 45,
+    "exact352_and347_historical_fixture_rejections": 13,
+    "production_author_tests": 24,
+    "production_compat_author_tests": 10,
+    "independent_production_adversarial_tests": 15,
+    "extra_code_pin_and_frozen_recipe_mutations": 20,
+    "registry": "402_UNCHANGED_AND_FIVE_STANDARD_PROJECTIONS_PASS",
+    "all19_consumer_impact_review": "PASS",
+    "all6_actual_RGBA_decode": "PASS",
+    "all3_review_context_zip_and_credits": "EXACT_R002_BYTES",
+    "full_build_and_actual_browser": "NOT_RUN",
+    "no_source_mutation": true,
+    "no_git_command_or_remote_action": true
+  },
+  "independent_evidence": [
+    {
+      "path": "checks/352-poster-differential-and-tamper.json",
+      "sha256": "5b940b7b94268b8edeae3152357b3ad48baf7d6401db4149e7ec7c0688c2f3a7",
+      "bytes": 199809
+    },
+    {
+      "path": "checks/code-review.diff",
+      "sha256": "8d3fda3369250160d19fff39b9d99eff86c9c2fd0d85f93d58e1cbeaf7feb946",
+      "bytes": 3388
+    },
+    {
+      "path": "checks/extra-code-and-frozen-recipe-boundary.json",
+      "sha256": "2c057eff69f8ce44e1a24a97506e13c10bbe97aabcb5bb16860f8dc4675fbf43",
+      "bytes": 2456
+    },
+    {
+      "path": "checks/extra-code-and-frozen-recipe-boundary.log",
+      "sha256": "4d31241175d5355b08a9186fc74b5ac695a1c68092f2c8ff80d469c44603748c",
+      "bytes": 231
+    },
+    {
+      "path": "checks/fifty-two-release-test.log",
+      "sha256": "402c669a3f23a41620cb364ab584654187172235d620a7bf38d4f1b61350fb87",
+      "bytes": 3555
+    },
+    {
+      "path": "checks/final-five-release-test.log",
+      "sha256": "78d6923054174a94d69fdad711476a91cad700e8addc9429096d6281aeaa9d98",
+      "bytes": 17028
+    },
+    {
+      "path": "checks/forty-four-release-test.log",
+      "sha256": "da1a4b468b6763e8741661da39f8a8a8e65d4ea7cf0b80c6f1345fc805af708b",
+      "bytes": 3163
+    },
+    {
+      "path": "checks/full352-and-26-boundary.log",
+      "sha256": "cc199daf881b975f7bf5f28206696a51f74995ceab5816dcf1d75d19647d3adf",
+      "bytes": 413
+    },
+    {
+      "path": "checks/gallery-publication-recipe-compat-test.log",
+      "sha256": "2a44d35550469ff856d332ee302909f430de372ffa383d8554e6a19a0ebbe919",
+      "bytes": 1610
+    },
+    {
+      "path": "checks/immutable-delta-and-scope.json",
+      "sha256": "4a655e6f65817b66860f75dc9c348ea2fbb1817d30ba362e2c145b0b8a0a87f7",
+      "bytes": 94947
+    },
+    {
+      "path": "checks/independent-19-consumer-review.json",
+      "sha256": "e8393d1d728a833a499c816ff74a25a64452e610cbbcc0c71791ed39e9eaa486",
+      "bytes": 18732
+    },
+    {
+      "path": "checks/independent-adversarial-tests.json",
+      "sha256": "c966971d50e6012c398f485ba3c47ab95c4ffefe0b0784e84407dde080e31d52",
+      "bytes": 1880
+    },
+    {
+      "path": "checks/independent15.log",
+      "sha256": "b3ec7f2c79e4cf395c44eea9af37b7edad744dae647e02af7b3676c4a1dadd21",
+      "bytes": 1770
+    },
+    {
+      "path": "checks/node-version.log",
+      "sha256": "2266957ed9a639bd7264d714bfa798a961510bf2e50695c668ab8fc0c3f4e906",
+      "bytes": 9
+    },
+    {
+      "path": "checks/ordinary-registry-and-projections.json",
+      "sha256": "c295c3953d8d408b81912fb2ff0ccf30c5346a0f7a9bb50cc9be68078ece4197",
+      "bytes": 1081
+    },
+    {
+      "path": "checks/production-poster-compat-test.tap",
+      "sha256": "538983ea66b4afc5237f52499620bc7e9b4525840c1715f610fef4afd6ce334f",
+      "bytes": 2584
+    },
+    {
+      "path": "checks/production-release-test.tap",
+      "sha256": "028cb5c6547e4daad9e7d7c0cc1268d519c2a82566bd95bcf15c2ec444f3ac2e",
+      "bytes": 4946
+    },
+    {
+      "path": "checks/registry.log",
+      "sha256": "46a3719504ef843b694485fbaa4e71fd1a9d8bf6c7afbbeb71ba92b51b5ef3c4",
+      "bytes": 275
+    },
+    {
+      "path": "checks/review-zip-byte-identity.json",
+      "sha256": "211ae3b20c895bc9194906250c94a1be82d35471622940da28942c8771b11721",
+      "bytes": 1176
+    },
+    {
+      "path": "checks/unchanged-subjects-media-and-lineage.json",
+      "sha256": "d26b3a5ad63ed7b9fad80ca7462728b410381d23bc9f661676a3b6bb4d1d8fe4",
+      "bytes": 3682
+    },
+    {
+      "path": "checks/zip-byte-identity.log",
+      "sha256": "61046d846d0322dc16a0adc83b5a991a62bf2251f9144f9324418698750de8df",
+      "bytes": 246
+    }
+  ],
+  "separate_layered_workflow_delta": "EXPLICITLY_EXCLUDED_NOT_IN_THIS_SEAL_OR_REVIEW",
+  "limitations": [
+    "This is a detached local source/recipe/scope review, not full355-build, complete-gallery, CI, actual browser, deployment or publication acceptance.",
+    "All170 old non-golden capture obligations and all8 genuine preexisting stale states remain.",
+    "Original source/scientific/visual/rebuild judgments reused only after exact byte and pixel identity; no new Blender rendering or full source rebuild was performed here.",
+    "Review-only ZIP bytes independently reproduce r002; final public-build ZIP payload/header readback remains with integrator.",
+    "Original interrupted25-suite run and author preliminary build are not independent PASS evidence.",
+    "Review metadata is an auditable identity attestation, not cryptographic reviewer authentication."
+  ]
+}

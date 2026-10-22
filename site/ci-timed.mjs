@@ -3,6 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import {PUBLICATION_SUITES,readPublicationPlan,assertPublicationPlan,publicationShardSuites,createPublicationShardReport,writePublicationEvidence} from './ci-publication-shards.mjs';
+const HISTORICAL_PUBLICATION_SUITES=['concept-landair-release','forty-four-release','fifty-two-release','final-five-release'];
 const mode=process.argv[2],options=process.argv.slice(3);
 let plan=null,shard=null,output=null;
 if(options.length){
@@ -14,7 +15,7 @@ if(options.length){
 }
 const selected=plan?publicationShardSuites(plan,shard):PUBLICATION_SUITES.map(name=>({name}));
 const commands={
- publication:selected.map(suite=>({name:suite.name,sha256:suite.sha256,command:process.execPath,args:[`site/${suite.name}-test.mjs`]})),
+ publication:selected.map(suite=>({name:suite.name,sha256:suite.sha256,command:process.execPath,args:process.env.CI_ISOLATE_HISTORICAL==='1'&&HISTORICAL_PUBLICATION_SUITES.includes(suite.name)?['site/ci-historical-publication.mjs',suite.name]:[`site/${suite.name}-test.mjs`]})),
  build:[{name:'publication-check',command:process.execPath,args:['site/ci-publication.mjs']},{name:'registry-check',command:process.execPath,args:['site/model-registry-sync.mjs','check','--registry-root','.','--release-manifest','assets/manifest.json','--target-root','.']},{name:'vite',command:process.execPath,args:['node_modules/vite/bin/vite.js','build']},{name:'seal-render-template',command:process.execPath,args:['site/ci-render-template.mjs']},{name:'copy-and-package',command:process.execPath,args:['site/copy-assets.mjs']},{name:'full-release-audit',command:process.execPath,args:['site/audit-release.mjs']}]
 };
 assert(Object.hasOwn(commands,mode),'Known timing mode required');

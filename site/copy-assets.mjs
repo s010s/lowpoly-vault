@@ -1,5 +1,5 @@
 /** Production delivery uses an explicit approved manifest allowlist, never a recursive asset copy. */
-import { cp, mkdir, readFile, rm } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { deliverTurntables } from './turntable-delivery.mjs';
 import { writeCatalog } from './catalog-build.mjs';
 import { clearDeliveredAssets, deliverManifestAssets } from './asset-delivery.mjs';
@@ -24,6 +24,7 @@ await cp('LICENSES','dist/LICENSES',{recursive:true});
 await rm('dist/home/editorial-hero.json',{force:true});
 await rm('dist/home/editorial-hero.png',{force:true});
 const gallery=await auditGalleryAssets(manifest,{outputRoot:'dist'});
+if(manifest.assets.some(a=>a.production_release))await writeFile('dist/gallery/resources.json',JSON.stringify({...gallery.resources,production_projection:true},null,2)+'\n');
 console.log(`Gallery resources: ${gallery.coverage.matched}/${gallery.coverage.published} canonical poster pairs. Run gallery:posters before publishing if incomplete.`);
 const routes=await writeStaticRoutes(manifest,'dist');
 console.log(`Static HTML: ${routes.pages} bilingual documents, ${routes.models} model detail pairs.`);

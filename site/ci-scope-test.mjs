@@ -90,3 +90,5 @@ try{
  assert(oversized.stderr.includes('Diff provenance unavailable'));
  console.log('Real scope CLI: 217-model >1 MiB predecessor plus one record stays model-scoped; invalid or >16 MiB provenance stays full.');
 }finally{rmSync(root,{recursive:true,force:true});}
+
+const separated=classify(['site/main.js','assets/manifest.json'],appended,false,{previousManifest:manifest});assert.equal(separated.runtime,true);assert.equal(separated.ids,'');assert.deepEqual(separated.captureIds,['new'],'Broad shared-code tests must not silently select all models for capture');

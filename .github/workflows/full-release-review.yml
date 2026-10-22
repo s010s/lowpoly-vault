@@ -1,20 +1,137 @@
 name: Full release review
 on:
-  push:
+  workflow_run:
+    workflows: ['Validate and deploy asset gallery']
+    types: [completed]
     branches: [main]
-  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: full-release-review-${{ github.ref }}
+  group: post-release-review-${{ github.event.workflow_run.head_sha || github.sha }}
   cancel-in-progress: true
 env:
   SITE_BASE: /lowpoly-vault/
   SITE_ORIGIN: https://s010s.github.io
   QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
+  deployed-runtime:
+    name: Independent post-deployment browser checks
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository
+    permissions:
+      contents: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+      UPSTREAM_RUN_ID: ${{ github.event.workflow_run.id }}
+      UPSTREAM_RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+      POST_RELEASE_SCOPE: qa/post-release-scope/plan.json
+      DEPLOYMENT_RECEIPT: qa/deployment-receipt/receipt.json
+    steps:
+      - uses: actions/checkout@v4
+        id: checkout
+        if: github.event.workflow_run.conclusion == 'success'
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        id: setup
+        if: success() && github.event.workflow_run.conclusion == 'success'
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+        id: dependencies
+        if: success() && github.event.workflow_run.conclusion == 'success'
+      - uses: actions/download-artifact@v4
+        id: receipt
+        if: success() && github.event.workflow_run.conclusion == 'success'
+        with:
+          name: successful-deployment-${{ github.event.workflow_run.head_sha }}-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: qa/deployment-receipt/
+      - uses: actions/download-artifact@v4
+        id: scope
+        if: success() && github.event.workflow_run.conclusion == 'success'
+        with:
+          name: post-release-scope-${{ github.event.workflow_run.head_sha }}-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: qa/post-release-scope/
+      - uses: actions/download-artifact@v4
+        id: build
+        if: success() && github.event.workflow_run.conclusion == 'success'
+        with:
+          name: post-release-built-${{ github.event.workflow_run.head_sha }}-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: dist/
+      - name: Reject changed deployment event, original base, subject, selection or hashes
+        id: verify
+        if: success() && github.event.workflow_run.conclusion == 'success'
+        run: node site/ci-layered-release-scope.mjs verify "$POST_RELEASE_SCOPE"
+      - run: node site/ci-install-chromium.mjs
+        id: install
+        if: success() && steps.verify.outcome == 'success'
+      - name: Actual deployment URL, commit, entry JS and selected-model acceptance
+        id: browser
+        if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
+        run: node site/ci-post-release-browser.mjs
+      - name: Independent shared-code regressions on the exact downloaded build
+        id: shared
+        if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
+        run: node site/ci-post-release-shared.mjs
+      - name: Always summarize every prerequisite and runtime outcome
+        id: summary
+        if: always()
+        env:
+          STEP_OUTCOMES: ${{ toJSON(steps) }}
+          UPSTREAM_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+        run: |
+          python3 - <<'PY_SUMMARY'
+          import json, os, pathlib
+          e = os.environ
+          steps = json.loads(e['STEP_OUTCOMES'])
+          names = ['checkout', 'setup', 'dependencies', 'receipt', 'scope', 'build', 'verify', 'install', 'browser', 'shared']
+          outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
+          failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
+          passed = e['UPSTREAM_CONCLUSION'] == 'success' and all(value == 'success' for value in outcomes.values())
+          report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['DEPLOYED_SHA'], 'expected_run_id': e['UPSTREAM_RUN_ID'], 'expected_run_attempt': e['UPSTREAM_RUN_ATTEMPT'], 'upstream_conclusion': e['UPSTREAM_CONCLUSION'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'downstream': {name: outcomes[name] if outcomes[name] == 'success' else 'NOT_RUN' if outcomes[name] in ['skipped', 'NOT_RUN'] else 'FAIL' for name in ['browser', 'shared']}, 'production_acceptance': False, 'reusable_browser_proof': False}
+          target = pathlib.Path(e['RUNNER_TEMP']) / 'post-release-summary' / 'report.json'
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_text(json.dumps(report, indent=2) + '\n')
+          print(json.dumps(report, indent=2))
+          with open(e['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('Post-release results: ' + json.dumps(report) + '\n')
+          PY_SUMMARY
+      - uses: actions/upload-artifact@v4
+        id: report_upload
+        if: always()
+        with:
+          name: post-release-runtime-${{ github.event.workflow_run.head_sha }}-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/post-release-summary/
+            qa/post-release-preflight/
+            qa/post-release-runtime/
+            qa/post-release-shared/
+            qa/approved-gallery-browser/
+            qa/brand-browser/
+            qa/release-*/
+            qa/continuous-release-*/
+          if-no-files-found: error
+      - name: Explicitly retain artifact upload failures
+        if: always()
+        env:
+          REPORT_UPLOAD: ${{ steps.report_upload.outcome }}
+        run: |
+          echo "Runtime artifact upload: $REPORT_UPLOAD" >> "$GITHUB_STEP_SUMMARY"
+          test "$REPORT_UPLOAD" = success
+  # Explicit dispatch retains the historical complete browser/proof audit path.
   scope:
+    if: github.event_name == 'workflow_dispatch'
     permissions:
       contents: read
       actions: read

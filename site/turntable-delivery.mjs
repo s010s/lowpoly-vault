@@ -1,3 +1,4 @@
+import {collectProductionRelease,assertProductionMetadata} from './production-release.mjs';
 /** Optional image sequences are separately sealed; source GLB/Blend publication remains unchanged. */
 import { readFile, mkdir, cp, realpath, writeFile } from 'node:fs/promises';
 import { dirname, resolve, relative } from 'node:path';
@@ -49,6 +50,11 @@ export function webpDimensions(bytes) {
   throw new Error('WebP dimensions unavailable');
 }
 export async function collectTurntables(manifest,root=process.cwd()) {
+  const production=manifest.assets.filter(a=>a.production_release);
+  if(production.length){
+   for(const a of production){const approved=await collectProductionRelease(root,a.production_release);assertProductionMetadata(approved.find(x=>x.id===a.id),a);}
+   const legacy=manifest.assets.filter(a=>!a.production_release);return legacy.length?collectTurntables({...manifest,assets:legacy},root):{descriptors:new Map(),posters:new Map(),files:[]};
+  }
   const paths=new Map();
   for(const asset of manifest.assets){assert(!paths.has(asset.id),'Duplicate published asset ID');paths.set(asset.id,publishedImagePaths(asset,manifest));}
   let source;

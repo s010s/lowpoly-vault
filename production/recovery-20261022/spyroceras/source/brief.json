@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "asset_id": "spyroceras",
+  "revision": "recovery-r001",
+  "brief_version": "recovery-r001-freeze-v004",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "frozen_at": "2026-10-22T00:41:16.552483+00:00",
+  "claim_scope": "Evidence-informed stylized external fossil fragment based on Spyroceras melolineatum holotype UMUT PM18493; not complete conch, life reconstruction or exact replica.",
+  "purpose": "Small museum cabinet/catalog specimen, close inspection; preserve real-world nominal size, no per-asset normalization.",
+  "historical_status": "New candidate, not byte recovery, not historic accepted replay or new inventory count.",
+  "taxonomy": {
+    "genus": "Spyroceras",
+    "species": "melolineatum",
+    "specimen": "UMUT PM18493",
+    "geologic_age": "Lochkovian / Early Devonian",
+    "formation": "Fukuji Formation D1 member, FH-1"
+  },
+  "axes": {
+    "blender": "X lateral, -Y ventral/front view, Z long axis narrow-to-broad",
+    "glb": "X lateral, +Z ventral/front, Y long axis narrow-to-broad",
+    "origin": "Center of narrow fragment cut face at floor z=0; upright specimen mounting convention, not inferred life pose"
+  },
+  "scale_policy": {
+    "nominal_length_m": 0.089,
+    "length_definition": "Preserved long-axis extent, not restored conch length or arclength",
+    "uncertainty": "At least \u00b115%, conditional original-PDF print-scale calibration from magnification \u00d71.5; no independent scale bar.",
+    "calibration": "source/references/measurements.json"
+  },
+  "art_direction": {
+    "primary": "One continuous tapering slender orthoconic fragment",
+    "secondary": "33 softly rounded annulations in continuous surface, mildly uneven spacing",
+    "tertiary": "32 restrained alternating stronger/weaker longitudinal geometric ribs, count an artistic approximation",
+    "quiet_region": "Broad mineral fracture faces; neutral palette without uniform random noise",
+    "fractures": "Oblique upper break, blunt lower cut; closed mineral faces are artistic inferred termination, not preserved soft anatomy or an aperture",
+    "unseen_surface": "Conservative circular wrap inferred from species cross-section; no photographic copying",
+    "concept_corrections": "concept/generation-record.json"
+  },
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "wire"
+  ],
+  "turntable_frames": 0,
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight-view scope: six canonical and clay/wire; additional hero/detail allowed. No coverage or scientific waiver.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "fragment-scope",
+      "stage": "factual",
+      "critical": true,
+      "description": "Depict only incomplete UMUT PM18493 phragmocone fragment; no complete apex, aperture, body chamber or animal.",
+      "required_sources": [
+        "Niko1996-Fig5.5"
+      ]
+    },
+    {
+      "id": "source-outline",
+      "stage": "factual",
+      "critical": true,
+      "description": "Retain taper, oblique broad break and blunt narrow truncation, with single ventral source and inferred rear explicitly disclosed.",
+      "required_sources": [
+        "Niko1996-Fig5.5"
+      ]
+    },
+    {
+      "id": "ornament",
+      "stage": "factual",
+      "critical": true,
+      "description": "Continuous rounded transverse annulations and restrained longitudinal ribs; no exact count claim.",
+      "required_sources": [
+        "Niko1996-Fig5.5"
+      ]
+    },
+    {
+      "id": "scale",
+      "stage": "specification",
+      "critical": true,
+      "description": "Nominal 0.089m preserved axial length within \u00b11mm modeling tolerance; scientific uncertainty at least \u00b115%, not exact specimen size.",
+      "required_sources": []
+    },
+    {
+      "id": "source-export",
+      "stage": "technical",
+      "critical": true,
+      "description": "Complete EXPORT root/descendants and semantic mesh set, clean-source reexport, two code rebuilds, all helper hashes and seven file roles.",
+      "required_sources": []
+    },
+    {
+      "id": "topology",
+      "stage": "technical",
+      "critical": true,
+      "description": "Whole exported geometry is outward manifold/watertight; exhaustive full triangle-pair self-intersection classification; no omitted mesh/pairs or silent sparse BVH substitute.",
+      "required_sources": []
+    },
+    {
+      "id": "budget-format",
+      "stage": "technical",
+      "critical": true,
+      "description": "Frozen triangle/byte/material/primitive/texture budget, official Khronos zero errors and reviewed warnings.",
+      "required_sources": []
+    },
+    {
+      "id": "visual",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect actual pixels of all eight exact-GLB views, silhouette/planes/facets/fractures/ribs and source agreement; maker is not independent reviewer.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three GLTFLoader parse exact GLB with bounds/material counts and zero errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target GPU evidence mandatory for production approval; if not run remains UNKNOWN.",
+      "required_sources": []
+    },
+    {
+      "id": "scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Intended populated scene evidence mandatory for production approval; if not run remains UNKNOWN.",
+      "required_sources": []
+    }
+  ],
+  "publication_authority": "separate",
+  "required_deliverables": [
+    {
+      "role": "brief",
+      "path": "freeze/brief-v004.json"
+    },
+    {
+      "role": "config",
+      "path": "freeze/build-config-v004.json"
+    },
+    {
+      "role": "references",
+      "path": "freeze/references.json"
+    },
+    {
+      "role": "generator",
+      "path": "source/build_spyroceras_v003.py"
+    },
+    {
+      "role": "dependency-list",
+      "path": "source/dependencies.json"
+    },
+    {
+      "role": "finalGLB",
+      "path": "build-attempt004/spyroceras/spyroceras.glb"
+    },
+    {
+      "role": "finalBlend",
+      "path": "build-attempt004/spyroceras/spyroceras.blend"
+    }
+  ],
+  "amendment": "Attempt003 source QA found one subthreshold sliver triangle at oblique cut before export. Preserve failure, explicitly snap cut intersections within 20 micrometers of grid endpoints and deduplicate face corner references; same scientific/visual scope and budgets."
+}

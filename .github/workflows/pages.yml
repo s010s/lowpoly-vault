@@ -14,136 +14,120 @@ env:
   SITE_ORIGIN: https://s010s.github.io
   QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
-  # Always rerun rejection suites, even when exact-tree build reuse succeeds.
-  # Reuse trust is unchanged; this conservative repeated cost is intentional.
+  # Production rejection and static checks remain mandatory. Browser work is detached.
   publication:
     uses: ./.github/workflows/publication-regressions.yml
     with:
       site_base: /lowpoly-vault/
       site_origin: https://s010s.github.io
   build:
-    permissions:
-      contents: read
-      actions: read
-      checks: read
-      pull-requests: read
+    outputs:
+      build_digest: ${{ steps.stamp.outputs.build_digest }}
+      marker_sha256: ${{ steps.stamp.outputs.marker_sha256 }}
+      scope_sha256: ${{ steps.scope.outputs.scope_sha256 }}
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ github.token }}
       BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     steps:
       - uses: actions/checkout@v4
+        id: checkout
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v4
+        id: setup
         with:
           node-version: '22'
           cache: npm
-      - name: Check exact-tree validated PR reuse
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        id: reuse
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-reuse.mjs
       - name: Set isolated publication memo path
+        id: memo
         run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
-      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-reuse-integration-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
+        id: dependencies
+      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
+        id: contracts
+      - name: Layered workflow and exact affected scope contracts
+        run: node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs
+        id: layered
       - name: Brand source contracts when present
+        id: brand
         run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
-      - run: npm run build
-        if: steps.reuse.outputs.reused != 'true'
-        id: build_site
-      - run: node site/ci-install-chromium.mjs
-        id: install_chromium
-      - name: Complete exact-catalog gallery posters with the approved renderer
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run gallery:posters
-      - name: Verify all published models have sealed matching gallery resources
-        env:
-          REQUIRE_COMPLETE_GALLERY: '1'
-        run: node site/audit-release.mjs
-      - name: Verify isolated poster recipe matches the application
-        if: steps.reuse.outputs.reused != 'true'
-        run: node site/capture-gallery-posters.mjs --verify-recipe
-      - name: Brand browser contracts when present
-        if: steps.reuse.outputs.reused != 'true'
-        run: if [ -f site/brand-browser-test.mjs ]; then node site/brand-browser-test.mjs; fi
-      - name: Preserve audited gallery captures for source integration
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: sealed-gallery-capture-${{ github.sha }}
-          path: |
-            dist/gallery/
-            dist/assets/manifest.json
-          if-no-files-found: error
-      - name: Reviewed quartet actual-model browser acceptance
-        if: hashFiles('assets/releases/concept-quartets-20261019.json') != ''
-        run: node site/concept-quartets-browser-test.mjs
-      - name: Reviewed land-air quartet bilingual desktop and mobile browser acceptance
-        run: node site/concept-landair-browser-test.mjs
-      - if: steps.reuse.outputs.reused != 'true'
+      - name: Validate production science, source, standard GLB and final media
+        id: production
+        run: node site/ci-production-release-check.mjs
+      - name: All six mandatory production/static build phases
+        id: build
+        run: npm run build
+      - name: Complete non-browser source and delivery contracts
+        id: delivery
         run: npm run test:manifest && node site/validate.mjs --review && npm run test:catalog && npm run test:theme && npm run test:preview && npm run test:redesign && npm run test:scrub && npm run test:gallery
-      - name: Approved gallery routes, interactions, interrupted loads and mobile behavior
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run test:gallery:browser
-      - name: Exact seven concept assets, renderer, downloads and bilingual source labels
-        if: steps.reuse.outputs.reused != 'true'
-        run: node site/concept-seven-browser-test.mjs
-      - name: Parse original and published models, decoding embedded textures in Chromium
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run test:parser
-      - name: Static routes, exact download bytes and attribution for every model
-        if: steps.reuse.outputs.reused != 'true'
-        env:
-          GALLERY_DIR: dist
-          QA_STATIC_ONLY: '1'
-          QA_OUTPUT_DIR: qa/release-static
-        run: node site/redesign-browser-test.mjs
-      - name: Key keyboard, filter, disclosure and clipboard interactions
-        if: steps.reuse.outputs.reused != 'true'
-        run: npm run test:interaction:browser
-      - name: Thumbnail to real 3D and canonical return smoke
-        env:
-          QA_HANDOFF_SMOKE: '1'
-          QA_OUTPUT_DIR: qa/release-handoff-smoke
-        run: npm run test:handoff:browser
+      - name: Stamp exact source build after all six mandatory audit phases
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: stamp
+        run: node site/ci-deployment-contract.mjs stamp
+      - name: Bind post-release queue to exact deployed source and affected models
+        id: scope
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: node site/ci-layered-release-scope.mjs create qa/post-release-scope/plan.json
       - uses: actions/upload-artifact@v4
-        if: always()
+        id: scope_upload
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
-          name: gallery-release-qa
-          path: |
-            qa/brand-browser/
-            qa/ci-timings/
-            qa/ci-provenance/reuse.json
-            qa/release-static/
-            qa/release-handoff-smoke/
-            qa/animation-refinements/interaction/
-            qa/ci-parser/threejs-parser.json
-            qa/approved-gallery-browser/
-            qa/concept-seven-release-20261019/browser/
-            qa/quartets-release-20261019/browser/
-            qa/landair-release-20261019/browser/
-      - name: Record exact successful PR build payload
-        if: github.event_name == 'pull_request'
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          CI_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          CI_PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: node site/ci-provenance.mjs pages
-      - uses: actions/upload-artifact@v4
-        if: github.event_name == 'pull_request'
-        with:
-          name: validated-pages-${{ github.run_attempt }}
-          path: qa/ci-provenance/pages/
+          name: post-release-scope-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa/post-release-scope/plan.json
           if-no-files-found: error
-
+      - uses: actions/upload-artifact@v4
+        id: built_upload
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: post-release-built-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          if-no-files-found: error
       - uses: actions/upload-pages-artifact@v3
+        id: pages_artifact
         with:
           path: dist
+      - name: Always summarize production prerequisites without masking their failures
+        if: always()
+        env:
+          STEP_OUTCOMES: ${{ toJSON(steps) }}
+        run: |
+          python3 - <<'PY_STATIC_SUMMARY'
+          import json, os, pathlib
+          e = os.environ
+          steps = json.loads(e['STEP_OUTCOMES'])
+          names = ['checkout', 'setup', 'memo', 'dependencies', 'contracts', 'layered', 'brand', 'production', 'build', 'delivery', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
+          outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
+          failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
+          mandatory = [name for name in names if name not in ['stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
+          passed = all(outcomes[name] == 'success' for name in mandatory)
+          report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['GITHUB_SHA'], 'expected_run_id': e['GITHUB_RUN_ID'], 'expected_run_attempt': e['GITHUB_RUN_ATTEMPT'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'downstream': {'deployment': 'NOT_RUN', 'browser': 'NOT_RUN_IN_PRODUCTION_WORKFLOW'}}
+          target = pathlib.Path(e['RUNNER_TEMP']) / 'production-summary' / 'report.json'
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_text(json.dumps(report, indent=2) + '\n')
+          print(json.dumps(report, indent=2))
+          with open(e['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('Production outcomes: ' + json.dumps(report) + '\n')
+          PY_STATIC_SUMMARY
+      - uses: actions/upload-artifact@v4
+        id: static_upload
+        if: always()
+        with:
+          name: production-static-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/production-summary/
+            qa/production-static/
+            qa/ci-timings/
+            qa/deployment-stamp/
+            qa/post-release-preflight/
+          if-no-files-found: error
+      - name: Explicitly retain static artifact upload failures
+        if: always()
+        env:
+          REPORT_UPLOAD: ${{ steps.static_upload.outcome }}
+        run: |
+          echo "Production artifact upload: $REPORT_UPLOAD" >> "$GITHUB_STEP_SUMMARY"
+          test "$REPORT_UPLOAD" = success
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [build, publication]
     runs-on: ubuntu-latest
     permissions:
@@ -156,26 +140,52 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-  verify-live:
-    name: Verify deployed Pages in Chromium
-    if: needs.deploy.result == 'success'
-    needs: deploy
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-      - name: Set isolated publication memo path
-        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
-      - run: npm ci
-      - run: node site/ci-install-chromium.mjs
-      - name: Actual deployed catalog, direct details, GLB/Blend/ZIP, attribution and previews
-        run: node site/live-release-browser-test.mjs
+      - name: Record the successful official deployment independently of the scope artifact
+        id: receipt
+        env:
+          OFFICIAL_PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          DEPLOY_OUTCOME: ${{ steps.deployment.outcome }}
+          BUILD_DIGEST: ${{ needs.build.outputs.build_digest }}
+          MARKER_SHA256: ${{ needs.build.outputs.marker_sha256 }}
+          SCOPE_SHA256: ${{ needs.build.outputs.scope_sha256 }}
+        run: |
+          python3 - <<'PY_RECEIPT'
+          import json, os, pathlib, re
+          from urllib.parse import urlsplit
+          e = os.environ
+          event = json.loads(pathlib.Path(e['GITHUB_EVENT_PATH']).read_text())
+          assert e['DEPLOY_OUTCOME'] == 'success' and e['GITHUB_EVENT_NAME'] == 'push'
+          assert event['ref'] == e['GITHUB_REF'] == 'refs/heads/main'
+          assert event['after'] == e['GITHUB_SHA'] and event['repository']['full_name'] == e['GITHUB_REPOSITORY']
+          assert all(re.fullmatch('[0-9a-f]{40}', event[k]) and event[k] != '0' * 40 for k in ['before', 'after'])
+          assert all(re.fullmatch('[0-9a-f]{64}', e[k]) for k in ['BUILD_DIGEST', 'MARKER_SHA256', 'SCOPE_SHA256'])
+          url = urlsplit(e['OFFICIAL_PAGE_URL'])
+          assert url.scheme == 'https' and not url.username and not url.password and not url.query and not url.fragment and url.path.endswith('/')
+          receipt = {'schema_version': 1, 'kind': 'successful-pages-deployment-v1', 'deploy_outcome': e['DEPLOY_OUTCOME'], 'source_event': e['GITHUB_EVENT_NAME'], 'source_ref': event['ref'], 'head': event['after'], 'base': event['before'], 'same_commit_push': event['before'] == event['after'], 'runId': int(e['GITHUB_RUN_ID']), 'runAttempt': int(e['GITHUB_RUN_ATTEMPT']), 'repository': e['GITHUB_REPOSITORY'], 'page_url': e['OFFICIAL_PAGE_URL'], 'build_digest': e['BUILD_DIGEST'], 'marker_sha256': e['MARKER_SHA256'], 'scope_sha256': e['SCOPE_SHA256']}
+          target = pathlib.Path(e['RUNNER_TEMP']) / 'successful-deployment' / 'receipt.json'
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_text(json.dumps(receipt, indent=2) + '\n')
+          print(json.dumps(receipt, indent=2))
+          PY_RECEIPT
       - uses: actions/upload-artifact@v4
-        if: always()
+        id: receipt_upload
         with:
-          name: live-release-browser-${{ github.sha }}
-          path: qa/live-fauna-release/
+          name: successful-deployment-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/successful-deployment/receipt.json
+          if-no-files-found: error
+      - name: Preserve deployment and receipt outcomes even after a failure
+        if: always()
+        env:
+          DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+          RECEIPT_RESULT: ${{ steps.receipt.outcome }}
+          UPLOAD_RESULT: ${{ steps.receipt_upload.outcome }}
+        run: |
+          python3 - <<'PY_SUMMARY'
+          import json, os, pathlib
+          e = os.environ
+          outcomes = {name: e.get(key, 'NOT_RUN') for name, key in [('deployment', 'DEPLOY_RESULT'), ('receipt', 'RECEIPT_RESULT'), ('receipt_upload', 'UPLOAD_RESULT')]}
+          failed = [name for name, value in outcomes.items() if value in ['failure', 'cancelled']]
+          report = {'status': 'PASS' if all(value == 'success' for value in outcomes.values()) else 'FAIL' if failed else 'NOT_RUN', 'failed_phase': failed[0] if failed else None, 'source_commit': e['GITHUB_SHA'], 'run_id': e['GITHUB_RUN_ID'], 'run_attempt': e['GITHUB_RUN_ATTEMPT'], 'deployment': e.get('DEPLOY_RESULT', 'NOT_RUN'), 'receipt': e.get('RECEIPT_RESULT', 'NOT_RUN'), 'receipt_upload': e.get('UPLOAD_RESULT', 'NOT_RUN'), 'browser': 'NOT_RUN_IN_PRODUCTION_WORKFLOW'}
+          print(json.dumps(report, indent=2))
+          with open(e['GITHUB_STEP_SUMMARY'], 'a') as f: f.write('Deployment outcomes: ' + json.dumps(report) + '\n')
+          PY_SUMMARY

@@ -60,6 +60,8 @@ jobs:
           name: publication-plan-${{ github.run_attempt }}
           path: ${{ runner.temp }}/publication-plan
       - name: Run unchanged rejection suites sequentially in this isolated checkout
+        env:
+          CI_ISOLATE_HISTORICAL: '1'
         run: node site/ci-timed.mjs publication --plan "$RUNNER_TEMP/publication-plan/plan.json" --shard '${{ matrix.shard }}' --output 'qa/ci-publication/shard-${{ matrix.shard }}.json'
       - uses: actions/upload-artifact@v4
         if: always()

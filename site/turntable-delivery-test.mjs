@@ -5,8 +5,37 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { collectTurntables, webpDimensions, publishedImagePaths } from './turntable-delivery.mjs';
 import { collectInitialRelease } from './initial-release.mjs';
-const root=process.cwd(),manifest=JSON.parse(await readFile('assets/manifest.json'));const hash=b=>createHash('sha256').update(b).digest('hex');
-const initial=await collectTurntables(manifest);assert.equal(initial.descriptors.size,10);assert.equal(initial.files.length,250+manifest.assets.length);let checks=1;
+import {collectProductionRelease} from './production-release.mjs';
+import {projectHistoricalManifest} from './ci-historical-publication.mjs';
+const root=process.cwd(),publishedManifest=JSON.parse(await readFile('assets/manifest.json'));const hash=b=>createHash('sha256').update(b).digest('hex');
+// Production PNGs are not WebP card/turntable files. Verify their real accepted
+// closure first, then exercise every unchanged historical negative on exact352.
+const descriptor=publishedManifest.publication?.production_descriptor;
+const production=descriptor?await collectProductionRelease(root,descriptor):[];
+assert(publishedManifest.publication?.production_descriptor || !publishedManifest.assets.some(asset=>asset.production_release),'Production assets require a bound descriptor');
+const manifest=publishedManifest.publication?.production_descriptor?projectHistoricalManifest(publishedManifest,production):publishedManifest;
+const initial=await collectTurntables(manifest),published=await collectTurntables(publishedManifest);
+assert.deepEqual(published,initial,'Production routing must retain every legacy frame/poster byte and no synthetic sequence');
+assert.equal(initial.descriptors.size,10);assert.equal(initial.posters.size,manifest.assets.length);
+assert.equal(initial.files.length,250+manifest.assets.length);let checks=3;
+const productionMedia=[];
+if(production.length){
+ const resources=JSON.parse(await readFile('site/public/gallery/resources.json'));
+ for(const asset of production){
+  assert.equal(asset.production_posters.route,'blender-cycles-cpu-v1');
+  assert(!published.descriptors.has(asset.id)&&!published.posters.has(asset.id),'No invented legacy browser sequence or card poster');
+  for(const kind of ['detail','wheel']){
+   const path=asset.production_posters[kind],bytes=await readFile(resolve(root,path));
+   const seal=resources.files.find(f=>f.path===path.replace(/^site\/public\//,''));assert(seal,'Both independently accepted final PNGs must be delivered');
+   assert.equal(bytes.length,seal.bytes);assert.equal(hash(bytes),seal.sha256);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+   productionMedia.push({id:asset.id,kind,path,bytes:bytes.length,sha256:hash(bytes)});checks++;
+  }
+  const changed=structuredClone(publishedManifest);changed.assets.find(a=>a.id===asset.id).sha256.glb='0'.repeat(64);
+  await assert.rejects(()=>collectTurntables(changed,root),/Unbound production metadata/);checks++;
+ }
+ assert.equal(productionMedia.length,2*production.length,'No production final view may be omitted');
+}
+console.log(JSON.stringify({status:'pass',route:'blender-cycles-cpu-v1',production_ids:production.map(a=>a.id),final_media:productionMedia,legacy_ids:manifest.assets.length,legacy_files:initial.files.length,browser_status:'NOT_RUN'}));
 const temp=await mkdtemp(resolve(tmpdir(),'vault-turntables-'));
 try{
  await mkdir(resolve(temp,'assets'),{recursive:true});await cp(resolve(root,'assets/turntables'),resolve(temp,'assets/turntables'),{recursive:true});await cp(resolve(root,'assets/card-previews'),resolve(temp,'assets/card-previews'),{recursive:true});

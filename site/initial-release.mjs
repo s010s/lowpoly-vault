@@ -1,3 +1,4 @@
+import {appendProductionRelease} from './production-release.mjs';
 import {appendFinalFiveRelease} from './final-five-release.mjs';
 import {appendFiftyTwoRelease} from './fifty-two-release.mjs';
 import {appendFortyFourRelease} from './forty-four-release.mjs';
@@ -113,6 +114,7 @@ export async function checkPublishedManifest(root=process.cwd()) {
   if(current.publication?.forty_four_descriptors)expected=await appendFortyFourRelease(root,expected,current.publication.forty_four_descriptors);
   if(current.publication?.fifty_two_descriptors)expected=await appendFiftyTwoRelease(root,expected,current.publication.fifty_two_descriptors);
   if(current.publication?.final_five_presentation)expected=await appendFinalFiveRelease(root,expected,current.publication.final_five_presentation);
+  if(current.publication?.production_descriptor)expected=await appendProductionRelease(root,expected,current.publication.production_descriptor);
   assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
   return current;
 }

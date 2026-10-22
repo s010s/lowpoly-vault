@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "asset_id": "lituites",
+  "revision": "recovery-r001",
+  "candidate_attempt": "attempt003-r4",
+  "seed": 1192026103,
+  "units": "meters",
+  "outline_source": "references/source-outline.json",
+  "grid_spacing_shaft_mm": 2.35,
+  "grid_spacing_coil_mm": 0.72,
+  "coil_dense_z_max_mm": 30.0,
+  "boundary_margin_mm": 0.29,
+  "depth_policy": {
+    "coil": "Shallow whorl-relief fossil solid. WWI0.86 used only as approximate outer-whorl depth relation. Central whorls are filled mineral, no tunnel.",
+    "shaft": "Elliptical smooth transverse interpolation; nominal max width32mm, narrow ratio9.4/10.5 gradually approaches1.0; extrema locations inferred, not measured.",
+    "reverse": "Conservative mirror of volumetric construction, explicitly unobserved.",
+    "fracture": "Oblique filled mineral break surface; no hollow aperture."
+  },
+  "coil_center_xz_mm": [
+    0,
+    14.0
+  ],
+  "coil_angular_turns": 2.5,
+  "spiral_radii_mm": [
+    0.55,
+    1.4,
+    3.7,
+    9.0
+  ],
+  "palette": {
+    "mineral": "#B3AA98",
+    "fracture": "#8D8372",
+    "groove": "#9C917C"
+  },
+  "budgets": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "max_textures": 0
+  },
+  "preview": {
+    "resolution": 768,
+    "samples": 32,
+    "required_views": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "blender": "4.3.2",
+  "three": "0.180.0",
+  "gltf_validator": "2.0.0-dev.3.10",
+  "generation_method": "Source-outline closed solid with constrained true elliptical-section angular lanes and source-informed broad rounded spiral-whorl volume envelope. Flat shading unchanged; no shader-only concealment.",
+  "engineering_scale_sensitivity_fraction": 0.05,
+  "engineering_scale_sensitivity_not_scientific_interval": true,
+  "true_total_length": "UNKNOWN",
+  "topology_correction": "Exclude CDT faces outside source domain, strengthen planar-area gate0.05mm²; no silhouette or dimension threshold weakened",
+  "growth_relief_mm": 0.0,
+  "section_spacing_mm": 4.4,
+  "section_half_segments": 12,
+  "section_start_z_mm": 24.0,
+  "coil_ridge_turns": 2.5,
+  "coil_ridge_radii_mm": [
+    0.55,
+    11.6
+  ],
+  "coil_ridge_width_factor": 0.4,
+  "coil_ridge_depth_ratio": 0.88,
+  "coil_mineral_floor_mm": 0.65,
+  "coil_curve_samples": 144,
+  "coil_polar_step_mm": 0.9,
+  "coil_polar_angles": 60,
+  "repair_scope": "V01 geometry sampling/adjacency only; V02 continuous rounded whorl envelope and shaft transition. Same observed silhouette and unknown transverse/reverse anatomy. No new scientific metric claim.",
+  "cdt_construction_epsilon_mm": 0.0001,
+  "boundary_matched_support": true,
+  "transition_sampling": "Section grid from z24; whorl/polar seeds restricted below z24; actual volume blend z22 to30 mm.",
+  "boundary_support_only_15_degree_lane": true
+}

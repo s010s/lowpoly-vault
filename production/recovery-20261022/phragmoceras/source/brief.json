@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "asset_id": "phragmoceras",
+  "brief_version": "recovery-r001-pregeometry-f005",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "purpose": "New recovery production candidate, not recovered old r002 bytes; a small evidence-informed stylized fossil specimen for close museum browsing.",
+  "claim_scope": {
+    "taxon": "Phragmoceras koneprusensis Manda, 2007",
+    "specimen": "SM 75 holotype",
+    "representation": "Preserved damaged shell only; no animal soft anatomy; not scientifically exact reconstruction.",
+    "era": "Silurian, Ludlow, Ludfordian; upper S. linearis Zone",
+    "formation": "Kopanina Formation",
+    "locality": "Velk\u00fd vrch Hill at Kon\u011bprusy, Prague Basin, Bohemia",
+    "planning_inventory": "Original stable ID and genus-level target retained; historical inventory remains unchanged and is not scientific specimen evidence."
+  },
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "wire"
+  ],
+  "additional_views": [
+    "hero",
+    "reversehero",
+    "clayalt",
+    "detail"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Static-stylized eight-fixed-view baseline retained, with extra hero/reverse/clayalt and aperture detail; no exemption for scientific, independent, GPU or composed-scene gates.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "closed_outward_surface": true,
+    "self_intersections": "Complete strict all-candidate-pairs audit required; sampling prohibited; original implementation currently unavailable so gate UNKNOWN until restored or explicitly substituted with documented equivalent."
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "style": "Refined low-poly, quiet warm limestone palette, broad planes, minimal growth relief; no copied texture.",
+  "concept_selection": {
+    "selected": "../concept-c002/concept-original.png",
+    "use": "palette and planar rhythm only",
+    "overrides": [
+      "Do not copy deep open cave, excessive texture, or long tail.",
+      "Source lateral envelope and preserved damage govern shape.",
+      "Place mouth on dorsal expanded flank facing +Y and partly -Z, NOT a +Z open bowl and NOT the concept front-chest cave."
+    ]
+  },
+  "structure": {
+    "primary": "Short expanded laterally compressed body chamber, upper end curves into a modest contracted hood rather than a flat mechanical cut.",
+    "secondary": "Short bent tapered apical remnant with missing extreme apex",
+    "tertiary": "Shallow continuous U-shaped contracted recess on dorsal expanded flank, with coupled dorsal lobes; separate short damaged narrow hyponomic rim.",
+    "quiet_region": "Broad weakly ornamented body chamber"
+  },
+  "scale": {
+    "units": "meters",
+    "status": "approximate_original_interpretation",
+    "method": "Original parametric profile placed in the approximately four-centimeter specimen class; source measurements supply magnitude not exact world-axis constraints.",
+    "source_measurement_uncertainty": "Published measurement axes and paths unspecified in consulted passage; no independent bar in Fig8 \u00d70.7. Do not pixel-calibrate or claim exact dimension equality.",
+    "not_hard_gates": [
+      "43mm preserved length",
+      "33mm body chamber length",
+      "28mm height",
+      "19mm width"
+    ],
+    "diagnostic_ratio": "Text says dorsoventral/lateral about 1.5; compare broad compression qualitatively and stated local construction ratio, not exact bbox."
+  },
+  "axes": {
+    "blender": "X lateral, -Y ventral/concave bend, +Z toward broad end; aperture is separately dorsal +Y and downward -Z.",
+    "gltf": "X lateral, +Y up, +Z ventral",
+    "origin": "Center of minimum support plane; not claimed living posture"
+  },
+  "uncertainties": [
+    "Hidden cavity depth and matrix preservation not resolved from photographs. Shallow bounded relief is original interpretive geometry, not a recovered measurement.",
+    "Apertural direction and two dorsal lobes are text-supported; exact contour is not uniquely readable at original image resolution.",
+    "Color is artistic, not recovered biological or fossil chemical color."
+  ],
+  "forbidden": [
+    "restored sharp apex",
+    "complete hyponomic tube",
+    "V/Y aperture",
+    "tentacles or soft animal body",
+    "unlicensed incorporated photo/mesh/texture",
+    "carry-over historical PASS"
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact-export static and official validation, complete source reexport, two independent full deterministic rebuilds, strict exhaustive intersections, outward watertight finite nondegenerate mesh; configured budgets.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Fresh independent actual-pixel review of all eight exact-GLB views plus details for silhouette, aperture, damage, planes and coherence.",
+      "required_sources": [
+        "manda2007-sm75",
+        "concept-c002"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check damaged SM75 scope, compressed cyrtocone, no restored apex/tube, continuous U and paired dorsal lobes; maintain uncertainty.",
+      "required_sources": [
+        "manda2007-sm75"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify frozen seven roles, all helper content hashes, source scale semantics and zero textures; maker self-test is not independent acceptance.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact final GLB loaded by Three0.180.0 GLTFLoader and bounds/materials checked.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual GPU rendering separate from parse; remains UNKNOWN if not run.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual populated-scene rendering and measured work; remains UNKNOWN if not run.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "source",
+      "status": "PENDING_AFTER_GEOMETRY"
+    },
+    {
+      "role": "generator",
+      "path": "build_phragmoceras.py"
+    },
+    {
+      "role": "config",
+      "path": "build-config.json"
+    }
+  ],
+  "independent_review": "PENDING",
+  "backup_status": "PENDING_UNIQUE_LOCAL",
+  "pregeometry_source_direction_review": {
+    "second_reader": "parent coordinator",
+    "received_at": "2026-10-22T00:34:06Z",
+    "basis": "Parent inspected Fig8 original four views and p127 description/caption.",
+    "constraints": "dorsally placed, downward oriented; keep filled/preserved shallow interpretation and do not invent precise angle or deep cavity.",
+    "not_acceptance": true
+  },
+  "repair_from_c001": [
+    "Cubic Hermite centerline/profile removes observed abrupt fold steps.",
+    "Upper contracted envelope replaces mechanically planar cap, retaining damage and a shallow dorsal/downward U recess.",
+    "Recess uses lighter sediment hue; it is not a black painted symbol or recovered cavity depth."
+  ],
+  "repair_from_c002_F01": {
+    "finding_sha256": "c0568918b7d87587fa157a007a646d49eb62ee724c6706890e27b706df554e60",
+    "old_candidate_retained": "candidate-c002 remains REVISE and unchanged",
+    "scope": "Only the local narrow hyponomic remnant and smallest necessary adjacent crest to interrupt the intact rectangular perimeter. All shell control points, loft, dorsal U, apex, palette, unit/measurement semantics and source constraints remain unchanged.",
+    "uncertainty": "New ragged contour and shallow abrasion are explicitly interpretive; source does not resolve their exact shape. No complete opening or tube is restored.",
+    "evidence_required": "fresh exactGLB front, hero, top, sides and all canonical views; full technical checks and independent difference review"
+  }
+}
