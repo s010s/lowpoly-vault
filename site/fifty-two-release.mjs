@@ -1,3 +1,4 @@
+import {assertRecordedGalleryRecipe} from './gallery-publication-recipe-compat.mjs';
 /** Exact52 source/card preflight plus separate mandatory final-subject gallery gate. */
 import assert from 'node:assert/strict';
 import {readFile,realpath} from 'node:fs/promises';
@@ -158,7 +159,7 @@ export async function collectFiftyTwoAdditions(root,descriptors) {
  }
  const receipt = await json(capture.final_gallery_receipt);
  assertFiftyTwoGallerySubjects(receipt,additions);
- assert.deepEqual(receipt.shared,await posterSharedInputs(root),'Final gallery must use the current exact renderer recipe');
+ await assertRecordedGalleryRecipe(receipt.shared,root);
  const verification = await json(capture.final_gallery_artifact_verification), review = await json(capture.final_gallery_review);
  assert.equal(verification.zip_matches_github_digest_and_size,true); assert.equal(verification.entry_bytes_match_local_directory,true);
  assert.equal(verification.head_sha,receipt.head_sha); assert.equal(String(verification.run_id),String(receipt.run_id));

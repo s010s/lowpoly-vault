@@ -49,6 +49,7 @@ export async function enrichManifest(manifest, root = process.cwd()) {
 }
 export function creditText(asset, manifest) {
   const title = typeof asset.name === 'string' ? asset.name : asset.name?.en || asset.id;
+  if(asset.production_release){return `${title}\n${asset.name?.zh||''}\n\nCreator: ${asset.author||manifest.author}\nProject: ${manifest.attribution_url||'https://github.com/s010s/lowpoly-vault'}\nLicense: CC-BY-4.0\nhttps://creativecommons.org/licenses/by/4.0/\n\n${asset.description.en}\n${asset.description.zh}\n\nOriginal evidence-informed geometry; not a recovered historical model or intact-organism reconstruction.\nConsulted sources (no reference media incorporated):\n${asset.reference_credits.map(s=>s.title+' — '+s.url).join('\n')}\n\nCredit the creator, provide project and license links, and indicate your changes.\n${manifest.review_only?'LOCAL REVIEW CANDIDATE, NOT PUBLISHED.\n':''}`;}
   const revision = asset.revision_provenance;
   const history = revision
     ? `Revision: ${asset.revision}\nRevision creator: ${revision.author}\nRevision source: ${revision.source_url}\nChanges: ${revision.changes}\nOriginal creator: ${revision.original_author}\nOriginal source: ${revision.original_source_url}\nOriginal GLB SHA-256: ${revision.original_glb_sha256}\nThis archive contains the accepted revision's GLB and editable Blender source. Acceptance is for its frozen brief.\n`

@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "asset_id": "lituites",
+  "revision": "recovery-r001",
+  "brief_version": "recovery-r001-freeze-v009",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "frozen_at": "2026-10-22T02:17:40.970933+00:00",
+  "claim_scope": "Evidence-informed stylized incomplete external fossil specimen based only on Lituites lituus MB.C.30527. Not museum-exact replica, complete conch, aperture or animal. Hidden surfaces explicitly inferred.",
+  "purpose": "Small museum cabinet/catalog specimen, close inspection; preserve real-world nominal size, no per-asset normalization.",
+  "historical_status": "New candidate, not byte recovery, not historic accepted replay or new inventory count.",
+  "taxonomy": {
+    "genus": "Lituites",
+    "species": "lituus",
+    "specimen": "MB.C.30527 neotype",
+    "geologic_age": "late Darriwilian (Middle Ordovician), late Lasnamägi Regional Stage",
+    "formation": "Upper Grey Orthoceratite Limestone; Oderberg (Bralitz), Brandenburg"
+  },
+  "axes": {
+    "blender": "X source-photograph horizontal, -Y observed side, Z photograph up",
+    "glb": "X source horizontal, +Z observed side, Y photograph up",
+    "origin": "x at source coil center145px, z at lower silhouette1713px; museum presentation, not life pose"
+  },
+  "scale_policy": {
+    "protocol": "references/scale-protocol.json",
+    "nominal_px_per_mm": 6,
+    "measurement_uncertainty": "±5% is an engineering display/modeling sensitivity assumption only, not an error bar, confidence interval, or precision supported by the publication. True 3D/specimen-total uncertainty remains unquantified.",
+    "bbox_model_design_from_pixels_mm": [
+      38.166667,
+      32.0,
+      284.166667
+    ],
+    "dimension_gate": "X and Z within0.5mm of frozen source-outline AABB, transverse Y max nominal32±1mm model-design interpolation. These tolerances cannot be widened after build.",
+    "literature_lengths_not_geometry_targets": [
+      220,
+      195.3
+    ],
+    "critical_scientific_limit": "284.167mm is a conditional image-plane extent, not verified actual specimen total length. Prose220mm uncoiled part and Table10 fragm.length195.3mm definitions remain unreconciled. 0.5mm is only technical reproduction tolerance. Scientific actual-total-size gate remains UNKNOWN."
+  },
+  "art_direction": {
+    "primary": "Tight small filled coil smoothly continuous with long moderately curved uncoiled shaft, source outer silhouette controls",
+    "secondary": "Approximately2.5 turns visible as shallow spiral whorl relief, shaft taper and strongly oblique broken end",
+    "tertiary": "Restrained nonuniform shallow growth relief, weakened last whorl and initial backcoil, no exact ornament count claim",
+    "unseen_surface": "Reverse surface and intermediate cross-sectional depth conservatively inferred, not additional source view",
+    "concept_priority": "Primary source overrides concept. Concept cannot add terminal mouth, central through-hole or animal."
+  },
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "wire"
+  ],
+  "turntable_frames": 0,
+  "view_exemptions": {},
+  "coverage_justification": "Explicit static-stylized-v1 eight-view scope: six canonical and clay/wire; additional hero/detail allowed. No coverage or scientific waiver.",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "fragment-scope",
+      "stage": "factual",
+      "critical": true,
+      "description": "Only MB.C.30527 preserved coil, curved shaft and oblique fracture; no terminal aperture, lips, animal or central through-hole.",
+      "required_sources": [
+        "LIT2022-Fig33A"
+      ]
+    },
+    {
+      "id": "source-outline",
+      "stage": "factual",
+      "critical": true,
+      "description": "Figure33A same-side full photo and enlargement only; B/C cannot fill geometry. Freeze source silhouette plus inferred hidden depth.",
+      "required_sources": [
+        "LIT2022-Fig33A"
+      ]
+    },
+    {
+      "id": "ornament",
+      "stage": "factual",
+      "critical": true,
+      "description": "Shallow spiral whorl relief and restrained growth sculpture; no painted fake topology or copied texture, exact lira count not claimed.",
+      "required_sources": [
+        "LIT2022-p48"
+      ]
+    },
+    {
+      "id": "scale",
+      "stage": "specification",
+      "critical": true,
+      "description": "X and Z within0.5mm of frozen source-outline AABB, transverse Y max nominal32±1mm model-design interpolation. These tolerances cannot be widened after build.",
+      "required_sources": [
+        "LIT2022-Fig33A",
+        "LIT2022-Table9",
+        "LIT2022-Table10"
+      ]
+    },
+    {
+      "id": "source-export",
+      "stage": "technical",
+      "critical": true,
+      "description": "Complete EXPORT root/descendants and semantic mesh set, clean-source reexport, two code rebuilds, all helper hashes and seven file roles.",
+      "required_sources": []
+    },
+    {
+      "id": "topology",
+      "stage": "technical",
+      "critical": true,
+      "description": "Whole exported geometry is outward manifold/watertight; exhaustive full triangle-pair self-intersection classification; no omitted mesh/pairs or silent sparse BVH substitute.",
+      "required_sources": []
+    },
+    {
+      "id": "budget-format",
+      "stage": "technical",
+      "critical": true,
+      "description": "Frozen triangle/byte/material/primitive/texture budget, official Khronos zero errors and reviewed warnings.",
+      "required_sources": []
+    },
+    {
+      "id": "visual",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect actual pixels of all eight exact-GLB views, silhouette/planes/facets/fractures/ribs and source agreement; maker is not independent reviewer.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three GLTFLoader parse exact GLB with bounds/material counts and zero errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target GPU evidence mandatory for production approval; if not run remains UNKNOWN.",
+      "required_sources": []
+    },
+    {
+      "id": "scene",
+      "stage": "scene",
+      "critical": true,
+      "description": "Intended populated scene evidence mandatory for production approval; if not run remains UNKNOWN.",
+      "required_sources": []
+    }
+  ],
+  "publication_authority": "separate",
+  "required_deliverables": [
+    {
+      "role": "brief",
+      "path": "freeze/brief-v009.json"
+    },
+    {
+      "role": "config",
+      "path": "freeze/build-config-v008.json"
+    },
+    {
+      "role": "references",
+      "path": "freeze/references.json"
+    },
+    {
+      "role": "generator",
+      "path": "source/build_lituites_v008.py"
+    },
+    {
+      "role": "dependency-list",
+      "path": "source/dependencies-v010.json"
+    },
+    {
+      "role": "finalGLB",
+      "path": "build-attempt003-r4/lituites/lituites.glb"
+    },
+    {
+      "role": "finalBlend",
+      "path": "build-attempt003-r4/lituites/lituites.blend"
+    }
+  ],
+  "amendment": "Independent c002 V01/V02 repair: replace shaft staggered-grid topology by section-aligned facets and disk-plus-groove coil by continuously rounded whorl volume envelope. This is inferred depth/relief design constrained by same Fig33A, not a new scientific scope. All scale, area, topology, budget and acceptance gates preserved; old REVISE retained.",
+  "amended_at": "2026-10-22T03:09:52.000773+00:00",
+  "prior_scientific_freeze": {
+    "path": "freeze/brief-v004.json",
+    "sha256": "407aad015ca9019c5428e0383951d7eb5005bf9e92d7e0d60769231b49a8cccc",
+    "bytes": 7829
+  },
+  "code_only_retry": "CLI parser object renamed to args after pre-export shadowing failure. Geometry mathematics, scientific scope and gates unchanged. Failed first run retained.",
+  "construction_retry": "Unify duplicate source-border constraint intersections within 0.0001 mm during mesh generation. This construction epsilon does not modify any acceptance threshold; frozen source projection area and dimensions still independently checked.",
+  "geometry_refinement": "Pair original source boundary stations with inward section-angular support lanes and extend coherent section grid through coil-to-shaft transition. Intended to remove residual zipper without material/camera/normal concealment. No acceptance gate or scientific inference boundary changed.",
+  "topology_refinement": "Remove duplicate near-coincident angular-lane constraints; preserve a single source-border-matched lane on each side. Source mesh gate remains unchanged and prior failure retained."
+}

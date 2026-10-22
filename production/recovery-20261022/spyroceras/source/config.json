@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "asset_id": "spyroceras",
+  "revision": "recovery-r001",
+  "seed": 1192026102,
+  "length_m": 0.089,
+  "broad_nominal_diameter_m": 0.012,
+  "narrow_nominal_diameter_m": 0.0055,
+  "angular_samples": 64,
+  "annulations": 33,
+  "longitudinal_ribs": 32,
+  "source_semantics": "Count of geometric design features; not claimed exact specimen rib/chamber count.",
+  "upper_break_slope_x": -0.78,
+  "surface_profile": "palette-only",
+  "palette": {
+    "mineral": "#958C7A",
+    "fracture": "#B3A58C",
+    "worn_ridge": "#A39985"
+  },
+  "budgets": {
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_textures": 0
+  },
+  "preview": {
+    "resolution": 768,
+    "samples": 32,
+    "required_views": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "clay",
+      "wire"
+    ],
+    "turntable_frames": 0
+  },
+  "blender": "4.3.2",
+  "three": "0.180.0",
+  "gltf_validator": "2.0.0-dev.3.10",
+  "candidate_attempt": "attempt004",
+  "visible_revision": {
+    "purpose": "Improve visible longitudinal relief and organic annular rhythm; uneven mineral fracture silhouette",
+    "prior_attempt": "attempt002 rejected by maker visual inspection",
+    "geometry_rib_relief_m": {
+      "strong": 0.000145,
+      "weak": 7.5e-05
+    },
+    "annular_relief_m": "0.00015 + 0.00019*t",
+    "spacing_variation_m": "0.00017*sin(i*1.31)+0.00009*sin(i*.47)",
+    "fracture_edge_relief_m": "0.00036*cos(3\u03b8+.2)+0.00018*sin(7\u03b8-.3)",
+    "not_exact_specimen_detail": true
+  },
+  "topology_repair": "Explicit 20 micrometer near-endpoint snapping only along cut boundary, deduplicate consecutive face vertices to prevent near-degenerate sliver triangles from clip-plane grazing. No decimation or deletion of failed evidence."
+}

@@ -1,3 +1,4 @@
+import {assertRecordedGalleryRecipe} from './gallery-publication-recipe-compat.mjs';
 /** Fixed owner-authorized website delivery. Compact protected review anchors replace
  * historical process-body reads only for these five; old release gates are unchanged.
  * This does not grant physical GPU, target-scene, formal-profile, CI, or live acceptance. */
@@ -25,7 +26,7 @@ export async function collectFinalFiveRelease(root=process.cwd(),pin=FINAL_FIVE_
  assert.equal(index.independent_gallery_review.status,'PASS_BOUNDED_GALLERY_PRESENTATION');
  const content=collectFinalDeliveryCandidates(root); // Full seven-role reads, fixed original QA/archive anchors, actual GLB recomputation.
  assert.deepEqual(content.candidates.map(x=>x.id).sort(),FINAL_FIVE_IDS);
- const shared=await posterSharedInputs(root);assert.deepEqual(index.capture.shared,shared,'Exact current gallery recipe required');
+ const shared=await assertRecordedGalleryRecipe(index.capture.shared,root);
  const cardIndex=JSON.parse(await checked(root,index.card_presentation_index));
  const gallery=JSON.parse(await local(root,'site/public/gallery/resources.json'));
  const cards=JSON.parse(await local(root,'assets/turntables/index.json'));

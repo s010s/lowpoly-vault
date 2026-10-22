@@ -73,7 +73,7 @@ export function classify(paths,manifest,full=false,context={}) {
  if(manifest.publication?.round12_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round12_ids.some(id=>changedIDs.has(id))))tasks.push('round12');
  if(manifest.publication?.round13_descriptor&&(runtime||unknown||smallProbe||manifest.publication.approved_round13_ids.some(id=>changedIDs.has(id))))tasks.push('round13');
  if(previews)tasks.push('previews');
- return {category:runtime?(unknown?'unknown':roles.has('config')?'config':'runtime'):roles.has('assets')?'assets':'docs',reasons,affectedIds:changedAssets.map(asset=>asset.id).sort(),runtime,models,previews,ids,tasks:tasks.length?[...new Set(tasks)]:['none']};
+ return {category:runtime?(unknown?'unknown':roles.has('config')?'config':'runtime'):roles.has('assets')?'assets':'docs',reasons,affectedIds:changedAssets.map(asset=>asset.id).sort(),captureIds:changedAssets.map(asset=>asset.id).sort(),runtime,models,previews,ids,tasks:tasks.length?[...new Set(tasks)]:['none']};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  let paths=[],full=process.env.FULL_REVIEW==='true',context={};

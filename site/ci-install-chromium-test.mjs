@@ -20,7 +20,7 @@ result=await trial([new Error('spawn failed'),new Error('spawn failed'),new Erro
 result=await trial([{status:0,error:new Error('not a success')},{status:0}]);assert.equal(result.calls.length,2,'An error cannot be mistaken for exit-zero success');
 const cli=spawnSync(process.execPath,['site/ci-install-chromium.mjs','--ignore-failure'],{encoding:'utf8'});assert.notEqual(cli.status,0);assert(cli.stderr.includes('accepts no alternate command'));
 for(const path of ['.github/workflows/pages.yml','.github/workflows/full-release-review.yml']){
- const source=readFileSync(path,'utf8');assert.equal((source.match(/run: node site\/ci-install-chromium\.mjs/g)||[]).length,2);
+ const source=readFileSync(path,'utf8');assert.equal((source.match(/run: node site\/ci-install-chromium\.mjs/g)||[]).length,path.endsWith('/pages.yml')?0:3);
  assert(!source.includes('run: npx playwright install --with-deps chromium'));
  assert(source.includes('node site/ci-install-chromium-test.mjs'),'Installer contract must run before production use');
 }
