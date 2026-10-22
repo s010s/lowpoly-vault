@@ -77,6 +77,12 @@ jobs:
       - run: node site/ci-install-chromium.mjs
         id: install
         if: success() && steps.verify.outcome == 'success'
+      - name: Runtime entry lifecycle and thumbnail transition regressions
+        id: runtime_regression
+        if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
+        env:
+          QA_OUTPUT_DIR: qa/post-release-browser-regression
+        run: node site/ci-post-release-browser-test.mjs
       - name: Actual deployment URL, commit, entry JS and selected-model acceptance
         id: browser
         if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
@@ -96,11 +102,11 @@ jobs:
           import json, os, pathlib
           e = os.environ
           steps = json.loads(e['STEP_OUTCOMES'])
-          names = ['checkout', 'setup', 'dependencies', 'receipt', 'scope', 'build', 'verify', 'install', 'browser', 'shared']
+          names = ['checkout', 'setup', 'dependencies', 'receipt', 'scope', 'build', 'verify', 'install', 'runtime_regression', 'browser', 'shared']
           outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
           failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
           passed = e['UPSTREAM_CONCLUSION'] == 'success' and all(value == 'success' for value in outcomes.values())
-          report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['DEPLOYED_SHA'], 'expected_run_id': e['UPSTREAM_RUN_ID'], 'expected_run_attempt': e['UPSTREAM_RUN_ATTEMPT'], 'upstream_conclusion': e['UPSTREAM_CONCLUSION'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'downstream': {name: outcomes[name] if outcomes[name] == 'success' else 'NOT_RUN' if outcomes[name] in ['skipped', 'NOT_RUN'] else 'FAIL' for name in ['browser', 'shared']}, 'production_acceptance': False, 'reusable_browser_proof': False}
+          report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['DEPLOYED_SHA'], 'expected_run_id': e['UPSTREAM_RUN_ID'], 'expected_run_attempt': e['UPSTREAM_RUN_ATTEMPT'], 'upstream_conclusion': e['UPSTREAM_CONCLUSION'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'runtime_regression': outcomes['runtime_regression'], 'downstream': {name: outcomes[name] if outcomes[name] == 'success' else 'NOT_RUN' if outcomes[name] in ['skipped', 'NOT_RUN'] else 'FAIL' for name in ['browser', 'shared']}, 'production_acceptance': False, 'reusable_browser_proof': False}
           target = pathlib.Path(e['RUNNER_TEMP']) / 'post-release-summary' / 'report.json'
           target.parent.mkdir(parents=True, exist_ok=True)
           target.write_text(json.dumps(report, indent=2) + '\n')
@@ -116,6 +122,7 @@ jobs:
             ${{ runner.temp }}/post-release-summary/
             qa/post-release-preflight/
             qa/post-release-runtime/
+            qa/post-release-browser-regression/
             qa/post-release-shared/
             qa/approved-gallery-browser/
             qa/brand-browser/
