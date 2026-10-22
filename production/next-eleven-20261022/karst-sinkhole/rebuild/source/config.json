@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "kind": "new-original-recovery-generator-config",
+  "asset_id": "karst-sinkhole",
+  "batch_id": "batch-50",
+  "revision": "recovery-r001",
+  "maker_model": "GPT-6.1 Sol",
+  "maker_reasoning_effort": "medium",
+  "environment": "authorized selected cloud only",
+  "seed": 2026102213,
+  "representation": "geological-form",
+  "reconstruction_type": "artistic-concept",
+  "nominal_scale": {
+    "meters": 6.0,
+    "axis": "representative closed depression patch width",
+    "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+  },
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 30,
+    "max_glb_bytes": 1000000,
+    "soft_glb_bytes": 500000
+  },
+  "texture_policy": {
+    "max_textures": 1,
+    "max_dimension": 256,
+    "max_total_bytes": 65536,
+    "max_decoded_bytes": 524288
+  },
+  "budget_intent": {
+    "usual_glb_bytes_range": [
+      100000,
+      500000
+    ],
+    "max_triangles": 14000,
+    "max_glb_bytes": 1000000,
+    "policy": "14k triangles and 1,000,000 bytes are ceilings, not targets. Usually aim about 100–500 KB; below this range is fine. Spend more triangles only for visible silhouette/proportion/connection benefit. Do not pad counts or enlarge textures for apparent refinement. Preserve quality if a justified asset exceeds the usual range within the hard caps."
+  },
+  "preview": {
+    "resolution": 512,
+    "samples": 8,
+    "poster_view": "hero"
+  },
+  "static_only": true,
+  "animation_ready_claim": false,
+  "start_gate": "Current explicit parent assignment authorizes local recovery only; original pause retained unchanged.",
+  "concurrency": "Parent-coordinated shared host pool; default one worker x two Blender threads, no per-batch full-host allocation.",
+  "candidate_validation_profile": "static-stylized-v1",
+  "candidate_rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "geometry_choices": {
+    "en": "Original nominal6m closed sinkhole teaching patch: a full surrounding surface funnels downward into a narrow throat and an enlarged underground cavity. An explicitly artificial front subsurface teaching cutaway reveals the connection while the above-ground funnel rim stays closed all around. Physical void and rock thickness, no painted black hole, water or lights; not a blocked spring mouth, measured site, collapse event, age or hydrological simulation.",
+    "zh": "原创名义6米封闭落水漏斗教学裁片：完整周缘地表真实下凹汇入窄喉并通向下部扩大的地下腔。明确人工前侧地下展示剖切露出连接，同时地表漏斗周缘保持闭合。真实空腔岩厚，非黑贴孔/泉口堵口，无水灯，不指实测地点塌陷事件年代或水文模拟。"
+  },
+  "geometry_parameters": {
+    "azimuth_segments": 64,
+    "nominal_width_m": 6,
+    "funnel_rim_diameter_m": 4.68,
+    "throat_diameter_m": 0.76,
+    "cavity_max_diameter_m": 2.6,
+    "base_z": 0,
+    "cutaway_top_z": 2.04,
+    "surface_z": 3.35,
+    "cuts": "Only front underground half removed for teaching. Full surface depression rim retained.",
+    "upper_profile": [
+      [
+        3,
+        3.35
+      ],
+      [
+        2.78,
+        3.38
+      ],
+      [
+        2.34,
+        3.32
+      ],
+      [
+        1.94,
+        3.12
+      ],
+      [
+        1.55,
+        2.85
+      ],
+      [
+        1.18,
+        2.6
+      ],
+      [
+        0.84,
+        2.36
+      ],
+      [
+        0.57,
+        2.18
+      ],
+      [
+        0.38,
+        2.04
+      ],
+      [
+        3,
+        2.04
+      ],
+      [
+        3,
+        2.55
+      ],
+      [
+        2.98,
+        2.58
+      ],
+      [
+        3,
+        2.61
+      ],
+      [
+        3,
+        3.17
+      ]
+    ],
+    "lower_profile": [
+      [
+        3,
+        2.04
+      ],
+      [
+        0.38,
+        2.04
+      ],
+      [
+        0.43,
+        1.89
+      ],
+      [
+        0.78,
+        1.7
+      ],
+      [
+        1.15,
+        1.41
+      ],
+      [
+        1.3,
+        0.97
+      ],
+      [
+        1.22,
+        0.68
+      ],
+      [
+        0.93,
+        0.4
+      ],
+      [
+        0.48,
+        0.25
+      ],
+      [
+        0,
+        0.22
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        0.49
+      ],
+      [
+        2.98,
+        0.52
+      ],
+      [
+        3,
+        0.55
+      ],
+      [
+        3,
+        1.02
+      ],
+      [
+        2.98,
+        1.05
+      ],
+      [
+        3,
+        1.08
+      ]
+    ],
+    "surface_warp_m": 0.055,
+    "angular_asymmetry": 0.04,
+    "no_water": true,
+    "construction": "One welded watertight solid. Exact seam joins half-underbody to full surface roof; no internal contact faces."
+  },
+  "palette": [
+    [
+      "quiet-low-cover",
+      "#8D9B70"
+    ],
+    [
+      "weathered-rim-soil",
+      "#A89675"
+    ],
+    [
+      "soluble-rock",
+      "#B6B29D"
+    ]
+  ]
+}

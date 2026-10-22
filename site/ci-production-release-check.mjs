@@ -4,11 +4,12 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
-import {collectProductionRelease,assertProductionMetadata} from './production-release.mjs';
+import {assertProductionMetadata} from './production-release.mjs';
+import {collectManifestProduction} from './production-publication.mjs';
 export async function checkProductionRelease(root='.',onPhase=()=>{}){
- onPhase('manifest');const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),descriptor=manifest.publication?.production_descriptor;
- if(!descriptor){assert(!manifest.assets.some(a=>a.production_release),'Unbound production assets');return {status:'PASS',production_ids:[],legacy_path:true};}
- onPhase('production-collection');const assets=await collectProductionRelease(root,descriptor),actual=manifest.assets.filter(a=>a.production_release);
+ onPhase('manifest');const manifest=JSON.parse(await readFile(resolve(root,'assets/manifest.json')));
+ onPhase('production-collection');const assets=await collectManifestProduction(root,manifest),actual=manifest.assets.filter(a=>a.production_release);
+ if(!assets.length)return {status:'PASS',production_ids:[],legacy_path:true};
  assert.deepEqual(actual.map(a=>a.id).sort(),assets.map(a=>a.id).sort(),'Production manifest subject differs');
  onPhase('standard-glb-dependency');const {default:validator}=await import('gltf-validator');const results=[];
  for(const asset of assets){onPhase('standard-glb:'+asset.id);assertProductionMetadata(asset,actual.find(a=>a.id===asset.id));const bytes=await readFile(resolve(root,asset.glb));const report=await validator.validateBytes(new Uint8Array(bytes),{uri:asset.glb,maxIssues:1000});assert.equal(report.issues.numErrors,0,asset.id+': standard GLB validator errors');results.push({id:asset.id,glb_sha256:createHash('sha256').update(bytes).digest('hex'),standard_glb_errors:report.issues.numErrors,standard_glb_warnings:report.issues.numWarnings,final_media_route:asset.production_posters.route});}

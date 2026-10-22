@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "diania",
+  "representation": "living-reconstruction",
+  "original_acceptance_sha256": "34393b6050454a63c16f4d00894bd1f90643c62fe94869d051c53e50028f87fc",
+  "private_derivation_sha256": "92d4cc7c6de1fb536f9afd1f635ce4fcd55de26eb7e0b09d7b7f0d2b3e1dfe41",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "diania",
+    "representation": "living-reconstruction",
+    "source_layout": "structured-subject-v1",
+    "source_field_map": {
+      "subject": {
+        "taxon_inspiration": "diania",
+        "inventory_name": {
+          "en": "Diania cactus-limbed lobopodian",
+          "zh": "Diania（仙人掌足叶足动物）"
+        },
+        "category": "animals",
+        "subcategory": "arthropod",
+        "planning_eras": [
+          "cambrian"
+        ],
+        "representation": "living-reconstruction",
+        "reconstruction_type": "whole-organism",
+        "pose": "Calm static pose selected for recognizable structure and natural connections."
+      },
+      "claim_scope": "Named-taxon-inspired teaching art using basic recognizable form, not strict scientific reconstruction; no exact species/measurement/locomotion/coexistence claim.",
+      "distinctness": {
+        "en": "Its distinguishing construction is thin worm trunk above thick heavily spined lobopods; retain this geometry rather than treating it as a recolor, scale or pose variant.",
+        "zh": "以细蠕虫躯干下布粗壮多刺叶足为独立造型依据；须保留这些结构差异，不能仅靠换色、缩放或姿势区别。"
+      },
+      "modeling_brief": {
+        "en": "Original low-poly direction: establish thin worm trunk above thick heavily spined lobopods in the blockout, then preserve the largest silhouette breaks and openings. Simplify fine ornament and repeated elements without copying reference meshes; palette and presentation are artistic choices, not fossil evidence.",
+        "zh": "原创低多边形方向：先以细蠕虫躯干下布粗壮多刺叶足搭建体块，再保留主要外轮廓转折与孔隙。细纹及重复结构可简化，不复制参考网格；配色与展示方式属于美术选择，并非化石证据。"
+      },
+      "reference_policy": {
+        "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+        "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+        "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+        "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+        "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+        "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+      },
+      "scale": {
+        "meters": 0.06,
+        "axis": "body and lobopods length",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "artistic_choices": [
+        "Nominal dimensions, colors and limited thickness/pose are artistic choices, not fossil measurement.",
+        "Never enlarge a source scope from fragment to whole organism or freshwater to marine merely for scene filler."
+      ]
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000,
+      "soft_glb_bytes": 500000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 1,
+      "max_dimension": 256,
+      "max_total_bytes": 65536,
+      "max_decoded_bytes": 524288
+    },
+    "original_criteria": [
+      {
+        "id": "technical-integrity",
+        "stage": "technical",
+        "critical": true,
+        "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+        "required_sources": []
+      },
+      {
+        "id": "normal-view-craft",
+        "stage": "visual",
+        "critical": true,
+        "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+        "required_sources": []
+      },
+      {
+        "id": "basic-form-and-scope",
+        "stage": "factual",
+        "critical": true,
+        "description": "细连续躯干与粗叶足形成鲜明比例，叶足基部自然有负空间；非Hallucigenia加粗腿或Facivermis移腿。保留主要刺节奏，微刺/细软体可省，不作已解决系统发育或行走动画断言。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+        "required_sources": [
+          "IV-DIANIA"
+        ]
+      },
+      {
+        "id": "deliverables-and-label",
+        "stage": "specification",
+        "critical": true,
+        "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+        "required_sources": []
+      },
+      {
+        "id": "target-loader",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+        "required_sources": []
+      },
+      {
+        "id": "functional-render",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+        "required_sources": []
+      },
+      {
+        "id": "representative-scene",
+        "stage": "scene",
+        "critical": true,
+        "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "IV-DIANIA"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Stylized living reconstruction inspired by Diania: a thin continuous trunk above paired robust spiny lobopods. Pose, reduced ornament, limb presentation, palette and nominal 6 cm scale are teaching-art choices, not a measured fossil or exact species restoration. No resolved arthropod ancestry or rigid joint/claw anatomy is asserted.",
+    "zh": "以 Diania 为启发的风格化生活复原：细长连续躯干配成对粗壮多刺叶足。姿态、简化纹饰、肢体表现、配色及名义6厘米尺度属教学美术选择，并非实测化石或精确种级复原；不主张已确定的节肢动物祖先关系、硬关节或爪结构。"
+  },
+  "acceptance": {
+    "profile": "named-gates-original-source-v1",
+    "original_schema": "independent-production-acceptance-v1",
+    "original_schema_version": null,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "productionAcceptance",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "mandatory_repairs",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "source_and_rebuild.two_fresh_clean_rebuilds",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "source_and_rebuild.both_byte_match_original",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "source_and_rebuild.actual_blend_reexport",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "source_and_rebuild.reexport_byte_match_original",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "standard_glb.errors",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "standard_glb.warnings",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "science.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "visual.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "budget.status",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "provenance.required_seven_roles_present",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "original_history_preserved.approved",
+        "kind": "equal",
+        "expected": false
+      },
+      {
+        "path": "production_gates",
+        "kind": "gates",
+        "allowed": {
+          "science": "PASS",
+          "actual_visual_shape": "PASS",
+          "geometry_and_budget": "PASS",
+          "standard_glb": "PASS",
+          "source_and_clean_rebuild": "PASS",
+          "provenance_and_delivery": "PASS"
+        }
+      }
+    ],
+    "gate_values": [
+      "PASS",
+      [],
+      "PASS",
+      true,
+      "PASS",
+      true,
+      0,
+      0,
+      "PASS",
+      "PASS",
+      "PASS",
+      true,
+      false,
+      {
+        "science": "PASS",
+        "actual_visual_shape": "PASS",
+        "geometry_and_budget": "PASS",
+        "standard_glb": "PASS",
+        "source_and_clean_rebuild": "PASS",
+        "provenance_and_delivery": "PASS"
+      }
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "science.finding",
+        "value": "The narrow trunk, paired thick spiny lobopods and absence of asserted terminal claws preserve the recognizable named inspiration. Ou and Mayer 2018 primary abstract supports thick elongate clawless lobopods and heavy spines; figure captions also describe trunk spines. The original model does not assert a resolved arthropod ancestry.",
+        "original_value_sha256": "cc18a807b721e46196fcf1ea3dc9c549c4d6f1ed3a0d6d6812733468c5bfa62b"
+      },
+      {
+        "source_field": "science.uncertainty",
+        "value": "Living pose, limb count presentation, colors and dimensions remain teaching-art choices; not a strict reconstruction. Original Nature access limitations retained.",
+        "original_value_sha256": "7909560a125b028129bdbdbcaaf8d4f208142c36086dc5b457d63196cb71ac3b"
+      },
+      {
+        "source_field": "science.sources.0.url",
+        "value": "https://pubmed.ncbi.nlm.nih.gov/30237414/",
+        "original_value_sha256": "220b2b10d588a6e52b4c106a630ece628abdbab5b9f1396d58a8aa253d66e38f"
+      },
+      {
+        "source_field": "science.sources.0.access",
+        "value": "Abstract and figure captions independently read; no source figure pixels inspected.",
+        "original_value_sha256": "1d069263fbd53d2dad613c313dbac9713fd79f1d4701db22fb5552a137c3c433"
+      },
+      {
+        "source_field": "science.sources.0.use",
+        "value": "consulted-only",
+        "original_value_sha256": "7b9dd6b81a18923f4b2da75c5c207775c280b84a26546b96062dca728600c62a"
+      }
+    ],
+    "original_field_hashes": {
+      "asset_id": "8f7718100107e100f4140827a78775f73541aeda6401e165840f7588340665c1",
+      "productionAcceptance": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "mandatory_repairs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "source_and_rebuild.two_fresh_clean_rebuilds": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "source_and_rebuild.both_byte_match_original": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "source_and_rebuild.actual_blend_reexport": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "source_and_rebuild.reexport_byte_match_original": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "standard_glb.errors": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "standard_glb.warnings": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "science.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "visual.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "budget.status": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "provenance.required_seven_roles_present": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "original_history_preserved.approved": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "production_gates": "3a8e281f564f2dd3c3392190b48bebc5cb3afbc80fa0af4506b4b6a705a4bf0c",
+      "science": "7fdc578965d154a4932eb5259f1e7a802d1a7ba842846c453c3f75a0ceccaac3",
+      "reviewer": "245dc7a7b7bcc2847b9ee06c7f6b9576433bd2cf596cace44e806071837e6ebf",
+      "final_glb": "85a2b6771235ea07945a642a7e929017a05e9834c2d9e3ada4ab7ac76a0b4394",
+      "final_blend": "0fda3fb0a1c357c53056f3cfd0592abc6e47740b0c0dd61928deeae16ea6bf9a",
+      "frozen_brief": "74714499d8fb81371f0d06d43db312b1f0ddc1c37baeeb08963c7892d3a2ba86",
+      "original_history_preserved": "80c2d66fd69d975bd833996751380845341efd40956f256fbcfb9a80e174b301",
+      "postReleaseVerified": "0f15dc23249e5ae41849d7f070b24f8aea5d052fe3d20972b004e8b9e07349ba",
+      "releaseChecks": "0f15dc23249e5ae41849d7f070b24f8aea5d052fe3d20972b004e8b9e07349ba"
+    },
+    "original_reviewer_identity": null
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "581f2aa7f2d61e89e879a22ca2a41567a308d80444c4ebc82ae3dd4688a8a5fb",
+      "bytes": 11693,
+      "original_path_sha256": "6aad629b7645784133b57ca6a0717eddcc4467a6ca5dd9b5afb760d6eb6ca1b7",
+      "source_document_sha256": "34393b6050454a63c16f4d00894bd1f90643c62fe94869d051c53e50028f87fc",
+      "source_pointer_sha256": "e7eb13b14f3ea8eaa710edb9290c4f4a6a58292cec996c8951ee0ecf99dcad33"
+    },
+    "config": {
+      "sha256": "a4fbe3c0fdca5265853e37af59426ba6a7136421f2f860b7532f1087b2c88691",
+      "bytes": 2338,
+      "original_path_sha256": "6f2bafa4fcd551ccfd1fe89dfb48a1567f30788f2bdba818d9747d73714c5dd0",
+      "source_document_sha256": "316c3f7074ebbce61c2533c7c2d2161d81ce953e746f980991ebd4381e5bf9e9",
+      "source_pointer_sha256": "19bfec30d98bc0f9f39a30ce3393ce322b78ebc850453421449e64d92bb65c0e"
+    },
+    "references": {
+      "sha256": "a12f0f0012ef4d5184cab73e31b942026e03a4f9de29fdea89a128bdd582f10d",
+      "bytes": 3100,
+      "original_path_sha256": "f0299d7874bae28e2c402b069070776bf812d42434d9b5018a81b604dfd60b86",
+      "source_document_sha256": "316c3f7074ebbce61c2533c7c2d2161d81ce953e746f980991ebd4381e5bf9e9",
+      "source_pointer_sha256": "5e71fb0cc0b35d8b09444babdbc82990b93ed410085d86dad467125c9c9b94f6"
+    },
+    "generator": {
+      "sha256": "0cf341d31a02672f27d70629aef4a803f7013292eb23b0c2f4e4c71dc8d8f7b5",
+      "bytes": 4898,
+      "original_path_sha256": "becfb1dc98a1cda9c1e831407df0f156325f0ad2e923163447f5c56a218aaf67",
+      "source_document_sha256": "316c3f7074ebbce61c2533c7c2d2161d81ce953e746f980991ebd4381e5bf9e9",
+      "source_pointer_sha256": "64e89ca923ea30f71b2138620f5165e0920c7751dc8a93768c00b854f997aded"
+    },
+    "dependency-list": {
+      "sha256": "e59283ee5e07aa07ea39e1b01bcd9a7e83d0ad0c99171559ca1a2e18232b7ad9",
+      "bytes": 7061,
+      "original_path_sha256": "f1f3238436ea328f087039d7877a90fbda2599c8144ad4d0da223ac273e310de",
+      "source_document_sha256": "316c3f7074ebbce61c2533c7c2d2161d81ce953e746f980991ebd4381e5bf9e9",
+      "source_pointer_sha256": "8f9f8252211394ffc45283442fef414367d13fe2548fe2cfccf3689423dafa76"
+    },
+    "finalGLB": {
+      "sha256": "824887e5602f3569ec27008567d682c73efb522b64e23e5cea79e2f9d1f8e7f1",
+      "bytes": 455984,
+      "original_path_sha256": "88eacdbb73d54df5c2bbb808d3c48c1c0124035109a0620c0d63b627da870363",
+      "source_document_sha256": "34393b6050454a63c16f4d00894bd1f90643c62fe94869d051c53e50028f87fc",
+      "source_pointer_sha256": "088f72924db1b9a5d6c40989529eebb456fad54fb87ec9d371c87ce8ed6644cf"
+    },
+    "finalBlend": {
+      "sha256": "6b4c34222cc9410e7fc24afae421698120377aa3a45bc2435ff7b9772ba6f43b",
+      "bytes": 936944,
+      "original_path_sha256": "9415de40f1b8a55613000299486bc20cd3b425e9023777e4ec6c8312a3e3e1f7",
+      "source_document_sha256": "34393b6050454a63c16f4d00894bd1f90643c62fe94869d051c53e50028f87fc",
+      "source_pointer_sha256": "c6c9f14afea3570f3b75d63bc6eb750aba4480239b622c71055f50c67864b059"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}

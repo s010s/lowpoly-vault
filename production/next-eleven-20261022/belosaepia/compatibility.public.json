@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "belosaepia",
+  "representation": "fossil-specimen",
+  "original_acceptance_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+  "private_derivation_sha256": "4a2ec191b889199fc85639addfea25a0e286ade35b374b329c9da7ab1377553b",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "belosaepia",
+    "representation": "fossil-specimen",
+    "source_layout": "structured-subject-v1",
+    "source_field_map": {
+      "subject": {
+        "taxon_inspiration": "belosaepia",
+        "inventory_name": {
+          "en": "Belosaepia pronged internal shell",
+          "zh": "Belosaepia（弯刺内壳）"
+        },
+        "category": "animals",
+        "subcategory": "mollusk",
+        "planning_eras": [
+          "paleogene"
+        ],
+        "representation": "fossil-specimen",
+        "reconstruction_type": "specimen",
+        "pose": "Static original internal-shell teaching specimen, no whole cuttlefish reconstruction."
+      },
+      "claim_scope": "Preserved internal shell/endoskeleton only: thick rear body, curved posterior prong and expanded thin anterior plate. No complete soft-bodied animal, arm count or living proportions inferred.",
+      "distinctness": {
+        "en": "A pronged internal shell has a different construction from exposed chambered external shells and complete coleoid bodies.",
+        "zh": "带弯刺内壳的结构区别于外露有室壳及完整鞘亚纲动物体形。"
+      },
+      "modeling_brief": {
+        "en": "Block the thick rear mass and curved prong first, then add a thin expanded front plate. Retain a readable thickness hierarchy while omitting microscopic shell chambers.",
+        "zh": "先搭建较厚后部与弯刺，再添加前方扩展薄板；保留清楚厚薄层次，省略微小壳室。"
+      },
+      "reference_policy": {
+        "scope": "Child-friendly static stylized-inspired environment prop; no strict scientific reconstruction.",
+        "minimum_reference": "Use a reliable named museum/specimen/institution or primary reference supporting recognizable basic form; existing ledger entries are retrieval leads with inherited access notes, not a new verification by this planning task. Group-only overview cannot prove a genus-specific diagnostic feature. No mandatory species/specimen matching beyond the basic form actually claimed.",
+        "reference_rights": "Consulting facts does not require licensing a copied asset. References are consulted-only, with source URLs and actual access status retained. No reference media/scan/mesh is incorporated. If incorporating third-party media, record actual rights/license/permission first; the string consulted-only is not a third-party license grant. Prefer original geometry/maps and avoid this dependency.",
+        "continue_rule": "Once reliable basic form and original/authorized inputs are established, proceed after the parent CI/claim gate. Do not repeatedly research or repair because color, restored soft tissue, pose, dimensions, plate/feather counts or fine reconstruction are uncertain. Label artistic choices.",
+        "block_only": "A real basic identity contradiction, no reliable support for the named form actually claimed, unlicensed incorporated material, visibly broken proportion/connection at intended view, or failed required technical/delivery checks remains actionable. Narrow unsupported claims to the descriptive inspired-by fallback; do not invent sources or a factual PASS.",
+        "repair_bound": "One consolidated independent QA and at most one planned cosmetic repair as the inherited practical profile specifies; persistent required defects return to parent for scope/hold decision rather than an open-ended reconstruction campaign."
+      },
+      "scale": {
+        "meters": 0.11,
+        "axis": "preserved endoskeleton span",
+        "kind": "nominal art-direction choice, not a newly measured fossil dimension; display scaling separately labeled"
+      },
+      "artistic_choices": [
+        "Nominal scale, colors and conservative thickness/curvature are artistic choices, not new fossil measurements.",
+        "Preserve original shell/tube or isolated botanical organ scope; never infer associated whole organisms or extra organs."
+      ]
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000,
+      "soft_glb_bytes": 500000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 1,
+      "max_dimension": 256,
+      "max_total_bytes": 65536,
+      "max_decoded_bytes": 524288
+    },
+    "original_criteria": [
+      {
+        "id": "technical-integrity",
+        "stage": "technical",
+        "critical": true,
+        "description": "Exact standalone GLB validates/reimports; finite geometry, units/origin and measured separate budgets; warnings dispositioned.",
+        "required_sources": []
+      },
+      {
+        "id": "normal-view-craft",
+        "stage": "visual",
+        "critical": true,
+        "description": "All eight fixed QA views and actual-GLB runtime evidence; readable distinct silhouette, credible proportions, soft natural connections at normal/near viewing scale. Counts do not certify beauty.",
+        "required_sources": []
+      },
+      {
+        "id": "basic-form-and-scope",
+        "stage": "factual",
+        "critical": true,
+        "description": "只原内骨骼标本：厚后体和长弯后刺过渡至扩展前薄板，厚薄层次清楚；非螺壳拉平或鱼骨随意拼接。省微小壳室，不凭内壳补全软体乌贼、触腕或生活比例。 Preserve original reference scope, uncertainty and representation label. No extra microscopic or precise life-reconstruction obligations.",
+        "required_sources": [
+          "IV-BELOSAEPIA",
+          "IV-BELOSAEPIA-PAPER"
+        ]
+      },
+      {
+        "id": "deliverables-and-label",
+        "stage": "specification",
+        "critical": true,
+        "description": "Editable Blend, standalone GLB, deterministic generator/config and dependency hashes, bilingual metadata/scope/provenance/attribution, original small maps if used, transparent cover, eight fixed views and actual-GLB runtime evidence.",
+        "required_sources": []
+      },
+      {
+        "id": "target-loader",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Exact GLB parsed by pinned target loader; record bounds/material/texture/errors.",
+        "required_sources": []
+      },
+      {
+        "id": "functional-render",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Declared functional graphics runtime; identify software/hardware honestly, no unsupported physical-device performance claim.",
+        "required_sources": []
+      },
+      {
+        "id": "representative-scene",
+        "stage": "scene",
+        "critical": true,
+        "description": "Neutral multiple-copy teaching-prop benchmark with actual instance/work counts; no actual museum integration or cross-era habitat claim.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "IV-BELOSAEPIA",
+      "IV-BELOSAEPIA-PAPER"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Original Belosaepia-inspired internal-shell specimen only: a thick posterior body joins a long gently curved posterior prong and broad thin anterior shield/deck through one continuous shell volume. Relative thickness and outward flare are readable; microscopic chambers, soft cuttlefish, arms and inferred living body proportions are omitted. Nominal11cm, palette and presentation are artistic, not a copied fossil or exact species measurement.",
+    "zh": "原创Belosaepia启发内壳标本：厚后体、较长微弯后刺与前扩薄盾板/腹板为单一连续壳体，厚薄层次和外展可读。省微壳室，不补软体乌贼腕或生活比例。名义11厘米、配色与展示属美术，非化石复制或精确种级测量。"
+  },
+  "acceptance": {
+    "profile": "criteria-exact-subject-v1",
+    "original_schema": "additive-first-independent-per-model-production-acceptance",
+    "original_schema_version": 1,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "productionAccepted",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "scope.minimum_required_repairs",
+        "kind": "equal",
+        "expected": []
+      },
+      {
+        "path": "compatibility.fresh_profile_valid",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "compatibility.fresh_profile_contract_status",
+        "kind": "equal",
+        "expected": "pass"
+      },
+      {
+        "path": "compatibility.historical_approved_for_brief",
+        "kind": "equal",
+        "expected": false
+      },
+      {
+        "path": "production_criteria",
+        "kind": "criteria",
+        "allowed": {
+          "technical-integrity": [
+            "PASS",
+            "pass"
+          ],
+          "normal-view-craft": [
+            "PASS",
+            "pass"
+          ],
+          "basic-form-and-scope": [
+            "PASS",
+            "pass"
+          ],
+          "deliverables-and-label": [
+            "PASS",
+            "pass"
+          ],
+          "target-loader": [
+            "PASS",
+            "pass"
+          ]
+        }
+      }
+    ],
+    "gate_values": [
+      true,
+      [],
+      true,
+      "pass",
+      false,
+      [
+        {
+          "id": "technical-integrity",
+          "status": "pass",
+          "evidence_count": 6,
+          "evidence_sha256": "3f0dbe762b11ac0551ec68cf69da31675ba874488da5a2ada4fe310cc66abb81"
+        },
+        {
+          "id": "normal-view-craft",
+          "status": "pass",
+          "evidence_count": 2,
+          "evidence_sha256": "edda30a55df616ba41eb60d615b3827cf3a45a2339e966fa0011bd352f31f10f"
+        },
+        {
+          "id": "basic-form-and-scope",
+          "status": "pass",
+          "evidence_count": 1,
+          "evidence_sha256": "cf95a6740e7e66c91caab0bf72199730a184bdca68c5605d4477d5942e83dcbf"
+        },
+        {
+          "id": "deliverables-and-label",
+          "status": "pass",
+          "evidence_count": 7,
+          "evidence_sha256": "6a63576145b95aa722b5820fe84493ff462a8dffb567f3e7284c9365bee7f941"
+        },
+        {
+          "id": "target-loader",
+          "status": "pass",
+          "evidence_count": 1,
+          "evidence_sha256": "9c867c30a99bdf5dc13ac3a1df9b6b69fd6a307d2932e5dc4b1bd56816e487dd"
+        }
+      ]
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "reproducibility_limits",
+        "value": "Fresh comparisons of both restored rebuilt GLBs are byte-identical and semantic-identical to the candidate. Original successful bounded-runner requests/results, all 11 input hashes per run, runner hash and stdout/stderr were checked. These attest recorded historical generation; this reviewer did not regenerate the asset and does not describe hashes as cryptographic proof of execution.",
+        "original_value_sha256": "fae16b2ee0a23ca90208eb622f2aa44c4600cff74cab57331ce6b1fa5a48c6eb"
+      },
+      {
+        "source_field": "production_criteria.2.finding",
+        "value": "Named primary textual sources support the pronged Belosaepia endoskeleton and large thin anterior structure. No generic-fossil substitution or invented specimen/image verification.",
+        "original_value_sha256": "a624c83c16af360553449d27ee1d49b171eaf934edfe5c41b4bc96b7c14b0420"
+      }
+    ],
+    "original_field_hashes": {
+      "productionAccepted": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "scope.minimum_required_repairs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "compatibility.fresh_profile_valid": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "compatibility.fresh_profile_contract_status": "fedce8e8af485c2586f54c43a9b656dc70b41eb9be8c64b69c98391847dd4baf",
+      "compatibility.historical_approved_for_brief": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "production_criteria": "48d62303cb0c6bc207d6654b6735c34b4ad5927b16fdabd3de44717dbd28125a",
+      "subject": "480a1b53a2791b30cc224f6ad64033dbea237a35cdfde34a120fc737593a3d41",
+      "reviewer": "e982239a4e7efb1a034936d23317729ea262059ef6f161f3f9ff29403deceb35",
+      "reproducibility_limits": "fae16b2ee0a23ca90208eb622f2aa44c4600cff74cab57331ce6b1fa5a48c6eb",
+      "compatibility": "882bcbe0d76b047b7dd8ce3c68d373bfb74969114c25adab2ae886bd4b17290b",
+      "postReleaseVerified": "81d1373ef3d35e03d0d50fcf5bdf967fad2f8a210aefff6dc51211a65d9f0418",
+      "releaseChecks": "0eb9492fbe2a6eab6fb76b9d45bda690600c5b923fa43fcc942209c9dab839f3"
+    },
+    "original_reviewer_identity": {
+      "original_value_sha256": "e982239a4e7efb1a034936d23317729ea262059ef6f161f3f9ff29403deceb35"
+    }
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "2131733c5e3e2ee465e3fcae28eda65524d7a8998c82d06d250c40e31ce0f71a",
+      "bytes": 11345,
+      "original_path_sha256": "dba2b87a7b0ee337b90ae5314642750f5b95b5f4305acfdfe9150ab0a7bdb6f5",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "6cf89e714a764752d673661312b3b3edd32847f043cfcb1b0cdcbb66b7f3b03d"
+    },
+    "config": {
+      "sha256": "46645dfe1bd11bac74cb62545e132f3d1fcfbcb4ab22902fb3c58e66c6e042e6",
+      "bytes": 2987,
+      "original_path_sha256": "3e7decee445ddb074f43b8fa95f14c12a69ba91b9f08729161f7e0864aebb06d",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "f0e4265b3f766ae2da86a6b28cf1038bd65f3423f966ca67a7492f2150c9a7ef"
+    },
+    "references": {
+      "sha256": "d80f0394b3a70d68fe5eeef3c2b7b41fdb9e0ea44186c5527016692c9a69029a",
+      "bytes": 2163,
+      "original_path_sha256": "9a5dae3e5d240ddd9eead8d8c4bf3915df7c640f303825bb09c84d6ed302fb14",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "2b77037e1b24219188056ba46957401c82c3bc3484389f7ba3fd4e27ae2b5994"
+    },
+    "generator": {
+      "sha256": "52a3c1cd533daeb3a48ed4bba881f68ef896cfc29c41718361d64f5fd1f535b9",
+      "bytes": 18729,
+      "original_path_sha256": "57704bee17e28080cd8c920b072aca89cbb0c45447efd263e026429b9222b145",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "cc2de98709f36f73bb7315ccf94e343d209bbf4e5e5731dfc5bfa5a464c86f67"
+    },
+    "dependency-list": {
+      "sha256": "915984e280d0583396df435c450c927524f2bc4b083ffa7e2ff1ed74a7719ecf",
+      "bytes": 6000,
+      "original_path_sha256": "a95c838282206411fac72a7ee95251bcc0d1a327473beec5187d718f23ecc1a4",
+      "source_document_sha256": "bc8fcc6176522cf37f4590120c953d43fdceb7d7dc27f2a9a80331ad670c1a51",
+      "source_pointer_sha256": "26ae221e968b79f62b3ded064992050a650c7530135652eb7983c8bbbf5c364f"
+    },
+    "finalGLB": {
+      "sha256": "889bfac2d29dc7887fcad1fea4fa4bf1828ca193f9d2eb267198e1e2c8370d03",
+      "bytes": 27512,
+      "original_path_sha256": "34d6e746757454d627da12950938ed8a5378866e5e9f38153d4da08b51e47476",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "8cc391992b97eef04ef0ab0a07eef666eb471d9c97803c5fb0a577921559ddc7"
+    },
+    "finalBlend": {
+      "sha256": "c47acf36ecc98a9f1bf1064f0a97c4d029e612d5aba233af5e06a045bcea532f",
+      "bytes": 485104,
+      "original_path_sha256": "682a1d908b88c33c70de881ebd4446e193ef727f96437125ff5140c2b0f0318a",
+      "source_document_sha256": "c2d47348f87d0ff595dd2e3d1bb3a148ab2de3f80dfbdcfb1094c7af3865e9fc",
+      "source_pointer_sha256": "bc1b5b2e94e14df19b30d7069c25c96f67d2d9b6d4dcc6f6d6d66481419cb950"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}

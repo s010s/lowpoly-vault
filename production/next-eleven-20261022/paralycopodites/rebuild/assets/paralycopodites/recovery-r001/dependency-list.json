@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "derived-recovery-dependency-list",
+  "derived": true,
+  "derived_from": [
+    {
+      "path": "originals/production/batch96/assets/paralycopodites/r002/build-dependencies.json",
+      "sha256": "cb5c0e2bf10600512634ff45002b57b4819365a319bfbedbb478f88ae48d7c37",
+      "bytes": 873
+    },
+    {
+      "path": "originals/package-lock.json",
+      "sha256": "4b89f2140f1d25a363df7e4afa505df747c06dfbc3833c2df40158fc1c63bfb2",
+      "bytes": 37035
+    }
+  ],
+  "build_inputs": [
+    {
+      "path": "repair/assets/paralycopodites/recovery-r001/generator.py",
+      "sha256": "72a0c2986adb1d413fa157018bee74ec9d65b2834b06f2d7965ef3bd018dc2e3",
+      "bytes": 14499
+    },
+    {
+      "path": "repair/assets/paralycopodites/recovery-r001/build-config.json",
+      "sha256": "dafc15662fe5e28229682c0246b5c884f4ab0c5b3b9f9e9f87259dd823f174f1",
+      "bytes": 1301
+    },
+    {
+      "path": "repair/scripts/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "bytes": 26367
+    },
+    {
+      "path": "repair/scripts/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "bytes": 13344
+    }
+  ],
+  "test_helpers": [
+    {
+      "path": "tools/differential_surface_audit.py",
+      "sha256": "42af659df8c7b8035655fb8a534163437d1a6499678a07b643dc83efd70c9c79",
+      "bytes": 6122
+    },
+    {
+      "path": "tools/full_asset_exposure.py",
+      "sha256": "574126e9fd3963cebf78b828a1651d6df7cfc82c6033d0307fc4b11a694def22",
+      "bytes": 5167
+    },
+    {
+      "path": "tools/reexport_source.py",
+      "sha256": "33cfc532bb57ce74caf525b199bb8933cc292ae5d396ab1c994f27093408d6f7",
+      "bytes": 1292
+    },
+    {
+      "path": "tools/runtime-audit.mjs",
+      "sha256": "8bb642ee93243c9c4cab80f6f8465830387d9166e255bb6c2c6a912e878ccd22",
+      "bytes": 1825
+    },
+    {
+      "path": "repair/scripts/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+      "bytes": 6550
+    },
+    {
+      "path": "repair/scripts/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+      "bytes": 9391
+    },
+    {
+      "path": "originals/production/batch96/render-fixed8.py",
+      "sha256": "82d2b77843f8c6456fb52acbd341ce1e1c953f5678624da158c90a780e9e4627",
+      "bytes": 17115
+    },
+    {
+      "path": "originals/qa/continuous-small-life-round41-20261021/batch96/geometry.py",
+      "sha256": "0400736beb3217937bcbaf1d1e5c8ceb0a31b4c596b60b05e5ef25571c151477",
+      "bytes": 6176
+    },
+    {
+      "path": "originals/qa/continuous-small-life-round41-20261021/batch96/confirm-enclosure.py",
+      "sha256": "dd8d07413eaa182c559188089c0a427eccce6b579c9f4fbcdcd0e9165ba3001b",
+      "bytes": 5972
+    }
+  ],
+  "runtime_archives": [
+    {
+      "path": "repair/vendor/gltf-validator-2.0.0-dev.3.10.tgz",
+      "sha256": "4e03dbdc3bc0d1342afd5d2d7ae341a7e3474502ccb872b02dbbaddaee0fdec6",
+      "bytes": 110015
+    },
+    {
+      "path": "repair/vendor/three-0.180.0.tgz",
+      "sha256": "ad66d724565ee29a2467277fa84daa5ed0211d6b8d446e9ef29f6bae0cd14144",
+      "bytes": 7750248
+    }
+  ],
+  "runtime_package_verification": {
+    "path": "evidence/runtime-dependency-verification.json",
+    "sha256": "a0349595ee1fab64a292ce866cccab4b36257582956264ce1f0db7f9ac85beed",
+    "bytes": 180807
+  },
+  "environment": {
+    "blender": "4.3.2",
+    "max_threads": 2,
+    "blender_path": "/usr/bin/blender",
+    "python": "Blender bundled Python",
+    "node": "v24.19.0",
+    "bundled_python": "3.13.5",
+    "bundled_numpy": "2.2.4",
+    "three": "0.180.0",
+    "gltf-validator": "2.0.0-dev.3.10",
+    "no_pycache_in_originals": true
+  },
+  "note": "This new list is derived from actual restored dependency bytes, verified npm tarballs, and recovery helpers; it is not claimed to be the missing original dependency history. Original build-dependencies.json remains immutable."
+}

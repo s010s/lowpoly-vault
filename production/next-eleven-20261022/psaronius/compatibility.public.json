@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "kind": "compact-inventory-compatibility-v1",
+  "derived": true,
+  "asset_id": "psaronius",
+  "representation": "living-reconstruction",
+  "original_acceptance_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+  "private_derivation_sha256": "267533671f0866d25002fc4d21f894458f1de61f1f2bfc01e37a170449d9e425",
+  "brief": {
+    "kind": "derived-inventory-brief-map-v1",
+    "derived": true,
+    "asset_id": "psaronius",
+    "representation": "living-reconstruction",
+    "source_layout": "scalar-subject-reconstruction-v1",
+    "source_field_map": {
+      "subject": "Psaronius root-mantled tree fern",
+      "factual_scope": "Genus-level living reconstruction from museum root-mantle specimen and compatible published tree-fern reconstruction. Psaronius simplex crosssection supports the root mantle only; crown is not attributed to that species. Crown frond/pinna/pinnule counts, root bundle count, colors and nominal display scale are artistic. No claimed reproductive or microscopic anatomy.",
+      "identifying_features": [
+        "One tall upright trunk is stabilized by a continuous downward root mantle, visibly thickest and flared at the base.",
+        "Eight long arching fronds emerge together at the terminal crown, each with seven opposite pairs of pinnae; each pinna bears five paired pinnules.",
+        "Root bundles remain thin longitudinal root-like ridges, not overlapping bark scales or palm leaf bases; isolated tree, no pedestal."
+      ],
+      "scale": {
+        "units": "meters",
+        "art_target_bounds_blender_xyz_m": [
+          3.1,
+          3.1,
+          3.6
+        ],
+        "bounds_interpretation": "Nominal artistic display targets, not hard equalities/minimum/maximum thresholds. Measure and disclose actual final world bounds and all tagged components after transforms. Scientific morphology and explicitly stated module counts are mandatory; dimensions are illustrative unless identified otherwise.",
+        "accuracy": "Interpretive art, not a specimen cast."
+      },
+      "prohibited": [
+        "Change original inventory/freeze to pass",
+        "Treat concepts as source evidence",
+        "Copy consultation imagery/meshes",
+        "Hide defects with renderer tricks",
+        "Claim CPU/Node proves GPU/scene"
+      ],
+      "frozen_at": "2026-10-20T23:41:56.719718+00:00"
+    },
+    "frozen_budget": {
+      "max_triangles": 14000,
+      "max_materials": 6,
+      "max_primitives": 30,
+      "max_glb_bytes": 1000000
+    },
+    "frozen_texture_policy": {
+      "max_textures": 0,
+      "max_dimension": 0,
+      "max_total_bytes": 0,
+      "max_decoded_bytes": 0
+    },
+    "original_criteria": [
+      {
+        "id": "technical-acceptance",
+        "stage": "technical",
+        "critical": true,
+        "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+        "required_sources": []
+      },
+      {
+        "id": "visual-acceptance",
+        "stage": "visual",
+        "critical": true,
+        "description": "Inspect every final view against original scope. Concept inspected23:38:40UTC. Keep tall root-mantled trunk and crown. Correct concept scale-like bark chips into continuous narrow root strands; ensure twice-pinnate foliage rather than simplified once-pinnate palm. Preserve crown negative spaces.",
+        "required_sources": [
+          "BSPG2015"
+        ]
+      },
+      {
+        "id": "factual-acceptance",
+        "stage": "factual",
+        "critical": true,
+        "description": "Verify One tall upright trunk is stabilized by a continuous downward root mantle, visibly thickest and flared at the base. Eight long arching fronds emerge together at the terminal crown, each with seven opposite pairs of pinnae; each pinna bears five paired pinnules. Root bundles remain thin longitudinal root-like ridges, not overlapping bark scales or palm leaf bases; isolated tree, no pedestal. Genus-level living reconstruction from museum root-mantle specimen and compatible published tree-fern reconstruction. Psaronius simplex crosssection supports the root mantle only; crown is not attributed to that species. Crown frond/pinna/pinnule counts, root bundle count, colors and nominal display scale are artistic. No claimed reproductive or microscopic anatomy.",
+        "required_sources": [
+          "BSPG2015"
+        ]
+      },
+      {
+        "id": "specification-acceptance",
+        "stage": "specification",
+        "critical": true,
+        "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+        "required_sources": []
+      },
+      {
+        "id": "runtime_parse-acceptance",
+        "stage": "runtime_parse",
+        "critical": true,
+        "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+        "required_sources": []
+      },
+      {
+        "id": "gpu-acceptance",
+        "stage": "gpu",
+        "critical": true,
+        "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+        "required_sources": []
+      },
+      {
+        "id": "scene-acceptance",
+        "stage": "scene",
+        "critical": true,
+        "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+        "required_sources": []
+      }
+    ],
+    "required_source_ids": [
+      "BSPG2015"
+    ],
+    "original_required_views": [
+      "hero",
+      "reversehero",
+      "front",
+      "side",
+      "rear",
+      "top",
+      "clay",
+      "silhouette"
+    ],
+    "original_required_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse",
+      "gpu",
+      "scene"
+    ],
+    "production_stages": [
+      "technical",
+      "visual",
+      "factual",
+      "specification",
+      "runtime_parse"
+    ],
+    "deferred_runtime_stages": [
+      "gpu",
+      "scene"
+    ],
+    "publication_authorized": false
+  },
+  "scientific_limits": {
+    "en": "Interpretive genus-level living tree fern with a continuous trunk, tapered root mantle and divided fronds. This bounded revision repairs root-to-trunk transitions while retaining the accepted crown and foliage. Root crossings are intentional stylized contacts reviewed at normal viewing scale, not proof of universally disjoint roots. Plant dimensions, counts, pose and palette are artistic, not a specimen cast or measured individual.",
+    "zh": "属级解释性生活树蕨复原，呈现连续树干、渐细根套及分裂蕨叶。本次有限修订改善根与干的过渡，保留已验收冠形和叶片。根系交接为正常观看尺度下已审阅的风格化接触，并不表示所有根均互不相交；尺寸、数量、姿态及配色属美术选择，不是标本翻模或实测个体。"
+  },
+  "acceptance": {
+    "profile": "differential-inline-seven-roles-v1",
+    "original_schema": null,
+    "original_schema_version": 1,
+    "production_layer": "PASS",
+    "gate_contract": [
+      {
+        "path": "decision",
+        "kind": "equal",
+        "expected": "PASS"
+      },
+      {
+        "path": "productionAccepted",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "technical_summary.khronos_errors",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "technical_summary.khronos_warnings",
+        "kind": "equal",
+        "expected": 0
+      },
+      {
+        "path": "technical_summary.fresh_rebuild_count",
+        "kind": "equal",
+        "expected": 2
+      },
+      {
+        "path": "technical_summary.fresh_rebuild_and_saved_source_reexport_byte_identical",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "immutable_evidence.old_fail_preserved",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "immutable_evidence.all_original_and_candidate_package_paths_sha_sizes_preserved",
+        "kind": "equal",
+        "expected": true
+      },
+      {
+        "path": "production_stages",
+        "kind": "gates",
+        "allowed": {
+          "technical": "PASS",
+          "visual": "PASS",
+          "factual": "PASS_WITHIN_UNCHANGED_GENUS_LEVEL_SCOPE",
+          "specification": "PASS_FOR_PRODUCTION_LAYER",
+          "runtime_parse": "PASS"
+        }
+      }
+    ],
+    "gate_values": [
+      "PASS",
+      true,
+      0,
+      0,
+      2,
+      true,
+      true,
+      true,
+      {
+        "technical": "PASS",
+        "visual": "PASS",
+        "factual": "PASS_WITHIN_UNCHANGED_GENUS_LEVEL_SCOPE",
+        "specification": "PASS_FOR_PRODUCTION_LAYER",
+        "runtime_parse": "PASS"
+      }
+    ],
+    "scientific_qualifications": [
+      {
+        "source_field": "science_limits",
+        "value": "Genus-level living reconstruction only. Museum Psaronius simplex root crosssection does not establish a species-specific crown. Counts, proportions, color and display scale are explicit interpretation. No anatomy expanded. Original consult-only raw reference files remain missing; no fabricated recovery or fresh original-pixel claim.",
+        "original_value_sha256": "6fd1dd037dc3a676a96ce6c7ad0a4e4b556203f0325db7d5986cf24744befb65"
+      }
+    ],
+    "original_field_hashes": {
+      "asset_id": "47399e4d532f259fd9d39ba92c40845115ce407fd847fb8302c571b4f525f31d",
+      "decision": "727e9bd17b077ba162e13ba877135cc6fbc6b30f83da0b34b3e20233f1cc885f",
+      "productionAccepted": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "technical_summary.khronos_errors": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "technical_summary.khronos_warnings": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "technical_summary.fresh_rebuild_count": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+      "technical_summary.fresh_rebuild_and_saved_source_reexport_byte_identical": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "immutable_evidence.old_fail_preserved": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "immutable_evidence.all_original_and_candidate_package_paths_sha_sizes_preserved": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "production_stages": "24acd4f250a30cf5fc9bfd9c9ab6d0438e3c316ddda4f7eb39d28a9ee7687d05",
+      "seven_roles": "056112cdf1a47be12831d1fbf38e43e17f896eb0cbc9b8264acf065050f64d38",
+      "review_type": "3f3007d01abe817f3687cecabb350dc78cab4e735e1da51d7188900ca93069d9",
+      "science_limits": "6fd1dd037dc3a676a96ce6c7ad0a4e4b556203f0325db7d5986cf24744befb65",
+      "root_pair_contact_adjudication": "1bd9a399a0a363c9df756dd7578f297afe80d36865d26658d19a06a5d0a45276",
+      "immutable_evidence": "5d78e965b14ca6388a4719fcbeee243c4ae55cc1e68ff23f8c2605aa9c120657",
+      "release_and_postrelease": "1f13ad244f91b0bea5780a90023eb8d7ff0576bf9144d5123123cc28e361af39",
+      "evidence_files": "40d4cfe90fde5bc31f41519070ec013c1c32debe5775f9a0323ea8c25687f381"
+    },
+    "original_reviewer_identity": null
+  },
+  "source_roles": {
+    "brief": {
+      "sha256": "0ad02a0b1ed7ba8caad5fa0699caa343c2b79c9eda351b7221b0565035c9e6bb",
+      "bytes": 9980,
+      "original_path_sha256": "2aec895c074e7d79edd0350d7b661f2642ca2345dac16b01cf176580e08532fe",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "9089f466ef3a65a96f984c5b90a35debbb68fe2e9db855a8aa3c9e0ca5a93992"
+    },
+    "config": {
+      "sha256": "f0d5e9f481747a2082657ea5984b71c19112833e1cf8b21d3899dcba1e746c7c",
+      "bytes": 1017,
+      "original_path_sha256": "665a59bf1406e93e568e7c68474448afceabf57c539089ac576378746dd0046e",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "486f995f8e8b33ae0b4d9264a673eb8c05bb98f34cd3271d85251312203a71a1"
+    },
+    "references": {
+      "sha256": "faaffb19209b88ce36c9ce3f8ab7452443ad5df143d541938c40308ffce5e58d",
+      "bytes": 2183,
+      "original_path_sha256": "29cc97845f3620f0fce8717fe1a4c7f112a0875fe0658f703f2af68bff588ee8",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "c68da80a8bf33d10123ccb5f6eed589fa6277f606083a3cde4b35af8758289ac"
+    },
+    "generator": {
+      "sha256": "c3fa8c2af5ee7429eb3413c767d8b717a6c1b76cb93d0ec569f89ed27cb397e7",
+      "bytes": 14980,
+      "original_path_sha256": "93ee1053aac2e9774dedda3be5b32b83644626494cca4041dca6a3a34d7f78ab",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "4b3bc1363a70ce08ae821b19908529807b981d11e4f62f03d376a988969bf64d"
+    },
+    "dependency-list": {
+      "sha256": "c1f93216fe0b8bae4128ce55ef1389134b1453b030dceaac8e4aa8d1095d228c",
+      "bytes": 7731,
+      "original_path_sha256": "c8b5992707d5020f1327b9b00edd4a30ea5aebf01c2163fbd5bb2d9b58e5bd29",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "f65ad573402e1f5bf0f07731369baf274191e13e46f6c814dd1b37e5a8355901"
+    },
+    "finalGLB": {
+      "sha256": "45ab4de572d411434312765e749477b52bebafdbca74da7a22d66e43adb9c558",
+      "bytes": 975832,
+      "original_path_sha256": "56c2c142de7a26fbe568c6c3b7249dd59ce968f0f1a13543130e1bb94c29b675",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "132afcef630647fd491c62798e7e51f9a61bfa0bf9c7a04f0e18e3f2f8da4bb5"
+    },
+    "finalBlend": {
+      "sha256": "af68c89a8db15bfd139d2d6e06dbdf6cf448277dd4fa11d9bc56dd051a29535d",
+      "bytes": 1818492,
+      "original_path_sha256": "94954a0371747a29ecbce331364abfb5c4c83ca13722f46962209a0f9cf6df4b",
+      "source_document_sha256": "eb99bc24e8782b435a96f5047c25082e475accffecbebec0dfaec3bb2f8facda",
+      "source_pointer_sha256": "f0063efe15ef223f412532d2ada0e69a02083c526b98a97c5bc27379ceff2b03"
+    }
+  },
+  "status": "COMPATIBLE_PENDING_FRESH_INDEPENDENT_PROJECTION_REVIEW",
+  "production_acceptance_created": false,
+  "legacy_records_mutated": false,
+  "publication_authorized": false,
+  "ci_scope": "PUBLIC_COMPACT_STATIC_BINDING_ONLY_PRIVATE_ORIGINALS_REQUIRE_INDEPENDENT_REVIEW"
+}

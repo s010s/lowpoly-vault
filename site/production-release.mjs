@@ -3,6 +3,7 @@
  * Process evidence stays in the private archive; one detached review binds its projection.
  */
 import assert from 'node:assert/strict';
+import {inspectTypedProductionRelease,verifyTypedProjectionReviews,loadProductionRegistry,resolveImplementationCompatibility} from './typed-production-release.mjs';
 import {readFile,realpath,stat} from 'node:fs/promises';
 import {resolve,sep,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -31,11 +32,13 @@ function productionStages(record){
  assert(Object.values(gates).every(v=>v.status==='PASS'),'Real quality failure remains blocking');
  assert(Object.values(gates).every(v=>Array.isArray(v.source_evidence_sha256)&&v.source_evidence_sha256.length>0&&v.source_evidence_sha256.every(digest)),'Each production gate needs original evidence hash anchors');
 }
-export async function inspectProductionRelease(root,descriptorPath){
+export async function inspectProductionRelease(root,descriptorPath,registryPath){
  const raw=await read(root,descriptorPath),descriptor=JSON.parse(raw);
+ const compatibilityPins=await resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath);
+ if(descriptor.kind==='typed-production-release-v1')return inspectTypedProductionRelease(root,descriptorPath,raw);
  assert.equal(descriptor.schema_version,1);assert.equal(descriptor.kind,'production-release-v1');assert.equal(descriptor.publication_authorized,false,'Production projection cannot grant publication');
  assert(/^[0-9a-f]{40}$/.test(descriptor.baseline_commit),'Exact production baseline required');
- assert(Array.isArray(descriptor.implementation)&&descriptor.implementation.length>0,'Bound adapter implementation required');for(const file of descriptor.implementation)await pinned(root,file);await pinned(root,descriptor.scope_document);
+ assert(Array.isArray(descriptor.implementation)&&descriptor.implementation.length>0,'Bound adapter implementation required');for(const file of compatibilityPins||descriptor.implementation)await pinned(root,file);await pinned(root,descriptor.scope_document);
  identity(descriptor.producer,'Preparer');assert(Array.isArray(descriptor.assets)&&descriptor.assets.length,'Empty production release');
  const ids=new Set(),assets=[],records=[],audits=[];
  for(const item of descriptor.assets){
@@ -76,8 +79,8 @@ export async function inspectProductionRelease(root,descriptorPath){
  }
  return {descriptor,descriptor_sha256:hash(raw),assets,records,audits,productionAccepted:true,releaseChecks:'PENDING_INDEPENDENT_PROJECTION_REVIEW',postReleaseVerified:'NOT_PUBLISHED',publication_authorized:false};
 }
-export async function collectProductionRelease(root,descriptorPath){
- const result=await inspectProductionRelease(root,descriptorPath),review=JSON.parse(await read(root,result.descriptor.review_path));
+export async function collectProductionRelease(root,descriptorPath,registryPath){
+ const result=await inspectProductionRelease(root,descriptorPath,registryPath),review=JSON.parse(await read(root,result.descriptor.review_path));
  assert.equal(review.schema_version,1);assert.equal(review.kind,'independent-production-projection-review-v1');assert.equal(review.status,'PASS','Independent production projection review is pending');
  assert.equal(review.reviewed_descriptor_sha256,result.descriptor_sha256,'Stale projection review');independent(review.reviewer,result.descriptor.producer);
  for(const record of result.records)independent(review.reviewer,record.maker);
@@ -85,12 +88,29 @@ export async function collectProductionRelease(root,descriptorPath){
  assert.equal(review.publication_authorized,false,'Projection review never grants publication');
  const acceptances=[...new Set(result.records.map(r=>r.original_acceptance.sha256))].sort();assert.deepEqual(review.original_acceptance_sha256?.slice().sort(),acceptances,'Missing independent original acceptance binding');
  for(let i=0;i<result.assets.length;i++)await verifyProductionPosters(root,result.assets[i],result.records[i]);
+ if(result.descriptor.kind==='typed-production-release-v1')await verifyTypedProjectionReviews(root,result,review);
  return result.assets;
 }
 export async function appendProductionRelease(root,base,descriptorPath){
  const added=await collectProductionRelease(root,descriptorPath),ids=new Set(base.assets.map(a=>a.id));for(const a of added)assert(!ids.has(a.id),'Production release cannot silently duplicate or replace an existing inventory ID: '+a.id);
  return {...base,publication:{...base.publication,production_descriptor:descriptorPath},assets:[...base.assets,...added]};
 }
+// BEGIN_EXPLICIT_PRODUCTION_REGISTRY
+/** Current independently reviewed batch set; never overwrite the old singular route. */
+export async function appendProductionReleases(root,base,registryPath){
+ assert(!base.publication?.production_descriptor&&!base.publication?.production_registry,'Production registry needs the canonical pre-production base, not a silently replaced batch');
+ const registry=await loadProductionRegistry(root,registryPath);
+ const paths=new Set(),ids=new Set(base.assets.map(a=>a.id)),added=[];
+ assert.equal(ids.size,base.assets.length,'Duplicate base asset identity');
+ for(const pin of registry.descriptors){
+  assert(pin&&typeof pin==='object'&&!Array.isArray(pin));
+  assert(!paths.has(pin.path),'Duplicate production descriptor path');paths.add(pin.path);await pinned(root,pin);
+  for(const asset of await collectProductionRelease(root,pin.path,registryPath)){assert(!ids.has(asset.id),'Production batch IDs must be disjoint from base and each other: '+asset.id);ids.add(asset.id);added.push(asset);}
+ }
+ assert.deepEqual(added.map(a=>a.id),registry.asset_ids,'Production registry has missing/extra/reordered assets');
+ return {...base,publication:{...base.publication,production_registry:registryPath},assets:[...base.assets,...added]};
+}
+// END_EXPLICIT_PRODUCTION_REGISTRY
 export async function verifyProductionPosters(root,asset,record){
  const p=record.final_posters;assert(p&&p.route==='blender-cycles-cpu-v1','Final poster route required');assert.equal(p.source_glb_sha256,asset.sha256.glb);assert.equal(p.browser_capture,false);
  assert(digest(p.recipe_sha256)&&typeof p.blender_version==='string');
@@ -137,3 +157,4 @@ export async function appendProductionPosterInputState(root,assets,resources,leg
  }
  return {...legacy,valid,production};
 }
+export {productionSourceClosure} from './typed-production-release.mjs';
