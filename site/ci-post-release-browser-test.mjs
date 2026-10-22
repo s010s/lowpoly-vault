@@ -32,18 +32,24 @@ async function queueContracts(){
 const queue_cases=await queueContracts();
 if(process.env.QA_QUEUE_CONTRACT_ONLY==='1'){const result={status:'PASS',scope:'Deterministic event/response lifecycle contracts only; Chromium NOT_RUN.',cases:queue_cases};await writeFile(resolve(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));process.exit(0);}
 
-const bytes=Buffer.from('window.fixtureLoaded = true;\n'),hash=b=>createHash('sha256').update(b).digest('hex');
+// Stream enough real JS bytes for Chromium to deliver response headers before EOF.
+// Completion is controlled explicitly below, never inferred from elapsed time.
+const bytes=Buffer.from('/*'+ 'streaming-fixture '.repeat(2048)+'*/\nwindow.fixtureLoaded = true;\n'),hash=b=>createHash('sha256').update(b).digest('hex');
 const report={status:'RUNNING',scope:'Real local Chromium fixtures, not public deployment acceptance.',cases:queue_cases};
-let browser;const contexts=[],timers=new Set();
+let browser;const contexts=[];let heldResponse,releaseHeldBody;
 const server=createServer((req,res)=>{const u=new URL(req.url,'http://fixture');
  if(u.pathname==='/page'){res.setHeader('Content-Type','text/html');res.end(`<script src="/entry.js?mode=${u.searchParams.get('mode')||'normal'}"></script>`);return;}
  if(u.pathname==='/away'){res.end('<p>away</p>');return;}
  if(u.pathname==='/entry.js'){
-  res.setHeader('Content-Type','text/javascript');res.setHeader('Cache-Control','public,max-age=3600');
+  res.setHeader('Content-Type','text/javascript');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Cache-Control','public,max-age=3600');
   const mode=u.searchParams.get('mode');
   if(mode==='404'){res.writeHead(404);res.end('missing');return;}
   if(mode==='reset'){req.socket.destroy();return;}
-  if(mode==='slow'||mode==='hold'){res.writeHead(200);res.write(bytes.subarray(0,1));if(mode==='slow'){const timer=setTimeout(()=>{res.end(bytes.subarray(1));timers.delete(timer);},350);timers.add(timer);}return;}
+  if(mode==='slow'||mode==='hold'){
+   res.setHeader('Content-Length',bytes.length);res.writeHead(200);res.flushHeaders();res.write(bytes.subarray(0,-1));
+   if(mode==='slow'){heldResponse=res;releaseHeldBody=()=>{assert.equal(res.writableEnded,false);res.end(bytes.subarray(-1));};}
+   return;
+  }
   res.end(bytes);return;
  }
  res.writeHead(404).end();
@@ -56,7 +62,20 @@ try{
   try{await fn({page,result,observe:(files=pins,timeoutMs=3000)=>audit=createRuntimeEntryAudit(page,{base,files,report:result,timeoutMs})});report.cases.push({name,status:'PASS',...result});}
   finally{audit?.detach();await context.close();}
  }
- await fixture('slow-actual-response-settles-before-navigation',async({page,result,observe})=>{const audit=observe(),response=page.waitForResponse(r=>r.url().includes('/entry.js'));await page.goto(base+'page?mode=slow',{waitUntil:'commit'});await response;const start=Date.now();await audit.drain();assert(Date.now()-start>=150,'Drain must wait for the real, unfinished response');assert.deepEqual(result.loaded_entries,['entry.js']);await page.goto(base+'away');});
+ await fixture('held-actual-response-cannot-finish-before-explicit-release',async({page,result,observe})=>{
+  const audit=observe(),response=page.waitForResponse(r=>r.url().includes('/entry.js'));
+  await page.goto(base+'page?mode=slow',{waitUntil:'commit'});await response;
+  assert(heldResponse&&releaseHeldBody,'The genuine streaming response must be held by the server');
+  assert.equal(heldResponse.writableEnded,false);
+  let settled=false;const draining=audit.drain();void draining.then(()=>{settled=true;},()=>{settled=true;});
+  // A real controller/browser round trip lets premature resolutions surface.
+  // The server cannot finish the body until this test explicitly releases it.
+  await page.evaluate(()=>Promise.resolve('held-body-controller-barrier'));
+  assert.equal(heldResponse.writableEnded,false);assert.equal(settled,false,'Drain must remain pending while the actual body is held');
+  assert.deepEqual(result.loaded_entries,[]);releaseHeldBody();await draining;
+  assert.equal(heldResponse.writableEnded,true);assert.deepEqual(result.loaded_entries,['entry.js']);
+  await page.goto(base+'away');
+ });
  await fixture('cached-navigation-and-reload-retain-exact-bodies',async({page,result,observe})=>{const audit=observe();for(let i=0;i<4;i++){await audit.drain();await page.goto(base+'page');await audit.drain();await page.reload();}await audit.drain();assert.equal(result.loaded_entries.length,8);assert.deepEqual(result.entry_errors,[]);});
  for(const [name,files,mode,pattern] of [
   ['wrong-hash-is-rejected',[{...pins[0],sha256:'0'.repeat(64)}],'normal',/hash differs/],
@@ -79,4 +98,4 @@ try{
  // Navigation and closure consume the queue; no late-only Promise.all remains.
  const source=await readFile(new URL('./ci-post-release-browser.mjs',import.meta.url),'utf8');assert.match(source,/const navigate=async url=>\{await entries.drain\(\);return page.goto\(url\);\}/);assert.match(source,/const reload=async\(\)=>\{await entries.drain\(\);return page.reload\(\);\}/);assert.match(source,/finally\{try\{await entries.drain\(\);\}finally\{entries.detach\(\);await context.close\(\);\}\}/);report.status='PASS';
 }catch(error){report.status='FAIL';report.error=error.stack;process.exitCode=1;}
-finally{for(const timer of timers)clearTimeout(timer);await Promise.all(contexts.map(c=>c.close().catch(()=>{})));await browser?.close();server.closeAllConnections();await new Promise(done=>server.close(done));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));}
+finally{await Promise.all(contexts.map(c=>c.close().catch(()=>{})));await browser?.close();server.closeAllConnections();await new Promise(done=>server.close(done));await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));}
