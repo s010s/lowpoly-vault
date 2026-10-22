@@ -1,0 +1,87 @@
+{
+  "asset_id": "pholadomya",
+  "revision": "r002",
+  "status": "brief_ready",
+  "representation": "fossil-specimen",
+  "era": "Jurassic, reference species P. lirata Upper Bathonian",
+  "claim_scope": "Original genus-level Jurassic fossil-form study informed by Pholadomya lirata photographs from Sztajner 2020, Figures 12D and 1D/E, across different specimens. Not a scan, digital twin or measured single-specimen reconstruction.",
+  "origin": "Floor-contact centered museum presentation, not an in-life position.",
+  "axes": "Blender X anterior to posterior (+X posterior), Y valve depth, Z dorsal. Anatomical side camera -Y, posterior camera +X. After glTF conversion, posterior +X, dorsal +Y, valve depth +/-Z.",
+  "scale": {
+    "maximum_length_m": 0.09,
+    "basis": "Artistic nominal scale, not transcribed or measured reference length. All other dimensions inferred from multi-specimen form."
+  },
+  "profile": "palette-only static closed solids; two separate editable valve meshes; continuous raised geometry ribs and a natural posterior assembly opening",
+  "criteria": [
+    "Elongate inflated shell, short elevated anterior and longer tapering posterior.",
+    "Sweeping radial relief ribs continuously joined to the valve surface, strongest on anterior and middle.",
+    "Two separately manifold thick valve solids, inward-facing cavity surfaces and narrow posterior gape; not a fully sealed generic bivalve.",
+    "No soft tissue, pearl, siphon, hinge teeth, invented specimen accession or original pigment claim.",
+    "Reference 12D and 1D/E only for selected species; excluded third-party H/I are not model references."
+  ],
+  "budgets": {
+    "max_triangles": 11000,
+    "max_materials": 2,
+    "max_primitives": 4,
+    "max_glb_bytes": 1200000
+  },
+  "view_plan": {
+    "canonical": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "bottom"
+    ],
+    "oblique": [
+      "hero",
+      "reversehero"
+    ],
+    "diagnostics": [
+      "clay",
+      "clayalt",
+      "wire",
+      "clayside",
+      "claytop",
+      "clayend"
+    ],
+    "turntable_frames": 0,
+    "mapping": {
+      "front": "-Y anatomical side",
+      "rear": "+Y opposite valve side",
+      "right": "+X posterior",
+      "left": "-X anterior",
+      "top": "+Z dorsal",
+      "bottom": "-Z ventral"
+    }
+  },
+  "required_self_checks": [
+    "source geometry",
+    "static GLB and official Khronos format",
+    "exact-export views",
+    "two clean deterministic rebuilds"
+  ],
+  "separate_required_review": [
+    "independent visual, factual, specification and technical review"
+  ],
+  "unknown_gates": [
+    "actual target GPU rendering",
+    "populated museum scene performance"
+  ],
+  "concept": {
+    "path": "concept/concept-r001.png",
+    "sha256": "c6ef92b6e08a53aef9c8f39fd7336bdcbc41cf11e8a155239587bd0ad2f434f5",
+    "use": "Art direction only; photos and prep contract override it."
+  },
+  "references_sha256": "70e4e2e02ffb32329c81278a8d0f6b3097852a74d5fbe197520e34a2c2a7b99b",
+  "original_brief_sha256": "ec4230669b5ed01582e642b6c0cf5c1ee26612e466b08b1212037222f02128e3",
+  "projection_kind": "explicit-integration-validation-projection-not-original-freeze",
+  "geometry_policy": {
+    "max_triangles": 11000,
+    "max_materials": 2,
+    "max_primitives": 4,
+    "max_glb_bytes": 1200000
+  },
+  "projection_note": "Exact alias of original budgets fields; original source unchanged."
+}

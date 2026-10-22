@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "asset_id": "paraspirifer",
+  "brief_version": "c003",
+  "profile": "production",
+  "validation_profile": "legacy-v1",
+  "purpose": "Original genus-level stylized fossil-form candidate, not an exact specimen replica. Private maker stage; publication requires independent acceptance and separate authorization.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "coverage_justification": "Full 24-frame azimuth orbit plus six canonical, hero/reversehero, clay/alternate key, wire and fold/sulcus detail. Extra full-angle coverage retained rather than relaxing anatomy checks.",
+  "geometry_policy": {
+    "max_triangles": 8000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "scale": {
+    "width_m": 0.04,
+    "basis": "Approximate PRI 76796 catalogue width. Not an exact measurement.",
+    "length_and_depth": "Artistic estimates, preserve deep broad barrel-like volume."
+  },
+  "axes": {
+    "blender_front": "-Y, anterior commissure",
+    "blender_up": "+Z, dorsal valve",
+    "glb_front": "+Z",
+    "glb_up": "+Y"
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export manifoldness, official validator, reproducibility, scale, budgets and completeness.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Open and inspect every exact-GLB required view for fold, sulcus, shoulder/hinge profile, seam, lighting and facet quality.",
+      "required_sources": [
+        "PRI-76796",
+        "PRI-76880"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare named PRI references and explicit limits. No hidden anatomy asserted as measured fact.",
+      "required_sources": [
+        "PRI-76796",
+        "PRI-76880"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Original inventory identity, deliverables, brief constraints and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Load exact GLB with pinned Three.js 0.180.0 GLTFLoader.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target WebGL render; no inference from parser or Blender renders.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual populated intended scene render and measured work.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "build/paraspirifer/paraspirifer.blend",
+      "sha256": "6dee2581ac4074343893095f90ea71673d06f4e66c93a617f5ea5f9dace1842e"
+    },
+    {
+      "role": "generator",
+      "path": "source/build_paraspirifer.py",
+      "sha256": "fa4e081df76505a269b917e4bc2e4393c8c76ff065616db893a2f3263541e998"
+    },
+    {
+      "role": "config",
+      "path": "source/parameters.json",
+      "sha256": "2f2e67c9e2f2fb869222ba3cf69ffde0402972c51eaa16fbd8efe07daa56bd8b"
+    }
+  ],
+  "view_exemptions": {},
+  "feature_obligations": [
+    "Deep broad biconvex barrel-like shell, not flat scallop or generic lentil.",
+    "Pronounced median dorsal fold with opposing ventral sulcus, readable in front, top and bottom views.",
+    "Short broad hinge, rounded lateral shoulders and radiating simplified costae.",
+    "Continuous closed commissure follows central fold/sulcus without a giant aperture.",
+    "Metric approximate width 40 mm; hidden rear/depth/palette labeled artistic.",
+    "No source mesh, photo texture or UMMP image incorporated."
+  ],
+  "revision_note": "Original feature requirements unchanged; upper valve monotone dome removes artificial posterior focus depression, and rib relief converges to a narrow closed seam.",
+  "structural_brief_frozen_before_geometry": true,
+  "delivery_contract_freeze_note": "Final source checksum bound after build. No feature, scale or material requirement changed; full legacy view coverage retained."
+}

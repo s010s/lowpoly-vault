@@ -1,0 +1,71 @@
+{
+  "asset_id": "andrewsarchus",
+  "revision": "r004",
+  "scope": "Original1000 fossil-specimen candidate, not a whole-body asset and not an exact specimen replica",
+  "anchor": "AMNH 20135 type upper cranium",
+  "required_features": [
+    "Long waisted rostrum and expanded rounded premaxilla",
+    "Broad posterior skull with preserved continuous viewer-right cheek arch",
+    "Large temporal negative space",
+    "Viewer-left arch absent with short broken attachment roots",
+    "No mandible or restored dashed canine",
+    "Irregular short worn upper crowns",
+    "Real nasal opening and restrained rear aperture"
+  ],
+  "scale": {
+    "kind": "approximate artistic display envelope",
+    "length_m": 0.85,
+    "calibrated": false,
+    "forbidden_claims": [
+      "834 mm verified",
+      "560 mm verified",
+      "body mass",
+      "shoulder height",
+      "exact internal anatomy"
+    ]
+  },
+  "coordinates": "Design (rostral a, dorsal-drawing-right r, dorsal z) -> Blender (-r,-a,z); glTF (-r,z,a); top helper view points nose-down and must be rotated 180 degrees for printed drawing comparison.",
+  "profile": "static opaque palette-only original low-poly fossil specimen",
+  "budgets": {
+    "triangles": 10000,
+    "materials": 4,
+    "primitives": 48,
+    "embedded_textures": 0
+  },
+  "view_plan": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire"
+  ],
+  "required_stages": [
+    "source audit",
+    "standalone GLB audit",
+    "Khronos validator",
+    "two deterministic rebuilds",
+    "exact GLB views",
+    "independent visual/factual/specification review",
+    "target runtime GPU and populated scene before production approval"
+  ],
+  "known_unknowns": [
+    "Target GPU and museum scene performance are not maker-established",
+    "Unexposed internal cranial details and dental cusp topology unresolved"
+  ],
+  "no_publication": true,
+  "original_brief_sha256": "eb6c86607e6850d6c939e9080b6bdc4f03c694fa9911043b0357cffbf1d4ad9f",
+  "projection_kind": "explicit-integration-validation-projection-not-original-freeze",
+  "geometry_policy": {
+    "max_triangles": 10000,
+    "max_materials": 4,
+    "max_primitives": 48,
+    "max_glb_bytes": 10000000
+  },
+  "projection_note": "Triangle/material/primitive limits map the original budgets. Original brief specified no byte ceiling: 10000000 is an integration-only delivery safety ceiling, NOT an original frozen requirement or scientific approval."
+}

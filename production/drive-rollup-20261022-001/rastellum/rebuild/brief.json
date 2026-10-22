@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "asset_id": "rastellum",
+  "revision": "r002",
+  "profile": "production",
+  "status": "candidate",
+  "frozen_scope_origin": "Frozen before this revision build. Inherits original prep/HANDOFF.md and r001 scope; only fold amplitude increased from 1.65 to 2.2 mm with keel contribution 18% to 30% for V-rib readability.",
+  "name": "Rastellum comb-edged oyster · R. carinatum-informed fossil-form study",
+  "claim_scope": "Original genus-level articulated fossil-form, informed by R. carinatum. Not a specimen replica; unseen valve thickness, exact hinge completion, full pairing, scale and colors are artistic inference.",
+  "geometry_profile": "One closed continuous manifold shell, with two individually editable semantic valve vertex groups, unequal convex volumes, narrow closed recessed seam. No internal anatomy.",
+  "scale": {
+    "artist_envelope_m": [
+      0.07,
+      0.028,
+      0.02
+    ],
+    "measurement_claim": false
+  },
+  "axes": {
+    "blender_long_axis": "+X",
+    "hinge_end": "-X",
+    "broad_keeled_valve": "+Z",
+    "front": "-Y long concave folded margin",
+    "origin": "grounded display pose, not inferred life position"
+  },
+  "budget": {
+    "max_triangles": 3200,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 650000
+  },
+  "material_profile": "Four original palette-only opaque, single-sided Principled materials; no textures",
+  "critical_criteria": [
+    {
+      "id": "curved_narrow_form",
+      "requirement": "Long tapered crescent shell, not a broad scallop, horn, coiled snail or symmetric leaf"
+    },
+    {
+      "id": "convex_keel",
+      "requirement": "Raised median keel across convex valve; no canoe-like central hollow from generated concept"
+    },
+    {
+      "id": "v_branch_ribs",
+      "requirement": "Approximately ten deliberate low-poly primary groups diverge as V ribs from keel to both long margins; group count artistic, not specimen count"
+    },
+    {
+      "id": "closed_plicate_seam",
+      "requirement": "Continuous deeply zigzag complementary margin, no floating teeth or accidental gaps; narrow actual seam groove"
+    },
+    {
+      "id": "unequal_paired_volume",
+      "requirement": "Three-dimensional unequal valve volumes, not mirror-identical halves or relief plaque"
+    },
+    {
+      "id": "quiet_hinge",
+      "requirement": "One quiet terminal hinge region, no invented detailed hinge teeth/internal scars"
+    },
+    {
+      "id": "claim_boundary",
+      "requirement": "Preserve fragmentary mould and right/left source conflict; no original-specimen paired shell or inferred exact dimensions, locality or color claims"
+    }
+  ],
+  "views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "side",
+    "top",
+    "clay",
+    "silhouette",
+    "ventral",
+    "hinge",
+    "dorsaloblique",
+    "claytop",
+    "wire"
+  ],
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "source_constraints": [
+    "Only metadata citations and original geometry/render output in candidate public projection. Private photos, papers and concept remain outside candidate.",
+    "No handedness assigned. Fig7 H/I RGF VR35/33 lacks beaks and is not a complete articulated specimen.",
+    "Full pair, reverse surface, exact thickness, hinge completion and color are declared artistic decisions."
+  ],
+  "validation_profile": "legacy-v1",
+  "brief_version": "r002",
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "geometry_policy": {
+    "max_triangles": 3200,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 650000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "coverage_justification": "24 azimuth frames plus canonical full-angle views, true underside, raised-keel top clay, end hinge and front closed-margin detail. Optional exact-export transparency is separate. Graphics/device and composed-scene stages remain unknown, not waived.",
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Current GLB format, source roundtrip, zero geometry errors, portable artifact and deterministic two rebuild checks.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect canonical and all-around actual exported shell: crescent outline, convex keel, V ribs, closed serrated seam, unequal volumes, quiet hinge.",
+      "required_sources": [
+        "radulovic2019",
+        "clemson10590",
+        "stjohn2016"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Preserve the explicit partial external-mould evidence, inconsistent valve-side text, unseen reverse/pairing/scale/color uncertainty. This is an original genus-level study, not specimen reproduction.",
+      "required_sources": [
+        "radulovic2019",
+        "clemson10590",
+        "stjohn2016"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Deliver editable semantic source, GLB, deterministic source/config, views, private-source separation, declared units and budgets.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three.js 0.180.0 exact GLB CPU parse and bounds/material checks.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Independent actual target GPU-render evidence of this exact export remains required for approval, but not for making the candidate.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Populated-scene scale/material/performance evidence remains required for approval, not for making the candidate.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "artifacts/rastellum/rastellum.blend",
+      "sha256": "8e9c8b853ef47ed1248605381a4fac71bede81bcdd4f068904616c979b236b9a"
+    },
+    {
+      "role": "generator",
+      "path": "source/generate.py",
+      "sha256": "10221b47ee14de1d60e18a9ecad08157d56c73e0756229c8c7234f5b7c5f00d7"
+    },
+    {
+      "role": "config",
+      "path": "source/params.json",
+      "sha256": "6635a85293ad1048dbdac461c091b5df20edb7c9c64a8116eed35ed1f4e0324f"
+    }
+  ]
+}
