@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "asset_id": "trigonia",
+  "brief_version": "r003",
+  "profile": "production",
+  "purpose": "Original genus-level Trigonia fossil form, informed by identified T. reticulata; no exact-replica or universal-genus-size claim.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 8000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 1000000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export, clean reimport, deterministic rebuilding, official validator, SI bounds and artifact integrity.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Open all exact-export views. Curved ribbed triangular flank, distinct posterior area, paired inflated volume and actual dorsal depression must be readable.",
+      "required_sources": [
+        "ayoub-hannaa-2024"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare Fig.5.1–6 and description: equivalved subtriangular shell, opisthogyrate beaks, commarginal flank ribs, carina, reticulate posterior area and depressed elongated-cordate escutcheon. No huge beads or radial scallop ribs.",
+      "required_sources": [
+        "ayoub-hannaa-2024"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "All source, export, parameter, manifest and provenance deliverables with current hashes; no source reference images in public asset subtree.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact GLB loads in pinned Three.js with finite dimensions/materials and no missing dependencies.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Exact GLB rendered in target graphics runtime, with images inspected and renderer/device recorded.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Model included in intended populated museum scene with actual measured scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Existing static-stylized-v1 eight-view contract plus left/right/bottom/clayalt/wire diagnostic views. Optional turntable not needed for this contract. Target GPU/scene mandatory for acceptance, remain unknown if unavailable to maker.",
+  "validation_profile": "static-stylized-v1",
+  "scale": {
+    "units": "meters",
+    "length": 0.0233,
+    "height": 0.0202,
+    "total_inflation": 0.0145,
+    "basis": "BSPG 2014V 260/1 Table5; genus form inspired by specimen not scan"
+  },
+  "axes": {
+    "anterior": "-Y",
+    "posterior": "+Y",
+    "valve_axis": "X",
+    "dorsal": "+Z"
+  },
+  "mount": "Ventral contact Z=0, root identity at footprint center. Upright display, not life-position claim.",
+  "style": "Palette-only original warm limestone matte faceted style; quiet intercostal spaces; no random texture or huge beads.",
+  "feature_obligations": [
+    "Closed equivalved strongly inflated subtriangular shell with rounded anterior/ventral and truncated posterior",
+    "Posterior-directed pointed beaks near anterior quarter",
+    "Strong curved commarginal flank ribs separated by broad smooth intervals",
+    "Main marginal carina with separate fine-reticulate posterior area and subdued median carina",
+    "Depressed elongated-cordate escutcheon, not raised knife edge or deep open slot",
+    "No copied images or meshes and no universal-genus-size assertion"
+  ],
+  "required_deliverable_roles": [
+    "source",
+    "generator",
+    "config"
+  ]
+}

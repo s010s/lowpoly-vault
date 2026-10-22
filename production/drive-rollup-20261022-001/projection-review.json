@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "independent-production-projection-review-v1",
+  "status": "PASS",
+  "reviewer": {
+    "id": "review_first_drive_projection",
+    "task_id": "review_first_drive_projection"
+  },
+  "batch_id": "drive-rollup-20261022-001",
+  "reviewed_descriptor_sha256": "6c63877e53559a92b7e1cfe11eee691e4fae99f946e66f2faa91f4059219fd8e",
+  "checks": {
+    "adapter_code_and_legacy_compatibility": "PASS",
+    "independent_source_acceptance": "PASS",
+    "exact_subject_and_source": "PASS",
+    "scientific_scope_and_limits": "PASS",
+    "geometry_and_topology": "PASS",
+    "source_reproducibility": "PASS",
+    "standard_glb_and_decode": "PASS",
+    "final_preview_and_posters": "PASS",
+    "compact_provenance_and_credits": "PASS"
+  },
+  "blocking_findings": [],
+  "publication_authorized": false,
+  "original_acceptance_sha256": [
+    "266506f3a8cd15dd37bf28b5efc6926cc4ca0d96d483b6824020ebab0b139ceb",
+    "5eda56136822c524ec82194a5967b22133f595b1efce11db2c3ce5780f1b15f4",
+    "67c360c5237ab991603a0a067b48dcd6719b5a6f24844fdf710fc5af5ef20426",
+    "a369013ebbb525893410c67882d44ac86d358bbe226c152999e34f51a497aad7",
+    "a67e931f33f567ba341462b6a379036c2b6f78c1305aa0d588363f77d38cb7f3",
+    "a79cc4acf1d6c4b8d5fb5273452ee7efdd8644a89fb483cdb97bc0b3f27d924c",
+    "bf8c13c06ddd8c8569fda8f0f310ead6cc8e5daeb0b3ccd98a69b90eb29f0678",
+    "caf94949b5e58076e558d267e710d5cd18d9c3908eec7210cae1b8d816c9b930",
+    "f3ad5fbf9cacfcb169cd371442394dd57cfa7ad47790657197521ce69252880e",
+    "fa28a2f8b666befd76601d97982e4abd4c6e8e4b5faa62b54168e059e3284545"
+  ],
+  "scope": "Independent short data-adaptation/projection review of the frozen ten only. Reuses exact original making reviews and existing new-ten GLB/poster validation and 51 registry tests. Not fresh scientific/artistic model review, not legacy-366 model revalidation, not publication authorization.",
+  "observations": [
+    "All ten downloaded archive hashes verified against fixed restoration mappings; public GLB/Blend and source closure files remain byte-identical to recovered candidates. Exact original review hashes and GLB subject bindings verified; projected original fields match verbatim.",
+    "418 existing remote registry blobs match recorded main tree hashes. All 366 baseline manifest records and old production descriptors remain unchanged; 376 is local candidate count, not online count.",
+    "209-file proposed public allowlist checked against every file hash; only final assets, hero/detail/wheel previews, relative source closure, compact evidence and derived catalog files selected. No reference photographs, PDFs, process logs, cache, private Drive URLs or credential signatures found in selected text. Existing main tree is retained; do not upload the entire staging directory.",
+    "20 detail/wheel posters bind the original GLB hashes and rendered output hashes. Existing new-ten native GLB, Khronos 0-error/0-warning, Three.js parse and poster checks reused; GPU remains NOT_RUN/UNKNOWN, scene UNKNOWN and user acceptance not established.",
+    "Source helper imports resolve within retained relative deps/vendor/helpers layout; original model metadata licenses are CC-BY-4.0 and included source credits retain MIT. No rebuild execution is claimed by this review.",
+    "Neithea r003 targeted review is preserved with two rebuilds and all-eight-view runs not_run; prior scoped making evidence is reused, not upgraded. Andrewsarchus original status PASS verified in the original review; compact projection omits its status field but does not contradict it.",
+    "Andrewsarchus 10 MB ceiling is explicitly integration-only, not original freeze. Pholadomya budget alias retains original values. Paraspirifer c003 is a new candidate for an existing historical ID, not recovery of old bytes or an increment to unique historical production."
+  ],
+  "nonblocking_suggestions": [
+    "If the compact acceptance summary is revised in a future batch, preserve Andrewsarchus original status and claim_scope fields too; current exact source review binding and release scope already establish the correct boundary."
+  ],
+  "next_action": "Integrator may include this detached receipt in the explicit public allowlist, run the existing collectProductionRelease check, and continue only within separately granted publication authorization and required platform checks."
+}

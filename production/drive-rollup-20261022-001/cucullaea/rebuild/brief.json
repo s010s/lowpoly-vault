@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "asset_id": "cucullaea",
+  "brief_version": "r005",
+  "profile": "production",
+  "validation_profile": "legacy-v1",
+  "purpose": "Original genus-level fossil form informed by photographs of historical Cucullaea (Idonearca) vulgaris, now captioned Idonearca vulgaris. Not an exact specimen or measured multi-view reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "rear",
+    "left",
+    "right",
+    "top",
+    "bottom",
+    "clay",
+    "clayalt",
+    "wire",
+    "detail"
+  ],
+  "turntable_frames": 24,
+  "coverage_justification": "24 full azimuth views plus six canonical views, clay, alternate light, wire, paired umbo and long dorsal hinge detail.",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 600000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "scale": {
+    "nominal_side_length_m": 0.049,
+    "source": "S1 photo caption 4.9 cm; an artistic nominal anchor only",
+    "depth_height": "Inferred; S2 3.2 cm is a separate specimen and not used as model depth"
+  },
+  "axes": {
+    "blender_front": "-Y, right valve exterior",
+    "anterior": "+X",
+    "blender_up": "+Z, dorsal hinge",
+    "glb_up": "+Y",
+    "glb_front": "+Z"
+  },
+  "feature_obligations": [
+    "Deep inflated paired valve volumes, not a flat badge or mechanical cube.",
+    "Oblique rounded quadrangular side silhouette with broad rounded corners.",
+    "Paired umbones and long near-straight dorsal hinge zone, with quiet reconstructed margin.",
+    "Restrained concentric growth bands continuous on shell, no radial scallop ribs or biological white spots.",
+    "Continuous narrow closed seam, no unseen hinge teeth or interior anatomy.",
+    "Only 49 mm nominal side length source-anchored; do not combine two different specimens into measured geometry."
+  ],
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source, exact export, official format, deterministic rebuild and metric scale/budget checks.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Open exact-export views; judge defining inflated paired valves, long hinge, paired umbones and rounded quadrangular form.",
+      "required_sources": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check two real photographs and distinguish artistic interpolation from measured or taxonomic claims.",
+      "required_sources": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable source, source/config and reproducible delivery with accurate limits.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three.js 0.180.0 exact GLB GLTFLoader parse.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target GPU rendering remains unknown until separately evidenced, not a making prerequisite.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual populated-scene testing remains unknown until separately evidenced, not a making prerequisite.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "generator",
+      "path": "source/generate.py",
+      "sha256": "a7ec0a934619b5f4dab752c9bafacd25f3d3d342b925ce9eb8b922495cfc87d8"
+    },
+    {
+      "role": "config",
+      "path": "source/params.json",
+      "sha256": "2263e7428c2479ac182de9413634f913bb94d2ad9182cebc0ecaf0c4faae212d"
+    },
+    {
+      "role": "source",
+      "path": "artifacts/cucullaea/cucullaea.blend",
+      "sha256": "23162a1751d11aeb861ecfd0882cda1976beac6ebd60cb9ae0021813925857c5"
+    }
+  ],
+  "structural_brief_frozen_before_geometry": true,
+  "revision_note": "Final making revision: oblique rounded posterior shoulder matches the broad trapezoidal photograph rather than a mechanical box. Convex outer valves, paired rounded dorsal umbones and near-straight hinge retained.",
+  "delivery_contract_freeze_note": "Source checksum added after actual build, before final evidence rendering; no structure, claim, scale or material requirement changed."
+}

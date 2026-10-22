@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "asset_id": "inoceramus",
+  "brief_version": "r001",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "purpose": "Original low-poly single-valve fossil-form candidate; not a scan, exact museum replica, articulated bivalve or living appearance. Independent acceptance and release are separate.",
+  "subject": "Inoceramus genus-level fossil form, anchored to I. stuemckei BGR Ma 14105",
+  "representation": "fossil-specimen",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "additional_views": [
+    "left",
+    "bottom",
+    "wire",
+    "clayalt",
+    "detail"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Static-stylized-v1 eight-view coverage plus underside, opposing side, actual-triangle wireframe and umbo/fold detail. Static single valve with no articulated or hidden moving parts.",
+  "view_exemptions": {},
+  "geometry_policy": {
+    "max_triangles": 5000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 650000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "surface_profile": "palette-only, intentionally flat-shaded faceted geometry, single-sided opaque PBR materials",
+  "scale": {
+    "height_m": 0.18,
+    "measured_anchor": "BGR Ma 14105 published height",
+    "uncertain": "Width, thickness, reverse surface and missing outline details are conservative artistic estimates, not measured replica dimensions."
+  },
+  "axes": {
+    "blender_up": "+Z",
+    "front_outer_surface": "-Y",
+    "glb_up": "+Y",
+    "glb_front": "+Z",
+    "origin": "Basal rim mounting contact at floor zero. Upright museum display, not reconstructed life position."
+  },
+  "runtime_profile": {
+    "three": "0.180.0",
+    "gpu": "required for acceptance, not run by maker",
+    "scene": "required for acceptance, composed-scene work deferred to integration"
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export/rebuild self-containment, outward closed mesh, 180 mm height and bounded budgets.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Broad oblique oval, offset modest umbo, six stepped rounded nested growth folds, flatter adult outer region; no radial scallop fan or rock-matrix lumps.",
+      "required_sources": [
+        "NW-2023-FIG4",
+        "CONCEPT-R001"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Single right-valve inspired fossil form; retain supported concentric folds and label unknown reverse/thickness as artistic.",
+      "required_sources": [
+        "NW-2023-FIG4",
+        "NW-2023-FIG5B"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Editable source, deterministic generator/config, standalone GLB, exact-export canonical/diagnostic previews and honest scope.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three.js GLTFLoader parses the exact exported GLB and preserves bounds/materials.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Exact artifact rendered in actual target GPU path; no parse-only substitution.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Composed museum scene scale/contact and measured workload checked before production acceptance.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [],
+  "frozen_at": "2026-10-22T13:51:24.129705+00:00"
+}

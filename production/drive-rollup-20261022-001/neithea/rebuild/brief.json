@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "asset_id": "neithea",
+  "brief_version": "r003",
+  "profile": "production",
+  "purpose": "Original miniature fossil shell, N. grandicosta-informed; six primary ribs and strongly inequivalve form; not a scan or an exact articulated fossil.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 4200,
+    "max_materials": 5,
+    "max_primitives": 5,
+    "max_glb_bytes": 400000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Validate shipped static GLB, official format validation, scale/origin, exact geometry/texture budgets and provenance.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all eight frozen exact-GLB views plus supplemental left/bottom/wire; six main rib groups, readable tall silhouette, intentional facets, clean continuous shell, strongly unequal valves.",
+      "required_sources": [
+        "iba-2011",
+        "iba-2012-visual"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Check N. grandicosta-inspired six main ribs, convex right and nearly flat left, 15 x 12.2 mm reference scale; label depth, paired individual, complete hinge and color as artistic, not measured.",
+      "required_sources": [
+        "iba-2011",
+        "iba-2012-visual"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify the frozen brief, complete deliverables and all explicit constraints.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Parse this exact GLB with the pinned target loader and record bounds, materials and errors.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Render this exact GLB in the target graphics runtime; inspect frames and capture renderer/device and measured work.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Render the intended composed scene including this exact GLB; inspect scale/contact/material consistency and measure scene work.",
+      "required_sources": []
+    }
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Existing static-stylized-v1 eight-fixed-view contract, with supplementary left/bottom/wire diagnostics. The maker hands off for independent review; GPU/scene stages remain mandatory but unrun by maker.",
+  "validation_profile": "static-stylized-v1",
+  "scale": {
+    "units": "meters",
+    "height_m": 0.015,
+    "width_m": 0.0122,
+    "depth": "artistic; not fossil measurement"
+  },
+  "mount": "Upright museum display, minimum rim Z=0; root at X=Y=Z=0; not a claimed life orientation.",
+  "style": "Original 5-color matte faceted stone, palette-only, no images or textures incorporated.",
+  "feature_obligations": [
+    "Six major radial ribs visible in front and hero views",
+    "Taller than wide, narrow incurved umbo and modest unequal ears",
+    "Strongly convex right valve and nearly flat opposing valve",
+    "No copied source image or imported mesh",
+    "Pairing, thickness, hinge completion and color explicitly artistic"
+  ],
+  "required_deliverable_roles": [
+    "source",
+    "generator",
+    "config"
+  ]
+}

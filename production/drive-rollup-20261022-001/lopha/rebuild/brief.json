@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "asset_id": "lopha",
+  "brief_version": "r004",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "purpose": "Historical-name original fossil-form interpretation informed by Actinostreon marshii BSPG 2015 XIII 1, not a specimen scan or exact reconstruction.",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "publication_authority": "separate",
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 700000
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "scale": {
+    "units": "meters",
+    "height_m": 0.0557,
+    "width_m": 0.0582,
+    "depth_m": 0.025,
+    "scope": "Height and width chosen at anchor specimen scale; original stylization, not precise replica. Depth is an artistic estimate."
+  },
+  "style": "Original low-poly matte stone palette; structural shell corrugations, quiet attachment area; no textures.",
+  "mount": "Upright museum display, ventral rim grounded, hinge upward. Blender -Y is broad attached left-valve face; +Y is shallower right valve. This is a display convention, not a life orientation.",
+  "feature_obligations": [
+    "A complete closed pair of unequal oyster valves, no slab or cutaway",
+    "Rounded triangular irregular asymmetric silhouette without scallop ears",
+    "Broad continuous irregular non-elliptical dorsal left-valve attachment sheet, with an evident change of surface direction into the free folded apron",
+    "Approximately fifteen structural angular radial folds with visibly unequal widths, strength and staggered emergence; end folds weaker",
+    "Geometrical zigzag commissure; closed coherent contact, not an open toothy mouth",
+    "Historical name Lopha retained only as inventory identity; Actinostreon marshii-informed wording",
+    "No private reference image, PDF, concept, traced mesh or texture in public candidate"
+  ],
+  "required_deliverable_roles": [
+    "source",
+    "generator",
+    "config"
+  ],
+  "view_exemptions": {},
+  "coverage_justification": "Static-stylized-v1 fixed eight views plus left, bottom, wireframe, alternate clay, hinge and ventral seam evidence. GPU/scene remain required but unknown at maker handoff.",
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Source/export/rebuild and official format checks, bounds, palette and fixed budgets.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect all exact-export views for complete asymmetric paired valves, quiet broad attachment zone, strong irregular folds and coherent geometric seam.",
+      "required_sources": [
+        "fursich-2019"
+      ]
+    },
+    {
+      "id": "factual-acceptance",
+      "stage": "factual",
+      "critical": true,
+      "description": "Compare feature obligations against Fig.11a,b and text p152; do not represent uncertain completion or palette as measured.",
+      "required_sources": [
+        "fursich-2019"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "Verify full brief and complete editable deliverables; no public reference copies.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Pinned Three.js GLTFLoader parses this GLB and agrees with metadata.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual target WebGL render and device evidence; separate from CPU parsing.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Populated scene scale/contact/appearance/performance evidence; separate from single-asset rendering.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "artifacts/lopha/lopha.blend",
+      "sha256": "c0274a825861580180f8132bf88d9a67606c14b6bd5a0217d012ce3357c0782c"
+    },
+    {
+      "role": "generator",
+      "path": "source/generate.py",
+      "sha256": "898ce61a4d6833cb930486d4f2ad726801d61497f3370211ad91787273b65a5e"
+    },
+    {
+      "role": "config",
+      "path": "source/params.json",
+      "sha256": "283e5f9cacd422ada0f79b7e9c1c59f6148cdc6a6e3d2cf43afe4d490c2ce557"
+    }
+  ]
+}
