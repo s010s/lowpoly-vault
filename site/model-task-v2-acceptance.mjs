@@ -28,15 +28,23 @@ export const V2_TECHNICAL_DECLARATIONS = Object.freeze([
 'PASS_SCOPED_MAKER_TECHNICAL','PASS_TECHNICAL_ONLY','PASS_WITH_SCOPED_UNRUN_GATES',
 'PASS_WITH_EXPLICIT_SCOPE','PASS_WITH_SCOPE_LIMITS','PASS_BOUNDED_TECHNICAL','PASS_TECHNICAL_SCOPE',
 'PASS_LOCAL_TECHNICAL_SCOPE','PASS_REUSED_SAME_BYTE_TECHNICAL_EVIDENCE','PASS_WITH_SCOPE',
-'PASS_SCOPED_TECHNICAL','PASS_STATIC_TECHNICAL_AND_INDEPENDENT_VISUAL'
+'PASS_SCOPED_TECHNICAL','PASS_STATIC_TECHNICAL_AND_INDEPENDENT_VISUAL',
+// Retained original reports establish static/source/rebuild/parse scope only.
+'PASS_SOURCE_GLB_KHRONOS_REBUILDS_PARSE','PASS_LOCAL_TECHNICAL',
+'PASS_SOURCE_STATIC_GLB_KHRONOS_TWO_REBUILDS_THREE_PARSE',
+'PASS_WITH_INTENTIONAL_SMOOTH_STYLE_WARNING',
+'PASS_SOURCE_GLB_KHRONOS_TWO_ISOLATED_REBUILDS_AND_THREEJS_PARSE',
+'PASS_STATIC_FORMAT_SOURCE_REBUILD_PARSE_ONLY','PASS_STATIC_AND_REBUILD'
 ]);
-const MAKING_DECLARATIONS=['COMPLETE','PASS','PASS_INDEPENDENT_PRODUCTION_CANDIDATE_QA','PASS_INDEPENDENT_QA','COMPLETE_MAKER','PASS_MAKER_SCOPE'];
+const MAKING_DECLARATIONS=['COMPLETE','PASS','PASS_INDEPENDENT_PRODUCTION_CANDIDATE_QA','PASS_INDEPENDENT_QA','COMPLETE_MAKER','PASS_MAKER_SCOPE','PASS_MAKER_SELF_CHECK','PASS_MAKER_SELF_REVIEW'];
 // Exact observed wording-to-type map. Unknown scientific wording requires review and
 // an explicit adapter update, never regex guesses or a model/species whitelist.
 export const V2_REPRESENTATION_LITERALS = Object.freeze({
   "Preserve original genus-level fossil-form target: long tapering tower, numerous rounded tightly stacked whorls, and a real rounded basal aperture.": "fossil-specimen",
   "fossil-specimen": "fossil-specimen",
   "living-reconstruction": "living-reconstruction",
+  "living-reconstruction of whole animal, bounded by same-species real skeletons and preserved fin soft tissue": "living-reconstruction",
+  "whole-animal living-reconstruction, not a slab or partial skull": "living-reconstruction",
   "Original fossil-shell target retained: inflated smooth oval cowrie, anterior extension of the aperture as a short channel, and long toothed ventral slit. Not a living animal and not a generic unbroken oval pebble.": "fossil-specimen",
   "Original genus fossil-form target retained: broad cap shell with offset spiral summit and internal shelf. Add the directly observed strong radial ribs, not a featureless conical limpet.": "fossil-specimen",
   "fossil-specimen interpretation": "fossil-specimen",
@@ -107,9 +115,24 @@ export function mapV2CurrentRequirements(doc) {
   need(Array.isArray(doc[key]),'invalid current '+key);
   const states=doc[key].map(issue=>{
    need(text(issue.id),'issue identity missing');
-   const status=key==='issues'?issue.reviewer_status:issue.status;
-   need((key==='issues'?['CLOSED']:['CLOSED_BY_INDEPENDENT_QA','RESOLVED_INDEPENDENTLY_VERIFIED','CLOSED_INDEPENDENTLY_VERIFIED']).includes(status),'current issue is not independently closed');
-   return {id:issue.id,...(key==='issues'?{reviewer_status:status}:{status})};
+   if(key==='issues'){
+    // Preserve every supplied current closure field, rejecting contradictions.
+    // These exact historical layouts are not maker-only closure authority.
+    const closed={reviewer_status:['CLOSED'],resolution_status:['CLOSED_BY_INDEPENDENT_RECHECK'],status:['CLOSED']};
+    const fields=Object.keys(closed).filter(k=>issue[k]!==undefined);
+    need(fields.length>0,'current issue is not independently closed');
+    for(const field of fields)need(closed[field].includes(issue[field]),'current issue is not independently closed');
+    const state={id:issue.id,...Object.fromEntries(fields.map(k=>[k,issue[k]]))};
+    if(issue.status!==undefined||issue.supplement_status!==undefined){
+     equal(issue.supplement_status,'INDEPENDENTLY_ACCEPTED','issue supplement not independently accepted');
+     need(text(issue.resolution_evidence),'issue closure evidence missing');
+     state.supplement_status=issue.supplement_status;state.resolution_evidence=issue.resolution_evidence;
+    }
+    return state;
+   }
+   const status=issue.status;
+   need(['CLOSED_BY_INDEPENDENT_QA','RESOLVED_INDEPENDENTLY_VERIFIED','CLOSED_INDEPENDENTLY_VERIFIED'].includes(status),'current issue is not independently closed');
+   return {id:issue.id,status};
   });
   record('/'+key,states);
  }
