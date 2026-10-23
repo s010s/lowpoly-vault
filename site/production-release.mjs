@@ -256,11 +256,13 @@ export function assertProductionMetadata(reviewed,actual){
 /** Explicit optional route, called only from the existing compatibility hook. */
 export async function appendProductionPosterInputState(root,assets,resources,legacy){
  const production=[],valid=[...legacy.valid];
- const checked=new Map();
+ // Full inspections are reusable only inside this invocation; later calls revalidate files.
+ const checked=new Map(),inspections=new Map();
  for(const asset of assets){
   if(!checked.has(asset.production_release))checked.set(asset.production_release,await collectProductionRelease(root,asset.production_release));
   assertProductionMetadata(checked.get(asset.production_release).find(a=>a.id===asset.id),asset);
-  const inspected=await inspectProductionRelease(root,asset.production_release),p=inspected.records.find(r=>r.asset_id===asset.id).final_posters,poster=resources.posters[asset.id];
+  if(!inspections.has(asset.production_release))inspections.set(asset.production_release,await inspectProductionRelease(root,asset.production_release));
+  const inspected=inspections.get(asset.production_release),p=inspected.records.find(r=>r.asset_id===asset.id).final_posters,poster=resources.posters[asset.id];
   assert.equal(poster?.render_route,'blender-cycles-cpu-v1','Explicit final production poster route required');assert.equal(poster.recipe_sha256,p.recipe_sha256);assert.equal(poster.production_descriptor,asset.production_release);assert.equal(poster.source_glb_sha256,asset.sha256.glb);
   for(const kind of ['detail','wheel']){assert.equal(poster[kind],p[kind].path.replace(/^site\/public\//,''));const seal=resources.files.find(f=>f.path===poster[kind]);assert.equal(seal?.sha256,p[kind].sha256);assert.equal(seal?.bytes,p[kind].bytes);}
   assert(!valid.includes(asset.id),'Duplicate production input state');valid.push(asset.id);production.push(asset.id);
