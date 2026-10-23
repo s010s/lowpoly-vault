@@ -49,11 +49,12 @@ export function webpDimensions(bytes) {
   }
   throw new Error('WebP dimensions unavailable');
 }
-export async function collectTurntables(manifest,root=process.cwd()) {
+export async function collectTurntables(manifest,root=process.cwd(),productionResults) {
   const production=manifest.assets.filter(a=>a.production_release);
   if(production.length){
-   for(const a of production){const approved=await collectProductionRelease(root,a.production_release);assertProductionMetadata(approved.find(x=>x.id===a.id),a);}
-   const legacy=manifest.assets.filter(a=>!a.production_release);return legacy.length?collectTurntables({...manifest,assets:legacy},root):{descriptors:new Map(),posters:new Map(),files:[]};
+   const releases=new Map();
+   for(const a of production){if(!releases.has(a.production_release))releases.set(a.production_release,productionResults?.get(a.production_release)?.assets??await collectProductionRelease(root,a.production_release));assertProductionMetadata(releases.get(a.production_release).find(x=>x.id===a.id),a);}
+   const legacy=manifest.assets.filter(a=>!a.production_release);return legacy.length?collectTurntables({...manifest,assets:legacy},root,productionResults):{descriptors:new Map(),posters:new Map(),files:[]};
   }
   const paths=new Map();
   for(const asset of manifest.assets){assert(!paths.has(asset.id),'Duplicate published asset ID');paths.set(asset.id,publishedImagePaths(asset,manifest));}
@@ -92,8 +93,8 @@ export async function collectTurntables(manifest,root=process.cwd()) {
   }
   return {descriptors,posters,files};
 }
-export async function deliverTurntables(manifest,outDir,{root=process.cwd()}={}) {
-  const {descriptors,posters,files}=await collectTurntables(manifest,root);
+export async function deliverTurntables(manifest,outDir,{root=process.cwd(),productionResults}={}) {
+  const {descriptors,posters,files}=await collectTurntables(manifest,root,productionResults);
   for(const path of files){await mkdir(dirname(resolve(outDir,path)),{recursive:true});await cp(resolve(root,path),resolve(outDir,path));}
   const enriched={...manifest,assets:manifest.assets.map(asset=>({...asset,...(posters.has(asset.id)?{card_preview:posters.get(asset.id)}:{}),...(descriptors.has(asset.id)?{turntable:descriptors.get(asset.id)}:{})}))};
   await writeFile(resolve(outDir,'assets/manifest.json'),JSON.stringify(enriched,null,2)+'\n');

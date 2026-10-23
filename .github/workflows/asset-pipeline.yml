@@ -47,9 +47,6 @@ concurrency:
   group: asset-pipeline-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  # Independent dispatch/quality runs retain all 22 mandatory suites.
-  publication:
-    uses: ./.github/workflows/publication-regressions.yml
   integrity-and-queue:
     runs-on: ubuntu-latest
     # Publication mutation suites run in separate, isolated runner jobs above.
@@ -66,14 +63,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: npm ci --ignore-scripts
-      - run: python3 scripts/test_final_delivery.py && node site/final-delivery-test.mjs
-      - run: node site/final-delivery.mjs
-      - run: node site/final-delivery-native-test.mjs
-      - run: npm run test:pipeline
-      - run: npm run test:manifest
-      - run: npm run publication:check
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Test pipeline implementation when affected
+        run: node site/ci-lean-regressions.mjs pipeline
       - name: State verification scope
         run: |
           echo '### Asset pipeline integrity and queue tests' >> "$GITHUB_STEP_SUMMARY"

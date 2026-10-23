@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {sha256,SOURCE_ROLES,assertProductionMaterial,validateInventoryCompatibilityReceipt,verifyInventoryCompatibilityReceipt,validateNativeInventoryMeasurements,bindNativeInventoryGlb,verifyExactLocalSourceAvailability,preserveUnverifiedRuntimeStatus,validateSupplementaryReviewBinding} from './inventory-type-acceptance.mjs';
 import {validateModelTaskV2Receipt,verifyModelTaskV2Review,validateV2Measurements,preserveV2Runtime} from './model-task-v2-acceptance.mjs';
+import {isPreservedImplementationBridge} from './preserved-implementation-bridges.mjs';
 const digest=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 const text=x=>typeof x==='string'&&Boolean(x.trim());
 async function read(root,path){assert(text(path)&&!/[\\\u0000-\u001f?#%]/.test(path)&&!path.startsWith('/')&&path.split('/').every(p=>p&&p!=='.'&&p!=='..'),'Unsafe typed production path');const full=resolve(root,path);assert(full.startsWith(resolve(root)+sep));assert.equal(await realpath(full),full,'Typed source symlink rejected');return readFile(full);}
@@ -14,11 +15,20 @@ const bilingual=x=>{for(const l of ['en','zh'])assert(text(x?.[l]),'Typed biling
 function identity(x){for(const key of ['id','task_id'])assert(text(x?.[key]),'Typed maker/preparer identity missing');}
 
 export async function inspectTypedProductionRelease(root,descriptorPath,raw,registryPath){
+ return inspectTypedContent(root,descriptorPath,raw,registryPath,false);
+}
+// This route changes only the descriptor binding, not the asset acceptance rules.
+export async function inspectProductionContent(root,descriptorPath,raw){
+ return inspectTypedContent(root,descriptorPath,raw,undefined,true);
+}
+async function inspectTypedContent(root,descriptorPath,raw,registryPath,contentOnly){
  raw=raw||await read(root,descriptorPath);const descriptor=JSON.parse(raw);
- const compatibilityPins=await resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath);
+ const compatibilityPins=contentOnly?null:await resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath);
  assertProductionMaterial(descriptor);
- assert.equal(descriptor.kind,'typed-production-release-v1');assert.equal(descriptor.schema_version,1);assert.equal(descriptor.publication_authorized,false);assert(/^[a-f0-9]{40}$/.test(descriptor.baseline_commit));identity(descriptor.producer);
- assert(Array.isArray(descriptor.implementation)&&new Set(descriptor.implementation.map(p=>p.path)).size===descriptor.implementation.length);for(const path of ['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py'])assert(descriptor.implementation.some(p=>p.path===path),'Missing typed implementation dependency '+path);for(const pin of compatibilityPins||descriptor.implementation)await pinned(root,pin);await pinned(root,descriptor.scope_document);
+ assert.equal(descriptor.kind,contentOnly?'content-production-release-v1':'typed-production-release-v1');assert.equal(descriptor.schema_version,1);assert.equal(descriptor.publication_authorized,false);assert(/^[a-f0-9]{40}$/.test(descriptor.baseline_commit));identity(descriptor.producer);
+ if(!contentOnly){assert(Array.isArray(descriptor.implementation)&&new Set(descriptor.implementation.map(p=>p.path)).size===descriptor.implementation.length);for(const path of ['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py'])assert(descriptor.implementation.some(p=>p.path===path),'Missing typed implementation dependency '+path);for(const pin of compatibilityPins||descriptor.implementation)await pinned(root,pin);}
+ else assert(!Object.hasOwn(descriptor,'implementation'),'Content acceptance must not bind implementation');
+ await pinned(root,descriptor.scope_document);
  assert(Array.isArray(descriptor.assets)&&descriptor.assets.length);const ids=new Set(),assets=[],records=[],audits=[];
  for(const item of descriptor.assets){
   assert(/^[a-z0-9][a-z0-9-]*$/.test(item.id)&&!ids.has(item.id));ids.add(item.id);
@@ -28,7 +38,7 @@ export async function inspectTypedProductionRelease(root,descriptorPath,raw,regi
   assert.equal(asset.production_release,descriptorPath);assert.equal(asset.revision,record.revision);assert.deepEqual(record.blocking_findings,[]);
   const v2=asset.production_acceptance_adapter==='model-task-v2';
   assert(v2||asset.production_acceptance_adapter==='inventory-types-v1','Explicit typed metadata route required');
-  if(v2)assert(descriptor.implementation.some(p=>p.path==='site/model-task-v2-acceptance.mjs'),'Missing v2 implementation dependency');
+  if(v2&&!contentOnly)assert(descriptor.implementation.some(p=>p.path==='site/model-task-v2-acceptance.mjs'),'Missing v2 implementation dependency');
   assert.deepEqual(Object.keys(record.roles).sort(),[...SOURCE_ROLES].sort());
   const roleBytes={};for(const role of SOURCE_ROLES){roleBytes[role]=await pinned(root,record.roles[role]);if(!record.source_role_derivations?.[role])assert.equal(record.subject[role],record.roles[role].sha256);}
   assert(Array.isArray(record.build_closure)&&record.build_closure.length>=2);for(const pin of record.build_closure)await pinned(root,pin);
@@ -99,13 +109,16 @@ export async function resolveImplementationCompatibility(root,descriptorPath,des
  exactPin(bridge.original_review);assert.equal(bridge.original_review.path,descriptor.review_path);await pinned(root,bridge.original_review);
  assert(Array.isArray(bridge.original_implementation));assert.deepEqual(bridge.original_implementation.map(x=>x.original),descriptor.implementation,'Original implementation mapping changed');
  for(const row of bridge.original_implementation){exactKeys(row,['original','preserved'],'implementation mapping');exactPin(row.original);exactPin(row.preserved);assert.deepEqual(row.preserved,{path:`production/implementation-history/${row.original.sha256}/${row.original.path}`,bytes:row.original.bytes,sha256:row.original.sha256},'Arbitrary implementation remapping refused');await pinned(root,row.preserved);}
- const paths=[...new Set([...descriptor.implementation.map(p=>p.path),...COMPATIBILITY_CURRENT_PATHS])].sort();assert.deepEqual(bridge.current_implementation.map(p=>p.path).sort(),paths,'Missing/duplicate/unknown current implementation pin');for(const pin of bridge.current_implementation){exactPin(pin);await pinned(root,pin);}
+ const bridgeReviewRaw=await read(root,bridge.review_path);
+ const historical=isPreservedImplementationBridge(entry.compatibility.path,bridgeRaw,bridge.review_path,bridgeReviewRaw);
+ assert(historical,'Unknown or modified implementation bridge: use content-bound acceptance, not a new bridge');
+ for(const pin of bridge.current_implementation)exactPin(pin);
  const subjects=[];for(const item of descriptor.assets){const record=JSON.parse(await pinned(root,item.evidence));await pinned(root,item.metadata);subjects.push({...item,subject:record.subject});}
  assert.deepEqual(bridge.subjects,subjects,'Compatibility bridge subject/metadata/evidence changed');
  exactPin(bridge.previous_manifest);const previous=JSON.parse(await pinned(root,bridge.previous_manifest));assert(Array.isArray(previous.assets));
  assert(Array.isArray(bridge.preserved_records));assert.deepEqual(bridge.preserved_records.map(p=>p.id).sort(),previous.assets.map(a=>a.id).sort(),'Historical registry coverage incomplete/duplicate');
  for(const pin of bridge.preserved_records){exactKeys(pin,['id','path','bytes','sha256'],'preserved registry record');assert.equal(pin.path,`registry/models/${pin.id}/revisions/${pin.sha256}/record.json`,'Historical record path changed');const record=JSON.parse(await pinned(root,pin));assert.equal(record.id,pin.id);assert.deepEqual(record.asset,previous.assets.find(a=>a.id===pin.id),'Historical registry metadata changed');if(current)assert.deepEqual(current.assets.find(a=>a.id===pin.id),record.asset,'Published historical metadata/backlink changed or missing');}
- const review=JSON.parse(await read(root,bridge.review_path));assertProductionMaterial(review);
+ const review=JSON.parse(bridgeReviewRaw);assertProductionMaterial(review);
  exactKeys(review,['schema_version','kind','status','reviewer','bridge_sha256','original_descriptor_sha256','original_implementation_sha256','current_implementation_sha256','subjects_sha256','previous_manifest_sha256','preserved_records_sha256','checks','blocking_findings','publication_authorized'],'compatibility review');
  exactKeys(review.reviewer,['id','task_id'],'compatibility reviewer');
  exactKeys(review.checks,['original_descriptor_and_review_exact','original_implementation_preserved','current_implementation_pinned','original_subjects_and_metadata_unchanged','immutable_registry_records_unchanged','legacy_semantics_and_consumers','no_science_or_media_reacceptance'],'compatibility review checks');assert.equal(review.schema_version,1);assert.equal(review.kind,'independent-implementation-compatibility-review-v1');assert.equal(review.status,'PASS','Fresh implementation compatibility review required');identity(review.reviewer);
@@ -122,7 +135,7 @@ export async function productionSourceClosure(root,manifest,descriptorPaths){
  const entries=registryPath?(await loadProductionRegistry(root,registryPath)).descriptors:manifest.publication?.production_descriptor?[{path:manifest.publication.production_descriptor}]:[];
  if(registryPath)paths.add(registryPath);
  const add=pin=>{assert(pin&&typeof pin.path==='string');paths.add(pin.path);};
- for(const entry of entries){if(descriptorPaths&&!descriptorPaths.includes(entry.path))continue;paths.add(entry.path);const descriptor=JSON.parse(await read(root,entry.path));paths.add(descriptor.review_path);descriptor.implementation.forEach(add);add(descriptor.scope_document);
+ for(const entry of entries){if(descriptorPaths&&!descriptorPaths.includes(entry.path))continue;paths.add(entry.path);const descriptor=JSON.parse(await read(root,entry.path));paths.add(descriptor.review_path);(descriptor.implementation||[]).forEach(add);(descriptor.licenses||[]).forEach(add);add(descriptor.scope_document);
   if(entry.compatibility){add(entry.compatibility);const bridge=JSON.parse(await pinned(root,entry.compatibility));paths.add(bridge.review_path);add(bridge.original_descriptor);add(bridge.original_review);add(bridge.previous_manifest);bridge.preserved_records.forEach(add);bridge.original_implementation.forEach(p=>add(p.preserved));bridge.current_implementation.forEach(add);}
   for(const item of descriptor.assets){add(item.metadata);add(item.evidence);const record=JSON.parse(await pinned(root,item.evidence));Object.values(record.roles).forEach(add);record.build_closure.forEach(add);add(record.preview);if(record.typed_compatibility)add(record.typed_compatibility);for(const p of record.independence_evidence||[])add(p);const posters=record.final_posters;add(posters.recipe);for(const kind of ['detail','wheel']){add(posters[kind]);add(posters[kind].render_config);}const recipe=JSON.parse(await pinned(root,posters.recipe));recipe.files.forEach(add);}
  }

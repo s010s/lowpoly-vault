@@ -53,6 +53,10 @@ async function test(name,mutate=()=>{},accept=false){
 }
 try{
  await test('exact successful main production run mints bound opaque capability',()=>{},true);
+ const leanSteps=()=>['Run affected regressions','Validate source, build once and audit final dist'].map((name,i)=>({name,number:10+i,status:'completed',conclusion:'success'}));
+ await test('single audited build baseline accepted',m=>{m.get(`actions/jobs/${jobId}`).steps=leanSteps();},true);
+ await test('failed single audited build rejected',m=>{m.get(`actions/jobs/${jobId}`).steps=leanSteps();m.get(`actions/jobs/${jobId}`).steps[1].conclusion='failure';});
+ await test('missing affected regression step rejected',m=>{m.get(`actions/jobs/${jobId}`).steps=leanSteps().slice(1);});
  await test('no token cannot authenticate',(m,s)=>{s.token='';});
  await test('API error fails closed',(m,s)=>{s.httpError=403;});
  await test('transport error fails closed',(m,s)=>{s.transportError=true;});
