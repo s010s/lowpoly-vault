@@ -1,0 +1,55 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "Pinned canonical s010s/lowpoly-vault helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "Pinned canonical s010s/lowpoly-vault helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "2d728c85edcfeacc3f49ffe45ad389d5445055148d80267a4feae7d6888924a5",
+      "source": "Pinned canonical renderer with pre-freeze relative CLI example and explicit all-view gray diagnostic option",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "368e2e2ae034cf35b8eba941928f155006cbcb737e936cb9e2491f1ea5bba8e7",
+      "source": "Original adapter: perspective camera direction (1,-1,1)",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "source": "Pinned canonical s010s/lowpoly-vault helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2"
+    },
+    {
+      "name": "Python",
+      "version": "Blender embedded standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "External official format QA only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "External CPU GLTFLoader parsing only; not GPU or scene performance"
+    }
+  ],
+  "closure": "Generator uses only package-local source/deps, Blender and standard libraries. Two clean isolated copies are executed without another model directory."
+}

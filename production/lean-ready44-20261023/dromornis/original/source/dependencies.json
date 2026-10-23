@@ -1,0 +1,83 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical MIT helper snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/inspect_source.py",
+      "sha256": "da0d279401d7024fc09ffd63195d57bd82a3c0c9980a437c3a3a4367a40918e1",
+      "origin": "Original bounded task tooling",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical MIT helper snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_model.py",
+      "sha256": "1d335693aef6ced5894759d69fe119449552c850fd6522c8048bcaa4e5cc5b25",
+      "origin": "Original bounded task tooling",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/test_runtime.mjs",
+      "sha256": "202e1310573181c7391b73f7a0a2aec468f9da99ff1bc27a87e7b164f40085e6",
+      "origin": "Original bounded task tooling",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "Canonical MIT helper snapshot",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "components": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "purpose": "Optional technical validation only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Optional CPU parsing only"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Optional official format validation only"
+    }
+  ],
+  "canonical_rebuild": {
+    "cwd": "bundle root",
+    "command": "blender --background --factory-startup -t 2 --python-exit-code 1 --python source/generate.py -- --output .",
+    "source_inputs": [
+      "source/generate.py",
+      "source/params.json",
+      "source/deps/asset_common.py",
+      "source/deps/qa_glb.py"
+    ],
+    "network_required": false
+  },
+  "policy": "Model generation is closed by the shipped source and pinned Blender runtime. Optional Node validators need separately installed pinned dependencies; rendering uses shipped renderer and Blender."
+}

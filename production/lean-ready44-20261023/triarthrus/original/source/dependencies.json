@@ -1,0 +1,62 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "s010s/lowpoly-vault pinned canonical scripts",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "13e376c2c69dced9ae9feda3235115ae4e125c631e62cc5653710e25914a5d62",
+      "source": "Independently reviewed scale-aware static audit patch",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "ee1f4f9382ef2af11417bde026f13220e17fda9c49fe8e16ef05e973eba3196a",
+      "source": "Pinned canonical renderer, with one pre-freeze relative CLI-documentation example; rendering executable AST unchanged",
+      "license": "MIT",
+      "canonical_executed_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+    },
+    {
+      "path": "source/deps/render_ventral.py",
+      "sha256": "2b68db74abfd32d74bbbb882f74e880d26f3e5e3eacded4abdf5f9e21c0e9346",
+      "source": "Original model-specific canonical-renderer adapter",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "4a0879e782be0fea794471d8428d87ee945285b60ae8128453ca54d27505434c",
+      "source": "Original model-specific canonical-renderer adapter",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "source": "s010s/lowpoly-vault pinned canonical scripts",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2"
+    },
+    {
+      "name": "Python",
+      "version": "Blender embedded standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "External technical QA only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "Target loader CPU parsing only; GPU unknown"
+    }
+  ],
+  "closure": "Generator imports only its declared sibling dependencies, Blender, and standard libraries. Rebuild evidence records two isolated executions."
+}

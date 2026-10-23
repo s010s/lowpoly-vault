@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "Project shared canonical helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "Project shared canonical helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "90267d556a89e31e3b68f4a8af099e2770ce37c8d3c09f716399c963b65e4070",
+      "source": "Model pipeline evidence helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_runtime.mjs",
+      "sha256": "e03ac5fc4b31a82963aa97bc83e49e48c2c41be36de8a2645b1cff6979590588",
+      "source": "Model pipeline evidence helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generator and Cycles CPU rendering. Bundled Python and glTF exporter 4.3.47."
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "Optional offline parse validation only, supplied explicitly to validate_runtime.mjs; not a generation dependency."
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Optional official format validation, supplied explicitly; not a generation dependency."
+    }
+  ],
+  "dependency_closure": "Generation reads only adjacent params.json, deps/asset_common.py and transitive deps/qa_glb.py, plus Blender and Python standard library. No private source, file, network or undeclared geometry inputs. All required generation source is package-relative."
+}

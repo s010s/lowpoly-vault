@@ -1,0 +1,62 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "41438e959d08d6be46e2b14fc785945fc63f98dc121c31b0deaeb13f553902cb",
+      "origin": "Original Aspidorhynchus task utility",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "a2ffc93a4a7cd1474fdc6b50703361c4a147da05254a3ac603a7d8c5a86d8980",
+      "origin": "Original Aspidorhynchus task utility",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "scope": "Model build and exact-GLB preview"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Official format QA, not a build dependency"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "CPU GLTFLoader evidence, not GPU or scene acceptance"
+    }
+  ],
+  "build_network_required": false,
+  "external_geometry_textures_or_fonts": false,
+  "generator_dependency_closure": "source/generate.py, source/params.json, source/deps/asset_common.py and source/deps/qa_glb.py, plus Blender standard runtime",
+  "canonical_pin": "Unmodified canonical helper bytes are pinned by SHA-256; recovered snapshot has no local Git metadata."
+}

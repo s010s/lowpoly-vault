@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, copied unchanged and content-pinned",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, copied unchanged and content-pinned",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_exact_views.py",
+      "sha256": "8053d13c408921028afa10acb5e6678876f16d98a7bd5c483c0093ab11a40992",
+      "provenance": "Original exact-GLB four-view wrapper using pinned canonical scene utilities",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "bpy, mathutils and bundled glTF exporter 4.3.47"
+    },
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "Independent QA only; not used to regenerate geometry"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "GLTFLoader CPU parse only; not used to regenerate geometry"
+    }
+  ],
+  "policy": "Generator imports only relative deps and Blender-bundled Python libraries. No network or another asset dependency."
+}

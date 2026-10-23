@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "provenance": "Pinned canonical s010s/lowpoly-vault scripts/asset_common.py"
+    },
+    {
+      "path": "source/deps/inspect_source.py",
+      "sha256": "0e5e1c0d4dcf749bb59c00cefa78af4f64e970ed32737d2bef4dd415adb28cca",
+      "license": "MIT",
+      "provenance": "Original model-specific inspection/render adapter"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "provenance": "Pinned canonical s010s/lowpoly-vault scripts/qa_glb.py"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "0d149d1e90472eb2bc38671e81e7e3299818becebc87a69633eeb354087c5dd7",
+      "license": "MIT",
+      "provenance": "Original model-specific inspection/render adapter"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "bundled glTF exporter v4.3.47"
+      ]
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.13.5 (Blender bundled)"
+    }
+  ],
+  "generator_entry": "source/generate.py",
+  "parameter_file": "source/params.json",
+  "invocation": "blender --background --factory-startup --threads 2 --python source/generate.py -- --output-dir output",
+  "scope": "Standalone geometry generation requires only the declared package source and pinned Blender runtime; validator and Three.js evidence are separate checks."
+}
