@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {sha256} from './inventory-type-acceptance.mjs';
-import {inspectContentProductionRelease,verifyContentProjectionReviews} from './content-production-acceptance.mjs';
+import {publicMaterial,inspectContentProductionRelease,verifyContentProjectionReviews} from './content-production-acceptance.mjs';
 import {collectProductionRelease,appendProductionRelease,productionSourceClosure,productionGalleryResources} from './production-release.mjs';
 import {deliverManifestAssets,creditText} from './asset-delivery.mjs';
 import {deliverTurntables} from './turntable-delivery.mjs';
@@ -124,3 +124,26 @@ test('content acceptance flows through closure, owned media and ZIP delivery',as
   const zip=spawnSync('python3',['-c',"import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; assert len(z.namelist())==3; assert 'CREDITS.txt' in z.namelist()",resolve(out,delivered.assets[0].downloads.bundle)],{encoding:'utf8'});assert.equal(zip.status,0,zip.stderr);
  }finally{await f.cleanup();}
 });
+
+const esrf='https://www.esrf.fr/home/news/general/content-news/general/esrf-scans-most-complete-heterodontosaurus-skeleton-ever-found.html';
+for(const value of ['Coverage: 100%.','https://commons.wikimedia.org/wiki/File:Eurhinosaurus_and_Stenopterygius_NHM.jpg',esrf,`Source: ${esrf}`,`Source: ${esrf}.`, `Sources: ${esrf},https://example.org/home/paper; see text.`,{citation:esrf},'https://example.org/home/paper?section=science#results'])test('accept public HTTPS source '+JSON.stringify(value),()=>assert.doesNotThrow(()=>publicMaterial(value)));
+for(const value of [
+ '/home/user/source.json','/tmp/source.json','/workspace/model.glb','/root/private','file:///opt/private',
+ `${esrf} and /home/user/private.json`,`${esrf}?path=/home/user/source`,`${esrf}?path=%2Ftmp%2Fprivate`,
+ `${esrf}#file:///secret`,`${esrf}?access_token=private`,`${esrf}?api%5Fkey=private`,`${esrf}?password=private`,`${esrf}?token=private`,`${esrf}?X-Amz-Credential=private`,`${esrf}?sig=private`,
+ 'https://user:password@example.org/home/paper','https://user@example.org/home/paper',
+ 'https://drive.google.com/file/d/private','https://docs.google.com/document/private','https://DRIVE.GOOGLE.COM/private',
+ 'https://localhost/home/file','https://127.0.0.1/home/file','https://10.0.0.1/home/file','https://192.168.0.1/home/file','https://[::1]/home/file',
+ 'https://example.org/home/ghp_12345678901234567890','https://example.org/home/%67hp_12345678901234567890',
+ 'https://example.org/home/paper?next=https://drive.google.com/private','https://example.org/home/paper?next=file:///opt/private',
+ 'https://example.org/home/paper?ok=1;path=%2Fhome%2Fuser',
+ 'https://example.org/home/paper?ok=1;%74oken=private',
+ 'https://example.org/home/paper,%67hp_12345678901234567890',
+ 'https://foo.internal../home/private',
+ 'https://server/home/private','https://foo.internal./home/private','https://foo.local./home/private',
+ 'https://example.org/home/paper,https://user:pass@localhost/home/private',
+ 'https://example.org/home/paper#token=private','https://example.org/home/paper#%74oken=private',
+ 'https://example.org/home/%2567hp_12345678901234567890','https://example.org/home/paper?path=%252Fhome%252Fuser',
+ 'https://example.org/home/paper;file:///opt/private',
+ 'https://','https://example.org/%ZZ','-----BEGIN PRIVATE KEY-----'
+])test('reject private source '+value,()=>assert.throws(()=>publicMaterial(value)));

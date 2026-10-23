@@ -8,9 +8,40 @@ import {inspectProductionContent,verifyTypedProjectionReviews} from './typed-pro
 export const CONTENT_PRODUCTION_CHECKS=Object.freeze(['independent_source_acceptance','exact_subject_and_source','scientific_scope_and_limits','geometry_and_topology','source_reproducibility','standard_glb_and_decode','final_preview_and_posters','compact_provenance_and_credits']);
 const digest=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 const exact=(x,keys)=>assert.deepEqual(Object.keys(x||{}).sort(),keys.slice().sort(),'Unknown/missing content descriptor fields');
-function publicMaterial(value){
+// Only a parsed public HTTPS pathname is exempt from the local-path check.
+// Credentials, private hosts and query/fragment data are never exempt.
+export function publicMaterial(value){
  assertProductionMaterial(value);
- if(typeof value==='string')assert(!/\/workspace\/|\/home\/|\/tmp\/|\/root\/|(?:drive|docs)\.google\.com|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|(?:gh[pousr]_[A-Za-z0-9]{20,}|AKIA[A-Z0-9]{16})/.test(value),'Private locator or credential in public content record');
+ if(typeof value==='string'){
+  const local=/\/(?:workspace|home|tmp|root)\/|file:/i;
+  const secret=/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[A-Z0-9]{16})|(?:access[_-]?token|refresh[_-]?token|api[_-]?key|client[_-]?secret|password|authorization|signature)\s*[=:]/i;
+  const privateLocator=/(?:drive|docs)\.google\.com/i;
+  const check=text=>assert(!secret.test(text)&&!privateLocator.test(text)&&!/(?:^|[?&#;])(?:token|secret|key|credential|auth|sig|x-amz-(?:credential|signature|security-token))\s*=/i.test(text)&&!/file:[/\\]/i.test(text),'Private locator or credential in public content record');
+  const decode=text=>{
+   let result=text;
+   for(let depth=0;/%[a-f0-9]{2}/i.test(result);depth++){assert(depth<8,'Excessively encoded public URL');result=decodeURIComponent(result);}
+   return result;
+  };
+  check(value);
+  const remainder=value.replace(/https:\/\/[^\s<>"',;]+/gi,raw=>{
+   assert(!/[\\\u0000-\u001f]/.test(raw)&&!/%(?![a-f0-9]{2})/i.test(raw),'Unsafe public URL');
+   const url=new URL(raw),decoded=decode(raw);
+   check(decoded);
+   assert(!/https?:\/\//i.test(decoded.slice(8)),'Nested URL must not hide in a public pathname');
+   assert(url.protocol==='https:'&&!url.username&&!url.password,'URL credentials cannot enter public content');
+   assert(!/\.\.$/.test(url.hostname),'Malformed public URL hostname');
+   const host=url.hostname.toLowerCase().replace(/\.$/,'');
+   assert(host.includes('.')&&!/^(?:localhost|127\.|10\.|0\.|169\.254\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)/.test(host)&&!host.startsWith('[')&&!/(?:\.localhost|\.local|\.internal)$/.test(host),'Private URL host cannot enter public content');
+   // Search parameters and fragments may contain local paths or encoded secrets.
+   const tail=decode(url.search+url.hash);check(tail);
+   for(const key of url.searchParams.keys())assert(!/^(?:token|secret|key|credential|auth|sig|x-amz-(?:credential|signature|security-token))$/i.test(key),'Credential parameter in public URL');
+   assert(!local.test(tail),'Private locator in public URL query or fragment');
+   return '';
+  });
+  const decodedRemainder=decode(remainder);check(decodedRemainder);
+  assert(!/https:\/\//i.test(decodedRemainder),'Malformed public URL');
+  assert(!local.test(decodedRemainder),'Private locator or credential in public content record');
+ }
  else if(value&&typeof value==='object')for(const [key,child] of Object.entries(value)){if(key==='path')safePath(child);publicMaterial(child);}
 }
 function safePath(path){
