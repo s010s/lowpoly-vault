@@ -24,6 +24,28 @@ for(const asset of models){
 }
 checks.push('All published primary metrics use Y; X/Y/Z details stay explicit in both languages without mutating metadata or rounding tiny heights to zero');
 assert.equal(formatModelLength(NaN),'—');assert.equal(formatModelLength(-1),'—');assert.equal(formatModelLength(undefined),'—');assert.equal(formatModelLength(.18),'18 cm');assert.equal(formatModelLength(.009243897),'0.9 cm');
+// Sub-millimeter formatting is independent of which models are published.
+for(const [meters,expected] of [
+ [0,'0 cm'],[-0,'0 cm'],[Number.MIN_VALUE,'4.94e-321 mm'],
+ [1e-12,'1e-9 mm'],[.0000001,'0.0001 mm'],[.0000499,'0.0499 mm'],
+ [.00040237721987068653,'0.402 mm'], // Actual Palaeotarbus height.
+ [.000499999999,'0.5 mm'],[.0005,'0.5 mm'],[.000999,'0.999 mm'],
+ [.001,'0.1 cm'],[.001001,'0.1 cm'],[.009243897,'0.9 cm'],
+ [.18,'18 cm'],[.999,'99.9 cm'],[1,'1.00 m'],[1.37,'1.37 m'],
+ [Infinity,'—'],[-Infinity,'—'],['0.0004','—'],[null,'—'],
+])assert.equal(formatModelLength(meters),expected,`Length ${meters}`);
+for(let exponent=-323;exponent<=-4;exponent++){
+ const meters=10**exponent,formatted=formatModelLength(meters);
+ assert(Number.parseFloat(formatted)>0,`Positive ${meters} must stay positive: ${formatted}`);
+ assert.match(formatted,/ mm$/);
+}
+const tinyAsset={dimensions:[.000499,.00040237721987068653,.000001]},tinySnapshot=JSON.stringify(tinyAsset);
+assert.equal(modelHeight(tinyAsset),'0.402 mm');
+assert.equal(dimensionDetails(tinyAsset),'Height (Y): 0.402 mm · Width (X): 0.499 mm · Depth (Z): 0.001 mm');
+assert.equal(dimensionDetails(tinyAsset,'zh'),'高度 (Y)：0.402 mm · 宽度 (X)：0.499 mm · 深度 (Z)：0.001 mm');
+assert.equal(JSON.stringify(tinyAsset),tinySnapshot);
+assert.match(dimensionNote('en'),/millimeters \(mm\)/);assert.match(dimensionNote('zh'),/毫米 \(mm\)/);
+checks.push('Sub-millimeter actual Palaeotarbus height, unit boundaries, zero, invalid input and positive values down to Number.MIN_VALUE retain nonzero measurements; ordinary cm/m outputs remain unchanged');
 assert.match(html,/id="dimensions"><\/strong><span data-en="Model height" data-zh="模型高度"/);
 assert.doesNotMatch(source,/Math\.max\(\.\.\.asset\.dimensions\)/);assert.match(source,/\$\('#dimensions'\)\.textContent=modelHeight\(asset\);/);
 checks.push('Production main.js uses modelHeight, and index.html labels it Model height / 模型高度');
