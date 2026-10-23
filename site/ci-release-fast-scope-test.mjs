@@ -66,3 +66,43 @@ assert.equal(run(actualLayout).eligible,true,JSON.stringify(run(actualLayout)));
 const wrong=clone(actualLayout.after);wrong[dpath].assets[0].metadata.path='assets/additions/other-asset/r001/metadata.production.json';wrong[wrong[dpath].assets[0].metadata.path]=wrong[metadataPath];wrong['production/production-releases-r002.json'].descriptors=[{path:dpath,bytes:bytes(wrong[dpath]).length,sha256:createHash('sha256').update(bytes(wrong[dpath])).digest('hex')}];
 assert.equal(run({before:actualLayout.before,after:wrong}).eligible,false);
 console.log('Actual assets/additions metadata layout PASS; cross-asset metadata remains FULL.');
+
+// Combining new models must not require relocating hash-pinned evidence from
+// their preparation batch to the release descriptor's batch.
+const archivedRoot='production/prepared-batch/fast-path-fixture/',archivedDep=archivedRoot+'original/source/deps/check.mjs';
+function archivedFixture(){
+ const f=helperFixture(),original='production/fast-path-fixture/fast-path-fixture/';
+ for(const p of Object.keys(f.after))if(p.startsWith(original)){f.after[p.replace(original,archivedRoot)]=f.after[p];delete f.after[p];}
+ f.after[archivedRoot+'record.json'].build_closure[0].path=archivedDep;
+ const pin=p=>({path:p,bytes:bytes(f.after[p]).length,sha256:createHash('sha256').update(bytes(f.after[p])).digest('hex')});
+ f.seal=()=>{f.after[dpath]={kind:'typed-production-release-v1',assets:[{id:'fast-path-fixture',metadata:pin(archivedRoot+'metadata.json'),evidence:pin(archivedRoot+'record.json')}]};f.after['production/production-releases-r002.json'].descriptors=[pin(dpath)];};
+ f.after[archivedRoot+'presentation/recipe.json']={recipe:'inert owned evidence'};f.seal();return f;
+}
+assert.equal(run(archivedFixture()).eligible,true,JSON.stringify(run(archivedFixture())));let archivedChecks=1;
+const archiveRecord=f=>f.after[archivedRoot+'record.json'];
+for(const edit of [
+ f=>archiveRecord(f).asset_id='other-asset',
+ f=>f.after[archivedRoot+'metadata.json'].id='other-asset',
+ f=>f.after[archivedRoot+'metadata.json'].production_release='production/other/release.json',
+ f=>archiveRecord(f).build_closure[0].sha256='0'.repeat(64),
+ f=>archiveRecord(f).build_closure[0].bytes++,
+ f=>{f.before[archivedDep]=f.after[archivedDep];},
+ f=>{f.before[archivedRoot+'record.json']=clone(archiveRecord(f));},
+ f=>{f.modes={[archivedDep]:'120000'};},
+ f=>{f.modes={[archivedDep]:'100755'};},
+ f=>{f.after[archivedRoot+'unsealed.mjs']='not a closure member';},
+ f=>{f.after['production/prepared-batch/other-asset/extra.json']={};},
+ f=>{f.after['production/prepared-batch/batch-note.json']={};},
+ f=>{f.after[archivedRoot+'unrecognized.sh']='script';},
+ f=>{f.after['site/shared.mjs']='changed';},
+ f=>{archiveRecord(f).build_closure.push({...archiveRecord(f).build_closure[0]});},
+ ...['production/prepared-batch/other-asset/original/source/deps/check.mjs',archivedRoot+'original/source/deps/../check.mjs',archivedRoot+'original/source/deps/./check.mjs',archivedRoot+'original/source/deps//check.mjs','site/check.mjs'].map(p=>f=>{f.after[p]=f.after[archivedDep];delete f.after[archivedDep];archiveRecord(f).build_closure[0].path=p;}),
+ f=>{const p='site/external.json';f.after[p]='not owned';archiveRecord(f).build_closure.push({path:p,bytes:bytes(f.after[p]).length,sha256:createHash('sha256').update(bytes(f.after[p])).digest('hex')});},
+ f=>{f.after['assets/manifest.json'].assets.at(-1).id=f.before['assets/manifest.json'].assets[0].id;},
+]){const f=archivedFixture();edit(f);f.seal();const result=run(f);assert.equal(result.eligible,false,JSON.stringify(result));archivedChecks++;}
+for(const evidencePath of ['production/prepared-batch/other-asset/record.json','production/prepared-batch/fast-path-fixture/../record.json','qa/prepared-batch/fast-path-fixture/record.json']){
+ const f=archivedFixture();f.after[evidencePath]=archiveRecord(f);f.after[dpath].assets[0].evidence={path:evidencePath,bytes:bytes(f.after[evidencePath]).length,sha256:createHash('sha256').update(bytes(f.after[evidencePath])).digest('hex')};
+ f.after['production/production-releases-r002.json'].descriptors=[{path:dpath,bytes:bytes(f.after[dpath]).length,sha256:createHash('sha256').update(bytes(f.after[dpath])).digest('hex')}];
+ assert.equal(run(f).eligible,false);archivedChecks++;
+}
+console.log(`Independent preparation roots: ${archivedChecks} positive/negative checks passed; no blanket production or JavaScript allowlist.`);
