@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "source/deps/MIT.txt",
+      "sha256": "f4cd278b3853ba4c6b36d85975839c2b51d09bb841d6eecced516c482e826ce0",
+      "origin": "Original model-specific adapter or project license"
+    },
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Pinned recovered lowpoly-vault canonical scripts; unchanged"
+    },
+    {
+      "path": "source/deps/presentation.py",
+      "sha256": "d77a941a793c536fa6d7eac29fff225e0aba1acc8819664425dbef4d30e62466",
+      "origin": "Original model-specific adapter or project license"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Pinned recovered lowpoly-vault canonical scripts; unchanged"
+    },
+    {
+      "path": "source/deps/validate_format.cjs",
+      "sha256": "27426328c52c42ed38874f5fd5e185cbdc5742e48868b59d2fd5828116ad34ff",
+      "origin": "Original model-specific adapter or project license"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "required_for": "geometry, export, exact-GLB preview",
+      "python": "Blender bundled bpy and mathutils; Python stdlib only"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "required_for": "optional repeat of Khronos format check, not generation"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "optional repeat of Khronos format check, not generation",
+      "license": "Apache-2.0"
+    }
+  ],
+  "canonical_helpers": {
+    "repository": "s010s/lowpoly-vault",
+    "pin_method": "Exact SHA256 of recovered canonical scripts, not another candidate model directory",
+    "asset_common.py": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+    "qa_glb.py": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+  },
+  "generation_entrypoint": "source/generate.py",
+  "configuration": "source/params.json",
+  "external_images_or_geometry": false
+}

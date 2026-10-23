@@ -1,0 +1,76 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "taeniolabis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      0.574,
+      -0.819,
+      0.466
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "origin": "Ground-plane placement point between left/right foot supports; Z=0. Mean paw-center Y=-0.035 m relative to root, an explicit small fore-aft placement offset."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Published actual skull figure4 and composite reconstruction figure10 inspected; no extra concept images needed."
+  },
+  "extra_views": [],
+  "original_inventory_ordinal": 667,
+  "taxon": "Taeniolabis taoensis",
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "scope": "Complete robust multituberculate with broad rodent-like head, enlarged incisors and heavy grinding jaws. Not a rodent/beaver or isolated skull.",
+  "scale": {
+    "unit": "meter",
+    "skull_condylobasal_length_m": 0.161,
+    "skull_bizygomatic_width_m": 0.146,
+    "basis": "2021 Table5 DMNH EPV.95284; authors caution measurements >50mm are rounded estimates because of deformation/breakage. 153.3mm cranial size is geometric mean, NOT skull length. AMNH16321 length159mm,width155mm,cranialsize157mm.",
+    "head_body_length_m": 0.65,
+    "tail_length_m": 0.2,
+    "shoulder_height_m": 0.28,
+    "whole_body_status": "Conservative artistic reconstruction dimensions; no complete articulated skeleton supports exact whole length.",
+    "soft_tissue_note": "Reference dimensions constrain broad cranial proportions, not an exact fossil surface fit. External soft-tissue head is larger than the bony skull. Head/body/shoulder values are design estimates; exact exported bounds are recorded in technical evidence."
+  },
+  "diagnostic_targets": [
+    "Broad blocky head, large cheek/jaw mass and relatively short wide muzzle; cranial width nearly matches skull length rather than slender mouse muzzle.",
+    "Prominent paired gnawing incisors with controlled modest exposure; no canine fangs or giant tusks. Heavy rounded cheek mass should imply grinding jaws.",
+    "Four robust ground-supporting limbs and compact heavy trunk, low but not belly-dragging stance.",
+    "Plain tapered cylindrical tail, NEVER flat beaver paddle, webbed feet or arboreal squirrel bush.",
+    "Small rounded ears and lateral eyes, neutral coat. No armor, horns, patterned fur or insectivore snout.",
+    "Skull/head silhouette dominates identity; robust limbs distinguish from recently built Fruitafossor small gracile hindquarters."
+  ],
+  "uncertainties": [
+    "2025 original postcranial study assigns robust ulna/radius/femur/calcaneus but acknowledges incomplete skeleton; ground-dwelling inferred, digging only possible not established.",
+    "Exact torso, tail, digits and soft tissue proportions not fossil-established; conservative reconstruction only.",
+    "Fur color and ears speculative. Do not conflate multituberculate with modern Rodentia.",
+    "2021 composite skull drawing combines several fossils; not one complete exact specimen scan."
+  ],
+  "acceptance_checklist": [
+    "Whole animal original scope preserved with broad head and incisors.",
+    "Broad skull/jaw shape matches current2021 reconstruction, not obsolete plaster-heavy AMNH mount alone.",
+    "Robust quadruped, nonpaddle tail, no aquatic claims.",
+    "Default4 exactGLB views, pinned local deps and two rebuilds; independentQA separate."
+  ],
+  "quality_state": {
+    "making": "COMPLETE_PENDING_INDEPENDENT_REVIEW",
+    "tests": "TECHNICAL_PASS",
+    "independent_review": "NOT_RUN",
+    "gpu": "NOT_RUN",
+    "scene": "NOT_RUN",
+    "deployed": false
+  },
+  "surface_profile": "palette-only; flat normals, six opaque portable PBR colors, no textures",
+  "parameter_policy": "Morphological targets document this frozen reconstruction; anatomical ring coordinates are explicitly authored in generate.py. Palette, seed and geometry budgets are read from params.json."
+}

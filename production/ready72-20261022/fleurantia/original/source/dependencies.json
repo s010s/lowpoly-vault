@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/asset_common.py",
+      "pin_type": "exact content SHA-256",
+      "copied_unchanged": true
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/qa_glb.py",
+      "pin_type": "exact content SHA-256",
+      "copied_unchanged": true
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "13bd032a6a20e1962eaad9849e17b1ccfbf8c14815917d6dcab94a2c43b3ca4e",
+      "license": "MIT",
+      "origin": "Fleurantia r001 original renderer adapter; neutral rig follows canonical render_candidate_views.py",
+      "copied_unchanged": false
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/validate_gltf.cjs",
+      "pin_type": "exact content SHA-256",
+      "copied_unchanged": true
+    },
+    {
+      "path": "source/deps/verify_source.py",
+      "license": "MIT",
+      "origin": "Fleurantia r001 original read-only source inspection adapter",
+      "copied_unchanged": false,
+      "sha256": "33586f66153be5b18f0593e7a347f485aec7a8ce30302f3eec520bfb3ee73abe"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Generator, glTF exporter, exact-GLB previews",
+      "embedded": false
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+      "purpose": "Generator",
+      "embedded": false
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Official external format validator only; not required to rebuild geometry",
+      "embedded": false
+    },
+    {
+      "name": "Node.js",
+      "version": "v24.19.0",
+      "purpose": "Official format validator only",
+      "embedded": false
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Node GLTFLoader parse and bounds only; not GPU rendering",
+      "embedded": false
+    }
+  ],
+  "source_closure": "Generation reads only source/generate.py, source/params.json, source/deps/asset_common.py and source/deps/qa_glb.py. Isolated copied-source rebuild evidence required."
+}

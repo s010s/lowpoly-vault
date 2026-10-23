@@ -1,0 +1,76 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "placochelys",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      0.574,
+      -0.819,
+      0.466
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z",
+    "perspective_camera_note": "Canonical helper hero camera in +X/-Y/+Z quadrant, reused as perspective and preview; numeric direction recorded in exact-GLB evidence."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real skull plus research-group existing reconstruction sufficient."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Placochelys",
+    "zh": "Placochelys"
+  },
+  "inventory_ordinal": 457,
+  "taxon": "Placochelys placodonta",
+  "classification": "Sauropterygia, Placodontia, Cyamodontoidea, Placochelyidae; not turtle",
+  "representation": "living-reconstruction",
+  "scope": "Whole original animal, armoured body and sharply tapering toothless snout tip.",
+  "specimen_basis": "Holotype Ob.2323/Vt.3 skull photo by Istvan Fozy on Hungarian Dinosaur Expedition site. Armour fragments rather than a complete measured carapace.",
+  "scale": {
+    "total_length_m": 0.9,
+    "skull_length_m": 0.15,
+    "basis": "Sea Rex educator guide2010 page14 authored Jouve/Vincent/Bardet; reconstruction estimates, not exact complete specimen measurements.",
+    "carapace_length_width_ratio": 1.4,
+    "ratio_basis": "PE2010 table1 explicitly interpretation from Jaekel1907 plate10, NOT fossil measurement."
+  },
+  "diagnostic_targets": [
+    "Narrow pointed triangular tapering rostrum contrasting broad rear skull; no broad square Henodus mouth.",
+    "Low oval elongated armour, longer than wide, with subtle polygonal nodules; not a high modern turtle dome.",
+    "Four short laterally spread limbs with conservative webbing, neck short, tapering tail retained.",
+    "No teeth at snout tip; posterior crushing teeth remain, closed mouth allowed.",
+    "Whole organism, no skull-only substitution, no fossil slab."
+  ],
+  "uncertainties": [
+    "Large portions of postcranial material lost; carapace outline is reconstruction.",
+    "Skin, colour, webbing extent, live body volume inferred; artwork not direct fossil evidence.",
+    "Only front snout toothless, not entire mouth."
+  ],
+  "acceptance_checks": [
+    "Pointed triangular head evident front/top and profile.",
+    "Low longer-than-wide oval armour clearly unlike Henodus broad transverse carapace.",
+    "Four attached limbs plus tail and closed jaw, coherent whole body.",
+    "Four standard views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same dir maker QA; maker fixedhash COMPLETE stops; root async backup local-first integration; no maker upload cleanup.",
+  "origin": "Identity root at centre of four-foot contact; lowest foot contact z=0. Interpretative benthic pose.",
+  "material_profile": "Five matte, opaque, original palette-only PBR materials; no embedded images or source-only shaders."
+}

@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "acteonella",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z axis along shell height; upper low spire up, short basal tip down. Aperture toward-Y and lies on+X side in front, matching image-right inFig12A. LowestpointZ=0. Front-Y, side+X, top+Z, perspective(+X,-Y,+Z).",
+    "view_roles": {
+      "front": "apertural face: long slit and3basal folds",
+      "side": "rounded depth and restrained lip",
+      "top": "concealed spire and coiling closure",
+      "perspective": "combined barrel, long aperture and preserved mineral fill"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary photo clearly shows full silhouette, concealed spire, long aperture and basal folds with10mm scale. Rotational body completion can be conservatively inferred and explicitly marked; no extra conceptual image needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Acteonella barrel snail",
+    "zh": "Acteonella（桶形螺类）"
+  },
+  "taxon": "Acteonella",
+  "representation": "fossil-specimen",
+  "original_scope": "Original low-poly fossil form: smooth elongate barrel/ovoid shell, concealed low spire and long narrow aperture. Preserve this combination; not a tall tower snail, cowry with denticulate lip or exposed-section model.",
+  "reference_anchor": {
+    "specimen": "NHMW1965/664/13, Acteonella styriaca Kollmann,1965",
+    "source": "Kollmann2014 Fig12A p372, caption identifies figure from Kollmann1965",
+    "age": "Turonian, Late Cretaceous",
+    "locality": "Gams bei Hieflau, Austria",
+    "observed_views": "One apertural-oblique exterior photo. Fig12B is different species A.jicarensis and not a source of specimen dimensions. Fig12C–F other genera, excluded.",
+    "scope": "Factual anatomical interpretation, not replica, traced photo or copied scan."
+  },
+  "scale": {
+    "unit": "metre",
+    "height_Z": 0.075,
+    "width_X": 0.036,
+    "depth_Y_inferred": 0.032,
+    "evidence": "Fig12 caption bars10mm. Render1172x1640: A bar x287–340=53px; body x142–333 about191px and y222–619 about397px; projected75×36mm. Depth32mm inferred, not measured.",
+    "engineering_tolerance": "Height72–78mm, width34–39mm, inferred depth29–36mm. Design tolerances, not biological confidence intervals."
+  },
+  "morphology": [
+    "Elongated smooth barrel/ovoid main whorl, widest near mid-height, tapering gently toward both ends. About2.1:1 height/width. Rounded three-dimensional body, not a thin leaf or a cylinder with flat caps.",
+    "Convolute shell: final whorl envelops earlier turns. Low concealed spire at top should read as a subdued apical fold/depression with a short worn tip, not exposed tiered turret or conspicuous pointed spiral tower.",
+    "Long narrow aperture runs along image-right/physical+X side of front, extending most shell height. Upper mouth is narrow and recessed, base broader/excavated. Preserve outer lip, long slender gap, basal columellar region and short lower tip. No large round mouth or cowry-toothed slit.",
+    "Three strong, oblique columellar folds occupy the lower inner/apertural region in Fig12A. Make broad rounded low ridges local to the basal inner lip, not full-circumference stripes or septal chambers. Do not copy the cutaway interiors of panelsE/F.",
+    "Outer lip in the fossil is worn and uneven; aperture contains subdued rough mineral material. Use shallow partially filled recess with a surviving lip, not a perfectly pristine razor-thin lip, unbounded black tunnel or a completely filled smooth blob.",
+    "Smooth subdued stone surface with restrained wear and growth traces. No axial ribs, spines, rows of teeth, broad raised spiral sculpture, siphonal trumpet or soft body. No labels, scale bars, matrix pedestal or photo textures."
+  ],
+  "uncertainty": [
+    "Only one successful source view establishes this specimen exterior. Opposite surface and overall thickness inferred conservatively from rounded convolute shell; four renders are assessment views, not four photographed observations.",
+    "Original shell-lip thin edge partly worn; do not restore an elaborate missing rim. Interior depth is unresolved by mineral preservation; retain only shallow observed recess and basal folds.",
+    "Photo dimensions are approximate; aperture obliquity and shell edges limit precision. Palette is artistic fossil tan, not an original-life colour claim."
+  ],
+  "palette": "Matte light tan/brown stone, slightly darker muted mineral fill.2–4 restrained tones, no glossy shell.",
+  "acceptance_focus": [
+    "Front shows smooth2.1:1 ovate barrel and long narrow right-side mouth with3 lower oblique folds. Reject fat oval without opening or exterior bands around whole body.",
+    "Side shows substantial rounded thickness and no exposed tall spire. Lip remains connected; no detached shell plates.",
+    "Top shows subdued concealed spire and involute/convolute closure, not a tower or drilled central hole.",
+    "Perspective reconciles mouth, body and short base; dark or rough fill must not erase the opening.",
+    "Actual model tests,4views, self-contained hashed dependencies and two isolated deterministic rebuilds required by maker. Prep layout validation is not scientific/model acceptance."
+  ]
+}

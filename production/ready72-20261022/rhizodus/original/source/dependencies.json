@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Pinned canonical lowpoly-vault scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Pinned canonical lowpoly-vault scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "provenance": "Pinned canonical lowpoly-vault scripts/render_candidate_views.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_exact.py",
+      "sha256": "af155a8de96cb2bb9111027543494fe9ec674c1434396bddb1a003eee219d29d",
+      "provenance": "Original small wrapper for the frozen perspective camera",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "python": "Bundled Blender Python and standard library"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Validation only; not needed to rebuild model"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "Target parser evidence only; GPU/scene gate separate"
+    }
+  ],
+  "generator_dependency_closure": "source/generate.py + source/params.json + source/deps/asset_common.py + source/deps/qa_glb.py; no external images, other model directories or downloads",
+  "canonical_pin": "Original helper bytes fixed by SHA-256; recovered canonical script snapshot has no local Git metadata"
+}

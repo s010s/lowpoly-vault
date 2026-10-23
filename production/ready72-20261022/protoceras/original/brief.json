@@ -1,0 +1,82 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "protoceras",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "origin": "feet onZ0, meter"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual published specimen photo plus original lateral/top/front cranial drawings and foot description suffice."
+  },
+  "extra_views": [],
+  "original_inventory_ordinal": 654,
+  "taxon": "Protoceras celer",
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "scope": "Complete small gracile horn-bearing male ungulate with multiple cranial appendages. Do not reduce to skull or use Synthetoceras Y horn.",
+  "scale": {
+    "unit": "meter",
+    "skull_length_m": 0.215,
+    "basis": "Osborn/Wortman1892p356 male skull occipital condyle to premaxillary tip215mm, facial region130mm. Different specimens:2021 femaleAMNH1229 measured20.75cm; maleAMNH53523 incomplete18.8cm NOT full length.",
+    "body_length_m": 1.0,
+    "shoulder_height_m": 0.6,
+    "whole_size_status": "Illustrative small gracile sheep-sized body reconstruction, not directly measured articulated skeleton."
+  },
+  "diagnostic_targets": [
+    "Complete long-legged light-bodied ungulate, long narrow face approximately60-67percent skull length.",
+    "Paired maxillary plates rise on sides of elongated rostrum, with separate roots and flattened inward-curving profiles; NOT one central bifurcated nasal shaft.",
+    "Paired low supraorbital flares above lateral eyes plus separate more posterior parietal projections. Three major bilateral regions; small accessory bumps may be simplified but do not replace plates with6generic cones.",
+    "Maxillary plates and parietal projections rise distinctly, supraorbital forms flare sideways. Horn/plate count and placement visible in top/front views, not confluent ears.",
+    "Small upper canines directed downward, not elephant tusks; narrow herbivore muzzle, lateral eyes and separate ears.",
+    "Forefeet retain four slender toes with substantial lateral toes slightly shorter than central pair. Hindfeet have two dominant elongated toes with rudimentary lateral toes; do not make all four feet identical modern deer hooves.",
+    "Elongated slender limbs with connected joints, compact trunk, modest neck, short understated tail; no long giraffe neck."
+  ],
+  "uncertainties": [
+    "2021 study identifies males by cranial ornamentation and separates female and crushed incomplete male measurements. Do not extrapolate exact full body dimensions from damaged male.",
+    "1892 appendage illustrations are original specimen drawings, soft tissue coverage is not directly preserved. Use understated skin-covered shapes without invented horn rings.",
+    "Whole-body lengths, tail, ears and coat are conservative reconstruction choices. No copy of other species body mesh or artwork.",
+    "Historical paper used Lower Miocene dating; use current Oligocene context from later study rather than historical date terminology."
+  ],
+  "acceptance_checklist": [
+    "Whole animal original scope retained.",
+    "Paired rostral plates, supraorbital flares, posterior parietal projections distinguish from recentSynthetoceras.",
+    "Anterior-Y +Zup, exactGLB fourviews only, readable lateral/front/top silhouette.",
+    "Fore4toe/hind2dominanttoe distinction retained.",
+    "Selfcontained dependencies, two deterministic rebuilds, separate independent review."
+  ],
+  "quality_state": {
+    "making": "MAKER_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+    "tests": "IN_PROGRESS",
+    "independent_review": "NOT_RUN",
+    "deployed": false
+  },
+  "surface_profile": "Palette-only, opaque single-sided Principled materials; original deliberate faceted lofts; no textures, external geometry, rig, or animation.",
+  "presentation": {
+    "default_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview_reuses": "views/perspective.png",
+    "view_conventions": "Front -Y, side +X, top +Z, perspective +X/-Y/+Z octant. Neutral warm background; no exported floor."
+  }
+}

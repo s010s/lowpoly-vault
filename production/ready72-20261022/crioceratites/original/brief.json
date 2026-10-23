@@ -1,0 +1,84 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "crioceratites",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Coiling planeXZ, axisY. LateralPl36fig2 faces-Y; terminalupper-right(+X,+Z), tightnucleus nearcentre. Preserve photograph winding without mirroring. +Zup, minimumZ0. Side+X, top+Z, perspective(+X,-Y,+Z).",
+    "view_roles": {
+      "front": "lateral photo match, natural separatedwhorls",
+      "side": "inferred elliptical thickness and planar centreline",
+      "top": "upper coil, blunt terminalface and gap",
+      "perspective": "3D continuous coil, both thickness and openings"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "A clear primary holotype lateral photograph plus measured dimensions and published section description support bounded interpretation. Missingwidth explicitly inferred. No extra concept image, no claim of real4view evidence."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Crioceratites open planar spiral ammonite",
+    "zh": "Crioceratites（开放平螺菊石）"
+  },
+  "taxon": "Crioceratites",
+  "selected_species": "Crioceratites vermiformis Kakabadze & Hoedemaeker2010",
+  "era": "cretaceous",
+  "representation": "fossil-specimen, holotype-informed low-poly interpretation; unseen thickness inferred explicitly",
+  "original_scope": "Planned fossil-form study featuring flat open spiral keeps successive ribbed whorls visibly separated.",
+  "reference_anchor": {
+    "source": "Kakabadze & Hoedemaeker2010, New data on Early Cretaceous (Hauterivian-Barremian) heteromorphic ammonites from northern Germany, Scripta Geologica140:1–168",
+    "specimen": "Holotype RGM197188A, Naturalis, S-Bahn Hannover Airport, bed30, upper Hauterivian staffi Zone, Lower Saxony, Germany",
+    "image": "Plate36 figure2 ONLY, printedp118. Natural exposed open coil, not a matrix-filled gap artificially opened. Fig1 is C.subisocostatus; figs3–4 are other C.vermiformis individuals and must not replace the primary silhouette.",
+    "description": "p26, measurements and section/ornament description. One direct lateral photograph, not four photographs. Four model views are planned outputs.",
+    "classification": "Mollusca/Cephalopoda/Ammonoidea; retain genus Crioceratites. Historical nolani images were excluded because2010 revision treats that group under Emericiceras; no silent genus substitution."
+  },
+  "scale": {
+    "unit": "metre",
+    "diameter": 0.0545,
+    "last_whorl_height": 0.012,
+    "opposite_whorl_height": 0.0085,
+    "umbilical_width": 0.036,
+    "working_axial_thickness": 0.009,
+    "basis": "Tablep26 gives D54.5,H12,h8.5,U36mm forRGM197188A; widthW is blank. Working9mm axial thickness is an explicitly uncertain inference from described subellipsoidal section, not measured specimen width.",
+    "uncertainty": "Do not confuseH/h with wall thickness. Approximate axial thickness8–12mm is acceptable without claiming anatomical calibration; diameter about55mm. Original body was not a flat2D extrusion."
+  },
+  "morphology": [
+    "Continuous essentially planar open coil. Fine early nucleus remains tight, then successive later whorls separate naturally with a conspicuous open interval, followingFig2. Do not turn it into a normal involute disk, disconnected concentric rings, helix, shaft or terminal hook.",
+    "Outer coil grows only slowly in tube height and opens widely after diameter30–35mm; inner growth differs from outer. Do not impose one uniform logarithmic growth parameter that closes the actual open gap. Trace the actual variable spiral silhouette.",
+    "Last preserved tube has about12mm radial height at55mm overall diameter. Cross-section inferred as mildly elliptical with rounded ventral/flank surfaces and flatter dorsal/inner surface, not a rectangular strip, perfect hose or razor-thin extrusion.",
+    "Preserved outer terminal end is upper-right inPlate36fig2, with a blunt irregular mineral-filled face. No unsupported extension completing another turn, no polished hollow aperture or living tissue.",
+    "Many fine transverse ribs follow the changing local tube direction. Earlier main ribs bear small ventrolateral spine remnants with3–4 finer non-tuberculate ribs between; mature ribs become similar in strength and spines fade. Keep subdued and varying, not identical washer rings.",
+    "Visible short spine remnants are concentrated on the intermediate coil. Preserve low irregular projections, not a symmetrical forest of giant spikes or long reconstructed missing spines.",
+    "Centre and turns are one continuous growing shell. Keep the genuine interwhorl opening; no support struts, stone slab, pedestal or labels spanning the negative spaces.",
+    "Material neutral matte fossil stone. No live animal, cutaway septa, rainbow ammolite, copied photo texture, museum sticker or numerical markings."
+  ],
+  "uncertainty": [
+    "Only one lateral image exists in the selected source; axial thickness, backside and fine three-dimensional rib shape are conservatively inferred from published section description, not observed in independent angles.",
+    "WidthW is explicitly not reported. Maker must not write9mm as measured holotype width or certify a photogrammetric replica.",
+    "Unpreserved early micro-whorls and terminal shell beyond the fossil are not restored. Preserved morphology remains sufficient to express original natural open planar spiral.",
+    "Later taxonomic changes were not identified in the sources checked; use2010 primary identification and its specimen number rather than C.nolani or an unverified dealer specimen."
+  ],
+  "palette": "Matte warm-grey stone, at most subtle variation at worn terminal face; artistic choice.",
+  "acceptance_focus": [
+    "Front: matchPl36fig2 natural open coil, tight earliest part and broad later gap; terminal upper-right.",
+    "Side/top: visible but restrained elliptical thickness and planar centreline, no helical displacement or sheet extrusion.",
+    "Perspective: continuous connected coil, no fused later turns, no fake drilled hole or shaft/hook.",
+    "ScaleD54.5mm from table, inferredW clearly labelled. Four standard renders must make geometry auditable; preparation is not scientificPASS."
+  ]
+}

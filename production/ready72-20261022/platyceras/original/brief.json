@@ -1,0 +1,96 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "platyceras",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Zup. Match Fig9f upper-view orientation in XY: early coil on-X side, expanded aperture on+X side, main coiling axis approximatelyZ. Tilt/shape final aperture to face-Y with+X offset so front sees opening. WorldX extentds33.9mm, Yws25.5mm, Zhs26mm. LowestpointZ0. Do not impose rotational symmetry.",
+    "view_roles": {
+      "front": "apertural rim and filled recess; compareFig10c3",
+      "side": "rounded cap and recurvature, compareFig10c1 as morphology not exact camera replica",
+      "top": "coiling and expanding final whorl, compareFig10c2",
+      "perspective": "combined cap and aperture; other reference basal/back views constrain unseen surface"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Five same-specimen photographs, axis diagram and numerical dimensions are sufficient; no extra concept image."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Platyceras curved cap snail",
+    "zh": "Platyceras（弯帽螺类）"
+  },
+  "taxon": "Platyceras",
+  "representation": "fossil-specimen",
+  "original_scope": "Irregular recurved cap shell with expanded uneven aperture. Original procedural fossil interpretation, not a scan replica. Preserve real aperture rim despite mineral fill.",
+  "reference_anchor": {
+    "specimen": "PIN5489/16-4, Platyceras vetustum (Sowerby,1829)",
+    "source": "Mazaev2021 Fig10c1–c5 photographs, Fig9f1–f2 measurement orientation, p896 specimen measurements",
+    "age": "Early Carboniferous, Viséan–Serpukhovian boundary-bed assemblage, not Devonian",
+    "locality": "Dombar Hills, western Kazakhstan, South Urals; collection locality16",
+    "observed_views": "Same specimen lateral, upper, apertural, abapertural, basal. No mixing adjacent a/b specimens.",
+    "scope_correction": "OriginalDevonian is explicitly representative planning interval, not full genus range. Selected specimen age must be Carboniferous in final metadata. No Devonian claim for this individual."
+  },
+  "scale": {
+    "unit": "metre",
+    "target_X": 0.0339,
+    "target_Y": 0.0255,
+    "target_Z": 0.026,
+    "published_measurements_mm": {
+      "ds": 33.9,
+      "ws": 25.5,
+      "hs": 26.0,
+      "wa": 24.6,
+      "ha": 17.3
+    },
+    "evidence": "Mazaev2021 p896 table row5489/16-4; Fig9f defines axes. X maps diameter ds, Y maps width ws in upper view, Z maps shell height hs. Aperture wa/ha measured along its own oblique axes, not direct worldX/Z extents.",
+    "tolerance": "About±8% for simplified overall silhouette; these are design limits not measurement error estimates."
+  },
+  "morphology": [
+    "A tightly recurved early coil grows into a greatly expanded irregular final whorl, cap-like rather than tower-shaped. Overall body squat and rounded, with small rolled apex at one end and broad aperture opposite.",
+    "Large asymmetric oval aperture has a distinctly uneven rim and bends in its outline. Show retained rim and a modest inset mineral-filled opening, not a perfect circular tube end or a solid shell with no mouth boundary.",
+    "The upper surface rises and bends away from the early coil. Broad lobes and directional growth undulations converge toward the small apex. Avoid radial symmetric limpet geometry or a flat ammonite disk.",
+    "Fossil aperture is substantially mineral-filled and chipped. Preserve a restrained shallow recess under surviving lip; do not invent an empty deep funnel. Do not reproduce paper whitening/label patches or museum text.",
+    "Few broad collabral growth undulations suffice. No spines, strong spiral keels, shell chambers, cowry teeth or soft parts. Rounded low-poly facets, matte neutral stone, no pedestal or attached crinoid."
+  ],
+  "uncertainty": [
+    "Selected specimen is mineral-filled, not an open pristine living shell. Thin lost lip and internal lumen unknown; no invented internal depth.",
+    "Fine apex/protoconch details below model scale may be simplified. Do not enlarge tiny larval features for decoration.",
+    "Five reference views constrain exterior; small damaged regions may be smoothed conservatively but no idealized symmetry. Colour is artistic stone, photographs are grayscale."
+  ],
+  "palette": "Matte neutral grey/tan shell; slightly darker subdued mineral fill, no white label patch.",
+  "acceptance_focus": [
+    "Front: expanded uneven aperture and preserved lip remain readable despite mineral fill. No sealed undifferentiated blob or invented deep empty cone.",
+    "Side: recurved early coil and bulging cap are coherent, not a stack of whorls or flat disk.",
+    "Top: small off-centre coil transitions continuously into expanded, irregular final whorl.",
+    "Perspective: connected lip/body/filled recess; retain asymmetry without excessive broken debris.",
+    "Produce4actual renders, geometry tests, pinned local dependencies and two isolated deterministic rebuilds. Prep is not scientific/modelPASS."
+  ],
+  "era_correction": {
+    "original_field": [
+      "devonian"
+    ],
+    "original_note": "The era is a representative planning interval, not a full stratigraphic range or a coexistence claim.",
+    "selected_field": [
+      "carboniferous"
+    ],
+    "reason": "Same-genus P.vetustum specimen independently identified in earlyCarboniferous deposits; preserve original morphology, never relabel specimenDevonian.",
+    "root_review": "2026-10-22T20:55:49Z allowed same-genus documented correction; independentQA must confirm match."
+  }
+}

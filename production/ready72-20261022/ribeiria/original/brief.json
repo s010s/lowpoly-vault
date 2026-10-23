@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "ribeiria",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Long axis X; anterior -X, posterior +X; dorsal +Z, ventral -Z. Left lateral side faces -Y (front). Rest lowest point at Z0. D1 matches front with anterior image-left. D3 matches top after rotation only, not mirror.",
+    "view_roles": {
+      "front": "left lateral, D1 comparison",
+      "side": "posterior end-on, compression and continuous fossil body",
+      "top": "dorsal, D3 comparison",
+      "perspective": "combined lateral, dorsal and posterior profile"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Three real views of the same selected specimen plus description resolve primary geometry. No extra concept image, and no denied image operation is retried."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Ribeiria curved rostroconch",
+    "zh": "Ribeiria（弯壳吻壳动物）"
+  },
+  "taxon": "Ribeiria",
+  "selected_species": "Ribeiria apusoides",
+  "era": "ordovician",
+  "representation": "fossil-specimen: internal mould of conjoined shell, not restored hollow living shell",
+  "original_scope": "Deep curved laterally compressed shell with offset dorsal umbo. Use real preserved internal-mould morphology; do not turn pegma impression into an exterior horn.",
+  "reference_anchor": {
+    "source": "Polechová 2015, Estonian Journal of Earth Sciences 64(1):84–90, doi:10.3176/earth.2015.15",
+    "specimen": "NM L 7852, Ribeiria apusoides, Prague, Zahořany Formation, lower Katian",
+    "images": "Figure 1 D1 left lateral, D2 right lateral, D3 dorsal. Use only D for primary proportions. A/C are R. johni and must not be blended; F is another R. apusoides specimen and must not donate damaged geometry.",
+    "secondary": "Ribeiro et al. 2022, type species R. pholadiformis: taxonomy context only; do not combine its dimensions or shape with NM L 7852."
+  },
+  "scale": {
+    "unit": "metre",
+    "length": 0.022,
+    "height": 0.013,
+    "width": 0.0065,
+    "basis": "Approximate image measurement using published D1 x2.1, D2 x2.2, D3 x4 magnifications and PDF A4 size 595x842pt. At rendered 1800px page height, D1 length ~294px gives23.1mm; D2 ~302px gives22.8mm; D3 ~498px gives20.7mm. Differences from orientation/print layout retained as uncertainty, not averaged into false accuracy. D3 width ~157px gives6.5mm; D1 height ~180px gives14.1mm. Rounded working model22x13x6.5mm.",
+    "tolerance": "15% overall approximate display scale; no direct specimen measurement. Width/length ~0.30 and height/length ~0.59."
+  },
+  "morphology": [
+    "One laterally compressed, elongated ovate mineralized body with a deeply arcuate ventral margin and gently concave dorsal saddle. No two detached bivalve plates or hinge teeth.",
+    "Prosogyral umbo is offset toward anterior, not central and not a terminal straight spike. D1 anterior is image-left; D2 anterior image-right. Keep broad body extending posteriorly from umbonal region.",
+    "D1/D2 show a conspicuous oblique narrow cleft near the anterior dorsal area caused by the internal pegma. It is a recessed groove/slot in the mineral mould, not an exterior plate or a shell horn. Preserve blunt surviving material at its edge, no invented sharp rostrum.",
+    "D3 shows narrow lenticular cross-section, greatest fullness anterior-to-middle, tapering toward posterior. Integrate the dorsal umbonal region and cleft, rather than extruding a flat lateral silhouette at uniform thickness.",
+    "Allow subtle irregular stone relief and subdued growth traces. Large random cracks, drilled pores, deep hollow aperture and matrix slab are not required. Avoid copying fractures as generic anatomy.",
+    "This is a solid fossil internal mould, not an intact shell surface: no shiny nacre, fleshy foot, reconstructed organs, shell opening tunnel or articulated living valves."
+  ],
+  "uncertainty": [
+    "Internal mould does not preserve shell thickness or pristine exterior. The original genus-level fossil-specimen proposal is retained, but represented as documented internal mould; not a full biological shell reconstruction.",
+    "Fine muscle scars and pegma depth are not metrically resolved. Bound cleft depth from D views and keep it anatomically local; do not invent through-holes.",
+    "Approximate scale comes from print magnifications, not caliper measurements; no millimetre-accurate replica claim.",
+    "Do not overstate the original adjective strongly offset: use actual specimen umbo position and curvature, without artificial exaggeration."
+  ],
+  "palette": "Matte warm-grey fossil stone, one principal material; artistic presentation, not original biological colour.",
+  "acceptance_focus": [
+    "Front lateral view must show deep curved belly, dorsal concavity, anteriorly offset umbonal region and localized pegma cleft.",
+    "Side end view and top dorsal view must expose lateral compression and tapered lenticular thickness; not a flat cutout.",
+    "Perspective must show the same continuous mineralized body and cleft, without a detached horn or invented hollow shell.",
+    "Four standard views; independent QA must verify the internal-mould scope matches the original fossil-specimen target. Prep is not scientific PASS."
+  ]
+}

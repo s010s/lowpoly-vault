@@ -1,0 +1,55 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, recovered main worktree 2026-10-22; unmodified byte copy",
+      "upstream_path": "scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, recovered main worktree 2026-10-22; unmodified byte copy",
+      "upstream_path": "scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, recovered main worktree 2026-10-22; unmodified byte copy",
+      "upstream_path": "scripts/render_candidate_views.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "provenance": "Canonical lowpoly-vault scripts snapshot, recovered main worktree 2026-10-22; unmodified byte copy",
+      "upstream_path": "scripts/validate_gltf.cjs",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "generator and Cycles CPU render"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "test-only official schema validator"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "target consumer; GPU test pending"
+    }
+  ],
+  "status": "SELF_CONTAINED_GENERATOR",
+  "closure": "generate.py imports Python standard library, Blender bundled bpy/mathutils, and own source/deps only. No external geometry or image asset."
+}

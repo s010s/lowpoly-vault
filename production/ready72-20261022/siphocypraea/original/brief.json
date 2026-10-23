@@ -1,0 +1,86 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "siphocypraea",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 10000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z along shell long axis from anterior channel (near Z=0) to posterior recessed-spire end. Ventral slit faces -Y; dorsal inflated surface +Y; width axis X. This museum-display orientation intentionally puts the aperture in front and posterior end in top, without changing canonical cameras."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real named specimen photograph shows dorsal, ventral and posterior end views with scale. Primary visual requirements are exposed directly; no synthetic concept needed and no denied image action is bypassed."
+  },
+  "extra_views": [],
+  "preparation_status": "READY_FOR_MAKER_NOT_QUALITY_PASS",
+  "name": "Siphocypraea cowrie fossil",
+  "target": "Original fossil-shell target retained: inflated smooth oval cowrie, anterior extension of the aperture as a short channel, and long toothed ventral slit. Not a living animal and not a generic unbroken oval pebble.",
+  "reference_specimen": {
+    "catalog": "PRI 69852",
+    "taxon": "Siphocypraea problematica",
+    "source": "Neogene Atlas of Ancient Life named specimen, three photographic views",
+    "provenance": "Plio-Pleistocene of Hendry County, Florida; formation unknown. Do not silently assign Caloosahatchee or a precise age.",
+    "scope": "Original low-poly specimen-informed external shell study, not a scanned replica or exact museum specimen facsimile.",
+    "period": "Inventory quaternary is retained as a representative thematic interval; source specimen only broadly dated Plio-Pleistocene, crossing the boundary."
+  },
+  "morphology": {
+    "must_have": [
+      "Smooth inflated oval dorsal shell with broad shoulders and rounded flanks; width about 0.56 of long axis",
+      "Narrow near-full-length ventral aperture with real recessed interior, not painted black slit",
+      "Thick unequal opposing lips; short rounded transverse teeth visibly project into slit from BOTH sides, simplified ~18–24 per side; do not imply exact taxonomic tooth count",
+      "At anterior end slit continues into a short open channel/notch with slightly extended lips, not a long tubular proboscis",
+      "Posterior end contains a recessed, largely concealed spire with a comma-like curved furrow connecting the aperture around it, visible in top/end view",
+      "Long-axis taper is subtle and asymmetric; broad dorsal hump contrasted with flatter ventral lip region"
+    ],
+    "must_not_have": [
+      "No raised pointed turret spire, fins, tentacles, mantle, operculum or rock base",
+      "No closed seamless egg with decal aperture",
+      "No long conch siphonal tube, wide trumpet opening or circular naticid mouth",
+      "No copied museum numbers, cracks, mineral stains, photo texture or reference mesh",
+      "No complete hidden internal coil/chambers invented from these exterior photographs"
+    ],
+    "simplification": "Faceted shell body may be smooth shaded with deliberate large silhouette planes. Teeth should be low rounded ribs integrated into lip geometry, not a row of floating sharp cubes. Omit fine abrasion/mineral staining and microscopic growth marks."
+  },
+  "scale": {
+    "units": "metres",
+    "target_length": 0.066,
+    "target_width": 0.037,
+    "target_depth": 0.034,
+    "tolerance_fraction": 0.12,
+    "source": "PRI69852 image has an actual 3cm line approximately184px. Long shell ~407px, width~227px and end-view height~210px imply approximately66x37x34mm. Pixel/projection estimates, not caliper measurements.",
+    "separate_comparison": "PRI76742 is another specimen stated ~8cm by PRI. It is contextual corroboration only and must NOT replace PRI69852 scale or locality."
+  },
+  "acceptance_focus": [
+    "Front (-Y): long slit, both tooth rows and open anterior channel clearly visible",
+    "Side (+X): inflated dorsal hump and flattened aperture-side lips, not a flat ellipse",
+    "Top (+Z): real depressed spire with curved posterior furrow, no opaque cap filling it",
+    "Perspective (+X,-Y,+Z): oval volume plus slit/teeth/posterior recess legible together",
+    "No unintentional surface cracks; deliberate aperture has wall thickness and short recessed interior. Teeth may share geometry or be joined but not visibly float."
+  ],
+  "evidence_limits": [
+    "Three real views are sufficient for low-poly external morphology, not exact internal anatomy or a watertight museum scan",
+    "Photographic perspective gives approximate dimensions and intermediate surfaces require modest interpolation",
+    "Bone-beige fossil palette is artistic neutral coloration, not evidence of the living shell pattern"
+  ],
+  "maker_workflow": [
+    "Store 3–4 cheap gray checks under private/ before final rendering; catch slit occlusion and posterior furrow problems first",
+    "Four final views front/side/top/perspective; preview may reuse perspective. No extra default spin or many-view suite",
+    "Self-contained deterministic generator; if canonical helpers used copy into source/deps and freeze relative path/sha256, never import another model directory",
+    "Run existing two isolated rebuilds, GLB/Khronos and required geometry checks; prep helper does NOT grant science or visual QA PASS",
+    "Same localdir through maker and QA. Maker notifies root and FINAL without uploads/cleanup; root handles stable backup asynchronously"
+  ]
+}

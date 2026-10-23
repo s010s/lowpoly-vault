@@ -1,0 +1,76 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "stegouros",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z. Neutral quadrupedal stance."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Original specimen photographs and CT tail geometry available, no extra concept needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Stegouros",
+    "zh": "覆尾龙"
+  },
+  "inventory_ordinal": 395,
+  "taxon": "Stegouros elengassen",
+  "representation": "living-reconstruction",
+  "scope": "Whole small armoured quadruped with flattened blade-edged tail weapon; not isolated tail and not Ankylosaurus club.",
+  "specimen_basis": "CPAP-3165, mostly complete skeleton; posterior half articulated, anterior elements partly disarticulated. Soto-Acuña et al. 2021 original author preprint Fig1 real skeletal elements and tail photograph; Fig2 CT segmentation.",
+  "scale": {
+    "body_length_m": 1.9,
+    "basis": "Original paper diagnosis 1.8–2.0 m, use midpoint as reconstruction target, not exact measurement."
+  },
+  "diagnostic_targets": [
+    "Small low broad armoured quadruped with slender limbs, rounded beaked head and short neck.",
+    "Short tail with seven paired lateral osteoderm units; distal five pairs fused into flattened frond-like blade, first two pairs remain recognizably separate.",
+    "Tail weapon tapers distally with broad central pairs, gently scalloped/pentagonal sides and flat low profile, not spherical club or four long Stegosaurus spikes.",
+    "Sparse low dorsal osteoderms and pelvic shield; exact dorsal placement speculative, do not add enormous shoulder or neck spikes."
+  ],
+  "uncertainties": [
+    "Position of dorsal osteoderms in original skeletal reconstruction is expressly speculative.",
+    "Head shape partly reconstructed; skull depth versus width not established from preserved fragments.",
+    "Soft tissue, palette and skin details artistic; no exaggerated giant dinosaur scale.",
+    "Tiny distal knobs may represent eighth pair; optional subtle knobs only, do not label them a proven eighth full blade pair."
+  ],
+  "acceptance_checks": [
+    "Seven paired tail blade units visible in top view; tail continuous and connected.",
+    "Five distal pairs form coherent plate rather than floating spikes; first two pairs distinct.",
+    "Four feet support body, slender limbs retain clearance.",
+    "Broad low armour and short neck; no terminal ball club.",
+    "Four default views, no extra concepts."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep to maker to QA. COMPLETE includes fixedhash, maker stops. Root asynchronous backup, retain local for integration; maker does not upload or clean.",
+  "appearance_profile": {
+    "type": "palette-only faceted",
+    "palette_basis": "Artistic subdued olive, sand and ochre",
+    "origin": "Identity root at contact footprint center, metre scale",
+    "render": "Exact delivered GLB, Blender Cycles CPU, Standard/None; four canonical views, perspective reused as preview"
+  }
+}

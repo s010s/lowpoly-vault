@@ -1,0 +1,80 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot; restored base recorded as 303784d860d584734963c257188b6b552b04e253; content pinned by SHA-256."
+    },
+    {
+      "path": "source/deps/parse_three.mjs",
+      "sha256": "94131c99101612aab0d612ce586b2706c984f8b4b52b0b6ca65b8b2c10abd0c7",
+      "license": "MIT",
+      "origin": "Original task-specific adapter or parse-only test."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot; restored base recorded as 303784d860d584734963c257188b6b552b04e253; content pinned by SHA-256."
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "license": "MIT",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot; restored base recorded as 303784d860d584734963c257188b6b552b04e253; content pinned by SHA-256."
+    },
+    {
+      "path": "source/deps/render_protocol.py",
+      "sha256": "5f27d0acab24ac491431f25153646689b0d55dd2efd068de684e42b960670a1c",
+      "license": "MIT",
+      "origin": "Original task-specific adapter or parse-only test."
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "Pinned canonical lowpoly-vault scripts snapshot; restored base recorded as 303784d860d584734963c257188b6b552b04e253; content pinned by SHA-256."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "builtin_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "purpose": "Generate, export, and Cycles CPU exact-GLB renders."
+    },
+    {
+      "name": "Khronos Blender glTF exporter",
+      "version": "4.3.47",
+      "purpose": "Standalone static GLB export."
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled runtime",
+      "purpose": "Standard library only beyond bundled Blender modules."
+    },
+    {
+      "name": "Node.js",
+      "version": "24.x",
+      "purpose": "Optional independent format validator and Three.js parse checks."
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "license": "Apache-2.0",
+      "purpose": "Khronos official GLB validation; provide package through NODE_PATH."
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "license": "MIT",
+      "purpose": "Node GLTFLoader parse-only test; pass node_modules directory explicitly."
+    }
+  ],
+  "generator_dependency_closure": "source/generate.py reads source/params.json and imports only source/deps/asset_common.py plus source/deps/qa_glb.py and Blender/standard-library modules. Rebuilt twice from isolated source copies. Render and Node QA helpers are optional execution-stage dependencies, all declared here."
+}

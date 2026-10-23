@@ -1,0 +1,98 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "kelenken",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 5,
+    "max_primitives": 24,
+    "max_glb_bytes": 1500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "left_side": "-X",
+    "right_side": "+X",
+    "origin": "Floor-contact center of skull or explicit neutral mount base; preserve meter scale"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Original paper supplies actual right/left/dorsal/ventral/posterior fossil photographs and interpretive drawings; no synthetic concept is needed. This is a source-guided preserved skull study, not a living reconstruction."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Kelenken — preserved skull study",
+    "zh": "Kelenken（保存头骨化石研究）"
+  },
+  "taxon": "Kelenken guillermoi",
+  "specimen": "BAR 3877-11",
+  "representation": "fossil-specimen",
+  "reconstruction_type": "specimen",
+  "original_inventory_ordinal": 691,
+  "scope": "Original low-poly interpretation of the preserved upper skull only. No mandible, teeth, neck, body, skin or inferred complete skeleton. Not a scan or exact specimen replica.",
+  "era": "Middle Miocene, Collón Curá Formation, Comallo, Río Negro, Argentina; formation attribution and approximately 15.7 Ma correlation follow original paper, not an exact specimen date.",
+  "material_policy": "Palette-only opaque PBR, muted warm fossil-bone colours. No reference-image textures. Subtle angular surface damage, no fabricated engraved sutures or ornamental cracks.",
+  "scale": {
+    "units": "meters",
+    "skull_length": 0.716,
+    "caudal_width": 0.312,
+    "postorbital_width": 0.225,
+    "jugal_max_height": 0.04,
+    "nares_center_to_tip": 0.404,
+    "source": "Bertelli et al. 2007 Table 1, p411",
+    "notes": [
+      "716 mm is approximate in source. Postorbital width is calculated by doubling one side per table footnote.",
+      "Other depths/heights must be estimated from preserved multi-view plates, explicitly labelled artistic working dimensions, never asserted as measured anatomy.",
+      "Do not normalize the exported model to a unit cube. Neutral display support optional and excluded from skull measurements."
+    ]
+  },
+  "diagnostic_targets": [
+    "Exceptionally elongated rostrum, occupying over half total skull length; strong downward-curving sharp terminal hook visible in side silhouette.",
+    "Dorsal outline narrows strongly toward beak, with much wider caudal skull; do not turn entire skull into a broad short eagle beak.",
+    "Low subrectangular orbit bounded by thick roof and stout tall jugal bar, plus smaller separate antorbital opening and small caudodorsal nostril.",
+    "Flattened/as-preserved posterior skull; preserve irregular break margins and open gaps, not a pristine symmetric rebuilt skull.",
+    "No lower jaw or teeth. Posterior palatal elements missing; do not fill with smooth solid plate or mirror a complete invented quadrate.",
+    "Retain broad posterior table and simple triangular foramen-magnum opening if visible at display scale. Small detailed foramina may be omitted, not exaggerated."
+  ],
+  "uncertainties": [
+    "Specimen is dorsoventrally crushed. Preserve observed condition; no undeformed living skull reconstruction.",
+    "Most posterior palate is missing; only portions of left pterygoid/quadrate preserved. No mirrored complete posterior floor.",
+    "Original fossil has asymmetry and damage. Simplification is not an exact metrical replica or claim of complete anatomy.",
+    "Natural fossil colour in plates varies with lighting; chosen warm palette is artistic."
+  ],
+  "acceptance_checklist": [
+    "Side profile reads long hooked fossil bird skull, not modern eagle, mammal or full bird.",
+    "True visible apertures and separation of orbit / antorbital fenestra / nares, not dark painted spots.",
+    "Dorsal taper and broad caudal table agree with Fig4; side height follows crushed fossil plates.",
+    "Absence of lower jaw and posterior missing palate explicit in metadata and geometry.",
+    "Exact GLB views plus cheap two rebuilds and standard format/geometry tests; independent review separate from maker."
+  ],
+  "source_evidence": {
+    "primary": "Bertelli, Chiappe & Tambussi 2007, Journal of Vertebrate Paleontology 27(2):409–419. Figures2–6 and Table1 inspected directly.",
+    "private_view_paths": [
+      "private/references/page-03.png",
+      "private/references/page-04.png",
+      "private/references/page-05.png",
+      "private/references/page-06.png",
+      "private/references/page-07.png"
+    ]
+  },
+  "production_gate": "PREP_READY_FOR_MAKER_ONLY",
+  "quality_state": {
+    "making": "NOT_STARTED",
+    "tests": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "gpu": "NOT_RUN",
+    "user_acceptance": "NOT_REQUESTED",
+    "deployed": false
+  }
+}

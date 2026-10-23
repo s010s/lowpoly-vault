@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Unmodified canonical s010s/lowpoly-vault scripts snapshot; byte-pinned by SHA-256.",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Unmodified canonical s010s/lowpoly-vault scripts snapshot; byte-pinned by SHA-256.",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "f3119d733fa0a26aa2ad758920e684368113ba298d24564bbbff6822d2b033fb",
+      "provenance": "Original local four-view adapter; standard studio recipe from canonical helper.",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "source rebuild and exact-GLB preview; includes bpy, bmesh and mathutils"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47",
+      "scope": "bundled Blender extension, static GLB"
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.13.5 (Blender bundled)",
+      "scope": "generator only; no pip packages required"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "QA only, external official npm dependency"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "QA parse only; not source reconstruction"
+    }
+  ],
+  "closure": "Rebuild requires this source directory only plus declared Blender runtime. Two isolated working-directory rebuilds verify geometry/material identity. No cross-model helper paths."
+}

@@ -1,0 +1,66 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "coelacanthus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Long axis X, head -X and tail +X, dorsal +Z, paired fins symmetric across Y. Front camera -Y gives broadside, side+X looks toward head, top+Z, perspective(+X,-Y,+Z)."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real whole fossil with scale plus documented same-species anatomical restoration suffice."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Coelacanthus",
+    "zh": "Coelacanthus 古腔棘鱼"
+  },
+  "inventory_ordinal_one_based": 607,
+  "taxon": "Coelacanthus granulatus Agassiz, 1839",
+  "representation": "Conservative whole living fish restoration, not a fossil slab and not an exact soft-tissue scan",
+  "primary_specimen": "NHM London whole fossil in Parry2024 Fig3.5C; collection catalogue number not stated and unknown",
+  "context": {
+    "era": "permian",
+    "age": "Permian; species documented in Late Permian Marl Slate/Kupferschiefer",
+    "provenance_caution": "Fig3.5C museum is named but precise specimen locality/catalogue number are not supplied; do not invent them."
+  },
+  "scope": "Original607 complete early coelacanth fish; preserve slender body, lobed paired fins, differentiated two dorsal fins and three-lobed tail. Do not substitute living Latimeria.",
+  "dimensions": {
+    "total_length_mm": 600,
+    "body_max_depth_mm": 135,
+    "body_max_width_mm": 85,
+    "fin_inclusive_height_mm": 205,
+    "basis": "Length approximately600mm estimated from SAME Fig3.5C 6cm scale bar, uncertainty roughly +/-30mm; not a published caliper measurement. Body depth/width/fin envelope conservative living reconstruction inferences. Fossil laterally compressed. GCRFig10.11 reports species range63-600mm only for crosscheck, not the size of this specimen."
+  },
+  "must_preserve": [
+    "Elongate slender fish with relatively narrow elongated head and sizeable lateral eyes; head about30 percent length is working reconstruction.",
+    "Distinct anterior dorsal with ray-supported sail and NO fleshy lobe; posterior dorsal smaller with fleshy lobe.",
+    "Paired pectoral and pelvic fins with low fleshy lobes and ray-supported blades; separate posterior ventral anal fin.",
+    "Three-lobed caudal fin: upper and lower broad rounded lobes with short axial central terminal lobe. Not a forked teleost tail or long eel ribbon.",
+    "Median fins separated by body gaps; do not merge dorsal/anal into tail.",
+    "Closed or narrowly parted fish mouth, subtle opercular seam, no exposed skeleton or exaggerated teeth.",
+    "Subdued original inferred coloration; no modernLatimeria white speckles copied from Fig3.5A."
+  ],
+  "forbidden": [
+    "Use Fig3.5A modern-looking colored illustration as shape or color authority",
+    "Claim a museum catalogue number or type status",
+    "Claim600mm is a published direct measurement",
+    "Use another fish panel or modernLatimeria proportions",
+    "Photo textures, imported mesh, captions, plinth, background props or extra concept generation"
+  ]
+}

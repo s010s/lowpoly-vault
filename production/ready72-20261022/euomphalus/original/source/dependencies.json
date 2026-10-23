@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "canonical_repository": "https://github.com/s010s/lowpoly-vault",
+      "canonical_path": "scripts/asset_common.py",
+      "version_pin": "sha256:a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical project helper snapshot retained by integration worktree; copied unchanged, pinned by content digest."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "canonical_repository": "https://github.com/s010s/lowpoly-vault",
+      "canonical_path": "scripts/qa_glb.py",
+      "version_pin": "sha256:88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical project helper snapshot retained by integration worktree; copied unchanged, pinned by content digest."
+    },
+    {
+      "path": "source/deps/render_model.py",
+      "sha256": "0f3232fbecfd4b32fbf80cc97d2c4d8044c6359a497cc0bf3414317bdf918f0e",
+      "license": "MIT",
+      "provenance": "Original exact-export renderer for this revision using canonical local helpers."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled": [
+        "Python 3.13.5",
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "io_scene_gltf2 4.3.47"
+      ],
+      "external_python_packages": []
+    },
+    {
+      "name": "Three.js target consumer",
+      "version": "0.180.0",
+      "tested": "NOT_RUN; integration gate"
+    }
+  ],
+  "generation": "Only generate.py, params.json and declared deps; no reference images, network, or other model directory required."
+}

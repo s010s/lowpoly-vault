@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical lowpoly-vault scripts snapshot from published integration worktree",
+      "project": "https://github.com/s010s/lowpoly-vault",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical lowpoly-vault scripts snapshot from published integration worktree",
+      "project": "https://github.com/s010s/lowpoly-vault",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_four.py",
+      "sha256": "6a7e4eb76582ad1fa17eaf68b7f12d0dc7f08a62cc2fea3b2a95fd344781287a",
+      "origin": "Original per-model four-view adapter using canonical light/color helpers",
+      "project": "https://github.com/s010s/lowpoly-vault",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "Canonical lowpoly-vault scripts snapshot from published integration worktree",
+      "project": "https://github.com/s010s/lowpoly-vault",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "provides": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ],
+      "required_for": "generation and previews"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "optional official format check, not generator"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "required_for": "target runtime parse check, not generator"
+    }
+  ],
+  "closure": "Generator resolves params.json and imports only the listed bundled Python dependencies, Blender bundled modules and Python standard library. Rebuilt in two isolated copies."
+}

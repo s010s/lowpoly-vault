@@ -1,0 +1,88 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "quetzalcoatlus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail+Y, up+Z. Folded-wing four-contact standing pose."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary Fig1B and official skull cast photo inspected; no generated concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Quetzalcoatlus",
+    "zh": "风神翼龙"
+  },
+  "inventory_ordinal": 419,
+  "taxon": "Quetzalcoatlus lawsoni",
+  "representation": "living-reconstruction",
+  "scope": "Original genus-level whole organism. Choose better-known Q.lawsoni; retain long straight neck, huge pointed beak, tall walking limbs, folded wings. Not isolated skull or giant Q.northropi.",
+  "specimen_basis": "TMM41961-1 holotype includes partial skull, cervicals and limb elements, not complete skeleton. Andres/Langston2021 Fig1B combines holotype/referred/inferred bones, explicitly colour-coded; UT skull image is a cast with sculpted missing areas.",
+  "scale": {
+    "unfolded_wingspan_m": 4.5,
+    "basis": "Andres/Langston2021 p47 and diagnosis; species estimate not pose bounding-box width. Reject mixing10m Q.northropi or18–20ft press number.",
+    "constructed_extended_wing_path_m": 4.480847806543123,
+    "constructed_path_note": "Approximate straightened sum of shoulder-to-wrist plus single fourth-finger control-path lengths and 0.28 m shoulder spacing. Close to 4.5 m reference, not a fossil measurement or folded bounding box."
+  },
+  "diagnostic_targets": [
+    "Long mostly straight neck projects upward from compact torso; long slender toothless pointed bill and restrained rear cranial crest.",
+    "Tall four-contact grounded pose, with separate hind feet and wing wrists; folded fourth wing fingers extend upward/backward, not bat fingers or extra limbs.",
+    "Membranes visibly folded against flank, short tail, no feathers or tooth rows."
+  ],
+  "uncertainties": [
+    "Soft tissue, membrane attachment/outline, skin colour and static pose are inferred.",
+    "Do not reproduce bone openings as holes in living flesh.",
+    "Folded pose height/length are artistic proportions, not measured holotype;4.5m is unfolded span reference."
+  ],
+  "acceptance_checks": [
+    "Whole body visible, long neck/bill/tall grounded silhouette from side and perspective.",
+    "Exactly two hindlimbs plus two forelimb-wings, four stable ground contacts; no floating wing tips.",
+    "Original mesh/materials, no fossil/artist image textures.",
+    "Default front/side/top/perspective only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep/maker/QA; maker fixedhash COMPLETE then stop. Root asynchronous backup; retain local for integration, no maker upload/cleanup.",
+  "runtime_profile": {
+    "type": "static-palette-opaque",
+    "textures": 0,
+    "animations": 0,
+    "source_parts": 7,
+    "target_three_version": "0.180.0",
+    "gpu": "NOT_RUN",
+    "populated_scene": "NOT_RUN"
+  },
+  "origin": "Center of four intended contact regions. Root identity; geometry y shifted +0.17 m.",
+  "material_profile": "Five original opaque palette-only Principled materials. No reference-image texture.",
+  "required_maker_gates": [
+    "Source audit",
+    "Static GLB audit and source-export bounds",
+    "Khronos glTF Validator",
+    "Two isolated reproducible builds",
+    "Three.js parse",
+    "Four exact-GLB images and maker inspection"
+  ]
+}

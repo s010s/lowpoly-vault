@@ -1,0 +1,59 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "ac70c8f2a4d89f891ae3104555be7c0cc5f03e9c6a00adc8caa3359994d68220",
+      "origin": "Original Macropoma task utility",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "2cc88f8ee5c61e337e122839bcbb289c5e917043425d2563affcefde0ec5d0a6",
+      "origin": "Original Macropoma task utility",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "required_for": "build and exact-GLB render",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "glTF exporter 4.3.47"
+      ]
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled",
+      "required_for": "build"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "required_for": "optional CPU GLTFLoader QA only, not build"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "official format QA only, not build"
+    }
+  ],
+  "build_network_required": false,
+  "external_geometry_textures_or_fonts": false,
+  "canonical_dependency_policy": "Dependencies are copied into this source tree; generation does not import any other model or temporary task."
+}

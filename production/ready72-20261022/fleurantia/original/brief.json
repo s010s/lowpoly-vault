@@ -1,0 +1,68 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "fleurantia",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Body long axis X, head -X, tail +X, dorsal +Z; front camera -Y shows broadside, side camera+X looks toward head along tail, top+Z, perspective(+X,-Y,+Z). Paired fins symmetric across Y."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual whole-body fossil Fig9E plus documented same-taxon published Fig13 anatomy reconstruction; sufficient reference without extra concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Fleurantia",
+    "zh": "Fleurantia 古肺鱼"
+  },
+  "inventory_ordinal_one_based": 610,
+  "taxon": "Fleurantia denticulata Graham-Smith & Westoll, 1937",
+  "representation": "Conservative whole-animal living reconstruction, not fossil slab or exact soft-tissue scan",
+  "primary_specimen": "BMNH P.24745-P24736 as printed in Clack/Sharp/Long 2011 Fig9E, length215mm",
+  "context": {
+    "era": "devonian",
+    "age": "Late Devonian, Frasnian",
+    "formation": "Escuminac Formation",
+    "locality": "Scaumenac Bay, Quebec, Canada"
+  },
+  "scope": "Retain entire original lungfish target. Correct inaccurate provisional continuous rear-fin wording: small separate first dorsal, greatly enlarged long-based second dorsal, separate small anal and caudal fins. No modern fused dorsal-tail-anal ribbon.",
+  "dimensions": {
+    "total_length_mm": 215,
+    "body_max_depth_mm": 42,
+    "body_max_width_mm": 30,
+    "max_fin_inclusive_height_mm": 74,
+    "basis": "Only215mm is published fossil length. Depth/width/fin envelope are conservative working inferences following Fig9E and same-taxon Fig13 reconstruction; exact living thickness/fin pose not preserved."
+  },
+  "must_preserve": [
+    "Elongate body with moderately long tapered snout, not blunt modern lungfish head.",
+    "Small first dorsal visibly separated by a body gap from broad high posterior dorsal.",
+    "Large second dorsal with extended base, rounded high leading region and descending rear edge, NOT a narrow continuous ribbon.",
+    "Separate heterocercal tail with upward extended axis/lobe; retain visible separation from second dorsal and small ventral anal fin.",
+    "Two paired pectoral fins and two paired pelvic fins, fleshy bases and ray-supported tapered blades, not filament limbs.",
+    "No exposed internal bones in living reconstruction; illustrated skeleton informs anatomy only.",
+    "Subdued inferred color, modest non-photo scale cues; no invented camouflage, spikes or teeth display."
+  ],
+  "forbidden": [
+    "Modern lungfish merged fin margin or symmetric round tail",
+    "Turn whole animal into slab, skeleton or partial fish",
+    "Use Scaumenacia or adjacent Fig13 taxon proportions",
+    "Claim width, coloration or fin pose as measured fossil traits",
+    "Import reference image textures/third-party meshes",
+    "Labels, plinth, environment or concept-image generation"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "monolophosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head toward -Y, tail +Y, limbs across X, feet on Z=0. +X side is primary crest-profile view."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Taxon-specific anatomical papers and real mounted skull photo support diagnostic crown. Do not spend time generating decorative concepts."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Monolophosaurus",
+    "zh": "单脊龙"
+  },
+  "taxon": "Monolophosaurus jiangi",
+  "inventory_ordinal": 317,
+  "representation": "living-reconstruction",
+  "scope": "Whole organism; do not replace with skull-only or generic renamed dinosaur.",
+  "specimen_basis": "IVPP 84019: skull, pelvis and vertebral column through sixth caudal. Limbs and distal tail not preserved in this specimen.",
+  "scale": {
+    "length_m": 5.7,
+    "basis": "NHM indexed museum profile approximate whole-body estimate; not directly measured complete specimen."
+  },
+  "diagnostic_targets": [
+    "Single long median head crest, laterally thin, extending from above nasal region toward between eyes. Side upper edge approximately straight and near-parallel to upper-jaw tooth margin, not a pointed horn.",
+    "Long relatively low snout under crest, articulated jaw and modest bony brow relief. No twin Dilophosaurus crests, no nasal Ceratosaurus horn.",
+    "Continuous theropod trunk, neck, muscular hind legs and long balancing tail; no dorsal sail or Concavenator hump.",
+    "Original stylized geometry with clear limb negative space and rounded-faceted volumes, not separate disconnected primitives."
+  ],
+  "uncertainties": [
+    "Limbs and distal tail are comparative basal-tetanuran reconstruction; do not label them as observed holotype anatomy.",
+    "Skin, colour, soft-tissue crest cover and pose unknown. Use muted neutral palette and no speculative spikes or elaborate feather fans.",
+    "Mounted skull can include restoration; use primary published diagnosis to constrain crest, not commercial casts."
+  ],
+  "acceptance_checks": [
+    "Top and front show exactly one central crest; side shows elongated low head and long nearly level crest top.",
+    "Three main weight-bearing toes per hindfoot and three separate forelimb digits are comparative reconstruction; palms inward.",
+    "Tail airborne, feet stable, continuous joints; no floating eyes, claws or teeth.",
+    "Four fixed views, perspective can reuse preview; no extra views absent specific defect.",
+    "No image textures, downloaded mesh or external temporary dependencies."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "PASS",
+    "gpu_scene": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same directory across maker and independent QA. Maker reports COMPLETE with actual paths/hash to root and stops; no upload or cleanup. Root backs up asynchronously; retain local until integration, published and recoverable."
+}

@@ -1,0 +1,67 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "whatcheeria",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail+Y, up+Z; low grounded quadruped."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Published skeletal diagram visually inspected; no generated concept needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Whatcheeria",
+    "zh": "沃切螈"
+  },
+  "inventory_ordinal": 521,
+  "taxon": "Whatcheeria deltae",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism with deep angular narrow head and robust limbs; not generic broad flat salamander or isolated skull.",
+  "specimen_basis": "Primary Whitney et al.2022 Fig1 skeletal reconstruction and associated FMNH PR5021/1962/1958/5023 femora; these numbers identify femora, not the composite skeleton or skull. Rawson2021 CT skull study abstract supports exceptionally narrow skull and anterior fangs.",
+  "scale": {
+    "body_length_m": 1.9,
+    "basis": "Artistic adult target within Field Museum reported6–6.5ft range, not exact measurement of named specimen. Skeleton reference10cm bar."
+  },
+  "diagnostic_targets": [
+    "Deep angular wedge-like narrow skull, not a pancake-wide temnospondyl head; distinct cheek and long jaw with restrained anterior fangs.",
+    "Stout shoulders and hips with four robust bent limbs and grounded feet; moderate trunk and relatively short tapering tail, not eel-like proportions.",
+    "Keep cranial sensory grooves subtle; no external gills, crocodilian armor, frog body or mammalian ears."
+  ],
+  "uncertainties": [
+    "Skin colour, tissue thickness, pose and visible digit detail are artistic; do not label exact soft tissue or toe count fossil-proven.",
+    "Composite whole-body diagram is a scientific reconstruction, not photograph of one complete specimen.",
+    "Museum image and UCL fullPDF downloads403, not visually inspected; body diagram available and inspected."
+  ],
+  "acceptance_checks": [
+    "Side shows deep head profile; top shows narrow elongated head rather than broad disc.",
+    "Four robust attached limbs, no floating toes, no extremely long aquatic whip-tail.",
+    "All four standard views readable, no extra render suite or concept images.",
+    "Original procedural geometry/materials; research figure excluded public deliverable."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep/maker/QA; maker sends fixedhash COMPLETE. Root asynchronous backup, local retained for integration. No upload or cleanup by maker."
+}

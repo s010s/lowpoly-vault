@@ -1,0 +1,82 @@
+{
+  "files": [
+    {
+      "path": "source/deps/LICENSE-MIT.txt",
+      "sha256": "f4cd278b3853ba4c6b36d85975839c2b51d09bb841d6eecced516c482e826ce0",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "canonical_project": "s010s/lowpoly-vault",
+      "canonical_path": "scripts/asset_common.py",
+      "canonical_source_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "modified": false
+    },
+    {
+      "path": "source/deps/inspect_source.py",
+      "license": "MIT",
+      "origin": "Original task-specific read-only source inspection helper",
+      "sha256": "4e3571f02f090fe8f32e0a7b27fa5e5c5c0692ff330007fa3f41c6cdb78f0f8b"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "canonical_project": "s010s/lowpoly-vault",
+      "canonical_path": "scripts/qa_glb.py",
+      "canonical_source_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "modified": false
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "5176bc05c7d2886e3f5e7832ff99809c55d412b030c018c78b170f2c904ac151",
+      "license": "MIT",
+      "canonical_project": "s010s/lowpoly-vault",
+      "canonical_path": "scripts/render_candidate_views.py",
+      "canonical_source_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "modified": true,
+      "modifications": "Add explicit perspective azimuth45/elevation35.264389682754654 and --clay-all with truthful config; no changes to canonical lighting or GLB import."
+    },
+    {
+      "path": "source/deps/runtime_parse.mjs",
+      "sha256": "576a9634831af9a7be776a29012a4f826c9ccb2610eb3ce02636bbe89a9aa4f8",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "required_for": "Model rebuild and exact-GLB views"
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.13.5 (Blender bundled; exact compiler build in qa/evidence/source-inspection.json)",
+      "required_for": "Model rebuild; only builtin modules apart from listed local dependencies"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "required_for": "Optional runtime_parse.mjs evidence; not modeling"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "Official format evidence; not modeling"
+    }
+  ],
+  "generator_reads": [
+    "source/params.json",
+    "source/deps/asset_common.py",
+    "source/deps/qa_glb.py"
+  ],
+  "no_imported_meshes_or_images": true,
+  "other_model_dependency": false
+}

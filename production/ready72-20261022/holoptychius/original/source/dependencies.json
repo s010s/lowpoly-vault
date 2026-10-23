@@ -1,0 +1,68 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts/asset_common.py; immutable content-hash snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts/qa_glb.py; immutable content-hash snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts/render_candidate_views.py; immutable content-hash snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "8b785477ec520dc67c56ed4cdfee24f61826d31648cecd7d31ec5f4f6e20e906",
+      "origin": "Original thin view selector for this candidate",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "s010s/lowpoly-vault canonical scripts/validate_gltf.cjs; immutable content-hash snapshot",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ],
+      "required_for": "generation and exact-GLB image rendering"
+    },
+    {
+      "name": "Khronos glTF Blender I/O",
+      "version": "4.3.47",
+      "required_for": "standalone GLB export/import"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "required_for": "optional standalone Khronos validator invocation, not generator"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "official format check, not generator"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "status": "target runtime only; GPU and museum-scene checks not performed by maker"
+    }
+  ],
+  "source_closure": "generate.py imports only sibling deps/asset_common.py, deps/qa_glb.py, params.json, Blender modules and standard library. Render entry imports copied local renderer and helpers. No other model directory dependency."
+}

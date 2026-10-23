@@ -1,0 +1,80 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "rhizodus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 5000,
+    "max_materials": 5,
+    "max_primitives": 28,
+    "max_glb_bytes": 1300000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "lingual": "+X",
+    "labial": "-X",
+    "origin": "Lowest preserved bone contact centre; support separate if needed"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct museum fossil plate + primary anatomical description sufficient for preserved ramus study; extra synthetic concepts would not add factual evidence."
+  },
+  "extra_views": [],
+  "original_inventory_ordinal": 604,
+  "name": {
+    "en": "Rhizodus — fossil jaw study",
+    "zh": "根齿鱼（颌骨化石研究）"
+  },
+  "taxon": "Rhizodus hibberti",
+  "representation": "fossil-specimen",
+  "specimen_reference": "NHM P3317, left mandibular ramus, Woodward catalogue Plate XII Fig1",
+  "scope": "Preserved single deep, narrow left lower-jaw ramus study. No full fish, upper skull, opposite mirrored ramus or soft tissue. Retain broken/missing zones rather than inventing a pristine complete jaw.",
+  "geology": "Lower Carboniferous Limestone, Gilmerton, Scotland, for P3317 plate record.",
+  "material_policy": "Original palette-only opaque PBR fossil bone with muted brown/grey and subtly darker tooth surfaces; no image texture or copyrighted source embedding. Small vermicular surface relief optional; do not turn sculpt into noisy grooves.",
+  "scale": {
+    "units": "meters",
+    "nominal_preserved_ramus_length_m": 0.27,
+    "estimated_total_height_including_tusk_m": 0.08,
+    "estimated_linguolabial_width_m": 0.025,
+    "confidence": "PLATE_ESTIMATE_NOT_DIRECT_SPECIMEN_MEASUREMENT",
+    "method": "Plate XII Fig1 is printed one-third natural size. Its approximately 950 px horizontal span in rendered page686 at 2200px height / page height562.6pt yields approximately 0.257m after 3x scaling. Check against Fig3 clavicle on companion plate, stated 0.32m in text, suggests similar order. Round to 0.27m and disclose scan/plate uncertainty approximately 10–15%; thickness is a separate artistic estimate from narrow-jaw description.",
+    "prohibition": "Do not label 0.27m an exact museum measurement; do not substitute dimensions from the St Andrews slab or isolated 0.17m tusk from different specimens."
+  },
+  "diagnostic_targets": [
+    "Deep elongate ramus, much narrower across the jaw than tall; long low tooth-bearing dorsal border over a substantial ventral infradentary wall.",
+    "Plate XII Fig1: one prominent mesial/anterior tusk, two distinct large mid-ramus fangs and smaller irregular teeth; maintain visual hierarchy instead of equal-size pickets.",
+    "Modern primary description distinguishes dentary marginal row from lingual coronoid fangs. Offset fangs toward lingual edge; do not put all teeth on a single centreline.",
+    "Maintain single fossil ramus and preserved outlines. No invented opposite-side pair or upper jaw; original paired large-fang cue is conveyed by the two evident coronoid fangs on the preserved segment.",
+    "Raised distal/posterior process, subtle outer bone divisions and narrow open inner jaw region. No complete solid box-girder or ossified Meckelian fill.",
+    "Conical, gently recurved teeth; not mammalian molars, serrated tyrannosaur blades or modern shark triangles."
+  ],
+  "uncertainties": [
+    "P3317 external plate supplies preserved silhouette, not all internal surfaces. Modern Rhizodus text supports internal structural interpretation, not exact P3317 measured interior.",
+    "Thickness and internal relief are restrained artistic interpretation and must be disclosed. No exact replica/scan claims.",
+    "Modern primary full text read; its photographic PDF/image endpoints returned403, so those images were NOT inspected. Historic Plate XII Fig1 was inspected directly and is the frozen visual authority.",
+    "Do not add missing third coronoid fang solely because complete species jaw has three coronoids; preserve plate-supported segment."
+  ],
+  "acceptance_checklist": [
+    "Side silhouette matches long deep single ramus and prominent tooth-size hierarchy in Plate XII Fig1.",
+    "Top view clearly shows narrow jaw and offset marginal/coronoid tooth positions.",
+    "No upper jaw, whole fish, mirrored counterpart or unsupported restored missing bones.",
+    "Meter scale is declared approximate plate-derived, not exact specimen size.",
+    "Four exact-GLB views, rebuild twice and standard tests; independent review records uncertainties."
+  ],
+  "quality_state": {
+    "making": "NOT_STARTED",
+    "tests": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "user_acceptance": "NOT_REQUESTED",
+    "deployed": false
+  }
+}

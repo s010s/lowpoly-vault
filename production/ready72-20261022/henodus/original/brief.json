@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "henodus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real skeleton and four-view skull sufficient."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Henodus",
+    "zh": "楯齿龙"
+  },
+  "inventory_ordinal": 456,
+  "taxon": "Henodus chelyops",
+  "classification": "Reptilia, Sauropterygia, Placodontia, Henodontidae; not Testudines",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism with very broad transversely rectangular low armour and flat square-ended mouth.",
+  "specimen_basis": "Tuebingen complete skeleton official Water Reptiles Hall image; skull GPIT-PV-30003 in Pommery et al2021 Fig1.",
+  "scale": {
+    "total_length_m": 1.0,
+    "basis": "Museum catalogue18663 about1m taxon estimate. Skull figure2cm bar; do not equate different specimens."
+  },
+  "diagnostic_targets": [
+    "Carapace wider transversely than fore-aft, broad flat squared oval/rectangle; not high dome or circular modern turtle shell.",
+    "Very short neck and broad rectangular head, straight square mouth edge; no tapered pointed turtle beak.",
+    "Four short gracile laterally extending limbs with modest paddle/webbed soft tissue inference, not long marine turtle flippers.",
+    "Short tapering tail; whole animal continuous and visibly complete.",
+    "Subtle polygonal osteoderm pattern across low armour, no bulky ornamental spikes."
+  ],
+  "uncertainties": [
+    "Skin colour, webbing and soft tissue thickness inferred; skeleton photograph is flattened fossil not exact living height.",
+    "Retains four functional crushing teeth in posterior mouth; closed mouth may hide them. Never describe completely toothless.",
+    "Feeding modes debated; no invented exposed baleen or external filter apparatus."
+  ],
+  "acceptance_checks": [
+    "Top silhouette broad transverse armour exceeds fore-aft armour length.",
+    "Front and top show square broad jaw, not pointed turtle beak.",
+    "All four short limbs and short tail visible, no fossil slab or exposed skeleton.",
+    "Exactly four standard views."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same dir prep maker QA; maker fixedhash COMPLETE stops. Root async backup and local-first integration; no maker upload/cleanup.",
+  "material_profile": "Palette-only opaque PBR, flat normals, no textures; muted olive reconstruction colours are inferred.",
+  "origin": "Floor footprint center, identity root; lowest foot z=0.001m tolerance."
+}

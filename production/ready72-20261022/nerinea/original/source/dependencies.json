@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, copied unchanged",
+      "role": "build"
+    },
+    {
+      "path": "source/deps/check_source.py",
+      "sha256": "6189ac0d9df1d5d1fe23799440bb0e3ab408792484470932f78a256266dbfda6",
+      "origin": "Original model evidence adapter/checker",
+      "role": "evidence-only"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, copied unchanged",
+      "role": "build"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, copied unchanged",
+      "role": "evidence-only"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "35e695848f8c9f8eb8f111835ffaffdeed14452b5961c1fd25df5c6848833eef",
+      "origin": "Original model evidence adapter/checker",
+      "role": "evidence-only"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, copied unchanged",
+      "role": "evidence-only"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ],
+      "role": "generator and exact-GLB renders"
+    },
+    {
+      "name": "io_scene_gltf2",
+      "version": "4.3.47",
+      "source": "Bundled Blender exporter"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "independent format check, not generator dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "target consumer, GPU test not performed by maker"
+    }
+  ],
+  "closed_generator_inputs": [
+    "source/generate.py",
+    "source/params.json",
+    "source/deps/asset_common.py",
+    "source/deps/qa_glb.py"
+  ],
+  "note": "No reference image, private research, remote input or other model directory is accessed by the generator."
+}

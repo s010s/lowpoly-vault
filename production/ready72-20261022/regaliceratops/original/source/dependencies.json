@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by content SHA256"
+    },
+    {
+      "path": "source/deps/check_three.mjs",
+      "sha256": "46dfcb650e414a26a4f4517c1e0509db96a4a590ad95d01ac700ab08434cd25e",
+      "license": "MIT",
+      "origin": "Original exact-GLB CPU parse harness for this candidate"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by content SHA256"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by content SHA256"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generation, editable source, export, source QA, previews"
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled Python",
+      "scope": "Standard library and bundled bpy, bmesh, mathutils"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "scope": "Optional independent Khronos and Three.js verification harnesses, not generation dependency"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Official format validation only; supplied by test runtime"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "GLTFLoader CPU parsing only; supplied by test runtime"
+    }
+  ],
+  "build_instructions": "blender -b -t 2 --python source/generate.py -- --out OUTPUT [--render]. Run from any working directory. --gray writes low-cost source diagnostics. References are not runtime dependencies.",
+  "closure_test": "Two isolated copied source directories, empty output directories and independent cwd; see qa/evidence/rebuild.json."
+}

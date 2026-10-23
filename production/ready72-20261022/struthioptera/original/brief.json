@@ -1,0 +1,75 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "struthioptera",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Long axis +Z, surviving basal end at z=0. Fig9 exterior/adapertural side faces front camera -Y, wing extends -X; aperture is opposite side (+Y), hidden photo-side depth conservative. Top +Z and side +X standard."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual complete readable diagnostic winged fossil photograph and same-specimen measured dimensions suffice."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Struthioptera wing-lipped shell",
+    "zh": "Struthioptera 宽翼唇螺壳"
+  },
+  "inventory_ordinal_one_based": 878,
+  "taxon": "Struthioptera aff. osiris",
+  "representation": "original low-poly fossil-shell interpretation",
+  "primary_specimen": "Weidemeyer2009 specimen268, Tafel14 Fig9, locality SM43",
+  "context": {
+    "era": "paleogene",
+    "age": "Danian",
+    "formation": "Lefipán Formation",
+    "locality": "Chubut Province, Patagonia, Argentina"
+  },
+  "scope": "Only specimen268 in Plate14 Fig9; genus-level original target. Retain aff.osiris uncertainty. Not PRI60021 or S.camachoi, no Eocene/10cm data mixed in.",
+  "scale": {
+    "units": "meters",
+    "height_z": 0.044,
+    "total_width_x": 0.042,
+    "body_width": 0.025,
+    "working_depth_y": 0.023,
+    "basis": "Weidemeyer p192 table: specimen268 H44.0mm, B25.0mm, wing-inclusiveB42.0mm. Depth23mm is inferred working proportion, not measured.",
+    "uncertainty": "Adapertural photo shows exterior opposite aperture. Exact unseen interior/rim depth not measured; conserve surviving fossil outline rather than restore missing shell."
+  },
+  "required_features": [
+    "Recognizable high stepped conical spire above inflated body whorl, roughly four preserved whorls; retain observed worn top instead of extending a needle tip.",
+    "Broad attached labral wing, continuous with body shell. Strong posterior wing process curves up and reaches above penultimate whorl. It is not a loose fin.",
+    "Wing exterior margin is roughly straight; broad upper concavity joins the upper wing tip to body. Anterior process weak/blunt rather than a second equal long spike.",
+    "Body whorl has two principal keels, posterior stronger; coarser nodules on upper whorls, restrained fine spiral sculpture. Simplify microstriae rather than create50 expensive ridges.",
+    "Match only Fig9 silhouette and relative widths. Fig10/11 smaller specimens must not replace missing parts, Fig12/13 are different species, Fig15-17 different genus.",
+    "Short blunt basal end as preserved; no long unsupported siphonal tail. Unknown opposite-side aperture may be a conservative shallow recess, not elaborate restored anatomy."
+  ],
+  "forbidden": [
+    "Camachoi/PRI60021 shape or10cm scale mixed into this specimen",
+    "Second giant wing spike from Austroaporrhais",
+    "Unobserved extended apex or basal tip",
+    "Copied paper/image textures/meshes",
+    "Ground/base/label or soft body"
+  ],
+  "profile": {
+    "kind": "static palette-only original fossil interpretation",
+    "surface": "flat-shaded restrained warm stone, no external/image textures",
+    "geometry": "editable hand-lofted body and concave thick wing; connected 0.16mm voxel union with restrained relaxation and triangle reduction",
+    "scale_tolerance": "Final overall bounds fixed to 42mm x 23mm x 44mm; isolated body nominal width25mm before union. Depth remains inferred."
+  },
+  "acceptance_scope": "Local maker technical candidate only. Independent factual/visual QA, Three.js GPU, populated scene, user acceptance and release remain distinct gates."
+}

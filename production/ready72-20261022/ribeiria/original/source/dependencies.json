@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault scripts/asset_common.py; restored canonical source snapshot 2026-10-22, pinned by SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault scripts/qa_glb.py; restored canonical source snapshot 2026-10-22, pinned by SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_exact.py",
+      "sha256": "89f41d15f2ee83b6e5a273239d595f5be2e4903dd141e15a7f0161907047ba41",
+      "origin": "Original small-specimen renderer, canonical lighting helper reused; local source",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/audit_rebuild.py",
+      "sha256": "b63b76ac98e27075e27ee12e5bdb12d611df65e85f74d55748ebe084f6d897f8",
+      "origin": "Original optional audit-event rebuild harness; not imported by generator",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": "bpy, bmesh, mathutils and bundled Python 3.13; glTF IO 4.3.47"
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender 4.3.2"
+    }
+  ],
+  "no_external_model_input": true,
+  "no_other_model_directory_dependency": true,
+  "reproduction": "Run source/generate.py with a fresh output directory. Generate consumes only its own params.json and source/deps; rendering is a separate optional exact-GLB step. Technical Node validator and Three.js packages are test tools, not generator dependencies."
+}

@@ -1,0 +1,952 @@
+{
+  "schema_version": 1,
+  "kind": "typed-production-release-v1",
+  "producer": {
+    "id": "integrate_ready_model_batch",
+    "task_id": "integrate_ready_model_batch"
+  },
+  "baseline_commit": "e585fe6295da53b4574918c065ea08847daed1f4",
+  "implementation": [
+    {
+      "path": "site/production-release.mjs",
+      "bytes": 30033,
+      "sha256": "1006f3229ebf7b231b0de7aa87781c0b8881d9af20dbacd71d220b605ed95923"
+    },
+    {
+      "path": "site/typed-production-release.mjs",
+      "bytes": 20160,
+      "sha256": "00ed2438aaf2d901d456acac9e5a6f95d7e76de700006c5e0102b06724953ab7"
+    },
+    {
+      "path": "site/inventory-type-acceptance.mjs",
+      "bytes": 69197,
+      "sha256": "623a9ec17a6ad9247cd9406e0de16907bdaf5fccfd402751c0ab6d3f2a03131c"
+    },
+    {
+      "path": "site/asset-delivery.mjs",
+      "bytes": 7852,
+      "sha256": "42a803219dc4369da2b41fd8aeb79cb95db560437f0013085bda9533845ff948"
+    },
+    {
+      "path": "scripts/qa_glb.py",
+      "bytes": 13344,
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "scripts/asset_common.py",
+      "bytes": 26367,
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "site/model-task-v2-acceptance.mjs",
+      "bytes": 31566,
+      "sha256": "c3d47e572b0037281d6963ead02eaca19e6f5c1513cc96f29d2b77cf4b57e4ce"
+    }
+  ],
+  "assets": [
+    {
+      "id": "turritella",
+      "metadata": {
+        "path": "assets/additions/turritella/ready72-r001/metadata.production.json",
+        "bytes": 6436,
+        "sha256": "f899bf78b4b2a66610ba69a2cc6fffee7dcf767234435a7f1f1ec6c1c84eb35a"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/turritella/evidence.json",
+        "bytes": 12691,
+        "sha256": "97e0303150f221e6f9d2ddec184270f8e3fdd75dd006afa323b2aaa76ecc4c34"
+      }
+    },
+    {
+      "id": "kelenken",
+      "metadata": {
+        "path": "assets/additions/kelenken/ready72-r001/metadata.production.json",
+        "bytes": 6350,
+        "sha256": "11f5e060e348f5c81d051ba16ce61f17e1cd047d99c2368febd5298cd0e8947e"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/kelenken/evidence.json",
+        "bytes": 13024,
+        "sha256": "f5aba2f92012f0adf9f993ceef7d47516cb82b2b8e2d910124d8bfafa9956ec1"
+      }
+    },
+    {
+      "id": "naticarius",
+      "metadata": {
+        "path": "assets/additions/naticarius/ready72-r001/metadata.production.json",
+        "bytes": 5151,
+        "sha256": "f1e6cdf77080ebb684a3ad995825aa3d282f5dd426e0e920f94a04f2452d50d1"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/naticarius/evidence.json",
+        "bytes": 12304,
+        "sha256": "b128196247d3d48142de908162f2d4779c873587122ff6740749e79af2954043"
+      }
+    },
+    {
+      "id": "concavenator",
+      "metadata": {
+        "path": "assets/additions/concavenator/ready72-r001/metadata.production.json",
+        "bytes": 4863,
+        "sha256": "23ce58080014d6f3a0ea8a2965f578245a2a8271dd7986a560697a70e51f1925"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/concavenator/evidence.json",
+        "bytes": 12116,
+        "sha256": "5eaafe4ec3768045d0538774450f0ae38879a2d876fc6e85444cb23b852ea4d3"
+      }
+    },
+    {
+      "id": "siphocypraea",
+      "metadata": {
+        "path": "assets/additions/siphocypraea/ready72-r001/metadata.production.json",
+        "bytes": 6307,
+        "sha256": "731811d2c3375a37bcd24f4fc71ad4f34ebf044c1d94272aff5be39029702b4e"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/siphocypraea/evidence.json",
+        "bytes": 12738,
+        "sha256": "1f4d8f81070da2ddea9d35185d46eb49837653be0a7901b649cd6c8655b8b772"
+      }
+    },
+    {
+      "id": "monolophosaurus",
+      "metadata": {
+        "path": "assets/additions/monolophosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4634,
+        "sha256": "a01d574f62d6c94be15ba2fa0d054e51da8608088c846a3aa7e9f787415f8685"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/monolophosaurus/evidence.json",
+        "bytes": 11417,
+        "sha256": "d33df4a67e673cbb809c3dc59f63a96d82c5cc2133b7fbd207ea4d4e29a18dc7"
+      }
+    },
+    {
+      "id": "rhizodus",
+      "metadata": {
+        "path": "assets/additions/rhizodus/ready72-r001/metadata.production.json",
+        "bytes": 7825,
+        "sha256": "185eeb291723cc17f4b0b5ba497710886820261d4bd0a18d0d45ca1fa5f269ab"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/rhizodus/evidence.json",
+        "bytes": 13909,
+        "sha256": "81e861c24f676a21426e214cecace84120ad2505b3701ac1984969f1fe7f73ff"
+      }
+    },
+    {
+      "id": "conus",
+      "metadata": {
+        "path": "assets/additions/conus/ready72-r001/metadata.production.json",
+        "bytes": 4720,
+        "sha256": "a5f507e01f9fe6ef15a7c93654e8ad13d987397ceb5d18a013a2d551e75c37b3"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/conus/evidence.json",
+        "bytes": 11522,
+        "sha256": "9c5656338591e8946ac3455d3d6b8b3385072d12a52329d2bbe2b9af84b3f62c"
+      }
+    },
+    {
+      "id": "trochita",
+      "metadata": {
+        "path": "assets/additions/trochita/ready72-r001/metadata.production.json",
+        "bytes": 6845,
+        "sha256": "5f0c3db4f7b1d693c8f52a8973d45c8b034232801b5718e0a43ef501c4cc1adb"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/trochita/evidence.json",
+        "bytes": 13078,
+        "sha256": "077b7a17ddc532b701d71f1e5302bede5c9700dea83ab2f682db59fd3de0cb99"
+      }
+    },
+    {
+      "id": "ceratosaurus",
+      "metadata": {
+        "path": "assets/additions/ceratosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4621,
+        "sha256": "98739eeea3156e248639f633ee50bdd8c7989fc17ca9d99e636d18772b72e8fb"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/ceratosaurus/evidence.json",
+        "bytes": 11940,
+        "sha256": "f0e232cbdf11a7252b416c6ffa2d9e6199733e632be00997f440eafc2cac738a"
+      }
+    },
+    {
+      "id": "pinna",
+      "metadata": {
+        "path": "assets/additions/pinna/ready72-r001/metadata.production.json",
+        "bytes": 5146,
+        "sha256": "5e03e7b3dfe1197e4b1b7edcf2d52fea34c977cf1e6bead23110efb778f84207"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/pinna/evidence.json",
+        "bytes": 11826,
+        "sha256": "4a7202adef08842d75423e13d459061b199517fb1b0d04eafd0cece45a341565"
+      }
+    },
+    {
+      "id": "microdictyon",
+      "metadata": {
+        "path": "assets/additions/microdictyon/ready72-r001/metadata.production.json",
+        "bytes": 6402,
+        "sha256": "b367a0308a508c926181d6b600d204b8c119c067dcd26624c9bc430ede32f487"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/microdictyon/evidence.json",
+        "bytes": 13774,
+        "sha256": "c3932c0fc4b1e65159582bf0716122e7353d837d3272fa024744b21dcc3d8d4f"
+      }
+    },
+    {
+      "id": "hystrivasum",
+      "metadata": {
+        "path": "assets/additions/hystrivasum/ready72-r001/metadata.production.json",
+        "bytes": 6654,
+        "sha256": "90b7fde3acce91a79f2b145ff09e2a55ed5edcdbe110b927fe069b153f10a620"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/hystrivasum/evidence.json",
+        "bytes": 13807,
+        "sha256": "4c42a03431e4ab0b1ebeb1e468f7808689929ec0e46c776f745e63a0e4435e4c"
+      }
+    },
+    {
+      "id": "dilophosaurus",
+      "metadata": {
+        "path": "assets/additions/dilophosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4392,
+        "sha256": "7e49f435e164829ffbd4927461b10b62d16c0d2747a3bac513dc81805ca4241f"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/dilophosaurus/evidence.json",
+        "bytes": 11478,
+        "sha256": "0bb0ac4d18f2ab9ca5438be03f8538488396349345014bb152eb43b244df457c"
+      }
+    },
+    {
+      "id": "gogonasus",
+      "metadata": {
+        "path": "assets/additions/gogonasus/ready72-r001/metadata.production.json",
+        "bytes": 5661,
+        "sha256": "76c8723c1cc1709d7684030e56df4e4ec5fec0e5d52c08db8cede08b0b01ec40"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/gogonasus/evidence.json",
+        "bytes": 12674,
+        "sha256": "fa02fef55c463a4f8f384081c3503f13cb193f9478411f1031c8333a7765c624"
+      }
+    },
+    {
+      "id": "hippurites",
+      "metadata": {
+        "path": "assets/additions/hippurites/ready72-r001/metadata.production.json",
+        "bytes": 4939,
+        "sha256": "158d76ee09f764581ef69cc82a435c40f0b4ccfceca90713abc57cacef11c604"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/hippurites/evidence.json",
+        "bytes": 11751,
+        "sha256": "33f081c60005e29267821896d36b8569b9c37a2a074a03fdc61b770509018272"
+      }
+    },
+    {
+      "id": "pterodaustro",
+      "metadata": {
+        "path": "assets/additions/pterodaustro/ready72-r001/metadata.production.json",
+        "bytes": 4208,
+        "sha256": "9195eb3d644a1397fd1cb0e3c3baf927fb14edd5dd1a523cfac837bcc948e408"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/pterodaustro/evidence.json",
+        "bytes": 11591,
+        "sha256": "28b7ead1677ed2bbd2a90d1d06ff161dac89385f83ea5e250eacdeaa9b688915"
+      }
+    },
+    {
+      "id": "radiolites",
+      "metadata": {
+        "path": "assets/additions/radiolites/ready72-r001/metadata.production.json",
+        "bytes": 5341,
+        "sha256": "72671fecf6a3c0553a1a32617abfac436d2419c7a50487fb02a9411b8897e69f"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/radiolites/evidence.json",
+        "bytes": 12291,
+        "sha256": "65d9bff35e2dfffa6470d1b5db747a827b50d71f86ca2f7f7215851363ae2642"
+      }
+    },
+    {
+      "id": "parasaurolophus",
+      "metadata": {
+        "path": "assets/additions/parasaurolophus/ready72-r001/metadata.production.json",
+        "bytes": 4452,
+        "sha256": "c97ec0f976183e44d7cb86572883e0e42df4851a72da6293af240d6135cfc9b3"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/parasaurolophus/evidence.json",
+        "bytes": 12267,
+        "sha256": "7c9d4592863e1d9272695157b54d1ad420cbce0b5e2ae96a6814477585aa6f3c"
+      }
+    },
+    {
+      "id": "dactylioceras",
+      "metadata": {
+        "path": "assets/additions/dactylioceras/ready72-r001/metadata.production.json",
+        "bytes": 6442,
+        "sha256": "34e43f1d98db441014453d735273e28c16d841ef78bfb872677019118e2ca84d"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/dactylioceras/evidence.json",
+        "bytes": 13799,
+        "sha256": "56c52e51f0d99a7d89c3df770c2b74b777a320d8ddc770cd0f297c243ae883ef"
+      }
+    },
+    {
+      "id": "caprina",
+      "metadata": {
+        "path": "assets/additions/caprina/ready72-r001/metadata.production.json",
+        "bytes": 5726,
+        "sha256": "153741ffc1058372d105d3f277d097cbcba9079fad2b159dbe500c9bf0d2866c"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/caprina/evidence.json",
+        "bytes": 12101,
+        "sha256": "99ace34aac95abd5fe7256430082df6ab3fa095843781821173d7871897a6d7a"
+      }
+    },
+    {
+      "id": "elpistostege",
+      "metadata": {
+        "path": "assets/additions/elpistostege/ready72-r001/metadata.production.json",
+        "bytes": 6054,
+        "sha256": "86244219397ccf51800fe6e831238871f0eb39bb89dfb25d5d92232f82ff3510"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/elpistostege/evidence.json",
+        "bytes": 13373,
+        "sha256": "6fc7c26c45ac8289a054af250a48bbe5e8d3fee93d1cfd0b4e17d67134336787"
+      }
+    },
+    {
+      "id": "stegosaurus",
+      "metadata": {
+        "path": "assets/additions/stegosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4446,
+        "sha256": "4eb7b74b7ff3d1af3dde41b8e245479f453f082bd9c4b6dfb75c0c27243f1cd9"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/stegosaurus/evidence.json",
+        "bytes": 11674,
+        "sha256": "1f44e1017ef4e329c319e56be3e0ec001dea65f74704fb32953c824d58e76395"
+      }
+    },
+    {
+      "id": "bellerophon",
+      "metadata": {
+        "path": "assets/additions/bellerophon/ready72-r001/metadata.production.json",
+        "bytes": 7025,
+        "sha256": "571d8ea64b2bd4522a0001956025260b5301ddbfc74188a7768fff45410f7d4e"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/bellerophon/evidence.json",
+        "bytes": 12916,
+        "sha256": "2a5e69d1f7358e0a163ca1598e26dcc75fe0c56de60e5a00308687318af89d7a"
+      }
+    },
+    {
+      "id": "dipterus",
+      "metadata": {
+        "path": "assets/additions/dipterus/ready72-r001/metadata.production.json",
+        "bytes": 5550,
+        "sha256": "4fb594990ffe840060c92d690787c62c2e030e74a93469b059195611bf186e79"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/dipterus/evidence.json",
+        "bytes": 12494,
+        "sha256": "c94f1df8379310028c823ddee8a988b9d4d97663188e1bdf35c02a50cbcc5114"
+      }
+    },
+    {
+      "id": "edaphosaurus",
+      "metadata": {
+        "path": "assets/additions/edaphosaurus/ready72-r001/metadata.production.json",
+        "bytes": 5028,
+        "sha256": "917d4a339f21dabd55062f6f80b20beb78a115ad941f993ef3731789b3297b2b"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/edaphosaurus/evidence.json",
+        "bytes": 12166,
+        "sha256": "e0e72ec8ba008e1d3405c96d876726aeff15f390b900014bf8dfde12c627d90e"
+      }
+    },
+    {
+      "id": "maclurites",
+      "metadata": {
+        "path": "assets/additions/maclurites/ready72-r001/metadata.production.json",
+        "bytes": 4830,
+        "sha256": "9c1ffc37d8970431519e0bfd3071701686e104bb2e69746f11a59a1503418bd8"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/maclurites/evidence.json",
+        "bytes": 11648,
+        "sha256": "61c965b1d742b3085db3b3b1ce13a2b6f48fc9e397c05b66ab40e51cfd5f6102"
+      }
+    },
+    {
+      "id": "atopodentatus",
+      "metadata": {
+        "path": "assets/additions/atopodentatus/ready72-r001/metadata.production.json",
+        "bytes": 4755,
+        "sha256": "3597c50b93e8bf2bc199e7b031d373dacb0e7bee3917f49ac3cd56ed373e8615"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/atopodentatus/evidence.json",
+        "bytes": 12077,
+        "sha256": "90158372fbdbda8928e7ed9742440e79390f02202c2ca1a1f80705568c2da799"
+      }
+    },
+    {
+      "id": "holoptychius",
+      "metadata": {
+        "path": "assets/additions/holoptychius/ready72-r001/metadata.production.json",
+        "bytes": 6610,
+        "sha256": "42b9534d5203f12a3781f58a74159d2fe1e06854628bcf094a7ca78a50356a85"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/holoptychius/evidence.json",
+        "bytes": 13076,
+        "sha256": "b3d599c34651c53adbda87e43fb5006082a930ea205b2075477052c7b16968a0"
+      }
+    },
+    {
+      "id": "nerinea",
+      "metadata": {
+        "path": "assets/additions/nerinea/ready72-r001/metadata.production.json",
+        "bytes": 8102,
+        "sha256": "858d2e4b3e624a282f4b4ce09f5e09193c7865ca96a80f5213184ed5dd3b12a3"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/nerinea/evidence.json",
+        "bytes": 14578,
+        "sha256": "8a5457a82869ba68a8c3d4854f0098f58714d8090e272d4a59087a3aa7d5170b"
+      }
+    },
+    {
+      "id": "volutomorpha",
+      "metadata": {
+        "path": "assets/additions/volutomorpha/ready72-r001/metadata.production.json",
+        "bytes": 4641,
+        "sha256": "c469525adab8c1b7bf8d35b1e6274dcbaabc783dbd23b61bf3462792cc8e0ce8"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/volutomorpha/evidence.json",
+        "bytes": 11949,
+        "sha256": "a7b5ded159c893cdfdc1b1b25bf8e0f607c6e6dcf3cad633c04bab59e8e61dc2"
+      }
+    },
+    {
+      "id": "whatcheeria",
+      "metadata": {
+        "path": "assets/additions/whatcheeria/ready72-r001/metadata.production.json",
+        "bytes": 4970,
+        "sha256": "16ddb30ccd2b8f9e7861c8c443bb51d474152f39acc4770768b0f514d3469160"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/whatcheeria/evidence.json",
+        "bytes": 11889,
+        "sha256": "1752308fed8afd37ed4fd4432d6d61d5f8954485e95084f87a21c0ea54014887"
+      }
+    },
+    {
+      "id": "acteonella",
+      "metadata": {
+        "path": "assets/additions/acteonella/ready72-r001/metadata.production.json",
+        "bytes": 5457,
+        "sha256": "f8eae0349fc3285a480704888b237bee2f151d9db1bdd54d87f57191d066a6b8"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/acteonella/evidence.json",
+        "bytes": 12584,
+        "sha256": "ff43d7eced4ec528e25b953182e97e79e493ddefeb7f0ce5c35c085d0f7cd955"
+      }
+    },
+    {
+      "id": "struthioptera",
+      "metadata": {
+        "path": "assets/additions/struthioptera/ready72-r001/metadata.production.json",
+        "bytes": 4686,
+        "sha256": "ecaa68d13145f21d9cd998c8fa8f59492ec3ebf9a365c0fe922c159cc7814f92"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/struthioptera/evidence.json",
+        "bytes": 12068,
+        "sha256": "9555ace1bb1221904bd9e8261cc9a3558ec51ee50d5e64d2072cd845fe4f86f6"
+      }
+    },
+    {
+      "id": "synthetoceras",
+      "metadata": {
+        "path": "assets/additions/synthetoceras/ready72-r001/metadata.production.json",
+        "bytes": 6769,
+        "sha256": "456e0f2335377efe115eadb0e881331a2ee4912f43062fc2bd98e8bf0cf8d36e"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/synthetoceras/evidence.json",
+        "bytes": 13170,
+        "sha256": "127d7a98cb2e256d1328578bae8cbf333d5cbac7a7300b01c9d4ff1d0f2ca3ed"
+      }
+    },
+    {
+      "id": "quetzalcoatlus",
+      "metadata": {
+        "path": "assets/additions/quetzalcoatlus/ready72-r001/metadata.production.json",
+        "bytes": 5641,
+        "sha256": "542a55560754f98967e775bef3fa28ad8660fd3e7b17564f95117cd1250c42be"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/quetzalcoatlus/evidence.json",
+        "bytes": 12939,
+        "sha256": "dd1fc6cda2bebd0ee8901836183848078e7bc2615e6fe60250e990a019c32f65"
+      }
+    },
+    {
+      "id": "platyceras",
+      "metadata": {
+        "path": "assets/additions/platyceras/ready72-r001/metadata.production.json",
+        "bytes": 7117,
+        "sha256": "f851013dcd09b151a120f28f03c5863e2693d2db4240114ece56a024b275ac4a"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/platyceras/evidence.json",
+        "bytes": 13933,
+        "sha256": "691819e2318d7991fed2c95b858dbeecbbfb5eeb8888f063004066587ee7ca7e"
+      }
+    },
+    {
+      "id": "protoceras",
+      "metadata": {
+        "path": "assets/additions/protoceras/ready72-r001/metadata.production.json",
+        "bytes": 6215,
+        "sha256": "0e94318d59f6675f7503b1cda000832cbc41b1167806aee832749b5078dc1890"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/protoceras/evidence.json",
+        "bytes": 12995,
+        "sha256": "27fe084194e1edb8265e39a3098afcdc63cd7b390a93a6f7d225b6ac4ca9542e"
+      }
+    },
+    {
+      "id": "therizinosaurus",
+      "metadata": {
+        "path": "assets/additions/therizinosaurus/ready72-r001/metadata.production.json",
+        "bytes": 6400,
+        "sha256": "939af6005f9b3d4be582d1d43a8a1c8d2d695c1728014e16c6fd1fbb241142b0"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/therizinosaurus/evidence.json",
+        "bytes": 13263,
+        "sha256": "aada6a2283e958afe718d44d4498a1bc0f57f97a0c7801f039c150e03fdbe51e"
+      }
+    },
+    {
+      "id": "austroaporrhais",
+      "metadata": {
+        "path": "assets/additions/austroaporrhais/ready72-r001/metadata.production.json",
+        "bytes": 5422,
+        "sha256": "384f2edb1bb2c90426db5b72300c538f43560c1352b96141e20f9b058f80e59c"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/austroaporrhais/evidence.json",
+        "bytes": 12549,
+        "sha256": "8c0fbfca669f327f9b164e1aa771ff3a6fd5b43f3904f83ff96e80951257295b"
+      }
+    },
+    {
+      "id": "ceratites",
+      "metadata": {
+        "path": "assets/additions/ceratites/ready72-r001/metadata.production.json",
+        "bytes": 5796,
+        "sha256": "7067b67c0ae62d573859a41f794f18bbfb55203399102c86c21fea42bebd3882"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/ceratites/evidence.json",
+        "bytes": 13348,
+        "sha256": "32897688370a3c249ccc0bd8dae883b36d7e796a0d4d28535ec7e550f58e20b4"
+      }
+    },
+    {
+      "id": "fruitafossor",
+      "metadata": {
+        "path": "assets/additions/fruitafossor/ready72-r001/metadata.production.json",
+        "bytes": 6426,
+        "sha256": "4db7bb9e7aa5ac402aea36371084d0be55b35c4fc71a7e7f34077058ca0fe4b2"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/fruitafossor/evidence.json",
+        "bytes": 12803,
+        "sha256": "177d3f62bee763a657d58bee235b5ac70abca1ecd5685b35fa1ecfd2cb3f833f"
+      }
+    },
+    {
+      "id": "pleurotomaria",
+      "metadata": {
+        "path": "assets/additions/pleurotomaria/ready72-r001/metadata.production.json",
+        "bytes": 5638,
+        "sha256": "f44fbffc52e7a3475355d72741a658ac36b9983a08deeea7e5267933d9006e1e"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/pleurotomaria/evidence.json",
+        "bytes": 12543,
+        "sha256": "3aa7f3df1e254954f463ac49c953fe87356605bdb6b817febed0f0d158da8220"
+      }
+    },
+    {
+      "id": "stegouros",
+      "metadata": {
+        "path": "assets/additions/stegouros/ready72-r001/metadata.production.json",
+        "bytes": 4696,
+        "sha256": "ced5d0ab860f0865e9de473af2f27fe9636dce82de8048117b901cef6974f174"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/stegouros/evidence.json",
+        "bytes": 12086,
+        "sha256": "68d6d6937bc15ab8ac323f03238aed248c9e8d0a04d683e63dc9d5a7335e673c"
+      }
+    },
+    {
+      "id": "taeniolabis",
+      "metadata": {
+        "path": "assets/additions/taeniolabis/ready72-r001/metadata.production.json",
+        "bytes": 6950,
+        "sha256": "aea28ce1ce572f712ec72611a104c0c2d63d0d0054d48b977d70f4a729b60ebd"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/taeniolabis/evidence.json",
+        "bytes": 13732,
+        "sha256": "75bf1aa10fc30f19c2fbca2564e5e4c53e9044feae0e3f3aa88a91ff47722983"
+      }
+    },
+    {
+      "id": "cartorhynchus",
+      "metadata": {
+        "path": "assets/additions/cartorhynchus/ready72-r001/metadata.production.json",
+        "bytes": 5793,
+        "sha256": "32ac22099b29d4e36f3f1620efa33368f24bc4945cde9072f38bdfc4a9924388"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/cartorhynchus/evidence.json",
+        "bytes": 12835,
+        "sha256": "67469c187a56026f4d35d78200994abaaa0faf0421b7a100656298a0c7d75bef"
+      }
+    },
+    {
+      "id": "euomphalus",
+      "metadata": {
+        "path": "assets/additions/euomphalus/ready72-r001/metadata.production.json",
+        "bytes": 6607,
+        "sha256": "44555834e13fa8e6becd8440fa254341381565e6e0136030a1d6e0af403f90ca"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/euomphalus/evidence.json",
+        "bytes": 12613,
+        "sha256": "a038d98bebff33fb150307739def4791310f025c1dfc2f7dbe4f6f608c3d7739"
+      }
+    },
+    {
+      "id": "murchisonia",
+      "metadata": {
+        "path": "assets/additions/murchisonia/ready72-r001/metadata.production.json",
+        "bytes": 3512,
+        "sha256": "56bf48c4ce839a87040118ce30285ec7b774117234b3198012b93f7f20ba1e0b"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/murchisonia/evidence.json",
+        "bytes": 10813,
+        "sha256": "fc71ccc7efb8c4ff433b9f71109768efa278bb40e719fe98ac1b648fd8fee3f8"
+      }
+    },
+    {
+      "id": "zygomaturus",
+      "metadata": {
+        "path": "assets/additions/zygomaturus/ready72-r001/metadata.production.json",
+        "bytes": 6804,
+        "sha256": "988fadf5c8cb99897fa0b6c5c648bbefad3345a72fa8b65df48354448f950825"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/zygomaturus/evidence.json",
+        "bytes": 13130,
+        "sha256": "610906833159b8363e133406b51b3bb7ab1c1795e0ea75b331b1c6aecb650038"
+      }
+    },
+    {
+      "id": "hupehsuchus",
+      "metadata": {
+        "path": "assets/additions/hupehsuchus/ready72-r001/metadata.production.json",
+        "bytes": 5036,
+        "sha256": "c4ea23e47c4c164fe4d814e81bba5912d0d35746f3b323e0641752ea265e63f5"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/hupehsuchus/evidence.json",
+        "bytes": 12179,
+        "sha256": "1fb70e48049a595621c1612b334975f762f94a9328055616348503c2000fd7b4"
+      }
+    },
+    {
+      "id": "fleurantia",
+      "metadata": {
+        "path": "assets/additions/fleurantia/ready72-r001/metadata.production.json",
+        "bytes": 4192,
+        "sha256": "5318f413c55d6e711c1c3cf0266bbcf1ed2261b4e462f7fa43f35021add72a90"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/fleurantia/evidence.json",
+        "bytes": 11249,
+        "sha256": "f9940183e134161e7d9e82c7a36c3df7646e9ec5f2d79b33cb6306dfedef5206"
+      }
+    },
+    {
+      "id": "ribeiria",
+      "metadata": {
+        "path": "assets/additions/ribeiria/ready72-r001/metadata.production.json",
+        "bytes": 6544,
+        "sha256": "3ed2c553f935f7f6ce8128df8a28aa8d82993775c162c9489d1094088e91e292"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/ribeiria/evidence.json",
+        "bytes": 13077,
+        "sha256": "9c57759ddf784ee4567082e1aeb3af5d6344837e139fcd854dd8f961093fb866"
+      }
+    },
+    {
+      "id": "regaliceratops",
+      "metadata": {
+        "path": "assets/additions/regaliceratops/ready72-r001/metadata.production.json",
+        "bytes": 4240,
+        "sha256": "8da747f99456bf1eaf5202c4b601dd739007ce2dd5a8d4972aabf3b7dfe48d3b"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/regaliceratops/evidence.json",
+        "bytes": 11751,
+        "sha256": "930f5bcbaa017968e0b847ab6bab2d683bf2fbd1d4333422e1e1baeb7510a5b6"
+      }
+    },
+    {
+      "id": "volaticotherium",
+      "metadata": {
+        "path": "assets/additions/volaticotherium/ready72-r001/metadata.production.json",
+        "bytes": 7366,
+        "sha256": "7ab912c8e34a1cb8d9401f9dd20337c56d73b123e249e5f740776354a52ea8b5"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/volaticotherium/evidence.json",
+        "bytes": 13471,
+        "sha256": "114b1d6ba8d59eea7202c701183b3e4e0f7bd2a9763240d9f9700e411d480c5c"
+      }
+    },
+    {
+      "id": "coelacanthus",
+      "metadata": {
+        "path": "assets/additions/coelacanthus/ready72-r001/metadata.production.json",
+        "bytes": 3872,
+        "sha256": "965ef97ec0003ad0b03872e819bdb7523a207ffb8f33f8fd5a94e5d07c3be674"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/coelacanthus/evidence.json",
+        "bytes": 11377,
+        "sha256": "7aff0a77d11be6a689f95b5408d60d2f831a5bf93d4d21cb0412f7a943f7e2b9"
+      }
+    },
+    {
+      "id": "einiosaurus",
+      "metadata": {
+        "path": "assets/additions/einiosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4383,
+        "sha256": "a6e5d334aaf5904bc6612970e8052be2cb4bd5bf9062111d1b7a92e5af393947"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/einiosaurus/evidence.json",
+        "bytes": 11163,
+        "sha256": "0d571eac72bf8fa2014b10b71cac319ca4eabdb41ae6058f55321ce345cf1e02"
+      }
+    },
+    {
+      "id": "placenticeras",
+      "metadata": {
+        "path": "assets/additions/placenticeras/ready72-r001/metadata.production.json",
+        "bytes": 6613,
+        "sha256": "e937fedd69e4909a6ead67ecd890bbbb63d2b927e48f84c8f5d09eb1d33d255b"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/placenticeras/evidence.json",
+        "bytes": 13081,
+        "sha256": "71f803483a2eaf94aeeababd79fa33605df09d4cbd1d4db46765e4ddead4732e"
+      }
+    },
+    {
+      "id": "plesiadapis",
+      "metadata": {
+        "path": "assets/additions/plesiadapis/ready72-r001/metadata.production.json",
+        "bytes": 6892,
+        "sha256": "34897937519547aaeeb3f8255c792e208d4238d8de3f4e818898202ef9caad74"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/plesiadapis/evidence.json",
+        "bytes": 12698,
+        "sha256": "1e7669bd7a8086f733fbc0957155e385fcc489b620e5a23eb5b145aaa27c3d70"
+      }
+    },
+    {
+      "id": "diabloceratops",
+      "metadata": {
+        "path": "assets/additions/diabloceratops/ready72-r001/metadata.production.json",
+        "bytes": 5302,
+        "sha256": "47f1ab8121fa22d5064ca97bc13c07d2408cf776e76f77dd084f39aa9250768c"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/diabloceratops/evidence.json",
+        "bytes": 13060,
+        "sha256": "45ed453df4de3bf5d9c0f3ab81aa43b05ced575250c1dd313b5f3321229d0655"
+      }
+    },
+    {
+      "id": "macropoma",
+      "metadata": {
+        "path": "assets/additions/macropoma/ready72-r001/metadata.production.json",
+        "bytes": 5225,
+        "sha256": "7d090e9eec2ac77d89952f1b496ff0a5503af35d5b5a760c76d4b650e2e7be88"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/macropoma/evidence.json",
+        "bytes": 12241,
+        "sha256": "1b5e8d3556ce8e43cb325c931dc80b325d56fabcce693dddd8ef867b53fff9c3"
+      }
+    },
+    {
+      "id": "ancyloceras",
+      "metadata": {
+        "path": "assets/additions/ancyloceras/ready72-r001/metadata.production.json",
+        "bytes": 7103,
+        "sha256": "9a1211fe26e25d738d14b5c2d88451a0c40af56b237bde8bc6c3f7fc8e113736"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/ancyloceras/evidence.json",
+        "bytes": 13382,
+        "sha256": "8a223186014cf431a638900c268fc371470036ab33cd25ddc003135a29a59799"
+      }
+    },
+    {
+      "id": "darwinius",
+      "metadata": {
+        "path": "assets/additions/darwinius/ready72-r001/metadata.production.json",
+        "bytes": 5716,
+        "sha256": "792fc3994d9e5b741a36e32356a9b13b289764d690d1e2a5b8d3b267ef6c67d6"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/darwinius/evidence.json",
+        "bytes": 12244,
+        "sha256": "2beac7b9e9811c09c48522975297b78f53c70fa4f09231b55869f877230ad5bb"
+      }
+    },
+    {
+      "id": "henodus",
+      "metadata": {
+        "path": "assets/additions/henodus/ready72-r001/metadata.production.json",
+        "bytes": 4665,
+        "sha256": "d19524102ded1eeb9b9b748d13bacb26b18f8fa83d47e25adbe03f5416a96df6"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/henodus/evidence.json",
+        "bytes": 11440,
+        "sha256": "61259b2a2c797f9067c2f48228557edd28a424a2fc185cc4e8f328593137f324"
+      }
+    },
+    {
+      "id": "eryon",
+      "metadata": {
+        "path": "assets/additions/eryon/ready72-r001/metadata.production.json",
+        "bytes": 4838,
+        "sha256": "147f9b6bf9138ae6e4f0623815ae91231e0dfc5f9de46e6129caf51d2cde1a48"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/eryon/evidence.json",
+        "bytes": 11877,
+        "sha256": "7ce1098d4bb9d13c8e7abaa028ef7b9d105ed19b5c8deead6f055d33da587378"
+      }
+    },
+    {
+      "id": "crioceratites",
+      "metadata": {
+        "path": "assets/additions/crioceratites/ready72-r001/metadata.production.json",
+        "bytes": 6667,
+        "sha256": "d843c3b3a54fe4ad206270bf051ddb5289f918a4d04175cef6d4cf9b587c3e73"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/crioceratites/evidence.json",
+        "bytes": 13476,
+        "sha256": "27862accc6a85c165667d1735450548566d51cfbcbd35075869afe1733165a8b"
+      }
+    },
+    {
+      "id": "placochelys",
+      "metadata": {
+        "path": "assets/additions/placochelys/ready72-r001/metadata.production.json",
+        "bytes": 5093,
+        "sha256": "8dd04b2d6832f4ef09931fd5433ed047a5f551257e8ff13250e1683795e4d0ef"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/placochelys/evidence.json",
+        "bytes": 11463,
+        "sha256": "b14599de3e7f0c3eeebe518db6a08f44aca64d8a499f08069d337f822bf62576"
+      }
+    },
+    {
+      "id": "presbyornis",
+      "metadata": {
+        "path": "assets/additions/presbyornis/ready72-r001/metadata.production.json",
+        "bytes": 5606,
+        "sha256": "89e2c36a69e6264c39514b396ab6b4be27288337d6c95c46df5440b7cf6a2e64"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/presbyornis/evidence.json",
+        "bytes": 12293,
+        "sha256": "83e2e798b49e410de60d586a70167cd0abdd977ebb083c20a7e6447c5833834d"
+      }
+    },
+    {
+      "id": "mecochirus",
+      "metadata": {
+        "path": "assets/additions/mecochirus/ready72-r001/metadata.production.json",
+        "bytes": 5030,
+        "sha256": "30288e95f4c144a016d9effd6cdbd45054eee14d5ba38671bca4d5046634e6a7"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/mecochirus/evidence.json",
+        "bytes": 11818,
+        "sha256": "75b99326762a3f0ad7389f57e834984d635a38bf0cb8770254f319c18537b1d6"
+      }
+    },
+    {
+      "id": "shunosaurus",
+      "metadata": {
+        "path": "assets/additions/shunosaurus/ready72-r001/metadata.production.json",
+        "bytes": 4870,
+        "sha256": "ff3b0159d2d3c8fd1e63a815d02984e60197c00a7a0c805527f632bd5d6a5b90"
+      },
+      "evidence": {
+        "path": "production/ready72-20261022/shunosaurus/evidence.json",
+        "bytes": 11291,
+        "sha256": "3ecc1829e3b644db0142904bb4d9c71e15b36e036b2302397f15c2a0e1b971a1"
+      }
+    }
+  ],
+  "review_path": "production/ready72-20261022/v2-projection-review.json",
+  "scope_document": {
+    "path": "production/ready72-20261022/v2-SCOPE.md",
+    "bytes": 390,
+    "sha256": "13d4977153cde7a3469a6d558cb8916f3236296ff75128d68c70275155b9c5d5"
+  },
+  "publication_authorized": false
+}

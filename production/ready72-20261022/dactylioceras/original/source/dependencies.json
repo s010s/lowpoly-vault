@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/asset_common.py",
+      "version_pin": "Exact canonical file SHA-256; restored repository snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/check_geometry.py",
+      "sha256": "acb362f52b437826c2d92ccb3c91f0e5ffa79fd6d756598179ec8c51efb8fab8",
+      "license": "MIT",
+      "origin": "Original asset-local QA helper"
+    },
+    {
+      "path": "source/deps/parse_runtime.mjs",
+      "sha256": "e0ef4764f6b6daf0a38778900e47d1d99f936a07334353672a7889f9d32915dd",
+      "license": "MIT",
+      "origin": "Original asset-local QA helper"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/qa_glb.py",
+      "version_pin": "Exact canonical file SHA-256; restored repository snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/render_candidate_views.py",
+      "version_pin": "Exact canonical file SHA-256; restored repository snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/render_exact_views.py",
+      "sha256": "7bdc36a48aa738878d3fcd716226fcd126dfd08296acf7638292b04015963fff",
+      "license": "MIT",
+      "origin": "Asset-local adaptation of canonical render_candidate_views.py",
+      "changes": "Adds --gray and required perspective direction (1,-1,1); rendering/lighting otherwise canonical",
+      "canonical_parent_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts/validate_gltf.cjs",
+      "version_pin": "Exact canonical file SHA-256; restored repository snapshot 2026-10-22"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "required_for": "generation and Blender QA"
+    },
+    {
+      "name": "CPython",
+      "version": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+      "required_for": "generation; no external pip dependency"
+    },
+    {
+      "name": "Khronos glTF Blender I/O",
+      "version": "4.3.47",
+      "required_for": "export"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "QA only; supplied through Node module lookup, not needed by generator"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "required_for": "QA CPU parse only; provided as CLI package root, not needed by generator"
+    }
+  ],
+  "generator_dependency_closure": "source/generate.py + source/params.json + source/deps/asset_common.py + source/deps/qa_glb.py + declared Blender bundled modules and Python standard library only",
+  "notes": "No imports, textures, caches or helpers from another asset directory. Original reference images remain private and are not inputs to the generator."
+}

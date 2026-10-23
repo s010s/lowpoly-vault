@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "conus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 5000,
+    "max_materials": 4,
+    "max_primitives": 6,
+    "max_glb_bytes": 600000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Spire apex +Z; base Z=0; aperture facing camera -Y and placed on +X side in front view, matching primary right-hand aperture view. Keep dextral winding; do not mirror. Center X/Y."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary fossil plate already shows back, top and aperture-side views with scale, plus a corroborating same-species plate. Generating concepts would not add needed evidence."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Conus fossil cone-snail shell",
+    "zh": "Conus 锥形芋螺化石壳"
+  },
+  "taxon": "Conus spurius (Gmelin, 1791)",
+  "representation": "fossil-specimen",
+  "inventory_ordinal_one_based": 874,
+  "primary_specimen": "PRI 70343-1",
+  "context": {
+    "age": "Late Pliocene",
+    "formation": "Tamiami Formation (Pinecrest Beds)",
+    "locality": "Sarasota County, Florida"
+  },
+  "scope": "Original low-poly fossil shell interpretation, not an exact specimen scan or a living snail. Use PRI70343-1 three-view plate; PRI70342 provides same-species corroboration only.",
+  "scale": {
+    "unit": "meters",
+    "working_dimensions_mm": {
+      "height_z": 24,
+      "width_x": 13,
+      "depth_y": 13
+    },
+    "basis": "PRI70343-1 reference 1 cm bar approximately131 px tall; shell approximately316 px tall, so height approximately24 mm. Shell width approximately170 px, about13 mm; round top supports comparable depth.",
+    "uncertainty": "Image estimates only, not caliper measurements; about10–15% interpretation tolerance. Do not substitute the differently sized PRI70342 scale."
+  },
+  "required_features": [
+    "Straight to gently convex tapering conical body, broad high shoulder narrowing to small anterior base; body whorl occupies about75–80% total height.",
+    "Short stepped cone-shaped spire and visible spiral sutures; it rises above shoulder, not a tall tower or a completely flat disk.",
+    "Long narrow aperture down one side, extending from just under shoulder to anterior base; preserve genuinely open slot with an inner lining and thin continuous outer lip.",
+    "Top view clearly shows dextral spiral whorls/sutures and asymmetric aperture notch; no concentric stacked plates pretending to be a spiral.",
+    "Solid-looking closed convex shell back; no random through-holes. The small drilled hole on PRI70342 is damage and must not be copied.",
+    "Use a slightly truncated/open anterior termination consistent with the narrow shell mouth, not a stretched siphonal canal."
+  ],
+  "simplifications": [
+    "Omit museum handwriting, chips, drilling damage and fine surface scratches.",
+    "Keep subtle broad fossil-ivory coloration; living spotted pattern is not needed and must not be invented as preserved evidence.",
+    "No soft animal, operculum, texture photo, or downloaded scan mesh.",
+    "Deep hidden interior coiling need not be modeled; visible aperture lining must be real geometry."
+  ],
+  "acceptance_focus": [
+    "Front and perspective show continuous narrow opening, not painted black stripe or detached long blade.",
+    "Top view and side preserve tapered shell volume, short spire and chirality.",
+    "Silhouette and body/spire proportions match primary three-view reference within declared low-poly interpretation.",
+    "Apply required GLB/source checks and two cheap isolated rebuilds; four standard final views only unless issue-specific reason is recorded."
+  ],
+  "maker_notes": [
+    "Retain this directory through prep/making/QA; maker reports then FINAL, no backup or deletion task.",
+    "Source reference photos carry CC BY-NC-SA4.0 and must stay private, never become textures or public delivery files. Model geometry/code must be original.",
+    "PRI70343-1 tip/lip wear need not be exactly reproduced; do not claim exact scan fidelity.",
+    "Before final render compare cheap front/top/side gray previews against primary reference, then produce standard four views."
+  ]
+}

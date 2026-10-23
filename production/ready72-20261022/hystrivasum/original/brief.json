@@ -1,0 +1,86 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "hystrivasum",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z from beak/channel base to spire apex; aperture centre faces(+X,-Y) so mouth reads rightward in frontal -Y view. Dextral shell orientation, no mirroring. Base nearZ=0."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Scaled museum front/back photograph plus five real conspecific views expose form and damage boundaries; original description supports folds/cords. Sufficient for modest low-poly external study; no synthetic concept and no denied image action bypassed."
+  },
+  "extra_views": [],
+  "preparation_status": "READY_FOR_MAKER_NOT_QUALITY_PASS",
+  "name": "Hystrivasum vase-shell fossil",
+  "target": "Original fossil-form target retained: stout vase-shaped shell, strong shoulder projections and open flaring mouth. Species-informed Hystrivasum squamosum, not generic conch or another Vasum genus.",
+  "reference_specimens": {
+    "primary": "UF201603, Neogene Atlas: Late Pliocene Tamiami Formation (Pinecrest Beds), Highlands County, Florida; two photographed views and2cm scale.",
+    "comparison": "H. Zell five-view H. squamosum photograph, original6000x4508px,2012. Shell has smaller bioerosion/edge damage but provides normal upper-whorl continuity and full side/top/bottom geometry; unnumbered and not used for scale.",
+    "type_description": "Hollister1971 description reproduced by Neogene Atlas; holotype PRI28201,122x90mm is a DIFFERENT specimen. Holotype image was not obtained.",
+    "scope": "Original low-poly genus-level fossil-shell study with modest evidence-based restoration of accidental damage, NOT exact UF specimen replica or scan. Upper UF holes are not natural shell openings."
+  },
+  "morphology": {
+    "must_have": [
+      "Stout dextral biconic shell with relatively short broad spire and large body whorl; roughly5–6 externally visible whorl steps, not a Turritella tower",
+      "Strong shoulder row of outward-flared open scale-like projections, roughly10–14 simplified around the main shoulder; not evenly sharpened needle spines",
+      "Body whorl carries5 dominant spiral cords with broad low squamous flanges; smaller threads omitted",
+      "Body contracts into a waist above lower beak; lower beak has4–5 coarse spiral ridges and a broad open siphonal channel",
+      "Large ovate aperture on front-right with a flared, irregularly scalloped outer lip and real recessed cavity",
+      "Inner columellar lip bears3 transverse folds, strongest uppermost; rounded thick callus and perforate umbilical region beside canal",
+      "Upper sutural/shoulder collars remain rough and outward flared, not smooth steps or disconnected rings"
+    ],
+    "must_not_have": [
+      "No giant holes through upper whorls: UF front has major breakage; use the intact back and five-view comparison for continuous external surface",
+      "Do not replicate small worm borings, edge loss, catalogue handwriting, stains or exact photographic cracks",
+      "No speculative living mantle, tentacles, operculum, rock base or fossil association",
+      "No exaggerated straight blade/spike crown, trumpet-flat lip or long smooth straight siphonal tube",
+      "No false full internal chambers; only short visible cavity/columellar transition required"
+    ],
+    "simplification": "Prioritize stocky silhouette, shoulder scales,5 body cords, waist, aperture and3 columellar folds. Omit microscopic threads and most tiny scales; do not substitute a dense bump/noise texture for organized spiral structure."
+  },
+  "scale": {
+    "units": "metres",
+    "height": 0.107,
+    "width": 0.069,
+    "depth": 0.063,
+    "tolerance_fraction": 0.15,
+    "height_width_basis": "UF image2cm scale strip spans approximately92px; shell height~490px and width~316px =>106.5x68.7mm. Approximate pixel/projection scale, not precise measurement.",
+    "depth_basis": "Inferred from conspecific five-view proportions; no direct UF thickness measurement.",
+    "not_transferred": "Type122x90mm is not UF201603; Zell specimen unknown dimensions are not assigned a scale or museum identity."
+  },
+  "acceptance_focus": [
+    "Front -Y: open ovate aperture,3 columellar folds and broad lower channel clearly readable",
+    "Side +X: projecting shoulder scales, constricted waist and flared lip have depth",
+    "Top +Z: dextral spiral structure and outward shoulder scale arrangement, no unrelated giant holes",
+    "Perspective(+X,-Y,+Z): stocky vase silhouette and organized ridges readable at card scale",
+    "No accidental floating scales, cracks between whorls or fake black decal cavity"
+  ],
+  "evidence_limits": [
+    "Accidental breakage is simplified/restored using intact areas and conspecific photo; not a restoration of exact missing fragments",
+    "Fine species delimitation can be variable; do not claim a diagnostic taxonomic revision or exact biological spine count",
+    "Neutral bone-beige is artistic fossil colour, not original living pattern"
+  ],
+  "maker_workflow": [
+    "3–4 cheap gray checks before final rendering, specifically aperture, shoulder-scale silhouette and waist",
+    "Final front/side/top/perspective required; perspective may be preview. Extra only if specific unresolved feature demands it",
+    "Self-contained deterministic source; copy canonical helpers into source/deps and list relative paths/sha256, never import other model directories",
+    "Two isolated rebuilds, GLB/Khronos and required geometry checks remain; helper handoff is NOT scientific/visual PASS",
+    "Same localdir through maker and independent QA; maker sends root completion and FINAL, no upload/cleanup"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "ceratites",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Coiling plane XZ, coil axis Y; long fossil dimension Z, shorter X, thickness Y. Lowest pointZ0. Orient mineral-filled terminal end toward lower-left (-X,-Z) in front view, like Geiseltal image; nodes visible on upper margin.",
+    "view_roles": {
+      "front": "lateral shell face, comparable to real photographs",
+      "side": "edge/ventral thickness and terminal profile, inferred shape constrained by measured width",
+      "top": "ventral band and paired shoulder nodosity",
+      "perspective": "combined whorl, umbilicus, shoulders and solid terminal end"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Four real photos from three identified C. nodosus specimens plus numerical dimensions constrain genus-level form. They are not four orthogonal angles of one individual. No extra concept image needed or generated."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Ceratites nodose compact ammonoid",
+    "zh": "Ceratites（瘤节紧卷菊石）"
+  },
+  "taxon": "Ceratites",
+  "representation": "fossil-specimen",
+  "original_scope": "Compact broad whorls with strong shoulder nodes and subdued lateral ribbing. Original genus-level fossil-form interpretation informed by identified C. nodosus specimens, NOT an exact single-specimen replica.",
+  "reference_anchor": {
+    "shape": "Ceratites nodosus photographed by Haplochromis, Geiseltalmuseum, Commons original. Strong marginal nodes visible along upper outer silhouette; weak broad lateral relief on final body chamber.",
+    "scale": "MHNT.PAL.CEP.2001.105, Didier Descouens / Muséum de Toulouse; published dimensions 14 x 11.5 x 4 cm. Separate specimen, used explicitly as plausible genus-size/thickness anchor, not falsely attributed dimensions of the Geiseltal fossil.",
+    "corroboration": "Smithsonian USNM EO55285, two lateral views with CM ruler; same genus/species, middle Triassic, Ostwestfalen-Lippe Germany.",
+    "age": "Middle Triassic; Upper Muschelkalk context for MHNT specimen",
+    "limitations": "No true ventral orthographic photo of selected Geiseltal specimen. Cross-section uses MHNT thickness and smooth conservative interpolation; bilateral organization is anatomical inference."
+  },
+  "scale": {
+    "unit": "metre",
+    "target_X": 0.115,
+    "target_Y": 0.04,
+    "target_Z": 0.14,
+    "evidence": "MHNT catalogued overall dimensions 140 x 115 x 40 mm. Long diameter maps Z, shorter in-plane span X, axial thickness Y. These are design dimensions based on a different identified individual, NOT measurements of Geiseltal photograph.",
+    "tolerance": "About +/-10% simplified outline; thickness should remain near 0.29 of long diameter, not spherical or paper-flat. No inferred genus maximum."
+  },
+  "morphology": [
+    "Planispiral compact ammonoid disk; progressively enlarged outer whorl encloses most early coil but leaves a small recessed umbilical region. No gastropod tower, separated spring, or donut torus.",
+    "Outer whorl broad in lateral projection with flattened-to-rounded flanks and rounded ventral band. Maintain real three-dimensional thickness about 4cm at14cm long diameter.",
+    "Strong short pointed/blunt shoulder nodes break the upper and early outer-whorl silhouette, blending continuously into whorl surface. Not long free spines, not random decorative beads. Keep lateral rib relief much weaker than these nodes.",
+    "Nodosity is not an invariant picket fence around the whole adult terminal chamber: Geiseltal reference shows conspicuous upper nodes but smoother expanded terminal portion. Use a restrained graduated node series and weaken it on final chamber. Exact count is simplification, not claimed measurement.",
+    "Sutures visible in fossils are septal contact lines, NOT structural ribs or decorative raised zigzag cords. Omit intricate sutures at this low-poly scale rather than turn them into ribs.",
+    "Terminal preserved whorl is a mineral-filled broken/truncated end. Preserve low uneven termination and very shallow end boundary if needed, never invent a deep empty aperture, intact lip, tentacles, eye or living tissue.",
+    "Small central loss in photos is taphonomic damage; do not drill a large through-hole. Use recessed umbilicus with a conservative small closed early coil. No museum labels, pins, ruler, photo texture, cracks copied point-for-point or pedestal."
+  ],
+  "uncertainty": [
+    "Actual unseen ventral curvature and back face remain inferred from bilateral ammonoid anatomy plus measured thickness, not four observed photographic angles.",
+    "Node count, exact cross-section, and minor damage are simplified. Geiseltal shape and MHNT scale are different specimens; final references and description must disclose genus-level interpretation.",
+    "Fossil mineral colour is artistic matte tan/grey. No claims of living colour, original shell surface or pristine mouth anatomy."
+  ],
+  "palette": "Matte restrained grey/tan stone, no photographic textures.",
+  "acceptance_focus": [
+    "Front (-Y): compact broad outer whorl, modest umbilical recess, strong upper shoulder nodes against weaker lateral relief; distinguish from generic ribbed ammonite.",
+    "Side (+X): substantial but non-globular axial thickness, integrated shoulder nodes on both flanks; no disconnected spikes.",
+    "Top (+Z): rounded ventral band, bilateral organization and non-paper-flat shell thickness; avoid a sharp keel.",
+    "Perspective: whorl continuous, nodes locally integrated, final chamber smoother and terminal mineral-filled end not fabricated hollow mouth.",
+    "Four actual rendered views; two isolated deterministic rebuilds; pinned local dependencies. Prep readiness is not scientific/model QA PASS."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "turritella",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z from aperture/base to apex; front camera -Y. Aperture centre toward (+X,-Y) so it appears lower-right in frontal view. Dextral shell when apex up and aperture viewed from front; base near Z=0."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Named fossil photograph supplies front and back views with scale and visible aperture; historical figure and description corroborate tower geometry. Additional synthetic concept adds no evidence. No prior denied image-generation operation is bypassed."
+  },
+  "extra_views": [],
+  "preparation_status": "READY_FOR_MAKER_NOT_QUALITY_PASS",
+  "name": "Turritella many-whorled tower snail fossil study",
+  "target": "Preserve original genus-level fossil-form target: long tapering tower, numerous rounded tightly stacked whorls, and a real rounded basal aperture.",
+  "reference_specimen": {
+    "catalog": "UF 181437",
+    "source_label": "Turritella subannulata",
+    "current_name": "Turritella perexilis (subannulata treated as synonym by WoRMS)",
+    "scope": "Evidence-informed low-poly fossil-shell study based on a named specimen; not a scan, exact specimen replica, living snail, or scene reconstruction.",
+    "period": "Species has Pliocene–Pleistocene fossil occurrences and survives today under perexilis; do NOT call it extinct. UF181437 exact age/locality is not supplied on atlas page. Neogene is a representative taxon interval, not dated specimen provenance.",
+    "taxonomic_caution": "Friend et al. 2023 retain perexilis in Turritella sensu lato (quoted genus), not confidently assigned to a newly resolved genus. WoRMS uses Turritella. This asset is a traditional genus-level fossil-form study, no claim of resolved monophyly."
+  },
+  "morphology": {
+    "must_have": [
+      "One continuous dextral high-spired shell, not a stack of disconnected tori",
+      "About 12–14 visibly differentiated whorls, progressively smaller towards a narrow apex",
+      "Gently rounded whorl bulk with a modest keel/band, shallow but readable sutures, not a straight cone with painted stripes",
+      "Last body whorl only moderately expanded; rounded-subquadrate terminal aperture with subtly flatter base, facing front-right",
+      "Aperture has a thin rim and recessed inner wall; not a black decal or solid plug",
+      "Convex base and continuous columellar-side attachment of aperture",
+      "A few low-amplitude axial undulations on upper halves of major whorls: distinguish broad wavy growth from microscopic scratch detail; do not add spines."
+    ],
+    "must_not_have": [
+      "No animal tissue, operculum, tentacles, substrate or museum writing",
+      "No long siphonal canal, wide trumpet lip, spikes or six-rib tusk-shell shape",
+      "Do not add a missing top whorl or claim exact protoconch anatomy; preserve simplified visible pointed end",
+      "No copied reference mesh, projected photo texture or traced photographic damage"
+    ],
+    "simplification": "Retain whorl silhouette, modest keel, broad upper-whorl axial undulations and aperture. Omit microscopic lines and high-frequency scratch texture. Do not overstate deeply incised sutures or a pure circular aperture."
+  },
+  "scale": {
+    "units": "metres",
+    "target_height": 0.026,
+    "target_max_width": 0.0075,
+    "source": "Approximate image-based inference from UF181437 2 cm scale strip; not a direct specimen measurement.",
+    "tolerance_fraction": 0.12,
+    "other_specimen_measurement": "Heilprin original figure states 1.2 inches length and .25 inch width; these refer to that different figured specimen, not UF181437, and are not mixed into its dimensions."
+  },
+  "acceptance_focus": [
+    "Front: right-hand aperture and tapering stepped tower are readable",
+    "Side: body-whorl depth and recessed aperture have real geometry",
+    "Top: dextral coil and aperture orientation agree with front",
+    "Perspective: long slender tower, rounded whorls and unobstructed aperture remain identifiable at card size",
+    "Mesh has intentional shell thickness at opening, no cracks between independently stacked rings and no accidental open surface seams"
+  ],
+  "evidence_limits": [
+    "Back/side proportions and interior depth require modest geometric interpolation; no photogrammetric accuracy claim",
+    "No underside or interior tomography exists in selected source; model only a short recessed vestibule, not invented full internal chambers",
+    "Photographic tone is fossil mineral colour, not live coloration; material is an artistic neutral bone-beige"
+  ],
+  "maker_workflow": [
+    "3–4 cheap gray views before final render; store checks in private/",
+    "Four final views required: front, side, top, perspective; perspective may equal preview",
+    "Use deterministic generator and self-contained source/deps if helpers are required; record hashes and exact runtime",
+    "Two isolated rebuilds and actual GLB/Khronos checks remain required; prep/helper handoff check is not QA",
+    "Keep same localdir through maker and independent QA; notify root and FINAL after maker, no upload/cleanup"
+  ]
+}

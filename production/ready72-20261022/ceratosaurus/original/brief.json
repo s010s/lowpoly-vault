@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "ceratosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, limbs across X, feet Z=0."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Published anatomical plate inspected and diagnostic form sufficient; no extra generated concept needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Ceratosaurus",
+    "zh": "角鼻龙"
+  },
+  "inventory_ordinal": 303,
+  "taxon": "Ceratosaurus, morphology anchored to MWC 1 (C. magnicornis in Madsen and Welles 2000)",
+  "representation": "living-reconstruction",
+  "scope": "Original whole-organism living reconstruction; not a fossil cast or exact specimen scan.",
+  "specimen_basis": "MWC 1 cranial anatomy and associated skeleton, described in Madsen and Welles 2000. Species boundaries are not asserted resolved; asset remains genus-level Ceratosaurus.",
+  "scale": {
+    "length_m": 6.0,
+    "basis": "Artistic adult-scale choice within NHM genus estimate 6–7 m; NOT a measured MWC 1 length."
+  },
+  "diagnostic_targets": [
+    "One low, laterally compressed nasal horn above the snout, separate from paired brow relief ahead of eyes; never twin long head crests.",
+    "Deep head, short strong neck, continuous muscular trunk and long balancing tail; bipedal hind limbs and short forelimbs.",
+    "Small low midline scutes, not tall sail, stegosaur plates or armor blanket.",
+    "Whole-body coherent faceted volumes with visible limb negative space; not renamed generic dinosaur."
+  ],
+  "uncertainties": [
+    "Living musculature, skin colour, exact horn sheath extent and pose are inferred. Keep horns conservative and palette muted.",
+    "MWC 1 is the shape anchor, not permission to copy every species or reconstruct all fossil gaps as observed.",
+    "Scale and soft-tissue proportions are artistic estimates. Published skeleton components include restoration."
+  ],
+  "acceptance_checks": [
+    "Front/top: one central nasal projection and two modest brow reliefs; side: horn lies over snout, not between eyes.",
+    "Hands have three main clawed digits plus a much reduced fourth nub; no generic three-digit-only hand or oversized fourth claw. Palms face inward.",
+    "Three major forward toes per foot, airborne tapering tail; stable grounded feet, continuous joints and no detached teeth/eyes.",
+    "Four fixed views only; perspective may reuse preview. Check silhouette and horn separation at thumbnail size.",
+    "No imported third-party textures or meshes. No source imports from another model directory."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Maker and QA use this same local directory. Report COMPLETE to root with actual paths and hash; stop and hand off. No model-task upload or deletion. Root handles asynchronous private backup. Integration uses local first, Drive recovery only if absent, and handles eligible cleanup after successful integration. New candidates remain pending batch integration, no PR in this task."
+}

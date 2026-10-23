@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "s010s/lowpoly-vault canonical script snapshot recovered 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "s010s/lowpoly-vault canonical script snapshot recovered 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "source": "s010s/lowpoly-vault canonical script snapshot recovered 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_four_views.py",
+      "sha256": "9211a2576878d456eb08d772b18612fc3cc892148bf4272d4a547dc86d9d1736",
+      "source": "Original fixed-direction wrapper for this model",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2"
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Python",
+      "version": "3.11 bundled with Blender"
+    }
+  ],
+  "status": "PINNED_SELF_CONTAINED",
+  "rebuild_command": "blender -b -t 2 --factory-startup --python-exit-code 1 --python source/generate.py -- --output-dir OUTPUT",
+  "render_command": "blender -b -t 2 --factory-startup --python-exit-code 1 --python source/deps/render_four_views.py -- model.glb --output-dir OUTPUT --revision r001 --resolution 768 --samples 32 --turntable-frames 0 --views front,side,top,hero",
+  "source_dependency_policy": "All project modules bundled under source/deps. Uses only Blender bundled Python modules and standard library. No model-relative external paths, network or textures."
+}

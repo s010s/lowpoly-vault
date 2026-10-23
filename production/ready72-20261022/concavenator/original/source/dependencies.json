@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "canonical lowpoly-vault scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/inspect_model.py",
+      "sha256": "5d131a5b295dfcb44c64b5fde504efa03453a15bc89d8bacd42aa7e68f6d84a4",
+      "origin": "model-local implementation",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "canonical lowpoly-vault scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "canonical lowpoly-vault scripts/render_candidate_views.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_model_views.py",
+      "sha256": "fb3b236af9bc1c3c2ede4eaac881ab18537a9111b735a9f23d1cb5849f531fdf",
+      "origin": "model-local implementation",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "api": "bpy, bmesh, mathutils"
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender"
+    }
+  ],
+  "canonical_pin": "Exact content hashes of copied canonical worktree scripts; no Git commit identity is asserted.",
+  "rebuild_policy": "Two isolated copies of source/ build independently without imports from any other model directory."
+}

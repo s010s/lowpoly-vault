@@ -1,0 +1,65 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "maclurites",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Broad shell plane in XY, flattened basal surface at z=0, low relief +Z. Put expanded outer terminal sector toward front camera -Y; top +Z shows same coil silhouette. No diagnostic bottom anatomy invented."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual same-specimen visual and published diameter support bounded fossil-shell interpretation; concept would add no evidence."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Maclurites flat-bottomed spiral shell",
+    "zh": "Maclurites 平底盘螺"
+  },
+  "inventory_ordinal_one_based": 867,
+  "taxon": "Maclurites sp.",
+  "representation": "original low-poly fossil-shell interpretation",
+  "primary_specimen": "PRI 76290",
+  "context": {
+    "era": "ordovician",
+    "formation": "Chazy Limestone",
+    "locality": "Clinton County, New York"
+  },
+  "scope": "Single low broad asymmetric coiled fossil shell, visually anchored to PRI76290. Not a specimen scan, no living animal, no copied mesh or texture.",
+  "scale": {
+    "unit": "meters",
+    "diameter_m": 0.11,
+    "working_height_m": 0.03,
+    "basis": "PRI gives approximate shell diameter11cm. Height30mm is a conservative modelling proportion, NOT measured museum height.",
+    "uncertainty": "Reference inspected is oblique/top preview, not underside. Flat lower face is group-level form support; exact bottom and aperture preservation are unverified and kept simple."
+  },
+  "required_features": [
+    "Low broad asymmetric coiled shell, not an upright turret, perfect planar ammonite, doughnut or simple disc.",
+    "Match actual PRI76290 preview: compact center and roughly three expanding visible turns; dominant broad outer whorl, subtle sutural grooves and irregular weathered perimeter.",
+    "Maintain nearly flat lower face and low upper relief. Underside is a conservative interpretation, not claimed observed surface.",
+    "Outer terminal sector must remain broader/heavier than inner coil, with uneven fossil-like rim. Do not invent a pristine flared open tube or deep black aperture: reference terminal preservation is uncertain.",
+    "Use restrained limestone gray/tan original flat colors and light asymmetry; do not turn color/noise into substitute for geometric whorl structure.",
+    "Read clearly in four standard views, with low profile in front/side and expanding coil in top."
+  ],
+  "forbidden": [
+    "Soft body, tentacles or operculum invented from modern snails",
+    "Symmetric ammonite ribs/chambers or perfect torus",
+    "High conical spire",
+    "Third-party meshes or image textures",
+    "Ground, decorative base, label in GLB"
+  ]
+}

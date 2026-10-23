@@ -1,0 +1,76 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "canonical_origin": "s010s/lowpoly-vault/scripts/asset_common.py",
+      "version_pin": "sha256 content pin; canonical repository-source snapshot restored 2026-10-22, not another model directory",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "canonical_origin": "s010s/lowpoly-vault/scripts/qa_glb.py",
+      "version_pin": "sha256 content pin; canonical repository-source snapshot restored 2026-10-22, not another model directory",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "canonical_origin": "s010s/lowpoly-vault/scripts/render_candidate_views.py",
+      "version_pin": "sha256 content pin; canonical repository-source snapshot restored 2026-10-22, not another model directory",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_source.py",
+      "sha256": "71dfc792131ef409ca56a6e88fcb01f73230dce008dfa55bdd1a38a72eb19310",
+      "canonical_origin": "Original model-specific read-only source check",
+      "version_pin": "sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "canonical_origin": "s010s/lowpoly-vault/scripts/validate_gltf.cjs",
+      "version_pin": "sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/rebuild_audit.py",
+      "sha256": "6834c746d57fc64b3f83dd6eae2025e28c56a5bee548b33d46a982dd531a4482",
+      "canonical_origin": "Original model-specific reproduction evidence utility",
+      "version_pin": "sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_three.mjs",
+      "sha256": "fb9378acbf0199e677504b497f8882fc25bb3a41aeae700970305a6844289a03",
+      "canonical_origin": "Original model-specific reproduction evidence utility",
+      "version_pin": "sha256",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "required": true
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled Python 3.13",
+      "required": true
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Optional reproduction of official format QA, not a generator dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Target runtime parser QA, not a generator dependency"
+    }
+  ],
+  "dependency_policy": "All generator imports other than Python stdlib and Blender bpy/bmesh/mathutils are in source/deps. No dependency on another asset or external data. QA/render tools are included but do not load reference photos."
+}

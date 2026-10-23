@@ -1,0 +1,73 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "hippurites",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 5500,
+    "max_materials": 4,
+    "max_primitives": 8,
+    "max_glb_bytes": 650000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z shell axis; narrow base at Z=0 and broad capped end at Z=0.210m. Front -Y, side +X, top +Z. Center XY."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Museum specimen thumbnail plus published metric and university anatomical description sufficiently constrain simple shell form."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Hippurites rudist shell",
+    "zh": "Hippurites 厚壳蛤化石壳"
+  },
+  "inventory_ordinal_one_based": 902,
+  "taxon": "Hippurites, shell-body reference Hippurites radiosus PRI 80129",
+  "representation": "original low-poly fossil-form reconstruction, composite evidence",
+  "context": {
+    "era": "cretaceous",
+    "locality": "Dordogne, France (PRI 80129)"
+  },
+  "primary_specimen": "PRI 80129, Paleontological Research Institution",
+  "scope": "Interpretative shell-form reconstruction. Lower valve silhouette and 210 mm scale from PRI 80129. Low flat circular upper valve is genus-level anatomical reconstruction supported by University of Padua, NOT asserted preserved on PRI 80129. No soft anatomy or exact scan claim.",
+  "scale": {
+    "unit": "meters",
+    "working_dimensions_mm": {
+      "height_z": 210,
+      "width_x": 115,
+      "depth_y": 105
+    },
+    "basis": "PRI publishes length 21 cm. Width and depth are working proportional estimates from oblique thumbnail, not measured specimen dimensions; modest asymmetry acceptable. Total height includes interpretive thin lid."
+  },
+  "required_features": [
+    "Upright thick cylindrical-conical lower valve, narrow truncated basal point at Z0, gradually expands toward broad circular/oval upper margin. Not a spiral gastropod or sharply triangular spike.",
+    "Asymmetric gentle axial curve and subdued longitudinal ribbing plus a few uneven growth bands; use broad geometric features, not phototexture.",
+    "Thin low nearly flat circular upper valve closes broad end, with a readable circumferential valve seam. This lid is a sourced genus-level interpretation, not copied specimen preservation.",
+    "Three modest longitudinal furrows can be suggested, with weaker radial surface relief on lid. Do not invent large ventilation holes or a central spiral.",
+    "No sediment matrix, museum labels, detached chips, or painted registration number."
+  ],
+  "simplifications": [
+    "No exact specimen surface reproduction. PRI basal taper and outline guide original mesh; paired-valve restoration is explicitly composite.",
+    "Internal pillars, hinge teeth and microscopic radial porosity omitted because closed-shell display hides them and source resolution is inadequate.",
+    "Muted chalky beige stone palette is artistic, not original life colour. No downloaded third-party mesh or image texture."
+  ],
+  "acceptance_focus": [
+    "Four views show a thick tapering shell approximately 210:115:105, not uniform tube or hollow vase.",
+    "Upper lid stays low and approximately planar, distinct rim seam without massive dome.",
+    "Prioritize silhouette and valve distinction; do not add costly microdetail or unnecessary concept generation."
+  ],
+  "maker_notes": [
+    "Read private/research.md and visually inspect private/pri80129.jpg first.",
+    "Same localdir maker to independent QA. READY then FINAL. No maker uploads or cleanup; root coordinates async backup and grouped integration.",
+    "User asleep: internal candidate only, no external publication."
+  ]
+}

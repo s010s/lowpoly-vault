@@ -1,0 +1,95 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": {
+        "repository": "s010s/lowpoly-vault",
+        "canonical_path": "scripts/asset_common.py",
+        "pin": "Exact content SHA-256 in this record; restored canonical project snapshot on 2026-10-22"
+      }
+    },
+    {
+      "path": "source/deps/inspect_geometry.py",
+      "sha256": "7e4640dbc16ce97419c6a4d75ab15f44bbbae97b0ea460e948b63505ebdce1df",
+      "license": "MIT",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "kind": "Original model-specific support code"
+      }
+    },
+    {
+      "path": "source/deps/parse_runtime.mjs",
+      "sha256": "b6ae60c65e5bb221008aecacf906ba3973d2b4343f1fc9c56bb46cb5837d5ef1",
+      "license": "MIT",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "kind": "Original model-specific support code"
+      }
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": {
+        "repository": "s010s/lowpoly-vault",
+        "canonical_path": "scripts/qa_glb.py",
+        "pin": "Exact content SHA-256 in this record; restored canonical project snapshot on 2026-10-22"
+      }
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "cb8158fe8539c0eebc7ba91148af7bbff182907f2d8cca58394d5c022cd06166",
+      "license": "MIT",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "kind": "Original model-specific support code"
+      }
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": {
+        "repository": "s010s/lowpoly-vault",
+        "canonical_path": "scripts/validate_gltf.cjs",
+        "pin": "Exact content SHA-256 in this record; restored canonical project snapshot on 2026-10-22"
+      }
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "bundled Python standard library"
+      ],
+      "role": "Generate, inspect and render"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47",
+      "role": "Bundled Blender exporter"
+    },
+    {
+      "name": "Node.js",
+      "version": "v24.19.0",
+      "role": "Optional technical checks only, not model generation"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "Official Khronos validation; Apache-2.0 runtime dependency, not bundled"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "role": "GLTFLoader parse test only; MIT runtime dependency, not bundled"
+    }
+  ],
+  "generation_dependency_closure": "The generator imports only its own source/deps/asset_common.py and qa_glb.py plus Blender and its standard library. Two isolated copies are rebuilt below; no other model directory is required."
+}

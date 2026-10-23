@@ -1,0 +1,80 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pinna",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 5500,
+    "max_materials": 4,
+    "max_primitives": 8,
+    "max_glb_bytes": 650000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Anterior pointed tip at -X; broad posterior end at +X. Dorsal edge +Z, ventral edge -Z. Valves face ±Y with median keels. Base at Z=0 after centering appropriately. Front camera -Y shows full119mm lateral profile; side +X looks at broad end."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Peer-reviewed published reconstruction provides lateral, ventral,4cross-sections and interior plus specimen photos and metric table. Enough evidence; no generated concept necessary."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Pinna Jurassic pen shell",
+    "zh": "Pinna 侏罗纪江珧化石壳"
+  },
+  "taxon": "Pinna (Cyrtopinna) socialis d’Orbigny, 1850",
+  "inventory_ordinal_one_based": 896,
+  "representation": "fossil-specimen interpretation",
+  "primary_specimen": "VTT001-7, Paléontologie A16 / Jurassica collection, Switzerland",
+  "context": {
+    "era": "jurassic",
+    "age": "Lower Kimmeridgian",
+    "formation": "Banné Marls, Reuchenette Formation",
+    "locality": "Vâ Tche Tchâ near Courtedoux, Switzerland"
+  },
+  "scope": "Original low-poly reconstruction of shell form based mainly on VTT001-7 as reconstructed in Koppka2018 Text-fig4 and photographed Plate1 J-L. Reconstructed missing pointed end is an interpretation, not an exact preserved scan.",
+  "scale": {
+    "unit": "meters",
+    "working_dimensions_mm": {
+      "length_x": 119,
+      "height_z": 32,
+      "paired_inflation_y": 19.6
+    },
+    "basis": "Paper p29 table VTT001-7 H=3.2cm, L=(11.9)cm, I=0.98cm; p27defines I as single-valve inflation. Thus nominal two-valve thickness about2I=19.6mm.",
+    "uncertainty": "L is author-estimated from incomplete fossil, explicitly parenthesized. Thickness approximation assumes paired inflation; asymmetry is simplified. Not exact specimen geometry."
+  },
+  "required_features": [
+    "Long narrow lanceolate wedge, pointed anterior end expanding toward a broad rounded/truncate posterior edge; maximum width much less than length.",
+    "Two opposed moderately inflated valves with longitudinal meeting seam; not a flat leaf, solid spike or scallop fan.",
+    "Each valve has strong longitudinal median keel separating dorsal and ventral areas; cross section evolves from near-round at pointed end to rhomboidal/lanceolate toward posterior.",
+    "Nearly straight dorsal margin and gently convex ventral margin, anterior opening angle about25degrees; broad end should not flare into a wide fan.",
+    "Narrow byssal gape on anteroventral meeting edge, as indicated by Fig4B and Plate1B. Use small anatomically placed opening, not giant clamshell separation.",
+    "Weak radial ridges on dorsal half, roughly8 simplified at adult end; anterior comparatively smooth. Subtle curved growth lines on ventral half; no modern Pinna rudis spikes."
+  ],
+  "simplifications": [
+    "Reconstruct pointed end as author Fig4, explicitly missing in actual VTT001-7; no claim of complete preservation.",
+    "Omit fine microscopic prismatic structure, many growth lines, fractures, sediment matrix, soft animal, byssal threads, and hidden muscle scars.",
+    "Artistic muted stone/tan palette; no claim of original life colors, no photo textures or reused meshes.",
+    "Closed presentation with narrow seam and small byssal gape; no need to expose or invent full inner nacre anatomy."
+  ],
+  "acceptance_focus": [
+    "Front lateral silhouette matches Fig4A with119:32 proportions, not an equilateral triangle.",
+    "Top and end views show paired valve volume and median keels, total thickness near19.6mm.",
+    "Meeting edges and byssal gape are actual geometry, no detached decorative stripe.",
+    "Default four final views only; use cheap gray previews to catch shape before final render."
+  ],
+  "maker_notes": [
+    "Same localdir across maker and independentQA. Report READY and FINAL; no maker upload or local deletion.",
+    "User sleeping: candidate only, no external publish here; root handles asynchronous private backup and later grouped integration.",
+    "PDF/figure screenshots restricted to private research; public delivery original geometry/source plus source attribution, no plates.",
+    "Read private/research.md and view fig4.png and plate1.png; selected species is socialis, NOT lanceolata or modern rudis or Pliocene caloosaensis."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts content snapshot 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_export.cjs",
+      "sha256": "0db331ad77b5b281d81f75a07be07728fb22df01c6bf4ad2114610d004efb1c5",
+      "origin": "original model-local wrapper or test",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_three.mjs",
+      "sha256": "c3a9f891be5f69bc4052a0a29c9856192f2a5083663787488508562b9f81ec54",
+      "origin": "original model-local wrapper or test",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts content snapshot 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_asset_views.py",
+      "sha256": "614ab73df583251c2111cac5e660eb064f28b4b69fd9c6c7b173f8a83cc581b3",
+      "origin": "original model-local wrapper or test",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts content snapshot 2026-10-22",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled": "bpy, bmesh, mathutils, Python standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "optional format QA only; not generator dependency"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "optional CPU parse QA only; not generator dependency"
+    }
+  ],
+  "closure": "generate.py uses only params.json, bundled deps, Blender and standard library. Preview helper included; isolated-copy rebuild evidence follows."
+}

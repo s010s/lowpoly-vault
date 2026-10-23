@@ -1,0 +1,68 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "atopodentatus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, transverse jaw across X, tail+Y, up+Z; neutral swimming pose."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary skull photos and diagrams inspected; diagnostic form established, no generated concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Atopodentatus",
+    "zh": "滤齿龙"
+  },
+  "inventory_ordinal": 449,
+  "taxon": "Atopodentatus unicus",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism with hammer-shaped broad muzzle and dense filtering dentition, not skull-only or generic marine reptile.",
+  "specimen_basis": "IVPP V20291 dorsal skull and V20292 ventral skull, actual photos/interpretations Fig1–2 in Li et al.2016. Body follows paper postcranial description; living surface and pose inferred, not copied paleoart.",
+  "scale": {
+    "body_length_m": 2.75,
+    "basis": "Approximate genus-sized artistic target from indexed IVPP/CAS author news; direct news page timed out, not a measured V20291 length. Primary skull photos carry2cm bars."
+  },
+  "diagnostic_targets": [
+    "Wide transverse anterior jaw creates a T-shaped hammer muzzle; both upper and lower jaws expand laterally. Eyes remain on skull behind muzzle, not at hammer ends like shark.",
+    "Front edge uses short chisel/peg-like teeth; posterior jaw sides use dense finer needle mesh. Slight gape exposes this distinction without giant predator fangs.",
+    "Heavy elongate trunk, moderately extended neck, large robust forelimbs, complete hindlimbs and long tapering tail; restrained low dorsal contour.",
+    "Whole aquatic reptile body, four limb pairs NOT permitted: exactly four limbs total. Do not add shark fins, turtle shell or whale flukes."
+  ],
+  "uncertainties": [
+    "Colour, soft tissue, webbing and detailed limb/tail profile are reconstruction choices.",
+    "Dentition count deliberately reduced for lowpoly readability, not claimed exact count.",
+    "2014 downturned zipper-mouth reconstruction is superseded by2016 hammerhead evidence; do not copy it."
+  ],
+  "acceptance_checks": [
+    "Top/front clearly shows T-shaped transverse jaw; no drooping vertical zipper or shark-eye placement.",
+    "Front short teeth and side fine teeth remain readable as different functional zones; all rooted, no detached spikes.",
+    "Head remains small relative to stout trunk; do not exaggerate to toy hammerhead monster.",
+    "Four default views only; perspective may reuse preview; original meshes/materials, no copied fossil texture or artwork."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "PASS",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep/maker/QA; maker sends fixedhash COMPLETE and stops. Root asynchronous backup, keep local for integration. No PR/upload/cleanup by production task."
+}

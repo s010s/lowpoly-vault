@@ -1,0 +1,7 @@
+# Attribution and scope
+
+Original Myophoria model, Blender source, renders and documentation: Leon Made This / s010s, CC BY 4.0. Original executable software and copied project helpers: MIT. Full licenses are retained in source/deps/MIT.txt and source/deps/CC-BY-4.0.txt. The fixed Khronos glTF Validator package 2.0.0-dev.3.10 remains Apache-2.0 with its own LICENSE and NOTICES in source/node_modules/gltf-validator.
+
+Scientific photographic reference: Márquez-Aliaga, Ros-Franch, Stori et al., “Anisian bivalves from Serra (Valencia, Iberian Ranges)”, Journal of Iberian Geology 52 (2026),175–195; published online 24 July 2025; DOI 10.1007/s41513-025-00309-6. https://link.springer.com/article/10.1007/s41513-025-00309-6 . Figure 5 g,h,i only; photographs credited AM-A (Ana Márquez-Aliaga); authors 2025, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . Original downloaded plate remains unchanged. Scale overlay and comparison board crop/resize/annotate these panels, as stated on the images.
+
+This is original geometry informed by photographs, not a scan or copied reference mesh. Catalog identifiers are not authenticated: the caption says MGUV 3897 whereas the visible h label appears 3893, and 3897 is also assigned elsewhere in the caption. The model does not claim museum-exact reconstruction. Colors, faceting, symmetric paired surfaces, small preservation interpolation and subdued growth contours are artistic decisions. The original inventory genus target, ordinal 899, IDmyophoria and Triassic context are retained.

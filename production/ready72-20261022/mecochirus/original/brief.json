@@ -1,0 +1,60 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mecochirus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Body axis Y, head -Y, tail+Y, dorsal+Z. Long P1 extend forward and lateral with bent joints in relaxed pose. Front-Y, side+X, top+Z, perspective(+X,-Y,+Z)."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual full-body photo with scale and anatomical comparison sufficient; no extra concept image."
+  },
+  "extra_views": [],
+  "original_inventory_number": 816,
+  "taxon": "Mecochirus longimanatus (von Schlotheim,1820)",
+  "representation": "living-reconstruction",
+  "scope": "Entire Late Jurassic animal based on MNHN.F.B13454, Eichstatt, Fig4A Charbonnier/Garassino2012. Conservative living restoration, not fossil slab or single appendage.",
+  "scale": {
+    "units": "meters",
+    "carapace_length_estimated": 0.035,
+    "body_length_estimated": 0.085,
+    "first_leg_path_length_estimated": 0.155,
+    "body_width_inferred": 0.018,
+    "body_depth_estimated": 0.02,
+    "uncertainty": "All size estimates from Fig4A own2cm bar, not published caliper measurements. CL approximately30-40mm; total body roughly75-95mm; P1 articulated path about140-170mm, pose not straight span. Width inferred because fossil is lateral/compressed."
+  },
+  "anatomy": [
+    "Narrow subcylindrical lobster-like body, not round Eryon disc. Slight downward rostrum, modest eye stalks and conservative antennae.",
+    "Five bilateral walking-leg pairs: P1 extraordinarily elongated and segmented, far longer than body. Preserve distinct proximal segments, very long propodus and long slender movable terminal finger. Subchelate functional ending, NOT two giant opposed lobster claw fingers.",
+    "P2-P5 much shorter slender appendages under thorax. For incompletely exposed terminal structures use modest family-level subchelate P2/P3 and simple P4/P5 as explicitly inferred, no giant claws.",
+    "Six exposed abdominal segments, pointed ventral pleura, slightly flexed tail with central telson and paired uropods. Use low-detail tails where compressed photo lacks fine detail.",
+    "Curved pose and faint surface granules permissible. No long sharp armor spikes or extra legs; no identical pose of overlapping fossil legs necessary."
+  ],
+  "restoration_boundaries": [
+    "Fig4A MNHN.F.B13454 only main shape/scale anchor. Fig4B A42005 and4C B13456 are probable dislocated exuviae and must not be reconstructed as normal body layout. Fig4D Palinurina belongs to another genus and is excluded.",
+    "Photographed side supplies body/leg outlines, not living width, color, full bilateral appendage separation, antenna tip length or ventral microanatomy. Those are simple conservative inference.",
+    "Etter2004 species comparison confirms long P1 sometimes5xcarapace and downward rostrum/pointed pleura. Do not apply5xmaximum blindly; use photograph estimated4-5xCL. Other figured M.cf.eckerti is NOT shape anchor.",
+    "2025 Eumorphia revision retains M.longimanatus as Mecochirus type; Eumorphia socialis diagnosis is not transferable."
+  ],
+  "quality_gates": [
+    "Check five leg pairs, markedly long P1 with real articulated segments and subchelate terminal finger, not a modern giant pincer.",
+    "Keep wholebody85mm separate from155mm leg path; sideview recognizably narrow shrimp/lobster body with exposed abdomen.",
+    "Four standard final views. Cheap grey shape check first; side most diagnostic."
+  ]
+}
