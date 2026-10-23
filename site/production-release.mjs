@@ -60,6 +60,13 @@ async function resolveProductionValidationPlan(root='.'){
    git('merge-base','--is-ancestor',base,checkout);
    const clean=()=>contextKeys.every((k,i)=>process.env[k]===context[i])&&readFileSync(context[1]).equals(eventBytes)&&git('rev-parse','HEAD')===checkout&&git('status','--porcelain','--untracked-files=no')===''&&execFileSync('git',['ls-files','-v','-z'],{cwd:key,env:immutableGitEnv(),encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:32*1024*1024}).split('\0').filter(Boolean).every(line=>line.startsWith('H '));
    if(!clean())return full('Tracked worktree/index changed');
+   // Shared implementation changes must select full validation before any
+   // append-only reuse assertion (e.g. a newly reviewed compatibility bridge).
+   // Full collection still verifies every descriptor, bridge and quality gate.
+   const paths=execFileSync('git',['diff','--no-renames','--name-only','-z',base,checkout],{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean);
+   const {LEGACY_OUTPUTS:scopeOutputs}=await import('./model-registry.mjs');
+   const derivedPaths=new Set(Object.values(scopeOutputs));
+   if(paths.some(p=>/^(?:site\/|scripts\/|\.github\/|schemas\/)|(?:^|\/)package(?:-lock)?\.json$/.test(p)&&!derivedPaths.has(p)&&!p.startsWith('site/public/gallery/posters/')))return full('Shared implementation/runtime changed');
    const authenticated=await fetchVerifiedProductionBase({root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
    if(!authenticated.capability)return full(authenticated.reasons.join('; '));
    const baseline=authenticatedProductionBase(authenticated.capability,{root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
@@ -93,9 +100,6 @@ async function resolveProductionValidationPlan(root='.'){
    for(const batch of currentModels.batches){allPaths.add(`registry/batches/${batch.id}.json`);if(!oldBatches.has(batch.id)){assert(batch.records.every(r=>added.has(r.id)),'New batch must own only added IDs');for(const pin of batch.evidence){assert(allPaths.has(pin.path),'New evidence is not in production source closure');assert.equal(hash(await read(key,pin.path)),pin.sha256,'Registry evidence hash changed');}}}
 
    // No directory exemptions: new catalog-side inputs must enter a validated graph.
-   const paths=execFileSync('git',['diff','--no-renames','--name-only','-z',base,checkout],{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean);
-   const derivedPaths=new Set(Object.values(LEGACY_OUTPUTS));
-   if(paths.some(p=>/^(?:site\/|scripts\/|\.github\/|schemas\/)|(?:^|\/)package(?:-lock)?\.json$/.test(p)&&!derivedPaths.has(p)&&!p.startsWith('site/public/gallery/posters/')))return full('Shared implementation/runtime changed');
    if(paths.some(p=>!allPaths.has(p)))return full('Changed path outside validated source closure');
    const objects=ref=>new Map(execFileSync('git',['ls-tree','-r','-z',ref],{cwd:key,env:immutableGitEnv(),stdio:['ignore','pipe','pipe'],encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean).map(row=>{const tab=row.indexOf('\t');assert(tab>0,'Malformed Git tree entry');return [row.slice(tab+1),row.slice(0,tab)];}));
    const baseObjects=objects(base),headObjects=objects(checkout);

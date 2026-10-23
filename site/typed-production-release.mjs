@@ -5,6 +5,7 @@ import {resolve,sep,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {sha256,SOURCE_ROLES,assertProductionMaterial,validateInventoryCompatibilityReceipt,verifyInventoryCompatibilityReceipt,validateNativeInventoryMeasurements,bindNativeInventoryGlb,verifyExactLocalSourceAvailability,preserveUnverifiedRuntimeStatus,validateSupplementaryReviewBinding} from './inventory-type-acceptance.mjs';
+import {validateModelTaskV2Receipt,verifyModelTaskV2Review,validateV2Measurements,preserveV2Runtime} from './model-task-v2-acceptance.mjs';
 const digest=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 const text=x=>typeof x==='string'&&Boolean(x.trim());
 async function read(root,path){assert(text(path)&&!/[\\\u0000-\u001f?#%]/.test(path)&&!path.startsWith('/')&&path.split('/').every(p=>p&&p!=='.'&&p!=='..'),'Unsafe typed production path');const full=resolve(root,path);assert(full.startsWith(resolve(root)+sep));assert.equal(await realpath(full),full,'Typed source symlink rejected');return readFile(full);}
@@ -25,27 +26,32 @@ export async function inspectTypedProductionRelease(root,descriptorPath,raw,regi
   assertProductionMaterial(asset);assertProductionMaterial(record);
   assert.equal(asset.id,item.id);assert.equal(record.asset_id,item.id);assert.equal(record.kind,'compact-typed-production-release-v1');assert.equal(record.schema_version,1);assert.equal(record.productionAccepted,true);identity(record.maker);
   assert.equal(asset.production_release,descriptorPath);assert.equal(asset.revision,record.revision);assert.deepEqual(record.blocking_findings,[]);
-  assert.equal(asset.production_acceptance_adapter,'inventory-types-v1','Explicit typed metadata route required');
+  const v2=asset.production_acceptance_adapter==='model-task-v2';
+  assert(v2||asset.production_acceptance_adapter==='inventory-types-v1','Explicit typed metadata route required');
+  if(v2)assert(descriptor.implementation.some(p=>p.path==='site/model-task-v2-acceptance.mjs'),'Missing v2 implementation dependency');
   assert.deepEqual(Object.keys(record.roles).sort(),[...SOURCE_ROLES].sort());
   const roleBytes={};for(const role of SOURCE_ROLES){roleBytes[role]=await pinned(root,record.roles[role]);if(!record.source_role_derivations?.[role])assert.equal(record.subject[role],record.roles[role].sha256);}
   assert(Array.isArray(record.build_closure)&&record.build_closure.length>=2);for(const pin of record.build_closure)await pinned(root,pin);
   const brief=JSON.parse(await pinned(root,record.roles.brief)),references=JSON.parse(await pinned(root,record.roles.references)),receipt=JSON.parse(await pinned(root,record.typed_compatibility));
-  assert.equal(receipt.kind,'compact-inventory-compatibility-v1','Production requires compact public proof, not raw private QA');
+  assert.equal(receipt.kind,v2?'compact-model-task-v2-compatibility-v1':'compact-inventory-compatibility-v1','Production requires compact public proof, not raw private QA');
+  if(v2)assert.equal((record.independence_evidence||[]).length,0,'V2 must use its exact independent projection review');
   for(const pin of record.independence_evidence||[])validateSupplementaryReviewBinding(JSON.parse(await pinned(root,pin)),record,receipt);
-  const budget=validateInventoryCompatibilityReceipt(receipt,record,asset,brief,references);
-  assert.equal(asset.reconstruction_type,typeof brief.subject==='object'?brief.subject.reconstruction_type:'whole-organism','Original reconstruction scope relabeled');
+  const budget=(v2?validateModelTaskV2Receipt:validateInventoryCompatibilityReceipt)(receipt,record,asset,brief,references);
+  if(!v2)assert.equal(asset.reconstruction_type,typeof brief.subject==='object'?brief.subject.reconstruction_type:'whole-organism','Original reconstruction scope relabeled');
   assert.deepEqual(record.frozen_budget,budget,'Frozen budget changed');
   for(const [name,role]of [['glb','finalGLB'],['blend','finalBlend']]){assert.equal(asset[name],record.roles[role].path);assert.equal(asset.sha256[name],record.roles[role].sha256);}
   assert.equal(record.legacy_record?.mutated,false);assert.equal(record.legacy_record.approval_rewritten,false);
   const sourceAvailability=verifyExactLocalSourceAvailability(record,receipt,roleBytes);
   bilingual(asset.name);bilingual(asset.description);bilingual(record.scientific_limits);assert.deepEqual(asset.description,record.scientific_limits);assert.equal(asset.license,'CC-BY-4.0');assert.equal(asset.units,'meters');assert(Array.isArray(asset.reference_credits)&&asset.reference_credits.length);
-  assert.deepEqual(asset.reference_credits.map(s=>({title:s.title,url:s.url})),references.sources.map(s=>({title:s.title,url:s.url})),'Original reference credits changed');
+  const originalCredits=v2?(references.sources??references.references).map(s=>({title:s.title??s.id??s.url,url:s.url})):references.sources.map(s=>({title:s.title,url:s.url}));
+  assert(originalCredits.every(s=>text(s.title)&&text(s.url)),'Missing original reference credit label/URL');
+  assert.deepEqual(asset.reference_credits.map(s=>({title:s.title,url:s.url})),originalCredits,'Original reference credits changed');
   await pinned(root,record.preview);assert.equal(asset.preview,record.preview.path);assert.equal(asset.sha256.preview,record.preview.sha256);assert.equal(record.preview_provenance.source_glb_sha256,asset.sha256.glb);
   // A newly rendered preview must not be labeled as an old independently accepted image.
   assert.equal(record.preview_provenance.route,'fresh_final_glb_poster');assert.equal(record.preview_provenance.independently_reviewed_original_preview,false);assert.equal(record.preview.sha256,record.final_posters.detail.sha256);
   const native=bindNativeInventoryGlb(await pinned(root,record.roles.finalGLB),JSON.parse(execFileSync('python3',[resolve(dirname(fileURLToPath(import.meta.url)),'../scripts/qa_glb.py'),resolve(root,asset.glb),'--max-triangles',String(budget.max_triangles),'--max-materials',String(budget.max_materials),'--max-primitives',String(budget.max_primitives)],{encoding:'utf8',maxBuffer:2*1024*1024,env:{...process.env,PYTHONDONTWRITEBYTECODE:'1'}})));
-  validateNativeInventoryMeasurements(native,asset,record,receipt);
-  record.postReleaseVerified=preserveUnverifiedRuntimeStatus(record.postReleaseVerified);
+  (v2?validateV2Measurements:validateNativeInventoryMeasurements)(native,asset,record,receipt);
+  record.postReleaseVerified=v2?preserveV2Runtime(record,receipt):preserveUnverifiedRuntimeStatus(record.postReleaseVerified);
   if(asset.postReleaseVerified!==undefined)asset.postReleaseVerified=preserveUnverifiedRuntimeStatus(typeof asset.postReleaseVerified==='string'?{status:asset.postReleaseVerified}:asset.postReleaseVerified);
   // Preserve a reported post-release FAIL rather than rewriting it; remediation is a separate layer.
   assets.push(asset);records.push(record);audits.push({id:asset.id,status:'PASS',native,compatibility:receipt,sourceAvailability});
@@ -62,14 +68,14 @@ export async function verifyTypedProjectionReviews(root,result,projectionReview)
   const asset=result.assets[i],record=result.records[i],review=projectionReview.inventory_compatibility.find(r=>r.asset_id===asset.id);
   assert(review,'Missing exact typed review');assert.deepEqual(review.reviewer,projectionReview.reviewer,'Typed/overall independent reviewer mismatch');
   const receipt=JSON.parse(await pinned(root,record.typed_compatibility)),brief=JSON.parse(await pinned(root,record.roles.brief)),refs=JSON.parse(await pinned(root,record.roles.references));
-  verifyInventoryCompatibilityReceipt(receipt,record,asset,brief,refs,review);
+  (asset.production_acceptance_adapter==='model-task-v2'?verifyModelTaskV2Review:verifyInventoryCompatibilityReceipt)(receipt,record,asset,brief,refs,review);
  }
 }
 
 const jsonHash=value=>sha256(Buffer.from(JSON.stringify(value)));
 const exactKeys=(value,keys,label)=>assert.deepEqual(Object.keys(value||{}).sort(),keys.slice().sort(),'Unknown/missing '+label+' fields');
 const exactPin=pin=>exactKeys(pin,['path','bytes','sha256'],'pin');
-export const COMPATIBILITY_CURRENT_PATHS=Object.freeze(['site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py','site/production-publication.mjs','site/ci-production-release-check.mjs','site/ci-historical-publication.mjs','site/ci-poster-approval-test.mjs','site/turntable-delivery-test.mjs','site/model-registry.mjs','site/model-registry-sync.mjs','site/model-registry-cli.mjs','site/ci-production-baseline.mjs','site/ci-proof-fetch.mjs','site/ci-proof-budget.mjs','site/ci-git.mjs']);
+export const COMPATIBILITY_CURRENT_PATHS=Object.freeze(['site/ci-release-fast-scope.mjs','site/production-release.mjs','site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/model-task-v2-acceptance.mjs','site/asset-delivery.mjs','scripts/qa_glb.py','scripts/asset_common.py','site/production-publication.mjs','site/ci-production-release-check.mjs','site/ci-historical-publication.mjs','site/ci-poster-approval-test.mjs','site/turntable-delivery-test.mjs','site/model-registry.mjs','site/model-registry-sync.mjs','site/model-registry-cli.mjs','site/ci-production-baseline.mjs','site/ci-proof-fetch.mjs','site/ci-proof-budget.mjs','site/ci-git.mjs']);
 export async function loadProductionRegistry(root,path){
  const registry=JSON.parse(await read(root,path));exactKeys(registry,['schema_version','kind','descriptors','asset_ids'],'production registry');assert.equal(registry.schema_version,1);assert.equal(registry.kind,'production-release-set-v1');
  assert(Array.isArray(registry.descriptors)&&registry.descriptors.length>0);assert(Array.isArray(registry.asset_ids)&&registry.asset_ids.length>0&&new Set(registry.asset_ids).size===registry.asset_ids.length);assert(registry.asset_ids.every(id=>/^[a-z0-9][a-z0-9-]*$/.test(id)));

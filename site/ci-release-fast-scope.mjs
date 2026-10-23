@@ -1,5 +1,6 @@
 /** Fail-closed append classification. Eligibility is NOT baseline trust or a PASS. */
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
 import {execFileSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
@@ -9,6 +10,41 @@ import {immutableGitEnv} from './ci-git.mjs';
 const aggregates=new Set(['assets/manifest.json','site/catalog-data.json','assets/turntables/index.json','site/gallery/wheel-framing.json','site/public/gallery/resources.json','production/production-releases-r002.json']);
 const equal=(a,b,m)=>assert(isDeepStrictEqual(a,b),m||'Append-only comparison differs');
 const prefix=(a,b,m)=>{assert(Array.isArray(a)&&Array.isArray(b));equal(b.slice(0,a.length),a,m);};
+// Archived per-model Node helpers are data, never release executables. This
+// exception is local to this classifier; the general diff allowlist stays closed.
+function ownedSourceHelpers({old,next,descriptors,ids,readAfterBytes}){
+ const candidates=[...next.keys()].filter(p=>!old.has(p)&&/\.(?:cjs|mjs)$/.test(p));
+ const proven=new Set();if(!candidates.length)return proven;
+ const hash=b=>createHash('sha256').update(b).digest('hex');
+ const pinBytes=pin=>{
+  assert(pin&&typeof pin.path==='string'&&/^[a-f0-9]{64}$/.test(pin.sha256)&&Number.isSafeInteger(pin.bytes)&&pin.bytes>0,'Exact owned source pin required');
+  assert(next.has(pin.path)&&next.get(pin.path).mode==='100644','Owned source must be a regular nonexecutable Git file');
+  const bytes=readAfterBytes(pin.path);assert.equal(bytes.length,pin.bytes,'Owned source bytes differ');assert.equal(hash(bytes),pin.sha256,'Owned source SHA differs');return bytes;
+ };
+ const seen=new Set();
+ for(const entry of descriptors){
+  assert(!old.has(entry.path),'Owned source requires a new descriptor');
+  const descriptor=JSON.parse(pinBytes(entry)),root=entry.path.slice(0,entry.path.lastIndexOf('/')+1);
+  assert(['production-release-v1','typed-production-release-v1'].includes(descriptor.kind),'Unknown source owner descriptor');
+  for(const item of descriptor.assets){
+   assert(ids.has(item.id)&&!seen.has(item.id),'Source owner must be a unique new asset');seen.add(item.id);
+   const assetRoot=root+item.id+'/';
+   assert(item.evidence.path.startsWith(assetRoot)&&!old.has(item.evidence.path),'Source evidence outside new asset');
+   assert((item.metadata.path.startsWith(assetRoot)||item.metadata.path.startsWith('assets/additions/'+item.id+'/'))&&!old.has(item.metadata.path),'Source metadata outside new asset');
+   const asset=JSON.parse(pinBytes(item.metadata)),record=JSON.parse(pinBytes(item.evidence));
+   assert.equal(asset.id,item.id);assert.equal(asset.production_release,entry.path);assert.equal(record.asset_id,item.id);
+   assert(Array.isArray(record.build_closure));const closurePaths=new Set();
+   for(const pin of record.build_closure){assert(!closurePaths.has(pin.path),'Duplicate source closure member');closurePaths.add(pin.path);pinBytes(pin);
+    if(/\.(?:cjs|mjs)$/.test(pin.path)){
+     assert(pin.path.startsWith(assetRoot+'original/source/deps/'),'Source helper outside its owning asset dependency directory');
+     assert(!old.has(pin.path),'Source helper must be new');assert(!proven.has(pin.path),'Shared source helper refused');proven.add(pin.path);
+    }
+   }
+  }
+ }
+ for(const path of candidates)assert(proven.has(path),'Unproven new JavaScript dependency: '+path);
+ return proven;
+}
 export function classifyReleaseAppend({beforeEntries,afterEntries,readBefore,readAfter,readAfterBytes}){
  try{
   const entries=rows=>{const m=new Map();for(const r of rows){assert(!m.has(r.path));assert(r.type==='blob'&&['100644','100755'].includes(r.mode),'Only regular files');m.set(r.path,r);}return m;};
@@ -21,11 +57,12 @@ export function classifyReleaseAppend({beforeEntries,afterEntries,readBefore,rea
   const prodPath='production/production-releases-r002.json',p=readBefore(prodPath),q=readAfter(prodPath);
   const {descriptors:d,asset_ids:i,...ps}=p,{descriptors:e,asset_ids:j,...qs}=q;equal(ps,qs);prefix(d,e,'Previous production descriptors changed');prefix(i,j,'Previous production identities changed');equal([...j.slice(i.length)].sort(),[...ids].sort(),'New production IDs differ');assert(new Set(j).size===j.length);
   const roots=e.slice(d.length).map(row=>{assert(/^production\/[a-z0-9-]+\/release(?:-[a-z0-9]+)?\.json$/.test(row.path));assert(!old.has(row.path),'Existing descriptor reused');return row.path.slice(0,row.path.lastIndexOf('/')+1);});assert(roots.length,'New immutable descriptor required');
+  const ownedHelpers=ownedSourceHelpers({old,next,descriptors:e.slice(d.length),ids,readAfterBytes});
   const own=path=>added.some(asset=>path.startsWith(`assets/additions/${asset.id}/`)||path.startsWith(`assets/turntables/${asset.id}/`)||path.startsWith(`assets/card-previews/${asset.id}-`)||path===`site/public/gallery/posters/${asset.id}.png`||path===`site/public/gallery/posters/${asset.id}-wheel.png`);
   const newPaths=[];for(const [path,row] of next)if(!old.has(path)){
    assert.equal(row.mode,'100644','New executable entry requires full validation');
    assert(!path.split('/').some(x=>x==='..'||x==='.'||!x),'Unsafe path');
-   assert((own(path)&&/\.(?:json|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||(roots.some(r=>path.startsWith(r))&&/\.(?:json|md|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||/^registry\/(?:models\/[^/]+\/revisions\/[a-f0-9]{64}\/record|batches\/[^/]+)\.json$/.test(path),'Unknown new dependency: '+path);
+   assert(ownedHelpers.has(path)||(own(path)&&/\.(?:json|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||(roots.some(r=>path.startsWith(r))&&/\.(?:json|md|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||/^registry\/(?:models\/[^/]+\/revisions\/[a-f0-9]{64}\/record|batches\/[^/]+)\.json$/.test(path),'Unknown new dependency: '+path);
    changes.push(path);newPaths.push(path);
   }
   // Registry projection sorts new definitions into existing arrays. Preserve all
@@ -36,7 +73,7 @@ export function classifyReleaseAppend({beforeEntries,afterEntries,readBefore,rea
   const scopedAfter=p=>p==='site/catalog-data.json'?normalized:readAfter(p);
   // The existing classifier validates catalog additions, poster seals, recipes,
   // typed registry records and projection identity. It is never sufficient alone.
-  const filtered=changes.filter(p=>!p.endsWith('.py')&&!p.endsWith('.txt'));
+  const filtered=changes.filter(p=>!p.endsWith('.py')&&!p.endsWith('.txt')&&!ownedHelpers.has(p));
   const result=assessIncrementalDiff({paths:filtered,before,after,readBefore,readAfter:scopedAfter,registryState:{beforePaths:[...old.keys()],readAfterBytes}});
   assert(result.eligible,result.reasons.join('; '));equal(result.added_ids,[...ids].sort());
   return {eligible:true,mode:'additive',added_ids:[...ids].sort(),changed_paths:changes.sort(),new_paths:newPaths.sort(),reasons:['All pre-existing nonaggregate Git blobs unchanged; known aggregates append only']};

@@ -47,6 +47,8 @@ try{
  await run('owned media deletion never reuses',o=>rmSync(join(o.root,'site/public/gallery/posters/old.png')),p=>assert.deepEqual(p.reusedIds,[]));
  await run('rename to unknown path falls back',o=>o.git('mv','site/public/gallery/posters/old.png','site/public/gallery/posters/renamed.png'),p=>assert.equal(p.mode,'full'));
  await run('shared validator change falls back',o=>o.put('site/checker.mjs','changed'),p=>assert.equal(p.mode,'full'));
+ await run('shared implementation and bridge refresh choose full before reuse assertions',o=>{o.put('site/checker.mjs','changed');o.registry.descriptors[0].compatibility=o.put('production/new-bridge.json',{kind:'deliberately-invalid-fixture'});o.sync();},async(p,o)=>{assert.equal(p.mode,'full');assert.deepEqual(p.reusedIds,[]);await assert.rejects(inspectProductionRelease(o.root,'production/old/descriptor.json'));});
+ await run('bridge refresh alone cannot silently reuse old acceptance',o=>{o.registry.descriptors[0].compatibility=o.put('production/new-bridge.json',{kind:'deliberately-invalid-fixture'});o.sync();},p=>assert.equal(p.mode,'REJECT'));
  await run('shared generator change falls back',o=>o.put('scripts/shared.py','changed'),p=>assert.equal(p.mode,'full'));
  await run('unknown input falls back',o=>o.put('unknown.json',{}),p=>assert.equal(p.mode,'full'));
  await run('forged derived gallery rejected',o=>o.put('site/public/gallery/resources.json',{}),p=>assert.equal(p.mode,'REJECT'));
