@@ -1,0 +1,73 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mesolimulus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head-Y,tail+Y,dorsal+Z; standardfront-Y,side+X,top+Z,perspective(+X,-Y,+Z), extra ventral-Z only forhiddenappendages."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Named actual entire fossil and samespecies comparativephotographs suffice; no extra concepts."
+  },
+  "extra_views": [
+    {
+      "name": "ventral",
+      "camera": "-Z",
+      "reason": "One purposeful underside view toverify concealedappendage counts and ensure wholeanimal ratherthanblank shell.",
+      "path": "views/ventral.png"
+    }
+  ],
+  "original_inventory_number": 808,
+  "taxon": "Mesolimulus walchi Desmarest,1822",
+  "representation": "living-reconstruction",
+  "scope": "Entire Jurassic horseshoe crab based on SMNS65410, Kimmeridgian Nusplingen, not isolated shell or fossil slab.",
+  "scale": {
+    "units": "meters",
+    "prosoma_width_published": 0.104,
+    "prosoma_median_length_estimated": 0.055,
+    "prosoma_genal_extent_estimated": 0.08,
+    "thoracetron_length_estimated": 0.045,
+    "thoracetron_width_estimated": 0.07,
+    "telson_length_estimated": 0.08,
+    "overall_length_estimated": 0.18,
+    "dome_height_inferred": 0.025,
+    "note": "Only104mm prosomalwidth directly published for SMNS65410. Other dimensions roughsameFig1A proportional estimates +/-15percent, not caliperdata. Shellmedianlength excludes longgenalposteriorpoints; bodytotalincludes telson."
+  },
+  "anatomy": [
+    "Domed horseshoe-shaped broad prosoma with narrow raised/flattened marginal rim, paired posterior genalspines, small eyes along paired ophthalmic ridges. No Euproops-style long ophthalmicspines.",
+    "Hinged compact fused thoracetron, roughly trapezoidal/subhexagonal, tapering rearward; marginal articulated spines and smallfixedpoints. Not fan of separate loose abdominal segments.",
+    "Long straight tapering telson, no sting/venomtip; preserve articulation and modest triangularsection.",
+    "Ventral chelicerae pair, four walkingpairs and a final pushingpair using conservative limulid organization; main specimen preserves2compressedprosomallimbs and musclehomologies, not every foot pristine. Smalljointedlegs under shell, no antennae, no oversizedclaws.",
+    "Simple shallow ventral opercular/bookgill covers may be inferred from limulid family organization; do not add detailed unsourced gillmicrostructure."
+  ],
+  "restoration_boundaries": [
+    "SMNS65410 actual photograph and104mmwidth primary.2012/2020 other-specimen photos used for same-species outlinecomparison only, no covertmeasuretransfer.",
+    "Briggs2005 fig1B/C andfig2 show exposed/decayed internalmuscles andgut; these are not living exterior decoration. Trace marks on surrounding substrate are not bodyparts.",
+    "Wholelivingheight, missingleft/right limbpositions, terminaldetails, conservativeventralcovers, pose and mutedcolor are inferred; sex andadultstage notdetermined.",
+    "AtlasFig34A-L same M.walchi; neighboringFig33/35 differenttaxa excluded."
+  ],
+  "quality_gates": [
+    "Check broad104mmfrontshield is not mistaken for overalllength.",
+    "Wholebody legs and telson visible; sixmainprosomalpairs inclchelicerae, notsixwalkingpairs.",
+    "No exposedmuscles,deathtrack,whiteCNS,stinger,modernantennalobster,orEuproopsfan."
+  ],
+  "surface_profile": "Palette-only opaque static original geometry; five material colors; no external texture dependency.",
+  "origin": "Floor contact plane Z=0; origin at prosomal limb footprint center (0,0,0).",
+  "maker_amendment": "Added explicit extra-view path and surface/origin metadata; original prep geometry and factual scope unchanged."
+}

@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pulmonoscorpius",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, dorsal +Z. Keep fixed camera conventions."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual scaled specimen photographs plus published complete reconstruction cover shape; no new concept image necessary."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Complete Carboniferous living scorpion, anchored to NMS G.1987.7.136 with missing appendages interpreted using Dunlop and Garwood 2024 Figure 9, third animal. Not a fossil slab or a modern scorpion substitute.",
+  "scientific_limits": {
+    "en": "Approximate dimensions estimated from the 10 cm bar of specimen NMS G.1987.7.136, not direct measurements or the popular giant maximum. The specimen is fragmented; symmetry, missing limbs, living depth, upward tail pose and color are inferred. Published genus reconstruction guides absent appendages.",
+    "zh": "尺度由 NMS G.1987.7.136 标本照片的 10 厘米图尺估算，不是实测，也不采用网络巨型上限。标本有碎裂，左右对称、缺失附肢、活体厚度、上弯尾姿与颜色为推断；缺失部分参考公开同属复原。"
+  },
+  "original_inventory_number": 824,
+  "taxon": "Pulmonoscorpius kirktonensis",
+  "scale": {
+    "units": "meters",
+    "carapace_length_estimate": 0.05,
+    "carapace_width_estimate": 0.045,
+    "mesosoma_length_estimate": 0.1,
+    "mesosoma_width_estimate": 0.06,
+    "metasoma_telson_centerline_length_estimate": 0.14,
+    "whole_centerline_length_estimate": 0.29,
+    "living_body_depth_inferred": 0.025,
+    "uncertainty": "Approximate photo-bar estimates, about 15-20 percent; total excludes pedipalps and legs and measures tail centerline, not posed bounding box."
+  },
+  "anatomy": [
+    "Broad ribbed mesosoma with seven dorsal tergites; approximately rectangular carapace with anterior median eye prominence interpreted from target Figure 9. Do not copy lateral compound eyes of the second animal, Proscorpius.",
+    "A pair of small anterior chelicerae, one pair of long pedipalps ending in slender fingers and modest palms, and four pairs of walking legs. Walking legs progressively reach farther posteriorly; do not copy digitigrade tapering Palaeophonus legs.",
+    "Five distinct articulated metasomal segments followed by a separate bulbous telson with curved sting. Tail held gently upward in life interpretation, with rounded joints rather than fossil fragment gaps.",
+    "Pedipalp chela fingers long relative to small palm. Do not turn into short massive modern emperor scorpion pincers. Broad dorsum and long segmented tail preserve original visual gate.",
+    "Ventral coxae remain close to sternum as mesoscorpion group A described by Jeram; do not expose internal book lungs as external organs. Tiny uncertain ventral details simplified rather than fabricated."
+  ],
+  "restoration_boundaries": [
+    "Actual NMS specimen is fragmented and appendages displaced. Fossil gaps and detached pincer are taphonomic, not live anatomical segmentation. No claim of complete single-specimen preservation.",
+    "NMS G.1987.7.136 is not asserted to be a holotype; official type-status field does not establish that. Visean, East Kirkton Quarry, Bed 47.",
+    "2024 Figure 9 third animal is a scholarly genus-level whole-animal interpretation, not the NMS specimen scan. Other three genera are excluded.",
+    "Original Jeram abstract accessed; full paywalled text not claimed read. PeerJ and PMC access blocked, no bypass; independently accessible attributed CC-BY Figure 9 was inspected.",
+    "Depth, leg joint pose, tail upcurve and muted brown coloration are interpretation. Do not infer exact color or eye-lens count from black diagram.",
+    "BGS photographs and scientific diagrams remain private research; no borrowed mesh or image texture in product."
+  ],
+  "quality_gates": [
+    "Complete animal: small chelicerae, slender pedipalps, four walking-leg pairs, broad seven-tergite mesosoma, five tail segments and curved telson.",
+    "Compare primary real specimen for broad body and slender detached chela; compare only third animal of Fig.9 for absent paired limbs.",
+    "Tail must be long and gently upcurved, segmented rather than a smooth tube; no fossil fragmentation gaps.",
+    "Dimensions remain approximate specimen-photo estimates, not maximum 70 cm claim.",
+    "Four fixed views only. Reviewer inspect ventral joins directly; no extra default renders."
+  ]
+}

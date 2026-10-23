@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical lowpoly-vault script snapshot copied unchanged, pinned by SHA-256.",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical lowpoly-vault script snapshot copied unchanged, pinned by SHA-256.",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "96fecfe3fbd18425771545486c5013e66d83d2d0fd2aef0ff87b58e3a4a7be92",
+      "provenance": "Original four-view exact-GLB wrapper for this candidate; uses pinned canonical scene, material and camera helpers.",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "Construction and Cycles CPU image evidence, bundled bpy/mathutils/bmesh and glTF addon"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled",
+      "role": "Local deterministic construction without project dependencies outside the source tree"
+    },
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "QA only; not needed to rebuild the geometry"
+    }
+  ]
+}

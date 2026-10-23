@@ -1,0 +1,65 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "hyracodon",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": []
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual named skull and mounted skeleton plus AMNH scientific life-art give adequate original gate references; no additional concept image required."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Whole slender long-legged hornless running-rhino reconstruction with three toes on every foot.",
+  "scientific_limits": {
+    "en": "Whole living reconstruction, not an articulated single specimen or scan. AMNH1480 skull and LACM3342/42889 skeletal mount are separate references. Skull250mm is approximate projection from an image ruler; body dimensions are artistic estimates consistent with pony-sized museum description, not measured mounted bones. Soft tissue, ears, tail covering and colors are inferred.",
+    "zh": "完整活体复原，非单一完整标本或扫描。AMNH1480颅与LACM3342/42889装架为不同参考。颅250毫米是图尺投影估值；身体尺寸是符合馆方小马级描述的复原估值，非实测骨长。软组织、耳形、尾被毛与颜色为推断。"
+  },
+  "original_inventory_ordinal": 627,
+  "taxon": "Hyracodon nebraskensis",
+  "classification": "Hyracodontidae, Rhinocerotoidea, Perissodactyla",
+  "scale": {
+    "unit": "meter",
+    "skull_length_model_m": 0.25,
+    "nose_rump_model_m": 1.35,
+    "shoulder_height_model_m": 0.8,
+    "tail_model_m": 0.35,
+    "status": "Skull approximate image-ruler projection from AMNH1480 (10cm bar), not caliper measurement. Wholebody and tail estimates use AMNH pony-size description and skeletal proportions; perspective mount not used as exact ruler."
+  },
+  "diagnostic_targets": [
+    "Slender long limbs with substantial clearance below ribcage, unlike a barrel-bodied short-legged Teleoceras or hippo-like Metamynodon.",
+    "No nasal or frontal horn: smooth nasal silhouette.",
+    "Three distinct short hoofed toes on all FOUR feet, broad central toe and smaller flanking toes; not horse single hoof.",
+    "Moderately long neck and relatively large deep-cheeked head with constricted muzzle, not tiny deer head or giant Paraceratherium neck.",
+    "Compact non-barrel torso, visible shoulder/hip limb transitions, thin moderately long tail.",
+    "Conservative neutral coat, no exact copying of artist striping or unsupported horn/tusk ornament."
+  ],
+  "review_views": [
+    "front",
+    "side",
+    "top",
+    "perspective"
+  ],
+  "acceptance": [
+    "Gray check against real skull and skeleton before final views; original slender longleg hornless combination preserved.",
+    "Four feet each have three toes, visible in exactGLB front/side/perspective views without extra default renders.",
+    "Differentiate from shortleg rhinos by body-limb proportions, not color/size alone.",
+    "Two isolated builds, proper dependency closure and independent review required."
+  ]
+}

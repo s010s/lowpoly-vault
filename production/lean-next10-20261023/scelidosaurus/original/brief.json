@@ -1,0 +1,92 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "scelidosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 28,
+    "max_glb_bytes": 1800000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "head -Y tail +Y up +Z",
+    "origin": "Identity root at center of grounded four-foot footprint; tail extent does not recenter origin."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real specimen-based cast and skull images sufficient."
+  },
+  "extra_views": [],
+  "inventory_ordinal": 386,
+  "name": {
+    "en": "Scelidosaurus",
+    "zh": "腿龙"
+  },
+  "taxon": "Scelidosaurus harrisonii",
+  "classification": "Dinosauria, Ornithischia, Thyreophora; placement finer than Thyreophora varies among analyses",
+  "representation": "living-reconstruction",
+  "scope": "Whole original elongate quadruped with organized low armour rows.",
+  "scale": {
+    "total_length_m": 4,
+    "basis": "NHM Dino Directory approximate genus size, not exact length of photographed David Sole specimen."
+  },
+  "specimen_basis": "Charmouth Heritage Coast Centre official images of restored cast based on David Sole2000 specimen and skull closeup; explicitly cast/display, not untouched fossil rock.",
+  "diagnostic_targets": [
+    "Elongate deep-bodied four-legged thyreophoran, short forelimbs and stronger longer hindlimbs, not pancaked ankylosaur.",
+    "Repeated low keeled osteoderms in longitudinal/parasagittal dorsal and flank rows extending neck body tail; smaller scattered low scutes between rows.",
+    "Long tapering tail no club or terminal giant spikes.",
+    "Small wedge-shaped herbivorous head, narrow front, broader rear; modest rear-skull horn knobs consistent with pictured specimen, not giant ceratopsian horns.",
+    "Neck remains visible and four feet grounded, joint transitions coherent."
+  ],
+  "uncertainties": [
+    "Armour exact count and complete life arrangement not copied as measured; simplify consistent rows based on fossil pattern.",
+    "Posterior skull projections seen in specific specimen; sexual interpretation not established and not encoded.",
+    "Fleshy contour, skin colour and modest keratin covering inferred.",
+    "Photos show cast/restoration; no claim original specimen directly inspected."
+  ],
+  "acceptance_checks": [
+    "Whole elongated quadruped, four legs, neck and long tapering tail.",
+    "Low repeated keeled armour in rows clearly visible without huge plates.",
+    "No tailclub or thagomizer, no oversized shoulder horns.",
+    "Four standard views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same directory maker QA, maker COMPLETE fixedhash stops; root async backup local-first integration, no maker upload cleanup.",
+  "style": {
+    "profile": "palette-only original refined low-poly",
+    "normals": "deliberate flat polygon facets",
+    "palette": "warm olive skin, muted ochre belly and ivory-tan armour; wholly artistic",
+    "purpose": "individually inspectable static museum asset; no historical skin-colour claim"
+  },
+  "runtime_scope": {
+    "technical_required": [
+      "source audit",
+      "standalone GLB audit",
+      "Khronos validator",
+      "two isolated semantic rebuilds",
+      "actual-export four-view rendering"
+    ],
+    "independent_visual_factual_specification": "pending root independent reviewer",
+    "gpu": "not run, separate integration/runtime gate",
+    "populated_scene": "not run, separate integration gate",
+    "user_approval": "not obtained",
+    "publication": "not authorized in this maker task"
+  }
+}

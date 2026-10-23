@@ -1,0 +1,59 @@
+{
+  "status": "SELF_CONTAINED_SOURCE",
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Copied unmodified from s010s/lowpoly-vault canonical scripts snapshot; exact version pinned by SHA256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Copied unmodified from s010s/lowpoly-vault canonical scripts snapshot; exact version pinned by SHA256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_asset.py",
+      "sha256": "0ba23ee4797f44f258bd7efb8048988b3fa29bfe02ff76e9933dc3e38c7056fe",
+      "provenance": "Original asset four-view driver",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "ee1f4f9382ef2af11417bde026f13220e17fda9c49fe8e16ef05e973eba3196a",
+      "provenance": "Derived from canonical s010s/lowpoly-vault render_candidate_views.py; only the documentation output-directory example was made relative before this candidate was frozen. Executable code unchanged.",
+      "license": "MIT",
+      "upstream_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "required_for": "generation and exact-export reference rendering"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled Python",
+      "required_for": "generation"
+    }
+  ],
+  "validation_only_runtime": [
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "official format validation only; not a generator dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "UNKNOWN",
+      "status": "NOT_RUN"
+    }
+  ]
+}

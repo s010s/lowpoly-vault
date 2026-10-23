@@ -1,0 +1,79 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": {
+        "repository": "s010s/lowpoly-vault",
+        "repository_path": "scripts/asset_common.py",
+        "pin_type": "exact canonical restored content hash"
+      },
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/audit_source_file.py",
+      "sha256": "0ed56f53e30329ad4934f9a55cf0b9d8ef309c26a53b82ff0535c2c04871bf57",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "purpose": "original candidate evidence tool"
+      },
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": {
+        "repository": "s010s/lowpoly-vault",
+        "repository_path": "scripts/qa_glb.py",
+        "pin_type": "exact canonical restored content hash"
+      },
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "51eeb7369099d3202f9f58de845f6f026770f6958dfbff86b1476684651c6016",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "purpose": "original candidate evidence tool"
+      },
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/runtime_check.mjs",
+      "sha256": "6ae3cd0edb4351c9f754dcf1ca5c45a8ceef43774fbeb0a3091f00865af58ec0",
+      "origin": {
+        "author": "Leon Made This / s010s",
+        "purpose": "original candidate evidence tool"
+      },
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "generator, editable source, CPU renders"
+    },
+    {
+      "name": "Blender glTF I/O",
+      "version": "4.3.47",
+      "role": "export and import"
+    },
+    {
+      "name": "Python",
+      "version": "3.13.5",
+      "role": "Observed Python runtime inside Blender; standard library plus bpy, bmesh, mathutils"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "role": "QA parse only, not needed to generate GLB"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "QA official validation only, not needed to generate GLB"
+    }
+  ],
+  "closure": "The generator reads only source/generate.py, source/params.json and its declared local Python helpers. QA JavaScript uses the explicitly supplied pinned runtime packages, not any model directory."
+}

@@ -1,0 +1,64 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "morganucodon",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": []
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real skull CT multiple views plus institutional scientific reconstruction provide sufficient shape references; no new concept images."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Complete small long-snouted mammaliaform with slender balancing tail; adult M.oehleri skull informs a genus-level inferred living body.",
+  "scientific_limits": {
+    "en": "Genus-level whole living reconstruction, not an articulated fossil or scan. Cranial shape uses adult M.oehleri IVPP8685; body uses Museum Wales research-informed reconstruction. Body and tail proportions, fur, external ears and colors are inferred; do not combine them into a measured single individual. Skull model length32mm is an approximate reading of the DigiMorph5mm image bar, not a published caliper measurement.",
+    "zh": "属级完整活体复原，非完整关节连接化石或扫描。颅形参考成年M.oehleri IVPP8685；身体参考威尔士博物馆研究复原。身体尾部比例、毛、外耳与色彩均为推断，不得宣称同一标本实测。颅长32毫米为DigiMorph图5毫米尺估读，非论文卡尺实测。"
+  },
+  "original_inventory_ordinal": 664,
+  "taxon": "Morganucodon, genus-level reconstruction",
+  "classification": "Morganucodontidae, Mammaliaformes; stem mammal, not a modern rodent",
+  "scale": {
+    "unit": "meter",
+    "skull_length_model_m": 0.032,
+    "head_body_model_m": 0.11,
+    "tail_model_m": 0.06,
+    "status": "Skull approximate image-ruler estimate: about6.4 times labeled5mm. Head-body110mm and tail60mm artistic proportions using museum reconstruction, not complete fossil measurements."
+  },
+  "diagnostic_targets": [
+    "Slender elongated low snout, visible transition to somewhat wider posterior skull, not globular short mouse face.",
+    "Low elongated furry torso with four short limbs and readable elbow/knee bends; not specialized digging forearms or hopping hindlimbs.",
+    "Slender tapering moderately long balancing tail, not a paddle, squirrel plume or prehensile curl.",
+    "Small rounded external ears and modest eyes; soft anatomy inferred, not cartoon rodent ears.",
+    "Five small clawed digits per foot as conservative reconstruction; not primate grasping hands or cloven hooves.",
+    "Closed or almost closed mouth; if teeth shown, small differentiated insectivore teeth with canines, not enlarged paired rodent incisors."
+  ],
+  "acceptance": [
+    "Compare supplied skull.jpg and skull-views.png for low elongate muzzle and posterior skull breadth before final rendering.",
+    "Compare museum.webp for full low body, limb transitions and slender tail; feathered, winged, aquatic or burrowing specializations absent.",
+    "Four exactGLBviews show whole body and negative spaces; no cropped tail or detached feet.",
+    "All measurements and reconstruction uncertainties explicit. Two isolated rebuilds and true independentQA required."
+  ],
+  "review_views": [
+    "front",
+    "side",
+    "top",
+    "perspective"
+  ]
+}

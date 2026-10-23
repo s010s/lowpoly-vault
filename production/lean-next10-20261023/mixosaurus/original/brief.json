@@ -1,0 +1,94 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mixosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z dorsal/up; snout+X, tail-X, bilateral widthY. Front camera-Y is lateral anatomy view; side camera+X is head-on; top+Z is dorsal; perspective(+X,-Y,+Z). Keep lowestgeometryZ0. Do not call the side-role image a second lateral photo.",
+    "view_roles": {
+      "front": "lateral profile, anterior dorsal fin and caudal bend",
+      "side": "head-on bilateral width and pairedfin attachments",
+      "top": "dorsal proportions and four paddles",
+      "perspective": "3D connectivity and fin hierarchy"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct lateral and dorsal same-species fossil photographs, fin tissue closeups, explicit measurements, and a published scientific skeletal reconstruction suffice. No additional generated concept needed; not four real angles of one specimen."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Mixosaurus",
+    "zh": "Mixosaurus（海生爬行类）"
+  },
+  "taxon": "Mixosaurus cornalianus Bassani,1886",
+  "representation": "living-reconstruction of whole animal, bounded by same-species real skeletons and preserved fin soft tissue",
+  "original_scope": {
+    "en": "Planned animal asset: intermediate elongate body with a small dorsal fin and bent tail.",
+    "zh": "规划中的动物资产：中间型长躯干、小背鳍与弯折尾部。"
+  },
+  "era": "triassic",
+  "reference_anchor": {
+    "primary": "Renesto, Dal Sasso, Fogliazza & Ragni2020, APP65:511–522, doi10.4202/app.00731.2020; mainpaper plus Supplementary Online Material",
+    "geometry_specimen": "BES SC1000, state ID20.S288-2.3; right lateral specimen inFig3A, fin tissues Fig4, skeletal dimensions SOM table",
+    "cross_check_specimen": "BES SC1001, state ID20.S288-2.4; dorsal specimen inFig3B, skull/paired fins SOM figures2–6. This is a second same-species individual, NOT another angle of1000.",
+    "context": "Sasso Caldo quarry, Besano, northern Italy; uppermost Anisian, Middle Triassic. Nearly adult individuals.",
+    "image_roles": "MainFig3 actual fossils; Fig4 actual fin photos plus explanatory drawing; Fig8A published skeletal/body reconstruction, NOT photograph. Fig8B is a comparison shark and must never be copied into animal.",
+    "scientific_scope": "An elongate transitional ichthyosaur with small relatively anterior dorsal fin, long tail with modest asymmetric upper lobe and bent vertebral axis; not a Jurassic thunniform fish-shaped ichthyosaur."
+  },
+  "scale": {
+    "unit": "metre",
+    "nominal_total_length": 0.985,
+    "skull_length": 0.19,
+    "preorbital_length": 0.13,
+    "bony_orbit_ap_width": 0.041,
+    "forefin_length": 0.13,
+    "hindfin_length": 0.058,
+    "dorsal_fin_leading_edge": 0.068,
+    "caudal_upper_lobe_height": 0.043,
+    "caudal_upper_lobe_leading_edge": 0.066,
+    "caudal_upper_lobe_base": 0.051,
+    "basis": "SOM table forBES SC1000. Forefin approx/incomplete. MainTable1: dorsal leadingedge and caudal height parenthesized/incomplete. Do not label fin leadingedge as verticalheight.",
+    "not_measured": "Living axial thickness, fin membrane outline between bones, external eye diameter, exact colour, muscular volume. Working maximum body width0.10–0.14m is conservative reconstruction, not a measured living width. Skullorbit41mm is not a41mm protruding eyeball.",
+    "source_discrepancy": "Use SOM985mm for nominal total, not an exact length inferred from scale of schematicFig8. The schematic guides proportions and fin location, not a photogrammetric replica."
+  },
+  "morphology": [
+    "Continuous streamlined but elongate trunk, tapered narrow tooth-bearing rostrum with recognizable head/orbit; only a short neck transition. Use skull190mm and preorbital130mm, not a crocodile jaw or a dolphin blunt snout.",
+    "Retain long substantial tail and deep caudal body rather than short pinched thunniform peduncle. The small upper tail lobe sits at the caudal peak. FollowFig8A and natural skeletal bend, not a giant symmetric crescent or horizontal cetacean fluke.",
+    "Small triangular dorsal fin is relatively anterior, above the trailing base of the forefins/deep anterior trunk, anchored by preserved tissue over dorsal vertebrae15–23. Do not centre it arbitrarily halfway along whole animal. Leadingedge68mm means vertical height is lower; use about45–60mm as inferred outline.",
+    "Exactly four limb-derived paddles, paired forefins substantially larger than hindfins. BES SC1000 dimensions approximate130mm front/58mm hind;1001 has132/74mm. Do not average silently or add shark ventral fins.",
+    "Fin roots smoothly attached to body; continuous fleshy paddle outline enclosing skeletal digits, no free reptile fingers or exposed bones. Mild lateral/downward spread of paired flippers for countability, not sprawling walking limbs.",
+    "Scaleless smooth skin is evidenced. Low-poly facets are style, not polygonal scales or armour. No shell, gills, blowhole, extra dorsal crest, visible gut, fossil cracks or skeleton on surface.",
+    "Use one modest eye each side, lateral slit-like nostril near snout base. Closed or nearly closed slender mouth; optional subdued small teeth only if readable without producing a crocodilian grin.",
+    "Neutral swimming pose keeps body/tail predominantly straight in dorsal view while retaining anatomical caudal bend in lateral view. No slab, support pedestal, lettering or prey."
+  ],
+  "uncertainty": [
+    "Whole living volume and skin colour are inferred. Sourcefossils are compressed; no false claim of measured live3D proportions.",
+    "MainFig8A completes soft contour using real fin/tissue constraints. Remaining fin membrane margins and body flesh are interpretive, not wholly preserved in one photo.",
+    "SC1000 andSC1001 are separate same-species individuals; keep numerical measurements distinguished.",
+    "Restoration corrects documented small postmortem displacement of caudal soft lobe to its anatomical caudal peak, following authors, not arbitrary fin relocation."
+  ],
+  "palette": "Muted slate/grey dorsal surface and slightly lighter underside, artistic only; no unsupported specific pigment pattern.",
+  "acceptance_focus": [
+    "Lateral(front camera-Y): elongated original body, small anterior dorsal fin, long bent asymmetric tail, no generic dolphin outline.",
+    "Head-on(side camera+X): bilateral head and exactlytwo fore/two hind paddles, no flattened billboard body.",
+    "Top: rostrum slender, continuous symmetrical trunk and proportional pairedpaddles; long tail is not a wide shark fork.",
+    "Perspective: all fins visibly attached, modest tail upper lobe, smooth living animal not fossilsurface.",
+    "Scale985mm nominal. Skeletal190mm skull and130/58mm limbs constrain ratios. Preparation layout success is not scientificPASS."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "9c215204a562e64d3b52ed29447633d675b73452a0983a11751b861bbfc8d72d",
+      "provenance": "lowpoly-vault canonical helper with explicit optional SI area tolerance; defaults retained",
+      "canonical_original_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "local_change": "Parameterize only the degenerate-triangle area threshold. Source compares area < epsilon; GLB compares squared cross magnitude < (2 epsilon)^2. No coordinate or other QA changes."
+    },
+    {
+      "path": "source/deps/check_scale_tolerance.py",
+      "sha256": "520d3e9d8731ff92759506e87908ba903650eb663d3ad4b37a2982087a17bf02",
+      "provenance": "Original package-owned scale-aware positive and negative regression fixtures."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "308f60cb49fb7dffb7dbc7d41022e07d47d725a49f5d75c76a223135e0ec77de",
+      "provenance": "lowpoly-vault canonical helper with explicit optional SI area tolerance; defaults retained",
+      "canonical_original_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "local_change": "Parameterize only the degenerate-triangle area threshold. Source compares area < epsilon; GLB compares squared cross magnitude < (2 epsilon)^2. No coordinate or other QA changes."
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "a00bb22e6f5edcfe4cdebb9175a04e6a1ce80fa43087ce6562b167cd0abb3b7f",
+      "provenance": "Original project exact-export CPU render adapter; copied code is self-contained and uses only local declared helpers."
+    },
+    {
+      "path": "source/deps/test_qa_glb.py",
+      "sha256": "1ba0536aee9377384bddad7a363b9e946bc92e3a70640d5962b36a1d8f0284b5",
+      "provenance": "canonical fourteen-test regression suite, unmodified",
+      "canonical_original_sha256": "1ba0536aee9377384bddad7a363b9e946bc92e3a70640d5962b36a1d8f0284b5"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2"
+    },
+    {
+      "name": "Python",
+      "version": "Bundled Blender Python; exact version recorded in measured-anatomy evidence"
+    }
+  ]
+}

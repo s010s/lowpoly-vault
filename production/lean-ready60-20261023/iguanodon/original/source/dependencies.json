@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical project helper byte copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical project helper byte copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "5ea557c4dd0a1922ce2c6c282a7462864928d05fd83fa1ce08e451496c5ab60e",
+      "provenance": "Original exact-export four-view renderer",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47",
+      "bundled_with": "Blender 4.3.2"
+    }
+  ],
+  "policy": "Generator and renderer depend only on this source tree and Blender bundled runtime. Build additionally reads package brief.json."
+}

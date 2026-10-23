@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "euphoberia",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, dorsal +Z. Preserve fixed camera conventions."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real scaled fossil and primary morphology descriptions plus museum whole-body comparator suffice; no generated concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Complete Carboniferous cylindrical spiny millipede. Body scale and segmentation follow E. brownii NMS G.1884.46.180; incomplete spines restored at genus level using published E. armigera comparisons, explicitly not one fully preserved individual.",
+  "scientific_limits": {
+    "en": "The brownii anchor preserves spine bases, not complete long branches. Branching spines are a same-genus interpretation using armigera descriptions and family topology, not a claim that brownii preserved them. Antennae, minute head details, pose and color are inferred. Body length and width follow historical measurements of the real specimen.",
+    "zh": "brownii 主锚只保留棘基，长分叉棘按同属 armigera 描述及科级棘位保守补配，不声称在同一个体完整保存。触角、头部微小细节、姿态和颜色为推断。体长体宽采用真实标本历史测量。"
+  },
+  "original_inventory_number": 822,
+  "taxon": "Euphoberia, genus-level interpretation anchored to E. brownii holotype",
+  "scale": {
+    "units": "meters",
+    "body_length_historical": 0.1016,
+    "body_width_historical_approx": 0.006,
+    "body_depth_inferred": 0.0055,
+    "lateral_spine_length_inferred": 0.004,
+    "subdorsal_spine_length_inferred": 0.003,
+    "spine_branch_length_inferred": 0.0012,
+    "leg_length_comparative_estimate": 0.006,
+    "uncertainty": "Four inches long, nearly quarter-inch wide, 36 rings in Woodward brownii account. Width rounded; spine lengths/depth are conservative genus-level proportions, not brownii measurements. Do not use family maximum30cm."
+  },
+  "anatomy": [
+    "Long cylindrical articulated body, 36 raised rings used as historical trunk-ring guide, small rounded head and modest terminal region. Gently curved pose keeps all rings readable; not flattened Arthropleura armor.",
+    "Two paired sets of metazonal spines: lateral pair plus subdorsal pair on regular trunk rings, making four longitudinal rows. Lateral spines visibly fork with a small secondary branch; not rows of unbranched needles only.",
+    "Paired walking legs under diplosegments, two pairs per ordinary trunk diplosegment. Apodous collum and anterior single-pair transition follow diplopod anatomy; do not put two pairs on the head/collum or turn into centipede single-pair trunk.",
+    "Small anterior antenna pair and simplified rounded head are reconstructed, not directly established by the fragmentary brownii head. No Arthropleura-shaped head, predatory jaws or scorpion pincers.",
+    "Subtle corrugation of rings; no massive flat lateral plates. Small eyes optional simplified dark points, not claimed lens arrangement."
+  ],
+  "restoration_boundaries": [
+    "NMS G.1884.46.180, BGS-listed E. brownii holotype, Kilmaurs coal measures. Actual photo P889185 has 5cm bar and was inspected; not a 3D mesh source.",
+    "Woodward original account reports36 rings, four-inch length and nearlyquarter-inch breadth; modern paired-leg organization overrides obsolete literal two ventral segments terminology. Ring count is historical and may omit small terminal/anterior elements, not a newly measured count.",
+    "Woodward compares E. armigera and describes branched spines; this comparison supplies same-genus missing anatomy only. No claim all armigera anatomy belongs to brownii.",
+    "Wilson and Anderson2004 family diagnosis supplies lateral/subdorsal paired spine positions and head/coxal guidance. Do not copy unrelated Archidesmus or Pneumodesmus figures from that paper.",
+    "Carnegie museum diorama photo is a secondary interpretive silhouette comparator, not specimen measurement or direct fossil evidence. Its color is not fossil truth and its poorly resolved spine branches must not replace primary text.",
+    "Long spines, exact branch angles, living thickness, missing extremities and color remain explicitly interpretive; no new precise species diagnosis or generic maximum size."
+  ],
+  "quality_gates": [
+    "Full slender cylindrical animal with broad separation of head, ringed trunk and terminal region.",
+    "Clearly visible paired branching lateral spines plus subdorsal pair; do not reduce to smooth millipede or single unbranched rows.",
+    "Approximately36-ring trunk historical guide with correct diplopod leg topology, not equal two pairs at head/collum.",
+    "Public scientific limits distinguish real brownii measurements from same-genus armigera spine restoration.",
+    "Four fixed views only; inspect paired ventral feet in scene without extra default renders."
+  ]
+}

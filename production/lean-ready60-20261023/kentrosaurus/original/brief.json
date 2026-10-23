@@ -1,0 +1,82 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "kentrosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "head -Y tail +Y up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real researcher specimen/mount photographs plus primary description sufficient."
+  },
+  "extra_views": [],
+  "inventory_ordinal": 382,
+  "name": {
+    "en": "Kentrosaurus",
+    "zh": "钉状龙"
+  },
+  "taxon": "Kentrosaurus aethiopicus",
+  "classification": "Dinosauria, Ornithischia, Thyreophora, Stegosauridae",
+  "representation": "living-reconstruction",
+  "scope": "Original whole quadruped with anterior dorsal plates changing into long posterior spikes.",
+  "scale": {
+    "total_length_m": 5,
+    "basis": "NHM Dino Directory genus estimate, not exact measured length of composite MFN mount or femur specimen."
+  },
+  "specimen_basis": "Mallison2014 original author photographs of MFN mounted composite skeleton and actual femur MB.R.3583 with tape measure. Mallison2011 text describes laser scans of tail lectotype MB.R.4800.6-32; no claim scan asset acquired.",
+  "diagnostic_targets": [
+    "Small low narrow head on visible neck; bulky arched trunk, short forelegs and taller hindlegs, four grounded feet.",
+    "Paired dorsal armour: neck/anterior trunk relatively flattened small plates, transitioning posteriorly into long narrow projecting spikes.",
+    "Long muscular tapering tail with several paired spikes rather than Stegosaurus only terminal thagomizer.",
+    "Paired large lateral body spikes as reconstruction, place near shoulder following modern mount photograph, not a proven fossil life-position.",
+    "No ankylosaur tailclub, no giant broad diamond plates continuing full back."
+  ],
+  "uncertainties": [
+    "Composite skeletal mount includes restored skull and assembled individuals, not whole articulated fossil.",
+    "Exact armour counts and placement unknown; lateral shoulder versus hip spike placement debated, shoulder choice explicitly reconstruction.",
+    "Skin palette, soft tissue and keratin thickness inferred.",
+    "5m genus estimate not specimen-specific; tape-measured femur photo illustrates bone, not whole-animal measurement."
+  ],
+  "acceptance_checks": [
+    "Whole quadruped with coherent fore/hind joints and small head.",
+    "Clear front flattened plates to rear long spikes progression.",
+    "Tail long and spiky without fused club.",
+    "Four views only; lateral spike placement labelled interpretative."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep maker QA; maker COMPLETE fixedhash stops; root async backup and local-first integration; no maker upload cleanup.",
+  "profile": "palette-only static stylized reconstruction; local maker candidate, independent review pending",
+  "root": "Identity-transform root at center of four foot contacts, ground Z=0.",
+  "palette": {
+    "skin": "#6C7954",
+    "dorsal": "#4C6043",
+    "underside": "#AAA57B",
+    "armour": "#C6AE7E",
+    "horn": "#776247",
+    "eye": "#20251D"
+  },
+  "frozen_before_geometry": true
+}

@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "s010s/lowpoly-vault/scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "s010s/lowpoly-vault/scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "bc817ae124afb86517117c5c9630b3f41e07a62ba6858efa2caca989ad3ca371",
+      "source": "Portable model-owned helper; adapted generic exact-GLB evidence interface",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_runtime.mjs",
+      "sha256": "e03ac5fc4b31a82963aa97bc83e49e48c2c41be36de8a2645b1cff6979590588",
+      "source": "Portable model-owned helper; adapted generic exact-GLB evidence interface",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generator and CPU rendering; bundled Python and glTF exporter 4.3.47"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "Offline parse only; externally supplied optional validation runtime, not a generator dependency"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Official format validation; externally supplied optional validation runtime, not a generator dependency"
+    }
+  ],
+  "dependency_closure": "Generator requires only adjacent params.json and bundled asset_common.py with qa_glb.py, Blender and Python standard library. Render and runtime check helpers are optional post-build tools."
+}

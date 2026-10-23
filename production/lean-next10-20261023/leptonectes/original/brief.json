@@ -1,0 +1,99 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "leptonectes",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "+Z dorsal/up, snout+X, tail-X, widthY. Front camera-Y=lateral,side+X=head-on,top+Z=dorsal,perspective(+X,-Y,+Z). Lowest geometryZ0.",
+    "view_roles": {
+      "front": "lateral long slender upper/lowerjaw, orbit region, shallow tailaxis",
+      "side": "head-on rostrum thinness and bilateral paddle attachments",
+      "top": "long thin head and four paddle count",
+      "perspective": "three-dimensional continuity and restrained softfin inference"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual whole specimen photo and primary head/fin photos plus diagnosed ratios suffice for bounded reconstruction. No extra generated concept; output fourviews are inspection plans, not four originalphotos."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Leptonectes",
+    "zh": "Leptonectes（海生爬行类）"
+  },
+  "taxon": "Leptonectes tenuirostris",
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "era": "jurassic",
+  "original_scope": {
+    "en": "Planned animal asset: exceptionally slender needlelike rostrum tapering from a large eye.",
+    "zh": "规划中的动物资产：由大眼前方延伸的极纤细针状吻。"
+  },
+  "evidence_anchors": {
+    "whole_body": "Daderot2011 real ROM specimen photo, CC0,4320x2179. Long needlelike jaws, large postrostral orbital region, long trunk/tail and paddle bones visible. Specimen accession not visible inphoto, so NOT asserted to be VP47698. Postmortem bend, missing/overlapping bones and matrix outline not living contour.",
+    "head_and_fins": "McGowan1989 pp414–415 Fig1A and2A genuine photographs of OUM J10305, with author assessment p420: almost complete, no grounds to question authenticity, partial forefins and hindfin. These validate long matching upper/lower jaws, round orbit, forefin architecture. Different individual from ROM photo, not merged as single specimen measurements.",
+    "scale": "Paul, Princeton Field Guide to Mesozoic Sea Reptiles public size supplement, p3: L.tenuirostris ROM VP47698 estimated TL2.56m, estimated mass55kg. Use TL only as representative same-species scale; NOT museum-photo measurement or confirmed shared accession.",
+    "taxonomy": "2025 Pratas e Sousa et al. APP70:179–192 discussion retains L.tenuirostris and distinguishes its long slender snout from short-snouted L.moorei. McGowan1989 old name Leptopterygius tenuirostris is used only as historical same-species research. Swiss NMO26575 and other Hauffiopteryx material excluded.",
+    "period": "Lower Jurassic England; ROM caption Lyme Regis. No exact ammonite zone asserted for unnumbered photo."
+  },
+  "scale": {
+    "unit": "metre",
+    "nominal_total_length": 2.56,
+    "status": "published representative estimate, not scan/caliper total",
+    "skull_length_inferred": 0.7,
+    "mandible_length_inferred": 0.69,
+    "snout_to_anterior_orbit_inferred": 0.51,
+    "bony_orbit_diameter_inferred": 0.14,
+    "external_eye_diameter_inferred": 0.055,
+    "forepaddle_length_inferred": 0.36,
+    "hindpaddle_length_inferred": 0.22,
+    "body_width_inferred_range": [
+      0.24,
+      0.32
+    ],
+    "body_depth_inferred_range": [
+      0.32,
+      0.42
+    ],
+    "reason": "Only total2.56m is a published specimen-based length estimate. Other values are bounded original modeling proportions, not measurements of VP47698. McGowan ratios use jaw length: snout>0.70, orbit<0.25 (often<0.20); OUM J10305 snout ratio0.72 and prenarial0.60, with9mm tip ambiguity. Large eye means large relative to short posterior head, NOT giant relative to entire long skull."
+  },
+  "morphology": [
+    "Core: exceptionally long fine needlelike rostrum tapering from large orbital region; equally slender lower jaw extends almost to upper tip. Keep both jaws thin and continuous with skull. No Eurhinosaurus half-length lower jaw or swordfish horn.",
+    "Head rear is short; rounded bony orbit dominates postrostral head but occupies less than one quarter jaw length. External living eye is smaller than orbit, not exposed bony ring or oversized eyeball.",
+    "Long slender trunk and elongated flexible tailstock, not deep tuna body. Neutral nearly horizontal swimming; do not copy severe postmortem curve in ROM slab.",
+    "Exactly four attached paddles. Forepair longer and broader than hindpair, tapered distal ends enclosing digits. McGowan forefin4primarydigits and hindfin3 are internal anatomy only; no exposed toes or skeleton.",
+    "Tail axis is shallowly downturned or approximately straight: McGowan1989 wedge-shaped centra confirm a weak flexure, not an acute downturned crescent. Keep a long tapering lower axial tail and a modest inferred upper caudal membrane, verticalplane. No steep V-shaped bonebend, large symmetric shark crescent, or horizontal whale fluke.",
+    "Dorsal fin, caudal membrane margins, skin thickness and pigmentation are conservative ichthyosaur soft-tissue inferences, not preserved outlines in the selected sources. Use low modest dorsalfin, shallow tail not dramatic sail.",
+    "Closed or nearly closed jaws with subtle mouth seam; small slender teeth optional/subdued, no sabertooth fangs. Slight overbite at most, not genus-defining extreme overbite.",
+    "Small lateral nares ahead ofeyes; no dolphin blowhole, gills, scales, armor, ribs, slab, label or museum frame."
+  ],
+  "uncertainty": [
+    "No four-angle realphoto set. Whole specimen plus real head and fin photographs, explicit anatomical ratios, and published estimate support bounded3D reconstruction, not photogrammetry.",
+    "The ROM photo accession is not verified. Scale VP47698 and shape photo are same-species separate evidence, never represented as one measured individual.",
+    "Museum mounts and historical material may be restored; OUM J10305 assessment is specifically favorable, while R498 and BGS51236 are not adopted as exact geometric anchors.",
+    "Dorsal/caudal softfin outlines and bodywidth are unpreserved. Weak tailflexure is required; generic steep lunar tail unsupported.",
+    "Do not use infant CAMSM J35178 proportions from Lomax2012 as adult head/body ratio; paper used for species diagnosis/context only."
+  ],
+  "palette": "Restrained muted grey-blue with lighter underside as artistic convention, no claim of preserved pattern.",
+  "acceptance_focus": [
+    "Front lateral: paired thin long jaws, large posterior orbitalregion and short cheek, elongated body and shallow tail.",
+    "Side head-on and top: fine tapering snout and exactly four paddles, broadbases blend into trunk, no detached spike.",
+    "Perspective: living smooth continuous body, no fossil bones; weakflexure and restrained fin outlines.",
+    "Species and scale citations preserve material distinctions, dimensions inferred beyond nominal2.56m. ScientificQA independent of template validation."
+  ]
+}

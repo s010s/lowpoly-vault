@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "offacolus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head-Y tail+Y dorsal+Z. Standard four views plus ventral-Z."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual serial-grinding whole-body reconstruction and named same-species limb views suffice."
+  },
+  "extra_views": [
+    {
+      "name": "ventral",
+      "camera": "-Z",
+      "reason": "Necessary to inspect branch origins and six paired opercular groups under opaque shield.",
+      "path": "views/ventral.png"
+    }
+  ],
+  "original_inventory_number": 811,
+  "taxon": "Offacolus kingi",
+  "representation": "living-reconstruction",
+  "scope": "Whole Silurian animal. Main outline/scale is Siveter2003 Fig4 virtual fossil, about7mm long; caption provides no accession. Same-species C.29557 used solely to clarify appendages, not covert scale substitution.",
+  "scale": {
+    "units": "meters",
+    "total_length_approx": 0.007,
+    "shield_length_estimate": 0.0026,
+    "shield_width_estimate": 0.0025,
+    "shield_height_estimate": 0.002,
+    "rear_body_length_estimate": 0.002,
+    "tail_length_estimate": 0.0024,
+    "uncertainty": "7mm is rounded caption length; component dimensions approximate same image proportions, not caliper measurements. Live posture and oblique image imply ~20percent proportional uncertainty."
+  },
+  "anatomy": [
+    "High arch/box-like cephalic shield with an open anterior gape. Reduced tapering rear body, free anterior tergites then compact fused posterior unit, narrow articulated tail spine. Not modern horseshoe outline.",
+    "Seven cephalic appendage pairs: slender long chelicerae; pairsII-V robust segmented brush-bearing exopods pointing forward/up and ventrally oriented endopods. Separate body-wall insertion for inner/outer branches per2012 revision, not forks on leg shafts.",
+    "PairVI locomotory inner branch with small outer tendril interpretation rather than a fifth large brush; pairVII short flap-like. Preserve small conservative terminals, not giant claws.",
+    "Use2013 revised dorsal counting: four anterior tergites (the fourth previously grouped posteriorly), three fused posterior segments, separate telson-base boss not counted as an eighth trunk segment. Six paired ventral opercula: first three more developed respiratory lamellae, last three reduced covers."
+  ],
+  "restoration_boundaries": [
+    "Fig4 is a fossil-derived digital reconstruction, not an ordinary surface photo or color evidence. Build original geometry, never import published reconstruction mesh.",
+    "Unknown accession of Fig4 remains unknown; C.29557 in2025 Fig1C/2C-D is same-species anatomical comparator and visibly smaller, not the7mm measured individual.",
+    "Brush feeding function is hypothesis, not behavior proven by fossil; stance/color and minor missing fine bristles inferred. No invented compound eyes.",
+    "2025 figures contain modern shrimp and other genera: only Offacolus1C and2C-D informative here."
+  ],
+  "quality_gates": [
+    "Whole animal, with legs and tail, not shell fragment.",
+    "Box-like vaulted shield and dorsofrontal brushes visibly distinct from Dibasterium.",
+    "Four large brush-bearing exopod pairs, no shrimp antennae or giant modern crab claws.",
+    "No rainbow segmentation palette or copied scan texture.",
+    "Explicit revised trunk segmentation, not eight independent rear plates."
+  ]
+}

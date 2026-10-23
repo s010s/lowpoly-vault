@@ -1,0 +1,106 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "simosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "+X",
+    "object_left": "+Y",
+    "view_role_notes": {
+      "front": "camera-Y: full lateral profile",
+      "side": "camera+X: head-on skull breadth and limb pairing",
+      "top": "camera+Z: head/neck/trunk outline and four limbs",
+      "perspective": "camera(+X,-Y,+Z): head teeth plus whole silhouette"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual skull dorsal/ventral photos plus same-genus measured osteology, scientific reconstruction and museum mount suffice. No additional generated concept needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Simosaurus",
+    "zh": "Simosaurus（海生爬行类）"
+  },
+  "taxon": "Simosaurus gaillardoti",
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "era": "triassic",
+  "original_scope": {
+    "en": "Planned animal asset: broad blunt skull and thick crushing teeth on an elongate neck.",
+    "zh": "规划中的动物资产：长颈上的宽钝头骨与粗压碎齿。"
+  },
+  "evidence_anchors": {
+    "cranial": "Rieppel1994 Fig8 actual photographs SMNS10360 dorsal/ventral,50mmbar; Fig9 interpretive sutures. Broad short snout without nothosaur rostral constriction; low broad skull and blunt striated crowns diagnosis.",
+    "postcranial": "Rieppel1994 SMNS14733 measured associated postcranial bones; Fig36 explicit skeletal RECONSTRUCTION, not actual complete fossil. 2024 Cabezuelo-Hernandez et al same-genus comparison confirms32-34dorsals in GPIT-PV31566, incomplete neck/tail in both principal skeletons.",
+    "museum": "Ghedoghedo2010 photo of Stuttgart mounted skeleton, real photograph but reconstructed/composite display, no readable accession. Do NOT claim this is complete original SMNS14733 or measure total from perspectival photograph.",
+    "taxonomic_boundary": "S.gaillardoti valid2024 Simosauridae; Paludidraco is separate filter-feeding genus, NOT geometry source. Rieppel1994 treats guilielmi synonym; original holotype gaillardoti lost.",
+    "incomplete_parts": "Tail/neck counts, distal phalangeal formula, soft tissue and pigmentation are uncertain; reconstruct conservatively from same-genus Fig36 and mounted layout, not invent fossil preservation."
+  },
+  "scale": {
+    "unit": "metre",
+    "selected_estimated_total_length": 4.2,
+    "basis": "Gregory S.Paul Princeton Field Guide size table lists S.gaillardoti SMNS14733 4.2m/200kg/2.7density. Total is an author reconstruction ESTIMATE, not an intact specimen measurement;1994 diagnosis gives general3-4m range. Use4.2m as approximate representative normalization, not verified caliper length.",
+    "inferred_head_length": 0.44,
+    "inferred_neck_length": 0.8,
+    "inferred_trunk_and_sacrum_length": 1.45,
+    "inferred_tail_length": 1.51,
+    "inferred_skull_width_range": [
+      0.27,
+      0.32
+    ],
+    "inferred_trunk_width_range": [
+      0.42,
+      0.55
+    ],
+    "inferred_trunk_depth_range": [
+      0.34,
+      0.43
+    ],
+    "inferred_forelimb_total_range": [
+      0.65,
+      0.78
+    ],
+    "inferred_hindlimb_total_range": [
+      0.52,
+      0.65
+    ],
+    "documented_humerus_femur_length_ratio_SMNS14733": 1.28,
+    "interpretation": "All body partitions/flesh dimensions above are approximate visual reconstruction ratios from Fig36 and museum mount, NOT table measurements. Fig8 skull belongs another individual; use shape ratios only, not its size as SMNS14733 skull."
+  },
+  "morphology": [
+    "Whole animal, low broad bluntly rounded triangular head, no needle snout or bulbous frog head. No constricted rostrum. Eyes dorsolateral anterior to large posterior cheek region; cover all bony fenestrae with flesh.",
+    "Moderately elongate neck distinctly narrower than torso, shorter than torso and smoothly blended. Broad ribcage, robust elongated trunk. No giant plesiosaur swan neck.",
+    "Exactly four short robust limbs. Forelimbs stronger and longer than hindlimbs, humerus/femur ratio1.28 supports distinction. Bent upper/lower limb sections lead into five-digit swimming hands/feet. Do not turn entire limbs into dolphin paddles.",
+    "Five digits per limb; degree of webbing, distal digit lengths and small terminal claws are uncertain. Use conservative partly webbed broad hands/feet with five short visible tips, no exaggerated talons or invented hyperphalangy. Not direct skin evidence.",
+    "Continuous long tapering tail with no imposed fluke, dorsal fin, crest, plates or spines. Neck/tail exact lengths are inferred, not claimed preserved. Gentle near-horizontal swimming pose, no rigid extreme neck bend.",
+    "Slight jaw opening to show a few short stout broad blunt crowns, not needle fangs, large tusks or flat placodont paving teeth. Tooth number is visual simplification, not counted complete dentition.",
+    "Neutral muted grey-brown dorsal and lighter ventral colors are artistic inference, no bold unsupported markings. No exposed skeleton, mount supports, slab, labels or props."
+  ],
+  "must_not": [
+    "No Paludidraco anatomy or filter comb; no Nothosaurus needle fangs/waisted rostrum.",
+    "No scientific claim of direct soft-tissue preservation or complete original mounted specimen.",
+    "Do not reproduce fossil breaks, fenestra holes, missing skull bones or museum armatures."
+  ],
+  "acceptance_focus": [
+    "Blunt broad skull and short stout crowns readable in perspective/head-on.",
+    "Elongate neck and robust trunk proportions distinct from Lariosaurus and plesiosaurs.",
+    "Exactly4limbs and5tips each; forelimbs more robust; continuous tapered tail.",
+    "No direct measured-total claim; public captions describe reconstruction with uncertain soft tissue."
+  ]
+}
