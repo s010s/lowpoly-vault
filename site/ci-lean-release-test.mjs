@@ -3,16 +3,59 @@ import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readFile,copyFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,dirname,resolve} from 'node:path';
-import {spawnSync} from 'node:child_process';
+import {spawnSync,execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {checkProductionGlbs} from './ci-production-release-check.mjs';
-import {classifyTests,needsGeometryRegression} from './ci-lean-scope.mjs';
+import {classifyTests,needsGeometryRegression,leanScope} from './ci-lean-scope.mjs';
 assert.deepEqual(classifyTests(['assets/additions/new/model.glb','site/public/gallery/posters/new.png'],{appendOnly:true}).mode,'models');
 for(const path of ['site/main.js','site/style.css','site/ci-build-release.mjs','scripts/qa_glb.py','.github/workflows/pages.yml','package.json'])assert.notEqual(classifyTests(['assets/additions/new/model.glb',path],{appendOnly:true}).mode,'models',path);
 assert.equal(classifyTests(['site/main.js']).website,true);
 assert.equal(classifyTests(['site/style.css']).publication,false);
 assert.equal(classifyTests(['site/production-release.mjs']).publication,true);
 assert.equal(classifyTests([], {known:false}).framework,true);
+// The exception is exactly these two files, never a self-declared mode or CI edit.
+const contentFiles=['site/content-production-acceptance.mjs','site/content-production-acceptance-test.mjs'];
+for(const paths of [[contentFiles[0]],[contentFiles[1]],contentFiles]){
+ const scope=classifyTests(paths);assert.equal(scope.mode,'content');
+ for(const key of ['framework','publication','website'])assert.equal(scope[key],false);
+ assert.equal(classifyTests(paths,{known:false}).mode,'full');
+}
+for(const path of ['site/typed-production-release.mjs','site/inventory-type-acceptance.mjs','site/production-release.mjs','site/ci-lean-scope.mjs','site/ci-lean-regressions.mjs','site/ci-lean-release-test.mjs','.github/workflows/pages.yml','assets/additions/new/model.glb','site/main.js','unknown.txt']){
+ assert.equal(classifyTests([...contentFiles,path],{appendOnly:true}).mode,'full',path);
+ assert.equal(classifyTests([path]).mode,'full',path);
+}
+assert.equal(classifyTests([]).mode,'full');
+// Exercise the real event/SHA/clean-checkout boundary with small Git objects.
+const scopeRoot=await mkdtemp(join(tmpdir(),'content-scope-'));
+try{
+ const git=(...args)=>execFileSync('git',args,{cwd:scopeRoot,encoding:'utf8'}).trim();
+ await mkdir(join(scopeRoot,'site'));await writeFile(join(scopeRoot,contentFiles[0]),'before');
+ git('init','-q');git('add','.');git('-c','user.name=Scope Test','-c','user.email=scope@example.invalid','commit','-qm','before');const base=git('rev-parse','HEAD');
+ await writeFile(join(scopeRoot,contentFiles[0]),'after');git('add','.');git('-c','user.name=Scope Test','-c','user.email=scope@example.invalid','commit','-qm','after');const head=git('rev-parse','HEAD');
+ const eventPath=join(scopeRoot,'event.json'),repo='owner/repository';
+ const event={ref:'refs/heads/main',before:base,after:head,repository:{full_name:repo}};
+ await writeFile(eventPath,JSON.stringify(event));
+ const env={GITHUB_EVENT_PATH:eventPath,GITHUB_EVENT_NAME:'push',GITHUB_REF:event.ref,GITHUB_REPOSITORY:repo,GITHUB_SHA:head};
+ assert.equal(leanScope({root:scopeRoot,env}).mode,'content');
+ for(const changes of [{GITHUB_SHA:base},{GITHUB_REPOSITORY:'wrong/repository'},{GITHUB_EVENT_NAME:'workflow_dispatch'},{GITHUB_EVENT_PATH:''}])assert.equal(leanScope({root:scopeRoot,env:{...env,...changes}}).mode,'full');
+ await writeFile(join(scopeRoot,contentFiles[0]),'dirty');assert.equal(leanScope({root:scopeRoot,env}).mode,'full');git('restore',contentFiles[0]);
+ git('update-index','--assume-unchanged',contentFiles[0]);assert.equal(leanScope({root:scopeRoot,env}).mode,'full');git('update-index','--no-assume-unchanged',contentFiles[0]);
+ const pr={pull_request:{base:{ref:'main',sha:base,repo:{full_name:repo}},head:{sha:head,repo:{full_name:repo}}}};
+ await writeFile(eventPath,JSON.stringify(pr));const prEnv={...env,GITHUB_EVENT_NAME:'pull_request'};
+ assert.equal(leanScope({root:scopeRoot,env:prEnv}).mode,'content');
+ pr.pull_request.head.repo.full_name='fork/repository';await writeFile(eventPath,JSON.stringify(pr));assert.equal(leanScope({root:scopeRoot,env:prEnv}).mode,'full');
+ // Selection must actually run the focused suite, propagate failure, and claim no historical PASS.
+ await copyFile(resolve('site/ci-lean-regressions.mjs'),join(scopeRoot,'site/ci-lean-regressions.mjs'));
+ await writeFile(join(scopeRoot,'site/ci-lean-scope.mjs'),`export const leanScope=()=>({mode:'content',framework:false,publication:false,website:false});export const needsGeometryRegression=()=>false;`);
+ await writeFile(join(scopeRoot,contentFiles[1]),`import {appendFileSync} from 'node:fs';appendFileSync('events','content\\n');process.exitCode=Number(process.env.FOCUS_FAIL||0);`);
+ const runFocused=(mode,fail='0')=>spawnSync(process.execPath,['site/ci-lean-regressions.mjs',mode],{cwd:scopeRoot,env:{...process.env,FOCUS_FAIL:fail},encoding:'utf8'});
+ assert.equal(runFocused('contracts').status,0);assert.equal(await readFile(join(scopeRoot,'events'),'utf8'),'content\n');
+ assert.notEqual(runFocused('contracts','1').status,0);
+ for(const mode of ['publication','pipeline']){const result=runFocused(mode);assert.equal(result.status,0);assert.match(result.stdout,/NOT_APPLICABLE/);}
+ assert.equal(await readFile(join(scopeRoot,'events'),'utf8'),'content\ncontent\n');
+ // Untrusted caller hints cannot replace an authenticated Git diff.
+ assert.equal(leanScope({root:scopeRoot,env:{CONTENT_ONLY:'1'}}).mode,'full');
+}finally{await rm(scopeRoot,{recursive:true,force:true});}
 assert.equal(needsGeometryRegression(['site/ci-build-release.mjs','site/gallery-assets.mjs']),false);assert.equal(needsGeometryRegression(['site/gallery/renderer.js']),true);assert.equal(needsGeometryRegression(['package-lock.json']),true);assert.equal(needsGeometryRegression(undefined),true);
 // Every actual relative renderer dependency must select geometry regressions,
 // including viewer.js -> render-preset.js outside the gallery directory.

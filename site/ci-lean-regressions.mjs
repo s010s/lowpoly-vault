@@ -12,6 +12,7 @@ if(mode==='publication'){
  if(scope.framework){run('python3',['scripts/test_qa_glb_scale_aware.py','-v']);run('npm',['run','test:pipeline']);run('npm',['run','test:manifest']);run('python3',['scripts/test_final_delivery.py']);run(process.execPath,['site/final-delivery-test.mjs']);}
  else console.log('NOT_APPLICABLE: pipeline implementation unchanged; model content validation belongs to the pages source gate.');
 }else{
+ if(scope.mode==='content')run(process.execPath,['site/content-production-acceptance-test.mjs']);
  if(scope.framework){
   for(const file of ['ci-lean-release-test','ci-release-fast-scope-test','ci-production-baseline-test','ci-production-incremental-test','model-registry-test','model-registry-sync-test','content-production-acceptance-test','audit-release-test','production-poster-input-memo-test'])run(process.execPath,[`site/${file}.mjs`]);
  }
@@ -25,5 +26,5 @@ if(mode==='publication'){
   if(!runGeometry)console.log('NOT_APPLICABLE: renderer geometry unchanged; full-catalog geometry matrices are not re-run.');
   for(const command of gallery){assert(/^node site\/[a-zA-Z0-9_./-]+\.mjs$/.test(command));run(process.execPath,[command.slice(5)]);}
  }
- else run(process.execPath,['site/model-preview-test.mjs']);
+ else if(scope.mode!=='content')run(process.execPath,['site/model-preview-test.mjs']);
 }
