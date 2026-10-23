@@ -14,27 +14,32 @@ const prefix=(a,b,m)=>{assert(Array.isArray(a)&&Array.isArray(b));equal(b.slice(
 // exception is local to this classifier; the general diff allowlist stays closed.
 function ownedSourceHelpers({old,next,descriptors,ids,readAfterBytes}){
  const candidates=[...next.keys()].filter(p=>!old.has(p)&&/\.(?:cjs|mjs)$/.test(p));
- const proven=new Set();if(!candidates.length)return proven;
+ const proven=new Set(),evidenceRoots=new Set();if(!candidates.length)return {proven,evidenceRoots};
  const hash=b=>createHash('sha256').update(b).digest('hex');
  const pinBytes=pin=>{
   assert(pin&&typeof pin.path==='string'&&/^[a-f0-9]{64}$/.test(pin.sha256)&&Number.isSafeInteger(pin.bytes)&&pin.bytes>0,'Exact owned source pin required');
+  assert(!pin.path.split('/').some(x=>x==='..'||x==='.'||!x)&&!pin.path.includes('\\'),'Unsafe owned source path');
   assert(next.has(pin.path)&&next.get(pin.path).mode==='100644','Owned source must be a regular nonexecutable Git file');
   const bytes=readAfterBytes(pin.path);assert.equal(bytes.length,pin.bytes,'Owned source bytes differ');assert.equal(hash(bytes),pin.sha256,'Owned source SHA differs');return bytes;
  };
  const seen=new Set();
  for(const entry of descriptors){
   assert(!old.has(entry.path),'Owned source requires a new descriptor');
-  const descriptor=JSON.parse(pinBytes(entry)),root=entry.path.slice(0,entry.path.lastIndexOf('/')+1);
+  const descriptor=JSON.parse(pinBytes(entry));
   assert(['production-release-v1','typed-production-release-v1','content-production-release-v1'].includes(descriptor.kind),'Unknown source owner descriptor');
   for(const item of descriptor.assets){
    assert(ids.has(item.id)&&!seen.has(item.id),'Source owner must be a unique new asset');seen.add(item.id);
-   const assetRoot=root+item.id+'/';
-   assert(item.evidence.path.startsWith(assetRoot)&&!old.has(item.evidence.path),'Source evidence outside new asset');
+   // A release may combine independently prepared batches without relocating
+   // their immutable evidence. Bind the batch root to this exact new asset.
+   const evidencePath=item.evidence?.path,match=/^production\/([a-z0-9-]+)\/([a-z0-9-]+)\/[^/]+\.json$/.exec(evidencePath||'');
+   assert(match&&match[2]===item.id&&!old.has(evidencePath),'Source evidence outside new asset');
+   const assetRoot=`production/${match[1]}/${item.id}/`;
    assert((item.metadata.path.startsWith(assetRoot)||item.metadata.path.startsWith('assets/additions/'+item.id+'/'))&&!old.has(item.metadata.path),'Source metadata outside new asset');
    const asset=JSON.parse(pinBytes(item.metadata)),record=JSON.parse(pinBytes(item.evidence));
-   assert.equal(asset.id,item.id);assert.equal(asset.production_release,entry.path);assert.equal(record.asset_id,item.id);
+   assert.equal(asset.id,item.id);assert.equal(asset.production_release,entry.path);assert.equal(record.asset_id,item.id);evidenceRoots.add(assetRoot);
    assert(Array.isArray(record.build_closure));const closurePaths=new Set();
-   for(const pin of record.build_closure){assert(!closurePaths.has(pin.path),'Duplicate source closure member');closurePaths.add(pin.path);pinBytes(pin);
+   for(const pin of record.build_closure){assert(!closurePaths.has(pin.path),'Duplicate source closure member');closurePaths.add(pin.path);
+    assert(pin.path.startsWith(assetRoot)&&!old.has(pin.path),'Source closure outside new asset');pinBytes(pin);
     if(/\.(?:cjs|mjs)$/.test(pin.path)){
      assert(pin.path.startsWith(assetRoot+'original/source/deps/'),'Source helper outside its owning asset dependency directory');
      assert(!old.has(pin.path),'Source helper must be new');assert(!proven.has(pin.path),'Shared source helper refused');proven.add(pin.path);
@@ -43,7 +48,7 @@ function ownedSourceHelpers({old,next,descriptors,ids,readAfterBytes}){
   }
  }
  for(const path of candidates)assert(proven.has(path),'Unproven new JavaScript dependency: '+path);
- return proven;
+ return {proven,evidenceRoots};
 }
 export function classifyReleaseAppend({beforeEntries,afterEntries,readBefore,readAfter,readAfterBytes}){
  try{
@@ -57,12 +62,12 @@ export function classifyReleaseAppend({beforeEntries,afterEntries,readBefore,rea
   const prodPath='production/production-releases-r002.json',p=readBefore(prodPath),q=readAfter(prodPath);
   const {descriptors:d,asset_ids:i,...ps}=p,{descriptors:e,asset_ids:j,...qs}=q;equal(ps,qs);prefix(d,e,'Previous production descriptors changed');prefix(i,j,'Previous production identities changed');equal([...j.slice(i.length)].sort(),[...ids].sort(),'New production IDs differ');assert(new Set(j).size===j.length);
   const roots=e.slice(d.length).map(row=>{assert(/^production\/[a-z0-9-]+\/release(?:-[a-z0-9]+)?\.json$/.test(row.path));assert(!old.has(row.path),'Existing descriptor reused');return row.path.slice(0,row.path.lastIndexOf('/')+1);});assert(roots.length,'New immutable descriptor required');
-  const ownedHelpers=ownedSourceHelpers({old,next,descriptors:e.slice(d.length),ids,readAfterBytes});
+  const {proven:ownedHelpers,evidenceRoots}=ownedSourceHelpers({old,next,descriptors:e.slice(d.length),ids,readAfterBytes});
   const own=path=>added.some(asset=>path.startsWith(`assets/additions/${asset.id}/`)||path.startsWith(`assets/turntables/${asset.id}/`)||path.startsWith(`assets/card-previews/${asset.id}-`)||path===`site/public/gallery/posters/${asset.id}.png`||path===`site/public/gallery/posters/${asset.id}-wheel.png`);
   const newPaths=[];for(const [path,row] of next)if(!old.has(path)){
    assert.equal(row.mode,'100644','New executable entry requires full validation');
    assert(!path.split('/').some(x=>x==='..'||x==='.'||!x),'Unsafe path');
-   assert(ownedHelpers.has(path)||(own(path)&&/\.(?:json|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||(roots.some(r=>path.startsWith(r))&&/\.(?:json|md|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||/^registry\/(?:models\/[^/]+\/revisions\/[a-f0-9]{64}\/record|batches\/[^/]+)\.json$/.test(path),'Unknown new dependency: '+path);
+   assert(ownedHelpers.has(path)||(own(path)&&/\.(?:json|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||([...roots,...evidenceRoots].some(r=>path.startsWith(r))&&/\.(?:json|md|png|webp|jpg|jpeg|glb|blend|py|txt)$/.test(path))||/^registry\/(?:models\/[^/]+\/revisions\/[a-f0-9]{64}\/record|batches\/[^/]+)\.json$/.test(path),'Unknown new dependency: '+path);
    changes.push(path);newPaths.push(path);
   }
   // Registry projection sorts new definitions into existing arrays. Preserve all
