@@ -90,9 +90,10 @@ test('old frozen-brief/QA dispatch remains strict and cannot silently accept v2'
  const f=fixture();assert.throws(()=>mapFrozenInventoryBrief(f.brief,f.references,f.asset.id),/unsupported frozen brief schema/);
  assert.throws(()=>mapIndependentProductionAcceptance(f.decision,f.asset.id),/unsupported original independent acceptance schema/);
 });
-test('shared implementation changes still require full validation fallback',async()=>{
+test('content reuse still requires authenticated baseline, independently of code regression scope',async()=>{
  const code=await readFile(new URL('./production-release.mjs',import.meta.url),'utf8');
- assert(code.includes("return full('Shared implementation/runtime changed')"));
+ assert(code.includes("if(!authenticated.capability)return full(authenticated.reasons.join('; '))"));
+ assert(code.includes("Model content scope is independent of code regression scope"));
 });
 
 test('all current authority aliases and required repairs reject contradictions',()=>{
@@ -136,4 +137,36 @@ test('current checks exact contract rejects every failed, omitted, or unknown ga
  assert.doesNotThrow(()=>validateModelTaskV2Receipt(f.receipt,f.record,f.asset,f.brief,f.references));
  f.receipt.decision.current_requirements['/checks'].independent_factual='REVISE';f.receipt.decision.current_requirements_sha256=hash(f.receipt.decision.current_requirements);
  assert.throws(()=>validateModelTaskV2Receipt(f.receipt,f.record,f.asset,f.brief,f.references));
+});
+
+test('reviewed historical declaration aliases preserve literal scope, never confer independent PASS',()=>{
+ const {decision:d}=fixture();
+ const technical=['PASS_SOURCE_GLB_KHRONOS_REBUILDS_PARSE','PASS_LOCAL_TECHNICAL','PASS_SOURCE_STATIC_GLB_KHRONOS_TWO_REBUILDS_THREE_PARSE','PASS_WITH_INTENTIONAL_SMOOTH_STYLE_WARNING','PASS_SOURCE_GLB_KHRONOS_TWO_ISOLATED_REBUILDS_AND_THREEJS_PARSE','PASS_STATIC_FORMAT_SOURCE_REBUILD_PARSE_ONLY','PASS_STATIC_AND_REBUILD'];
+ for(const making of ['PASS_MAKER_SELF_CHECK','PASS_MAKER_SELF_REVIEW'])for(const tests of technical){
+  const x={...d,making,tests};const before=hash(x);const result=mapV2Decision(x,d.asset_id,d.revision);
+  assert.equal(result.tests,tests);assert.equal(hash(x),before);assert.equal(result.runtime.gpu,'UNKNOWN');
+  for(const status of ['FAIL','REVISE','PENDING','PASS_MADE_UP'])assert.throws(()=>mapV2Decision({...x,status},d.asset_id,d.revision));
+  assert.throws(()=>mapV2Decision({...x,reviewer:{...d.reviewer,status:'FAIL'}},d.asset_id,d.revision));
+ }
+ for(const field of ['making','tests'])for(const value of ['PASS_BUT_FAIL','PASS_MADE_UP','NOT_PASS','FAIL','REVISE','UNKNOWN'])assert.throws(()=>mapV2Decision({...d,[field]:value},d.asset_id,d.revision));
+});
+test('reviewed whole-animal free text remains living with exact original wording pin',()=>{
+ const f=fixture();
+ for(const representation of ['living-reconstruction of whole animal, bounded by same-species real skeletons and preserved fin soft tissue','whole-animal living-reconstruction, not a slab or partial skull']){
+  const brief={...f.brief,representation};const mapping={...f.input.representation_mapping,original_value_sha256:hash(representation)};
+  assert.equal(mapV2Brief(brief,f.references,f.asset.id,mapping).representation_mapping.original_value_sha256,hash(representation));
+  assert.throws(()=>mapV2Brief(brief,f.references,f.asset.id,{...mapping,representation:'fossil-specimen',reconstruction_type:'specimen'}));
+  assert.throws(()=>mapV2Brief({...brief,representation:representation+' FAIL'},f.references,f.asset.id,{...mapping,original_value_sha256:hash(representation+' FAIL')}));
+ }
+});
+test('historical independent issue closure layouts preserve evidence and reject all contradictory current aliases',()=>{
+ const {decision:d}=fixture();
+ const states=[{id:'QA-01',resolution_status:'CLOSED_BY_INDEPENDENT_RECHECK'},{id:'FORM-GATE-01',status:'CLOSED',supplement_status:'INDEPENDENTLY_ACCEPTED',resolution_evidence:'qa/evidence/review.json'}];
+ for(const state of states){
+  const x={...d,issues:[state]};const mapped=mapV2Decision(x,d.asset_id,d.revision);assert.deepEqual(mapped.current_requirements['/issues'],[state]);
+  for(const field of ['reviewer_status','status','resolution_status'])for(const value of ['OPEN','FAIL','REVISE','PENDING','CLOSED_BY_MAKER'])assert.throws(()=>mapV2Decision({...x,issues:[{...state,[field]:value}]},d.asset_id,d.revision));
+  const f=fixture();f.receipt.decision.current_requirements={'/issues':[state]};f.receipt.decision.current_requirements_sha256=hash(f.receipt.decision.current_requirements);
+  assert.doesNotThrow(()=>validateModelTaskV2Receipt(f.receipt,f.record,f.asset,f.brief,f.references));
+ }
+ for(const issue of [{id:'X',status:'CLOSED'},{id:'X',status:'CLOSED',supplement_status:'MAKER_ACCEPTED',resolution_evidence:'qa/evidence/review.json'},{id:'X',resolution_status:'CLOSED_BY_INDEPENDENT_RECHECK',reviewer_status:'OPEN'}])assert.throws(()=>mapV2Decision({...d,issues:[issue]},d.asset_id,d.revision));
 });
