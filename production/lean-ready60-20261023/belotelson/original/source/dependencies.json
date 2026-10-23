@@ -1,0 +1,43 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "b4ed9990cdead2455f934f9bc3d5b01fb18680752adb5f2cba1d7a7d1d5d7899"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "0637c9bf1a953a30b25fe08fcb9950e2bdc781c36486de4bd8341ca29af240e4"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Generator and exact-export render",
+      "embedded_python": true
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47",
+      "purpose": "Static GLB generation"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Optional CPU loader evidence, not generator dependency"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Optional official format validation, not generator dependency"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "s010s/lowpoly-vault/scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "s010s/lowpoly-vault/scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "959d4f48cd218b9a353ad23544533c2fc10ebcd1cb595f16f3f7ca0612fd3713",
+      "source": "Original model evidence helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_runtime.mjs",
+      "sha256": "e03ac5fc4b31a82963aa97bc83e49e48c2c41be36de8a2645b1cff6979590588",
+      "source": "Original model evidence helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generator, source readback and rendering; bundled Python and glTF exporter 4.3.47"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "Optional offline parse only; supplied explicitly, not required for geometry generation"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Optional official validation; supplied explicitly, not required for geometry generation"
+    }
+  ],
+  "dependency_closure": "Generator depends only on adjacent params.json, copied deps/asset_common.py and its qa_glb.py, Blender and Python standard library. Rendering and optional validation helpers are included, with optional validation packages supplied explicitly."
+}

@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot, retrieved 2026-10-23; pinned by SHA-256"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot, retrieved 2026-10-23; pinned by SHA-256"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot, retrieved 2026-10-23; pinned by SHA-256"
+    },
+    {
+      "path": "source/deps/render_exact.py",
+      "sha256": "9c120bf48ebd62d1809b812e161dfbcc48050aaaa3fe43b5b10319d041b315a1",
+      "origin": "Original minimal adapter for canonical renderer, Icadyptes r001"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "model generation and exact GLB Cycles CPU rendering"
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender 4.3.2",
+      "purpose": "argparse/hashlib/json/math/pathlib/sys; no pip modules required by generator"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Independent official format QA only, not model generation"
+    }
+  ],
+  "policy": "All generator imports are built-ins or vendored relative deps. Rebuilds run isolated copied source with no dependency on other model folders."
+}

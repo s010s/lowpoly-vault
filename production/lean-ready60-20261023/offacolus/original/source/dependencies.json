@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical project helper, pinned by byte hash",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical project helper, pinned by byte hash",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "ae727ee567256e57c3c871a320235bc3115cf994bfef17cecc8584e6edf5fc86",
+      "origin": "Original Offacolus task utility",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/verify_runtime.mjs",
+      "sha256": "e125acf8886c150dfeb0732af5318827376a7e7889fd1981aae478e1608e81fe",
+      "origin": "Original Offacolus task utility",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "required_for": "generator and render; bundled bpy/bmesh/mathutils plus Python standard library"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "required_for": "optional Node runtime parse audit only; not geometry rebuild"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for": "official format validation only"
+    }
+  ],
+  "closure": "Geometry rebuild requires only generate.py, params.json, deps/asset_common.py, deps/qa_glb.py, and Blender. No other model directory is imported. All helper source is vendored and hash-pinned."
+}

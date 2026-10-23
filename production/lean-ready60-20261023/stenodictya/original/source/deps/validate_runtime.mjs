@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: MIT
+// Pinned offline validation packages, supplied explicitly; no GPU claim.
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import crypto from 'node:crypto';
+import {createRequire} from 'node:module';
+const [glb, runtimeRoot, output] = process.argv.slice(2);
+if (!glb || !runtimeRoot || !output) throw new Error('Usage: validate_runtime.mjs model.glb RUNTIME_ROOT OUTPUT_DIR');
+const sha = data => crypto.createHash('sha256').update(data).digest('hex');
+const require = createRequire(pathToFileURL(path.join(path.resolve(runtimeRoot),'package.json')));
+const validator = require('gltf-validator');
+const bytes = fs.readFileSync(glb); const hash=sha(bytes);
+fs.mkdirSync(output,{recursive:true});
+const raw=await validator.validateBytes(new Uint8Array(bytes),{uri:'model.glb',maxIssues:1000,externalResourceFunction:()=>Promise.reject(new Error('External resources disallowed'))});
+const validatorPackage=fs.readFileSync(path.join(runtimeRoot,'node_modules/gltf-validator/package.json'));
+if(JSON.parse(validatorPackage).version!=='2.0.0-dev.3.10') throw new Error('Unexpected validator version');
+const khronos={glb_sha256:hash,validator_version:JSON.parse(validatorPackage).version,package_json_sha256:sha(validatorPackage),status:raw.issues.numErrors===0?'PASS':'FAIL',scope:'Official glTF format validation only',report:raw};
+fs.writeFileSync(path.join(output,'khronos.json'),JSON.stringify(khronos,null,2)+'\n');
+const threePackage=fs.readFileSync(path.join(runtimeRoot,'node_modules/three/package.json'));
+if(JSON.parse(threePackage).version!=='0.180.0') throw new Error('Unexpected Three.js version');
+const {GLTFLoader}=await import(pathToFileURL(path.join(path.resolve(runtimeRoot),'node_modules/three/examples/jsm/loaders/GLTFLoader.js')));
+const THREE=await import(pathToFileURL(path.join(path.resolve(runtimeRoot),'node_modules/three/build/three.module.js')));
+const data=bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength);
+const loaded=await new Promise((res,rej)=>new GLTFLoader().parse(data,'',res,rej));
+loaded.scene.updateMatrixWorld(true);let meshes=0,triangles=0,materialNames=[];
+loaded.scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;for(const m of(Array.isArray(o.material)?o.material:[o.material]))materialNames.push(m.name);}});
+const box=new THREE.Box3().setFromObject(loaded.scene);
+const report={glb_sha256:hash,status:'PASS',scope:'Node GLTFLoader parse and transformed bounds only. Not WebGL, GPU, material rendering or populated-scene performance.',three_version:JSON.parse(threePackage).version,package_json_sha256:sha(threePackage),node_version:process.version,meshes,triangles,materialNames,bounds_glb_m:{min:box.min.toArray(),max:box.max.toArray()},gpu:'UNKNOWN',scene:'UNKNOWN'};
+fs.writeFileSync(path.join(output,'three-parse.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({glb_sha256:hash,khronos_errors:raw.issues.numErrors,khronos_warnings:raw.issues.numWarnings,three_parse:'PASS',triangles,meshes}));
+if(raw.issues.numErrors)process.exitCode=1;

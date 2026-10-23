@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "canonical scripts/asset_common.py"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "canonical scripts/qa_glb.py"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "python": "bundled",
+      "external_python_packages": [],
+      "command": "blender -b -t 2 --python source/generate.py -- --output OUTPUT --stage build"
+    }
+  ],
+  "canonical_source": {
+    "snapshot": "lowpoly-release-fast-path-20261022/prior-366-transition/base-worktree/scripts",
+    "pin": "Per-file SHA-256; local restored repository canonical scripts snapshot"
+  }
+}

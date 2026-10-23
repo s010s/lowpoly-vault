@@ -1,0 +1,111 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "ichthyosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "+X",
+    "object_left": "+Y",
+    "view_role_notes": {
+      "front": "camera-Y lateral: narrowtoothedjaw/streamlinedbody",
+      "side": "camera+X head-on: pairedjaws/moderateeyevolume",
+      "top": "camera+Z: broadforepaddlesandfourfinplan",
+      "perspective": "camera(+X,-Y,+Z): completecombination"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "ActualcompleteOR2013skeletonphoto plussame-specieshead/paddlephoto andexplicitcastmetricsareadequate; noextraconceptimage."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Whole living Ichthyosaurus somersetensis anchored to NHMUK PV OR2013 complete mounted skeleton and its measured cast dimensions, supplemented by same-species diagnostic cranial and paddle references. Not a scan or a literal fossil slab.",
+  "scientific_limits": {
+    "en": "OR2013 is behind glass; published2.68m total and47cm skull derive from its cast, not direct fresh measurement of original bones. Historical mount shows no evidence of a composite according to the author, but preservation and inaccessible areas limit certainty. NLMH106234 has an added tail and reconstructed fin elements; those are excluded as geometry evidence. Soft skin, body volume, dorsal fin, upper tail lobe, color and exact fin margins are inferred. Shared ichthyosaur outlines are not uniquely diagnostic; independent review must assess the anatomical combination, not name or scale alone.",
+    "zh": "OR2013原骨隔玻璃，发表总长2.68米与头47厘米测自铸型，不是新测原骨。作者未发现该历史架拼接证据，但保存及可接近性有限。补充标本NLMH106234尾部拼接且鳍有石膏补件，这些区不作几何证据。皮肤、体积、背鳍、尾上叶、颜色及鳍缘推定。鱼龙类共享轮廓并非独有诊断；独审须核结构组合而非仅改名称或大小。"
+  },
+  "name": {
+    "en": "Ichthyosaurus",
+    "zh": "Ichthyosaurus（海生爬行类）"
+  },
+  "taxon": "Ichthyosaurus somersetensis",
+  "classification": "Reptilia; Ichthyosauria; Ichthyosauridae",
+  "era": "jurassic",
+  "reconstruction_type": "whole-organism",
+  "original_scope": {
+    "en": "Planned animal asset: streamlined fishlike body with long narrow jaws and four flippers.",
+    "zh": "规划中的动物资产：流线鱼状躯干、细长颌与四鳍肢。"
+  },
+  "evidence_anchors": {
+    "primary_photo": "Lomax2019 thesis Fig3.4B actual NHMUK OR2013 skeleton includes skull/ribcage/fourlimbs/downturnedcaudalaxis; otherpanelsdifferentindividuals notmixed. Text describes consistentbones/preservation and noindicationcomposite, with originalbehindglass.",
+    "scale": "Lomax and Sachs2017 Table1 OR2013cast: totallength268cm, skull47cm, preorbital30.5cm, jaw53cm, precaudal118cm excludinghead, preflexural181cm excludinghead. Inferredremainingfluke40cm. These are castmeasurements andpublishedreconstructiondistinctions, not modeledcalipertruth.",
+    "supplementary": "LomaxSachs2017 Figs2–4 actual NLMH106234 skull andbroadforefin, with black/grey explicitlyadded/restoredregions. Different largerindividual, total3.0–3.3m notused for OR2013. Fig4supports broadmultiple-digitpaddle but plasterelementsnotcopied.",
+    "classification": "LomaxMassare speciesdescription retained in2019thesis identifies OR2013by skull/hindfincharacters. OriginalgenuslevelIDpreserved, chooseI.somersetensis notoldgenericcommunis.",
+    "diagnostic_basis": "Longpreorbitalrostrum, toothedjaws, broad multi-digitforepaddle andsmallerhindpair. Speciesdiagnosis also relies on internalcranial/iliumfeatures, not surfacecolor; noclaimexternaloutlinealoneuniquelydiagnosespecies."
+  },
+  "scale": {
+    "unit": "metre",
+    "published_cast_total_length": 2.68,
+    "published_cast_skull_length": 0.47,
+    "published_cast_jaw_length": 0.53,
+    "published_cast_preorbital_length": 0.305,
+    "published_cast_precaudal_length_excluding_head": 1.18,
+    "inferred_targets": {
+      "head_width": 0.15,
+      "head_height": 0.17,
+      "trunk_max_depth_range": [
+        0.4,
+        0.48
+      ],
+      "trunk_max_width_range": [
+        0.32,
+        0.4
+      ],
+      "tail_centerline_length": 1.03,
+      "skeletal_orbit_length": 0.105,
+      "external_eye_diameter": 0.055,
+      "forepaddle_root_to_tip": 0.4,
+      "forepaddle_max_chord": 0.15,
+      "hindpaddle_root_to_tip": 0.26,
+      "hindpaddle_max_chord": 0.085,
+      "visible_teeth_height_range": [
+        0.007,
+        0.012
+      ]
+    },
+    "interpretation": "Publishedcastmetricsabove retained; all otherdimensions modeled fromphotoandconservativeinference. Orbit targetscaled fromholotype9.6cm/47cmjaw context notsameindividualmeasurement. Do not equate skeletalorbit andvisibleeye."
+  },
+  "morphology": [
+    "Streamlined compact fishlike body with smooth rounded belly and a narrowtailstock; noextendedneck. Longnarrowrostrum occupies about65percentofskulllength and upper/lowerjaws endnearlytogether, not swordfishoverbite.",
+    "Smallregularpointed teeth alongbothjawmargins, retainedonadultmodel. Slightjawopening6degrees makesrowlegible without oversizedfangs. Approx30teethperjawside simplificationnotassertedactualcount.",
+    "Four distinct membranouspaddles. Forepair relativelybroadandrounded proximally,taperingtodistalpoint; hindpairnoticeablysmallerbutnotvestigial. Noexternalseparateddigits/claws orflatbonepolygons. PlasterreconstructedpartsinNLMHreferencearenottemplate.",
+    "Moderatemacroscopichead/eyeproportions; eye openingmuchsmallerthanbonyorbit. DonotinflateorbitintoOphthalmosauruslargeeyehead or makeLeptonectesneedlefins/snout.",
+    "Tailhasdownturnedbonyaxiswithinlowerlobe; inferredupperlobeformsverticalcrescenttail, neverhorizontalwhaleflukes. Modestsweptdorsalfininferred, not claimedpreservedinOR2013.",
+    "Mutedgray-blue dorsum andlightunderbody artisticinference; noembryo/cutaway/slab/ammonites ormountedbones onthelivinganimal. Allbodygeometryoriginal, notphototexturedfossil."
+  ],
+  "shape_gate": {
+    "required_combination": "Compactstreamlinedfishlikebody, longnarrowtoothednearlyequaljaws andfourpaddles, includingbroadforepair andsmallerhindpair.",
+    "comparisons": "Stenopterygius plannedadultshowsreducedteethandnarrowforepaddles; thismodelretainssmallcontinuousteethandbroaderforepaddles. Ophthalmosaurushasfarhigherrelativeorbitandextremefore/hinddisparity. Leptonecteshasmoreslenderneedlejawandfins. Temnodontosaurushaslargecuttingteethandrobustlargeheadwithsubstantialhindfins. Avoidmanufacturedexaggeration; sharedsilhouettealoneisnotuniquenessproof.",
+    "acceptance": [
+      "Lateral showslongnarrowequaljawswithsmallteeth, compactbodyandverticaltail.",
+      "Top showsfourpaddleswithclearfore/hinddifferenceandnonneedleforepaddlechord.",
+      "Head-on/perspective showmoderateeyesandnarrowpairedjawswithoutgiantfangs.",
+      "Comparefrozennearestmodeldescriptors beforefinal; ifonlyscale/poseseparatesthem, reviseoriginalanatomicalcombinationratherthaninventinghorns/fins."
+    ]
+  }
+}

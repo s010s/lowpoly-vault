@@ -2,6 +2,8 @@
 // presentation; these physical dimensions always describe the authored pose.
 export function formatModelLength(meters){
   if(!Number.isFinite(meters)||meters<0)return '—';
+  // Preserve sub-millimeter dimensions without rounding positive lengths to zero.
+  if(meters>0&&meters<.001)return Number((meters*1000).toPrecision(3))+' mm';
   return meters>=1?meters.toFixed(2)+' m':(meters*100).toFixed(1).replace(/\.0$/,'')+' cm';
 }
 export function modelHeight(asset){return formatModelLength(asset.dimensions?.[1]);}
@@ -11,8 +13,8 @@ export function dimensionDetails(asset,lang='en'){
     `Height (Y): ${formatModelLength(height)} · Width (X): ${formatModelLength(width)} · Depth (Z): ${formatModelLength(depth)}`;
 }
 export function dimensionNote(lang='en'){
-  return lang==='zh'?'以上为原始造型的美术设定尺寸，单位为米 (m) 或厘米 (cm)；旋转查看时数值保持不变，并非经过验证的标本测量。':
-    'These authored-pose dimensions use meters (m) or centimeters (cm) and stay fixed when you rotate the view. They are artistic specifications, not verified specimen measurements.';
+  return lang==='zh'?'以上为原始造型的美术设定尺寸，单位为米 (m)、厘米 (cm) 或毫米 (mm)；旋转查看时数值保持不变，并非经过验证的标本测量。':
+    'These authored-pose dimensions use meters (m), centimeters (cm) or millimeters (mm) and stay fixed when you rotate the view. They are artistic specifications, not verified specimen measurements.';
 }
 export function comparisonMeasurement(asset,lang='en'){
   // This shallow surface is understood by its X/Z footprint, not its Y height.

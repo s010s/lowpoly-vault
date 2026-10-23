@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "source": "s010s/lowpoly-vault/scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "source": "s010s/lowpoly-vault/scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "723b5d74207902b6e366450182d82b3f05c7aeffe9d89348c040c4bc1a3bca1d",
+      "source": "Original model-specific helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_runtime.mjs",
+      "sha256": "e03ac5fc4b31a82963aa97bc83e49e48c2c41be36de8a2645b1cff6979590588",
+      "source": "Original model-specific helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generator and rendering; includes bundled Python and glTF exporter 4.3.47"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "Optional offline validation only; supplied explicitly to validate_runtime.mjs; not required by generator"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Optional official format validation; supplied explicitly to validate_runtime.mjs; not required by generator"
+    }
+  ],
+  "dependency_closure": "Generator imports only source/params.json, source/deps/asset_common.py and its transitive qa_glb.py, plus Blender and Python standard library. All required source files are package-relative. Optional validation runtime is not an undeclared generation dependency."
+}

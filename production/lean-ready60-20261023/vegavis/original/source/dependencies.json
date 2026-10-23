@@ -1,0 +1,53 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical helper, content-addressed snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical helper, content-addressed snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "bb37c939fab56915dc576c76f3354a9b8aed6e1ff165762de99a94221895b69d",
+      "origin": "Original model-specific actual-export renderer",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "components": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Node.js",
+      "purpose": "Optional technical validator only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Optional CPU parser only"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Optional official format check only"
+    }
+  ],
+  "policy": "Generator needs only the bundled Python source/deps, params.json and pinned Blender runtime. Rendering is separate and optional. Node validation takes an explicitly supplied installed runtime directory."
+}

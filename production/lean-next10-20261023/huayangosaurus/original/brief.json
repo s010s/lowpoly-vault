@@ -1,0 +1,87 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "huayangosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "head -Y tail +Y up +Z",
+    "root_origin": "Grounded center of the four weightbearing sole-contact extents, (0,0,0); tail and shoulder spikes do not affect placement origin."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real skeletal display photo plus museum morphology facts sufficient."
+  },
+  "extra_views": [],
+  "inventory_ordinal": 383,
+  "name": {
+    "en": "Huayangosaurus",
+    "zh": "华阳龙"
+  },
+  "taxon": "Huayangosaurus taibaii",
+  "classification": "Dinosauria, Ornithischia, Thyreophora, Stegosauria, Huayangosauridae",
+  "representation": "living-reconstruction",
+  "scope": "Whole animal with short broad skull, paired dorsal plates and shoulder spikes.",
+  "scale": {
+    "total_length_m": 4.5,
+    "basis": "NHM Dino Directory estimate; AMNH gives4m and SUSE4.3-4.5m. Not exact measured individual."
+  },
+  "specimen_basis": "Real skeletal display photograph on SUSE university page. Display restored composite/mount not intact in-situ holotype. Holotype IVPP V6728 skull and partial skeleton; no claim all mount bones original.",
+  "diagnostic_targets": [
+    "Short broad wedge-shaped skull unlike long slender later stegosaur head; front-jaw teeth existed, closed mouth allowed.",
+    "Two aligned paired rows of relatively small narrow triangular plates/spines, not huge alternating Stegosaurus diamonds.",
+    "One parascapular shoulder spike per side projecting laterally and slightly rearward; not located on hips.",
+    "Four weightbearing legs, forelimbs relatively long for a stegosaur, avoid extremely steep Stegosaurus hip slope.",
+    "Tail with two pairs of terminal spines and no club; compact whole body."
+  ],
+  "uncertainties": [
+    "Plate count, exact arrangement, shoulder-spine orientation and soft tissues reconstructed; paired rows literature museum supported but not an in-situ complete row measurement.",
+    "4.5m approximate species scale, not exact IVPP V6728 length.",
+    "Skin colour and thickness inferred; neutral muted palette."
+  ],
+  "acceptance_checks": [
+    "Short head, two shoulder spines and paired small dorsal rows apparent in top/front/side views.",
+    "Whole body four legs and long tail with four terminal spikes.",
+    "No Stegosaurus giant plates or exaggerated rear-leg height.",
+    "Four standard views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same dir maker QA; fixedhash COMPLETE stops; root async backup local-first integration. No maker upload cleanup.",
+  "runtime_profile": {
+    "surface": "palette-only",
+    "static": true,
+    "textures": false,
+    "three_version": "0.180.0",
+    "gpu": "not evaluated in maker stage",
+    "populated_scene": "not evaluated in maker stage"
+  },
+  "maker_design_freeze": {
+    "source_profiles": "continuous head/neck/trunk/tail loft, four articulated limbs, paired lenticular triangular blades",
+    "plate_pairs": 12,
+    "plate_count_uncertainty": "Artist-selected conservative number, not a measured specimen count",
+    "feet": "Simplified weightbearing feet; exact digit anatomy not asserted",
+    "palette": "Interpretive muted olive and earth keratin",
+    "revision": "r001"
+  }
+}

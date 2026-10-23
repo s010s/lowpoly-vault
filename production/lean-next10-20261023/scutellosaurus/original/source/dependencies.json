@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, lowpoly-release-fast-path-20261022; immutable content hash pin",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, lowpoly-release-fast-path-20261022; immutable content hash pin",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_model.py",
+      "sha256": "f7dde816c77a07e86fdc63902ffda69f14211de5070e574356cf4602349227dd",
+      "origin": "Task-original exact-GLB rendering helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "io_scene_gltf2 4.3.47"
+      ]
+    },
+    {
+      "name": "Python standard library",
+      "version": "Bundled with Blender 4.3.2"
+    }
+  ],
+  "generator_reads": "Only source/params.json and relative source/deps/*.py. Reference photos and research XML are not inputs. Two isolated source copies are rebuilt to verify runtime closure."
+}

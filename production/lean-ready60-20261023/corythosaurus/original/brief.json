@@ -1,0 +1,60 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "corythosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "head -Y, tail +Y, up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual full skeleton photograph clearly shows crest, bill, trunk, limbs and long tail; sufficient for lowpoly preparation."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Entire adult helmet-crested hadrosaur, not isolated skull or a fossil scan.",
+  "scientific_limits": {
+    "en": "Living reconstruction based on museum skeletal anatomy. Ten metres is a genus-level NHM estimate, not the measured size of the photographed mount. Soft tissue, colour, crest thickness and chosen pose are interpretative. Historical mount posture and aquatic interpretation are not adopted.",
+    "zh": "据馆藏骨架形态制作完整活体复原。10米是自然历史博物馆属级估值，不是照片装架的实测长度。软组织、颜色、冠厚度及姿态为复原选择，不沿用旧装架姿态及水栖解释。"
+  },
+  "inventory_ordinal": 373,
+  "name": {
+    "en": "Corythosaurus",
+    "zh": "冠龙"
+  },
+  "taxon": "Corythosaurus casuarius",
+  "classification": "Dinosauria, Ornithischia, Ornithopoda, Hadrosauridae, Lambeosaurinae",
+  "scale": {
+    "total_length_m": 10.0,
+    "basis": "NHM genus-level estimate; not AMNH specimen measurement."
+  },
+  "diagnostic_targets": [
+    "High rounded laterally compressed helmet crest above skull; smooth arched outline with broad base on skull, no long backward tube and no separate posterior hatchet spike.",
+    "Broad duckbill, long neck, deep torso, powerful hindlimbs, shorter forelimbs and long tapering stiff balancing tail.",
+    "Entire animal in low balanced bipedal pose, tail raised clear of ground and forearms below shoulders, not an upright tail-dragging kangaroo.",
+    "Crest remains a solid exterior silhouette; internal nasal tubes known but not exposed in intact living model.",
+    "Side view must distinguish rounded helmet from Parasaurolophus tube and Lambeosaurus hatchet; top view shows narrow crest, broad bill and adequate trunk volume."
+  ],
+  "specimen_basis": "AMNH photographic asset ptc-7733, nearly complete mounted Corythosaurus skeleton photographed by Lynton Gardiner in1991. Museum mount includes restoration; image has no calibrated scale. Do not identify all bones as original or impose a specimen number absent from this photo record.",
+  "acceptance_checks": [
+    "Whole-organism silhouette and proportions, helmet diagnostic from side/perspective.",
+    "Two distinct forelimbs and hindlimbs with continuous anatomical joints; no detached crest or flattened torso.",
+    "Four standard views only; preview may reuse perspective bytes.",
+    "No web-image reuse claim unless actual renderer/config and original GLB/image hashes satisfy publication contract."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "canonical_source": "s010s/lowpoly-vault/scripts/asset_common.py",
+      "provenance": "Unmodified, content-hash-pinned canonical project snapshot; original helper license MIT."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "canonical_source": "s010s/lowpoly-vault/scripts/qa_glb.py",
+      "provenance": "Unmodified, content-hash-pinned canonical project snapshot; original helper license MIT."
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "canonical_source": "s010s/lowpoly-vault/scripts/render_candidate_views.py",
+      "provenance": "Unmodified, content-hash-pinned canonical project snapshot; original helper license MIT."
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "ece1bacc1dc83f1f782fe1fe5a608fc0280183a7c084dfb33b01eedc8ab708e6",
+      "provenance": "Original thin wrapper extending canonical renderer with v2 perspective camera at (1,-1,1)."
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "canonical_source": "s010s/lowpoly-vault/scripts/validate_gltf.cjs",
+      "provenance": "Unmodified, content-hash-pinned canonical project snapshot; original helper license MIT."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "use": "Only non-standard model-generation runtime; embedded bpy, mathutils."
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "use": "Official validation; not a rebuild input."
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "use": "GLTFLoader parse target; GPU/scene gates remain not run."
+    }
+  ],
+  "dependency_policy": "Generation reads only source/generate.py, source/params.json, copied source/deps/asset_common.py and qa_glb.py plus Blender/Python standard runtime. No reference images or other model directories are runtime inputs."
+}

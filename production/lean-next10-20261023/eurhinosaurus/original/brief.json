@@ -1,0 +1,116 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "eurhinosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      0.574,
+      -0.819,
+      0.466
+    ],
+    "direction_substitutions": [
+      {
+        "view": "perspective",
+        "from": [
+          1,
+          -1,
+          1
+        ],
+        "to": [
+          0.574,
+          -0.819,
+          0.466
+        ],
+        "reason": "Canonical helper oblique camera in the required +X,-Y,+Z quadrant; lower elevation preserves long jaw and tail silhouette."
+      }
+    ],
+    "object_orientation": "+Z dorsal/up; snout+X,tail-X,widthY. front camera-Y=lateralprofile;side+X=head-on;top+Z=dorsal;perspective(+X,-Y,+Z). LowestgeometryZ0.",
+    "view_roles": {
+      "front": "lateral jawoverhang and caudalbend",
+      "side": "head-on rostrum width and fin symmetry",
+      "top": "long narrow upperjaw, body andfourpaddles",
+      "perspective": "3D connected jaws and fins"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual complete skeleton photograph, primary measurements and anatomical comparative literature suffice for bounded livingreconstruction. No extra generatedconcept. Four outputviews do not imply four original photographs."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Eurhinosaurus",
+    "zh": "Eurhinosaurus（海生爬行类）"
+  },
+  "taxon": "Eurhinosaurus sp.",
+  "selected_specimen": "NHMUK PV R5465, London II",
+  "representation": "whole-animal living-reconstruction, not a slab or partial skull",
+  "era": "jurassic",
+  "original_scope": {
+    "en": "Planned animal asset: upper jaw projecting far beyond the lower jaw.",
+    "zh": "规划中的动物资产：远超下颌向前伸出的上颌。"
+  },
+  "reference_anchor": {
+    "photo": "Gary Todd2017, Eurhinosaurus and Stenopterygius NHM, CC0. ONLY large central/top complete skeleton is R5465. Bottom-left separate skullR3938 may illustrate genus jaw pattern but is not the same individual; bottom-right StenopterygiusR4086 is excluded entirely.",
+    "scale": "Spicher et al.2025 supplement2 tableS2: R5465 body length385cm, humerus9.7cm, measurements cited to vonHuene1928/1951. No regression estimate substituted.",
+    "taxonomy": "Historically named E.huenei (typeR5465), also referred to E.longirostris.2022 revision resurrectedhuenei, butSpicher2025 says attribution and valid diagnoses remain unresolved pending comprehensive revision. Keep genus-level Eurhinosaurus sp.; do not advertise settled species assignment.",
+    "additional": "Buchholtz2001 Fig2A is GPIT1025/18/1, another Eurhinosaurus specimen. Used only for genus skeletal proportions/tail function and contrast, notR5465 exactmeasurements.",
+    "period": "Early Jurassic, Toarcian. Original genus-level living scope retained."
+  },
+  "scale": {
+    "unit": "metre",
+    "nominal_total_length": 3.85,
+    "documented_humerus_length": 0.097,
+    "inferred_skull_length": 1.1,
+    "inferred_mandible_length": 0.58,
+    "mandible_skull_ratio_target": [
+      0.48,
+      0.58
+    ],
+    "inferred_forepaddle_length": 0.65,
+    "inferred_hindpaddle_length": 0.43,
+    "inferred_max_body_width_range": [
+      0.3,
+      0.45
+    ],
+    "inferred_body_depth_range": [
+      0.45,
+      0.6
+    ],
+    "basis": "385cm and97mm humerus are documented. Skull/jaw/paddle dimensions are approximate proportions interpreted from central skeleton photo, which has perspective distortion and no internal metricbar. Flesh width and thickness are conservative inference. These secondary values are not specimen caliper measurements."
+  },
+  "morphology": [
+    "Core identification: extremely long slender upper rostrum extends conspicuously beyond the shorter lower jaw. Lower jaw reaches roughly half the upper skull length from rear-skull landmark. Preserve this overhang in closed-mouth profile; do not merely gape equal-length jaws or elongate both into a generic dolphin beak.",
+    "Upper projection is a tooth-bearing jaw, not a separate horn/swordfish spike glued above the mouth. Thin tapered continuous rostrum, not broad crocodile snout. Lower jaw connects organically into rear head.",
+    "Large lateral orbital region with short cheek behind it, narrow short head-to-trunk transition. External eye is a modest globe within a larger orbitalregion, not the entire skeletal eye-ring copied onto skin.",
+    "Slender fusiform living trunk, elongated tailstock and downward skeletal tailbend into lower caudal lobe. Interpret actual skeletal architecture, not the photographed postmortem S-shaped tail pose or rectangular slab outlines.",
+    "Exactly four long narrow rounded paddles, anterior pair larger than posterior. Keep fleshy membranes enclosing digits; no exposed fingers, extra shark fins or copied bone texture.",
+    "A modest dorsal fin and upper tail membrane are conservative ichthyosaur soft-body inferences, not preserved outlines inR5465. No exactfin height/angle claimed. Avoid tall shark sail or enormous symmetric whale fluke; vertical caudal plane, lowerlobe supported by downward vertebral bend.",
+    "Small lateral nostrils anterior to eyes, not cetacean blowhole. Smooth scaleless-looking skin, no gill slits, scales, spikes, shell or external ribs.",
+    "Closed or nearly closed mouth makes short mandible unambiguous. Any teeth are very small/subdued and locally attached to jaw margins, not exaggerated saw teeth. No separate protruding tusks.",
+    "Neutral horizontal swimming pose. Four paddles mildly spread for visualcounting; no stand, fossil slab, museum case, titlecard or prey."
+  ],
+  "uncertainty": [
+    "R5465 is a compressed mounted skeleton, not an intact living contour. Living tissue thickness, dorsalfin and upper caudalfin margins, exactskin pattern, external eye shape and swimming pose are reconstructions.",
+    "Taxonomic debate retained at specieslevel without changing genus. Do not mix E.mistelgauensis body estimates intoR5465.",
+    "No four-angle realphoto set exists here. Standard four renders inspect a bounded3D interpretation supported by real specimen plus primary literature, notphotogrammetry.",
+    "Mounted skeletal curvature or preparatory replacements cannot be treated as exact livingtail outline. Buchholtz2001 flags altered fluke orientation in anotherGPIT specimen and dubious authenticity of SMNS14931; neither becomes exactgeometry anchor."
+  ],
+  "palette": "Muted blue-grey/grey skin, lighter underside as restrained artistic convention; noclaimed preservedmelanin pattern.",
+  "acceptance_focus": [
+    "Lateral: clear upperjaw overhang with short lowerjaw, large-eye smallcheek head, elongated slender body.",
+    "Head-on andtop: narrow tapering rostrum is continuous with skull, noflatbill; fourattachedpaddles withsmaller hindpair.",
+    "Perspective: vertical asymmetriccaudalfin, connected jaws and fins; not ageneric equal-jawed ichthyosaur.",
+    "Nominal length3.85m anchored topublishedR5465 measurement, all other reconstructedvalues labelled as such. ScientificQA independent oftemplatechecks."
+  ],
+  "profile": "Palette-only static living reconstruction; smooth body normals with explicitly modeled low-poly lofts and closed paddle membranes."
+}

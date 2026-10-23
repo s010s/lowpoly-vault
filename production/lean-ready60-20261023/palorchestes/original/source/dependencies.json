@@ -1,0 +1,51 @@
+{
+  "status": "SELF_CONTAINED_SOURCE",
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Copied unmodified from canonical s010s/lowpoly-vault script snapshot; content SHA256 pins version",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Copied unmodified from canonical s010s/lowpoly-vault script snapshot; content SHA256 pins version",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_asset.py",
+      "sha256": "ccefe2a87ea7aee88fd8a16538fa5affd7773c94a4f88af525c868b3eafdedf0",
+      "provenance": "Original portable four-view driver using canonical helper functions",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "required_for": "generation and exact-export rendering"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled Python",
+      "required_for": "generation and rendering"
+    }
+  ],
+  "validation_only_runtime": [
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "CPU GLTFLoader parse only; GPU and scene performance unknown"
+    }
+  ]
+}

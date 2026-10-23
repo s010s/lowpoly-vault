@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical lowpoly-vault scripts/asset_common.py; recovered project snapshot 2026-10-22; content-addressed pin",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical lowpoly-vault scripts/qa_glb.py; recovered project snapshot 2026-10-22; content-addressed pin",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "0e8ae45445820535ef96b891efed0df29b99adaf14e8cf01f799297b90ee5181",
+      "origin": "Original model camera-evidence adapter, MIT",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "included_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "scope": "Model generation and exact-GLB evidence; no other model-directory dependency"
+    },
+    {
+      "name": "Python",
+      "version": "Blender embedded 3.11",
+      "scope": "standard library only beyond Blender modules"
+    }
+  ]
+}

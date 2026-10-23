@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "euproops",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail+Y, dorsal+Z. Standard front-Y,side+X,top+Z,perspective(+X,-Y,+Z); one added ventral-Z for hiddenappendages."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual named fossil, same-species restoration and appendage photograph suffice. No concept images."
+  },
+  "extra_views": [
+    {
+      "name": "ventral",
+      "camera": "-Z",
+      "reason": "Necessary purposeful view to inspect concealed chelicerae+four walkingpairs+one pushingpair; four standard views cannot establish underside anatomy.",
+      "path": "views/ventral.png"
+    }
+  ],
+  "original_inventory_number": 809,
+  "taxon": "Euproops danae (Meek and Worthen,1865)",
+  "representation": "living-reconstruction",
+  "scope": "Whole Carboniferous juvenile individual, likely developmental stage3 per2021 paper, not adult and not isolated shell. Anchor YPM IP168040 MazonCreek Moscovian, with same-species published restoration for damaged edges.",
+  "scale": {
+    "units": "meters",
+    "prosoma_length_published": 0.0069,
+    "prosoma_width_published": 0.0168,
+    "opisthosoma_length_published": 0.0073,
+    "opisthosoma_width_published": 0.0112,
+    "telson_length_published": 0.0079,
+    "body_plus_tail_sum": 0.0221,
+    "shell_height_inferred": 0.003,
+    "note": "2021Results explicit specimen dimensions authoritative. Figure1A caption2mm bar appears inconsistent with approximate width ratio; do not claim ruler and text agree or silently rescale.22.1mm sum is nominal anterior-posterior construction before overlap, not separately measured total."
+  },
+  "anatomy": [
+    "Broad low-domed horseshoe-like prosoma with flattened border, long paired posterolateral genal spines and paired ophthalmic ridges extending backward into spines as same-species Fig1C.",
+    "Broad rounded posterior shield with radiating marginal points and expressed shallow segment lines. Use Fig1C edge topology; posterior shield is fused, not a chain of free loose plates.",
+    "Straight tapering styliform telson7.9mm. Do not turn into scorpion sting or moderncrab tuckedabdomen.",
+    "Under anterior shield: paired small chelicerae, four pairs walkinglegs and a final pair pushinglegs. Jointed limbs kept modest and largely under shell. No antennae, no lobster claws.",
+    "Small eyes associated with ophthalmic ridges; no white exposed CNS pattern, no centralbraindecoration."
+  ],
+  "restoration_boundaries": [
+    "Actual dorsal YPM IP168040 supplies outline and published dimensions;2021Fig1C is interpreted same-species reconstruction for poorly preserved spine margins, not a second measured specimen.",
+    "2020Fig19E-G YPM IP28514 shows real same-species ventral appendages; used only jointed organization, not dimensions or claimed same individual.",
+    "CNS nerves indicate chelicera/fourwalking/pushing arrangement in2021discussion; actual ventral fine tips, shellheight, smallmouthparts, stance/color inferred conservatively.",
+    "Do not use Limulus juvenile panelE as Euproops fossil, and do not substitute Piesberg Euproops sp adult flange morphology for this juvenile."
+  ],
+  "quality_gates": [
+    "IndependentQA verify whole juvenile not adult, no externalCNS, fused posterior shield with radiating points and straighttelson.",
+    "Verify 6 main prosomalappendagepairs inclchelicera, not6 walkingpairs; undersideextra view justified.",
+    "Scale follows text dimensions, not conflicting printedbar; no adult size inflation."
+  ]
+}

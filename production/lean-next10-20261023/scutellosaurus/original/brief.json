@@ -1,0 +1,100 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "scutellosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "head -Y tail +Y up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual reconstructed mount photo and explicit skeletal drawing plus original anatomy text support form; extra concepts unnecessary."
+  },
+  "extra_views": [],
+  "inventory_ordinal": 387,
+  "name": {
+    "en": "Scutellosaurus",
+    "zh": "小盾龙"
+  },
+  "taxon": "Scutellosaurus lawleri",
+  "classification": "Dinosauria, Ornithischia, Thyreophora; early branching non-eurypodan",
+  "representation": "living-reconstruction",
+  "scope": "Original whole lightly built biped dotted with numerous small scutes.",
+  "scale": {
+    "total_length_m": 1.2,
+    "basis": "NHM approximate genus length, not a measured reconstruction of one specimen. NPS approximately4feet agrees; UMD1.5m not adopted."
+  },
+  "specimen_basis": "MNA.V.175 relatively complete postcranium and cranial fragments, 2021 primary text. Actual NPS photo is a reconstructed skeletal mount, not untouched fossil. Hartman2016 drawing is reconstruction, not photograph.",
+  "diagnostic_targets": [
+    "Slender biped with short forelimbs held above ground, stronger long hindlimbs and horizontal trunk.",
+    "Very long tapering tail about half or more total length; no club or thagomizer.",
+    "Small elongate narrow herbivorous head, modest snout and closed mouth; no head horns.",
+    "Numerous small low keeled scutes across neck trunk flanks and tail, not enormous stegosaur plates or fused shell.",
+    "Tiny hands face medially, articulated hind feet and leg transitions; retain visible spaces between limbs."
+  ],
+  "uncertainties": [
+    "Holotype has at least304 disarticulated osteoderms, exact life positions unknown. Lowpoly small-scute arrangement is reconstruction not measured original rows.",
+    "Photo mount includes restored elements. No claim direct original fossil inspection; original paper figure captions/text read but photo files could not be acquired.",
+    "Head incomplete; fleshy outline, skin colours inferred.",
+    "NPS narrative permits quadrupedality but2021 primary locomotor analysis supports biped; follow primary and original requested target.",
+    "Manual and pedal elements are incomplete/disarticulated. Five small manual digit forms and three principal toes plus reduced medial toe are stylized reconstructions, not a complete articulated specimen. Osteoderm shapes are simplified low-keeled forms rather than replicas of each published morphotype."
+  ],
+  "acceptance_checks": [
+    "Complete light biped with short suspended forelimbs, long hindlimbs and tail.",
+    "Small numerous low scutes readable in side/top views.",
+    "No giant plates, tailclub, broad heavy ankylosaur body.",
+    "Default four views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same directory prep maker QA. COMPLETE fixedhash stops. Root async backup; local-first integration; no maker upload cleanup.",
+  "render_profile": {
+    "style": "deliberate faceted palette-only original geometry",
+    "final": "four exact-GLB views, 1024px, Cycles CPU, 2 threads; perspective reused as preview",
+    "gray": "four 512px exact-GLB views before final rendering"
+  },
+  "claim_scope": "Original stylized anatomical reconstruction candidate; independent visual/factual acceptance pending. No GPU, populated-scene, user acceptance or deployment claim.",
+  "runtime_profile": {
+    "three": "0.180.0",
+    "materials": "opaque untextured PBR metallic=0, roughness=.86; no extensions",
+    "tests_required": [
+      "source topology and export bounds",
+      "static GLB audit",
+      "Khronos validator",
+      "two isolated deterministic rebuilds",
+      "exact-GLB four-view inspection",
+      "independent QA before acceptance"
+    ],
+    "gpu": "NOT_RUN; separate deployment gate",
+    "populated_scene": "NOT_RUN"
+  },
+  "anatomical_build_notes": {
+    "modeled_scutes": 213,
+    "fossil_count_claim": false,
+    "fossil_life_row_claim": false,
+    "tail_length_approx_m": 0.705,
+    "origin": "Center of the modeled low foot-contact footprint, at ground Z=0. Root remains identity.",
+    "mesh_structure": "Eight editable semantic mesh objects composed of closed solids. Anatomical attachment overlaps are intentional; not a single boolean union or 3D-printing claim."
+  }
+}

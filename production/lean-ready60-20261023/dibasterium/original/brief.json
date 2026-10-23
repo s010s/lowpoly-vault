@@ -1,0 +1,68 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "dibasterium",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head-Y, tail+Y, dorsal+Z. Standard cameras plus purposeful ventral -Z."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Named specimen-backed dorsal/ventral reconstructions and explicit primary anatomical description suffice; no additional concepts."
+  },
+  "extra_views": [
+    {
+      "name": "ventral",
+      "camera": "-Z",
+      "reason": "Verify independent endopod/exopod insertion, seven prosomal pairs and six gill pairs; not visible from normal top views.",
+      "path": "views/ventral.png"
+    }
+  ],
+  "original_inventory_number": 810,
+  "taxon": "Dibasterium durgae Briggs et al., 2012",
+  "representation": "living-reconstruction",
+  "scope": "Entire Silurian animal anchored to serial-ground holotype OUMNH C.29640; no fossil slab or borrowed published mesh.",
+  "scale": {
+    "units": "meters",
+    "total_length_excluding_appendages": 0.0232,
+    "prosoma_max_width": 0.0092,
+    "prosoma_length_estimate": 0.0092,
+    "preabdomen_length_estimate": 0.007,
+    "postabdomen_length_estimate": 0.004,
+    "telson_length_estimate": 0.003,
+    "note": "23.2mm and 9.2mm directly published same specimen. Other lengths are conservative modeling partitions estimated from same-specimen images; adjust to total, not independent measurements. Vaulted height inferred ~4mm; no foreign specimen scale."
+  },
+  "anatomy": [
+    "Semioval smooth vaulted shield; eyes not evidenced. Eleven free rear tergites: reduced concealed first, eight preabdominal and three postabdominal segments overall; tapering telson with two short terminal points.",
+    "Seven prosomal appendage pairs: elongated flexible chelicerae with tiny terminal chela; limbs2-5 each have separately inserting inner and outer rami; limb6 inner ramus only, nonchelate terminal; limb7 small spine-fringed flap.",
+    "Inner rami2-5 six podomeres plus terminal claw; outer rami shorter, five podomeres with terminal spine brushes. Six paired lamellate gill groups under preabdomen; attachment uncertain."
+  ],
+  "restoration_boundaries": [
+    "Images are serial-grinding digital fossil reconstructions, not unprocessed photographs or artistic concept evidence. Distinct color segmentation in atlas is not biological coloration.",
+    "No copying research meshes/STL; construct original low-poly geometry from cited morphology. No new eyes, giant genal horns, fused modern horseshoe rear shield or scorpion sting.",
+    "Restore neutral symmetric stance instead of preserving taphonomic crossed/asymmetric limbs; exact minor joint angles, lamella count simplification, thickness and muted color are artistic choices.",
+    "Atlas figure3 A/B only match holotype; C/D/E other animals excluded."
+  ],
+  "quality_gates": [
+    "Confirm 11 unfused tergites, not11 gill groups or fused thoracetron.",
+    "Confirm outer rami originate on body independently, never on inner legs. Four biramous pairs, not all seven pairs doubled.",
+    "Chelicerae are antenniform but not additional antennae; seventh pair tiny flap, sixth nonchelate.",
+    "Do not add observationally unsupported eyes or copy rainbow segmentation colors."
+  ],
+  "source_profile": "palette-only, unrigged, static, original semantic parts retained; temporary material batches for export"
+}

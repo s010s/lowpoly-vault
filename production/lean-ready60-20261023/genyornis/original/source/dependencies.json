@@ -1,0 +1,64 @@
+{
+  "status": "PINNED",
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Pinned project canonical helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/inspect_source.py",
+      "sha256": "125f70b81c714164b94d0022e259b6684c64ed93e5c47631cfb66ae0d40bfa72",
+      "origin": "Original candidate helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Pinned project canonical helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_model.py",
+      "sha256": "e551def17d06933e119e09a171c8d236d5a4df40b8942c45d267b7a009b7b0ec",
+      "origin": "Original candidate helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/test_runtime.mjs",
+      "sha256": "202e1310573181c7391b73f7a0a2aec468f9da99ff1bc27a87e7b164f40085e6",
+      "origin": "Original candidate helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "Pinned project canonical helper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Generation, source inspection, GLB import and CPU Cycles views; includes bpy/bmesh/mathutils and Python standard library"
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47",
+      "scope": "Generation; bundled Blender exporter"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "QA only; official validator; not a generator dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "QA only; CPU GLTFLoader parse, not GPU or source generation"
+    }
+  ],
+  "dependency_policy": "All non-runtime generation imports are copied in source/deps and SHA-256 pinned. No cross-model imports. Two rebuilds use independent copies of only the source tree. No external textures or linked blend libraries."
+}

@@ -1,0 +1,1 @@
+Exactly sixty fixed independently accepted candidates. Original scientific scope, source and geometry unchanged; fresh website presentation is independently reviewed separately. Content acceptance does not imply GPU, scene, user acceptance or deployment. No private reference media or process evidence is distributed.
