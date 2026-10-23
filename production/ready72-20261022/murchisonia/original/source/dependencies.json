@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical lowpoly-vault scripts snapshot, byte-pinned copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical lowpoly-vault scripts snapshot, byte-pinned copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "497d5573e98b9ab9e706775b9d39666d546acdfc02ebcc8859155ea019db63b3",
+      "origin": "Original task renderer using canonical color/material/scene helpers",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "Build, bpy/bmesh/mathutils supplied by Blender; no other model directory needed"
+    },
+    {
+      "name": "Blender glTF I/O",
+      "version": "4.3.47",
+      "scope": "Embedded exporter/importer"
+    }
+  ],
+  "qa_runtime": [
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Independent official format validator, not needed to build"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "GLTFLoader parser test only, not needed to build"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pleurotomaria",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Spire +Z, basalplane nearz0; mouth facesfront camera-Y, standard side+X/top+Z/perspective(+X,-Y,+Z). Slit visible at right/outer edge of front-facingmouth. Align sculpture naturally, not arbitrary radial grooves."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Published real multi-view specimen photographs and dimensions plus documented genus slit anatomy; no conceptneeded."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Pleurotomaria slit-shell",
+    "zh": "Pleurotomaria 裂唇螺壳"
+  },
+  "inventory_ordinal_one_based": 871,
+  "taxon": "Pleurotomaria pogibshiensis",
+  "representation": "interpretive fossil shell, not an exact specimen facsimile",
+  "primary_specimen": "CNP-PIIc0440, Ferrari etal2020 Fig5 A-G only",
+  "context": {
+    "era": "jurassic",
+    "age": "middle Hettangian",
+    "formation": "Pogibshi Formation, July member",
+    "locality": "SiteJL198, Seldovia, Alaska"
+  },
+  "scope": "Original genus-level target anchored in photographed CNP-PIIc0440. Shell lip and slit are conservative taxon-level interpretation, not preserved measured slit. Do not borrow other-species slit length or use PRI78776 interior mold as outer shell.",
+  "scale": {
+    "units": "meters",
+    "height": 0.03804,
+    "width": 0.03723,
+    "depth_working": 0.03723,
+    "aperture_width_reference": 0.02159,
+    "aperture_height_partial": 0.01184,
+    "basis": "Ferrari2020 p568 dimensions linked to館number0440. Asterisk on peristomeheight denotes incomplete measurement. Type status wording is inconsistent with prior type paragraph/figurecaption; omit holotype/paratype assertions.",
+    "uncertainty": "Overall height/width are reported specimen measurements. Missing lip continuation, slit dimensions, shellwall thickness and unseen interior are inferred. Never use0439 dimensions."
+  },
+  "part_evidence": [
+    {
+      "part": "Five stepped whorls, broad ramp, large last whorl, closed umbilicus and shallowconvex base",
+      "status": "observed/documented",
+      "source": "Ferrari2020 Fig5 A-G, descriptionpp566-568"
+    },
+    {
+      "part": "Selenizone at midouterface, bounded by ridges with median cord; shoulder nodules",
+      "status": "observed/documented",
+      "source": "Fig5D and description; roughly20-22 nodes at whorlshoulder described at specieslevel"
+    },
+    {
+      "part": "Outer lip continuation and actual open slit at selenizone",
+      "status": "inferred reconstruction",
+      "source": "Monari&Gatto2013 genusdiagnosis supports slit-bearing shell; slitlength varies and rarely complete",
+      "limits": "Do not claim specimen0440 preserves a complete lip/slit. Short restrained geometric notch aligned with selenizone; exact length/width unknown. No borrowing other species1/6 or3/4whorl."
+    },
+    {
+      "part": "Missing protoconch and exact mouthinterior",
+      "status": "unknown",
+      "limits": "No restored tiny needleapex or detailed internal anatomy; retain worn top, simple shallow aperture."
+    }
+  ],
+  "required_features": [
+    "Broad stepped cone, five adult whorls; final bodywhorl broad, not a thin elongated snail tower.",
+    "Continuous midwhorl selenizone separate from shoulderkeel; shallowdoubleboundary+medianridge suffices.",
+    "Shoulder nodules gently scalloped, not largehorns; fine reticulation may be simplified.",
+    "Broad subcircular/subtrapezoidal mouth with small true open outer-lip slit aligned to selenizone. Slit is disclosed interpretation, not crack or painted line.",
+    "Closed umbilicus and shallowconvex spiralbase; no giant bottomhole.",
+    "Worn incomplete protoconch retained; no artificially lengthened apex."
+  ],
+  "forbidden": [
+    "Exact preservedslit claim",
+    "Mixed0440/0439 scales or holotype assertion",
+    "PRI78776 mold scale or8.5cm borrowed",
+    "Long other-species slit or giantaperture",
+    "Photo textures, source mesh, plinth, labels, softbody"
+  ]
+}

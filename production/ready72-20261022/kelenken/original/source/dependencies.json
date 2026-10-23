@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot; next-ten-local-integration-r001",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot; next-ten-local-integration-r001",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot; next-ten-local-integration-r001",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "6e19ce812e19653c4ced067bc1bc58dd00062d024d867946d681365b77caceb4",
+      "origin": "Original MIT renderer adapter for canonical template camera",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "io_scene_gltf2 4.3.47"
+      ]
+    },
+    {
+      "name": "Python stdlib",
+      "version": "Bundled with Blender 4.3.2"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "Target consumer only; GPU/scene gates NOT_RUN"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "Official external format test; not a generation dependency"
+    }
+  ],
+  "dependency_closure": "Generator imports only bundled source/deps, relative params.json, Python standard library and Blender APIs. Isolated-cwd double rebuild is recorded separately."
+}

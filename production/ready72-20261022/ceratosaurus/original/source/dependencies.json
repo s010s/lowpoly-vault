@@ -1,0 +1,59 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "lowpoly-vault canonical scripts snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/audit_anatomy.py",
+      "sha256": "7d4ffa1a05afdfa948c7e187c33b08ae7504929b3bb21a3f2a675cb5654abc2e",
+      "origin": "original Ceratosaurus QA helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "lowpoly-vault canonical scripts snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "lowpoly-vault canonical scripts snapshot",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "lowpoly-vault canonical scripts snapshot",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "glTF Blender exporter 4.3.47"
+      ],
+      "purpose": "Build, render, topology QA"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled Python 3.11",
+      "purpose": "No external Python pip dependencies for deterministic generation"
+    },
+    {
+      "name": "Node.js + gltf-validator",
+      "version": "gltf-validator 2.0.0-dev.3.10",
+      "purpose": "Official format validation only, not generator dependency"
+    }
+  ],
+  "policy": "All generator Python imports are in this source directory or Blender/standard library. Canonical helpers copied before construction and pinned by file SHA256. No cross-model imports.",
+  "canonical_source": "s010s/lowpoly-vault scripts/asset_common.py, scripts/qa_glb.py, scripts/render_candidate_views.py, scripts/validate_gltf.cjs; restored repository snapshot, file hashes provide exact pin."
+}

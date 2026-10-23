@@ -1,0 +1,63 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "murchisonia",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Spire +Z. Aperture faces front camera -Y; side +X, top +Z, perspective (+X,-Y,+Z). Consistent height/width across views."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Three actual museum views of the same specimen with millimeter ruler are sufficient; no additional concept image."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Murchisonia keeled high-spire snail",
+    "zh": "Murchisonia 具棱高塔螺"
+  },
+  "inventory_ordinal_one_based": 869,
+  "taxon": "Murchisonia bilineata (Dechen, 1832), museum identification",
+  "primary_specimen": "MNHN.F.B03994, Gaudry collection; figured Gaudry 1883 p147 fig125",
+  "representation": "Conservative fossil-shell interpretation, not exact undamaged facsimile",
+  "context": {
+    "era": "devonian",
+    "locality": "Paffrath, Germany",
+    "precision": "Museum provides Devonian only; do not invent a formation or exact age."
+  },
+  "dimensions": {
+    "height_mm": 21,
+    "width_mm": 11,
+    "depth_mm": 10,
+    "basis": "Approximate image-ruler estimates from three views of B03994, not museum-reported measurements. Height about20-21mm; width10-11mm; depth approximately10mm. Allow about1mm uncertainty."
+  },
+  "scope": "Original Devonian fossil high-spire target; one specimen supplies morphology and scale. Preserve moderately tall conical spire and circumferential shoulders; do not exaggerate into needle shell or borrow other species proportions.",
+  "must_preserve": [
+    "About six visible whorls, tapering apex; shell height roughly twice maximum width.",
+    "Stepped whorl shoulders with low continuous spiral keel/band; sculpture visibly worn, not giant spikes or deep isolated grooves.",
+    "Inflated last whorl and narrower preceding whorls, following all three genuine photos.",
+    "Front-facing aperture with conservative thin rim; edge is locally damaged despite museum condition label complet. Keep aperture repair disclosed, not claimed observed.",
+    "Neutral pale fossil calcite tone; no specimen ink, ruler or black background modeled."
+  ],
+  "forbidden": [
+    "Copy source photo as texture or import third-party mesh",
+    "Mix another specimen scale, modern shell or non-Devonian morphology",
+    "Assert exact intact aperture, slit length or protoconch anatomy",
+    "Over-sharpen worn keel or add axial spikes",
+    "Base, plinth, labels, soft anatomy"
+  ]
+}

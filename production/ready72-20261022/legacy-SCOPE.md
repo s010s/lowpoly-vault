@@ -1,0 +1,2 @@
+Exactly 3 fixed, independently reviewed local-making candidates from the ready72 snapshot. Source and geometry unchanged. Original exclusions and scientific qualifications are preserved. Fresh presentation is separate from scientific acceptance. GPU, populated-scene and user acceptance are not inferred. No private source media, process archives or private storage links are distributed.
+Cuspidaria original Markdown brief had no GLB byte ceiling; explicit 10000000 integration-only cap is not a retroactive frozen requirement. Myophoria budget projection is an exact field alias.

@@ -1,0 +1,80 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "regaliceratops",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z; neutral standing quadruped."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual skull multi-view figure already available."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Regaliceratops",
+    "zh": "皇家角龙"
+  },
+  "inventory_ordinal": 405,
+  "taxon": "Regaliceratops peterhewsi",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism with crownlike frill and broad pointed marginal plates; do not reduce to head.",
+  "specimen_basis": "TMP2005.055.0001 cranium, Brown & Henderson2015 Fig2. No known postcranial skeleton in this source.",
+  "scale": {
+    "skull_sagittal_m": 1.57,
+    "body_length_target_m": 5.0,
+    "basis": "Skull1.57m published approximate, deformation caveat. Body5m is reconstruction working estimate, NOT measured whole skeleton."
+  },
+  "diagnostic_targets": [
+    "Crownlike short frill; seven flattened marginal elements each side plus median P0. P1/P2 large spade-like plates, lateral elements smaller. Not a ring of uniform conical spikes.",
+    "Nasal horn dominates two short brow horns.",
+    "Broad quadrupedal ceratopsid torso, four weight-bearing legs, beak and tapering tail; body inferred from relatives."
+  ],
+  "uncertainties": [
+    "Only cranium documented. Body, jaw, beak, colour, skin and keratin extensions reconstructed.",
+    "Specimen deformed; do not copy asymmetry as a living diagnostic trait.",
+    "Small skull fenestrae are bone openings, not mandatory holes through living skin."
+  ],
+  "acceptance_checks": [
+    "Crown and dominant nose horn clear from front, side and top.",
+    "Seven paired marginal positions and median P0 discernible; plates broad and flattened, not a generic spiked frill.",
+    "Whole body retained and all limbs connected; no floating neck shield.",
+    "Four fixed template views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir maker/QA. Maker COMPLETE fixedhash stops; root asynchronous backup, local-first integration; no maker uploads or cleanup.",
+  "maker_profile": {
+    "geometry": "Static palette-only, intentionally faceted closed semantic solids. Original profile lofts for torso, head, limbs and tail; flattened crown plates.",
+    "source_editability": "Unjoined named parts saved in model.blend before a temporary lossless one-mesh material-group export merge.",
+    "export_measurements_m": [
+      1.840000033378601,
+      2.219135628081858,
+      5.0
+    ],
+    "palette": "Six opaque Principled materials; no texture, external buffer, extension, skin or animation.",
+    "origin": "Identity root at horizontal center of four-foot support pattern. Flat foot bottoms at Blender Z=0.",
+    "runtime": "Blender 4.3.2; Three.js 0.180.0 CPU parse only."
+  }
+}

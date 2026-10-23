@@ -1,0 +1,68 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "einiosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z; standing quadruped."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary adult skull and parietal photographs available."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Einiosaurus",
+    "zh": "野牛龙"
+  },
+  "inventory_ordinal": 404,
+  "taxon": "Einiosaurus procurvicornis",
+  "representation": "living-reconstruction",
+  "scope": "Original whole-organism adult, strongly forward-curving nasal horn and paired long frill spikes.",
+  "specimen_basis": "Adult holotype MOR456 8-9-6-1: Wilson & Scannella2021 Fig8B, McDonald2011 Fig7A. Do not use subadult Fig8A straight-horn phenotype.",
+  "scale": {
+    "total_length_m": 6.0,
+    "basis": "NHM taxon-level6m estimate, NOT measured complete holotype skeleton."
+  },
+  "diagnostic_targets": [
+    "Large nasal horn curves strongly forward and downward, attached to snout; not a straight rhino spike.",
+    "Adult supraorbital ornament rounded low bosses, not long Triceratops brow horns.",
+    "One dominant long straight P3 spike each side of frill; remaining edge processes subordinate.",
+    "Heavy quadruped torso, four weight-bearing legs, beak and tapering tail; retain entire animal."
+  ],
+  "uncertainties": [
+    "Body proportion and skin/colour/keratin outline inferred; no claim of a single complete articulated holotype body.",
+    "Living soft tissue covers cranial bone openings. Fossil breakage/assembly gaps must not become body holes.",
+    "Skull references compare different ontogenetic stages; adult phenotype only."
+  ],
+  "acceptance_checks": [
+    "Curved nose horn visibly projects forward then downward in side view.",
+    "Two dominant frill spikes separated by negative space in front/top views.",
+    "Brow bosses low, four limbs connected, no detached horn/frill.",
+    "Only front/side/top/perspective template views."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir maker/QA. Maker COMPLETE fixedhash then stops. Root asynchronous backup, local-first integration; no maker upload or cleanup."
+}

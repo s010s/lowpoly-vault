@@ -1,0 +1,81 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "microdictyon",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 5,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "left": "-X",
+    "right": "+X",
+    "origin": "Centre of ground-contact claw footprint; meters retained"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary complete fossil and life cross-section diagrams plus SEM plate geometry directly establish structure. Additional generated concept would add no factual certainty."
+  },
+  "extra_views": [],
+  "original_inventory_ordinal": 756,
+  "name": {
+    "en": "Microdictyon — armored lobopodian study",
+    "zh": "微网虫（具甲叶足动物研究）"
+  },
+  "taxon": "Microdictyon sinicum",
+  "representation": "whole-organism",
+  "scope": "Original whole-organism low-poly reconstruction in resting/walking pose. Nine paired perforated dorsal-lateral sclerites above nine paired non-jointed lobopods, long limbless anterior extension. No fossil slab-only substitution.",
+  "geology": "Early Cambrian Chengjiang Lagerstätte, Yunnan, China.",
+  "material_policy": "Opaque palette-only PBR. Soft muted warm-grey trunk, contrasting slightly darker or paler sclerites, restrained claw contrast. Colour is artistic, not fossil evidence.",
+  "scale": {
+    "unit": "meter",
+    "representative_centerline_length_m": 0.07,
+    "status": "Approximate representative size based on Fig1a YRCP0041 and its 10mm scale bar, not a direct specimen measurement or species maximum.",
+    "estimated_trunk_diameter_m": 0.006,
+    "estimated_leg_length_m": 0.01,
+    "estimated_mid_sclerite_height_m": 0.005,
+    "shape_dimensions_note": "Minor dimensions estimated from published complete fossil with compaction uncertainty; record generated dimensions rather than implying live soft-body metrics are known."
+  },
+  "diagnostic_targets": [
+    "Elongate annulated cylindrical soft trunk, gently tapering into a flexible limbless anterior extension with a small terminal mouth. No invented armored head or large eyes.",
+    "Exactly nine pairs of ovoid/elliptical perforated sclerites on dorsal-lateral shoulders, one pair aligned with each leg pair; not a single midline row or continuous shell.",
+    "Nine leg pairs in this frozen reconstruction, following Chen et al2024 likely-nine interpretation, not ten from older reconstructions. Preserve terminal pair shortest.",
+    "Slender non-jointed tube-like legs with small paired terminal claws. No elbow joints, carapace legs or insect foot anatomy.",
+    "Each plate has visibly real through-openings forming a coarse reticulated network; flat dot textures or plain oval shields do not meet the original perforated-plate cue.",
+    "Plates curve slightly over trunk sides and remain discrete; no giant decorative spikes or antennae.",
+    "Use normal intermolt state, one plate per side at each station; published double/stacked plates illustrate molting, not four permanent rows."
+  ],
+  "uncertainties": [
+    "Nine versus ten appendage pairs disputed historically. This version uses the newer paper’s explicitly tentative nine-pair interpretation, not a claim of certainty.",
+    "Anterior identity is inferred from comparison with related lobopodians; no visible eye details are established here.",
+    "Soft-body cross-section, pose and colour reconstructed. Plate hole count is deliberately simplified for low-poly viewing, not an exact microfossil reproduction.",
+    "Fig2 concerns Microdictyon sp. isolated plates; use for reticulation architecture only, not exact individual plate dimensions of M.sinicum."
+  ],
+  "acceptance_checklist": [
+    "Whole animal, long soft anterior extension and nine paired plate/leg stations clearly visible.",
+    "Top shows bilateral rows; side shows each sclerite above associated leg; final pair shortest.",
+    "Plate mesh visibly perforated in exact-GLB renders, not painted holes.",
+    "Legs nonjointed and separate, small paired claws, no fused-floor or intersecting plates.",
+    "Metadata explicitly discloses inferred nine-pair choice, soft-body reconstruction and artistic palette.",
+    "Four exact-GLB views, standard format/source tests and cheap two rebuilds; independent QA separate."
+  ],
+  "quality_state": {
+    "making": "NOT_STARTED",
+    "tests": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "user_acceptance": "NOT_REQUESTED",
+    "deployed": false
+  }
+}

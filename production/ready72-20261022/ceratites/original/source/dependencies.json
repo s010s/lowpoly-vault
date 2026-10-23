@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "path": "source/deps/README.txt",
+      "sha256": "ad4c08ab4ef194ea1efc62dcdf024ff806bb9390ddb3f6f42e3130145f282adc",
+      "bytes": 1864,
+      "origin": "Original Ceratites r001 local adapter/documentation",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "bytes": 26367,
+      "origin": "Unmodified canonical s010s/lowpoly-vault helper snapshot, version fixed by this SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/inspect_source.py",
+      "sha256": "1b984f47d4f6a1d00b0911ddf0d0bc0554ded94d3ba90ea9cb049865d21680d5",
+      "bytes": 2218,
+      "origin": "Original Ceratites r001 local adapter/documentation",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/parse_glb.mjs",
+      "sha256": "6053848f94251004b455963e502493d5c539ca1d1ec229ad926ba346df1d0eea",
+      "bytes": 1623,
+      "origin": "Original Ceratites r001 local adapter/documentation",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "bytes": 13344,
+      "origin": "Unmodified canonical s010s/lowpoly-vault helper snapshot, version fixed by this SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "bytes": 15996,
+      "origin": "Unmodified canonical s010s/lowpoly-vault helper snapshot, version fixed by this SHA-256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "8dc05dfa142404ba6153937c8c85e440da14103c5e8324b584d6dff780513e75",
+      "bytes": 969,
+      "origin": "Original Ceratites r001 local adapter/documentation",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "bytes": 3226,
+      "origin": "Unmodified canonical s010s/lowpoly-vault helper snapshot, version fixed by this SHA-256",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "generation, source inspection and exact-GLB renders",
+      "bundled_modules": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "Khronos glTF Blender I/O",
+      "version": "4.3.47",
+      "scope": "bundled exporter/importer"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0 observed; >=20 supported by test scripts",
+      "scope": "optional external technical tests, not generator"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "official format test; external installed npm runtime"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "scope": "GLTFLoader parsing only; external installed npm runtime"
+    }
+  ],
+  "generator_inputs": [
+    "source/generate.py",
+    "source/params.json",
+    "source/deps/asset_common.py",
+    "source/deps/qa_glb.py"
+  ],
+  "reference_images_are_generator_inputs": false,
+  "cross_model_runtime_dependencies": [],
+  "network_required_for_generation": false
+}

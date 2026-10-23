@@ -1,0 +1,38 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical lowpoly-vault worktree scripts; fixed by content hash on 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical lowpoly-vault worktree scripts; fixed by content hash on 2026-10-22",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_anatomy.py",
+      "sha256": "6d18baee29c288fb85c0749be331e4a545d10d7202632ddeebbcab8a17b502a5",
+      "origin": "Original model-specific measurable QA, 2026-10-22",
+      "license": "MIT",
+      "purpose": "Optional source/export QA; not imported by generator"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "mode": "background CPU, 2 threads"
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled Python stdlib + bpy + mathutils + bmesh"
+    }
+  ],
+  "runtime_inputs": [
+    "source/params.json"
+  ],
+  "external_runtime_dependencies": false
+}

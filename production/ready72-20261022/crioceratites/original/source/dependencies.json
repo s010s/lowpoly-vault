@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Version-fixed restored canonical lowpoly-vault scripts/asset_common.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/check_geometry.py",
+      "sha256": "bf60ad6609ccb3b6624201f6a5469be908bf438bc577160394d507f6931163ef",
+      "provenance": "Asset-specific adapter/checker",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Version-fixed restored canonical lowpoly-vault scripts/qa_glb.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "provenance": "Version-fixed restored canonical lowpoly-vault scripts/render_candidate_views.py",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_four.py",
+      "sha256": "1d932b3b8386886f375b7f93a9fae47508e04ff4786b8784155275c1e18ef2b2",
+      "provenance": "Asset-specific adapter/checker",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "geometry, GLB export, CPU rendering"
+    },
+    {
+      "name": "Python",
+      "version": "3.13 (Blender bundled Python)",
+      "role": "standard library and bpy only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "QA CPU parse only, not generator dependency"
+    },
+    {
+      "name": "Khronos glTF Validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "QA official format validation only, not generator dependency"
+    }
+  ],
+  "canonical_source_snapshot": "Restored project lowpoly-release-fast-path-20261022/worktree; individual source hashes above are the exact dependency version pins."
+}

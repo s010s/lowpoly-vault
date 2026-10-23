@@ -1,0 +1,69 @@
+{
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": "bpy, bmesh, mathutils and bundled Python standard library",
+      "purpose": "source generator and render evidence"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "optional independent official format validation, not generation"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "purpose": "target parser test, not generation"
+    }
+  ],
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "canonical s010s/lowpoly-vault scripts, copied byte-for-byte and version-fixed by this SHA-256"
+    },
+    {
+      "path": "source/deps/check_blend.py",
+      "sha256": "3f31953a6a7f9587561ad7d493eba7a46e4177984607e1f4e5c37386b1ff2294",
+      "license": "MIT",
+      "origin": "original task-specific evidence wrapper"
+    },
+    {
+      "path": "source/deps/check_parser.mjs",
+      "sha256": "5920c97a1c8e64ca9b9ccce1680dbeb6f19fcb986ee6a54f73b1a885514fa58d",
+      "license": "MIT",
+      "origin": "original task-specific evidence wrapper"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "canonical s010s/lowpoly-vault scripts, copied byte-for-byte and version-fixed by this SHA-256"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "license": "MIT",
+      "origin": "canonical s010s/lowpoly-vault scripts, copied byte-for-byte and version-fixed by this SHA-256"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "47061b4b94bdedea0d765f08a0fb378b01eef2dc1d257a71dfd1ab5aa96bf814",
+      "license": "MIT",
+      "origin": "original task-specific evidence wrapper"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "canonical s010s/lowpoly-vault scripts, copied byte-for-byte and version-fixed by this SHA-256"
+    }
+  ],
+  "canonical_source": {
+    "repository": "s010s/lowpoly-vault",
+    "basis": "Restored canonical scripts pinned by SHA-256; copied byte-for-byte, no cross-model imports"
+  },
+  "dependency_policy": "Generator uses its own params.json and vendored deps/ only, plus Blender-bundled modules. Runtime/test packages are explicit external runtimes, not undeclared model files."
+}

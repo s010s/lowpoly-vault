@@ -1,0 +1,86 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "euomphalus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Main coiling planeXY, axisZ, broad upper face+Z asFigC. Filled terminalend toward-Y at front-right sector. LowestpointZ0; standardfront-Y,side+X,top+Z,perspective(+X,-Y,+Z). Match FigC winding without mirroring.",
+    "view_roles": {
+      "front": "terminal mineralfill and low lateralprofile, compareFigB",
+      "side": "angular whorl crosssection and height",
+      "top": "upper spiral and shoulder, compareFigC",
+      "perspective": "combined continuous coil and termination"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Two scientific photographs plus two independent museum photographs and historical quantitative description suffice for a bounded genus-level interpretation. No concept image generated; not four angles of one specimen."
+  },
+  "extra_views": [
+    {
+      "name": "basal",
+      "camera": "-Z",
+      "reason": "Original identity requires wide umbilicus; normal fourviews obscure underside. One fifth underside render tests inferred shallow depression and prevents fake through-hole.",
+      "path": "views/basal.png"
+    }
+  ],
+  "name": {
+    "en": "Euomphalus open-centred snail shell",
+    "zh": "Euomphalus（敞脐螺类）"
+  },
+  "taxon": "Euomphalus",
+  "representation": "fossil-specimen",
+  "original_scope": "Low angular spiral with a wide umbilical recess. Genus-level fossil-form interpretation based on E. pentangulatus; not a single specimen facsimile.",
+  "reference_anchor": {
+    "primary_photos": "Fryda, Nutzel & Wagner2008 Paleozoic Gastropoda Fig10.5 B,C ONLY. E.pentangulatus, Carboniferous. Side and upper-oblique views show low angular whorl, broad depressed coil and mineral-filled terminal face. Do not use A (Schizostoma), D-F (Macluritella), G orH.",
+    "museum_photos": "Ghedoghedo, Teylers Museum53.jpg and Verona7.jpg, labelled E.pentangulatus on Commons. Support broad shallow coil and low irregular fossil form. No scale supplied for these individuals.",
+    "scale": "M’Coy1844 p37 E.pentangulatus species description: diameter2inches, height9lines, lastwhorl thickness8lines. Material-level size anchor, not measurements of FigB/C or museum photos.",
+    "era_correction": "OriginalDevonian is a representative planning interval. Selected E.pentangulatus is Carboniferous; retain original field privately and set finalmetadata Carboniferous. Root approved same-genus correction21:42."
+  },
+  "scale": {
+    "unit": "metre",
+    "diameter": 0.0508,
+    "height": 0.01905,
+    "last_whorl_thickness": 0.01693,
+    "basis": "English inch25.4mm; line assumed1/12inch. Rounded working dimensions51mm wide,19mm high,17mm lastwhorl. Historical species-description values, not a calibrated individual reconstruction.",
+    "tolerance": "Approximately +/-10% simplification; avoid false precision. In-plane second diameter about45–51mm inferred from photographs, not independently measured."
+  },
+  "morphology": [
+    "Low discoidal shell, about five progressively enlarging whorls; large outer whorl and broad depressed centre, NOT a tall snail tower, ammonite septate disk, simple torus or detached spring.",
+    "Upper whorl has flat-to-gently sloping inner shelf meeting a distinct blunt angular shoulder, with convex outer wall. Basal surface convex with an obtuse secondary angulation. Strong stepped/near-polygonal cross-section must survive low-poly simplification.",
+    "Wide umbilical recess exposes inner winding; it is a shallow-to-moderate open depression bounded by coiled shell, not an arbitrarily drilled cylindrical through-hole. Fine early coil may close at centre.",
+    "Keep upper outline and coiling direction of FigC unmirrored. Slightly raised/depressed centre and low overall height; do not derive left/right chirality solely from an unlabeled opposite-side photograph.",
+    "Final cross-section in FigB is mineral-filled and irregularly subrounded/polygonal, not an intact hollow aperture. Preserve a distinct terminal face and subdued surviving edge, no deep tunnel, extended siphonal canal or flaring trumpet.",
+    "Growth lines are fine, shallow and gently curved across shoulder; no giant axial ribs, spikes, cowry teeth, sutures or living tissue. No matrix slab, mounting material, museum numbers or printed labels."
+  ],
+  "uncertainty": [
+    "Scale and shape are from different published material; explicitly disclose genus-level interpretation, not single-specimen measured replica.",
+    "No direct basal photograph of the same FigB/C fossil; base and umbilical depth are conservatively inferred from M’Coy description. A basal QA render is required to expose this interpretation.",
+    "Fine apertural lip and missing surface cannot be restored as pristine anatomy. Fossil termination remains mineral-filled.",
+    "Euomphalus sometimes treated historically as subgenus of Straparollus; target is type species E.pentangulatus, not substituted S.northi. No soft anatomy or higher phylogenetic claims."
+  ],
+  "palette": "Matte neutral warm grey stone, slight terminal-fill variation; no photographic textures.",
+  "acceptance_focus": [
+    "Front: low shell height, integrated angular upper shoulder, filled terminal face facing camera.",
+    "Side: about19mmheight for51mmdiameter, no elevated tower; convex outerwall and blunt basal angulation.",
+    "Top: broad exposed spiral and depressed centre match FigC without mirroring or radial symmetry.",
+    "Perspective: continuous coiling, proper angular whorl transition, no separate rings or invented hollow aperture.",
+    "Basal extra: wide shallow umbilical depression, inner coil readable, no arbitrary cylindrical drilled hole.",
+    "Four template views plus one justified basal view; two isolated deterministic rebuilds and fixed localdependencies. Prep is not QA/modelPASS."
+  ]
+}

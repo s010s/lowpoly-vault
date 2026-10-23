@@ -1,0 +1,101 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "austroaporrhais",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Long axis +Z, basal end z=0; exterior/adapertural view Fig17 faces camera -Y, wing extends -X; aperture opposite +Y. Standard front -Y/side +X/top +Z/perspective (+X,-Y,+Z)."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual specimens and explicit same-material morphology available; no concept needed. IndependentQA must inspect supplementation boundaries."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Austroaporrhais winged fossil shell",
+    "zh": "Austroaporrhais 翼唇螺壳"
+  },
+  "inventory_ordinal_one_based": 879,
+  "taxon": "Austroaporrhais cf. gregaria",
+  "representation": "material-level interpretive fossil-shell reconstruction, not specimen facsimile",
+  "context": {
+    "era": "cretaceous",
+    "age": "Maastrichtian",
+    "formation": "Lefipán Formation",
+    "locality": "Chubut Province, Patagonia, Argentina; SM5"
+  },
+  "scope": "Weidemeyer2009 groups272,301-302 as A.cf.gregaria. Body anchored272; missing posterior wing process conservatively interpreted from302 Fig16 plus same taxon description. Retain cf identification. Not complete preserved272, not exact reconstruction or a scan.",
+  "scale": {
+    "units": "meters",
+    "body_height_z": 0.1,
+    "preserved_272_wing_width": 0.0615,
+    "working_reconstruction_width": 0.0615,
+    "working_depth_y": 0.034,
+    "basis": "p194 table specimen272 H100.0mm, width61.5mm incl.wing. 302 height30mm only1.5whorls and35mm width NOT imported into reconstruction.",
+    "uncertainty": "272 measured dimensions anchor overall surviving body; reconstructed wing shape/proportions and depth are inferred, not fossil measurements. Fit replacement process within conservative existing width envelope, do not claim final shape measured."
+  },
+  "part_evidence": [
+    {
+      "part": "Conical stepped spire, large rounded body, main keels, surviving wing roots and basal end",
+      "status": "observed",
+      "source": "p254 Tafel14 Fig17 specimen272",
+      "limits": "Outer shell sculpture lost; preserve broad shell ridges, not invented fine ornament or extra apex."
+    },
+    {
+      "part": "Long curved posterior/adapical wing process",
+      "status": "supplemented interpretation",
+      "source": "Fig16 specimen302, explicitly grouped same A.cf.gregaria; p194 describes very strong posterior process curved nearly parallel to shell axis",
+      "limits": "272 tip broken. Use302 shape direction only; length must remain an explicit conservative inference, not302 fragment dimensions applied to272."
+    },
+    {
+      "part": "Anterior wing process, shorter than posterior",
+      "status": "partly observed and simplified",
+      "source": "Fig17 lower wing root/edge and p194 text describes less prominent anterior process",
+      "limits": "Do not create symmetric pair or an extra huge finger; maintain the unequal two-process structure."
+    },
+    {
+      "part": "Depth and hidden aperture interior",
+      "status": "inferred",
+      "source": "Conservative shell geometry, no exact thickness measurement",
+      "limits": "Simple shallow opening/recess only; no soft body, operculum or deep invented throat."
+    }
+  ],
+  "required_features": [
+    "Conical stepped spiral body with noticeably expanded final whorl; preserve original879 compact-body versus projecting-lip contrast.",
+    "Attached wing continuous with body, not disconnected fin. Posterior process bends upward nearly parallel to centralspire, anterior process shorter.",
+    "Concave wing exterior edge between unequal processes; deep posterior sinus where wing rises away from main shell.",
+    "Two broad keels extend toward corresponding wing processes; no arbitrary many spikes.",
+    "Primary silhouette 272 Fig17 with missing upper wing process interpreted from302 Fig16 only. Preserve cf.gregaria and reconstruction label.",
+    "No elaborate microtexture: outer layer absent in source specimens. Muted fossil color is artistic, not measured."
+  ],
+  "forbidden": [
+    "Single-specimen exactness claims",
+    "302 fragment dimensions used to scale complete shell",
+    "Mixing Struthioptera or A.larseni/stilwelli into wing shape",
+    "Extra tall restored apex, symmetric wing fingers or unsupported long basal canal",
+    "Reference photo textures, third-party meshes, base/plinth, label, soft parts"
+  ],
+  "surface_profile": "Palette-only opaque PBR. Smooth normals on intentional low-poly profile/loft geometry. No source photographs, procedural-only shaders, or fine sculpture.",
+  "runtime_profile": {
+    "format": "glTF 2.0 GLB; embedded static uncompressed geometry",
+    "threejs_version": "0.180.0",
+    "gpu_render": "Not performed in maker; separate runtime gate",
+    "populated_scene": "Not performed; integration scope"
+  },
+  "origin": "Basal shell-axis mounting point at z=0, not a claim about live posture or a broad freestanding ground contact."
+}

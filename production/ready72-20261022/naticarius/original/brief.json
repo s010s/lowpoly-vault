@@ -1,0 +1,78 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "naticarius",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 5,
+    "max_primitives": 8,
+    "max_glb_bytes": 700000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Spire apex +Z; main aperture toward -Y, broad body whorl offset -X and aperture toward +X in front view to match dextral shell orientation. Center bounding box in X/Y, rest bottom at Z=0. Do not mirror reference chirality."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Named Pliocene specimen is available in three photographic orientations plus an additional same-species two-view plate. These directly establish shell morphology and scale; a generated concept adds no necessary evidence."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Naticarius rounded fossil moon-snail shell",
+    "zh": "Naticarius 圆体玉螺化石壳"
+  },
+  "taxon": "Naticarius plicatella (Conrad, 1863)",
+  "representation": "fossil-specimen",
+  "inventory_ordinal_one_based": 880,
+  "primary_specimen": "PRI 69688",
+  "context": {
+    "age": "Late Pliocene",
+    "formation": "Tamiami Formation (Pinecrest Beds)",
+    "locality": "Sarasota County, Florida"
+  },
+  "scope": "Original low-poly interpretation of the shell exterior and visible aperture of PRI 69688, not an exact scan or living-animal reconstruction. UF 247451 is corroborating species morphology only, not the source of this specimen scale.",
+  "scale": {
+    "unit": "meters",
+    "working_dimensions_mm": {
+      "height_z": 28,
+      "width_x": 30,
+      "depth_y": 25
+    },
+    "basis": "PRI69688 three-view photograph: its 5 mm vertical bar is about 39 px; shell image height roughly 220 px gives approximately 28 mm. Width/depth are working estimates from oblique views, not caliper measurements.",
+    "uncertainty": "Approximate visual scale; allow about 15% proportional interpretation. No specimen-exact biometric claim. Do not use the distinct 4 cm UF247451 scale or PRI70745 3.5 cm as PRI69688 measurements."
+  },
+  "required_features": [
+    "Strongly inflated smooth rounded final body whorl; it dominates most shell volume.",
+    "Low but clearly raised dextral spire with a few progressively smaller whorls and visible sutures; not a tall tower.",
+    "Large genuinely open semicircular/oval aperture facing front (-Y), curved outer lip, straighter columellar side; aperture occupies most shell height.",
+    "Thick columellar callus forms a small shoulder over the dark umbilical recess beside the aperture; keep recess distinct from the large main opening.",
+    "Aperture interior is a continuous shallow shell lining, not a painted black disk, a fully filled sphere, or a detached white ring.",
+    "Preserve convex back and asymmetric shell volume; do not mirror into two equal valves."
+  ],
+  "simplifications": [
+    "Fine growth lines may be omitted; gentle broad low-poly facets are enough.",
+    "Natural staining, chips, museum writing and exact taphonomic imperfections are not required.",
+    "Do not reconstruct soft body, operculum, deep internal coils, siphonal canal, or biological colors.",
+    "Use restrained warm fossil-ivory/stone palette; this is artistic, not inferred living coloration."
+  ],
+  "acceptance_focus": [
+    "Front image clearly shows the real opening and columellar/umbilical recess, not only a spherical outline.",
+    "Side and top retain inflated body and low asymmetric spire.",
+    "Compare all four standard views to the three photographic views before final export.",
+    "GLB and blend/source output match; original source and declared relative dependency closure, Khronos/geometry and two cheap isolated rebuilds remain required."
+  ],
+  "maker_notes": [
+    "Read private/PRI69688 reference and research.md before building; original geometry only, no downloaded museum mesh.",
+    "The image license is non-commercial share-alike; photos stay in private research and must not enter model texture/public delivery. Public references contain links and factual attribution only.",
+    "Keep all work in this directory; maker only reports completion, no upload/delete. Root coordinates backup; independent QA uses the same fixed candidate."
+  ]
+}

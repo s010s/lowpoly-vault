@@ -1,0 +1,91 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "therizinosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail+Y, up+Z. Upright biped, inward-facing hands."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Published claw reconstruction inspected; wholebody reference is explicitly inferred, no extra concept needed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Therizinosaurus",
+    "zh": "镰刀龙"
+  },
+  "inventory_ordinal": 332,
+  "taxon": "Therizinosaurus cheloniformis",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism: broad torso, upright long neck, extremely long hand claws. Not isolated claw, raptor or movie character.",
+  "specimen_basis": "Incomplete arm/leg/rib remains, not complete skeleton. PIN551-483 holotype manual unguals identified in Smithsonian-hosted Barsbold translation search index. Qin2023 Fig1/2 show published reconstructed claw geometry, not raw fossil photos. Whole-body anatomy inferred from relatives as NHM explicitly warns.",
+  "scale": {
+    "body_length_m": 10.0,
+    "basis": "NHM species estimate, not measured complete individual. NHM says 50 cm hand claws without an explicit bone-versus-sheath measurement protocol; keratin extension uncertain.",
+    "standing_bounds_blender_m": {
+      "min": [
+        -1.5082985162734985,
+        -3.13405442237854,
+        0.0
+      ],
+      "max": [
+        1.5082985162734985,
+        4.30108642578125,
+        6.18284273147583
+      ],
+      "size": [
+        3.016597032546997,
+        7.43514084815979,
+        6.18284273147583
+      ]
+    },
+    "bounds_note": "The 10 m museum value describes estimated anatomical length, not this upright posed bounding box. Neither soft tissue nor whole-body dimensions are claimed to be directly measured fossils."
+  },
+  "diagnostic_targets": [
+    "Broad deep potbelly, sturdy bipedal hindlimbs, upright long neck with small head; avoid slim predator torso.",
+    "Two long forearms, each ending in three separated elongate gently curved flattened claws; not strongly curled eagle talons. Hands face inward, do not pronate palms downward.",
+    "Claws project forward/down naturally without penetrating torso or floor; open negative spaces between fingers.",
+    "Shorter balancing tail than classic long-tailed predatory theropod."
+  ],
+  "uncertainties": [
+    "Head, neck and trunk proportions are family-based reconstruction; colour, feathers/skin and keratin tips not directly preserved for this specimen.",
+    "No claim that claws definitely killed prey, dug soil or pulled plants; functions remain debated.",
+    "No blindness or movie-specific ornament."
+  ],
+  "acceptance_checks": [
+    "Three long hand claws each side, roots connected, no floating spikes or merged mittens.",
+    "Wide torso and long upright neck readable in four views.",
+    "Two feet support body; hands inward-facing, not palm-down zombie pose.",
+    "Four default views only, original geometry/materials."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep/maker/QA. Maker sends fixedhash COMPLETE then stops; root asynchronous backup, retain local for integration. No maker upload/cleanup.",
+  "material_profile": {
+    "type": "palette-only static faceted reconstruction",
+    "colours": "Artistic muted olive, warm belly, dark beak and pale horn; not a fossil colour claim",
+    "normals": "Deliberate flat faces; closed semantic source lofts, export batched into five material primitives"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "dactylioceras",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 28000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Coiling plane XZ; coil axis Y. Front -Y shows lateral fossil face like plate16 fig7a, terminal fracture near upper quadrant. Center near origin; lower edge rests at Z=0 without adding a base. Side +X and top +Z reveal venter/whorl breadth.",
+    "view_roles": {
+      "front": "lateral face, full spiral and umbilicus",
+      "side": "edge-on venter, shell thickness and cross-rib continuity",
+      "top": "upper termination/venter, closed mineral fracture and thickness",
+      "perspective": "oblique fossil overview; may reuse preview"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected original primary lateral and ventral specimen photographs with measured dimensions, plus separate real fossil photograph. These sufficiently constrain gross geometry; no extra generated concept needed. No image-generation denial is bypassed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Dactylioceras ribbed evolute ammonite",
+    "zh": "Dactylioceras（密肋外卷菊石）"
+  },
+  "taxon": "Dactylioceras",
+  "representation": "fossil-specimen",
+  "original_scope": "Original1000 ribbed evolute ammonite: flat discoidal shell with exposed inner whorls and ribs continuing across rounded outer edge. No soft animal, matrix scene or substitute genus.",
+  "reference_anchor": {
+    "source": "Howarth 1962, Palaeontology 5(1), pp.93–136; p.115 and plate16 figs7a,b (PDF pages23 and48)",
+    "specimen": "GSM 26407, Clarkson Collection, Whitby; holotype of Dactylioceras crassibundum, treated by Howarth as synonym of D. commune",
+    "scope": "Genus-level original fossil-form study anchored to this published fossil, not a scan, certified replica, living animal or claim of current type taxonomy. Wholly septate preserved specimen; incomplete terminal growth end."
+  },
+  "scale": {
+    "unit": "metre",
+    "maximum_diameter_m": 0.059,
+    "measurement_diameter_m": 0.0578,
+    "whorl_height_m": 0.0163,
+    "whorl_breadth_m": 0.0164,
+    "umbilicus_width_m": 0.0305,
+    "measurement_source": "p.115 actual dimensions in mm; definition/order p.95, NOT percentages. 59 mm maximum diameter; other values at 57.8 mm diameter. All figures natural size per p.110 caption. No measurement from rescaled PDF pixels.",
+    "tolerance": "Low-poly design target: diameter 0.057–0.061 m; breadth about 0.015–0.018 m; umbilicus about 0.029–0.033 m. These are engineering tolerances, not biological uncertainty measurements."
+  },
+  "morphology": [
+    "Planispiral evolute coil in XZ plane, thickness along Y. At least three visibly readable nested turns including small inner whorls; continuous increasing spiral, not concentric disconnected rings. Umbilical depression exposes the inner turns; it is not an empty through-hole.",
+    "Largest whorl has near-rounded cross section. Broadly discoidal whole fossil is not a flat circular plate: edge views must show actual whorl thickness and convex flanks.",
+    "Use approximately 46 primary ribs on the last complete-sized revolution near 54 mm diameter, from p.115. Inner turns are finely ribbed. Rib crests follow the curved whorl surface and continue across the rounded venter, with some secondary subdivision at the outer shoulder as the specimen image supports. Do not put a sharp continuous keel or a smooth outer tire.",
+    "Preserve the open end of the SPIRAL at the upper part of front view, as in fig7a. This fossil is wholly septate and has a broken terminal growth end. Show a short irregular closed mineral fracture surface, not a thin-lipped hollow living aperture, restored body chamber, tentacles or complete perfect circular closure.",
+    "Keep ornament subordinate to the coherent coil. Broad shallow angular ribs should be integrated surface geometry, not detached pegs, flower petals or evenly spaced external torus bracelets. Mild rib variation and worn patches are admissible, not random severe damage."
+  ],
+  "uncertainty": [
+    "Opposite flank is not separately photographed in this figure; approximate bilateral symmetry is an explicit inference from planispiral coiling and the ventral figure. Do not claim mirrored surface damage is observed.",
+    "Minor fracture/wear details and fossil palette are artistic simplification. Exact septal sutures/internal chambers are not modeled. Current species synonymy is not independently revised here.",
+    "Kevmin photograph is a DIFFERENT unidentified Dactylioceras sp., 40 mm from Germany, used only as secondary real-fossil visual context. Never assign its dimensions, damage, colour or locality to GSM26407."
+  ],
+  "palette": "Restrained matte warm-grey/ochre stone, 2–4 related materials if needed; no photo textures, bright creature colours, labels, plaque, stand or decorative rock.",
+  "acceptance_focus": [
+    "Front: exposed continuous nested whorls, broad umbilicus, legible ribs and preserved broken spiral termination.",
+    "Side and top: near-rounded whorl breadth, bilateral profile and ribs spanning venter; no slab, keel, floating ornament, fatal interpenetration or giant umbilical hole.",
+    "Perspective: spiral volume, low-poly facets, subtle natural irregularity, coherent specimen silhouette; no flat illustration disguise.",
+    "Original target kept; ratios within stated design tolerance. End fracture not invented aperture. Stable source, local pinned dependencies, two isolated deterministic rebuilds and actual GLB checks must be supplied by maker; prep does not claim these pass."
+  ]
+}

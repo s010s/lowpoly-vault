@@ -1,0 +1,68 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "parasaurolophus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z. Neutral quadruped, body long axis Y."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected primary specimen figure plus museum account sufficiently establish diagnostic form; no generated concept required."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Parasaurolophus",
+    "zh": "副栉龙"
+  },
+  "inventory_ordinal": 372,
+  "taxon": "Parasaurolophus walkeri",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism with long backward tubular head crest, not isolated skull or substituted species.",
+  "specimen_basis": "ROM 768 holotype, Fig.1 of Bertozzo et al. doi:10.1111/joa.13363. Missing tail series, most hindlimbs and distal ischia reconstructed comparatively. Fossil death posture and pathological spinal gap are NOT normal living anatomy.",
+  "scale": {
+    "body_length_m": 9.0,
+    "basis": "NHM genus-level approximate size, used as artistic adult target; not a measured ROM768 complete length."
+  },
+  "diagnostic_targets": [
+    "Long slender tubular crest extends backward over neck, curves gently down at far end. Integrate with posterior skull, not antlers or a solid fan.",
+    "Broad duckbill muzzle, long facial profile, compact eyes; mouth closed, no predator fangs.",
+    "Heavy herbivore trunk, robust hindlimbs and smaller supportive forelimbs, tapering counterbalancing tail.",
+    "Neutral healthy quadrupedal stance with tail held clear of ground. No swan-neck death pose or tripodal kangaroo stance."
+  ],
+  "uncertainties": [
+    "Soft tissue, colour and exact limb/tail proportions are reconstructed; no skin-colour claim.",
+    "Crest is hollow internally but mesh may use a solid lowpoly silhouette; do not add arbitrary exposed nostril tube openings.",
+    "No asserted neck frill/web, snorkel function, crest-to-back contact or pathological back saddle."
+  ],
+  "acceptance_checks": [
+    "Side view reads original long backward tube, not short strongly curved P.cyrtocristatus crest, generic crestless hadrosaur or Lambeosaurus fan.",
+    "Crest remains clear of neck/back; no visible disconnected segments or self-intersections.",
+    "Complete whole body, four integrated limbs and tail; hooflike functional toes rather than theropod raptor claws.",
+    "Default four views only, perspective may reuse preview; no copied meshes/textures."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same local directory prep/maker/QA. Maker reports fixed files/hash COMPLETE and stops. Root coordinates asynchronous private backup; retain local through integration. No new-model PR while awaiting later batch."
+}

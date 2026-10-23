@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "bellerophon",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Blender+Z up. Coil axisX, coil planeYZ. Aperture-facing opening toward-Y, slightly upward; front-Y approximately matches P888973. Side+X matches lateral P888970 qualitatively; preserve image-left surviving flare by consistent mapping, rather than mirroring both damaged sides. Center body about origin and lowest fossil atZ=0.",
+    "view_roles": {
+      "front": "aperture-facing flared preserved lip and shallow mineral fill",
+      "side": "lateral coiling and swept lip (+X)",
+      "top": "upper flange breadth, body bilateral architecture and preservation",
+      "perspective": "oblique combined view; may reuse preview"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected two high-resolution museum views of the same specimen with1cm bars, plus stereo context. Sufficient to constrain original coil and preserved flare; extra generated concept unnecessary. No refused operation is bypassed."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Bellerophon symmetrical coiled mollusk",
+    "zh": "Bellerophon（对称盘卷软体动物）"
+  },
+  "taxon": "Bellerophon",
+  "representation": "fossil-specimen",
+  "original_scope": "Bilaterally symmetrical rounded coil with an expanding flared aperture. Retain observed flared lip, not a bare steinkern, ammonite or generic spiral. No soft parts.",
+  "reference_anchor": {
+    "specimen": "NMS G.1958.1.2964, Bellerophon wrighti Weir holotype, National Museums of Scotland",
+    "source": "BGS-hosted GB3D Type Fossils record typSampleId25001700",
+    "locality": "Balladoole, Isle of Man",
+    "age": "Original target Carboniferous; cited Weir1931 monograph concerns Carboniferous Bellerophontidae. BGS specimen page has no precise age/biozone; do not interpret its placeholder0–0Ma as a date or assign a specific stage.",
+    "images": "P888970 lateral, P888973 aperture-facing, P892227 red/cyan stereo lateral; all inspected. Stereo is supplementary, not a new metric view.",
+    "scope": "Original low-poly fossil-form interpretation from factual anatomy and rough dimensions, not exact replica or copied scan."
+  },
+  "scale": {
+    "unit": "metre",
+    "target_width_X": 0.03,
+    "target_depth_Y": 0.023,
+    "target_height_Z": 0.029,
+    "evidence": "Each primary photo includes1cm scale. P888970 approximate projected specimen22.6×28.6mm; P88897330.4×28.4mm. Measurement is image-derived, not a published caliper dimension. See private/scale-readback.json.",
+    "engineering_tolerance": "Approximate width28–33mm, depth21–26mm, height27–31mm; not biological confidence intervals. Perspective and damaged margins limit precision."
+  },
+  "morphology": [
+    "Rounded, inflated, tightly involute planispiral shell; coil axisX, coiling planeYZ. Main body approximately bilateral acrossX=0. Side shows a small umbilical depression and expanding terminal lip overlapping it; NOT three exposed ammonite turns or a hole drilled through a disk.",
+    "Apertural expansion is essential: the retained lip flares distinctly outward beyond the rounded body and curls around an aperture-facing shallow recess. Side view must read as a forward-swept flange, not a flat rim drawn on a sphere.",
+    "Preservation is essential: P888973 shows mineral-filled cavity with retained curved lip on image-left and upper edge; image-right lip is chipped/incomplete. Preserve a subdued shallow mineral fill and incomplete lip silhouette. Do not replace the fossil by an ideal empty, perfectly symmetrical horn mouth. Do not erase all flare just because the terminal lip is damaged.",
+    "A narrow median shell band and faint curved growth lines are visible below the aperture. Use restrained low relief or few broad collabral lines. Do not give ammonite ribs, spines, septa, tall spire or sharp serrated crest.",
+    "Retain apparent shell thickness where the lip survives. Surface should be subtly faceted and matte stone with restrained wear, not glossy modern snail shell. No decorative pedestal, surrounding matrix slab, embedded museum labels, ink numbers, scale bars, glue or scan/photo textures."
+  ],
+  "uncertainty": [
+    "Opposite lateral flank is not independently photographed; underlying bilateral shell architecture is inferred. Do not claim exact symmetrical damage.",
+    "Depth of interior is obscured by mineral fill and museum labels. Model only a shallow visibly recessed filled region, not unseen internal lumen or chambers. Label removal is a simplified neutral unlettered surface, not reconstruction of hidden diagnostic details.",
+    "The right lip is broken and the full original slit/outer lip cannot be measured. Do not restore an elaborate intact median slit or enlarged completed trumpet. Bound shape by preserved lip and conservative neighboring curvature.",
+    "Fine ornament, unseen back surface and palette are simplified. Source photos are noncommercial reference media; use scientific proportions/anatomy only, no mesh extraction, tracing or photo derivative textures."
+  ],
+  "palette": "Neutral chalky beige/grey fossil;2–4 material tones may distinguish shell from muted mineral fill. The cavity fill must not become a bright decorative insert.",
+  "acceptance_focus": [
+    "Front must show flared surviving lip and shallow filled aperture, no label. Shape remains recognizably bilaterally coiled although fossil lip damage is asymmetric.",
+    "Side must show involute rounded coil, small depression and swept flange; not an ammonite or a globular shell without flaring.",
+    "Top must show30mm overall width, rounded body and preserved flare extending beyond it; no flattened slab.",
+    "Perspective must connect lip, body and modest mineral fill coherently. Reject floating rim/loose beads, silhouette-destroying fill, copied image labels, unbounded lip restoration or a deep invented aperture.",
+    "Maker supplies actual geometry checks, four views, local pinned dependency inventory and two isolated deterministic rebuilds; prep is not scientific acceptance."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "elpistostege",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 20000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "right": "+X",
+    "left": "-X",
+    "origin": "Slab bottom atZ0, top study surface+Z. Use meters."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual original fossil, line diagram and CT fin views are retrieved. No generated reference or conceptual artwork needed."
+  },
+  "extra_views": [],
+  "original_inventory_ordinal": 601,
+  "name": {
+    "en": "Elpistostege — articulated fossil and fin study",
+    "zh": "希望螈鱼（完整化石与胸鳍研究）"
+  },
+  "taxon": "Elpistostege watsoni",
+  "representation": "fossil-specimen",
+  "scope": "Original flattened near-tetrapod fish fossil with preserved digit-bearing fin anatomy, MHNM06-2067-informed study. A volumetric low-poly fossil relief with genuine discrete fin elements, not a photograph/painted plane and not a free-standing living animal.",
+  "reference_specimen": "MHNM06-2067, Cloutier et al2020",
+  "scale": {
+    "unit": "meter",
+    "fossil_total_length_m": 1.57,
+    "status": "Published specimen total length, Nature2020 abstract. Fig1a scale1m; fin Figs2–3 scales5cm.",
+    "estimated_body_width_m": 0.25,
+    "slab_length_m": 1.67,
+    "slab_width_m": 0.42,
+    "relief_height_m": 0.025,
+    "uncertainty": "Slab geometry and relief depth are artist-controlled support dimensions, not measured original slab thickness. Preserve body/fin scale relationship."
+  },
+  "material_policy": "Neutral warm-brown fossil against grey thin matrix, modest light-bone contrast in analytical fin reveal. Opaque palette only, no reference image texture.",
+  "diagnostic_targets": [
+    "Broad triangular flattened skull with paired dorsal eye positions; long tapering articulated body, caudal tail and preserved fin regions as Fig1a/b.",
+    "Low relief three-dimensional skull/body/scales and tail rays, not a flat silhouette decal. Do not add a dorsal fin absent from reference.",
+    "Near-shoulder pectoral fins are separate from much farther posterior pelvic fins.",
+    "One integrated pectoral fin endoskeleton reveal must show humerus branching into distinct radius/ulna, then smaller wrist-like elements and multiple distal radial rows with digit-like elements, within the fin outline. Use Fig3d as preserved CT relation; do not turn this into a human five-fingered hand.",
+    "Fine lepidotrichial rays remain beyond/around internal endoskeleton; digits stay enclosed in fin, not external toes.",
+    "Bone relief elements maintain real gaps and anatomical sequence. Do not replace distal radials with generic parallel ribs."
+  ],
+  "reveal_policy": "Analytical visualization: pectoral fins are naturally visible ventrally (Fig1 caption), and the endoskeleton was CT-revealed (Fig3). This model deliberately reveals one pectoral interior in its in-situ location for study; disclose this is a virtual cutaway and not naturally exposed dorsal fossil preservation. Preserve whole specimen and in-situ scale, no oversized detached hand prop.",
+  "uncertainties": [
+    "Original fossil is compressed; low-poly relief height and soft connecting silhouette are representational.",
+    "Fig3e attempts restoration of compressed element shapes; prefer Fig3d actual CT configuration rather than silently claiming restored bones are exact.",
+    "Fine scale/ray counts simplified; no scientific claim of pixel-accurate CT segmentation."
+  ],
+  "acceptance_checklist": [
+    "Original601 fossil-study scope retained: full flattened fish plus diagnostic digit-bearing fin anatomy.",
+    "Top/perspective clearly show cutaway anatomy without a separate enlarged floating prop.",
+    "Humerus/radius/ulna sequence and branching distal elements are individually readable; no generic hand or toes.",
+    "Mesh relief with nonzero depth and real gaps; no photo-plane substitution.",
+    "Relative fin/body scale follows reference5cm and1m bars.",
+    "Default4 exact-GLB views, standard checks and two rebuilds, independent review separate."
+  ],
+  "quality_state": {
+    "making": "NOT_STARTED",
+    "tests": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "user_acceptance": "NOT_REQUESTED",
+    "deployed": false
+  }
+}

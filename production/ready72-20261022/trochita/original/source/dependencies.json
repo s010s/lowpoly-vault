@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, base commit 83d79ef00ccbeaddbdbc6801ff99a1d6884c6738",
+      "upstream_path": "scripts/asset_common.py",
+      "upstream_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "modified": false
+    },
+    {
+      "path": "source/deps/check_geometry.py",
+      "sha256": "f896f7d5587d9985d194a3d12b66bf1ccccee6e0a36139543163c4b7c21616fe",
+      "license": "MIT",
+      "origin": "Original Trochita r001 diagnostic source",
+      "modified": false
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, base commit 83d79ef00ccbeaddbdbc6801ff99a1d6884c6738",
+      "upstream_path": "scripts/qa_glb.py",
+      "upstream_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "modified": false
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "b91d18e771204cd6020139808fe6d5b5f40bfe17172f98bf392f22b6fb951727",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, base commit 83d79ef00ccbeaddbdbc6801ff99a1d6884c6738",
+      "upstream_path": "scripts/render_candidate_views.py",
+      "upstream_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "modified": true
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, base commit 83d79ef00ccbeaddbdbc6801ff99a1d6884c6738",
+      "upstream_path": "scripts/validate_gltf.cjs",
+      "upstream_sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "modified": false
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Official format QA only, not generator dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "Target consumer pinned; actual GPU and populated scene tests deferred, not claimed"
+    }
+  ],
+  "policy": "Generate and render using only copied relative source/deps. External npm validator dependency is declared QA runtime, not bundled Python source. No private image or source mesh is a generation dependency."
+}

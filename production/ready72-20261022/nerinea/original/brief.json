@@ -1,0 +1,82 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "nerinea",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Spire axis+Z; apex up, basal extension down. Aperture toward-Y with slight+X offset so front-Y resembles Fig5C. Front camera orthographic-Y, side+X, top+Z, perspective(+X,-Y,+Z). Lowest preserved point atZ=0. Dextral coil, no mirrored aperture.",
+    "view_roles": {
+      "front": "aperture-facing view, small lip and long conical shell",
+      "side": "rounded depth and taper",
+      "top": "coiling thickness and continuity",
+      "perspective": "combined spire, mouth and basal extension"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary published specimen photo establishes taper, whorl profile, small preserved aperture and scale; diagnostic primary text covers morphology. This rotational shell permits conservative explicit unseen-side inference. No extra concept requested or needed; no denied media request bypass."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Nerinea slender tower snail",
+    "zh": "Nerinea（细塔螺类）"
+  },
+  "taxon": "Nerinea",
+  "representation": "fossil-specimen",
+  "original_scope": "Genus-level original low-poly fossil study of a long tapering spire, flattened to weakly convex whorl flanks and a small terminal aperture. No soft parts.",
+  "scope_correction": "Original inventory adjective very tall/extremely tall had no numeric ratio and was provisional. Verified type species specimen is about 2.7:1, not a 5:1 needle. Root approved evidence-led correction 2026-10-22 20:25 UTC. Preserve real Nerinea proportions; do not borrow Eunerinea, stretch the specimen or claim the original extreme adjective is proven.",
+  "reference_anchor": {
+    "specimen": "MNHN.F.A49004, Nerinea mosae Deshayes, 1827",
+    "source": "Kollmann2014 Fig5C pp358–359; museum catalogue independently confirms identity",
+    "age": "Kimmeridgian, Late Jurassic",
+    "locality": "La Combe de Vaux, Ain, France",
+    "views": "One published apertural-oblique photograph with 10mm scale bar. Fig5B is a DIFFERENT same-species section and is context only, not copied internal anatomy. Fig5A is a different species. Other panels are other genera and excluded.",
+    "scope": "Original low-poly interpretation of factual shell construction, not photogrammetry or a specimen replica."
+  },
+  "scale": {
+    "unit": "metre",
+    "target_height_Z": 0.059,
+    "target_width_X": 0.022,
+    "target_depth_Y": 0.021,
+    "evidence": "Fig5C: paper states scale bars10mm. In rendered page1172x1640, bar x678–727=49px; fossil y242–530=288px, width about108px. Thus projected height58.8mm and width22.0mm. Depth21mm is inferred from a rounded shell body, not directly measured.",
+    "engineering_tolerance": "Height56–62mm, width20–24mm, inferred depth19–24mm. These are design tolerances, not biological confidence limits."
+  },
+  "morphology": [
+    "Tall tapered cone with about9–10 visible turns and low rounded worn apex. Main shaft outline nearly straight, widening gradually; whorl sides are flattened to gently convex, not a stack of spheres. Keep sutures shallow and oblique/helical.",
+    "Last whorl broadens into rounded shoulder and narrows toward a short, somewhat bent basal siphonal extension. Do not make a long modern whelk siphonal tube or an uninterrupted cone ending in a flat disk.",
+    "Small narrow terminal aperture occupies the lower front-right in the primary view. Preserve its slant, surrounding lip/columellar mass and short basal notch/extension. It is not a giant round Turritella opening.",
+    "Preserved aperture is almost complete per author, but rough mineral and wear obscure the lumen and part of lip. Model a modest shallow inset with a small mineral-filled region and surviving raised rim, not a fully empty invented dark tunnel and not a solid blob with no mouth.",
+    "Subdued visible growth lines and broad irregular wear only. No spines, pronounced axial ribs, repeated black rings, exaggerated beads, chamber septa, external elaborate plait ribs or pseudo-ornament.",
+    "Matte pale tan fossil, simplified restrained faceting. No matrix pedestal, labels, ink, scale bars, photographic textures, copied scan or trace-derived mesh."
+  ],
+  "uncertainty": [
+    "Only the front-oblique exterior is independently photographed in the successfully accessed paper. Far flank and depth inferred from continuous dextral shell construction; use smooth conservative continuation, do not fabricate hidden damage. Four renders are presentation/evaluation views, not claims of four observed specimen views.",
+    "10 approximate visible turns including tiny apical turns; erosion limits exact count. Overall ratio and shallow flanks are more important than an invented exact turn count.",
+    "Aperture cavity depth, missing thin lip and precise internal folds are not resolved. Do not invent deep anatomy or recreate Fig5B cross-section in an exterior model.",
+    "The literal extremely tall wording is unsupported by selected type-species specimen; maintain real2.7:1 ratio. Historical Nerinea usage included taxa reassigned to Eunerinea; do not transfer those shapes.",
+    "Colour is an artistic stone palette, not a biological colour claim."
+  ],
+  "palette": "Matte tan/beige shell and slightly darker neutral mineral infill;2–4 restrained tones.",
+  "acceptance_focus": [
+    "Front: about2.7:1 total height-to-width,9–10 shallow whorls, continuous tapered cone, visible small slanted lower aperture with short bent basal extension.",
+    "Side: rounded three-dimensional whorls rather than flat relief; gradual taper and restrained aperture projection. Depth is inferred, not a reported measured fact.",
+    "Top: coherent continuous coiling and body thickness, not loose stacked cylinders or disconnected shells.",
+    "Perspective: mouth connects physically to body, observed shallow preservation retained; no giant hole, overly broad lip or long whelk canal.",
+    "Maker must inspect Fig5C before blockout and provide four real renders, actual geometry tests, self-contained pinned dependencies and two isolated deterministic rebuilds. Prep is not scientific/modelPASS."
+  ]
+}

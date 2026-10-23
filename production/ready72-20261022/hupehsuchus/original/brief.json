@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "hupehsuchus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6000,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z; neutral extended swimming pose.",
+    "mount": "Suspended swimming mount at trunk core (0,0,0), no floor contact"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual published skeleton image available; no extra concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Hupehsuchus",
+    "zh": "湖北鳄"
+  },
+  "inventory_ordinal": 448,
+  "taxon": "Hupehsuchus nanchangensis",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism: narrow toothless snout and stiff armoured back. Not a whale, isolated skull or Parahupehsuchus body tube.",
+  "specimen_basis": "2020-NYF-84-4 nearly complete skeleton in Fang2023 Fig1A; WGSC V26007 skull/anterior skeleton in Fig1B. Primary specimen comparison, not copying author living illustration.",
+  "scale": {
+    "total_length_m": 1.0,
+    "basis": "Chen et al.2014 discussion places Hupehsuchus around1m. Genus-level reconstruction target, not measured length of2020-NYF-84-4."
+  },
+  "diagnostic_targets": [
+    "Long narrow flattened toothless snout on modest head and distinct neck; no broad duckbill or huge whale head.",
+    "Stiff elongate robust trunk with low layered dorsal ossicle ridge; no stegosaur plates, sail or turtle shell.",
+    "Four paddlelike limbs, fore pair larger, long tapering laterally compressed tail.",
+    "Neutral closed-mouth pose, no baleen curtain, expanded throat sac or definitive filter-feeding behavior."
+  ],
+  "uncertainties": [
+    "2023 filter-feeding inference is challenged by2025 PeerJ19666; preserve uncertainty, no invented whale soft tissues.",
+    "Colour, skin, exact flesh depth and paddle outline inferred. Fossil compression not living body thickness; distal tail outline reconstructed, not fully shown in figure.",
+    "Do not substitute related short-necked Eohupehsuchus proportions or Parahupehsuchus extreme bony body tube."
+  ],
+  "acceptance_checks": [
+    "Narrow elongated toothless snout and stiff low armoured dorsal profile read in four views.",
+    "Four connected paddles with clear negative spaces and tail taper.",
+    "No giant dorsal fin, whale fluke, baleen or inflated throat.",
+    "Armour low and continuous rather than floating spikes."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same localdir prep/maker/QA, maker COMPLETE with fixedhash then stops. Root async backup; retain local for integration. No maker upload or cleanup.",
+  "material_profile": "Six opaque palette-only PBR materials; muted grey-brown countershading, original artistic reconstruction"
+}

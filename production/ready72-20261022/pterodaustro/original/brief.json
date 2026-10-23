@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pterodaustro",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, wings across X, dorsal +Z. Default gliding pose centered origin; do not force airborne pose onto feet ground contact."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Museum diagnostic description plus primary fossil figure suffice; no extra generated concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Pterodaustro",
+    "zh": "南翼龙"
+  },
+  "inventory_ordinal": 418,
+  "taxon": "Pterodaustro guinazui",
+  "representation": "living-reconstruction",
+  "scope": "Whole organism, not isolated skull or generic renamed pterosaur.",
+  "specimen_basis": "MIC-V241 juvenile complete skeleton illustrated in Burlot et al. 2024 Figure 2B1; MIC-V623 hindlimb in Figure 1. Adult whole-body silhouette is a composite reconstruction, not literal enlargement of juvenile measurements.",
+  "scale": {
+    "wingspan_m": 2.4,
+    "basis": "AMNH approximate 8-foot wingspan, adult artistic target, not juvenile MIC-V241 measured scale."
+  },
+  "diagnostic_targets": [
+    "Very elongated upward-curved jaw silhouette, slender rounded skull behind; no giant head crest.",
+    "Lower jaw carries dense slender filtering bristles; upper jaw teeth short and unobtrusive. Represent dense comb with simplified repeated thin geometry, not a row of large predator fangs.",
+    "Short-tailed pterodactyloid body, long wing-finger supported membranes, integrated hind limbs and feet. No feathers or bat-like multiple long support fingers.",
+    "Restrained earthy palette; do not claim speculative flamingo-pink coloration as established."
+  ],
+  "uncertainties": [
+    "Wing membrane outline, soft tissue and colour inferred; neutral gliding pose is artistic.",
+    "Juvenile skeleton provides topology, not adult body proportions. Adult scale comes from museum account.",
+    "Stylized tooth count is deliberately reduced for performance, not claimed exact fossil count."
+  ],
+  "acceptance_checks": [
+    "Side profile clearly shows upcurved slender long bill and bristle-comb lower jaw, not toothed pelican or straight spear beak.",
+    "Top/front shows both complete membrane wings without duplicated extra wing fingers; attach smoothly to body and hindlimb region.",
+    "Use 32–48 fine tooth segments per side if necessary for legibility/budget, declare approximation; no detached teeth.",
+    "Short tail, four main toes per hindfoot; no long diamond tail from Rhamphorhynchus.",
+    "Four default views only, perspective may reuse preview. Original geometry, no downloaded meshes/textures."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "PASS",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same directory prep/maker/QA. Maker reports files/hash COMPLETE then stops; no upload/cleanup. Root asynchronous backup, retain local for integration, restore Drive only if local absent. No PR for this candidate; hold for later batch."
+}

@@ -1,0 +1,94 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "trochita",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 10000,
+    "max_materials": 4,
+    "max_primitives": 4,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Shell aperture plane approximately XY near Z=0; cap rises +Z; offset summit toward +Y. Internal shelf attached to +Y half of aperture beneath coiled side, free edge near X-axis. Reference plate roll is arbitrary; this is a consistent model coordinate choice, no anatomical compass claim."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real UF146378 top/underside photos and institutional conspecific PRI70705 lateral thumbnail cover key structure; no synthetic concept needed. No denied image operation is bypassed."
+  },
+  "extra_views": [
+    {
+      "camera": "-Z",
+      "role": "underside_internal_shelf",
+      "reason": "Necessary to verify defining internal shelf and open aperture; neither canonical top nor positive-Z perspective exposes it. Retain all four standard views rather than sacrificing apex or profile evidence.",
+      "path": "views/underside.png"
+    }
+  ],
+  "preparation_status": "READY_FOR_MAKER_NOT_QUALITY_PASS",
+  "name": "Trochita cap-shell fossil",
+  "target": "Original genus fossil-form target retained: broad cap shell with offset spiral summit and internal shelf. Add the directly observed strong radial ribs, not a featureless conical limpet.",
+  "reference_specimens": {
+    "primary": "Trochita floridana UF146378: photographed exterior/top and underside, scale 5cm; Late Pliocene Tamiami Formation (Pinecrest Beds), Okeechobee County, Florida.",
+    "comparison": "Trochita floridana PRI70705: Pliocene Tamiami Formation (Pinecrest Beds), Sarasota County, Florida; reported height about2.5cm. Institutional scan thumbnail viewed solely for comparative lateral shell profile.",
+    "scope": "Original low-poly genus-level fossil study informed by two explicitly separate conspecific specimens; not an exact scan or UF height measurement, and not modern Trochita trochiformis."
+  },
+  "morphology": {
+    "must_have": [
+      "Broad cap-shaped shell with a near-circular, slightly irregular scalloped basal rim; hollow underside",
+      "Offset low coiled summit and a shallow spiral shoulder/suture showing shell growth, not a centred rotationally perfect cone",
+      "About32–40 simplified broad radiating ribs continuing over the shell to scalloped margin; ribs follow growth and some diverge, not a gear with straight separate blades",
+      "Internal shelf covers roughly half the aperture, attached continuously along one side, with a nearly straight to gently curved free edge",
+      "Shelf is a broad sheet/partition, not Crucibulum-like central cup or tiny spiralling tube; remaining aperture stays deeply open",
+      "Real shell wall and shelf thickness visible at opening; modest height compared with wide footprint"
+    ],
+    "must_not_have": [
+      "No tall turret of multiple stacked whorls; no central summit hole",
+      "No flat solid disc or completely capped underside",
+      "No long siphonal canal, teeth along aperture, tentacles, operculum or substrate",
+      "No copied cracks, worn edge breaks, museum writing or source photo texture",
+      "No independent floating ribs/shelf that visibly disconnect from shell wall"
+    ],
+    "simplification": "Omit fine mineral speckle and microscopic growth increments. Retain low-frequency spiral shoulder, radial ribs, scalloped rim and internal shelf. Pale fossil tone is artistic."
+  },
+  "scale": {
+    "units": "metres",
+    "diameter": 0.048,
+    "height": 0.022,
+    "diameter_tolerance_fraction": 0.1,
+    "height_range": [
+      0.019,
+      0.027
+    ],
+    "diameter_basis": "UF146378 image: approximately304px shell diameter against318px white 5cm scale strip =>47.8mm; image estimate, not caliper measurement.",
+    "height_basis": "Explicitly inferred illustrative height, constrained by cap shape and comparative PRI70705 lateral view; NOT a measured height of UF146378. PRI70705 stated25mm is not transferred as UF measurement.",
+    "scope": "Genus-level specimen-informed study; do not advertise exact specimen dimensions or a morphometric replica."
+  },
+  "acceptance_focus": [
+    "Front -Y and side +X: shell-height/width ratio and offset summit remain cap-like, not tall cone",
+    "Top +Z: spiral growth/offset apex and coherent radial ribs clearly visible",
+    "Perspective (+X,-Y,+Z): main identification silhouette and ribbing legible at card scale",
+    "Necessary underside -Z: one-sided internal shelf with free margin and open residual chamber clearly exposed",
+    "No unintended mesh cracks or closed fake aperture; lip and shelf have genuine geometry"
+  ],
+  "evidence_limits": [
+    "UF146378 supplies exterior plan and interior shelf but no lateral height view; height is an explicit taxon-level inference using a separate conspecific comparison",
+    "No exact soft-body, shell colour in life, hidden internal coil or damage reconstruction is supported",
+    "Broad fossil context is Pliocene, not a co-occurrence scene with other assets"
+  ],
+  "maker_workflow": [
+    "3–4 cheap gray views including underside before final render, save under private/",
+    "Four standard final views plus ONE targeted underside view, required because unique internal shelf cannot be judged from four above-side cameras. No turntable suite",
+    "Keep deterministic source self-contained; canonical helpers if used copied into source/deps with relative paths and sha256",
+    "Two isolated rebuilds, GLB/Khronos and existing geometry checks remain required; template helper is not QA",
+    "Same localdir through maker and QA; maker reports root then FINAL with no upload/cleanup"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Canonical lowpoly-vault scripts snapshot copied byte-for-byte from release-fast-path worktree on 2026-10-22; fixed by this sha256."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Canonical lowpoly-vault scripts snapshot copied byte-for-byte from release-fast-path worktree on 2026-10-22; fixed by this sha256."
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "provenance": "Canonical lowpoly-vault scripts snapshot copied byte-for-byte from release-fast-path worktree on 2026-10-22; fixed by this sha256."
+    },
+    {
+      "path": "source/deps/render_small_asset.py",
+      "sha256": "c00569b436e474d3f8e28d4bd58778813ba56ca4fdd833bc0e21ae18d674ed81",
+      "provenance": "Local minimal adapter of fixed render_candidate_views.py: exact required perspective, no 25 mm minimum-framing radius, gray flag and 2 threads. Lighting/color management preserved."
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "provenance": "Canonical lowpoly-vault scripts snapshot copied byte-for-byte from release-fast-path worktree on 2026-10-22; fixed by this sha256."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "scope": "generator, export, exact-GLB render; uses bundled bpy/bmesh/mathutils and Python standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "Optional external CLI validation tool only; not imported by generator. Official registry package from canonical worktree node_modules."
+    }
+  ],
+  "closure": "Generation and rebuild need only source/generate.py, source/params.json, own source/deps/asset_common.py and own source/deps/qa_glb.py plus Blender built-ins. No other model directory dependency."
+}

@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "diabloceratops",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real skull with10cm scale and restored cast sufficient."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Diabloceratops",
+    "zh": "恶魔角龙"
+  },
+  "inventory_ordinal": 403,
+  "taxon": "Diabloceratops eatoni",
+  "classification": "Dinosauria, Ornithischia, Ceratopsidae, Centrosaurinae",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism, two tall curved horns rising from rear frill. Not skull-only.",
+  "specimen_basis": "UMNH VP16699, Last Chance skull. Original left skull and restored cast distinguished.",
+  "scale": {
+    "primary_anchor": "Original2007 discoverers report beak-to-frill about1m, paired spines add0.5m, brow horns0.25m. Confirm photograph10cm scale.",
+    "body_length_target_m": 4.5,
+    "body_length_status": "Explicit modelling estimate, not measured whole specimen. Body inferred from related quadrupedal ceratopsids.",
+    "conflict": "Modern UGS summary says4.5ft beak-to-frill versus2007 original1m; use original authors metric and true scale image, not false precision."
+  },
+  "diagnostic_targets": [
+    "Tall tapering frill, narrows toward upper rear, two tall terminal horns curve upward and outward/sideways; clearly separate negative space.",
+    "Two prominent upright brow horns, shorter than rear frill horns. NOT Einiosaurus rounded brows.",
+    "Short deep snout, low nasal ornament, no long curved Einiosaurus nasal horn.",
+    "Blade-like projecting cheek processes; small subordinate frill edge nodes.",
+    "Full heavy quadruped body, short neck, four connected weight-bearing limbs, tapering tail."
+  ],
+  "uncertainties": [
+    "Skull-based fossil, body shape/tail/skin/colour inferred, not a complete fossil skeleton.",
+    "Restore bilateral missing anatomy; bone openings covered by living tissues, no open windows through living frill.",
+    "Museum dates79.5Ma versus UGS82Ma differ; retain Late Cretaceous Campanian without overprecise time."
+  ],
+  "acceptance_checks": [
+    "Front/top show paired rear horns with outward curves.",
+    "Side silhouette deep snout, tall rear frill, long brow horns and low nose ornament.",
+    "Do not copy Einiosaurus straight rear spikes or curled nasal horn.",
+    "Only front/side/top/perspective four template views."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same dir prep maker QA. Maker fixedhash COMPLETE stops; root asynchronous backup; local-first integration; no maker upload cleanup."
+}

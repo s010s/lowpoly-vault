@@ -1,0 +1,83 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "dipterus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "anterior": "-Y",
+    "right": "+X",
+    "left": "-X",
+    "origin": "Whole fish centered, meters, up+Z; no slab or pedestal"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual full fossil with labeled fins and scale, published specimen figure, and upper/lower tooth plate photographs are available; no generated concept needed."
+  },
+  "extra_views": [
+    {
+      "path": "views/mouth-detail.png",
+      "reason": "Targeted diagnostic after early mouth inspection found throat backing obscuring radial tooth-plate ridges. The repaired exact GLB closeup shows paired low radiating plates, not fangs."
+    }
+  ],
+  "original_inventory_ordinal": 609,
+  "name": {
+    "en": "Dipterus",
+    "zh": "双翼鱼"
+  },
+  "taxon": "Dipterus valenciennesi",
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "scope": "Original 609 whole living lungfish. Two clearly separate dorsal fins and blunt tooth-plate-bearing head. No slab, detached jaw, or fin-only substitution.",
+  "reference_specimen": "BMNH P22187, Charest et al 2023 Fig 9; Achanarras complete fossil IMG_6882a as additional body/scale reference",
+  "scale": {
+    "unit": "meter",
+    "total_length_m": 0.2,
+    "status": "Approximate specimen-informed artistic scale: Achanarras IMG_6882a has 2 cm bar about110px versus fish about1100px (~20cm); not a published precise measurement. PLOS Fig9 has10mm bar.",
+    "body_width_m": 0.035,
+    "body_height_m": 0.047,
+    "uncertainty": "Body thickness and living soft tissues reconstructed, not measured from compressed specimen; do not describe20cm as species maximum."
+  },
+  "material_policy": "Restrained slate olive dorsal body, muted lighter belly, dark eyes and pale tooth plates. Colors speculative; opaque flat palette, no fossil photos as texture.",
+  "diagnostic_targets": [
+    "Compact robust elongated fish body with broad blunt rounded snout, small eyes and opercular boundary.",
+    "Two discrete dorsal fins: smaller first near rear half and larger second posteriorly, with a visible bare-backed gap. Do not fuse into modern lungfish continuous median fin.",
+    "Paired fleshy-based pectoral fins and paired pelvic fins farther posterior; pointed leaf-like anal fin below posterior dorsal.",
+    "Second dorsal longer/higher than anal, verified Charest2023; separate asymmetrical caudal fin, following labeled fossil outline rather than shark deeply forked tail.",
+    "Slightly open mouth must reveal paired lower tooth plates with low radiating cusped ridges, and opposed upper plates if visible. No large conical fangs or marginal shark tooth row.",
+    "Simplified scale fields and fin rays are subordinate to silhouette. Real three-dimensional volume and fin roots; not a textured plane."
+  ],
+  "uncertainties": [
+    "Living body cross-section, skin color and soft lip margins speculative.",
+    "Source fossils are laterally compressed, dorsal/ventral fin overlap can conceal paired fins. Use bilateral paired fins, not all fins on one side.",
+    "Tooth plate cusp count is simplified, not exact histological reconstruction; tiny structures may be proportionally clarified without detached oversized props."
+  ],
+  "acceptance_checklist": [
+    "Whole living animal and original diagnostic pair retained.",
+    "Side view shows distinct dorsal fins and gap, separate anal and tail; second dorsal larger than anal.",
+    "Front/perspective reveals blunt head and tooth plates, not hidden closed mouth or tusks.",
+    "Paired pectoral and pelvic fins connect anatomically without isolated floating roots.",
+    "Four standard exact-GLB views; self-contained source, two rebuilds, independent QA."
+  ],
+  "quality_state": {
+    "making": "NOT_STARTED",
+    "tests": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "user_acceptance": "NOT_REQUESTED",
+    "deployed": false
+  }
+}

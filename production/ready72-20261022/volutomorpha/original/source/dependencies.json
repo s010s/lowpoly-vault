@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "canonical_source": "lowpoly-vault/scripts/asset_common.py",
+      "provenance": "Version-pinned canonical project snapshot: lowpoly-release-fast-path-20261022/worktree/scripts. Unmodified copy."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "canonical_source": "lowpoly-vault/scripts/qa_glb.py",
+      "provenance": "Version-pinned canonical project snapshot: lowpoly-release-fast-path-20261022/worktree/scripts. Unmodified copy."
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "canonical_source": "lowpoly-vault/scripts/render_candidate_views.py",
+      "provenance": "Version-pinned canonical project snapshot: lowpoly-release-fast-path-20261022/worktree/scripts. Unmodified copy."
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "canonical_source": "lowpoly-vault/scripts/validate_gltf.cjs",
+      "provenance": "Version-pinned canonical project snapshot: lowpoly-release-fast-path-20261022/worktree/scripts. Unmodified copy."
+    },
+    {
+      "path": "source/deps/render_volutomorpha.py",
+      "sha256": "b894216e3a198882f89dc63579fd082fce4565ebe01c401c7006de84b4f73f7f",
+      "provenance": "Original thin camera-convention wrapper; all rendering delegated to pinned canonical implementation."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "python": "embedded Python 3.13.5",
+      "use": "generator and render"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "use": "independent official format validation, not rebuild input"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "use": "target runtime; GPU/scene gate deferred"
+    }
+  ]
+}

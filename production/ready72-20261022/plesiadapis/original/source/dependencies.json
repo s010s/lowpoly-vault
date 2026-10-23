@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot prior-366-transition; frozen by content hash",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/model_render.py",
+      "sha256": "a9364c496f5a1781669a0d9ef4b5f0a3ae7372b529067c2c0cfefd04f78859f8",
+      "origin": "Original task-local exact-GLB rendering helper",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot prior-366-transition; frozen by content hash",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "mathutils",
+        "bmesh",
+        "io_scene_gltf2"
+      ]
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender 4.3.2"
+    }
+  ],
+  "status": "GENERATOR_SELF_CONTAINED",
+  "dependency_policy": "Only relative source/deps helpers and source/params.json are read during generation; two isolated source-copy rebuilds establish runtime closure. No input photographs or other asset directories are required."
+}

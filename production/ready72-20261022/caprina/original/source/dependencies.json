@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "provenance": "s010s/lowpoly-vault canonical scripts, recovered release-fast-path worktree; pinned exact SHA-256"
+    },
+    {
+      "path": "source/deps/inspect_geometry.py",
+      "sha256": "acf1c47b52b28a9e424c61e517e536b83f532bf0661fd7fde29d530401fc2f0b",
+      "license": "MIT",
+      "provenance": "Original Caprina task tooling, Leon Made This / s010s"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "provenance": "s010s/lowpoly-vault canonical scripts, recovered release-fast-path worktree; pinned exact SHA-256"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "license": "MIT",
+      "provenance": "s010s/lowpoly-vault canonical scripts, recovered release-fast-path worktree; pinned exact SHA-256"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "f19405bd537ea08f632ca83a5ca8e9bfa88f7963cddfdc6ff17d39f877b8dcf5",
+      "license": "MIT",
+      "provenance": "Original Caprina task tooling, Leon Made This / s010s"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "Generator, geometry inspection, exact GLB rendering"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47",
+      "role": "Bundled Blender exporter, version also captured at build"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "Optional external format-validation tool; not imported by generator"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "Pinned target application renderer, GPU gate NOT_RUN"
+    }
+  ],
+  "closure": "Generator reads only its adjacent params.json and bundled source/deps; no private reference or other model directory is a runtime dependency."
+}

@@ -1,0 +1,83 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "placenticeras",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Coiling plane XZ; axis Y. Lateral face toward -Y (front), dorsal/upper image +Z, image-right +X. Match Plate17 without mirroring; terminal end at upper-left (-X,+Z). Lowest pointZ0. Side camera+X sees ventral rim; top+Z shows upper rim and termination.",
+    "view_roles": {
+      "front": "lateral Plate17 comparison",
+      "side": "ventral-edge and axial thickness, Plate18fig2",
+      "top": "upper rim and terminal cross-section, Plate18fig3",
+      "perspective": "involute broad flank, small umbilicus and preserved end"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real same-specimen lateral, ventral and apertural photographs plus explicit diameter suffice. No concept image needed or generated; denied operations not retried."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Placenticeras compressed disc ammonite",
+    "zh": "Placenticeras（扁盘菊石）"
+  },
+  "taxon": "Placenticeras",
+  "selected_species": "Placenticeras costatum",
+  "era": "cretaceous",
+  "representation": "fossil-specimen",
+  "original_scope": "Planned fossil-form study featuring strongly compressed involute disc with a narrow angular outer rim.",
+  "reference_anchor": {
+    "primary": "Cobban, edited by Kennedy2016, A survey of the Cretaceous ammonite Placenticeras, doi:10.1515/agp-2016-0031",
+    "specimen": "USNM486615, Pierre Shale, Baculites cuneatus Zone, USGS locality D1353, Grand County, Colorado",
+    "images": "Plate17 lateral and Plate18 figures2 ventral and3 apertural view. All three same specimen. Figure1 of Plate18 is P.pingue USNM486628 and is excluded.",
+    "classification": "Mollusca; Cephalopoda; Ammonoidea; Placenticeratidae. The paper caption uses1893 but main species authorship is Hyatt1903; avoid reproducing caption year typo in metadata."
+  },
+  "scale": {
+    "unit": "metre",
+    "maximum_diameter": 0.22,
+    "in_plane_width": 0.188,
+    "maximum_axial_thickness": 0.063,
+    "umbilical_depression_outer_diameter": 0.027,
+    "central_recess_diameter": 0.012,
+    "basis": "Plate18 caption explicitly gives specimen diameter220mm. Lateral width/height and ventral breadth estimated visually from the same published photos: width about0.85D, total thickness about0.28–0.30D. These secondary measurements are approximate, not caliper measurements.",
+    "uncertainty": "About10–15% for photo-derived proportions; retain actual moderately compressed lenticular fossil instead of artificially thinning to satisfy an adjective."
+  },
+  "morphology": [
+    "Strongly involute shell with one dominant broad outer whorl, small recessed umbilicus and nearly hidden early coils. Not an open coil, torus, or multiple exposed equal rings.",
+    "Planar coiling. Lateral silhouette is slightly oval rather than a perfect circle. Preserve the terminal opening in the outline at upper-left in Plate17: a distinct end of the whorl, not a closed seamless disk.",
+    "Flanks are broad and gently convex, converging toward a narrow ventral rim. The preserved rim is worn and blunt, with a subtle angular/flattened shoulder, not a razor blade, tall keel or tubular round edge.",
+    "Axial maximum thickness about63mm for220mm diameter, tapering strongly toward the periphery. Do not confuse the ventral face width with maximum flank thickness. No arbitrary uniform extrusion.",
+    "Umbilicus is a small stone-lined depression, not a cylindrical through-hole. Keep the umbilical wall and subtle overlap of the preceding whorl. No invented widely exposed spiral.",
+    "Subdued irregular falcate folds and weak rounded nodes occur on the outer flank, especially right side of Plate17; simplify without turning into heavy uniform ribs. Fine cracks are preservational and need not be copied.",
+    "The terminal face is mineral-filled/broken fossil, not a pristine thin hollow living aperture. Plate18 fig3 defines the irregular infilled terminal cross-section. Do not add a black tunnel or deep open mouth.",
+    "No ammonite body, eyes, tentacles, polished ammolite rainbow, cutaway chambers, museum labels, stand or slab. Matte stone appearance is an artistic choice."
+  ],
+  "uncertainty": [
+    "Original genus-level target is fulfilled by a named complete fossil specimen interpretation, not a living reconstruction. Preserve damaged lip boundary; do not restore missing shell.",
+    "The original narrow angular rim is represented by real blunt-edged convergent geometry, without exaggerating it into a knife edge.",
+    "Opposite lateral surface is not directly photographed here; infer approximate bilateral shell symmetry conservatively, without inventing different anatomy or repeating damage as exact bilateral features.",
+    "No precise suture reconstruction or trace of unobserved inner chambers. Mineral-filled terminal face and shallow umbilical recess only."
+  ],
+  "palette": "Matte neutral warm grey limestone; minimal material variation, no source-image textures.",
+  "acceptance_focus": [
+    "Front comparison to Plate17: dominant involute whorl, small umbilicus, oval disk and terminal outline at upper-left.",
+    "Side/top: lenticular compression and narrow blunt angular rim, no rounded sausage edge or uniform flat extrusion.",
+    "Perspective: continuous single shell growth and visible infilled terminal boundary; no separate rings or invented hollow aperture.",
+    "Same specimen Plate17 and18 figs2–3 only, not P.pingue figure1. Four final views, independent QA judges original target match. Prep is not scientific PASS."
+  ]
+}

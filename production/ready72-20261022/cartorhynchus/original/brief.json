@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "cartorhynchus",
+  "revision": "r002",
+  "geometry_policy": {
+    "max_triangles": 5500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z; neutral swimming/resting pose."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual specimen image and published reconstruction constraints sufficient, no extra concept."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Cartorhynchus",
+    "zh": "短吻龙"
+  },
+  "inventory_ordinal": 447,
+  "taxon": "Cartorhynchus lenticarpus",
+  "representation": "living-reconstruction",
+  "scope": "Original whole animal, short rounded snout and broad flexible paddlelike forelimbs. Not a dolphin-shaped later ichthyosaur or isolated fossil slab.",
+  "specimen_basis": "AGB6257, single compressed partial skeleton, original Nature Fig2 visually inspected. 2020 CT revision confirms hidden rounded posterior teeth.",
+  "scale": {
+    "body_length_m": 0.4,
+    "basis": "Gutarra 2019 supplement table lists 0.4m estimate from Motani2015; tail incomplete, not total measured fossil length. UC Davis2014 roughly1.5feet is rounded outreach scale."
+  },
+  "diagnostic_targets": [
+    "Compact short trunk, short neck and blunt abbreviated snout with large readable head, not elongated dolphin rostrum.",
+    "Broad rounded forepaddles with flexible-looking wrist transition, paired smaller hindpaddles. Preserve four appendages and body clearance.",
+    "Long gradually tapering laterally flattened tail, missing distal portion reconstructed conservatively. No derived crescent caudal fin or tall dorsal fin.",
+    "Closed mouth seam; do not depict sharp predator teeth or claim toothlessness."
+  ],
+  "uncertainties": [
+    "Only one severely compressed skeleton; missing distal tail and soft tissue inferred.",
+    "Paddle outlines, colour, skin and exact distal tail proportions artistic. Flexible wrist function is interpretation supported by anatomy, not filmed behavior.",
+    "2020 finding replaces older toothless interpretation: posterior rounded crushing teeth are concealed in side view; closed mouth need not model hidden dental rows."
+  ],
+  "acceptance_checks": [
+    "Short blunt snout and broad forepaddles readable from top and perspective.",
+    "Four connected paddle limbs, forepaddles visibly broader than hind pair.",
+    "Tail tapers naturally without crescent or dolphin fluke; no tall dorsal fin.",
+    "No terrestrial claws or open sharp-toothed mouth.",
+    "Four default views only."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": false,
+    "tests_passed": false,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Shared localdir prep/maker/QA. Maker COMPLETE fixedhash then stops. Root asynchronous backup; integration local-first. Maker no upload or cleanup."
+}

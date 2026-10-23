@@ -1,0 +1,63 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Canonical lowpoly-vault scripts snapshot"
+    },
+    {
+      "path": "source/deps/check_structure.py",
+      "sha256": "f3a06054be22a64e6d5e6b68066d58d0ddd71f848376396d45434e8d5f84a35f",
+      "origin": "Original task adapter/checker; MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Canonical lowpoly-vault scripts snapshot"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "Canonical lowpoly-vault scripts snapshot"
+    },
+    {
+      "path": "source/deps/render_four.py",
+      "sha256": "792cfa8d5c87028c8cbb7dea7f8a03eb1919cb399084a7d84988217d5de13087",
+      "origin": "Original task adapter/checker; MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "Canonical lowpoly-vault scripts snapshot"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Generator, exact GLB render and editable-source checks"
+    },
+    {
+      "name": "glTF-Blender-IO",
+      "version": "4.3.47",
+      "purpose": "bundled GLB import/export"
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender",
+      "purpose": "No pip dependencies"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Optional official format validation command, not generation"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Intended consuming runtime; GPU/scene tests deferred, not a generation dependency"
+    }
+  ],
+  "status": "PINNED",
+  "closure_note": "Generator imports only Python standard library, Blender bpy/bmesh/mathutils and copied source/deps helpers. Rebuild runs copy only source/ into isolated working directories. Canonical helper versions are pinned by SHA-256, not another candidate directory."
+}

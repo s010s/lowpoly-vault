@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "macropoma",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Body length along X, head -X, tail +X, dorsal +Z, paired fins symmetric across Y. Front -Y broadside, side+X toward head, top+Z, perspective(+X,-Y,+Z)."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real complete-ish specimen photograph plus same-species published anatomical restoration provides sufficient wholebody reference."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Macropoma",
+    "zh": "Macropoma 大盖鱼"
+  },
+  "inventory_ordinal_one_based": 606,
+  "taxon": "Macropoma lewesiensis (Mantell, 1822)",
+  "representation": "Conservative complete living fish restoration, not fossil slab or exact individual scan",
+  "primary_evidence": "NHM species photograph plus Woodward1909 Fig49 restoration and PlateXXXVI Fig1 type NHMUK PV OR4219; identity bridge confirmed Norton et al2026. Photograph caption does not itself give catalogue number: do not assert exact photo/type identity.",
+  "context": {
+    "era": "cretaceous",
+    "age": "Late Cretaceous, Turonian to possibly Santonian for species",
+    "locality": "Southern England Chalk; type from Lewes, Sussex",
+    "note": "No Lower Cretaceous gombessae morphology or material mixed."
+  },
+  "dimensions": {
+    "total_length_mm": 600,
+    "head_with_operculum_mm": 150,
+    "max_body_depth_mm": 150,
+    "body_width_mm_inferred": 95,
+    "fin_inclusive_height_mm_inferred": 240,
+    "basis": "Representative species length about600mm reported by NHM and Woodward; NOT measurement of NHM photo. Head+operculum and maximum trunk depth each about1/4 total in Woodward diagnosis. Width and fin envelope inferred."
+  },
+  "must_preserve": [
+    "Short stout head and compact deep trunk with blunt spatulate snout, not Coelacanthus narrow long head.",
+    "Head+operculum about25 percent length; maximum trunk depth similar. Large opercular region and modest lateral eyes.",
+    "First dorsal ray fin has no fleshy lobe and eight primary rays per Woodward. Second dorsal is lobed and separate.",
+    "Paired pectoral and pelvic fins with rounded fleshy bases and fan blades. Anal resembles smaller second dorsal, located slightly farther rearward.",
+    "Caudal upper/lower fan lobes roughly balanced, with only subtle short central axial continuation. No elongated Latimeria supplementary tail paddle.",
+    "Living skin covers bones and ossified swim bladder; fossil cavities are NOT exterior openings.",
+    "Scales/cranial tubercles subtly implied in authored low-poly geometry, not oversized spikes or copied photo texture.",
+    "Unknown colors muted and explicitly inferred; not modern coelacanth white spotting."
+  ],
+  "forbidden": [
+    "Scale photograph as exactly60cm specimen",
+    "Label historical mantelli as a second distinct species",
+    "Mix gombessae, precursor, modernLatimeria or priorCoelacanthus model anatomy",
+    "Expose fossil vertebrae, calcified swim bladder or broken body holes on living model",
+    "Long central tail whip, generic teleost fork, merged median fins",
+    "Photo textures, imported meshes, extra concept images, labels or plinth"
+  ]
+}

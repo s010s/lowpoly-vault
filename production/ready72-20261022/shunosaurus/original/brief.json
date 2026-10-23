@@ -1,0 +1,86 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "shunosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      0.574,
+      -0.819,
+      0.466
+    ],
+    "direction_substitutions": [
+      {
+        "view": "perspective",
+        "reason": "Use canonical helper hero oblique camera [.574,-.819,.466]; remains correctly labelled perspective."
+      }
+    ],
+    "object_orientation": "head -Y tail +Y up +Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Real tail photo, original labelled drawing and skeletal reconstruction sufficient."
+  },
+  "extra_views": [],
+  "inventory_ordinal": 358,
+  "name": {
+    "en": "Shunosaurus",
+    "zh": "蜀龙"
+  },
+  "taxon": "Shunosaurus lii",
+  "classification": "Dinosauria, Saurischia, Sauropodomorpha, Sauropoda, Eusauropoda",
+  "representation": "living-reconstruction",
+  "scope": "Original whole-organism short-necked sauropod with terminal spiked bony club.",
+  "scale": {
+    "total_length_m": 10,
+    "basis": "NHM Dino Directory genus estimate, not exact measurement of T5401."
+  },
+  "specimen_basis": "Zhang1988 Fig39 T5401 distal vertebrae and dermal tail spines, plate12part1 actual photograph; Fig58 T5404 whole skeletal reconstruction.",
+  "diagnostic_targets": [
+    "Compact relatively short neck compared with long-necked sauropods; robust oval torso and four columnar limbs.",
+    "Long narrowing tail ends in modest lobate terminal club, not ankylosaur giant hammer.",
+    "Two sequential pairs of small rounded conical dorsal/lateral tail osteoderms per Zhang1988/Remes2009 reconstruction; association in life uncertain, explicitly reconstruction.",
+    "Small broad relatively boxy head, closed herbivore jaw, no theropod teeth.",
+    "Whole animal includes entire head neck body limbs tail; no skeleton-only or club-only substitute."
+  ],
+  "uncertainties": [
+    "Zhang1988 positions small dermal tail spines on T5401 and revised diagnosis mentions two pairs; whether fossils found articulated is not established here. Do not claim in-situ proven location.",
+    "Skin colour muscle volume and neutral pose inferred.",
+    "Do not copy drooping historical mount pose or modern artwork.",
+    "Use modest relative spike size; avoid dramatic Stegosaurus thagomizer."
+  ],
+  "acceptance_checks": [
+    "Short neck/body proportion readable in side view.",
+    "Four leg-ground contacts, attached transitions, tail not dragging.",
+    "Small terminal lobate club and four small spines readable in top/side.",
+    "All four standard views."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false
+  },
+  "handoff_contract": "Same local dir maker QA; fixedhash COMPLETE stop; root backup async local-first integration; no maker cleanup or upload.",
+  "material_profile": "palette-only faceted opaque static meshes; six original palette regions, no textures",
+  "claim_scope": "Local maker candidate for independent visual/factual QA; runtime GPU, populated-scene performance, user approval and publication remain separate.",
+  "runtime_profile": {
+    "three": "0.180.0",
+    "static": true,
+    "textures": false,
+    "skinning": false,
+    "animations": false
+  },
+  "frozen_before_modeling": true
+}

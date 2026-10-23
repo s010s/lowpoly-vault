@@ -1,0 +1,73 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "Pinned canonical s010s/lowpoly-vault helper snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/check_geometry.py",
+      "sha256": "10db8f673f673012f393bafd0b727597ddbd6c8a0974562b9aa4aae726405eb6",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    },
+    {
+      "path": "source/deps/check_local_revision.py",
+      "sha256": "0bbe6667ec53c41196c76aa4f7a9bb5d29b3ba17c6b4d2f2a6bd545e45dc5ed8",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    },
+    {
+      "path": "source/deps/check_three.mjs",
+      "sha256": "bf0e59c8948a0ec3681ccb4b24ed452a746a113e577e5ff51943db9ac549dd4b",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "Pinned canonical s010s/lowpoly-vault helper snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "Pinned canonical s010s/lowpoly-vault helper snapshot 2026-10-22"
+    },
+    {
+      "path": "source/deps/render_framing.json",
+      "sha256": "54c52099def80fff5110ac018feff1b8d9f3f7660c886349edcf11ef91eb8047",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    },
+    {
+      "path": "source/deps/render_hystrivasum.py",
+      "sha256": "9add58e68577026507d059503b56314c73f6dbae19070837048ce4cf27b3fb78",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    },
+    {
+      "path": "source/deps/validate_model.cjs",
+      "sha256": "e0eba4bd81fa1daa3e4ca3b267ce921f24ade18b7e02cd38e23af940c32cfcdb",
+      "origin": "Original local QA/render adapter or fixed presentation settings; MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Build and exact-export CPU rendering; bundled bpy, bmesh, mathutils and Python standard library"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Official format validation only; not needed to rebuild model"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "purpose": "Optional parse/bounds probe only; not needed to rebuild model"
+    },
+    {
+      "name": "Node.js",
+      "version": "24.19.0",
+      "purpose": "Validation tools only"
+    }
+  ],
+  "canonical_source": "s010s/lowpoly-vault scripts; content-addressed canonical release snapshot 2026-10-22",
+  "dependency_scope": "Generator uses only its local params.json, deps/asset_common.py and deps/qa_glb.py plus Blender bundled runtime. QA adapters use the explicitly pinned external validation runtimes."
+}

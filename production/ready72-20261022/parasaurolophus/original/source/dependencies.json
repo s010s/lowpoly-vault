@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/audit_anatomy.py",
+      "sha256": "de62ac5e486cef95b6e06f8ef9cd680900d537ebf904f87de0009a4a0a633b34",
+      "origin": "Original Parasaurolophus local anatomy or camera adapter",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "5d88c97cfddd47a4210660697270d4509cd2f0819969be35d8deb4dbd14a1cc1",
+      "origin": "Original Parasaurolophus local anatomy or camera adapter",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, pinned by SHA256",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "glTF exporter 4.3.47"
+      ],
+      "purpose": "Generation, source QA and exact-export previews"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled Python 3.13.5",
+      "purpose": "No external Python packages needed for generator"
+    },
+    {
+      "name": "Node.js + gltf-validator",
+      "version": "gltf-validator 2.0.0-dev.3.10",
+      "purpose": "Official glTF validation only; not needed for generation"
+    }
+  ],
+  "policy": "All deterministic generator imports are declared local source/deps, Blender or standard library; no cross-model imports. Exact dependency hashes are the canonical version pin.",
+  "target_runtime": {
+    "three_version": "0.180.0",
+    "status": "NOT_RUN",
+    "scope": "Pinned repository consuming viewer; no GPU or populated-scene claim."
+  }
+}

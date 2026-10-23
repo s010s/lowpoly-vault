@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, content-addressed by sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, content-addressed by sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot, content-addressed by sha256",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_four_views.py",
+      "sha256": "73a1cb7c7b423aa902910d6e4ba83367a1529c0d5818646dc4c4774553c48366",
+      "origin": "Original asset wrapper for canonical camera configuration",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "components": [
+        "bpy",
+        "bmesh",
+        "mathutils",
+        "Python standard library"
+      ]
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47 bundled with Blender"
+    }
+  ],
+  "policy": "Generator resolves only bundled source/deps, params.json and Blender runtime. No other model directory dependencies."
+}

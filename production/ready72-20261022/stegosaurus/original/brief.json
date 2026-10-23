@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "stegosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 6500,
+    "max_materials": 6,
+    "max_primitives": 12,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, tail +Y, up +Z; neutral quadrupedal stance."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary whole-skeleton figure and museum specimen descriptions sufficient; no extra concept image."
+  },
+  "extra_views": [],
+  "name": {
+    "en": "Stegosaurus",
+    "zh": "剑龙"
+  },
+  "inventory_ordinal": 381,
+  "taxon": "Stegosaurus stenops",
+  "representation": "living-reconstruction",
+  "scope": "Original whole organism: two staggered rows of high dorsal plates and four tail spikes.",
+  "specimen_basis": "Sophie, NHMUK PV R36730. Mounted skeleton and unmounted elements inspected in Maidment et al.2015 Figure1. Not fully skeletally mature; model is this size class, not a maximum-sized adult.",
+  "scale": {
+    "body_length_m": 5.5,
+    "basis": "NHM specimen interview: just over5.5m; use approximate5.5m reconstruction, not genus9m maximum."
+  },
+  "diagnostic_targets": [
+    "Two longitudinal staggered rows, 19 total broad thin plates, not19 symmetric pairs. Plates gradually enlarge toward back/hips then diminish along tail.",
+    "Exactly four tail spikes, in two bilateral pairs near distal tail, pointing outward/backward rather than a vertical stegosaur fin.",
+    "Very small low beaked head on extended neck, bulky torso, high hips, hindlimbs longer than forelimbs.",
+    "Four weight-bearing feet, tapering raised tail; no shoulder spikes, ankylosaur club, bipedal stance or giant predatory head."
+  ],
+  "uncertainties": [
+    "Soft tissue, colour, keratin thickness and exact mounted posture are reconstructions.",
+    "Left arm and tail base incompleteness require symmetry/comparative reconstruction; sex is unknown despite nickname Sophie.",
+    "Plate exact lateral tilt and tail spike angle are artistic approximations, not new osteological measurements."
+  ],
+  "acceptance_checks": [
+    "Front/top shows genuine offset alternating double rows; not one central row or paired mirrored plates.",
+    "Side silhouette has size-graded thin plates, small head, low front and higher hindquarter, long tapering tail.",
+    "Four distinct integrated tail spikes visible without extra shoulder spikes; maintain clean negative spaces.",
+    "Default four views only; perspective may reuse preview. Original geometry/materials, no downloaded scan/mesh/texture."
+  ],
+  "workflow": {
+    "research_complete": true,
+    "making_complete": true,
+    "tests_passed": true,
+    "independent_qa": "NOT_RUN",
+    "user_accepted": false,
+    "deployed": false,
+    "tests_scope": "Maker source/export/format/Node loader/dual rebuild only; not independent visual/factual acceptance, GPU, scene, user acceptance, or deployment."
+  },
+  "handoff_contract": "Same directory prep/maker/QA. Maker reports fixed hash COMPLETE then stops; no upload or cleanup. Root asynchronous private backup, integration local-first and cleanup only later when authorized. Hold candidate for later batch, no PR."
+}

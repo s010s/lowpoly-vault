@@ -1,0 +1,15 @@
+Pleurotomaria r001 reproducibility
+
+Requires Blender 4.3.2 (bundled Python, bpy, bmesh and mathutils). Generator helpers are bundled beside this file. No mesh, image texture, network download or another asset directory is required.
+
+From the delivery directory:
+blender -b -t 2 --factory-startup --python-exit-code 1 --python source/generate.py -- --output /tmp/pleurotomaria-rebuild
+
+This produces model.blend, model.glb and build-report.json in the selected output. Do not point a rebuild at the fixed reviewed candidate. A different output directory preserves its identity and hashes.
+
+Exact-export four-view evidence can be regenerated to an empty output folder:
+blender -b -t 2 --factory-startup --python-exit-code 1 --python source/deps/render_views.py -- model.glb --output-dir /tmp/pleurotomaria-views --revision r001 --brief brief.json --references references.json --resolution 768 --samples 48 --turntable-frames 0 --views front,side,top,perspective
+
+The last command imports the exact GLB. It does not establish independent visual acceptance or actual WebGL GPU correctness. Render helpers are canonical fixed snapshots plus a small four-view camera adapter. Their exact hashes and runtime versions are in source/dependencies.json.
+
+Geometry is original and intended as an interpretive fossil shell, not a print-ready exact specimen scan. The inferred slit and missing lip are disclosed in brief.json, references.json and the factual-boundaries evidence.

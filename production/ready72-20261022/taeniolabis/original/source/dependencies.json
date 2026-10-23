@@ -1,0 +1,72 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Unmodified canonical restored repository scripts snapshot",
+      "license": "MIT",
+      "role": "generation and source/GLB audit"
+    },
+    {
+      "path": "source/deps/inspect_blend.py",
+      "sha256": "a8b2ea86f49f1d1a2e6f724727b47197cfcaf4a0113c10ef2053d485eecbc7d6",
+      "provenance": "Original asset-specific QA utility",
+      "license": "MIT",
+      "role": "QA only"
+    },
+    {
+      "path": "source/deps/parse_glb.mjs",
+      "sha256": "0363f53be72ee7f9b31c25791a26761a38e27123ab510b33e3d6a17847487c52",
+      "provenance": "Original asset-specific QA utility",
+      "license": "MIT",
+      "role": "QA only"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Unmodified canonical restored repository scripts snapshot",
+      "license": "MIT",
+      "role": "generation and source/GLB audit"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "provenance": "Unmodified canonical restored repository scripts snapshot",
+      "license": "MIT",
+      "role": "QA only"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "included": false,
+      "role": "generator, source reopen, clean GLB import and Cycles CPU previews"
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47",
+      "included": false,
+      "role": "embedded in Blender runtime; verified GLB generator field"
+    },
+    {
+      "name": "Python",
+      "version": "Blender-bundled Python",
+      "included": false,
+      "role": "stdlib, bpy, mathutils, bmesh"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "included": false,
+      "role": "official format QA only"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "included": false,
+      "role": "GLTFLoader parse-only QA"
+    }
+  ],
+  "dependency_policy": "Generation uses only source/params.json and copied source/deps Python modules plus Blender runtime; no imports from another model."
+}

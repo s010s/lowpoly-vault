@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "provenance": {
+        "snapshot": "Repository canonical scripts snapshot in recovered current-worktree, copied verbatim",
+        "upstream_repo": "s010s/lowpoly-vault",
+        "upstream_path": "scripts/asset_common.py",
+        "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+      }
+    },
+    {
+      "path": "source/deps/check_geometry.py",
+      "sha256": "555f347b5deaa609f62f120acfcfddeb8e66a54d6df30b4f872df46767492f49",
+      "license": "MIT",
+      "provenance": {
+        "origin": "Original task-local supporting source"
+      }
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "provenance": {
+        "snapshot": "Repository canonical scripts snapshot in recovered current-worktree, copied verbatim",
+        "upstream_repo": "s010s/lowpoly-vault",
+        "upstream_path": "scripts/qa_glb.py",
+        "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+      }
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "c120fdc9121561b7a4884a3f18f2876caa438dec47509c37862c34849e4f32c5",
+      "license": "MIT",
+      "provenance": {
+        "origin": "Original task-local supporting source"
+      }
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "python": "Bundled Blender Python; only standard library, bpy, bmesh and mathutils"
+    },
+    {
+      "name": "Blender glTF exporter",
+      "version": "4.3.47"
+    },
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "QA only, not generator dependency"
+    }
+  ],
+  "self_contained_scope": "generate.py, params.json and copied own source/deps; neither reference images nor another model directory are read during rebuild. Render and QA helpers are also inventoried.",
+  "target_runtime": {
+    "three_js": "Not exercised for this candidate; must pin at integration gate.",
+    "gpu": "NOT_RUN",
+    "populated_scene": "NOT_RUN"
+  }
+}

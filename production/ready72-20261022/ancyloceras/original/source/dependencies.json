@@ -1,0 +1,58 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot restored2026-10-22; copied unchanged and content-pinned",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot restored2026-10-22; copied unchanged and content-pinned",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot restored2026-10-22; copied unchanged and content-pinned",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "ac58147cd14c7d2fc1421f9c752ff9608cf046e3f60dd9c77c8e53c1b06f622d",
+      "origin": "Original model-local camera wrapper",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "required": true
+    },
+    {
+      "name": "Python bundled with Blender",
+      "version": "3.13",
+      "required": true
+    }
+  ],
+  "audit_tools": [
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "required_for_qa_only": true
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "required_for_parser_qa_only": true
+    }
+  ],
+  "isolation_contract": "generate.py reads only this source directory and its declared bundled deps; external research images and other model directories are not runtime dependencies."
+}
