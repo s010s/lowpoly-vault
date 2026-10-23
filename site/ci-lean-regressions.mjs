@@ -9,7 +9,7 @@ if(mode==='publication'){
  if(scope.publication)run(process.execPath,['site/ci-timed.mjs','publication']);
  else console.log('NOT_APPLICABLE: historical publication implementation unchanged; no historical suite result claimed.');
 }else if(mode==='pipeline'){
- if(scope.framework){run('npm',['run','test:pipeline']);run('npm',['run','test:manifest']);run('python3',['scripts/test_final_delivery.py']);run(process.execPath,['site/final-delivery-test.mjs']);}
+ if(scope.framework){run('python3',['scripts/test_qa_glb_scale_aware.py','-v']);run('npm',['run','test:pipeline']);run('npm',['run','test:manifest']);run('python3',['scripts/test_final_delivery.py']);run(process.execPath,['site/final-delivery-test.mjs']);}
  else console.log('NOT_APPLICABLE: pipeline implementation unchanged; model content validation belongs to the pages source gate.');
 }else{
  if(scope.framework){
