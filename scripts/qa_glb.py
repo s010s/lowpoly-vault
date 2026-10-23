@@ -12,6 +12,10 @@ import math
 from pathlib import Path
 import struct
 
+# Triangle area divided by the squared longest decoded primitive extent.
+# Normalizing edges first keeps this unitless check stable across asset scales.
+RELATIVE_TRIANGLE_AREA_EPSILON = 1e-12
+
 IDENTITY = [1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.]
 
 
@@ -171,12 +175,19 @@ def audit_glb(path, max_triangles=12000, max_materials=8, max_primitives=24, gro
                 indices = [v[0] for v in accessor_values(doc,binary,p['indices'])] if 'indices' in p else list(range(len(positions)))
                 if len(indices)%3: errors.append(label+' index/vertex count is not divisible by three')
                 if any(not isinstance(i,int) or i<0 or i>=len(positions) for i in indices): raise ValueError(label+' invalid index')
+                # Use actual decoded coordinates, never declared accessor bounds or
+                # asset metadata. Keep the scale and edges in the same local space.
+                extent = max((max(p[j] for p in positions)-min(p[j] for p in positions)
+                              for j in range(3))) if positions else 0.
                 degenerates = 0
                 for offset in range(0,len(indices)-2,3):
                     a,b,c = [positions[i] for i in indices[offset:offset+3]]
-                    u,v = [b[j]-a[j] for j in range(3)], [c[j]-a[j] for j in range(3)]
+                    if extent == 0:
+                        degenerates += 1
+                        continue
+                    u,v = [(b[j]-a[j])/extent for j in range(3)], [(c[j]-a[j])/extent for j in range(3)]
                     cross = [u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
-                    if sum(x*x for x in cross)<1e-20: degenerates += 1
+                    if math.hypot(*cross) <= 2*RELATIVE_TRIANGLE_AREA_EPSILON: degenerates += 1
                 if degenerates: errors.append(f'{label} has {degenerates} degenerate triangles')
                 triangles = len(indices)//3
                 parts.append((positions,triangles))
