@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {sha256} from './inventory-type-acceptance.mjs';
 import {inspectContentProductionRelease,verifyContentProjectionReviews} from './content-production-acceptance.mjs';
 import {collectProductionRelease,appendProductionRelease,productionSourceClosure,productionGalleryResources} from './production-release.mjs';
-import {deliverManifestAssets} from './asset-delivery.mjs';
+import {deliverManifestAssets,creditText} from './asset-delivery.mjs';
 import {deliverTurntables} from './turntable-delivery.mjs';
 import {spawnSync} from 'node:child_process';
 import {isPreservedImplementationBridge} from './preserved-implementation-bridges.mjs';
@@ -32,7 +32,10 @@ async function setup(route='v2'){
  await copyPins(item);await copyPins(old.scope_document);
  const asset=JSON.parse(await readFile(resolve(root,item.metadata.path))),record=JSON.parse(await readFile(resolve(root,item.evidence.path)));
  asset.production_release=path;const assetRaw=encode(asset);await put(item.metadata.path,assetRaw);item.metadata=pin(item.metadata.path,assetRaw);
- const licenses=[];for(const path of ['LICENSES/CC-BY-4.0.txt',asset.credits].filter(Boolean)){const b=await readFile(resolve(source,path));await put(path,b);licenses.push(pin(path,b));}
+ // Credits are generated delivery output, not a tracked source fixture.
+ const licenses=[],licensePath='LICENSES/CC-BY-4.0.txt',licenseBytes=await readFile(resolve(source,licensePath));
+ await put(licensePath,licenseBytes);licenses.push(pin(licensePath,licenseBytes));
+ if(asset.credits){const b=Buffer.from(creditText(asset,{author:'Leon Made This / s010s',attribution_url:'https://github.com/s010s/lowpoly-vault'}));await put(asset.credits,b);licenses.push(pin(asset.credits,b));}
  const descriptor={...old,kind:'content-production-release-v1',assets:[item],review_path:'production/content-check/review.json',licenses};delete descriptor.implementation;
  const review=JSON.parse(await readFile(resolve(source,old.review_path)));
  review.inventory_compatibility=review.inventory_compatibility.filter(x=>x.asset_id===item.id);review.original_acceptance_sha256=[record.original_acceptance.sha256];delete review.checks.adapter_code_and_legacy_compatibility;
