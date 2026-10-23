@@ -1,4 +1,4 @@
-import {productionGalleryResources} from './production-release.mjs';
+import {productionGalleryResources,appendProductionPosterInputState} from './production-release.mjs';
 /** Validate the explicit gallery resource allowlist without selecting catalog assets. */
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -35,7 +35,7 @@ async function fileList(root, directory = 'gallery') {
 }
 
 /** outputRoot optionally audits the final Vite-copied public resources too. */
-export async function auditGalleryAssets(manifest, { root = process.cwd(), outputRoot, requireComplete = false } = {}) {
+export async function auditGalleryAssets(manifest, { root = process.cwd(), outputRoot, requireComplete = false, productionResults } = {}) {
   assert(manifest && Array.isArray(manifest.assets) && !manifest.review_only, 'A published manifest is required');
   const publicRoot = resolve(root, 'site/public');
   const reviewedBytes = await verifiedFile(publicRoot, 'gallery/approved-resources.json');
@@ -44,7 +44,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
   const resourceRoot = outputRoot ? resolve(outputRoot) : publicRoot;
   const storedResources = JSON.parse(await verifiedFile(resourceRoot, 'gallery/resources.json'));
   // The source baseline stays byte-for-byte historical; only explicit reviewed additions extend it.
-  const resources = await productionGalleryResources(root,manifest,storedResources);
+  const resources = await productionGalleryResources(root,manifest,storedResources,productionResults);
   assert.equal(resources.version, 1, 'Unsupported gallery resource version');
   assert(resources.posters && resources.references && Array.isArray(resources.files), 'Invalid gallery resources');
   for (const key of ['approved_site_commit', 'runtime_revision', 'source_renderer_sha256']) assert.equal(resources[key], reviewed[key], `Reviewed gallery provenance changed: ${key}`);
@@ -95,7 +95,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
     assert(Array.isArray(spec.floorPoints) && spec.floorPoints.length >= 3 && spec.floorPoints.every(point => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite)), `Invalid wheel floor contour: ${id}`);
     assert(spec.projectedBounds && ['left', 'right', 'top', 'bottom'].every(key => Number.isFinite(spec.projectedBounds[key])), `Invalid wheel projected bounds: ${id}`);
   }
-  const inputState = await posterInputState(manifest, resources, { root });
+  const inputState = productionResults ? await appendProductionPosterInputState(root,manifest.assets.filter(a=>a.production_release),resources,await posterInputState({...manifest,assets:manifest.assets.filter(a=>!a.production_release)},resources,{root}),productionResults) : await posterInputState(manifest, resources, { root });
   const missing = manifest.assets.filter(asset => !Object.hasOwn(resources.posters, asset.id) || inputState.stale.includes(asset.id)).map(asset => asset.id);
   if (requireComplete) assert.equal(missing.length, 0, `Canonical gallery posters missing: ${missing.join(', ')}`);
   return { resources, inputState, coverage: { published: manifest.assets.length, matched: inputState.valid.length, stale: inputState.stale, missing }, files: files.size, bytes: [...files.values()].reduce((sum, file) => sum + file.bytes, 0) };

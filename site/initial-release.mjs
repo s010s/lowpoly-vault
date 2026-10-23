@@ -1,4 +1,4 @@
-import {appendProductionRelease,appendProductionReleases} from './production-release.mjs';
+import {appendProductionRelease,appendProductionReleases,productionValidationPlan} from './production-release.mjs';
 import {appendFinalFiveRelease} from './final-five-release.mjs';
 import {appendFiftyTwoRelease} from './fifty-two-release.mjs';
 import {appendFortyFourRelease} from './forty-four-release.mjs';
@@ -60,9 +60,15 @@ export async function collectInitialRelease(root=process.cwd()) {
   }
   return {...candidate,release_status:'initial',quality_status:'work_in_progress',publication:{authorization:approval.authorization,authorized_on:approval.authorized_on,source_commit:approval.source_commit},assets:candidate.assets};
 }
-export async function checkPublishedManifest(root=process.cwd()) {
+export async function checkPublishedManifest(root=process.cwd(),{productionResults}={}) {
   const current=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   assert(!current.review_only,'A review-only manifest cannot be published');
+  const productionPlan=await productionValidationPlan(root);
+  if(productionPlan.mode==='incremental'){
+    const expected=await appendProductionReleases(root,productionPlan.legacyBaseline,current.publication.production_registry,productionResults);
+    assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
+    return current;
+  }
   let expected=current.publication?.batches52_53_descriptors
     ?await collectBatches5253Release(root,current.publication.batches52_53_descriptors,current.publication.batches52_53_base_descriptor)
     :current.publication?.batch54_descriptor
@@ -117,8 +123,8 @@ export async function checkPublishedManifest(root=process.cwd()) {
   const hasProductionRegistry=Object.hasOwn(current.publication||{},'production_registry');
   const hasProductionDescriptor=Object.hasOwn(current.publication||{},'production_descriptor');
   assert(!(hasProductionRegistry&&hasProductionDescriptor),'Ambiguous singular and registry production release routes');
-  if(hasProductionRegistry)expected=await appendProductionReleases(root,expected,current.publication.production_registry);
-  else if(hasProductionDescriptor)expected=await appendProductionRelease(root,expected,current.publication.production_descriptor);
+  if(hasProductionRegistry)expected=await appendProductionReleases(root,expected,current.publication.production_registry,productionResults);
+  else if(hasProductionDescriptor)expected=await appendProductionRelease(root,expected,current.publication.production_descriptor,productionResults);
   assert.deepEqual(current,expected,'Published manifest must exactly match the checked source and publication scope');
   return current;
 }

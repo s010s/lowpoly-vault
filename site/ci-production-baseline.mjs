@@ -41,8 +41,9 @@ function assertJob(job,run){
  assert.equal(job.run_id,run.id);assert.equal(job.run_attempt,run.run_attempt);assert.equal(job.head_sha,run.head_sha);
  assert.equal(job.status,'completed');assert.equal(job.conclusion,'success');assert(Array.isArray(job.steps));
  const numbers=[];
- for(const name of REQUIRED_STEPS){const matches=job.steps.filter(step=>step.name===name);assert.equal(matches.length,1,'Missing or ambiguous mandatory production step: '+name);const step=matches[0];assert.equal(step.status,'completed');assert.equal(step.conclusion,'success');assert(positive(step.number));numbers.push(step.number);}
- assert(numbers.every((number,index)=>index===0||number>numbers[index-1]),'Mandatory production step order changed');
+ const required=job.steps.some(step=>step.name==='Validate source, build once and audit final dist')?['Run affected regressions','Validate source, build once and audit final dist']:REQUIRED_STEPS;
+ for(const name of required){const matches=job.steps.filter(step=>step.name===name);assert.equal(matches.length,1,'Missing or ambiguous mandatory production step: '+name);const step=matches[0];assert.equal(step.status,'completed');assert.equal(step.conclusion,'success');assert(positive(step.number));numbers.push(step.number);}
+ assert(numbers.every((number,index)=>index===0||number>numbers[index-1]),'Mandatory production step order changed');return required;
 }
 
 /** No exported pure-data validator can mint a capability. fetchImpl replaces
@@ -85,12 +86,12 @@ export async function fetchVerifiedProductionBase({root=process.cwd(),repository
     assert(Array.isArray(jobs.jobs)&&Number.isSafeInteger(jobs.total_count)&&jobs.total_count===jobs.jobs.length&&jobs.total_count<=100,'Incomplete job list');
     const builds=jobs.jobs.filter(job=>job.name==='build');assert.equal(builds.length,1,'Missing or ambiguous build job');
     // Re-read the exact job, so a list item alone is not sufficient evidence.
-    assert(positive(builds[0].id));const job=await api(`actions/jobs/${builds[0].id}`);assert.equal(job.id,builds[0].id);assertJob(job,run);
+    assert(positive(builds[0].id));const job=await api(`actions/jobs/${builds[0].id}`);assert.equal(job.id,builds[0].id);const requiredSteps=assertJob(job,run);
     // A rerun started while authenticating invalidates this snapshot.
     const latest=await api(`actions/runs/${run.id}`);assertRun(latest,expected);
     for(const key of ['id','run_attempt','check_suite_id'])assert.equal(latest[key],run[key],'Run changed during authentication');
     assert.equal(head(),currentSha);assert.equal(git(root,budget,'status','--porcelain','--untracked-files=no'),'','Tracked input changed during authentication');
-    const summaryProof={kind:'github-exact-main-production-baseline-v1',repository,repository_id:repo.id,source_commit:baseSha,source_tree:baseTree,current_commit:currentSha,current_tree:currentTree,workflow_id:workflow.id,workflow_path:WORKFLOW_PATH,run_id:run.id,run_attempt:run.run_attempt,check_suite_id:run.check_suite_id,job_id:job.id,steps:[...REQUIRED_STEPS],publication_authorized:false};
+    const summaryProof={kind:'github-exact-main-production-baseline-v1',repository,repository_id:repo.id,source_commit:baseSha,source_tree:baseTree,current_commit:currentSha,current_tree:currentTree,workflow_id:workflow.id,workflow_path:WORKFLOW_PATH,run_id:run.id,run_attempt:run.run_attempt,check_suite_id:run.check_suite_id,job_id:job.id,steps:[...requiredSteps],publication_authorized:false};
     const capability=Object.freeze({});capabilities.set(capability,{root,baseSha,currentSha,repository,summary:summaryProof});
     return {capability,summary:structuredClone(summaryProof),reasons};
    }catch(error){reasons.push(`Production run ${summary.id} rejected: ${error.message}`);budget.check();}

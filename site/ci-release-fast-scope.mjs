@@ -25,7 +25,7 @@ function ownedSourceHelpers({old,next,descriptors,ids,readAfterBytes}){
  for(const entry of descriptors){
   assert(!old.has(entry.path),'Owned source requires a new descriptor');
   const descriptor=JSON.parse(pinBytes(entry)),root=entry.path.slice(0,entry.path.lastIndexOf('/')+1);
-  assert(['production-release-v1','typed-production-release-v1'].includes(descriptor.kind),'Unknown source owner descriptor');
+  assert(['production-release-v1','typed-production-release-v1','content-production-release-v1'].includes(descriptor.kind),'Unknown source owner descriptor');
   for(const item of descriptor.assets){
    assert(ids.has(item.id)&&!seen.has(item.id),'Source owner must be a unique new asset');seen.add(item.id);
    const assetRoot=root+item.id+'/';

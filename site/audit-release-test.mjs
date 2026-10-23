@@ -6,6 +6,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {creditText} from './asset-delivery.mjs';
 import {writeCatalog} from './catalog-build.mjs';
 import {CATALOG_PAGE_SIZE} from './routes.js';
 
@@ -35,13 +36,14 @@ try{
  async function build(count){
   await rm(join(root,'dist'),{recursive:true,force:true});
   for(const path of staticFiles)await put('dist/'+path);
+  for(const path of ['LICENSE','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt','THIRD_PARTY_NOTICES.md'])await put(path);
   for(const [key,bytes]of Object.entries(modelBytes))await put('dist/assets/test/shared.'+(key==='preview'?'png':key),bytes);
-  const assets=Array.from({length:count},(_,i)=>({id:`fixture-${i}`,name:`Fixture ${i}`,category:'geology',collection:'earth',glb:'assets/test/shared.glb',blend:'assets/test/shared.blend',preview:'assets/test/shared.png',sha256:Object.fromEntries(Object.entries(modelBytes).map(([key,bytes])=>[key,hash(bytes)])),downloads:{bundle:'assets/downloads/shared.zip',credits:'assets/downloads/shared-CREDITS.txt'}}));
+  const assets=Array.from({length:count},(_,i)=>({id:`fixture-${i}`,name:'Fixture',category:'geology',collection:'earth',glb:'assets/test/shared.glb',blend:'assets/test/shared.blend',preview:'assets/test/shared.png',sha256:Object.fromEntries(Object.entries(modelBytes).map(([key,bytes])=>[key,hash(bytes)])),downloads:{bundle:'assets/downloads/shared.zip',credits:'assets/downloads/shared-CREDITS.txt'}}));
   const manifest={assets};await json('source.json',manifest);await json('dist/assets/manifest.json',manifest);
   await writeCatalog(manifest,join(root,'dist'));
   for(const asset of assets)for(const locale of ['','zh-CN/'])await put(`dist/${locale}models/${asset.id}/index.html`);
   for(let page=2;page<=Math.ceil(count/CATALOG_PAGE_SIZE);page++)for(const locale of ['','zh-CN/'])await put(`dist/${locale}models/page/${page}/index.html`);
-  await put('dist/assets/downloads/shared-CREDITS.txt','fixture credits');
+  await put('dist/assets/downloads/shared-CREDITS.txt',creditText(assets[0],manifest));
   const zip=spawnSync('python3',['-c',"import zipfile,pathlib\np=pathlib.Path('dist')\nwith zipfile.ZipFile(p/'assets/downloads/shared.zip','w') as z:\n for name in ['shared.glb','shared.blend']: z.writestr(name,(p/'assets/test'/name).read_bytes())\n z.writestr('CREDITS.txt',(p/'assets/downloads/shared-CREDITS.txt').read_bytes())"],{cwd:root,encoding:'utf8'});assert.equal(zip.status,0,zip.stderr);
   return manifest;
  }
@@ -61,6 +63,9 @@ try{
  await json(manifestPath,{assets:manifest.assets.map((a,i)=>i?a:{...a,qa:'private.json'})});refuses(/Private QA bookkeeping/);await json(manifestPath,manifest);
  await put('dist/assets/test/shared.glb','changed');refuses(/Delivered bytes differ/);await put('dist/assets/test/shared.glb',modelBytes.glb);
  await rm(join(root,shard));await symlink(join(root,'dist/assets/catalog/shards/00000.json'),join(root,shard));refuses(/No symlinks may enter deployment/);await rm(join(root,shard));await put(shard,originalShard);
+ await put('dist/qa/private.txt','private fixture');refuses(/Unexpected deployment file: qa\/private.txt/);await rm(join(root,'dist/qa'),{recursive:true});
+ await put('dist/LICENSE','changed license');refuses(/Delivered license differs/);await put('dist/LICENSE','fixture');
+ const forged=structuredClone(manifest);forged.assets[0].sha256.glb='0'.repeat(64);await json(manifestPath,forged);refuses(/Delivered metadata differs/);await json(manifestPath,manifest);
  const zipPath='dist/assets/downloads/shared.zip',originalZip=await readFile(join(root,zipPath));await put(zipPath,'not a ZIP');refuses(/BadZipFile/);await put(zipPath,originalZip);
  passes();
  console.log('Release inventory: real audit passes 251/256/257/295/1000; missing/extra/out-of-range shards, forged index/scope, private QA, changed bytes, symlink and invalid ZIP refused.');

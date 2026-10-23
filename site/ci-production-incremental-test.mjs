@@ -30,7 +30,8 @@ async function run(name,edit,expected){
  const addBatch=(ids)=>{const ns=ids.map(make);manifest.assets.push(...ns.map(n=>n.asset));registry.descriptors.push(...ns.map(n=>n.descriptor));registry.asset_ids.push(...ids);models.records.push(...ns.map(n=>n.model));models.batches.push({version:1,id:`batch-${ids[0]}`,records:ns.map(n=>recordReference(n.model)),definitions:{packs:[],worlds:[]},evidence:ns.map(n=>n.evidence)});sync();return ns;};
  const opts={root,git,put,make,manifest,registry,base,addBatch,sync,models};await edit(opts);git('add','-A');git('commit','--allow-empty','-qm','candidate');const head=git('rev-parse','HEAD');if(opts.mergeCheckout){const merge=git('commit-tree',git('rev-parse','HEAD^{tree}'),'-p',base,'-p',head,'-m','merge checkout');git('reset','--hard',merge);}
  globalThis.fetch=mockMainRun({base,tree:git('rev-parse',`${base}^{tree}`),mutate:opts.authMutate});process.env.GITHUB_TOKEN='offline-fixture-not-a-secret';
- process.env.GITHUB_EVENT_NAME='pull_request';process.env.GITHUB_REPOSITORY='fixture/repo';process.env.GITHUB_SHA=git('rev-parse','HEAD');const event={pull_request:{base:{ref:'main',sha:base,repo:{full_name:'fixture/repo'}},head:{sha:head,repo:{full_name:'fixture/repo'}}}};
+ process.env.GITHUB_EVENT_NAME='pull_request';process.env.GITHUB_REPOSITORY='fixture/repo';process.env.GITHUB_SHA=git('rev-parse','HEAD');let event={pull_request:{base:{ref:'main',sha:base,repo:{full_name:'fixture/repo'}},head:{sha:head,repo:{full_name:'fixture/repo'}}}};
+ if(opts.push){process.env.GITHUB_EVENT_NAME='push';process.env.GITHUB_REF='refs/heads/main';event={ref:'refs/heads/main',before:base,after:head,repository:{full_name:'fixture/repo'}};}
  if(opts.eventMutate)opts.eventMutate(event);const eventPath=join(tmpdir(),`incremental-event-${roots.length}-${process.pid}.json`);writeFileSync(eventPath,JSON.stringify(event));process.env.GITHUB_EVENT_PATH=eventPath;
  if(opts.afterCommit)opts.afterCommit();let plan;try{plan=await productionValidationPlan(root);}catch(error){plan={mode:'REJECT',error};}await expected(plan,opts);rmSync(eventPath);console.log('PASS '+name);count++;
 }
@@ -40,16 +41,18 @@ try{
  await run('forged candidate PASS cannot replace successful main run',o=>{o.authMutate=m=>m.get('actions/runs/300').conclusion='failure';o.put('fake-pass.json',{status:'PASS'});},p=>assert.equal(p.mode,'full'));
  await run('wrong explicit registry context rejected before old reuse',()=>{},async(p,o)=>{assert.equal(p.mode,'incremental');await assert.rejects(inspectProductionRelease(o.root,'production/old/descriptor.json','production/wrong.json'),/Different production registry/);});
  await run('exact PR merge checkout binds both parents',o=>{o.addBatch(['new']);o.mergeCheckout=true;},p=>{assert.equal(p.mode,'incremental');assert.deepEqual(p.reusedIds,['old']);assert.notEqual(p.checkout,p.head);});
+ await run('main push reuses authenticated unchanged content',o=>{o.push=true;o.addBatch(['new']);},p=>{assert.equal(p.mode,'incremental');assert.deepEqual(p.reusedIds,['old']);});
+ await run('wrong push ref cannot reuse',o=>{o.push=true;o.eventMutate=e=>e.ref='refs/heads/other';},p=>assert.equal(p.mode,'full'));
  await run('event environment changes cannot reuse cached scope',()=>{},async(p,o)=>{assert.equal(p.mode,'incremental');process.env.GITHUB_REPOSITORY='changed/repository';await assert.rejects(productionValidationPlan(o.root),/Tracked inputs changed/);});
  await run('event file changes cannot reuse cached scope',()=>{},async(p,o)=>{assert.equal(p.mode,'incremental');writeFileSync(process.env.GITHUB_EVENT_PATH,'{}');await assert.rejects(productionValidationPlan(o.root),/Tracked inputs changed/);});
  await run('caller cannot mutate internal reused IDs',o=>o.addBatch(['new']),async(p,o)=>{p.reusedIds.push('new');assert.deepEqual((await productionValidationPlan(o.root)).reusedIds,['old']);await assert.rejects(inspectProductionRelease(o.root,'production/new/descriptor.json'));});
  await run('owned media change selects old descriptor',o=>o.put('site/public/gallery/posters/old.png','changed'),p=>{assert.equal(p.mode,'incremental');assert.deepEqual(p.reusedIds,[]);});
  await run('owned media deletion never reuses',o=>rmSync(join(o.root,'site/public/gallery/posters/old.png')),p=>assert.deepEqual(p.reusedIds,[]));
  await run('rename to unknown path falls back',o=>o.git('mv','site/public/gallery/posters/old.png','site/public/gallery/posters/renamed.png'),p=>assert.equal(p.mode,'full'));
- await run('shared validator change falls back',o=>o.put('site/checker.mjs','changed'),p=>assert.equal(p.mode,'full'));
- await run('shared implementation and bridge refresh choose full before reuse assertions',o=>{o.put('site/checker.mjs','changed');o.registry.descriptors[0].compatibility=o.put('production/new-bridge.json',{kind:'deliberately-invalid-fixture'});o.sync();},async(p,o)=>{assert.equal(p.mode,'full');assert.deepEqual(p.reusedIds,[]);await assert.rejects(inspectProductionRelease(o.root,'production/old/descriptor.json'));});
+ await run('shared validator change tests code without reaccepting unchanged model bytes',o=>o.put('site/checker.mjs','changed'),p=>{assert.equal(p.mode,'incremental');assert.deepEqual(p.reusedIds,['old']);});
+ await run('code changes cannot authorize historical bridge replacement',o=>{o.put('site/checker.mjs','changed');o.registry.descriptors[0].compatibility=o.put('production/new-bridge.json',{kind:'deliberately-invalid-fixture'});o.sync();},p=>assert.equal(p.mode,'REJECT'));
  await run('bridge refresh alone cannot silently reuse old acceptance',o=>{o.registry.descriptors[0].compatibility=o.put('production/new-bridge.json',{kind:'deliberately-invalid-fixture'});o.sync();},p=>assert.equal(p.mode,'REJECT'));
- await run('shared generator change falls back',o=>o.put('scripts/shared.py','changed'),p=>assert.equal(p.mode,'full'));
+ await run('unreferenced shared generator change preserves model content scope',o=>o.put('scripts/shared.py','changed'),p=>{assert.equal(p.mode,'incremental');assert.deepEqual(p.reusedIds,['old']);});
  await run('unknown input falls back',o=>o.put('unknown.json',{}),p=>assert.equal(p.mode,'full'));
  await run('forged derived gallery rejected',o=>o.put('site/public/gallery/resources.json',{}),p=>assert.equal(p.mode,'REJECT'));
  await run('duplicate ID rejected by always-on global invariants',o=>{o.manifest.assets.push(o.manifest.assets[0]);o.put('assets/manifest.json',o.manifest);},p=>assert.equal(p.mode,'REJECT'));
@@ -63,10 +66,10 @@ try{
  await run('fork context conservatively full',o=>{o.eventMutate=e=>e.pull_request.head.repo.full_name='other/repo';},p=>assert.equal(p.mode,'full'));
  const workflow=name=>readFileSync(new URL(`../.github/workflows/${name}.yml`,import.meta.url),'utf8');
  const pages=workflow('pages'),blocks=pages.split('\n      - '),token=/GITHUB_TOKEN: \$\{\{ github.token \}\}/;
- for(const id of ['contracts','production','build','delivery'])assert(token.test(blocks.find(b=>b.includes(`id: ${id}\n`))||''),'Production consumer step needs existing read-only token: '+id);
+ for(const id of ['build'])assert(token.test(blocks.find(b=>b.includes(`id: ${id}\n`))||''),'Production consumer step needs existing read-only token: '+id);
  assert(/fetch-depth: 0/.test(pages));
  const reusable=workflow('publication-regressions');assert(/actions: read/.test(reusable)&&/fetch-depth: 0/.test(reusable)&&token.test(reusable));
- const pipeline=workflow('asset-pipeline');assert(/actions: read/.test(pipeline)&&/fetch-depth: 0/.test(pipeline)&&token.test(pipeline.split('\n      - ').find(b=>b.includes('run: npm run publication:check'))||''));
+ const pipeline=workflow('asset-pipeline');assert(/actions: read/.test(pipeline)&&/fetch-depth: 0/.test(pipeline)&&/ci-lean-regressions.mjs pipeline/.test(pipeline));
  console.log('PASS all production consumer workflow contexts preserve proof access and Git base');count++;
  console.log(`${count} local scope/integration seam cases passed; no real model acceptance or workflow execution.`);
 }finally{for(const root of roots)rmSync(root,{recursive:true,force:true});}

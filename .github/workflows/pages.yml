@@ -39,49 +39,16 @@ jobs:
         with:
           node-version: '22.23.4'
           cache: npm
-      - name: Set isolated publication memo path
-        id: memo
-        run: echo "CI_PUBLICATION_RECEIPT=$RUNNER_TEMP/publication-${GITHUB_RUN_ID}-${GITHUB_JOB}.json" >> "$GITHUB_ENV"
       - run: npm ci
         id: dependencies
-      - run: node site/ci-browser-task-proof-test.mjs && node site/ci-additions-browser-contract-test.mjs && node site/ci-install-chromium-test.mjs && node site/ci-clean-gallery-test.mjs && node site/ci-archival-inputs-test.mjs && node site/ci-archival-models-test.mjs && node site/catalog-data-test.mjs && node site/ci-incremental-models-test.mjs && node site/ci-card-preview-proof-test.mjs && node site/ci-model-proof-test.mjs && node site/ci-model-cache-test.mjs && node site/ci-scope-test.mjs && node site/ci-provenance-test.mjs && node site/ci-publication-test.mjs && node site/ci-poster-inputs-test.mjs && node site/ci-poster-approval-test.mjs && node site/production-poster-input-memo-test.mjs && node site/ci-gallery-poster-cache-test.mjs && node site/live-release-contract-test.mjs && node site/ci-timed-test.mjs && node site/ci-publication-shards-test.mjs && node site/ci-model-shards-test.mjs && node site/ci-scene-input-test.mjs && node site/quartets-capture-test.mjs && node site/landair-capture-test.mjs
+      - name: Run affected regressions
         id: contracts
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: Layered workflow and exact affected scope contracts
-        run: node site/ci-release-fast-scope-test.mjs && node site/ci-release-fast-archive-test.mjs && node site/ci-release-fast-deployment-test.mjs && node site/ci-release-fast-contracts-test.mjs && node site/ci-release-publication-evidence-test.mjs && node site/ci-layered-release-test.mjs && node site/ci-deployment-contract-test.mjs && node site/ci-production-baseline-test.mjs && node site/ci-production-incremental-test.mjs
-        id: layered
-      - name: Brand source contracts when present
-        id: brand
-        run: if [ -f site/brand-test.mjs ]; then node site/brand-test.mjs; fi
-      - name: Validate production science, source, standard GLB and final media
-        id: production
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-production-release-check.mjs
-      - name: All six mandatory production/static build phases
+        run: node site/ci-lean-regressions.mjs contracts
+      - name: Validate source, build once and audit final dist
         id: build
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-release-fast-path.mjs build
-      - name: Complete non-browser source and delivery contracts
-        id: delivery
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-release-fast-path.mjs contracts
-      - name: Seal reusable static build after fresh output audit
-        id: baseline_seal
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: node site/ci-release-fast-path.mjs seal
-      - uses: actions/upload-artifact@v4
-        id: baseline_upload
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          name: release-fast-base-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: qa/release-fast-base/base.tar.gz
-          retention-days: 7
-          compression-level: 0
-          if-no-files-found: error
+        run: node site/ci-build-release.mjs
       - name: Stamp exact source build after all six mandatory audit phases
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: stamp
@@ -117,10 +84,10 @@ jobs:
           import json, os, pathlib
           e = os.environ
           steps = json.loads(e['STEP_OUTCOMES'])
-          names = ['checkout', 'setup', 'memo', 'dependencies', 'contracts', 'layered', 'brand', 'production', 'build', 'delivery', 'baseline_seal', 'baseline_upload', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
+          names = ['checkout', 'setup', 'dependencies', 'contracts', 'build', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
           outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
           failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
-          mandatory = [name for name in names if name not in ['baseline_seal', 'baseline_upload', 'stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
+          mandatory = [name for name in names if name not in ['stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
           passed = all(outcomes[name] == 'success' for name in mandatory)
           report = {'status': 'PASS' if passed else 'FAIL' if failed else 'NOT_RUN', 'expected_source': e['GITHUB_SHA'], 'expected_run_id': e['GITHUB_RUN_ID'], 'expected_run_attempt': e['GITHUB_RUN_ATTEMPT'], 'failed_phase': failed[0] if failed else None, 'step_outcomes': outcomes, 'downstream': {'deployment': 'NOT_RUN', 'browser': 'NOT_RUN_IN_PRODUCTION_WORKFLOW'}}
           target = pathlib.Path(e['RUNNER_TEMP']) / 'production-summary' / 'report.json'
