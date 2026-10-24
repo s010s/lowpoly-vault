@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot; pinned by SHA256.",
+      "upstream_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot; pinned by SHA256.",
+      "upstream_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "dc6662343e8138872ee3d49ad88466faecd0a905ca822529ed67fc10fe8274bb",
+      "origin": "s010s/lowpoly-vault canonical ready72 integration script snapshot; pinned by SHA256.",
+      "upstream_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "local_change": "Usage documentation replaces absolute example output path with OUTPUT_DIRECTORY. Executable code unchanged."
+    },
+    {
+      "path": "source/deps/render_exact.py",
+      "sha256": "c1571a2d413f52fed2c8e6b698e844edce1bc26a1eeb010ecb8f7ce763ae8357",
+      "origin": "Original minimal view adapter; no geometry generation."
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Generation, source reopening and exact GLB CPU renders"
+    },
+    {
+      "name": "glTF exporter",
+      "version": "4.3.47",
+      "purpose": "Blender bundled exporter"
+    },
+    {
+      "name": "Python standard library",
+      "version": "bundled with Blender 4.3.2",
+      "purpose": "No pip dependencies used by generation"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Official format QA only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "purpose": "Node GLTFLoader parser QA only; not generation or GPU rendering"
+    }
+  ],
+  "policy": "Relative declared source only. Two isolated rebuilds bind copied inventory and results."
+}

@@ -1,0 +1,38 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/check_blend.py",
+      "sha256": "99510fa0d4f915311673865fb45b86c38fb706551df78a86610d0511540735fe"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "816fa1e8cc9572b6403fb7fe9478e8649908916849032a894ee6df24a0a4edb6"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "generation, clean import and CPU previews"
+    },
+    {
+      "name": "Python",
+      "version": "Blender bundled",
+      "role": "standard library, bpy, bmesh and mathutils only"
+    }
+  ],
+  "origin": {
+    "asset_common.py": "Canonical repository helper; unmodified SHA pinned",
+    "qa_glb.py": "Canonical repository static audit; unmodified SHA pinned",
+    "render_views.py": "MIT adapter using canonical helpers and declared exact camera directions",
+    "check_blend.py": "MIT source reopening and semantic-component checks"
+  }
+}

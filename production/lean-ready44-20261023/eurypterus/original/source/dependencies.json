@@ -1,0 +1,49 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "d146de4249ed827f157e26bf797474eabc3860a887e8bef32762f5b04999c71a"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "742de86b2f6139ea361bf55304f603e1fd7a62de05b757b6812da55d8a837bb7"
+    },
+    {
+      "path": "source/deps/verify_source.py",
+      "sha256": "e66f516eab9704a7aff17ba6264509ff514f2e18909555c9a4b865fefa7e0e13"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "purpose": "Generation, exact-GLB CPU render and source reopen; includes bpy, bmesh and mathutils."
+    },
+    {
+      "name": "Python standard library",
+      "purpose": "Generator and bundled helpers use the Blender embedded interpreter standard library."
+    },
+    {
+      "name": "Node.js",
+      "purpose": "Optional validation/parse checker only, not required for generation."
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "purpose": "CPU GLTFLoader parse checker; supplied as a runtime module directory argument."
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "Official Khronos validation; supplied as a runtime module directory argument."
+    }
+  ]
+}

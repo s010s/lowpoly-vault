@@ -1,0 +1,102 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "cryptocleidus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 6,
+    "max_primitives": 16,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "+X",
+    "object_left": "+Y",
+    "view_role_notes": {
+      "front": "camera-Y lateral: head/neck ratio and rounded trunk",
+      "side": "camera+X head-on: broad posterior head and fleshed torso/flippers",
+      "top": "camera+Z: triangular head, rounded trunk and four broad paddle planforms",
+      "perspective": "camera(+X,-Y,+Z): whole-body shape combination"
+    }
+  },
+  "concept": {
+    "required": false,
+    "reason": "Complete fossil-based museum mount photo and skull closeup plus explicit original anatomical literature and specimen-associated scale estimate suffice. No extra concept; mount restoration limits recorded."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Whole living Cryptoclidus eurymerus. Original asset ID cryptocleidus is retained; Cryptoclidus is the scientific spelling. Reconstruct head, neck, rounded torso, four broad hydrofoil limbs and tail, not a skull-only asset or museum mount.",
+  "scientific_limits": {
+    "en": "The Paris complete skeletal mount is a fossil-based museum assembly with restoration/cast components; skull surface clearly includes reconstruction. Its accession and exact restored fraction are not established here. Do not call every visible surface original bone, or treat museum pose as live posture. Paul's5.5m estimate belongs to separate NHM R8575, NOT the photographed Paris individual and NOT neotype R2860. This is a species-level multi-source living reconstruction, not a measured digital twin of one specimen. Soft tissue margins, body volume, color and precise proportions are estimates. Broad skull means a broad posterior triangular outline with a tapered snout, not an enlarged pliosaur head.",
+    "zh": "巴黎完整骨架为含修复/翻模构件的馆藏装架，头骨表面明显有复原；本次未核定该展架馆藏号和修复比例，不把所有可见表面冒充原骨或装架姿态当活体姿态。Paul的5.5米估计属于另一NHM R8575，不是巴黎对象或新模R2860实测。本模型为同种多材料活体复原，不是单标本数字孪生。软组织、体积、配色及细分比例推定；宽头指后部较宽的三角轮廓，不能扩成巨型上龙头。"
+  },
+  "name": {
+    "en": "Cryptoclidus",
+    "zh": "隐锁龙"
+  },
+  "taxon": "Cryptoclidus eurymerus",
+  "classification": "Reptilia; Sauropterygia; Plesiosauria; Cryptoclididae",
+  "era": "jurassic",
+  "reconstruction_type": "whole-organism",
+  "original_scope": {
+    "en": "Planned animal asset: relatively broad skull and broad paddles framing a rounded torso.",
+    "zh": "规划中的动物资产：较宽头骨、宽鳍肢与圆躯干。"
+  },
+  "evidence_anchors": {
+    "whole": "Ghedoghedo2013 Paris MNHN complete museum skeletal mount photograph actually viewed. Broad rib basket and four substantial paddle skeletons visible. Museum2024 article independently identifies displayed fossil as C.eurymerus. No claim of known accession or original/restored bone map.",
+    "head": "Same photographer's skull closeup viewed: high posterior skull, large orbit and tapering snout; pale reconstructed surface warns against using it as original fine osteology. Noe et al2017 p142 explicitly describes Cryptoclidus as relatively broad subtriangular dorsally, relatively high posteriorly and more pointed snout than Muraenosaurus. Fig4 depicts Muraenosaurus, NOT this taxon and must not be copied.",
+    "proportion": "Noe et al2017 p144 states Cryptoclidus skull about one-quarter of neck length and notes ontogenetic variation. This supports shorter relative neck/larger relative head than selected Plesiosaurus comparator, without claiming every individual identical.",
+    "scale": "Paul size table p2 explicitly lists Cryptoclidus eurymerus NHM R8575 estimated5.5m. Used as author-published large-individual species scale only. Noe and Paris anatomy sources are different material; do not assign5.5m to the Paris display.",
+    "classification": "MNHN scientific taxon record gives Cryptoclidus eurymerus (Phillips1871). Original ID cryptocleidus stable. Former Muraenosaurus/Cryptoclidus oxoniensis references in older anatomical literature do not create a separate production ID."
+  },
+  "scale": {
+    "unit": "metre",
+    "published_estimated_total_length": 5.5,
+    "scale_specimen": "NHM R8575, separate from Paris photographic mount",
+    "inferred_targets": {
+      "head_length": 0.5,
+      "head_width": 0.25,
+      "head_depth": 0.22,
+      "neck_length": 2.0,
+      "neck_diameter_head_end": 0.15,
+      "neck_diameter_base": 0.32,
+      "trunk_length": 1.9,
+      "trunk_width": 1.25,
+      "trunk_depth": 0.9,
+      "tail_length": 1.1,
+      "foreflipper_root_to_tip": 1.1,
+      "hindflipper_root_to_tip": 1.1,
+      "flipper_max_chord": 0.46,
+      "eye_opening_diameter": 0.055
+    },
+    "interpretation": "5.5m is a published estimate, not a measurement of the photographed individual. All component targets are inferred and sum along the body axis; do not imply exact preservation. Head/neck=0.25 follows published genus proportions. Round torso and broad hydrofoils are fleshed estimates supported by the mounted rib cage/limb structure; preserve scientific silhouette rather than inflate for difference."
+  },
+  "morphology": [
+    "Relatively broad subtriangular head in top view, wider posteriorly and tapering into a moderately pointed snout; high rounded rear cranial region. Large orbit covered by flesh, no open temporal holes. Head remains small compared with trunk, not a pliosaur predator head.",
+    "Slender gently curved pointed marginal teeth, not large serrated cutting teeth. Noe2017 warns that supposedly carinate Cryptoclidus teeth were actually associated metriorhynchid crocodilian teeth; never import these. Use modest8degree jaw opening and simplified~20visibleteethperjawside, not a measured complete dental formula.",
+    "Neck long but not exaggerated: about four head lengths, around one-third total length, near-straight with gentle low curvature and a thickening base. Do not reuse the much smaller-headed, proportionally longer-necked Plesiosaurus outline or make a swan S.",
+    "Broad rounded oval trunk with deep fleshed ribcage and slightly flattened ventral surface, not a spherical shell or narrow fish torso. Smooth shoulder and hip transitions retain a broad powered swimming body.",
+    "Four substantial broad hydrofoil flippers, both pairs clearly visible and of comparable size. Broad proximal/midsection and rounded tapering tip; no land digits, claws or giant thin triangular wings. Maintain separation between both flipper pairs in top and perspective views.",
+    "Tail is tapering and shorter than neck, with no unsupported giant fishlike crescent, whale flukes or exaggerated whip. A plain conservative tail skin outline does not prove small soft-tissue fins absent.",
+    "Muted blue-gray/dark olive back and pale ventrum are artistic inference, no claimed fossil color. No museum rods, slab, skeletal windows, crocodile scutes or dorsal body fin."
+  ],
+  "shape_gate": {
+    "required_combination": "Relatively broad posterior triangular head, broad substantial four paddles framing a rounded torso; head/neck about1:4 and less extremely long-necked than Plesiosaurus. Keep original whole-body gate.",
+    "comparisons": "Plesiosaurus frozen comparator has a much smaller relative head and neck around46%total, slimmer flipper chord:length~0.34. Here head is about9%total, neck~36%, broad flipper chord:length~0.42 and substantial rounded trunk. These targets are modeling interpretations anchored to genus evidence, not species-diagnostic measurements. Nothosaurus has constricted fanged head, much shorter neck, jointed webbed limbs and long tail. Platecarpus has short neck and regionalized caudal fin. Do not achieve distinction by color, size or pose alone.",
+    "acceptance": [
+      "Top shows posteriorly broad triangular head and broad four hydrofoil paddles around a rounded torso.",
+      "Lateral front shows high posterior head and substantial ribcage, with neck about four head lengths.",
+      "Perspective and head-on keep negative spaces between limbs and visibly volumetric torso.",
+      "Compare with frozen Plesiosaurus descriptor at normalized length; do not pass an enlarged clone."
+    ]
+  }
+}

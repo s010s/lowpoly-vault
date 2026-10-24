@@ -1,0 +1,73 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "triarthrus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, pygidium +Y, dorsal +Z. Side view must expose under-pleural gill comb above walking limbs."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual complete ventral fossil plus scaled same-species reconstruction and modern appendage study sufficient."
+  },
+  "extra_views": [
+    {
+      "path": "views/ventral.png",
+      "reason": "Repeated under-pleural gill combs overlap in side and perspective silhouettes. A single canonical underside view resolves upper filament-bearing shafts versus lower walking branches and their reconstructed common bases."
+    }
+  ],
+  "representation": "living-reconstruction",
+  "scope": "Complete living trilobite with rounded cephalon, fourteen articulated thoracic segments, small pygidium, paired antennae and visible repeated walking-leg/gill branches. Same-species synthesis anchored to YPM219 actual ventral fossil photograph, Treatise whole-body diagram and modern T.eatoni limb research.",
+  "scientific_limits": {
+    "en": "Body27mm is estimated from the10mm bar on the Treatise reconstruction in Casey/Lieberman Fig7A, NOT a measured size of YPM219 shown separately in Fig7B. Depth, posture and missing limb tips are inferred; pygidial limb count is a simplified reconstruction. Hou2021 Fig4C is a proposed T.eatoni articulation; direct body-wall junction evidence there comes from Olenoides, not proof that the same junction is preserved in Triarthrus. Living color unknown; pyrite gold is mineralization.",
+    "zh": "体长27毫米按Casey/Lieberman图7A中Treatise复原图的10毫米尺估计，不是右侧图7B标本YPM219的实测。体厚姿态与缺失足端为推断，尾板足数为简化复原。Hou2021图4C是同种附肢连接假说，体壁连接直接实证来自Olenoides，不冒称Triarthrus已保存。活体颜色未知，金色为黄铁矿矿化。"
+  },
+  "original_inventory_number": 800,
+  "taxon": "Triarthrus eatoni",
+  "scale": {
+    "units": "meters",
+    "body_length_reconstruction_estimate": 0.027,
+    "shell_width_estimate": 0.014,
+    "cephalon_length_estimate": 0.009,
+    "body_depth_inferred": 0.004,
+    "antenna_length_estimate": 0.006,
+    "uncertainty": "About15percent planar reconstruction estimate. Fig7A10mmbar approx157px and bodyapprox427px at rendered1041pxpage; do not apply this bar to separate photo7B."
+  },
+  "anatomy": [
+    "Broad rounded cephalon with raised central glabella and paired modest lateral eyes; narrow axial lobe continues along segmented trunk. Do not use giant genal spines.",
+    "Fourteen discrete thoracic tergites, repeated axial rings and lateral pleurae, followed by a small rounded pygidium. Preserve articulation gaps rather than one smooth shell.",
+    "One pair of forward slender segmented antennae. Three pairs of post-antennal cephalic biramous appendages, fourteen thoracic pairs, and four progressively tiny pygidial pairs as schematic completion. Pygidial count is not claimed measured in YPM219.",
+    "Each repeated biramous limb has a lower jointed walking branch and an upper shaft carrying a comb of short gill filaments. Gills stay under pleurae above walking legs, not giant external fins.",
+    "Walking branches extend modestly beyond shell margins for readable side silhouette; add terminal tapered claws and simplify proximal feeding spines. No swimming paddle substitution.",
+    "Use restrained matte earthy cuticle. Actual photographed gold is pyrite and must not be described as living coloration. Gill shade may be slightly lighter for readability, not a fossil color claim."
+  ],
+  "restoration_boundaries": [
+    "YPM219 is actual photo7B from Yale collection credited to Bruce Lieberman; source spells Triarthus but intended taxon is Triarthrus eatoni. Photo itself has no scale.",
+    "Treatise diagram7A supplies whole dorsal/ventral arrangement,14thoracicsegments and10mmbar; not claimed same specimen219 or one pristine individual.",
+    "Hou,Hughes,Hopkins2021 real T.eatoni micrographs support filament-bearing upper branch; Fig4C gives explicit proposed same-species structure. Do not copy Fig4B Olenoides body shape.",
+    "Filament cross-section and blood channels are microscopic scientific findings, not colored visible tubes on outer model. Simplify to comb-like blades.",
+    "Three-dimensional depth, restored symmetry and appendage posture interpretive. No egg cluster, sex-specific structures or inferred reproductive claim added."
+  ],
+  "quality_gates": [
+    "Complete original animal, rounded head +14thoracicsegments +smallpygidium.",
+    "Both walking and gill branches must be visible in side/perspective views, not just a dorsal shell.",
+    "Antennae distinct from walking limbs; no exterior back-mounted gill fins.",
+    "Fixed4views first; if gill relation cannot be inspected, one purposeful underside QA view only, not routine extra images.",
+    "Scale provenance separated fromYPM219; proposed versus directly observed limb junction and unknown living color remain explicit."
+  ]
+}

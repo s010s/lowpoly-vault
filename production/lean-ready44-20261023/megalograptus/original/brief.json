@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "megalograptus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 40000,
+    "max_materials": 6,
+    "max_primitives": 8,
+    "max_glb_bytes": 8388608
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_orientation": "Head -Y, terminal complex +Y, dorsal +Z; giant appendages III project anterolaterally."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Official real fossil plus scientific whole reconstruction and explicit uncertainty sufficient."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Complete same-species composite living reconstruction: compact head, enormous spinose third appendages, smaller second appendages, two walking pairs, paddle pair, segmented tapering trunk and paired curved cercal blades beside telson.",
+  "scientific_limits": {
+    "en": "Ohio Geological Survey2021 estimates complete animal represented by partial discovery specimen UC24119A at about750mm. Whole anatomy is a same-species synthesis of many fossils, not a single fully preserved animal. Schmidt etal2022 explicitly identify missing distal coxaIII and unknown complete length/angle of hypertrophied podomere4 spines; their depth and some paired spines are inferred. Our corresponding dimensions are conservative reconstruction choices, not measurements. Color and behavior uncertain.",
+    "zh": "Ohio地调2021估局部发现标本UC24119A所代表完整动物约750毫米。全体形态综合同种多件化石，非单体完整保存。2022论文明确第三附肢基节远端缺失、第四节超长棘完整长度及夹角未知，体厚及部分成对棘为推断。本模型对应数值是保守补配而非实测，活体颜色及行为不确定。"
+  },
+  "original_inventory_number": 803,
+  "taxon": "Megalograptus ohioensis",
+  "scale": {
+    "units": "meters",
+    "body_total_estimate": 0.75,
+    "carapace_length_estimate": 0.1,
+    "carapace_width_estimate": 0.14,
+    "mesosoma_length_estimate": 0.24,
+    "metasoma_length_estimate": 0.31,
+    "terminal_complex_length_estimate": 0.1,
+    "body_depth_inferred": 0.055,
+    "appendageIII_reach_inferred": 0.28,
+    "long_spines_inferred": 0.13,
+    "uncertainty": "Body total is published whole-animal estimate, not preserved linear extent. Subdivisions and limbs scaled from same-species scientific reconstruction Fig2. Long spine endpoints and angles not known; selected130mm and moderate divergence illustrative only."
+  },
+  "anatomy": [
+    "Compact rounded headshield with small paired compound eyes and median ocelli; no modern scorpion pincers.",
+    "Appendage I small chelicerae. PairII shorter spinose pedipalps; pairIII greatly enlarged raptorial limbs with multiple opposing spines and conspicuous elongate spine pair. Preserve the open space between limbs and spines.",
+    "PairsIV/V are modest walking legs; pairVI broad distal swimming paddles on jointed stalks. Do not miscount II/III as giant chelicerae or add four extra walking pairs.",
+    "Segmented broad anterior trunk transitioning into narrow posterior trunk; twelve opisthosomal segments including broad pretelson as interpreted in whole reconstruction.",
+    "Posterior terminal complex has a central telson and two curved sickle-shaped cercal blades. These are separate forms, not a modern venom stinger, lobster tailfan or pterygotid flattened paddle.",
+    "Low-profile ventral metastoma/plates; modest ornament and implied bristles only where they do not obscure silhouette. Matte muted color, no claim of exact preserved living hues."
+  ],
+  "restoration_boundaries": [
+    "OhioGeoFactsFig1 is actual partial UC24119A; displaced carapace impression rotated relative to metasoma is burial geometry, not live anatomy.",
+    "OhioFig2 dorsal and ventral are published composite reconstruction modified from Caster/Kjellesvig-Waering1964, not photographs. They supply complete original scope, with restored regions disclosed.",
+    "Schmidt2022 longspine full length/angle, coxaIII distalpart and some spine pairings unresolved. Keep inferred complementary geometry but do not claim new anatomical certainty or measured performance.",
+    "Do not mix Mixopterus kiaeri limbII anatomy or curved scorpionoid telson, and do not borrow Jaekelopterus2.5m size.",
+    "Full-body depth, posture, tiny limb terminals and colors interpretive. Conservative static posture, not claimed kinematic validation."
+  ],
+  "quality_gates": [
+    "Original complete long opposing spines +compact head +swimming paddles gate.",
+    "I small,II shorter spinose,III hypertrophied,IV/Vwalking,VIpaddles distinct and correctly counted.",
+    "Central telson plus paired cercal blades visible and separated.",
+    "Unknown longspine length/angle and750mm whole-animal estimate explicitly disclosed.",
+    "Fixedfourviews keep longspines and tailcomplex unclipped; avoid dense repetitive ornaments."
+  ]
+}

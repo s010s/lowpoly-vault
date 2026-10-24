@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot",
+      "canonical_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "modification": "none"
+    },
+    {
+      "path": "source/deps/micro_checks.py",
+      "sha256": "beb7855625f426faaae4204c6d82d56e8845c729cfcf3846d9e3599f606e5373",
+      "license": "MIT",
+      "origin": "Original scale-aware helper for this candidate"
+    },
+    {
+      "path": "source/deps/preview.py",
+      "sha256": "7ab702cd29629497c236fb5199cf02ef8b0ad72ad1320f0075727a295d4af54f",
+      "license": "MIT",
+      "origin": "Original scale-aware helper for this candidate"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "s010s/lowpoly-vault canonical scripts snapshot",
+      "canonical_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "modification": "none"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "purpose": "generation and exact-GLB CPU rendering"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled Python",
+      "purpose": "JSON, hashing, path and arithmetic only"
+    }
+  ],
+  "external_generation_inputs": [],
+  "closure": "All non-runtime Python imports reside in source/deps; scientific images are consulted, never sampled by the generator."
+}

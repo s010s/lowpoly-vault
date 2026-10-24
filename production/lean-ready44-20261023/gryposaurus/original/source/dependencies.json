@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "provenance": "Canonical lowpoly-vault helper snapshot, copied unchanged and fixed by SHA-256"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "provenance": "Canonical lowpoly-vault helper snapshot, copied unchanged and fixed by SHA-256"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "b7fe6377dbf65a9990a19f1300f8a7313e6aecc90b6c22d7df36773d4dc92df6",
+      "license": "MIT",
+      "provenance": "Four-view exact-GLB renderer wrapper using the pinned canonical helpers"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "role": "Construction, glTF 4.3.47 export and CPU diagnostic images"
+    },
+    {
+      "name": "Python standard library",
+      "version": "Blender bundled",
+      "role": "Source reconstruction; no external project packages"
+    },
+    {
+      "name": "Khronos gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "role": "QA only"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "role": "Node GLTFLoader QA only, not browser GPU evidence"
+    }
+  ]
+}

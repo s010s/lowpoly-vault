@@ -1,0 +1,36 @@
+{
+  "asset_id": "tsintaosaurus",
+  "revision": "r001",
+  "units": "metres",
+  "total_length_target_m": 12.0,
+  "scale_is_estimate": true,
+  "pose": "neutral hadrosaur quadruped, forelimbs shorter than hindlimbs, tail balanced",
+  "anatomy": "expanded tall lobate crest following2020Fig4, not unicornrod; complete body",
+  "palette": {
+    "skin": "#718573",
+    "dorsal": "#465E51",
+    "underside": "#B5B294",
+    "crest": "#B77750",
+    "horn": "#655F50",
+    "eye": "#192522"
+  },
+  "seed": 3782020,
+  "blender_version": "4.3.2",
+  "three_version": "0.180.0",
+  "crest": {
+    "model": "2020 Fig4 expanded lobate reconstruction",
+    "nasal_base_yz": [
+      -3.12,
+      3.8
+    ],
+    "nasal_summit_yz": [
+      -3.55,
+      5.38
+    ],
+    "transverse_max_width_m": 0.32,
+    "unpreserved_tissue_inferred": true
+  },
+  "source_profile": "palette-only static opaque faceted; no textures, rig, animation or required extensions",
+  "build_invocation": "blender --background --factory-startup --threads 2 --python-exit-code 1 --python source/generate.py -- --output OUTPUT",
+  "preview_invocation": "blender --background --factory-startup --threads 2 --python-exit-code 1 --python source/deps/render_views.py -- --glb model.glb --output views --resolution 768 --samples 48"
+}

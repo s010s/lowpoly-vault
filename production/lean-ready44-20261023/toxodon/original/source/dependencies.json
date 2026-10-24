@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "canonical project scripts/asset_common.py; hash-pinned copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "canonical project scripts/qa_glb.py; hash-pinned copy",
+      "license": "MIT"
+    },
+    {
+      "path": "source/deps/render_actual.py",
+      "sha256": "12aa3f0c7c952750886eb2659cfc161444a22abdbd5476836c5ce5973e560f89",
+      "origin": "Original asset-local exact-GLB CPU renderer",
+      "license": "MIT"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "bundled_python": "3.13.5",
+      "gltf_exporter": "4.3.47"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "technical CPU GLTFLoader parse only, not generator dependency"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "official format validator, not generator dependency"
+    }
+  ],
+  "source_closure": "Generation imports only standard-library modules, Blender bundled bpy/mathutils/bmesh, and the listed relative dependencies. Rendering is a separate source/deps entrypoint."
+}

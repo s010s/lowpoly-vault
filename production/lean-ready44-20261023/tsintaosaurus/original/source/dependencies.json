@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "provenance": "Pinned project helper snapshot, unmodified"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "provenance": "Pinned project helper snapshot, unmodified"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "9dfe94f7c2d8fd8510ce8a5efededd164945a17ee3ce8d4528808db725cc0ddb",
+      "provenance": "Original exact-GLB view runner using pinned shared lighting helpers"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "embedded_python": true
+    },
+    {
+      "name": "Three.js consumer",
+      "version": "0.180.0",
+      "scope": "read-only CPU GLTFLoader parse; GPU untested"
+    },
+    {
+      "name": "Khronos glTF Validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "validation only, not generator dependency"
+    }
+  ]
+}

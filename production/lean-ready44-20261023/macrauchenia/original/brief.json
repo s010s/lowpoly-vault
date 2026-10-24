@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "macrauchenia",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": []
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual comparative mounted skeleton plate and named reference support conservative geometry without extra concept images."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Whole animal: long camel-like neck, long legs, three-toed feet and raised retracted nasal region. Conservative short mobile muzzle, no assumed elongated trunk.",
+  "scientific_limits": {
+    "en": "Composite living reconstruction based on NHM partial Darwin specimen and 2023 correct mounted skeleton comparison. Figure3C MLP12-14244 (text also prints12-1424) includes mount restoration. NHM about3m body length is estimated, not a measurement of photographed mount or atlas specimen. PIMUZ A/V5700 atlas measurements are separate. Retracted bony nasal aperture does not determine soft nostril position or trunk length; short mobile lip/nasal pad is conservative inference. Skin, ears, tail and color inferred. Do not use erroneous bovid atlas shown in Fig3A/AMNH14489.",
+    "zh": "综合活体复原，NHM达尔文部分标本与2023正确展骨对照；Fig3C编号12-14244而正文亦作12-1424，含展架补配。约3米是NHM全体估计，不是照片或寰椎标本实测。PIMUZ5700寰椎尺寸单独列示。后移骨性鼻孔不能确定软鼻孔位置及鼻长，采用保守短活动上唇鼻垫推定。皮耳尾色推定；不得用Fig3A及AMNH14489的错误牛寰椎。"
+  },
+  "original_inventory_ordinal": 631,
+  "taxon": "Macrauchenia patachonica",
+  "classification": "Mammalia, Panperissodactyla, Litopterna, Macraucheniidae; not camel or elephant.",
+  "scale": {
+    "unit": "meter",
+    "PIMUZ_AV5700_atlas_anteroposterior_m": 0.0896,
+    "PIMUZ_AV5700_atlas_occipital_facet_width_m": 0.1066,
+    "NHM_body_length_approx_m": 3.0,
+    "model_headbody_m": 3.0,
+    "model_shoulder_m": 1.65,
+    "model_neck_centerline_m": 1.0,
+    "model_skull_m": 0.5,
+    "model_torso_width_m": 0.65,
+    "model_tail_m": 0.4,
+    "status": "Atlas values reported in2023 Table1 cm, independent specimen. Whole model dimensions estimates; no giant mass-to-length conversion."
+  },
+  "diagnostic_targets": [
+    "Long curved upright neck distinct from trunk-like muzzle; clear cervical transition at shoulder.",
+    "Long weight-bearing four limbs with visible joint transitions and three compact toes each, not camel two-toed feet.",
+    "Elongate skull with high retracted nasal zone distinct from ordinary horse forward nostril; external short nasal pad conservatively inferred.",
+    "Moderately deep long torso with no camel hump, rhino horn, elephant tusks or long hanging proboscis.",
+    "Complete living animal with small inferred ears and tapering tail, not skeleton-only or head-only."
+  ],
+  "review_views": [
+    "front",
+    "side",
+    "top",
+    "perspective"
+  ],
+  "acceptance": [
+    "Original long neck/long legs/retracted raised nasal zone combination readable.",
+    "Three toes per foot and long neck distinguish from camel; no erroneous trunk or hump.",
+    "Compare Figure3C correct MLP mount, not Figure3A erroneous atlas reconstruction.",
+    "Named atlas dimensions separated from wholebody estimates and restored soft tissues.",
+    "Four exactGLB views/two isolated rebuilds/independent review."
+  ]
+}

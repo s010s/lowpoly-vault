@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "Canonical lowpoly-vault scripts, immutable upstream hash below; locally vendored at first authoring.",
+      "canonical_sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "c7382efae0cdb44cb6184ba0cf9e63e8133c343c921d7a67b545238fd72787cc",
+      "license": "MIT",
+      "origin": "Original task-specific generator evidence helper."
+    },
+    {
+      "path": "source/deps/check_source.py",
+      "sha256": "8670b64d81d783937da2d7aee772ade2f8028aa5146e37acfc89983dcdf14b01",
+      "license": "MIT",
+      "origin": "Original task-specific generator evidence helper."
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "Canonical lowpoly-vault scripts, immutable upstream hash below; locally vendored at first authoring.",
+      "canonical_sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    },
+    {
+      "path": "source/deps/render_candidate_views.py",
+      "sha256": "ee1f4f9382ef2af11417bde026f13220e17fda9c49fe8e16ef05e973eba3196a",
+      "license": "MIT",
+      "origin": "Canonical lowpoly-vault scripts, immutable upstream hash below; locally vendored at first authoring.",
+      "canonical_sha256": "22a4bd8aab71dc76696f01f2bd768ad371ebf9b4230e170c921063b5f842f041",
+      "authoring_adaptation": "Documentation example uses relative output path; executable code unchanged."
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "d32f5909a55841c2b6737fc50c6e922b19d3f62ee7af55768506d0c787210081",
+      "license": "MIT",
+      "origin": "Original task-specific generator evidence helper."
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "Canonical lowpoly-vault scripts, immutable upstream hash below; locally vendored at first authoring.",
+      "canonical_sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "purpose": "generator, rendering, source audit"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "purpose": "external official format QA only"
+    },
+    {
+      "name": "three",
+      "version": "0.180.0",
+      "purpose": "CPU parser evidence only"
+    }
+  ],
+  "policy": "All model project imports are relative vendored dependencies; no other-model source imports. Explicit external QA runtimes are not generator dependencies."
+}
