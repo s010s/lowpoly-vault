@@ -1,0 +1,104 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "coelodonta",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 6,
+    "max_primitives": 48,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "units": "meter",
+    "asset_forward": "-Y",
+    "asset_up": "+Z",
+    "lateral_axis": "X",
+    "origin": "Center of intended four-foot ground footprint at Z=0. Exported identity-transform root.",
+    "export_gltf_up": "+Y",
+    "export_gltf_forward": "+Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Retained and visually inspected museum skull photograph, primary Kolyma mummy/body and horn plates, and the 2023 MM 3074 skull/horn multiview plate provide adequate factual and structural guidance. The frozen written silhouette and palette brief defines original art direction. Additional generated concept images would not resolve the remaining soft-tissue uncertainty."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original whole-adult woolly rhinoceros reconstruction synthesizing named fossil and permafrost evidence. It is not a scan, an exact individual restoration, or a behavioral demonstration.",
+  "scientific_limits": {
+    "en": "Body proportions are approximate adult reconstruction targets guided by Kolyma and Starunia measurements, not a cast of one specimen. Horn shape varies and preservation can alter it: the nasal horn has a substantial oval base, not the extremely narrow attachment implied by some older reconstructions. Fur volume, living color, muscle contours, posture and full horn curvature are artistic choices. No sex, exact age, paleocoexistence or current conservation status is asserted.",
+    "zh": "体比例是参考科雷马与斯塔鲁尼亚测量数据的成体复原目标，非单一标本翻模。角形有个体差异且可受保存过程改变：鼻角采用厚实椭圆基部，不照搬部分旧复原中极窄的附着基部。毛量、活体颜色、肌肉轮廓、姿势与完整角弯度为美术选择。不声称性别、准确年龄、同域共生关系或现生保护状态。"
+  },
+  "title": {
+    "en": "Coelodonta antiquitatis, woolly rhinoceros",
+    "zh": "披毛犀 Coelodonta antiquitatis"
+  },
+  "taxon": "Coelodonta antiquitatis",
+  "classification": "Mammalia; Perissodactyla; Rhinocerotidae",
+  "scale": {
+    "unit": "meter",
+    "nose_to_rump_target_m": 3.5,
+    "shoulder_height_target_m": 1.55,
+    "torso_width_target_m": 1.08,
+    "tail_centerline_target_m": 0.47,
+    "ear_length_target_m": 0.2,
+    "nasal_horn_curve_target_m": 1.05,
+    "frontal_horn_curve_target_m": 0.28,
+    "status": "Modeling targets, not exact specimen measurements. Published adult females support a roughly 3.2–3.6 m head-body length and 1.45–1.65 m withers height. The selected horns synthesize adult examples rather than replicate the shorter horns of MM 7938."
+  },
+  "pose": "Quiet grounded quadrupedal stance, head carried low, mouth closed, subtle longitudinal leg staggering to expose all four feet. No extreme action or snow-shoveling claim.",
+  "diagnostic_targets": [
+    "Long heavy trunk and deep chest on short strong legs; raised withers flow into a gently declining back and rounded rump. Avoid a tall elephant-like outline or a hippo body with a pasted-on cone.",
+    "Two median keratin horns. The anterior nasal horn is distinctly longer and gently swept backward, with a broad fore-aft oval base, tapering into a compressed distal shaft. The shorter frontal horn is separate and more upright behind it. Both attach to real volumes, never a floating spike.",
+    "The main horn base fore-aft-to-transverse ratio is approximately 1.5. Preserve obvious width at attachment and taper; do not flatten the base into a razor blade or copy the broken MM 3074 stump as a whole horn.",
+    "An elongated low-carried head with a substantial cheek, tapered neck, blunt muzzle, recessed small lateral eyes and two compact pointed ears set high at the rear of the head. Eyes are not forward-facing predator eyes.",
+    "Exactly three short hoofed toes per foot, with a broad middle toe and smaller flanking toes. Four feet have visible clearance, plausible joint transitions and grounded support.",
+    "Dense coat conveyed through deliberately faceted body volume, a restrained darker mane/withers region and sparse low-profile fur edge breaks; no thousands of hairs, isolated porcupine cones, fur-covered eyes, or noisy random triangles.",
+    "Short tapered tail near the rump, not a long modern-rhino whip. Two-horn/woolly/low-long-trunk combination distinguishes this asset structurally from other rhinoceroses, not by size or palette alone."
+  ],
+  "art_direction": {
+    "profile": "refined low-poly, opaque palette-only PBR",
+    "construction": "Original controlled profile lofts for trunk, cheek, neck and tapered limbs; shaped horn sweeps with ellipse-changing cross sections. Continuous intentional transitions and mixed flat/smooth normals. No untouched sphere/cylinder collage.",
+    "palette": "Muted warm umber body, subdued warm-brown dorsal mane, lighter muzzle/undercoat, charcoal eyes and hooves, warm dark keratin. No speculative stripes or glossy toy finish.",
+    "texture_policy": "No image textures, alpha cards, displacement, particle fur or external bitmap dependencies. Material colors are original design choices, not specimen color claims.",
+    "geometry_target_triangles": [
+      7000,
+      12000
+    ],
+    "target_view": "Readable at museum card size, with deliberate medium-range contour detail; no microscopic fidelity claim."
+  },
+  "view_plan": {
+    "gray_self_checks": 3,
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview": "Exact same bytes as perspective permitted.",
+    "additional_views": "Only if a concrete unresolved issue requires one, with a recorded reason.",
+    "website_delivery": "No website render compatibility claim at prep. Keep the four diagnostic views. If the actual verified website renderer/config can also serve perspective adequately, document that substitution before rendering; otherwise integration owns necessary website derivatives."
+  },
+  "texture_policy": {
+    "max_textures": 0,
+    "max_encoded_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0
+  },
+  "acceptance": [
+    "Inspect retained real reference pixels before gray self-checks. Judge original anatomy and silhouette, not exact replication of distorted remains.",
+    "The side view resolves two horns, long low head, raised shoulders, substantial torso, four short limbs, short tail and clear hoof-toe structure.",
+    "The front and top views show broad non-razor nasal-horn attachment, central horn alignment, bilateral head/ear anatomy and no limb or horn collisions.",
+    "Refined connected-looking forms with purposeful faceting, no obvious primitive collage, floating parts, crude accidental intersections or random fur noise.",
+    "Runtime and exporter must be actually probed and pinned by the maker. The source must use only declared copied relative dependencies; require two isolated clean rebuilds, exact-GLB views, official glTF validator, geometry audit and independent review.",
+    "All unrun GPU, populated-scene, user approval and deployment stages remain UNKNOWN. Local candidate acceptance does not authorize GitHub submission or publication."
+  ]
+}

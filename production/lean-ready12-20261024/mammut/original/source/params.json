@@ -1,0 +1,57 @@
+{
+  "asset_id": "mammut",
+  "revision": "r001",
+  "seed": 2317,
+  "units": "meter",
+  "coordinate_system": {
+    "up": "+Z",
+    "forward": "-Y",
+    "lateral": "+X"
+  },
+  "subject": {
+    "taxon": "Mammut americanum",
+    "life_stage": "adult",
+    "sex": "unspecified",
+    "representation": "living-reconstruction"
+  },
+  "dimensions_m": {
+    "shoulder_height": 2.75,
+    "body_plus_head_length_excluding_appendages": 4.2,
+    "body_width": 1.65
+  },
+  "dimension_status": "Original illustrative targets, not specimen measurements. Final pose bounds are measured by maker.",
+  "shape_controls": {
+    "head_profile": "low elongated and relatively broad; no mammoth dome",
+    "back_profile": "gentle long rounded contour; no exaggerated hump or steep rearward slope",
+    "upper_tusks": "paired tapering forward/upward broad arcs, modest outward spread, no tight spiral",
+    "lower_tusks_visible": false,
+    "trunk": "relaxed hanging tapered trunk with restrained inward tip curl",
+    "stance": "four grounded broad feet, mild far-leg stagger"
+  },
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface": {
+    "profile": "palette-only",
+    "textures": false,
+    "metallic": 0.0,
+    "roughness_range": [
+      0.75,
+      0.95
+    ],
+    "alpha": 1.0,
+    "palette_srgb": {
+      "body": "#5B493D",
+      "body_light": "#756252",
+      "inner_ear": "#807067",
+      "ivory": "#D8CCAF",
+      "eye_and_mouth": "#211C19",
+      "toenail": "#8D8170"
+    },
+    "palette_note": "Original artistic palette, no fossil color claim. Convert sRGB to linear for shader factors."
+  },
+  "implementation_note": "Maker may add deterministic topology and export controls without silently altering the frozen identity, scale intent, morphology, coordinate convention or practical ceilings. No generator has been implemented at prep."
+}

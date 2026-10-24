@@ -1,0 +1,92 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "kerygmachela",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 6,
+    "max_primitives": 32,
+    "max_glb_bytes": 1800000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "origin": "Projected body center at ground plane, lowest ventral surface Z=0; no display pedestal",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual fossil overview, head-detail diagrams and the primary paper’s explicitly labelled reconstruction have been visually inspected. A bounded original palette and geometry plan below supplies the artistic decisions without an extra concept image under the current template."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original static refined-low-poly external reconstruction of the Cambrian stem-panarthropod Kerygmachela kierkegaardi, guided by Park et al. 2018 fossil specimens and interpreted anatomy. Not a scan or exact individual.",
+  "scientific_limits": {
+    "en": "Compressed fossils constrain external arrangement, not exact three-dimensional tissue thickness, pose or color. Fossil photographs, interpretive diagrams and the paper’s artistic reconstruction remain distinct evidence types. Internal neural anatomy is not modeled or claimed visible. Scale is an illustrative small specimen choice, not an adult maximum.",
+    "zh": "压扁化石约束外部排列，不能确定准确的三维软组织厚度、姿态或颜色。化石照片、解释图与论文艺术复原图属于不同证据类型。不制作或声称可见内部神经结构。尺寸是示意小个体选择，不是成年最大值。"
+  },
+  "name": {
+    "en": "Kerygmachela kierkegaardi",
+    "zh": "克里马虾（Kerygmachela kierkegaardi）"
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "normal_style": "Deliberate broad facets with smoothly varying large contours; no random noise or repeated block-like plates.",
+    "palette": "Original muted blue-grey upper cuticle, slightly lighter flap edges, warm grey ventral surface, charcoal eye lobes; not inferred fossil colors."
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_total_length": 0.16,
+    "body_excluding_front_appendages_and_tail": 0.065,
+    "tail_length": 0.06,
+    "basis": "Illustrative small specimen scale inspired by the millimetre bars in Fig.1, not a precise measurement or adult-maximum claim."
+  },
+  "pose": {
+    "description": "Neutral low swimming display, sagittal trunk straight, paired forward appendages opening into a modest V, lateral flaps slightly undulating rather than a rigid flat fan. No seabed plinth."
+  },
+  "morphology": [
+    {
+      "id": "flaps",
+      "requirement": "Eleven bilateral pairs of broad lateral flaps; pairs four and five largest, yielding an oval dorsal envelope."
+    },
+    {
+      "id": "tail",
+      "requirement": "One median unsegmented tapered tail spine, approximately body length excluding frontal appendages; never paired tails."
+    },
+    {
+      "id": "head",
+      "requirement": "Rounded anterior lobe between two forward spiny appendages; ventral mouth below the lobe with a pair of rostral spines."
+    },
+    {
+      "id": "eyes",
+      "requirement": "Sessile kidney/sickle-shaped eye lobes ventrolateral at appendage bases, not globular stalked eyes."
+    },
+    {
+      "id": "cuticle",
+      "requirement": "Soft annulated trunk, not rigid arthropod armor. Eleven axial rows each with four restrained tubercles; inner pair stronger."
+    }
+  ],
+  "visual_acceptance": [
+    "Major flap gaps and oval outline read from top and perspective.",
+    "All flap, appendage, eye and tail attachments are seated, not floating or disconnected visually.",
+    "Distinct thin volumes, no coplanar sheets or crude repeated rectangular slabs.",
+    "Front/side/top/perspective accurately show the same exported candidate."
+  ],
+  "technical_acceptance": [
+    "Keep original portable generator and editable blend, explicit relative pinned dependencies, all actual source/export checks.",
+    "Two inexpensive isolated rebuilds, official Khronos validator and exact-GLB previews.",
+    "Maker status remains PENDING until a separate independent reviewer inspects fixed bytes."
+  ]
+}

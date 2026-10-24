@@ -1,0 +1,160 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "ambulocetus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 2097152
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "right": "+X",
+    "origin": "Floor contact center at Z=0, root identity transform",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Three retained and visually inspected complementary references already cover museum three-quarter form, the holotype element layout and lateral skeletal proportions. The parameterized brief explicitly resolves soft tissue, posture and limb separation. A generated concept would not improve the evidence and is not needed under the current model-task-v2 template; no concept image is claimed."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original static refined-low-poly whole-animal reconstruction of Ambulocetus natans, informed by H-GSP 18507 and published museum/research interpretations. An illustrative resting crouch, not a specimen scan, exact individual, measured anatomical reconstruction, or claim of a proven terrestrial gait.",
+  "scientific_limits": {
+    "en": "The incomplete skeleton constrains proportions but does not preserve the complete upper snout or tail. External soft tissue, skin covering, coloration, webbing extent and displayed posture are interpretive. Sources differ in eye-orientation wording and terrestrial-locomotion interpretation; retain high, somewhat lateral eyes without claiming a precise gaze angle or walking ability. Scale is approximate, not a measured individual.",
+    "zh": "不完整骨架约束比例，但未完整保存上吻与尾部。外部软组织、皮肤覆盖、颜色、蹼的范围与展示姿态均属解释性复原。来源对眼睛朝向和陆地运动方式的表述不完全一致；采用高位、略向侧方的眼睛，不声称精确视线角度或已证实的步行能力。尺寸为估计，不代表某一个体的实测值。"
+  },
+  "name": {
+    "en": "Ambulocetus natans",
+    "zh": "游走鲸（Ambulocetus natans）"
+  },
+  "geometry_budget_rationale": "A practical ceiling, not a target: reserve geometry for the sculpted mammalian skull, integrated shoulder/hip transitions, four separated feet and digit outlines. Aim for about 4500–8000 triangles, but do not degrade the silhouette to hit that preference. Count emitted glTF primitives, not Blender primitive operators.",
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Portable Principled/glTF materials; restrained matte charcoal-taupe upper body, warm grey underside, dark eyes/nostrils/mouth and subdued ivory tooth accents. Colors are an original artistic choice, not fossil evidence.",
+    "normal_style": "Deliberately faceted or mixed normals with broad coherent planes; no random triangle noise, toy-gloss finish or normal-map dependence."
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_total_length": 3.3,
+    "plausible_reference_range_m": [
+      3.0,
+      3.7
+    ],
+    "basis": "AMNH gives 11–12 feet; New York Tech gives approximately 10 feet. The chosen 3.3 m is an illustrative compromise, not a measurement.",
+    "uniform_scale_only": true
+  },
+  "pose": {
+    "description": "Low, neutral crouch with four flexed limbs supported on the contact plane, short neck reaching gently forward, muzzle approximately level, and the long muscular tail tapering rearward with only a mild lateral curve. Do not stage a fast run, attack, belly crawl or underwater stroke.",
+    "interpretation": "Illustrative museum-display pose, not a biomechanical result.",
+    "mouth": "Mouth almost closed with a small, controlled side-visible gap; a few readable teeth are allowed. Do not copy the museum reconstruction’s dramatic open-jaw expression."
+  },
+  "morphology": [
+    {
+      "id": "head-profile",
+      "obligation": "Long robust mammalian muzzle, shaped cheek/temporal mass and a distinct lower jaw. Narrow the front gently without a crocodile shovel snout. Small high eyes sit toward the sides, not as huge spheres on top.",
+      "sources": [
+        "AMNH-2013",
+        "THEWISSEN-2009",
+        "NYIT-GEISLER"
+      ]
+    },
+    {
+      "id": "trunk-neck",
+      "obligation": "Deep elongated barrel-like ribcage and muscular hips with flowing transitions into neck, shoulders and tail. The silhouette must be a single weight-bearing organism rather than overlapping ellipsoids.",
+      "sources": [
+        "THEWISSEN-2009",
+        "MADAR-2002"
+      ]
+    },
+    {
+      "id": "hindfeet",
+      "obligation": "Four short, flexed, anatomically connected limbs. Hind feet noticeably longer and broader than the hands. Hind feet show four toe lobes; hands show five, using readable restrained modeling rather than many disconnected capsules. Webbing may be suggested by continuous toe bases, not asserted as preserved anatomy.",
+      "sources": [
+        "THEWISSEN-2009",
+        "AMNH-2013"
+      ]
+    },
+    {
+      "id": "tail",
+      "obligation": "One long robust-based, gradually tapering muscular tail. No horizontal modern-whale fluke, dorsal fin, crocodilian dorsal keel or scute rows. Exact length and tip cross-section are reconstructed.",
+      "sources": [
+        "NYIT-GEISLER",
+        "THEWISSEN-2009"
+      ]
+    },
+    {
+      "id": "diagnostic-combination",
+      "obligation": "At thumbnail scale retain the combination of long heavy jaw, deep low mammalian trunk, low flexed limbs, oversized hind feet and tapering non-fluked tail. A generic crocodile, seal, otter or lizard recolor does not satisfy the brief.",
+      "sources": [
+        "AMNH-2013",
+        "THEWISSEN-2009",
+        "NYIT-GEISLER"
+      ]
+    }
+  ],
+  "art_direction": {
+    "silhouette_priority": [
+      "head and jaw profile",
+      "hindfeet versus hands",
+      "shoulder-to-trunk and hip-to-tail flow",
+      "short flexed limbs with clear negative space",
+      "tail taper"
+    ],
+    "construction": "Use deliberately authored cross-section lofts or comparable topology. Build shoulder, neck and hip transitions into the primary form or hide junctions intentionally. Do not use untouched UV spheres/cylinders as the visible final organic construction.",
+    "detail_restraint": "No fur cards, scutes, whisker forest, isolated floating eyebrow shapes, jewelry-like tooth rows or arbitrary scars. Soft-tissue choices should remain restrained and visibly plausible.",
+    "negative_space": "All four feet and limb attachments should be understandable in side/top/perspective. Hind toes must not merge with the tail. Avoid thin sliver webbing or interpenetrating feet.",
+    "legitimacy": "All geometry is original. References are consulted for anatomy and silhouette, not traced as copyrighted 3D geometry or embedded as textures."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "First inspect 3–4 low-cost clay or silhouette views and correct anatomy before expensive final rendering. These are private authoring diagnostics, not exact-export proof.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of the exact delivered GLB. Perspective and preview may share identical bytes.",
+    "additional_views": "None by default; add a targeted view only to resolve a specific observed problem.",
+    "website_reuse": "Not pre-authorized by dimensional similarity. Current website renderer/camera contract has not been verified in prep, so retain standard model QA views and leave website derivatives to integration."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external image/buffer/network dependency. Freeze observed Blender/exporter and pinned Three.js versions in actual build evidence."
+  },
+  "acceptance_obligations": [
+    "Feature-level independent visual/factual/specification review against the frozen brief and retained references.",
+    "Source and evaluated geometry checks, emitted GLB audit, official Khronos glTF Validator with reviewed warnings, and pinned Three.js parse/load evidence.",
+    "Two isolated deterministic rebuilds, with package-relative declared helper copies and semantic geometry/material comparison.",
+    "Four actual exact-GLB views inspected and hashed; record front, side and top axes honestly.",
+    "Keep GPU, populated-scene performance, user acceptance and deployment statuses separate and UNKNOWN without direct evidence.",
+    "Use the fixed decision skeleton; maker cannot award independent PASS. Preserve real identity mapping privately and hash final GLB/preview.",
+    "Prepare manifest and current-reader compatibility only after actual independent PASS; neither substitutes for release authority."
+  ],
+  "prep_frozen_at": "2026-10-24T02:52:46.060956+00:00"
+}

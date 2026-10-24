@@ -1,0 +1,214 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "megarachne",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 8,
+    "max_primitives": 72,
+    "max_glb_bytes": 3000000,
+    "target_triangles": [
+      6000,
+      11000
+    ],
+    "rationale": "Eight readable articulated limbs, profile-based armor plates, ribbed second tergite and a tapered inferred tail need more silhouette geometry than a simple prop. This is a practical ceiling, not a target to fill. Group cosmetic parts by semantic region and material without sacrificing editability."
+  },
+  "coordinates": {
+    "units": "meters",
+    "up": "+Z",
+    "forward": "-Y",
+    "lateral": "+X",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z",
+    "root_name": "megarachne",
+    "root_location": [
+      0,
+      0,
+      0
+    ],
+    "origin_definition": "Center of the intended standing footprint on a notional sediment plane; all designated support tips at Z=0 within 0.002 m. Posterior body and telson extend toward +Y.",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": []
+  },
+  "concept": {
+    "required": false,
+    "reason": "The primary paper contains photographs and interpretive drawings of both Megarachne specimens, comparative Woodwardopterus anatomy, and an explicitly hypothetical reconstruction. Those figures were inspected directly and the appendix supplies dimensions; they adequately constrain this bounded low-poly brief without a generated concept. Unpreserved volume and tail are explicitly original inference."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original stylized, hypothetical whole-organism reconstruction of Megarachne servinei, anchored to CORD-PZ 2110 and the second specimen described by Selden, Corronca and Hünicken (2005). Preserved anterior anatomy is distinguished from inferred posterior anatomy. Not a fossil scan, not a giant spider, and not a claim of complete anatomical knowledge.",
+  "scientific_limits": {
+    "en": "Only the anterior carapace, enlarged first and second tergites and incomplete appendages are directly constrained. The posterior body, telson, distal limb completions, body depth and pose are inferred; chelicerae and palps are unknown and not exposed. Color is artistic. About 0.54 m is a reconstruction estimate, not a complete specimen measurement. The 2005 reassessment supports a non-marine aquatic setting, not the obsolete spider or a default marine animal.",
+    "zh": "直接约束主要来自前部背甲、增大的第一和第二背板及不完整附肢。后躯、尾剑、足端补全、体厚和姿势均属推测；螯肢与须肢未知，不作外露细节。颜色为美术选择。约0.54米是复原估计，并非完整标本实测。2005年再研究支持非海相水生环境，不能沿用旧巨型蜘蛛形象或默认海生标签。"
+  },
+  "authoring_profile": "release-fit-1",
+  "name": {
+    "en": "Megarachne broad-shield eurypterid",
+    "zh": "Megarachne（宽盾广翅鲎）"
+  },
+  "taxon": "Megarachne servinei",
+  "category": "animals",
+  "subcategory": "arthropod",
+  "collection": "prehistoric",
+  "temporal_context": {
+    "era": "carboniferous",
+    "qualification": "Latest Carboniferous, possibly earliest Permian in the primary appendix; no narrower coexistence or precise-date claim.",
+    "locality": "Pallero Member, Bajo de Véliz Formation, Santa Rosa II quarry, San Luis Province, Argentina"
+  },
+  "habitat": {
+    "environment": "non-marine aquatic",
+    "planning_tags": [
+      "freshwater-bottom"
+    ],
+    "qualification": "Alluvial/lacustrine sedimentology and suggested aquatic sediment-raking. Ecology and the large second-plate function remain uncertain. No environment base is exported."
+  },
+  "inventory_corrections": [
+    "Replace the inventory marine biome/tag inference with qualified non-marine aquatic context.",
+    "The second tergite is enlarged relative to posterior segments but is not the widest measured plate: first-tergite epimera span approximately 190 mm versus the second plate approximately 147 mm.",
+    "Use the approximately 0.54 m hypothetical total-body estimate, not the obsolete 339 mm supposed-spider body measurement."
+  ],
+  "scale": {
+    "units": "meters",
+    "body_length_target_m": 0.54,
+    "body_length_tolerance_m": 0.025,
+    "maximum_leg_span_target_m": 0.52,
+    "maximum_leg_span_tolerance_m": 0.06,
+    "approximate_height_target_m": 0.075,
+    "basis": "Holotype dimensions in the electronic appendix anchor the anterior body; total length follows the explicitly hypothetical figure 2, not a newly measured specimen. Pose width and height are original design values."
+  },
+  "texture_policy": {
+    "profile": "palette-only",
+    "max_textures": 0,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "reason": "Original material colors and restrained geometric relief are sufficient; no fossil photos or paper figures enter the asset."
+  },
+  "morphology": {
+    "required_features": [
+      {
+        "id": "M01",
+        "feature": "Broad, low bell-shaped prosomal shield, wider at rear, with a single continuous modest downturned anterior projection and a median ridge.",
+        "source_ids": [
+          "MEG2005",
+          "MEG2005-SUPP"
+        ],
+        "review_views": [
+          "top",
+          "side",
+          "perspective"
+        ],
+        "fail_if": "The anterior projection becomes paired fangs, a separate claw unit, or an extreme unsupported beak."
+      },
+      {
+        "id": "M02",
+        "feature": "One pair of kidney-shaped lateral eyes beside a small median ocular mound; two tiny ocelli may be suggested on that mound.",
+        "source_ids": [
+          "MEG2005",
+          "MEG2005-SUPP"
+        ],
+        "review_views": [
+          "top",
+          "perspective"
+        ],
+        "fail_if": "A spider-like cluster of eight eyes or huge stalked eyes is added."
+      },
+      {
+        "id": "M03",
+        "feature": "Distinct sutured first tergite with shallow median length and longer leaf-like lateral epimera, immediately behind the prosoma.",
+        "source_ids": [
+          "MEG2005",
+          "MEG2005-SUPP"
+        ],
+        "review_views": [
+          "top",
+          "perspective"
+        ],
+        "fail_if": "The first tergite is absent, replaced by a narrow spider waist, or reduced to an unshaped ring."
+      },
+      {
+        "id": "M04",
+        "feature": "Large near-circular second dorsal plate, with readable shallow fan/radial ribs, overlapping the more slender reconstructed posterior body.",
+        "source_ids": [
+          "MEG2005",
+          "MEG2005-SUPP"
+        ],
+        "review_views": [
+          "top",
+          "side",
+          "perspective"
+        ],
+        "fail_if": "It reads as a balloon abdomen, a full fused horseshoe shell, an egg sac, or a smooth unsegmented spider opisthosoma."
+      },
+      {
+        "id": "M05",
+        "feature": "Four paired conspicuous limbs III-VI, stout low-sided articulated podomeres with expanded joints; modest blade-like projections on anterior pairs.",
+        "source_ids": [
+          "MEG2005",
+          "MEG2005-SUPP"
+        ],
+        "review_views": [
+          "front",
+          "top",
+          "perspective"
+        ],
+        "fail_if": "Legs are hair-covered tarantula tubes, broad swimming paddles, giant lobster claws, or a mass of intersecting sticks."
+      },
+      {
+        "id": "M06",
+        "feature": "A low tapering segmented posterior extension and straight lance-like telson, clearly treated as comparative reconstruction.",
+        "source_ids": [
+          "MEG2005"
+        ],
+        "review_views": [
+          "side",
+          "top",
+          "perspective"
+        ],
+        "fail_if": "An upcurled scorpion stinger, spider spinnerets, a crab abdomen, or a claim that the complete tail is preserved is introduced."
+      }
+    ],
+    "original_art_direction": "Refined faceted low-poly aquatic arthropod. Deliberate lofted armor and limb profiles, not stacked untouched spheres. Desaturated olive-brown dorsal armor, slightly lighter ribs and rims, darker joints and underside; tiny dark eyes. Symmetrical resting benthic stance with negative space between all eight main limbs. No fur, props, floor slab, dramatic attack pose, or patterned soft-tissue claim.",
+    "inference_policy": "Follow the conservative organization of figure 2, not its drawing as a mesh blueprint. Complete T3-T12 as ten small articulated tergites, largely overlapped anteriorly by the enlarged second plate; show several posteriorly before the telson. Their exact widths, depths and exposed lengths are authored estimates. Do not expose invented chelicerae or palps; conceal that underside region beneath the shield. Foot tips and minor blades are simplified completions, not claimed fossil details.",
+    "relief_policy": "Use a restrained set of roughly 11 to 15 shallow ribs on tergite 2 and sparse small armor relief accents. Do not duplicate dense fossil surface ornament or introduce hair/spines all over the body. Ribs must remain embedded and not hover above armor.",
+    "pose_policy": "At least the posterior three pairs form an unambiguous support footprint. Anterior raking limbs can be close to the floor and slightly forward. Keep the telson low, straight and free from self-intersection. State any final contact exceptions in evidence."
+  },
+  "view_plan": {
+    "required": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "source": "Clean import of final model.glb only; record GLB and render-config hashes.",
+    "early_check": "Three or four inexpensive gray-model views before final rendering.",
+    "preview": "Use the same bytes as perspective whenever possible.",
+    "web_display": "No extra website image is required at preparation or maker stage. The authoritative website renderer/config has not been verified here. Preserve canonical evidence; integration may later create required site derivatives without changing the frozen model."
+  },
+  "runtime_profile": {
+    "type": "static uncompressed embedded GLB",
+    "meshes_only": true,
+    "animations": false,
+    "skins": false,
+    "morph_targets": false,
+    "required_extensions": [],
+    "external_images": false,
+    "materials": "Opaque Principled/glTF metallic-roughness; metallic 0; mostly rough. Export normals and apply scale without negative determinants."
+  },
+  "acceptance_obligations": [
+    "Inspect all six diagnostic feature obligations against actual exported GLB views.",
+    "Measure actual exported triangles, materials, primitives, dimensions, file bytes and intended ground contacts against this brief.",
+    "Run source geometry checks, exact-GLB audit and official Khronos validation; review every warning with a concrete reason.",
+    "Run two isolated deterministic rebuilds using only declared relative dependencies and record semantic geometry/material agreement.",
+    "Bind current decision evidence, GLB and preview hashes; keep independent reviewer identity separate from maker and mapped privately to actual tasks.",
+    "Runtime GPU, populated scene, user acceptance and deployment remain UNKNOWN unless their own evidence exists.",
+    "No source reference images, internal locators or private URLs in public files; no hidden dependency on another model directory."
+  ],
+  "frozen_on": "2026-10-24"
+}

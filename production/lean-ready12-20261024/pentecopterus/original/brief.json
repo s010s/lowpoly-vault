@@ -1,0 +1,265 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pentecopterus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 24000,
+    "max_materials": 10,
+    "max_primitives": 120,
+    "max_glb_bytes": 4000000,
+    "target_triangles": [
+      12000,
+      19000
+    ],
+    "rationale": "Differentiated paired limbs, open raptorial armature, compound paddles and twelve separate trunk plates justify a practical medium/high-detail low-poly budget. Spend geometry on diagnostic profiles and limb separation, not dense micro-scales. Ceilings are fixed, not fill targets."
+  },
+  "coordinates": {
+    "units": "meters",
+    "up": "+Z",
+    "forward": "-Y",
+    "lateral": "+X",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z",
+    "root_name": "pentecopterus",
+    "root_location": [
+      0,
+      0,
+      0
+    ],
+    "origin_definition": "Sagittal center at the midpoint of the straightened carapace-to-telson length, projected to the lowest ventral extent of the complete posed asset. Neutral suspended aquatic presentation, not a claimed ground-contact walking pose. No base is exported. Head and raptorial limbs point toward -Y; telson toward +Y.",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": []
+  },
+  "concept": {
+    "required": false,
+    "reason": "Directly inspected the primary taxonomic paper and actual figures 1, 8, 9, 10, 14, 18, 19 and 20, including fossils and the author reconstruction. They sufficiently constrain the diagnostic whole-form brief. A generated concept would add no needed anatomical evidence; unpreserved volume and pose remain explicit inference."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original adult whole-organism reconstruction of Pentecopterus decorahensis, synthesized from the same-species cuticular fossils and explicitly hypothetical reconstruction of Lamsdell et al. (2015). Preserve differentiated appendages, compound paddles and a blade-like telson. Not a scan, a juvenile, or a complete single specimen.",
+  "scientific_limits": {
+    "en": "The material consists of disarticulated or partly articulated compressed exuviae. Dorsal prosomal shield, eyes and metastoma are unpreserved; their shapes are hypothetical. Depth, pose and colors are artistic. The selected 0.85 m carapace-to-telson length is a representative reconstruction within the authors' 0.75-1.00 m common adult estimate, not an exact specimen measurement or the exceptional 1.70 m estimate. Genital type and sex remain uncertain. Figure 20 rotates limbs into lateral views and is not a literal flat life pose.",
+    "zh": "材料为分离或部分相连、受压保存的蜕壳。前体背盾、眼和口后板未保存，其形状属假说；体厚、姿势与颜色为美术补配。所选背盾前端至尾剑末端0.85米，是论文常见成体0.75至1.00米估计范围内的代表性复原值，并非完整标本实测或最大1.70米估计。生殖附肢类型及性别不确定。图20将附肢旋转为侧视展示，不能照搬为全部平铺的活体姿势。"
+  },
+  "authoring_profile": "release-fit-1",
+  "name": {
+    "en": "Pentecopterus grasping Ordovician eurypterid",
+    "zh": "Pentecopterus（奥陶纪捕捉广翅鲎）"
+  },
+  "taxon": "Pentecopterus decorahensis",
+  "category": "animals",
+  "subcategory": "arthropod",
+  "collection": "prehistoric",
+  "temporal_context": {
+    "era": "ordovician",
+    "interval": "Middle Ordovician, Darriwilian",
+    "locality": "Winneshiek Shale, Winneshiek Lagerstaette, near Decorah, Iowa, USA",
+    "qualification": "No newly claimed exact numerical age or association with every Ordovician animal."
+  },
+  "habitat": {
+    "environment": "Marginal to nearshore aquatic setting, possibly brackish",
+    "planning_tags": [
+      "marine",
+      "aquatic"
+    ],
+    "qualification": "The deposit is interpreted as restricted and low-oxygen within the Decorah impact basin. This does not fix the animal's full habitat range or exact behavior."
+  },
+  "scale": {
+    "units": "meters",
+    "body_length_target_m": 0.85,
+    "body_length_tolerance_m": 0.025,
+    "carapace_length_target_m": 0.18,
+    "carapace_max_width_target_m": 0.19,
+    "opisthosoma_length_target_m": 0.49,
+    "telson_length_target_m": 0.18,
+    "telson_max_width_target_m": 0.065,
+    "maximum_limb_span_target_m": 0.43,
+    "maximum_limb_span_tolerance_m": 0.06,
+    "overall_length_including_anterior_limbs_target_m": 1.03,
+    "overall_length_including_anterior_limbs_tolerance_m": 0.08,
+    "body_depth_inferred_m": 0.055,
+    "basis": "0.85 m is a common-size adult reconstruction choice based on the paper. Subdivisions approximate the proportions of figure 20, not independent specimen measurements. Limb span and 3D depth are authored presentation values; target telson length/width remains between 2.5 and 3.0."
+  },
+  "texture_policy": {
+    "profile": "palette-only",
+    "max_textures": 0,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "reason": "Original muted materials and sparse shallow geometric relief suffice. No reference images are embedded or used as textures."
+  },
+  "morphology": {
+    "required_features": [
+      {
+        "id": "P01",
+        "feature": "Elongate trapezoidal, low domed headshield with a broad anterior rostral region and shallow central notch. Ventral plate outlines support the perimeter, but not a preserved dorsal shell. Keep the rostral front free of limb insertions; mouth appendages attach beneath the posterior half.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          1,
+          20
+        ],
+        "review_views": [
+          "front",
+          "top",
+          "side",
+          "perspective"
+        ],
+        "fail_if": "A short semicircular Eurypterus head, giant circular horseshoe shell or huge forward horn replaces the elongate rostrate outline."
+      },
+      {
+        "id": "P02",
+        "feature": "Six prosomal appendage pairs total. I are small three-part chelicerae beneath the rostrum, not giant toothed pincers. II are shorter stout anterior raptorial limbs; III are longer forward raptorial limbs with distinct distal fixed spines. II-IV are not interchangeable copied legs.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          8,
+          9,
+          20
+        ],
+        "review_views": [
+          "front",
+          "top",
+          "perspective"
+        ],
+        "fail_if": "An added walking/paddle pair changes the count, the grasping limbs become pterygotid giant chelicerae, or the two anterior pairs lose their distinct hierarchy."
+      },
+      {
+        "id": "P03",
+        "feature": "Pair II has a conspicuous paired fourth-podomere spine reaching toward the tip. Pair III has eight podomeres, a single spine pair on podomere 3, and fixed lateral spines increasing through podomeres 4-6. The sixth-podomere spines are the longest and flank the slender penultimate section; the actual tip is a short curved spine, not a claw hand.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          8,
+          9,
+          20
+        ],
+        "review_views": [
+          "front",
+          "top",
+          "perspective"
+        ],
+        "fail_if": "Long spine pairs fuse into solid mitten shapes, negative spaces vanish, or long spines are arbitrarily placed only on a Megalograptus-like fourth-podomere giant fork."
+      },
+      {
+        "id": "P04",
+        "feature": "IV is a shorter ventrally directed spinose limb with swollen distal podomere margins and several small spine pairs. V is shorter and slender, with much reduced armature, distal denticulation and a small three-point terminal outline. IV-V must remain readable below/beside the head rather than overlap the raptorial silhouette.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          10,
+          20
+        ],
+        "review_views": [
+          "front",
+          "side",
+          "top",
+          "perspective"
+        ],
+        "fail_if": "IV and V become identical smooth tubes, extra giant claws, or a broad filtering fringe."
+      },
+      {
+        "id": "P05",
+        "feature": "VI forms paired compound paddles: expanded leaf-like podomere 6 overlapping the more distal blade; podomere 7 elongated with a rounded projecting anterior corner; a small 7a overlap; oval podomere 8 and tiny terminal 9. Preserve at least the conspicuous two-stage overlapping blade silhouette, not one generic oval on a stick.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          14,
+          20
+        ],
+        "review_views": [
+          "top",
+          "perspective",
+          "side"
+        ],
+        "fail_if": "The broad sixth-podomere expansion is missing, paddles read as single unjointed ovals, or the whole paddle is copied as a flat rotated diagram without a plausible articulation."
+      },
+      {
+        "id": "P06",
+        "feature": "Twelve opisthosomal segments with a reduced first tergite, near-parallel broad anterior body and gradual posterior taper. Six posterior segments narrow without an abrupt waist; pretelson is about 1.5 times the preceding segment length and does not expand laterally. Low central scale accents may be present, but no raised median ridge or lateral epimera.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          18,
+          20
+        ],
+        "review_views": [
+          "top",
+          "side",
+          "perspective"
+        ],
+        "fail_if": "Segment count is wrong, body becomes Megarachne's enlarged circular second plate, or wide lateral flanges and tail blades are added."
+      },
+      {
+        "id": "P07",
+        "feature": "A single broad xiphous, lance/blade-like telson with tapered pointed end, approximate length/maximum width 2.5-3.0, subtle lateral scale accents and no pronounced median keel. No paired cercal blades flank it.",
+        "source_ids": [
+          "LAM2015"
+        ],
+        "figures": [
+          19,
+          20
+        ],
+        "review_views": [
+          "top",
+          "side",
+          "perspective"
+        ],
+        "fail_if": "Telson becomes a needle, rounded paddle, upcurled scorpion stinger, or Megalograptus-like three-part terminal complex."
+      }
+    ],
+    "original_art_direction": "Refined low-poly marine arthropod with lofted armor and carefully spaced angular limb sections. Use muted umber/olive-brown cuticle, slightly lighter dorsal panels and paddle edges, dark joints and small dark eyes. Color is an artistic choice, unrelated to fossil compression color. Deliberate facets, not an assembly of unmodified spheres. Avoid decorative spikes and excessive microdetail.",
+    "inference_policy": "Use a modest low domed dorsal shell. Small reniform lateral eyes and tiny median ocelli may follow the explicitly hypothetical figure 20 and must remain labeled as reconstruction. A discreet ventral metastoma is optional, hypothetical and should not dominate views. Simplify the operculum without claiming sex or type A/B genital anatomy. Do not model exposed internal gills or invented sensory antennae.",
+    "relief_policy": "Only sparse shallow median droplet-scale accents, mild posterior serrations on posterior tergites and restrained paddle-edge denticulation. No taphonomic drying cracks as living texture. Fine sensory setae and dense micro-scales are omitted at this display scale; retain blade geometry instead.",
+    "pose_policy": "Neutral, approximately bilateral, horizontal aquatic pose. II and III reach forward with ventral spine pairs oriented meaningfully toward the capture space; IV and V angle ventrolaterally, and VI extends out/back with plausible tilted paddle joints. Figure 20 presents limb lateral views rotated into the page, so do not trace all limb planes flat in the top plane. Preserve distinct silhouettes and negative spaces. No unsupported raised threat pose or exact gait claim."
+  },
+  "distinctness": {
+    "against_megalograptus": "Not a scale or palette variation: elongated rostrate headshield, differently distributed II/III armature, distinctive expanded VI-6 compound paddle, nonexpanded pretelson and complete absence of paired cercal blades.",
+    "against_eurypterus": "Long rostrate head, dominant anterior raptorial pairs, unequal walking limbs and compound sixth-limb blades replace the compact head and more uniform walking limbs. Telson is broad xiphous rather than long needle-like.",
+    "against_hibbertopterus_and_megarachne": "Gracile segmented swimming form with a true paddle pair, not a broad dome with sweep-feeding legs or Megarachne's broad anterior dorsal plate."
+  },
+  "view_plan": {
+    "required": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "source": "Clean import of the exact delivered model.glb. Bind images to GLB and render-configuration hashes.",
+    "early_check": "Three or four inexpensive grayscale blockout views before final rendering; ensure limb count, spine separation, compound paddles and telson shape read.",
+    "preview": "Use the same bytes as perspective where possible.",
+    "web_display": "No extra website image at prep/maker stage. The authoritative site renderer/config was not verified here; integration may create necessary derivatives later without rewriting frozen QA images."
+  },
+  "runtime_profile": {
+    "type": "static uncompressed embedded GLB",
+    "meshes_only": true,
+    "animations": false,
+    "skins": false,
+    "morph_targets": false,
+    "required_extensions": [],
+    "external_images": false,
+    "materials": "Opaque portable Principled/glTF metallic-roughness, metallic 0, restrained roughness. Apply scale, avoid negative determinants and export normals."
+  },
+  "acceptance_obligations": [
+    "Check all seven morphology obligations against the exact-export four views, including actual pair count and regional spine hierarchy.",
+    "Measure exported dimensions, triangles, materials, primitives and bytes against this frozen brief; body length excludes projecting anterior limbs. No ground-contact test is implied for the suspended aquatic pose.",
+    "Run source geometry checks, exact-GLB audit and official Khronos validation; resolve errors and review each warning.",
+    "Run two isolated deterministic rebuilds using only declared package-relative dependencies and record semantic geometry/material agreement.",
+    "Use a fresh independent reviewer, actual identities mapped privately, and bind current decision to exact GLB/preview/evidence hashes.",
+    "Keep GPU, populated-scene, user and deployment states UNKNOWN without their own evidence.",
+    "Exclude primary images, private paths and internal task locators from public output. No undeclared dependency on another model folder."
+  ],
+  "frozen_on": "2026-10-24"
+}

@@ -1,0 +1,154 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "aegirocassis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 6,
+    "max_primitives": 96,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "forward": "-Y",
+    "right": "+X",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "origin": "Single identity-transform root at the horizontal centre of the full animal outline; Z=0 is the lowest filter tip. The animal is swimming, so this is a display mounting datum, not anatomical ground contact.",
+    "anatomical_layout": "Long axis along Y. Pointed head-carapace nose toward -Y, blunt rear toward +Y; left/right are mirrored across X=0. Dorsal flaps attach above ventral flaps. Filters project beneath the head and must remain visible below the shell.",
+    "export": "Blender Z-up, -Y-forward; standard glTF conversion gives Y-up and +Z-forward."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected primary fossil dorsal/lateral views and specimen drawings, the 2015 reconstruction, and the 2023 revised appendage drawing provide sufficient shape evidence. No generated concept is needed; model geometry must be original and must not trace or embed reference art."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original static refined-low-poly whole-animal reconstruction of Aegirocassis, informed principally by A. benmoulai from the Early Ordovician Lower Fezouata Shale of Morocco. A representative living animal, not a scan, exact individual replica, or claim of resolved soft anatomy.",
+  "scientific_limits": {
+    "en": "Body layout and filtering structures are fossil-informed; exact proportions, living colour, pose and soft tissues remain reconstructed. Eyes are inferred from comparative anatomy and oral-cone details are not established for this species. Fine filtering spinules are omitted and visible setae are deliberately reduced and thickened, not a true mesh-size model. The 2023 six-endite interpretation supersedes the five-long-endite layout of the 2015 reconstruction; the terminal appendage region remains incompletely known. No tail fan is added.",
+    "zh": "体态和滤食结构依据化石，精确比例、活体颜色、姿态及软组织仍属复原。眼睛位置来自比较解剖推断，本种口锥细节尚未确定。微细小刺省略，可见刚毛减少并加粗，不代表真实滤网孔径。附肢采用2023年六条长内叶的新解释，不照搬2015年五条长内叶复原；末端节区仍不完整可知。不添加尾扇。"
+  },
+  "authoring_profile": "release-fit-1",
+  "name": {
+    "en": "Aegirocassis filter-feeding radiodont",
+    "zh": "Aegirocassis（滤食奇虾类）"
+  },
+  "taxon": {
+    "genus": "Aegirocassis",
+    "reference_species": "Aegirocassis benmoulai",
+    "historical_spelling": "Aegirocassis benmoulae",
+    "nomenclature_note": "Use benmoulai; corrected by Van Roy, Briggs and Gaines in 2015 and retained by Potin et al. in 2023."
+  },
+  "context": {
+    "era": "ordovician",
+    "interval": "Early Ordovician; late Tremadocian reference material",
+    "locality": "Lower Fezouata Shale, Ternata plain near Zagora, Morocco",
+    "habitat": "marine water column",
+    "coexistence_claim": false
+  },
+  "budget_rationale": "Allow the two flap tiers, tripartite shell and open paired filters to remain distinct. Aim for 6500–9500 triangles; spend on silhouette and sparse closed filter bristles rather than microscopic spinules. Caps are practical task budgets, not fossil facts.",
+  "dimensions": {
+    "units": "m",
+    "target_total_length_m": 2.1,
+    "length_tolerance_m": 0.12,
+    "target_max_width_m": 0.66,
+    "target_height_m": 0.64,
+    "scale_note": "Representative large animal within the reported greater-than-2 m size class, not a measured single individual. Do not unit-normalize."
+  },
+  "design": {
+    "profile": "static-palette-only",
+    "pose": "Near-symmetric level swimming and active filtering; mild natural flap cant, no exaggerated attack curl. No stand, substrate, water effects, text or labels in the exported geometry.",
+    "palette": {
+      "carapace": "#3D7175",
+      "body": "#6D9C9A",
+      "flaps": "#4D8689",
+      "filter_setae": "#C7AF76",
+      "underside": "#8EA8A0",
+      "inferred_eyes": "#26383C"
+    },
+    "colour_claim": "Entire palette is an original artistic choice; fossil iron staining is not living pigmentation.",
+    "surface": "Controlled facets on large shell/loft forms with clean edge changes; smooth or mixed normals on slender filtering structures. Matte portable PBR materials, no transparency-dependent net sheets.",
+    "style": "Deliberate lofts and shaped fins, not a stack of untouched spheres or cones. Keep large shell, short broad trunk and hanging filter basket readable at thumbnail scale."
+  },
+  "morphology_requirements": [
+    {
+      "id": "shell",
+      "requirement": "Tripartite cephalic carapace: one long pointed, low-convex central shield with an axial keel and rounded broad rear, plus two separate oval lateral elements. Central shield approximately as long as the exposed trunk; it projects forward, not backward over half the trunk. Include modest downturned posterolateral extensions; do not make a helmet dome or bivalve enclosing the animal.",
+      "source_ids": [
+        "VR2015",
+        "VR2015-SI",
+        "P2023"
+      ]
+    },
+    {
+      "id": "trunk",
+      "requirement": "Broad low trunk, slight maximum width near segment 3, then taper to a short blunt segment 11. Preserve 11 discernible segments, with shallow intersegmental recesses. Ten flap-bearing segments; terminal 11th has no added flap pair.",
+      "source_ids": [
+        "VR2015-SI"
+      ]
+    },
+    {
+      "id": "double-flaps",
+      "requirement": "On each of the first ten segments, retain distinct left/right dorsal AND ventral flaps: 20 dorsal plus 20 ventral. Dorsal fins are shorter, pointed and recurved; lower triangular paddles are longer with rounded tips. Separate their root heights and keep successive flaps non-overlapping in neutral pose. They must not read as a single scalloped ribbon.",
+      "source_ids": [
+        "VR2015",
+        "VR2015-SI"
+      ]
+    },
+    {
+      "id": "dorsal-blades",
+      "requirement": "Indicate transverse bands of setal blades across the back connected near dorsal flap bases, with blades running fore-aft. Simplify as low longitudinal ridges across each dorsal band. Do not mistake these bands for an extra row of fins.",
+      "source_ids": [
+        "VR2015",
+        "VR2015-SI"
+      ]
+    },
+    {
+      "id": "filter-pair",
+      "requirement": "Two frontal appendages beneath the head, each a short articulated upper shaft supporting one shorter proximal comb endite plus six long inward-curved blade-like endites. The first five long endites carry one dense-looking row of thin setae; the sixth has visibly shorter, thicker, curved setae. Preserve a gap and bilateral structure, while inward-canted endites form an open filter basket rather than raptorial claws or six bare rods.",
+      "source_ids": [
+        "P2023"
+      ]
+    },
+    {
+      "id": "filter-simplification",
+      "requirement": "Use representative sparse rows of solid setae with actual air gaps; do not model every biological seta or microspinule and do not claim exact filtering mesh size. Keep first-five versus sixth-endite distinction visible. Distal shaft details are schematic: do not invent a rigidly established extra terminal podomere count.",
+      "source_ids": [
+        "P2023"
+      ]
+    },
+    {
+      "id": "limits",
+      "requirement": "If included, use two small eyes in posterior gaps between carapace elements, explicitly inferred. Do not add giant anterior eye stalks, a prominent toothed predatory oral cone, walking legs, antennae, a tail fan or tail streamers. A subdued ventral mouth recess may be used only as an acknowledged reconstruction.",
+      "source_ids": [
+        "VR2015-SI"
+      ]
+    }
+  ],
+  "visual_acceptance": [
+    "Front: two separate suspended filtering arrays, open negative space and dorsal/ventral flap height separation; avoid central fused solid grille.",
+    "Side: long low forward shield, oval lateral element, hanging curved endites and two distinct flap tiers.",
+    "Top: carapace/trunk proportions, 11-part taper, terminal blunt rear without fan, paired rows of separate flaps.",
+    "Perspective: all diagnostic features legible together; no accidental collisions, intersecting shell lobes, disconnected bristles or thin-plane disappearance."
+  ],
+  "views_policy": {
+    "gray_checks": "3–4 low-cost blockout checks before final polish; private only.",
+    "final_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview": "May reuse the exact perspective bytes.",
+    "website_render": "No exact website renderer/config has been supplied to this prep. Do not claim website image compliance. Retain standard diagnostic perspective; only generate integration display assets when required by the verified release contract."
+  },
+  "frozen_scope": "Preparation-only freeze for a local fixed candidate. Maker, technical evidence, independent QA, GPU, scene, user and publication states must each be established separately."
+}

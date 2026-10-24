@@ -1,0 +1,47 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "source": "s010s/lowpoly-vault canonical scripts/asset_common.py",
+      "version": "content-addressed snapshot"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "source": "s010s/lowpoly-vault canonical scripts/qa_glb.py",
+      "version": "content-addressed snapshot"
+    },
+    {
+      "path": "source/deps/render_candidate.py",
+      "sha256": "2a9a44e683abbea5a73c857cc02319a8b756c31197a9f64156dd1f661892f0d8",
+      "license": "MIT",
+      "source": "Original deterministic exact-export renderer for this candidate",
+      "version": "content-addressed snapshot"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "component": "glTF exporter 4.3.47 and bundled Python; Cycles CPU; no GPU claim"
+    },
+    {
+      "name": "Python",
+      "version": "3.11+",
+      "component": "standard library only outside Blender"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "component": "target consumer, not required for regeneration; GPU and scene untested"
+    },
+    {
+      "name": "Khronos glTF Validator",
+      "version": "2.0.0-dev.3.10",
+      "component": "independent external format validation, not required to generate geometry"
+    }
+  ]
+}
