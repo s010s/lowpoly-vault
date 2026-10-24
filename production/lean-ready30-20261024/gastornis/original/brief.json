@@ -1,0 +1,196 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "gastornis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 32,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "lateral_axis": "+X",
+    "units": "meters",
+    "origin": "Floor contact center between the feet at (0, 0, 0).",
+    "export_convention": "Blender Z-up, -Y forward; glTF Y-up, +Z forward.",
+    "ground_contact_tolerance_m": 0.003
+  },
+  "concept": {
+    "required": false,
+    "reason": "Retained published skeleton restoration plus same-species skull lateral and mandibular dorsal/ventral diagrams provide enough structural reference for this bounded original silhouette. New AI imagery would not improve the known anatomy. This waiver does not waive gray-model self-checks or independent visual review.",
+    "reference_art_is_not_geometry_to_copy": true
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original whole-organism living reconstruction of Diatryma gigantea under the historical catalog name Gastornis, anchored to AMNH 6169 skeletal proportions and supported by same-species skull anatomy. Early Eocene Wyoming context. Not a fossil replica, scan, generic terror bird, or European Gastornis composite.",
+  "scientific_limits": {
+    "en": "Feather covering, color, soft-tissue thickness, eye details and pose are artistic inferences. Two metres is a rounded museum-scale estimate, not a measurement of AMNH 6169 or a claim about its sex or maturity. Same-species USGS 21862 jaw views supplement AMNH 6169, without claiming one complete individual. The 2024 Diatryma/Gastornis distinction is followed. Evidence favors herbivory, but exact foods and behavior are not established; the 1991 predatory interpretation is not adopted.",
+    "zh": "羽被、颜色、软组织厚度、眼部细节和姿态为艺术推定。两米是取整的博物馆尺度估值，不是AMNH 6169实测值，亦不判断该标本的性别或成熟程度。以同种USGS 21862下颌多视图辅助AMNH 6169，不声称为单个完整个体。采用2024年Diatryma与Gastornis的区分。证据倾向植食，但具体食物和行为未定；不采用1991年的捕食解释。"
+  },
+  "authoring_profile": "release-fit-v1",
+  "name": {
+    "en": "Gastornis (Diatryma gigantea)",
+    "zh": "加斯顿鸟（Diatryma gigantea，历史名称）"
+  },
+  "taxon": "Diatryma gigantea",
+  "taxonomy_note": {
+    "en": "The stable catalog ID retains its historical Gastornis usage. This animal follows Diatryma gigantea, re-established within Diatryma by Mayr and colleagues (2024); it is not a reconstruction of the distinct European Gastornis laurenti or G. parisiensis.",
+    "zh": "稳定目录ID保留历史Gastornis用法。本件对应Mayr等（2024）重新承认Diatryma属下的Diatryma gigantea，不是欧洲Gastornis laurenti或G. parisiensis的复原。"
+  },
+  "category": "animals",
+  "subcategory": "bird",
+  "collection": "prehistoric",
+  "era": "early Eocene",
+  "geometry_targets": {
+    "exported_triangles": [
+      4500,
+      8000
+    ],
+    "materials": [
+      5,
+      7
+    ],
+    "reason": "Spend geometry on a designed deep beak profile, muscular neck transition, feathered torso, leg joints and separated toes. Ceilings are practical headroom, not targets to fill."
+  },
+  "surface_profile": {
+    "type": "palette-only-static",
+    "texture_count": 0,
+    "max_texture_bytes": 0,
+    "alpha": "OPAQUE",
+    "metallic": 0.0,
+    "roughness_range": [
+      0.72,
+      0.95
+    ],
+    "normals": "Intentional mixed shading: broad controlled facets on plumage masses, clean continuous normals on beak/eyes; no accidental random noise or micro-feather geometry.",
+    "palette_is_inferred": true
+  },
+  "scale": {
+    "units": "meters",
+    "target_height_m": 2.0,
+    "height_tolerance_m": 0.08,
+    "source_ids": [
+      "AMNH-OLOGY"
+    ],
+    "basis": "Rounded taxon-level exhibit scale; all soft-tissue ratios below are original modeling targets, not fossil caliper measurements.",
+    "sex": "unspecified",
+    "life_stage": "unspecified mature-sized appearance; no specimen ontogeny claim"
+  },
+  "pose": {
+    "stance": "Quiet weight-bearing stand, one foot at most 0.08 m ahead of the other; neither a running gait nor attacking pose.",
+    "head": "Nearly level beak, neutral closed gape; no prey, vegetation prop or implied feeding event.",
+    "wings": "Paired very small tucked wing volumes, partly merged into shoulder plumage.",
+    "tail": "Short restrained feathered wedge, not a long ratite plume or dinosaur tail."
+  },
+  "feature_obligations": [
+    {
+      "id": "beak-profile",
+      "required": "Massive dorsoventrally deep, laterally compressed beak with a broad rising culmen and clean closed cutting seam. Terminal shape must be restrained, without a separate raptor-like hook, teeth or serrations. Beak must not become a duck bill, parrot beak or short G. laurenti-style stub.",
+      "sources": [
+        "MAYR-2024",
+        "WITMER-ROSE-1991",
+        "AMNH-OLOGY"
+      ],
+      "check": "Side and perspective silhouette; top width versus head width."
+    },
+    {
+      "id": "head-neck-body",
+      "required": "Large head on a visibly thick but subtly curved neck, flowing into a heavy deep torso. Keep the head high and readable without a swan-thin neck, circular sphere-stack joints or exaggerated ostrich proportions.",
+      "sources": [
+        "MATTHEW-GRANGER-1917",
+        "AMNH-OLOGY"
+      ],
+      "check": "Front/side and quick clay views before final rendering."
+    },
+    {
+      "id": "walking-legs",
+      "required": "Two strong separated legs, thick proximal thighs integrated into torso plumage, shorter robust exposed lower legs and readable ankle joints; feet remain grounded.",
+      "sources": [
+        "MAYR-2024",
+        "MATTHEW-GRANGER-1917"
+      ],
+      "check": "Front negative space and side contact; no sprinting leg exaggeration."
+    },
+    {
+      "id": "feet",
+      "required": "Each foot has three separated forward weight-bearing toes with restrained rounded nails and a much smaller posterior hallux. Do not add grasping raptor talons. Exact nail outline and hallux soft tissues are inferred, not trackmaker-certified.",
+      "sources": [
+        "MATTHEW-GRANGER-1917",
+        "WITMER-ROSE-1991"
+      ],
+      "check": "Top and front silhouette, no fused fan/slab toes or floating contacts."
+    },
+    {
+      "id": "flightlessness",
+      "required": "Tiny tucked wings and short tail remain distinct from the torso when viewed obliquely; no flight feather fan, huge wings, decorative crest or cassowary casque.",
+      "sources": [
+        "AMNH-OLOGY",
+        "MATTHEW-GRANGER-1917"
+      ],
+      "check": "Perspective and top, with controlled asymmetric feather edge design only."
+    },
+    {
+      "id": "refined-craft",
+      "required": "Use custom profile/loft surfaces and deliberate cross-section changes. Primary masses must blend visually into an authored silhouette; do not deliver untouched low-resolution UV spheres, visible cylinders, triangulated blobs, random spike feathers or eyes pasted far outside the skull.",
+      "sources": [],
+      "check": "Independent actual-GLB image review at thumbnail and full size."
+    }
+  ],
+  "view_plan": {
+    "clay_self_checks": [
+      "front",
+      "side",
+      "perspective"
+    ],
+    "final_exact_glb_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview_may_reuse_perspective_bytes": true,
+    "background": "Transparent or neutral as declared by actual renderer.",
+    "extra_views_only_for_specific_findings": true
+  },
+  "website_render_plan": {
+    "planned_for_possible_publication": true,
+    "reuse_512_policy": "Do not claim website-compliant preview until the actual current renderer, camera and configuration hashes are verified. Default canonical perspective is retained for independent review; reuse is allowed only if exact contract and diagnostic coverage are both demonstrated.",
+    "detail_size": [
+      512,
+      512
+    ],
+    "wheel_size": [
+      768,
+      432
+    ],
+    "wheel_phase": "integration only if needed",
+    "no_resize_or_crop_as_renderer_equivalence": true
+  },
+  "acceptance_boundaries": {
+    "maker": "Build, exact-export evidence and technical tests only; leave independent status PENDING.",
+    "reviewer": "Fresh independent exact-byte factual and visual review; verify real identity separation.",
+    "runtime": "GPU and populated-scene checks remain UNKNOWN unless actually run and evidenced.",
+    "publication": "No publication, merge, deployment or user acceptance implied by preparation or local QA."
+  },
+  "required_build_evidence": [
+    "Pinned actual Blender/exporter version, deterministic seed and relative dependencies",
+    "Early 3-view clay inspection before final renders",
+    "Standalone exact GLB, editable blend, source and parameters",
+    "Official glTF validation and scoped geometry tests",
+    "Two isolated actual rebuilds with normalized geometry/material comparison",
+    "Four final exact-GLB views with hashes",
+    "Fresh independent review and complete fixed manifest",
+    "Actual-reader preflight after independent PASS, not during preparation"
+  ]
+}

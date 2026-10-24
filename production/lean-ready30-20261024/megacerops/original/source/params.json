@@ -1,0 +1,95 @@
+{
+  "asset_id": "megacerops",
+  "revision": "r001",
+  "seed": 241024,
+  "units": "meters",
+  "coordinate_convention": {
+    "up": "+Z",
+    "forward": "-Y",
+    "lateral": "+X",
+    "root": "floor-contact-center"
+  },
+  "parameter_status": "Frozen relative design targets, not fossil measurements. Maker may solve local transitions inside this form envelope; taxon, horn topology and budget changes require a recorded brief revision.",
+  "basis": "All normalized lengths use head-to-rump length L=4.4 m; values are original modeling choices informed by the reference ledger.",
+  "dimensions_m": {
+    "head_rump_length": 4.4,
+    "shoulder_height": 2.3,
+    "hip_height": 2.04,
+    "torso_length": 2.6,
+    "thorax_width": 1.16,
+    "thorax_depth": 1.22,
+    "belly_clearance": 0.76,
+    "head_length": 1.12,
+    "head_max_width": 0.64,
+    "muzzle_width": 0.4,
+    "neck_length": 0.58,
+    "tail_length": 0.58,
+    "ear_length": 0.19,
+    "front_foot_width": 0.34,
+    "hind_foot_width": 0.31
+  },
+  "relative_shape": {
+    "shoulder_height_over_L": 0.523,
+    "hip_height_over_shoulder": 0.887,
+    "thorax_width_over_L": 0.264,
+    "head_length_over_L": 0.255,
+    "head_width_over_head_length": 0.571,
+    "tail_length_over_L": 0.132,
+    "withers_above_hip_m": 0.26
+  },
+  "nasal_processes": {
+    "count": 2,
+    "branches_per_process": 1,
+    "anatomical_position": "paired left/right frontonasal, not tandem on centerline",
+    "centerline_length_each_m": 0.3,
+    "base_width_each_m": 0.22,
+    "tip_width_each_m": 0.12,
+    "base_center_spacing_m": 0.34,
+    "tip_center_spacing_m": 0.66,
+    "minimum_visible_midgap_m": 0.12,
+    "shape": "short stout outward/upward/forward processes, rounded subtly flattened tips; skin-adjacent surface covering is inferred",
+    "note": "Match robust AMNH 518 reference character; do not replace with tall thin prongs from another horn morph."
+  },
+  "feet": {
+    "front_toes_each": 4,
+    "hind_toes_each": 3,
+    "toe_style": "compact rounded hoof-like ends with shallow visible clefts, not sharp claws",
+    "all_four_feet_grounded": true,
+    "stagger_m": 0.12
+  },
+  "palette_srgb_hex": {
+    "hide": "#7B7162",
+    "flank": "#918471",
+    "muzzle": "#6F6659",
+    "feet": "#514B43",
+    "recess": "#292724",
+    "process_cover": "#827764"
+  },
+  "shading": "intentional faceted primary and secondary forms, slight selective smoothing only if exported normals retain planes",
+  "budget": {
+    "max_triangles": 18000,
+    "max_materials": 6,
+    "max_primitives": 40,
+    "max_glb_bytes": 2200000
+  },
+  "texture_budget": {
+    "profile": "palette-only",
+    "max_images": 0,
+    "max_encoded_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "reason": "Shape-first original geometry with a small portable PBR palette. Reference photographs are not textures."
+  },
+  "render_plan": {
+    "gray_checks": 3,
+    "final_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview_equals_perspective": true,
+    "background": "transparent or neutral, consistent exact-GLB evidence",
+    "website_derivatives": "deferred"
+  },
+  "dependency_policy": "Use only declared package-relative files under source/deps. Copy version-pinned canonical helper when making begins; do not import another asset directory. Two isolated builds must establish runtime closure."
+}

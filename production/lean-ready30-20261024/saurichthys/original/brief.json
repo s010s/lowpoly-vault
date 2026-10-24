@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "saurichthys",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "virtual mounting point below body center, swimming body above origin; no pedestal exported"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original living reconstruction of Saurichthys curionii guided by the identified Lugano museum fossil from Cassina beds, Monte San Giorgio. Not a scan; original inventory genus-level research hold is addressed by named species fossil evidence plus UZH taxon research context.",
+  "scientific_limits": {
+    "en": "Fossils are compressed and curved after death; living cross-section, soft-tissue outline, exact fin rays and colors are inferred. Species identification follows the museum photograph description, without catalogue-number or specimen-exact reconstruction claim.",
+    "zh": "化石压扁且死后弯曲；活体横截面、软组织轮廓、精确鳍条和颜色为推断。物种鉴定依馆藏化石照片说明，不声称馆藏号或逐标本精确复原。"
+  },
+  "taxon_scope": "Saurichthys curionii",
+  "scale": {
+    "target_length_m": 0.6,
+    "target_width_m": 0.05,
+    "target_height_m": 0.09,
+    "basis": "Working artistic dimensions for a small individual; photo states slab about40cm across, not fish total length. No precise specimen measurement inferred from bent fossil."
+  },
+  "pose": "Near-straight horizontal swimming posture, mild tail bend only, paired fins separated and visible; no taphonomic U-shaped body curl, no ground support in export.",
+  "shape_requirements": [
+    "Retain extremely elongate needlelike body AND long pointed upper/lower jaws AND rear-set dorsal/anal fins as one original combination.",
+    "Slim tapered trunk with narrow caudal peduncle, visibly forked tail. Do not substitute deep generic fish body or eel ribbon tail.",
+    "Upper and lower jaws form a long narrow opposing pair, not merely one swordfish upper bill; readable small mouth seam and restrained teeth.",
+    "Dorsal and anal fins sit in posterior trunk near tail rather than centered; pectoral pair remain near head and pelvic pair are separate. Do not move all fins to the rear.",
+    "Use coherent profile-loft body and finite-thickness fins, no giant shark dorsal fin, no reptile limbs, no ornate unsupported armor."
+  ],
+  "original_inventory": {
+    "id": "saurichthys",
+    "ordinal_1based": 587,
+    "taxon": "Saurichthys",
+    "shape_gate": {
+      "en": "Shape criterion: extremely elongate needlelike body and jaws with rear-set fins. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：极长针状身体与颌、后置鳍。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block extremely elongate needlelike body and jaws with rear-set fins with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织极长针状身体与颌、后置鳍；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

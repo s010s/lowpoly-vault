@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "compsognathus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor center between feet"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original Compsognathus longipes living stylization guided by a Paris fossil photograph and historical German specimen drawing; not a specimen scan or exact individual restoration.",
+  "scientific_limits": {
+    "en": "Three-dimensional body breadth, complete skull outline, soft tissue, covering, color and posture are inferred. The Paris photograph shows only part of the slab; the German image is a historical interpretive drawing, not a photograph or current anatomical authority. The 0.9 m length is an artistic estimate, not a measured specimen or maturity claim.",
+    "zh": "三维体宽、完整头骨轮廓、软组织、体表覆盖、颜色及姿态为推断。巴黎照片仅显示部分石板；德国图像是历史解释性绘图，并非照片或现行解剖权威。0.9米体长为艺术估值，不是标本实测值，也不主张成熟阶段。"
+  },
+  "taxon_scope": "Compsognathus longipes, genus inventory identity retained",
+  "dimensions_estimate_m": {
+    "length": 0.9,
+    "width": 0.1,
+    "hip_height": 0.25,
+    "basis": "Artistic envelope; not equated to NHM generic0.7m or either fossil measurement."
+  },
+  "shape_requirements": [
+    "Original thin muzzle, elongate trunk and disproportionately long hindfeet must all remain recognizable.",
+    "Slim low snout, light neck, elongated narrow torso and long tapering balancing tail; no bulky large-theropod head.",
+    "Long metatarsal region and long narrow three-toed supporting feet clearly separate from shin and thigh.",
+    "Small forelimbs kept inward-facing rather than palms-down; no crest or exaggerated grasping sickle claw."
+  ],
+  "construction_notes": [
+    "Avoid enlarging the torso to generic dinosaur proportions; inspect side gray silhouette for long trunk and hindfeet.",
+    "Use simple restrained body surface; neither absence nor presence of a specific feather pattern is established by these references.",
+    "Do not copy fossil death pose, displaced jaws or missing tail tip; conservative living reconstruction is explicit."
+  ],
+  "original_inventory": {
+    "id": "compsognathus",
+    "ordinal_1based": 341,
+    "taxon": "Compsognathus",
+    "shape_gate": {
+      "en": "Shape criterion: thin muzzle, elongate trunk and disproportionately long hindfeet. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：纤细吻、伸长躯干与比例较长的后足。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block thin muzzle, elongate trunk and disproportionately long hindfeet with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织纤细吻、伸长躯干与比例较长的后足；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

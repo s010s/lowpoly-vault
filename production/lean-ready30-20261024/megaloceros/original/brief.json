@@ -1,0 +1,129 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "megaloceros",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 40,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "asset_forward": "-Y",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "origin": "floor contact center",
+    "export_convention": "glTF +Y up and +Z forward; preserve physical meter scale"
+  },
+  "concept": {
+    "required": false,
+    "reason": "This is a direct-reference-led reconstruction. The inspected museum mount, skull and antler views jointly establish the required structure; no additional generated concept is necessary. Missing soft-tissue details are explicitly artistic choices. This does not waive gray-model or independent exact-export visual review."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original refined-low-poly living reconstruction of one adult male Megaloceros giganteus with fully grown bare antlers, informed by named museum skeletal references. A generalized animal, not a scan, specimen replica, phylogenetic diagnosis or measured anatomical restoration.",
+  "scientific_limits": {
+    "en": "Body covering, coloration, stance, exact mass, antler point count and all unsourced dimensions are interpretive. Skeletal mounts may include restored parts; the Cork material is incomplete. Antler asymmetry and proportions varied among individuals. This design does not establish a fixed coat pattern, a precise shoulder hump profile, or an extinction cause/date.",
+    "zh": "体表、颜色、站姿、确切体重、角尖数量及无测量来源的尺寸均为解释性设计。博物馆骨架可能含复原部分，科克标本不完整；个体鹿角形态存在差异。本设计不确定固定毛色纹样、精确肩隆轮廓或灭绝原因与日期。"
+  },
+  "original_inventory": {
+    "id": "megaloceros",
+    "ordinal_1based": 651,
+    "taxon": "Megaloceros",
+    "shape_gate": {
+      "en": "Shape criterion: huge flattened palmated antlers above a sturdy deer body. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：粗壮鹿体上方的巨大扁掌状角。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "taxon_scope": "Megaloceros giganteus",
+  "category": "animals",
+  "subcategory": "mammal",
+  "intended_use": "Static educational gallery asset, whole-animal silhouette and moderate-distance inspection; no animation, rig, habitat base or scientific measurement use.",
+  "units": "meters",
+  "material_profile": "palette-only static original geometry, opaque Principled/glTF-compatible materials; no image textures or reference-image embedding",
+  "pose": "Quiet four-foot stance, head held approximately forward and slightly above the withers, with no dramatic head turn; mild fore/aft leg stagger exposes all four limbs. Antlers approximately bilateral with controlled natural asymmetry, not extreme trophy symmetry.",
+  "scale": {
+    "shoulder_height_m": 1.95,
+    "nose_to_tail_length_m": 3.2,
+    "antler_span_m": 3.25,
+    "approximate_top_height_m": 3.2,
+    "basis": "Working artistic scale near museum-reported adult size. Only the approximate size class is evidence-backed; these exact model numbers are not specimen measurements.",
+    "tolerance": "Shoulder height ±8%; antler spread/shoulder height 1.55–1.80. Body proportions and crown depth remain shape-review targets, not fossil measurements."
+  },
+  "shape_requirements": [
+    "Silhouette first: a very wide pair of palmated antlers above a robust but leggy cervid, not a moose with a bulbous drooping muzzle, reindeer with many thin twig branches, or a generic deer scaled up.",
+    "Each antler has a stout pedicle/beam connection, a curved lateral beam, a separated basal/brow projection and a broad flattened distal palm with a handful of unequal tapered points and deep readable notches. Use a shallow compound curve and finite thickness, never a paper plane, solid oval paddle, repeated triangular comb or ring of cones.",
+    "Keep palm faces readable from front/oblique views and their thickness/fore-aft sweep readable from top and side. Antlers must remain clear of the ears, skull and opposite antler; do not fill the large negative spaces with a solid plate.",
+    "A shaped chest, robust rising neck, modest elevated withers and lower rump form continuous deliberate transitions; the shoulder support must not become an exaggerated bison/camel hump. Use a leaner abdomen behind the deep rib cage.",
+    "An elongated cervid head narrows toward a small dark muzzle, with lateral eyes, two leaf-shaped ears below the antler bases, a defined jaw transition, small tail and four anatomically bent legs terminating in paired cloven hooves.",
+    "Resolve shoulders, hips, wrists/hocks and ankle taper with custom loft/profile topology. No assembly of untouched spheres, capsules or uniform cylinders for the body and limbs. All four limbs remain distinct and weight-bearing.",
+    "Original warm earth palette separated by material region, not random per-face noise. Body planes mostly quiet, with geometry concentrated in the muzzle, joints, antler beam-to-palm transition, notches and tips. Do not bake shadows or hide defects with dark materials."
+  ],
+  "feature_obligations": [
+    {
+      "id": "F01",
+      "criterion": "Adult male giant-deer identity and huge bilateral antler-to-body relationship remain readable at thumbnail scale.",
+      "sources": [
+        "AMNH-IRISH-ELK",
+        "NHM-GIANT-DEER",
+        "NMI-LOUGH-NAGLACK"
+      ]
+    },
+    {
+      "id": "F02",
+      "criterion": "Palmation has irregular pointed margins, beam/pedicle transitions, a real curved volume and preserved negative spaces; no reconstruction of broken fossil edges as living antler tips.",
+      "sources": [
+        "NMI-LOUGH-NAGLACK",
+        "CORK-WILTON"
+      ]
+    },
+    {
+      "id": "F03",
+      "criterion": "Robust cervical/shoulder support integrates into a cervid trunk and long distal limbs without turning into moose or bison anatomy.",
+      "sources": [
+        "NHM-GIANT-DEER",
+        "NMI-LOUGH-NAGLACK"
+      ]
+    },
+    {
+      "id": "F04",
+      "criterion": "Coat palette, modest withers contour and exact antler branching are disclosed as interpretation; no claim to a measured individual.",
+      "sources": [
+        "NHM-GIANT-DEER",
+        "CORK-WILTON"
+      ]
+    }
+  ],
+  "texture_policy": {
+    "textures": 0,
+    "encoded_texture_bytes": 0,
+    "decoded_texture_bytes": 0,
+    "reason": "A restrained original palette is sufficient for this silhouette-led asset; geometry cannot be replaced by painted structure."
+  },
+  "budget_reason": "A practical 18k ceiling leaves room for deliberate torso/head lofts, joint transitions and closed curved antler palms with unequal tapered points. It is a ceiling, not a polygon target. Eight materials and forty primitives retain editable semantic parts without excessive draw calls.",
+  "gray_model_gate": "Inspect low-cost front, side and elevated oblique views before final materials/renders; add top only if antler sweep or ear clearance remains unclear. Reject a twig-only or flat-paddle crown, lumpy primitive torso, thin unsupported neck, hidden/fused limbs or broken joint flow.",
+  "final_evidence": "Four exact-export GLB views: front, side, top and perspective. Perspective may reuse preview byte-for-byte. No default turntable. Add a local view only for an actual unresolved feature and record the reason.",
+  "website_render_plan": {
+    "detail_preview_reuse": "Not claimed at prep: current release renderer/camera/config hashes have not been verified for this candidate. Retain canonical views; reuse only if actual integration contract and visual adequacy are verified.",
+    "wheel_768x432": "Deferred to integration if actually needed; do not render it during prep or routine maker/QA."
+  },
+  "required_next_stages": [
+    "Actual runtime/exporter probe and pinned dependencies",
+    "Original deterministic maker work in the same directory",
+    "Cheap gray-model structural self-check before polish",
+    "Source geometry and exact-GLB checks with Khronos validation",
+    "Two isolated rebuilds with semantic digest comparison",
+    "Four exact-export views and fresh independent visual/factual/specification review",
+    "Reader-format preflight after a genuine independent PASS, using verified current reader"
+  ],
+  "acceptance_boundary": "Preparation is not model QA, technical PASS, GPU/scene verification, user acceptance, publication approval or deployment."
+}

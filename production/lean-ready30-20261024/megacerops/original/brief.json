@@ -1,0 +1,200 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "megacerops",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 6,
+    "max_primitives": 40,
+    "max_glb_bytes": 2200000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "lateral_axis": "+X",
+    "origin": "Floor contact center at (0,0,0), feet at Z=0",
+    "units": "meters",
+    "export_mapping": "Blender (x,y,z) to glTF (x,z,-y); glTF +Y up and +Z forward"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Museum whole-skeleton evidence, inspected high-resolution lateral skull photographs, a historical frontal specimen photograph and a lateral skeleton illustration sufficiently constrain the conservative anatomy and silhouette. The two close skull photographs are near-duplicates, not independent multiviews. Different mounts supply shared arrangement only, not measurements or silently mixed horn proportions. Current template permits reference-led preparation without an extra generated concept."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original refined-low-poly whole adult reconstruction of Megacerops coloradensis, with the AMNH 518 mounted skeleton and skull as the principal form anchor. Not a scan, an exact specimen replica, or a claim of known sex.",
+  "scientific_limits": {
+    "en": "AMNH 518 is historically labeled Brontops robustus; modern taxonomic context places unbranched-horn Chadronian forms within M. coloradensis, but species-level systematics remain debated. Mount restoration and perspective prevent exact measurements. Body size is a representative estimate, not measured from this individual. Skin thickness, horn covering, ears, lips, tail soft tissue, color and resting pose are artistic inferences. Two unbranched bony nasal processes are required; do not import the distally forked horns of M. kuwagatarhinus or the single ram of Embolotherium. No combat behavior, exact sex, coat pattern or precise body mass is asserted.",
+    "zh": "AMNH 518 的历史展签使用 Brontops robustus；现代分类语境将晚始新世不分叉角型归入 M. coloradensis，但种级分类仍有讨论。展架补配与透视不支持精确测量。体型采用代表性估值，并非该个体实测。皮肤厚度、角表面覆盖、耳、唇、尾部软组织、颜色和静立姿势均属艺术推定。鼻前部必须是成对且各自不分叉的骨性突起，不得混入 M. kuwagatarhinus 的角端分叉或 Embolotherium 的单一撞槌。不得主张特定战斗方式、性别、毛色花纹或精确体重。"
+  },
+  "authoring_profile": "release-fit-v1",
+  "name": {
+    "en": "Megacerops",
+    "zh": "Megacerops（雷兽类）"
+  },
+  "taxon": "Megacerops coloradensis",
+  "classification": "Mammalia; Perissodactyla; Brontotheriidae. Not a rhinoceros.",
+  "target_budget": {
+    "triangles": [
+      9000,
+      15000
+    ],
+    "materials": [
+      4,
+      6
+    ],
+    "glb_primitives_target_max": 28,
+    "reason": "Spend topology on saddle-shaped head profile, rounded paired nasal processes, shoulder/neck transitions, leg joints and fourteen toe endings, not on a uniform subdivision or a field of primitive lumps."
+  },
+  "texture_policy": {
+    "profile": "palette-only",
+    "max_images": 0,
+    "max_encoded_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "reason": "Shape-first original geometry with a small portable PBR palette. Reference photographs are not textures."
+  },
+  "material_profile": {
+    "profile": "palette-only static opaque PBR",
+    "roughness_range": [
+      0.78,
+      0.94
+    ],
+    "metallic": 0,
+    "surface": "Deliberate faceted large and secondary planes; no glossy plastic, bone-white horns, fossil cracks, painted triangulation or random per-face noise."
+  },
+  "scale": {
+    "unit": "meter",
+    "head_to_rump_length_target_m": 4.4,
+    "shoulder_height_target_m": 2.3,
+    "torso_width_target_m": 1.16,
+    "tail_length_target_m": 0.58,
+    "head_length_target_m": 1.12,
+    "status": "Representative artistic dimensions, not specimen measurements. NPS gives approximately 4.9 m length and 2.4 m height for Badlands animals; RSM gives approximately 4 m length and 2 m shoulder height for its genus-level example. The chosen intermediate envelope is not a new scientific size claim."
+  },
+  "pose": {
+    "stance": "Quiet standing quadruped with a small fore/hind longitudinal foot stagger, all four feet weight bearing. Head held below shoulder crest; muzzle roughly level to slightly downturned. No charging or fighting narrative.",
+    "tail": "Short gently drooping tapered tail, clear of hind feet; modest terminal tuft is optional artistic inference.",
+    "symmetry": "Bilateral cranial anatomy; restrained asymmetric stance only, not asymmetrical horn count."
+  },
+  "diagnostic_targets": [
+    "Exactly two blunt, individually unbranched bony nasal processes beside one another on the frontonasal region, diverging outward and somewhat upward/forward. Their inner gap must read in front, top and perspective views.",
+    "Long heavy head with raised occipital/neck attachment, a concave saddle-like upper skull silhouette between the rear crest and nasal processes, a shortened blunt muzzle, deep cheek and substantial lower jaw.",
+    "Strong short neck flows into a high shoulder/withers mass; back descends gently toward lower hindquarters without an exaggerated camel hump or a steep toy-like wedge.",
+    "Deep barrel-shaped ribcage, restrained belly, robust upper limbs and more tapered lower limbs with visible joint placement; no four identical cylinders.",
+    "Four compact toe endings on each front foot and three on each hind foot, with shallow separations visible when inspected; not cloven hooves, single horse hooves or claws.",
+    "Living-animal skin envelope, small lateral ears and dark modest eyes with a readable lip line; no exposed skeleton, armor plates or museum support rods."
+  ],
+  "anti_targets": [
+    "No distal bifurcation of either nasal process: the pair makes a broad V/slingshot silhouette, not four prongs.",
+    "No rhinoceros tandem midline horns, single keratin cone, trunk, elephant tusks, deer antlers or Embolotherium ram.",
+    "Do not derive dimensions from the image pixels or scale bars of unrelated specimens; do not copy a mounted jaw gape into the resting living pose.",
+    "Do not reproduce fracture, damaged fossil edges, restorations, metal supports or the artistic outline printed in the museum fact sheet.",
+    "No faceted ball torso with visibly intersecting spherical shoulder/hip attachments; resolve anatomical transitions with purposeful lofts."
+  ],
+  "construction_intent": [
+    "Build torso and neck using nonuniform profile lofts with distinct chest, shoulder, lumbar and rump sections; use enough lateral samples to keep barrel curvature deliberate at close view.",
+    "Create the head from controlled longitudinal cross sections and explicit cheek/mandible planes. Preserve the concave dorsal saddle before adding small eyes, ears, nostrils and mouth seam.",
+    "Use curved tapered cross sections for paired nasal processes with thick shared frontonasal bases and rounded flattened tips. Match the short robust AMNH 518 character, not the tallest horn form in another specimen.",
+    "Legs need shoulder/elbow/carpal and hip/stifle/hock changes in thickness and angle. Join smoothly into torso skin while keeping leg gaps readable from the front and side.",
+    "Palette regions should follow anatomy: warm gray-brown main hide, slightly lighter flank/muzzle, darker feet and recesses. Horn covering remains a conservative skin-adjacent artistic material rather than a proven ivory or keratin sheath."
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "paired_unbranched_processes",
+      "criterion": "Exactly two short robust nasal processes, separate tips and a clear central gap; no branches or tandem arrangement.",
+      "evidence_sources": [
+        "PE-2021",
+        "AMNH-BRONTOTHERIIDAE",
+        "RSM-BRONTOTHERE",
+        "OSBORN-1929-PL-XLI"
+      ],
+      "views": [
+        "front",
+        "top",
+        "perspective"
+      ]
+    },
+    {
+      "id": "cranial_profile",
+      "criterion": "Recognizable long saddle-shaped skull envelope, high rear attachment and deep cheek/jaw; head does not become a generic modern rhino cube.",
+      "evidence_sources": [
+        "AMNH-518-SKULL-1",
+        "AMNH-518-SKULL-2"
+      ],
+      "views": [
+        "side",
+        "perspective"
+      ]
+    },
+    {
+      "id": "heavy_withers_body",
+      "criterion": "High shoulder mass slopes toward rump; robust but articulated limbs and readable negative spaces; no unmodified primitive assembly.",
+      "evidence_sources": [
+        "AMNH-BRONTOTHERIIDAE",
+        "RSM-BRONTOTHERE"
+      ],
+      "views": [
+        "side",
+        "front",
+        "perspective"
+      ]
+    },
+    {
+      "id": "toe_pattern",
+      "criterion": "Four front and three rear toes on each side, subtle but inspectable; final top/front evidence must not hide their intended geometry.",
+      "evidence_sources": [
+        "RSM-BRONTOTHERE",
+        "OSBORN-1929-PL-XLI"
+      ],
+      "views": [
+        "front",
+        "top",
+        "perspective"
+      ]
+    },
+    {
+      "id": "scientific_boundaries",
+      "criterion": "Uncertain soft tissue, estimated scale and mixed reference scope are disclosed; no exact specimen, sex or behavior claim.",
+      "evidence_sources": [
+        "PE-2021",
+        "NPS-BRONTOTHERE"
+      ],
+      "views": []
+    },
+    {
+      "id": "craft",
+      "criterion": "Clean joins, deliberately shaped planes, no holes or accidental intersections, grounded feet and uncropped tail/horns in exact-export views.",
+      "evidence_sources": [],
+      "views": [
+        "front",
+        "side",
+        "top",
+        "perspective"
+      ]
+    }
+  ],
+  "gray_model_gate": "Inspect 3-4 cheap gray/clay images from front, side, top or oblique before costly final rendering. Resolve horn gap, dorsal head saddle, shoulder height and foot count first. These are authoring diagnostics, not final GLB proof.",
+  "final_evidence": "Four canonical exact-GLB front/side/top/perspective images, with perspective reusable byte-for-byte as preview. Original technical checks, Khronos format validation, two isolated rebuilds and fresh independent visual/factual review remain required.",
+  "view_plan": {
+    "front": "Camera on -Y; exposes paired nasal processes and forefoot count.",
+    "side": "Camera on +X; shows concave head profile, withers, back slope and limb transitions.",
+    "top": "Camera on +Z; shows side-by-side horn placement, lateral skull/shoulder width and foot gaps.",
+    "perspective": "Camera in +X,-Y,+Z quadrant; full body including tail, horn tips and all feet.",
+    "extra_views": "None by default; only add a specific unresolved toe or horn-base detail and record why."
+  },
+  "website_display": {
+    "intended_later_publication": true,
+    "reuse_512_plan": "Not promised at prep. Canonical perspective remains the evidence baseline; use a verified website 512 renderer/camera contract only if it is already available and still demonstrates the required features. Do not call a generic Blender 512 render website-compatible.",
+    "wheel_768x432": "Defer to authorized integration; no maker-stage extra render."
+  },
+  "required_runtime_scope": "Static standalone GLB with opaque mesh materials; no rig, animation, lights, cameras, external buffers or unapproved extensions. GPU, combined scene, user acceptance and deployment remain UNKNOWN unless separately observed."
+}

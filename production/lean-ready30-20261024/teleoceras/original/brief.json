@@ -1,0 +1,69 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "teleoceras",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct skeletal photographs establish required silhouette; original shape design can proceed without extra concept images. This does not replace gray-model and independent exact-export visual review."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original stylized adult Teleoceras proterum living reconstruction guided by the Florida Museum composite mount; not an individual specimen scan.",
+  "scientific_limits": {
+    "en": "Soft tissue, color, pose and unsourced dimensions are artistic estimates. Museum mounts may contain restored/composite elements; no specimen-exact anatomy or ecology is certified.",
+    "zh": "软组织、颜色、姿态及无测量依据的尺寸为美术估值。博物馆骨架可能含复原或复合部分；不声称精确标本解剖或生态。"
+  },
+  "original_inventory": {
+    "id": "teleoceras",
+    "ordinal_1based": 626,
+    "taxon": "Teleoceras",
+    "shape_gate": {
+      "en": "Shape criterion: short stout legs beneath an extremely barrel-shaped rhinoceros trunk. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：极桶状犀类躯干下方的短粗腿。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block short stout legs beneath an extremely barrel-shaped rhinoceros trunk with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织极桶状犀类躯干下方的短粗腿；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "taxon_scope": "Teleoceras proterum",
+  "material_profile": "palette-only static original geometry; restrained earth tones, no reference-image embedding",
+  "units": "meters",
+  "pose": "Neutral four-foot terrestrial stance, short lowered neck, slight head turn; all four limbs visually separable.",
+  "scale": {
+    "target_length_m": 2.8,
+    "target_width_m": 1.15,
+    "target_height_m": 1.25,
+    "basis": "All dimensions are working artistic estimates, not specimen measurements.",
+    "tolerance": "Length ±10%; width/height are silhouette design targets not hard scientific measurement gates."
+  },
+  "shape_requirements": [
+    "Very deep rounded barrel ribcage dominates the side and top silhouette; short stout legs remain visibly beneath rather than hidden inside the body.",
+    "Low elongated rhinoceros head, short neck, small ears, small nasal horn treated as inferred keratin covering; no hippo-wide mouth or giant horns.",
+    "Four short three-toed feet with clear contact and compact tail; no long slender Hyracodon-like limbs.",
+    "Do not achieve bulk by a featureless sphere; profile/loft chest, shoulder, haunch and tapered neck transitions."
+  ],
+  "gray_model_gate": "Inspect side, front and elevated oblique at low cost before final detail; reject if original inventory shape combination is absent. No automatic scientific PASS from numeric limits.",
+  "final_evidence": "Four exact-export views front/side/top/perspective; perspective may equal preview. No extra turntable or website-sized image until needed; independent reviewer judges original shape gate."
+}

@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "drepanaspis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "body center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original Drepanaspis gemuendenensis living stylization informed by museum fossil photographs, not a scan or exact fossil reconstruction.",
+  "scientific_limits": {
+    "en": "Body thickness, complete tail-fin outline, mouth and eye soft-tissue details, posture, color and dimensions are estimates. Flattened fossil plates are not literal living surface cracks. Raylike describes the broad flat silhouette, not ray ancestry or paired ray fins.",
+    "zh": "体厚、完整尾鳍轮廓、口眼软组织细节、姿态、颜色及尺寸均为估值。压扁化石的板块裂缝并非活体表面裂缝。鳐状仅描述宽扁轮廓，不表示鳐类亲缘或具有鳐类成对鳍。"
+  },
+  "taxon_scope": "Drepanaspis gemuendenensis (image filename variant gemuendensis)",
+  "dimensions_estimate_m": {
+    "length": 0.35,
+    "width": 0.23,
+    "height": 0.045,
+    "basis": "Artistic representative envelope, not measured museum specimen."
+  },
+  "shape_requirements": [
+    "Preserve extremely broad flat raylike head shield and small projecting tail from original inventory.",
+    "Broad low shield dominates plan view; narrow posterior tail is subordinate rather than long whip or eel body.",
+    "Indicate major central and marginal armor plates with restrained raised seams, not a smooth manta-ray disk.",
+    "Keep jawless anterior mouth modest and eyes subtle; no hinged jaws, teeth or paired ray wings."
+  ],
+  "construction_notes": [
+    "Use shallow domed shield with finite thickness, not zero-thickness plane.",
+    "Fossils show fragmented and displaced plates; do not reproduce breakage as decorative armor.",
+    "Tail fin and live surfaces remain conservative inferences; no feeding mechanism claim."
+  ],
+  "original_inventory": {
+    "id": "drepanaspis",
+    "ordinal_1based": 547,
+    "taxon": "Drepanaspis",
+    "shape_gate": {
+      "en": "Shape criterion: extremely broad flat raylike head shield and small projecting tail. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：极宽扁鳐状头盾与小型突出尾部。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block extremely broad flat raylike head shield and small projecting tail with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织极宽扁鳐状头盾与小型突出尾部；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

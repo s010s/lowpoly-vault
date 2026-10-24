@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "origin": "canonical pipeline helper, fixed copy"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "origin": "canonical pipeline helper, fixed copy"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "origin": "canonical pipeline helper, fixed copy"
+    },
+    {
+      "path": "source/deps/check_runtime.mjs",
+      "sha256": "928625afdd075454f8815d6d655f4203a07bf150d2d444b5da2924d922f831bb",
+      "origin": "original narrowly scoped technical check"
+    },
+    {
+      "path": "source/deps/check_source_blend.py",
+      "sha256": "c153323708182c4cf732524ecdbf73c5fb1cf1e7c47e993854056de2fe894229",
+      "origin": "original narrowly scoped technical check"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "modules": [
+        "bpy",
+        "bmesh",
+        "mathutils"
+      ],
+      "scope": "generation and Cycles CPU preview"
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.13.5 bundled runtime, observed during build",
+      "scope": "generator"
+    },
+    {
+      "name": "gltf-validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "external technical check, not generation"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "Node GLTFLoader parse, not generation or GPU"
+    }
+  ]
+}

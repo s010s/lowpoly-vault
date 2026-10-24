@@ -1,0 +1,88 @@
+{
+  "asset_id": "megaloceros",
+  "revision": "r001",
+  "seed": 651,
+  "units": "meters",
+  "design_targets": {
+    "shoulder_height_m": 1.95,
+    "nose_to_tail_length_m": 3.2,
+    "antler_span_m": 3.25,
+    "approximate_top_height_m": 3.2,
+    "head_turn_deg": 0,
+    "stance": "neutral four-foot; small fore/aft offsets, no animation"
+  },
+  "relative_proportions": {
+    "normalization": "H = target shoulder height; author/export meters, do not normalize the finished animal to a unit cube",
+    "trunk_length_over_H": 1.0,
+    "max_ribcage_width_over_H": 0.38,
+    "ribcage_depth_over_H": 0.46,
+    "belly_clearance_over_H": 0.5,
+    "rump_height_over_H": 0.92,
+    "head_length_over_H": 0.29,
+    "ear_length_over_H": 0.14,
+    "tail_length_over_H": 0.12,
+    "antler_span_over_H": 1.667,
+    "antler_fore_aft_extent_over_H": 0.5,
+    "antler_main_palm_thickness_m": [
+      0.035,
+      0.07
+    ],
+    "antler_point_count": "Unequal stylized margin points; no exact diagnostic count frozen. Preserve basal projection and broad palm rather than maximizing points.",
+    "status": "Art-direction starting proportions, not measured fossil data; retain brief tolerance and submit actual morphology to review"
+  },
+  "palette": {
+    "body-warm-taupe": "#8A6B4E",
+    "dorsal-neck": "#70533F",
+    "ventral-soft-tan": "#B29A76",
+    "antler-bone": "#B5A081",
+    "hooves-muzzle": "#423B32",
+    "eye": "#211F1B",
+    "ear-inner": "#8B7061"
+  },
+  "shading": {
+    "strategy": "Deliberate mixed faceted/soft normals with broad quiet torso planes and sharper antler edges",
+    "metallic": 0,
+    "roughness_range": [
+      0.65,
+      0.9
+    ],
+    "alpha": "OPAQUE",
+    "double_sided": "Do not use double-sided materials to conceal broken winding or unclosed palms"
+  },
+  "budgets": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 40,
+    "max_glb_bytes": 2000000
+  },
+  "textures": {
+    "count": 0,
+    "encoded_bytes": 0,
+    "decoded_bytes": 0
+  },
+  "construction": "Original custom ring/profile lofts for torso, neck, head and anatomical limb tapers; curved, closed finite-thickness antler meshes with independently editable beam/palm/tine logic. No imported mesh or copied reference pixels.",
+  "runtime_plan": {
+    "blender_expected": "4.3.2",
+    "actual_blender": "4.3.2",
+    "actual_gltf_exporter": "4.3.47",
+    "actual_viewer_version": "0.180.0",
+    "note": "Maker must probe and record actual tools before geometry. Source dependencies are copied from a pinned canonical version into source/deps and inventoried by relative path and hash."
+  },
+  "qa_plan": {
+    "gray_views": [
+      "front",
+      "side",
+      "perspective"
+    ],
+    "conditional_gray_view": "top if antler planform/clearances remain uncertain",
+    "final_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "rebuilds": 2,
+    "isolated_rebuilds": true,
+    "reference_image_embedding": false
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "arthropleura",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [
+      {
+        "view": "perspective",
+        "direction": [
+          0.574,
+          -0.819,
+          0.466
+        ],
+        "reason": "Canonical helper hero preset gives a lower oblique silhouette and readable short legs beneath the broad plates; orthographic presentation, not a perspective lens."
+      }
+    ],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original genus-level Arthropleura living reconstruction; broad adult body extrapolated from fossil trunk form, with head informed by 2024 juvenile Montceau-les-Mines evidence. Not an exact species or specimen replica.",
+  "scientific_limits": {
+    "en": "Adult dimensions, segment count, head scaling, color and posture are artistic estimates. Juvenile head traits do not prove identical proportions in a giant adult. No venom fangs or predatory raptorial legs; diet not established.",
+    "zh": "成年个体的尺寸、体节数量、头部比例、颜色和姿态均为艺术估计。幼体的头部特征不能证明巨型成年个体具有相同的比例。不具有毒牙或捕食型特化步足；食性尚未确定。"
+  },
+  "taxon_scope": "Arthropleura sp.; head evidence from unidentified juvenile species, not asserted to be A. mammata",
+  "dimensions_estimate_m": {
+    "length": 2.0,
+    "width": 0.48,
+    "height": 0.16,
+    "basis": "Artistic display envelope, not measured specimen; giant body scale and juvenile-informed head are explicitly extrapolated."
+  },
+  "shape_requirements": [
+    "Preserve original long low body, wide paired lateral plates and numerous short legs; this combination is the acceptance target, not a generic round millipede.",
+    "Repeated dorsal trunk modules with broad lateral extensions and articulated gaps; low gently arched section, not tall cylindrical trunk.",
+    "Numerous slender short walking legs underneath; preserve paired limb rhythm and multiple pairs per trunk unit, with readable lateral negative space. Combine mesh objects if necessary, not fewer giant legs.",
+    "Small rounded head, slender antennae and small stalked eyes informed by juvenile fossils; modest scaling, no invented horns or scorpion chelicerae."
+  ],
+  "construction_notes": [
+    "Approximate 22-26 dorsal modules for a readable adult concept is an art simplification, not a measured fixed segment count. Keep taper at posterior and narrower head; no exact count requirement added.",
+    "Neutral brown/tan cuticle is artistic; shallow facet seams suffice, no dense surface texture.",
+    "Three gray views verify original body/plates/legs combination. No additional scene, rock base, taxonomic ornament, animation or concept image required."
+  ],
+  "original_inventory": {
+    "id": "arthropleura",
+    "ordinal_1based": 821,
+    "taxon": "Arthropleura",
+    "shape_gate": {
+      "en": "Its distinguishing construction is long low body tiled with wide lateral plates and numerous short legs; retain this geometry rather than treating it as a recolor, scale or pose variant.",
+      "zh": "以低长身体覆盖宽侧甲片，下具众多短足为独立造型依据；须保留这些结构差异，不能仅靠换色、缩放或姿势区别。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly direction: establish long low body tiled with wide lateral plates and numerous short legs in the blockout, then preserve the largest silhouette breaks and openings. Simplify fine ornament and repeated elements without copying reference meshes; palette and presentation are artistic choices, not fossil evidence.",
+      "zh": "原创低多边形方向：先以低长身体覆盖宽侧甲片，下具众多短足搭建体块，再保留主要外轮廓转折与孔隙。细纹及重复结构可简化，不复制参考网格；配色与展示方式属于美术选择，并非化石证据。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}
