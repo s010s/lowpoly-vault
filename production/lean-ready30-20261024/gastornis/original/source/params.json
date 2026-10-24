@@ -1,0 +1,92 @@
+{
+  "asset_id": "gastornis",
+  "revision": "r001",
+  "seed": 64169,
+  "units": "meters",
+  "target_height_m": 2.0,
+  "ratio_basis": "All ratios are dimensionless fractions of target height. These are original artistic controls guided by references, not fossil measurements.",
+  "proportions": {
+    "torso_length": 0.43,
+    "torso_width": 0.34,
+    "torso_depth": 0.38,
+    "hip_height": 0.53,
+    "head_total_length": 0.24,
+    "head_total_depth": 0.17,
+    "head_rear_width": 0.115,
+    "beak_length": 0.145,
+    "beak_depth": 0.13,
+    "beak_width": 0.068,
+    "visible_neck_length": 0.25,
+    "neck_width": 0.115,
+    "exposed_tibiotarsus_length": 0.22,
+    "exposed_tarsometatarsus_length": 0.14,
+    "middle_toe_length": 0.135,
+    "lateral_toe_length": 0.1,
+    "hallux_length": 0.05,
+    "tail_projection": 0.1,
+    "tucked_wing_length": 0.13
+  },
+  "pose": {
+    "foot_spacing_ratio": 0.16,
+    "foot_fore_aft_offset_ratio": 0.04,
+    "head_yaw_degrees": 0,
+    "head_pitch_degrees": 0,
+    "closed_beak": true,
+    "maximum_body_lean_degrees": 6
+  },
+  "shape_constraints": {
+    "beak_depth_to_length_target": [
+      0.75,
+      1.05
+    ],
+    "beak_width_to_depth_target": [
+      0.4,
+      0.65
+    ],
+    "front_toes_per_foot": 3,
+    "small_posterior_hallux_per_foot": 1,
+    "minimum_visible_leg_gap_m": 0.08,
+    "raptor_hook": false,
+    "teeth": false,
+    "crest": false,
+    "feather_microgeometry": false
+  },
+  "geometry_target": {
+    "triangles_min": 4500,
+    "triangles_max": 8000,
+    "ceiling_triangles": 12000,
+    "ceiling_materials": 8,
+    "ceiling_primitives": 32,
+    "ceiling_glb_bytes": 2000000
+  },
+  "palette_srgb": {
+    "plumage_main": "#66584B",
+    "plumage_shadow": "#463E36",
+    "plumage_light": "#8C7B65",
+    "neck_head": "#756858",
+    "beak": "#A78E69",
+    "legs_toes": "#827564",
+    "eye_nail": "#24231E"
+  },
+  "palette_limit": "Entire palette is artistic and non-diagnostic; convert sRGB to linear correctly.",
+  "portable_paths": {
+    "brief": "brief.json",
+    "references": "references.json",
+    "generator": "source/generate.py",
+    "dependencies": "source/dependencies.json",
+    "glb": "model.glb",
+    "blend": "model.blend",
+    "preview": "preview.png",
+    "views": "views",
+    "decision": "qa/decision.json"
+  },
+  "runtime_policy": {
+    "static_meshes": true,
+    "texture_free": true,
+    "embedded_buffers": true,
+    "animations": false,
+    "skins": false,
+    "required_extensions": [],
+    "pin_actual_runtime_before_build": true
+  }
+}

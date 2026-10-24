@@ -1,0 +1,155 @@
+{
+  "asset_id": "platybelodon",
+  "revision": "r001",
+  "seed": 13207,
+  "units": "meters",
+  "profile": "palette-only-refined-lowpoly-static",
+  "paths": {
+    "output_glb": "model.glb",
+    "output_blend": "model.blend",
+    "preview": "preview.png",
+    "views_dir": "views",
+    "dependencies": "source/deps"
+  },
+  "scale": {
+    "shoulder_height_m": 2.3,
+    "overall_length_target_m": 5.0,
+    "body_width_target_m": 1.3,
+    "basis": "Artistic display scale, not a measured whole animal"
+  },
+  "relative_design_parameters": {
+    "normalization": "All ratios below use shoulder height H=1. They are starting design constraints, not paleontological measurements. Adjust only within ranges while preserving the frozen feature obligations.",
+    "torso_length_H": [
+      1.08,
+      1.22
+    ],
+    "torso_width_H": [
+      0.5,
+      0.63
+    ],
+    "belly_clearance_H": [
+      0.38,
+      0.48
+    ],
+    "hip_height_H": [
+      0.89,
+      0.98
+    ],
+    "head_body_connection_height_H": [
+      0.77,
+      0.88
+    ],
+    "male_skeletal_mandible_to_skull_length": 1.495032,
+    "male_skeletal_symphyseal_length_to_mandible_length": 0.445317,
+    "male_skeletal_distal_width_to_symphyseal_length": 0.455902,
+    "male_skeletal_distal_width_to_minimum_waist_width": 1.909091,
+    "skeletal_ratio_note": "The four male ratios above derive only from P1 HMV0940 Tables1–2; soft-tissue envelope can be slightly broader but must preserve the long taper and waist. Do not impose the artistic torso ratios as source measurements.",
+    "shovel_front_height_H": [
+      0.36,
+      0.48
+    ],
+    "shovel_tip_tilt_degrees": [
+      0,
+      10
+    ],
+    "trunk_centerline_length_H": [
+      0.6,
+      0.8
+    ],
+    "trunk_base_radius_H": [
+      0.075,
+      0.105
+    ],
+    "trunk_tip_radius_H": [
+      0.02,
+      0.03
+    ],
+    "trunk_tip_lateral_offset_H": [
+      0.1,
+      0.18
+    ],
+    "lower_tusk_center_seam_H": [
+      0.004,
+      0.009
+    ],
+    "ear_height_H": [
+      0.17,
+      0.23
+    ],
+    "ear_width_H": [
+      0.12,
+      0.17
+    ],
+    "tail_length_H": [
+      0.33,
+      0.44
+    ],
+    "front_foot_center_separation_H": [
+      0.34,
+      0.43
+    ],
+    "hind_foot_center_separation_H": [
+      0.33,
+      0.42
+    ],
+    "foot_contact_tolerance_m": 0.003
+  },
+  "construction_guidance": {
+    "torso": "Hand-profiled longitudinal loft with shoulder/chest and pelvic contour transitions; no unmodified default ellipsoid body.",
+    "head": "Profile-driven male cranium and rostrum with cheek/temple planes; do not make a sphere with tusks attached.",
+    "lower_jaw": "Loft a structural skin-covered mandibular trough from cheek to narrow waist to broad shallow shovel; two distinct ivory tusk blades at the anterior end. Keep slight dish curvature and nonzero thickness.",
+    "trunk": "Continuous tapering swept sections with a gentle offset bend, not a chain of cylinders or unsupported ring ridges.",
+    "limbs": "Tapered profiled legs with controlled knee/ankle and foot transitions; avoid ball joints.",
+    "ears": "Thickness-bearing shaped fan surfaces, not floating triangles or huge African-elephant ears.",
+    "detail": "Eye in a restrained socket plane, simple nails and optional small tail tuft as artistic choices. No fossil cracks or preserved-bone colours on the living model."
+  },
+  "palette_srgb": {
+    "skin": "#82766A",
+    "skin_shadow": "#695E54",
+    "ear_inner": "#756156",
+    "ivory": "#D8C9A6",
+    "eye": "#292521",
+    "nails": "#A2937B"
+  },
+  "roughness": {
+    "skin": 0.88,
+    "ivory": 0.56,
+    "eye": 0.34,
+    "nails": 0.77
+  },
+  "geometry_targets": {
+    "target_triangles_min": 6500,
+    "target_triangles_max": 9500,
+    "hard_max_triangles": 12000,
+    "hard_max_materials": 7,
+    "hard_max_primitives": 24,
+    "hard_max_glb_bytes": 2097152
+  },
+  "view_plan": {
+    "quick_checks": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "perspective_may_equal_preview": true,
+    "website_contract_pinned": false
+  },
+  "generation_status": "IMPLEMENTED_DETERMINISTIC_SOURCE",
+  "resolved_design": {
+    "shoulder_height_m": 2.31,
+    "torso_max_width_m": 1.34,
+    "whole_pose_length_m": 4.93857,
+    "mandibular_waist_width_m": 0.282,
+    "distal_lower_tusk_pair_width_m": 0.558,
+    "exposed_lower_tusk_length_m": 0.6,
+    "lower_tusk_pair_gap_target_m": 0.016,
+    "notes": "Soft-tissue and pose dimensions are artistic, not measurements of HMV0940. Four reference skeletal ratios remain input guides rather than claims of bone exactness."
+  }
+}

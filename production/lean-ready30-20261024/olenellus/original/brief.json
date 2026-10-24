@@ -1,0 +1,79 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "olenellus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 16000,
+    "max_materials": 8,
+    "max_primitives": 100,
+    "max_glb_bytes": 3000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "root": "Identity export root at floor center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected named fossil imagery and museum context suffice for this bounded silhouette brief; no extra generated concept is needed. Hidden depth and soft tissues remain explicitly inferred."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Genus-level original low-poly living reconstruction informed by museum-identified Olenellus gilberti P12142 dorsal fossil. Not a fossil scan or a claim that hidden anatomy is directly preserved.",
+  "scientific_limits": {
+    "en": "Color, body thickness, pose and unpreserved soft tissues are artistic estimates. Selected references support the stated diagnostic silhouette, not every reconstructed detail or exact dimensions. No place-specific coexistence claim.",
+    "zh": "配色、体厚、姿态和未保存软组织为美术估值；资料支持所列鉴别轮廓，不证明所有复原细节或精确尺寸，不作特定地点共存声称。"
+  },
+  "name": {
+    "en": "Olenellus crescent-head trilobite",
+    "zh": "Olenellus（月牙头三叶虫）"
+  },
+  "category": "animals",
+  "subcategory": "arthropod",
+  "taxon": "Olenellus",
+  "shape_gate": {
+    "en": "Its distinguishing construction is wide crescent head with long cheek spines and a narrow many-segmented tailward trunk; retain this geometry rather than treating it as a recolor, scale or pose variant.",
+    "zh": "以宽月牙头甲带长颊刺，躯干多节向尾变窄为独立造型依据；须保留这些结构差异，不能仅靠换色、缩放或姿势区别。"
+  },
+  "required_features": [
+    "Broad crescent cephalon with two backward genal spines and a readable central glabella.",
+    "Narrow axial lobe and many discrete thoracic segments tapering tailward, pleural tips sweeping backward.",
+    "Avoid broad fan-shaped pygidium or a generic pill-shaped trilobite; head width, long genal spines and taper must carry identity."
+  ],
+  "scale": {
+    "unit": "metre",
+    "length": 0.08,
+    "basis": "Artistic representative size estimate, not measured from the illustrated specimen; do not claim a taxon maximum."
+  },
+  "style": {
+    "profile": "palette-only",
+    "direction": "Refined low-poly with deliberate loft/profile topology and restrained neutral palette; avoid untreated primitive assembly."
+  },
+  "required_checks": [
+    "Source geometry and dependency checks",
+    "Official Khronos GLB validation",
+    "Two isolated deterministic rebuilds and semantic digest comparison",
+    "Exact GLB clean-import front, side, top and perspective image inspection",
+    "Fresh independent visual, factual and specification review; retain real PENDING until reviewed"
+  ],
+  "reference_obligations": [
+    "Keep original inventory shape gate; do not replace it with a name/scale/pose variation.",
+    "No requirement for one complete fossil; combine complementary evidence and label inference.",
+    "No additional default turntable, detail image, scientific or platform gate."
+  ],
+  "quick_gray_views": [
+    "front",
+    "side",
+    "top",
+    "perspective"
+  ]
+}

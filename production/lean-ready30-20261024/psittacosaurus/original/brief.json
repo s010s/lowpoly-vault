@@ -1,0 +1,73 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "psittacosaurus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center beneath hindfeet"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original genus-level Psittacosaurus living reconstruction anchored to bristle-bearing SMF R4970. Species deliberately left indeterminate, following primary study rather than falsely naming the specimen P.mongoliensis.",
+  "scientific_limits": {
+    "en": "SMF R4970 is crushed and not securely assigned to a species. Skull breadth, restored beak and cheek proportions, complete bristle tips, body thickness, color and pose are estimates. Tail bristles are directly evidenced, but their exact original count and full lengths are not reconstructed here. No species-specific pattern or sex is asserted.",
+    "zh": "SMF R4970受压扁且无法可靠归入具体种。头骨宽度、复原喙与颊部比例、完整鬃端、体厚、颜色及姿态均为估值。尾鬃有直接证据，但本模型不复刻其原始精确数量和完整长度。不主张特定种的花纹或性别。"
+  },
+  "taxon_scope": "Psittacosaurus sp., SMF R4970; not asserted to be P.mongoliensis or P.lujiatunensis",
+  "dimensions_estimate_m": {
+    "length": 1.5,
+    "hip_height": 0.55,
+    "width": 0.3,
+    "basis": "Artistic envelope, not measured SMF R4970; NHM2m is general genus context only."
+  },
+  "shape_requirements": [
+    "Original short deep beak, lateral cheek projections and bristled tail region must be visible together.",
+    "Compact deep skull with paired modest jugal projections, not large neck frill or long Triceratops face horns.",
+    "Tail has a localized dorsal bristle zone of individually legible slender rods, not a full feather fan, sail or uniform spikes over entire back.",
+    "Compact trunk, stronger hindlimbs and short forelimbs, long tapering tail; maintain head and limb gaps."
+  ],
+  "construction_notes": [
+    "Use a restrained set of bristle bundles as low-poly simplification; no exact91-bristle replication requirement or sharp porcupine spines.",
+    "Do not confuse fossil crushing or missing bristle tips with living anatomy. Mildly rounded/blunt bristle ends are acceptable.",
+    "Neutral brown palette with restrained light belly is artistic, not a precise measured pigmentation map.",
+    "Original gate is checked in front/side/oblique gray views before detail; no extra pose or fine-skin map gate."
+  ],
+  "original_inventory": {
+    "id": "psittacosaurus",
+    "ordinal_1based": 407,
+    "taxon": "Psittacosaurus",
+    "shape_gate": {
+      "en": "Shape criterion: short deep beak, cheek projections and bristled tail region. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：短深喙、颊部突起与尾部鬃状区。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block short deep beak, cheek projections and bristled tail region with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织短深喙、颊部突起与尾部鬃状区；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "cheirolepis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "body center projected to floor"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original Cheirolepis trailli living reconstruction, guided by Fukui museum fossil photograph and JNCC published reconstructions after Pearson and Westoll1979. Not a specimen scan.",
+  "scientific_limits": {
+    "en": "Body thickness, fin margins, gape pose, color and dimensions are estimates. The actual Fukui photograph is small and flattened; JNCC panels A/B are restorations, not fossils. JNCC's captioned T00382/A photograph is missing in this PDF and was not observed.",
+    "zh": "体厚、鳍缘、张口姿态、颜色及尺寸均为估值。福井实物照片较小且化石受压扁；JNCC的A/B图是复原图而非化石照片。该PDF缺失图注所述T00382/A照片，并未观察到它。"
+  },
+  "taxon_scope": "Cheirolepis trailli; historical Cheirolepis uragus treated as synonym in JNCC",
+  "dimensions_estimate_m": {
+    "length": 0.3,
+    "body_width": 0.06,
+    "body_height": 0.075,
+    "basis": "Artistic envelope near illustrated small fish proportions, not measured specimen."
+  },
+  "shape_requirements": [
+    "Original small scaled ray-finned body with large gape and uneven tail lobes. Large mouth must read without turning head into armored placoderm block.",
+    "Long oblique jaw line and moderate open mouth, tapered scaled trunk, tail with upward extended axial lobe and unequal web lobes.",
+    "Paired pectoral/pelvic fins and posterior dorsal/anal fins; low-poly fin-ray cues subordinate to silhouette.",
+    "Subtle small scale rhythm on trunk, not Coccosteus head shield or large gar-like plate armor."
+  ],
+  "construction_notes": [
+    "Keep exact scale count and fin-ray count simplified and explicitly artistic.",
+    "Use geometry for visible tail asymmetry and mouth opening; no texture-only substitute.",
+    "Restrained gray brown palette, static swimming pose; no water scene required."
+  ],
+  "original_inventory": {
+    "id": "cheirolepis",
+    "ordinal_1based": 582,
+    "taxon": "Cheirolepis",
+    "shape_gate": {
+      "en": "Shape criterion: small scaled ray-finned body with large gape and uneven tail lobes. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：小型鳞质辐鳍鱼身体、大口与不等尾叶。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block small scaled ray-finned body with large gape and uneven tail lobes with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织小型鳞质辐鳍鱼身体、大口与不等尾叶；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

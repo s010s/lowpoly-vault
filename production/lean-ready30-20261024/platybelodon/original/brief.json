@@ -1,0 +1,170 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "platybelodon",
+  "revision": "r001",
+  "name": {
+    "en": "Platybelodon",
+    "zh": "铲齿象"
+  },
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 7,
+    "max_primitives": 24,
+    "max_glb_bytes": 2097152
+  },
+  "coordinates": {
+    "up": "+Z",
+    "asset_forward": "-Y",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "origin": "Ground-contact center of the four feet; Blender root identity transform at (0,0,0).",
+    "gltf_axes": "Export with Y up; animal forward becomes +Z."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Primary specimen photographs provide dorsal, anterior and lateral hard-tissue information; the 2024 published reconstruction provides separately labelled soft-tissue context. These are sufficient for an original, conservatively scoped silhouette brief. No extra ImageGen concept is necessary and no generated image is scientific evidence."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original refined low-poly living reconstruction of an adult male Platybelodon grangeri, using HMV0940 as the cranial and mandibular proportion anchor and other explicitly identified adult male fossils only for complementary views. Not a scan, measured whole skeleton, exact individual, or claim that soft anatomy is preserved.",
+  "scientific_limits": {
+    "en": "The head is informed by fossils, principally HMV0940. The body envelope, ear shape, trunk length and pose, skin, colour, feet and tail are artistic reconstruction choices. Trunk function is inferred from skeletal morphology and functional analysis, not preserved soft tissue. The dorsal male jaw reference HMV0031 is a different individual. Do not combine female or juvenile proportions into the male design, claim an exact body size, or portray mud-shovelling as established behaviour.",
+    "zh": "头部主要参照 HMV0940 化石。体躯范围、耳形、鼻长与姿态、皮肤、颜色、脚和尾均为艺术复原选择。鼻部功能来自骨骼形态与功能分析推断，并非保存的软组织。雄性下颌背视参考 HMV0031 属另一标本；不得混入雌性或幼体比例，不宣称精确体型，也不把铲泥解释成已确定行为。"
+  },
+  "taxon_scope": {
+    "taxon": "Platybelodon grangeri",
+    "life_stage": "adult",
+    "cranial_morph": "male, fossil-inferred",
+    "primary_specimen": "HMV0940, Hezheng Paleozoological Museum",
+    "complementary_specimens": [
+      "HMV0031 adult male mandible dorsal view",
+      "HMV0024 adult male skull anterior view"
+    ],
+    "comparison_only": [
+      "HMV0930 in Li et al. 2024, sex not assumed here",
+      "HMV0023 and HMV0042 female specimens, not copied into target proportions",
+      "HMV1813 juvenile, not copied into target proportions"
+    ],
+    "period": "Middle Miocene",
+    "locality_scope": "Linxia Basin, China; no exact numerical age is asserted"
+  },
+  "dimensions_estimate_m": {
+    "shoulder_height": 2.3,
+    "overall_length_with_jaw_and_tail": [
+      4.7,
+      5.3
+    ],
+    "body_width": [
+      1.15,
+      1.45
+    ],
+    "basis": "Artistic representative adult envelope, not a measurement or allometric result. Keep metres, never unit-cube normalization."
+  },
+  "source_measurement_anchors": {
+    "source_id": "P1",
+    "specimen": "HMV0940",
+    "units": "mm",
+    "cranial_max_length_from_occipital_border": 1107,
+    "mandibular_max_length": 1655,
+    "mandibular_symphyseal_length": 737,
+    "anterior_symphyseal_width": 336,
+    "minimum_symphyseal_width": 176,
+    "use": "Published Table 1 and Table 2 skeletal measurement definitions. Use ratios for a coherent male head; do not equate skeletal dimensions to soft-tissue mesh extents or whole-body length."
+  },
+  "required_features": [
+    {
+      "id": "F01",
+      "criterion": "Long lower jaw broadens from a narrow waist into a shallow spatulate platform. In top view it must not read as a narrow elephant chin or rounded duck bill.",
+      "sources": [
+        "P1:Fig.5A,C;Table2",
+        "P2:Fig.1I,J"
+      ],
+      "test": "Inspect top and oblique exact-export images; verify a deliberate waist-to-distal-width transition."
+    },
+    {
+      "id": "F02",
+      "criterion": "Exactly two flattened lower tusks occupy the front of the mandibular platform, with a narrow visible median seam, broad transverse distal cutting edges and a clear ivory/skin boundary. They are not two conical spikes, one fused plate, or a hanging beard.",
+      "sources": [
+        "P1:Fig.5A,C",
+        "P2:Fig.1I,J"
+      ],
+      "test": "Inspect front/top and silhouette at thumbnail size; ensure both tusks and their origin are legible."
+    },
+    {
+      "id": "F03",
+      "criterion": "A second, separate pair of slimmer upper tusks projects forward from the upper rostrum. Use the relatively straight/slightly down-directed male reference, not mammoth spirals or the downward lower hooks of Deinotherium.",
+      "sources": [
+        "P1:Fig.3A,C"
+      ],
+      "test": "Side and oblique views distinguish upper tusks, lower shovel and trunk without major occlusion."
+    },
+    {
+      "id": "F04",
+      "criterion": "A separate tapering flexible trunk originates above the upper rostrum. Its restrained offset curl leaves the lower cutting platform visible. Do not replace it with an enormous flat upper lip or merge it into the tusks.",
+      "sources": [
+        "P2:Results;Fig.3G"
+      ],
+      "test": "Front, side and perspective views show a continuous root and clear separation; exact length/tip remain artistic."
+    },
+    {
+      "id": "F05",
+      "criterion": "Use the long, low cranial profile with a modest raised rear of the male skull; avoid a modern elephant forehead dome, juvenile oversized head, or female short-jaw substitution.",
+      "sources": [
+        "P1:Fig.3A,C;Fig.5C;Tables1,2"
+      ],
+      "test": "Compare the uncluttered lateral head outline to the male fossil plates."
+    },
+    {
+      "id": "F06",
+      "criterion": "Four weight-bearing limbs, readable shoulder/hip transitions, planted feet, belly clearance, modest ears and tapering tail support a plausible elephantiform body.",
+      "sources": [
+        "P2:Fig.3F, reconstruction context only"
+      ],
+      "test": "All four standard views; body details are constrained artistic design, not specimen facts."
+    }
+  ],
+  "art_direction": {
+    "profile": "refined-lowpoly, palette-only, original static geometry",
+    "shape_language": "Purposeful faceted lofts with carefully placed silhouette turns, not an assembly of untouched spheres, cubes or cylinders. Continuous visual flow at shoulder, chest, pelvis, cheek and trunk root.",
+    "pose": "Quiet planted four-foot stance, subtle fore/hind longitudinal offsets. Head nearly level with a slight natural downward tilt. Trunk lifted and offset to animal right just enough to expose both lower tusks. No vegetation, base, text, harness, or dramatic feeding scene.",
+    "surface": "Broad coherent low-poly planes on the torso; finer rings only at face, jaw waist, trunk curvature, ears and limb joints. No random triangle/noise colouring. Keep tusk surfaces cleaner than skin and avoid razor-thin zero-area geometry.",
+    "negative_space": "Preserve separation between legs, upper tusks, lower shovel and trunk. Check thumbnail silhouette before detail.",
+    "palette": "Restrained warm grey-brown skin, darker crease/ear interior, warm ivory tusks, dark eyes and subdued nails. Colour is not a factual taxon claim."
+  },
+  "material_profile": {
+    "type": "palette-only",
+    "max_textures": 0,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "pbr": "Opaque glTF-compatible Principled base colour, roughness and normal data; no source-only procedural texture dependency.",
+    "shading": "Intentional mixed faceted shading; smooth or weighted normals only where their exported result is verified."
+  },
+  "runtime_profile": {
+    "content": "Static embedded-buffer GLB; meshes and organizational empties only; no rig, animation, external images, compression extension or required extension.",
+    "intended_use": "Museum catalog asset viewed as a complete animal; head remains readable under ordinary zoom. Not a simulation or osteological measurement model.",
+    "actual_gpu_and_scene": "Must remain UNKNOWN unless separately measured. Technical or independent visual PASS cannot substitute."
+  },
+  "budget_rationale": "Target 6500–9500 exported triangles; the frozen 12000 ceiling allows deliberate head, trunk, ear and joint shaping. 24 exported primitives is a practical submission ceiling, not a request for 24 disconnected pieces. Do not spend the budget on unseen skull interiors or micro-wrinkles.",
+  "gray_model_gate": "Before final rendering, inspect 3–4 inexpensive grey checks including front, side, top and/or oblique. Stop to repair any indistinct lower tusk pair, trunk/shovel overlap, modern-elephant head or primitive-looking body.",
+  "final_evidence": "Four exact-GLB front/side/top/perspective PNGs; preview may share identical perspective bytes. No default extra turntable. Add a head detail only if the four images cannot resolve a specific defect and record the reason.",
+  "website_image_plan": "No website-renderer/config source is pinned during preparation, so do not claim a generic perspective render satisfies the website 512 contract. Keep canonical views. Integration may produce only the specifically needed detail/wheel images under its verified current renderer.",
+  "required_later_checks": [
+    "actual Blender/exporter version probe",
+    "source geometry and scene checks",
+    "standalone exact-GLB audit and Khronos validation",
+    "clean GLB reimport",
+    "two isolated rebuilds with declared package-local dependency closure and normalized semantic digest comparison",
+    "exact-export four-view pixel inspection",
+    "fresh independent visual, factual and specification review",
+    "public text and binary privacy inspection",
+    "manifest and real reader compatibility after independent PASS"
+  ],
+  "publication_scope": "Preparation only. No model, independent acceptance, GPU success, user acceptance or publication is asserted."
+}

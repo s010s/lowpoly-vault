@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mesohippus",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected mounted skeleton and museum cranium photographs establish required form. No additional concept image needed."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original stylized Mesohippus bairdi living reconstruction guided by Carnegie CM 961 mounted skeleton photograph; supplementary AMNH replica cranium for genus-level shape. Not a specimen scan.",
+  "scientific_limits": {
+    "en": "Skin, hair, color, ears, posture and dimensions are reconstruction choices. Mounted bones/replicas are not exact soft-tissue outlines. Relatively short head means relative to modern horse proportions, not a round foal or tapir head.",
+    "zh": "皮肤、毛、颜色、耳、姿态及尺寸是复原选择。骨架与复制品不等于精确软组织轮廓；相对短头是相对现代马的比例，并非圆幼驹头或貘头。"
+  },
+  "original_inventory": {
+    "id": "mesohippus",
+    "ordinal_1based": 630,
+    "taxon": "Mesohippus",
+    "shape_gate": {
+      "en": "Shape criterion: three-toed limbs and a relatively short-headed early horse build. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：三趾肢与相对短头的早期马体型。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block three-toed limbs and a relatively short-headed early horse build with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织三趾肢与相对短头的早期马体型；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "taxon_scope": "Mesohippus bairdi",
+  "material_profile": "palette-only static original geometry; muted tan/brown, dark hoof tips; no copied image texture",
+  "units": "meters",
+  "pose": "Quiet quadrupedal stance, all four feet grounded and leg negative spaces visible. Mild head turn only; no rearing or running pose to hide toes.",
+  "scale": {
+    "target_length_m": 1.25,
+    "target_width_m": 0.35,
+    "target_height_m": 0.75,
+    "basis": "Working artistic estimates for small early horse. No measured CM 961 dimensions available in the used sources.",
+    "tolerance": "Length ±10%; width and height are silhouette targets, not scientific measurements."
+  },
+  "shape_requirements": [
+    "Original combination mandatory: three-toed limbs AND relatively short-headed early horse build; not merely a modern horse scaled down.",
+    "Each of four feet has enlarged central hoof plus two smaller side toes visibly separate; no modern single hoof, no four-toed forefoot, no rhinoceros slab foot.",
+    "Compact short-muzzled equid head with meaningful cheek/jaw volume; avoid extreme modern horse elongated face, tapir trunk or rounded foal skull.",
+    "Light equid trunk, modest neck and slender articulated legs with natural elbow/knee/hock transitions, no massive rhino barrel body.",
+    "Small pointed ears and modest tail/coat are artistic soft-tissue choices; no elaborate mane or zebra pattern presented as fossil fact. Use deliberate profile loft topology."
+  ],
+  "gray_model_gate": "Check front, side and elevated oblique cheaply before detail; three toes on all feet and comparatively short head must read. No extra closeups unless these cannot be assessed in normal views.",
+  "final_evidence": "Four exact-export views front/side/top/perspective; preview may reuse perspective. Existing technical, two isolated rebuilds and independent visual gates remain required; no extra review platform."
+}

@@ -1,0 +1,70 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "coelophysis",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected whole skeleton casts and neotype skull photograph provide necessary shape evidence; no extra generated concept needed."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original stylized Coelophysis bauri living reconstruction; AMNH 7224 skull photograph anchors narrow muzzle, Denver mounted casts anchor whole-body silhouette. Not a specimen scan.",
+  "scientific_limits": {
+    "en": "Soft tissues, color, pose and body width are reconstruction choices. Fossil compression and restored casts are not exact living dimensions. No cannibalism claim.",
+    "zh": "软组织、颜色、姿态及体宽是复原选择；化石压扁和复原铸模不等于精确活体尺寸。不声称同类相食。"
+  },
+  "original_inventory": {
+    "id": "coelophysis",
+    "ordinal_1based": 305,
+    "taxon": "Coelophysis",
+    "shape_gate": {
+      "en": "Shape criterion: slender ribbonlike trunk, long neck and narrow tooth-bearing muzzle. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：细长躯干、长颈与狭窄有齿吻部。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block slender ribbonlike trunk, long neck and narrow tooth-bearing muzzle with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织细长躯干、长颈与狭窄有齿吻部；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "taxon_scope": "Coelophysis bauri",
+  "material_profile": "palette-only static original geometry, muted earth tones; no copied photograph texture",
+  "units": "meters",
+  "pose": "Balanced biped stance, mildly S-curved long neck, long tapering counterbalance tail off ground; flexed arms separated from torso, palms inward.",
+  "scale": {
+    "target_length_m": 2.6,
+    "target_width_m": 0.4,
+    "target_height_m": 1.0,
+    "basis": "2.6 m working length within AMNH approximate 8–10 ft range. Width and height are artistic estimates, not specimen measurements.",
+    "tolerance": "length ±10%; width/height are design targets not fossil measurements"
+  },
+  "shape_requirements": [
+    "Preserve original slender ribbonlike trunk, long neck and narrow tooth-bearing muzzle as one diagnostic combination. No stocky tyrannosaur torso or shortened thick neck.",
+    "Long low wedge-shaped head, narrow jaws with a modest readable row of small teeth; large lateral eye region but no exposed skull holes in living surface.",
+    "Long thin neck transitions smoothly to slim chest and pelvis; elongated tail with gradual taper, not a short stumpy tail.",
+    "Slender long hindlimbs and separate clawed toes; forelimbs readable with grasping hands, never bird wings or pronated human palms.",
+    "Use profile/loft topology and deliberate joints; no unmodified primitive chain. Avoid unnecessary tiny teeth or overly skeletal shrinkwrap."
+  ],
+  "gray_model_gate": "Low-cost side/front/oblique self-check before polish; original shape combination must read before final geometry.",
+  "final_evidence": "Four exact-export views front/side/top/perspective; perspective may equal preview. Two isolated rebuilds, official glTF and pinned viewer gates, fresh independent QA; no inferred GPU/scene/user acceptance."
+}

@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "arsinoitherium",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original Arsinoitherium zitteli living reconstruction guided by NHM skeleton cast and Paris skull photographs. Not a specimen scan or exact cast replica.",
+  "scientific_limits": {
+    "en": "Skin, ears, horn surface covering, posture and dimensions are estimates. Fossil horn cores and mounted casts do not preserve exact living soft-tissue outlines. No rhinoceros ancestry or horn chemistry is asserted.",
+    "zh": "皮肤、耳、角表覆盖物、姿态及尺寸均为估值。化石角芯和装架铸型并未保存精确活体软组织轮廓。不主张其具有犀牛祖先关系或已确定的角质成分。"
+  },
+  "taxon_scope": "Arsinoitherium zitteli; London cast and Paris skull reference",
+  "dimensions_estimate_m": {
+    "length": 3.0,
+    "width": 1.1,
+    "shoulder_height": 1.6,
+    "basis": "Artistic adult envelope, not measured museum specimen."
+  },
+  "shape_requirements": [
+    "Original paired enormous nasal horns and smaller horns above the eyes must be clearly separate and readable.",
+    "Large nasal pair is side-by-side, not tandem rhinoceros horns. Small posterior pair sits above/behind eye region, not on muzzle.",
+    "Massive deep quadrupedal torso, sturdy limbs, short neck and broad head; keep leg gaps and heavy but plausible balance.",
+    "Horn bases broad and fused visually into upper face, tips gently tapered; no antler branches, tusks or ornamental spike crown."
+  ],
+  "construction_notes": [
+    "Use front and oblique gray views to distinguish two large plus two small horns; side overlap alone is not enough.",
+    "Neutral gray brown skin and horn covering artistic; no exact keratin reconstruction claim.",
+    "Keep small ears subordinate to posterior horns so they cannot be mistaken for the required small horns."
+  ],
+  "original_inventory": {
+    "id": "arsinoitherium",
+    "ordinal_1based": 619,
+    "taxon": "Arsinoitherium",
+    "shape_gate": {
+      "en": "Shape criterion: paired enormous nasal horns and smaller horns above the eyes. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：成对巨大鼻角与眼上小角。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block paired enormous nasal horns and smaller horns above the eyes with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织成对巨大鼻角与眼上小角；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

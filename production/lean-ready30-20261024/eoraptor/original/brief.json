@@ -1,0 +1,71 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "eoraptor",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center between hind feet"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original Eoraptor lunensis living reconstruction informed by named museum skeletal mounts and the University of Texas holotype-skull record. Not a specimen scan or exact mounted skeleton copy.",
+  "scientific_limits": {
+    "en": "Skin, color, soft tissue thickness, posture and dimensions are artistic estimates. Exhibit mounts/casts may contain reconstructed elements. Older museum pages use historical theropod labels; do not present that classification or diet as a resolved modern phylogenetic claim."
+  },
+  "taxon_scope": "Eoraptor lunensis; holotype skull reference identified by UT DigiMorph, plus Belgian and Joggins display casts/mounts as visual morphology references",
+  "dimensions_estimate_m": {
+    "length": 1.3,
+    "hip_height": 0.48,
+    "width": 0.2,
+    "basis": "Artistic small-bodied envelope, not measured holotype; NHM general profile lists 1.7m, which is contextual rather than a modeling constraint."
+  },
+  "shape_requirements": [
+    "Original combination: light early-dinosaur body, relatively short head and grasping forelimbs. Do not make a scaled Herrerasaurus or an elongated Coelophysis head/neck.",
+    "Slender bipedal trunk, long balancing tail and folded mobile forelimbs with separated grasping digits. Main claw-bearing fingers must read; do not replace hand with two-digit tyrannosaur mitten.",
+    "Relatively compact low skull with tapered muzzle and visible eye region, not a deep massive carnivore head. Preserve head-to-body balance before teeth details.",
+    "Maintain open elbow/torso and leg negative spaces, digitigrade rear feet and restrained horizontal balance; not upright kangaroo stance."
+  ],
+  "construction_notes": [
+    "Simple skin envelope over reference bones. Fingers can be low-poly tapered jointed geometry; no texture-defined false claws.",
+    "Short head is relative proportion in the original inventory combination, not a circular baby-dinosaur face. Avoid gratuitous spikes, crests or copied ornament.",
+    "Muted earthy color and closed or slightly open mouth are artistic choices. Original anatomical combination is the gray gate; no extra bespoke pose or image requirement."
+  ],
+  "original_inventory": {
+    "id": "eoraptor",
+    "ordinal_1based": 307,
+    "taxon": "Eoraptor",
+    "shape_gate": {
+      "en": "Shape criterion: light early-dinosaur body with short head and grasping forelimbs. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：轻巧的早期恐龙体型、短头与抓握前肢。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block light early-dinosaur body with short head and grasping forelimbs with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织轻巧的早期恐龙体型、短头与抓握前肢；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

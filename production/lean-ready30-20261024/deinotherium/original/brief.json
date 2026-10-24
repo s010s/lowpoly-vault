@@ -1,0 +1,72 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "deinotherium",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 18000,
+    "max_materials": 8,
+    "max_primitives": 36,
+    "max_glb_bytes": 2000000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "origin": "floor contact center"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Direct reference imagery and taxon-specific sources sufficient for original silhouette; no extra concept image."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original genus-level Deinotherium living stylization, informed by Oxford skull and Antipa mounted skeleton photographs. Not an exact individual or species-level composite claim.",
+  "scientific_limits": {
+    "en": "Trunk length and tip, ears, skin, color, pose and dimensions are artistic estimates. The photographed skull and mounted skeleton have different species labels and are used only for genus-level anatomy, not an exact individual reconstruction. Tusks arise from the lower jaw; their feeding function is not asserted.",
+    "zh": "鼻长与鼻端、耳、皮肤、颜色、姿态及尺寸均为艺术估值。所用头骨和装架骨骼标有不同种名，仅用于属级解剖参考，不作为精确个体复原。长牙发自下颌；不主张其具体摄食功能。"
+  },
+  "taxon_scope": "Deinotherium sp.; Oxford skull labeled D.giganteum, Antipa mount labeled D.gigantissimum used as genus-level proportion context",
+  "dimensions_estimate_m": {
+    "length": 5.5,
+    "width": 1.8,
+    "shoulder_height": 3.5,
+    "basis": "Artistic representative adult envelope, not specimen measurement."
+  },
+  "shape_requirements": [
+    "Original downcurved lower-jaw tusks and tall trunk-bearing skull remain readable.",
+    "Exactly two prominent tusks originate from downturned mandibular symphysis and curve down/back, not from upper jaw.",
+    "Long skull with elevated rear cranial profile and a separate soft trunk descending from nasal region; do not create a modern elephant domed forehead.",
+    "Massive quadrupedal torso on tall pillar-like limbs, small tail and plausible gaps between feet."
+  ],
+  "construction_notes": [
+    "Keep trunk separate from mandibular tusks with clear silhouette gaps in front and oblique views.",
+    "Use restrained gray-brown skin; ear size and trunk tip are conservative artistic reconstruction.",
+    "Do not scale from nearby museum visitors or confuse the adjacent small skeleton with this taxon."
+  ],
+  "original_inventory": {
+    "id": "deinotherium",
+    "ordinal_1based": 614,
+    "taxon": "Deinotherium",
+    "shape_gate": {
+      "en": "Shape criterion: downcurved lower-jaw tusks and a tall trunk-bearing skull. Retain this anatomical combination when compared with nearby forms; a name, scale or pose change alone does not qualify.",
+      "zh": "形态判据：下弯下颌长牙与高长鼻头骨。须与相近形态对照保留这一结构组合；仅改名称、尺寸或姿态不成立。"
+    },
+    "modeling_brief": {
+      "en": "Original low-poly brief: block downcurved lower-jaw tusks and a tall trunk-bearing skull with a small number of readable masses; preserve negative spaces and joint transitions. Use a restrained neutral palette; simplify surface texture only after the silhouette reads. Validate the diagnostic feature before detailed geometry.",
+      "zh": "原创低多边形说明：用少量清晰体块组织下弯下颌长牙与高长鼻头骨；保留负空间与关节过渡。采用克制的中性色；轮廓成立后再简化表面纹理。精细几何制作前须核实鉴别特征。"
+    },
+    "representation": "living-reconstruction"
+  },
+  "material_profile": "palette-only static original geometry; restrained natural palette; no reference images embedded",
+  "units": "meters",
+  "gray_model_gate": "Three low-cost front/side/oblique checks before detailing; original inventory shape combination must read. No extra views except a specific unresolved problem.",
+  "final_evidence": "Four exact-export front/side/top/perspective views; perspective may equal preview. Existing technical/export/viewer gates, two isolated rebuilds and fresh independent QA remain required."
+}

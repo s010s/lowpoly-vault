@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    },
+    {
+      "path": "source/deps/check_reproducibility.py",
+      "sha256": "62ab7b959ad8e73128d1d1f2300fd4bd19ecc92244bccf6cc88fdc7b0b3a57d2",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    },
+    {
+      "path": "source/deps/check_source_export.py",
+      "sha256": "1b4aafd9d1963e103ba469aff7e1f3917592e839f9372883b88c7db51834b34a",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    },
+    {
+      "path": "source/deps/parse_glb.cjs",
+      "sha256": "617fa946e94ee3cfc7443a2cb6e6ebe2aa731f5a08eeddfe39be21d7f9b9b808",
+      "license": "MIT",
+      "origin": "Original task-specific evidence producer"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    },
+    {
+      "path": "source/deps/render_views.py",
+      "sha256": "43735902db89b4f3a576a08c836c6e0f1fdce6cfebc34de4de86ef674ba854f0",
+      "license": "MIT",
+      "origin": "Original task-specific evidence producer"
+    },
+    {
+      "path": "source/deps/source_checks.py",
+      "sha256": "1c6521c99d5f017d637e43eb38616fff5d3b32638faf46124595b3546c3cfdd2",
+      "license": "MIT",
+      "origin": "Original task-specific evidence producer"
+    },
+    {
+      "path": "source/deps/validate_candidate.py",
+      "sha256": "fe679a8be19d16b9d9b86ee3419a73d2dd16b77dfa371bf1186ce0120d120ff9",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    },
+    {
+      "path": "source/deps/validate_gltf.cjs",
+      "sha256": "c8569d9226692071cbcfb7fa09d1f49710bba09cafda11be34e50f03c1e93ed7",
+      "license": "MIT",
+      "origin": "canonical lowpoly-vault helper snapshot"
+    }
+  ],
+  "runtime": [
+    {
+      "name": "Blender",
+      "version": "4.3.2",
+      "includes": [
+        "Python 3.11",
+        "bpy",
+        "mathutils",
+        "bmesh",
+        "built-in glTF exporter"
+      ]
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.11",
+      "scope": "generator and helper imports"
+    },
+    {
+      "name": "Khronos glTF Validator",
+      "version": "2.0.0-dev.3.10",
+      "scope": "optional external technical validation, not generation dependency"
+    },
+    {
+      "name": "Three.js",
+      "version": "0.180.0",
+      "scope": "intended consumer; GPU untested"
+    }
+  ]
+}
