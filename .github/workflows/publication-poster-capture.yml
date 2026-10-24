@@ -71,7 +71,7 @@ jobs:
           path: qa/ci-publication-capture/
       - name: State capture scope
         run: echo 'Capture-only public image generation. Publication tests, exact poster reproduction, full review, Pages and live browser gates remain required separately.' >> "$GITHUB_STEP_SUMMARY"
-  wheel-parity-samples:
+  wheel-parity-capture:
     if: github.ref == 'refs/heads/capture/wheel-parity-20261024'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -84,14 +84,38 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: node --test site/capture-wheel-frame-test.mjs site/wheel-presentation-contract-test.mjs
       - run: npx playwright install --with-deps chromium
-      - name: Capture seven exact-source wheel samples only
+      - name: Capture explicitly scoped wheel presentations only
         run: node site/capture-wheel-parity.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: wheel-parity-samples-${{ github.sha }}
-          path: qa/wheel-parity-output/
+          name: wheel-parity-part-0-${{ github.sha }}
+          path: qa/wheel-parity-output/part-0/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wheel-parity-part-1-${{ github.sha }}
+          path: qa/wheel-parity-output/part-1/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wheel-parity-part-2-${{ github.sha }}
+          path: qa/wheel-parity-output/part-2/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wheel-parity-part-3-${{ github.sha }}
+          path: qa/wheel-parity-output/part-3/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wheel-parity-report-${{ github.sha }}
+          path: qa/wheel-parity-output/report.json
           if-no-files-found: error
       - name: Record capture-only scope
         if: always()
-        run: echo 'Seven wheel samples only. No detail or source files changed, no publication or visual acceptance, physical GPU unknown. Inspect PNGs and report before batch capture.' >> "$GITHUB_STEP_SUMMARY"
+        run: echo 'Exact pinned wheel capture scope only. No detail or source files changed, no publication or visual acceptance, physical GPU unknown. Inspect PNGs and report before any publication.' >> "$GITHUB_STEP_SUMMARY"
