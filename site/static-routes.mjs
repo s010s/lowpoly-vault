@@ -63,11 +63,15 @@ export async function writeStaticRoutes(manifest,outDir,{base=process.env.SITE_B
   await mkdir(dirname(file),{recursive:true});await writeFile(file,html);urls.push(url);
  }
  for(const lang of ['en','zh-CN']){const t=labels[lang];
+  // Chinese common names may identify different taxa. Disambiguate metadata only.
+  const nameCounts=new Map();
+  if(lang==='zh-CN')for(const asset of assets){const name=localized(asset.name,lang);nameCounts.set(name,(nameCounts.get(name)||0)+1);}
+  const titleName=asset=>{const name=localized(asset.name,lang);return nameCounts.get(name)>1?`${name} (${asset.id})`:name;};
   await emit({type:'home',lang},`<h1>${t.homeTitle}</h1><p>${t.homeDescription}</p><div class="static-axes"><a href="${routeHref({type:'models',lang},base)}">${t.models} (${assets.length})</a>${assets.some(a=>catalogMembership(a).packs.includes('prehistoric-starter'))?`<a href="${escape(routeHref({type:'models',lang,query:{pack:'prehistoric-starter'}},base))}">${t.pack}</a>`:''}<a href="${routeHref({type:'about',lang},base)}">${t.about}</a></div>${assets.length?cards(assets.slice(0,8),lang,base):`<p>${t.empty}</p>`}`,`Lowpoly Vault · ${t.homeTitle}`,t.homeDescription);
   const pages=Math.max(1,Math.ceil(assets.length/CATALOG_PAGE_SIZE));
   for(let page=0;page<pages;page++) await emit({type:'models',lang,page},`<nav class="static-breadcrumbs"><a href="${routeHref({type:'home',lang},base)}">${t.home}</a></nav><h1>${t.models}</h1><p>${assets.length} ${lang==='en'?'original low-poly models':'个原创低多边形模型'} · ${t.page} ${page+1}/${pages}</p>${assets.length?cards(assets.slice(page*CATALOG_PAGE_SIZE,(page+1)*CATALOG_PAGE_SIZE),lang,base):`<p>${t.empty}</p>`}<nav class="static-pagination" aria-label="${t.page}">${page?`<a rel="prev" href="${routeHref({type:'models',lang,page:page-1},base)}">← ${t.previous}</a>`:''}<span>${t.page} ${page+1}/${pages}</span>${page+1<pages?`<a rel="next" href="${routeHref({type:'models',lang,page:page+1},base)}">${t.next} →</a>`:''}</nav>`,`${t.models}${page?` · ${t.page} ${page+1}`:''} | Lowpoly Vault`,t.homeDescription);
   await emit({type:'about',lang},`<h1>${t.about} Lowpoly Vault</h1><p>${t.aboutText}</p><p>${t.credit}</p><div class="static-axes"><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><a href="https://github.com/s010s/lowpoly-vault">GitHub</a><a href="${base}THIRD_PARTY_NOTICES.md">${lang==='en'?'Third-party notices':'第三方声明'}</a><a href="${routeHref({type:'models',lang},base)}">${t.models}</a></div>`,`${t.about} | Lowpoly Vault`,t.aboutText);
-  for(const asset of assets)await emit({type:'detail',lang,id:asset.id},detailContent(asset,lang,base,curation),`${localized(asset.name,lang)} · ${lang==='en'?'Low-poly 3D model':'低多边形 3D 模型'} | Lowpoly Vault`,localized(asset.description,lang),asset);
+  for(const asset of assets)await emit({type:'detail',lang,id:asset.id},detailContent(asset,lang,base,curation),`${titleName(asset)} · ${lang==='en'?'Low-poly 3D model':'低多边形 3D 模型'} | Lowpoly Vault`,localized(asset.description,lang),asset);
  }
  const brandHead=(template.match(/<link\b[^>]*rel="(?:icon|stylesheet)"[^>]*>/g)||[]).join('');
  const brandLink=(template.match(/<a\b[^>]*class="brand vault-brand"[^>]*>[\s\S]*?<\/a>/)||[''])[0].replace(/href="[^"]*"/,`href="${routeHref({type:'home'},base)}"`);
