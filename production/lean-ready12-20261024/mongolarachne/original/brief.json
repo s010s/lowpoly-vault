@@ -1,0 +1,140 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mongolarachne",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 14000,
+    "max_materials": 6,
+    "max_primitives": 72,
+    "max_glb_bytes": 2500000
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "asset_forward": "-Y",
+    "lateral": "+X animal right",
+    "origin": "Center of intended foot-contact footprint at Z=0; root identity transform",
+    "export": "glTF +Y up and +Z forward",
+    "ground_tolerance_m": 0.0001
+  },
+  "concept": {
+    "required": false,
+    "reason": "Inspected whole-fossil photographs, explanatory drawings, revised posterior-leg interpretation and microscopy provide sufficient reference coverage for this constrained stylization. No generated concept is needed; missing three-dimensional anatomy is explicitly interpretive."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original low-poly adult female reconstruction of Mongolarachne jurassica, informed by holotype CNU-ARA-NN2010008 and the 2013 revision. An interpretive living form, not a fossil cast, exact life appearance, or resolved phylogenetic claim.",
+  "scientific_limits": {
+    "en": "The compressed female fossil constrains selected outlines and lengths, not body depth, color, eyes, life pose or full soft anatomy. Missing distal leg-IV parts and short palps are reconstructed. Fine plumose setae are simplified. Relationships and web architecture remain uncertain; no golden silk or modern Nephila identity is implied. The male is comparative evidence, not a source of female palpal anatomy.",
+    "zh": "雌性压扁化石约束部分轮廓与长度，不能确定体厚、颜色、眼部、活体姿态或完整软组织。第四足缺失远端及较短触肢属复原估计；细小羽状刚毛予以简化。亲缘关系及网结构仍有不确定性，不暗示金色蛛丝或现生 Nephila 身份；雄性仅作比较，不移植其触肢到雌性。"
+  },
+  "authoring_profile": "model-task-v2-release-fit-1",
+  "name": {
+    "en": "Mongolarachne jurassica, female reconstruction",
+    "zh": "Mongolarachne jurassica 雌蛛复原"
+  },
+  "taxon_scope": {
+    "taxon": "Mongolarachne jurassica (Selden, Shih & Ren, 2011)",
+    "family": "Mongolarachnidae",
+    "sex": "adult female",
+    "specimen": "CNU-ARA-NN2010008",
+    "locality": "Daohugou, Inner Mongolia, China",
+    "era": "Jurassic",
+    "taxonomic_basis": "2013 recombination; 2011 name Nephila jurassica retained only as historical reference",
+    "excluded_reference": "Mongolarachne chaoyangensis, the altered crayfish identified in 2019"
+  },
+  "units": "meters",
+  "dimensions_estimate_m": {
+    "body_length_target": 0.0253,
+    "body_length_reference": 0.02467,
+    "posed_span_target_range": [
+      0.075,
+      0.105
+    ],
+    "posed_height_target_range": [
+      0.01,
+      0.019
+    ],
+    "basis": "Body size follows the female fossil approximately; the pedicel, three-dimensional depth, height and projected leg span are design estimates, not a measured living envelope."
+  },
+  "material_profile": "Palette-only, static original geometry; opaque, nonmetallic restrained earth colors; no imported imagery or textures.",
+  "shape_requirements": [
+    "Two main body regions with a visible narrow pedicel: compact forebody and larger non-spherical oval abdomen, widest toward its front and tapering rearward.",
+    "Exactly eight walking legs, in four bilateral pairs attached to the cephalothorax, plus two clearly shorter female palps. No leg originates on the abdomen.",
+    "Leg length order I > II > IV > III. The third pair is conspicuously shortest and below half the first-pair centerline length. Preserve long slender articulated legs and open negative spaces, not a tarantula-like heavy outline.",
+    "Retain visible segment changes and distal tibial bristle gaiters on every leg pair, including III. Gaiters are sparse original tapered tufts, not solid furry sleeves; finer setal microstructure is not claimed.",
+    "Small paired chelicerae tuck below the anterior forebody; do not add giant projecting fangs, crustacean claws, antennae, a tail or an abdominal sting.",
+    "Use understated anterior cephalic relief without claiming a fossil-derived eye arrangement. Do not add conspicuous invented eye dots.",
+    "Female palps must not copy the extremely elongated adult male palps. Do not add a web, golden silk, prey, habitat, slab, labels or display plinth to the exported asset."
+  ],
+  "construction_notes": [
+    "Model body masses with deliberate tapered profiles and custom cross sections; use a softly faceted abdomen, a lower carapace and narrow rounded limb sections.",
+    "Make the eight leg paths individually readable in top and perspective views. Avoid crossing left/right leg bundles and intersections with the abdomen.",
+    "A neutral balanced display stance is a staging convention, not a claim that this spider was a ground runner. A restrained roughly bilateral stance is preferred to copying the fossil death pose.",
+    "Keep setal clumps subordinate to joint structure. Combine appropriate setal geometry per semantic limb for export efficiency rather than creating a draw call for each hair.",
+    "Preserve fixed budgets; spend geometry on limb articulation, body taper and visible bristle silhouettes rather than microscopic barbs."
+  ],
+  "gray_model_gate": "Before polish, inspect three or four inexpensive front, side, top and oblique gray views for eight-leg attachment, female proportions, pair-III shortness, pedicel visibility and leg negative space.",
+  "final_evidence": "Four exact-GLB front/side/top/perspective images. Perspective may reuse preview bytes. Source/export audit, Khronos validation, exact-GLB loader check, two isolated semantic rebuilds and fresh independent visual/specification review remain required. GPU, populated-scene, user and deployment states require separate evidence.",
+  "website_view_plan": {
+    "perspective_preview_reuse": false,
+    "reason": "Use the standard three-quarter structural view for this thin-legged asset. No verified website renderer/camera contract is supplied at preparation; website derivations belong to later integration."
+  },
+  "factual_checks": [
+    {
+      "id": "identity-sex",
+      "source_ids": [
+        "S2011",
+        "S2013"
+      ],
+      "criterion": "Public labeling names the female-based living reconstruction, not Nephila as current identity or an exact fossil cast."
+    },
+    {
+      "id": "body-proportion",
+      "source_ids": [
+        "S2011"
+      ],
+      "criterion": "Carapace and abdomen keep the frozen footprint ratios and an oval, not spherical, abdomen."
+    },
+    {
+      "id": "limb-hierarchy",
+      "source_ids": [
+        "S2011",
+        "S2013"
+      ],
+      "criterion": "Eight walking legs preserve the 1243 length order and clearly shortened third pair; missing IV segments stay labeled inferred."
+    },
+    {
+      "id": "female-not-male",
+      "source_ids": [
+        "S2011",
+        "S2013"
+      ],
+      "criterion": "No transplantation of elongated male palps; all-pair tibial gaiters remain readable."
+    },
+    {
+      "id": "uncertainty",
+      "source_ids": [
+        "S2013",
+        "S2019"
+      ],
+      "criterion": "No golden-web, resolved-family-affinity or doctored chaoyangensis anatomy is asserted."
+    }
+  ],
+  "original_inventory": {
+    "id": "mongolarachne",
+    "representation": "living-reconstruction",
+    "shape_gate": {
+      "en": "An oval abdomen and compact forebody surrounded by long bristled legs, with the much shorter third pair retained.",
+      "zh": "椭圆腹部与紧凑头胸部四周伸长多毛足，保留显著短小的第三足。"
+    }
+  }
+}

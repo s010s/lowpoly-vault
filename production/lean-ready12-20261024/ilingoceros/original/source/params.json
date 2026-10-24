@@ -1,0 +1,59 @@
+{
+  "asset_id": "ilingoceros",
+  "revision": "r001",
+  "seed": 11880,
+  "units": "meter",
+  "animal_forward": "-Y",
+  "up": "+Z",
+  "construction_profile": "palette-only-static",
+  "dimensions_m": {
+    "status": "Illustrative adult pronghorn-sized design envelope; not an Ilingoceros specimen measurement.",
+    "shoulder_height_m": 1.0,
+    "nose_to_rump_length_m": 1.5,
+    "torso_width_m": 0.34,
+    "head_length_m": 0.28,
+    "tail_length_m": 0.12,
+    "horn_external_length_m": 0.62,
+    "approximate_total_height_m": 1.9,
+    "tolerance": "Up to about 10 percent around design dimensions for coherent stance; preserve a long horn-dominated silhouette. Record intentional changes rather than claiming a fossil measurement."
+  },
+  "horn_design": {
+    "count": 2,
+    "external_length_target_m": 0.62,
+    "basal_diameter_target_m": 0.055,
+    "tip_fork_length_target_m": 0.055,
+    "tip_fork_spread_target_m": 0.045,
+    "posterior_axis_tilt_degrees": 16,
+    "lateral_axis_tilt_degrees": 10,
+    "broad_ridge_count": 2,
+    "twist_turns_target": 1.4,
+    "twist_interpretation": "Paired mirrored torsion of rounded ridged sections around a nearly straight continuous axis. Numeric values, mirrored counterpart, taper and sheath thickness are conservative construction choices, not specimen measurements.",
+    "fork_interpretation": "Small terminal fork inferred from genus-level evidence; not a tall anterior mid-shaft prong or an antler rack.",
+    "ridge_topology": "Integrate ridges in the same continuous horn loft surface, not a detached spiral tube; smoothly change section with sufficient longitudinal sampling."
+  },
+  "palette_srgb": {
+    "coat": "A9825C",
+    "underside": "C6AE8B",
+    "horn": "63564B",
+    "hoof_nose": "403C37",
+    "eye": "242321",
+    "inner_ear": "B69C85"
+  },
+  "materials_note": "Convert sRGB to linear for node/baseColorFactor values. Metallic 0; opaque; restrained roughness. Palette is an artistic choice.",
+  "budget": {
+    "max_triangles": 14000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 2000000
+  },
+  "required_output_names": [
+    "model.glb",
+    "model.blend",
+    "preview.png",
+    "views/front.png",
+    "views/side.png",
+    "views/top.png",
+    "views/perspective.png"
+  ],
+  "dependency_policy": "Copy canonical helper dependencies to source/deps with relative imports and exact SHA-256 inventory before building. Pin actual runtime/exporter, seed, parameters and viewer version at build time; prep does not claim those probes have run."
+}

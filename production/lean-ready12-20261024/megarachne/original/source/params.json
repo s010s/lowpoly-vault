@@ -1,0 +1,95 @@
+{
+  "asset_id": "megarachne",
+  "revision": "r001",
+  "seed": 20261024,
+  "units": "meters",
+  "profile": "palette-only static low-poly",
+  "body_length_m": 0.54,
+  "leg_span_target_m": 0.52,
+  "height_target_m": 0.075,
+  "anterior_dimensions_m": {
+    "carapace_length": 0.17,
+    "carapace_posterior_width": 0.18,
+    "first_tergite_width": 0.19,
+    "first_tergite_midline_length": 0.038,
+    "first_tergite_lateral_length": 0.092,
+    "second_tergite_length": 0.142,
+    "second_tergite_width": 0.147,
+    "lateral_eye_length": 0.023,
+    "median_tubercle_diameter": 0.015
+  },
+  "dimension_status": "Anterior planar dimensions follow the holotype description; fossil compaction prevents interpreting them as a complete 3D blueprint. Other dimensions below are original proportional targets.",
+  "landmark_frame": "Longitudinal values describe the initial anatomical construction frame. After posing limbs, translate the complete animal so the center of the intended support footprint is at root (0,0,0); preserve all relative anatomy distances and -Y forward.",
+  "longitudinal_landmarks_y_m": {
+    "anterior_shield_edge": -0.27,
+    "carapace_posterior_suture": -0.1,
+    "first_tergite_midline_posterior": -0.062,
+    "second_plate_posterior": 0.08,
+    "telson_base": 0.18,
+    "telson_tip": 0.27
+  },
+  "front_shield_width_target_m": 0.13,
+  "shield_dorsal_peak_z_m": 0.065,
+  "second_plate_peak_z_m": 0.057,
+  "minimum_leg_gap_m": 0.009,
+  "contact_tolerance_m": 0.002,
+  "appendage_layout": {
+    "visible_large_limb_pairs": 4,
+    "homology": "III-VI in the adopted hypothetical reconstruction; missing chelicerae and palps are not newly exposed.",
+    "podomeres_per_visible_limb_target": 6,
+    "anterior_pairs_with_small_blades": 2,
+    "distal_tips": "Short conservative tapered tips, no arbitrary claws or swimming paddles.",
+    "exact_segments_and_pose": "Design simplification of incompletely preserved limbs, not an assertion of complete fossil podomere sequences."
+  },
+  "posterior_body": {
+    "inferred_tergites": 10,
+    "names": "T3-T12",
+    "anterior_segments": "Partly concealed beneath enlarged T2",
+    "telson_shape": "low straight hastate taper, no upcurled sting",
+    "interpretation": "Entire posterior reconstruction is comparative and not preserved in the known Megarachne material used here."
+  },
+  "relief": {
+    "second_plate_radial_ribs_target": 13,
+    "rib_height_m": 0.0015,
+    "rib_count_is_artistic": true,
+    "armor_accents": "Sparse broad low relief only"
+  },
+  "palette_srgb": {
+    "dorsal_armor": "#69664C",
+    "side_armor": "#817C5B",
+    "ridge_highlight": "#96906B",
+    "limbs": "#777158",
+    "joint_membrane": "#454838",
+    "underside": "#5A5947",
+    "eyes": "#242C28"
+  },
+  "material_defaults": {
+    "metallic": 0.0,
+    "roughness": 0.82,
+    "alpha": 1.0,
+    "eye_roughness": 0.45
+  },
+  "geometry_limits": {
+    "max_triangles": 16000,
+    "max_materials": 8,
+    "max_primitives": 72,
+    "max_glb_bytes": 3000000,
+    "target_triangles": [
+      6000,
+      11000
+    ],
+    "rationale": "Eight readable articulated limbs, profile-based armor plates, ribbed second tergite and a tapered inferred tail need more silhouette geometry than a simple prop. This is a practical ceiling, not a target to fill. Group cosmetic parts by semantic region and material without sacrificing editability."
+  },
+  "render_plan": {
+    "early_gray_views": 3,
+    "final_views": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "preview_reuses_perspective": true,
+    "extra_web_render": false
+  },
+  "maker_note": "Preserve this frozen anatomy and budget direction; tune inferred profile/control points and small pose clearances during construction. Record final actual parameter choices without changing the preserved-anatomy obligations or silently enlarging budgets."
+}

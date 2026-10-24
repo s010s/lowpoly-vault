@@ -1,0 +1,181 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mammut",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Center of the four-foot contact footprint at Z=0, identity root transform",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual current museum photographs of the Warren mount, Fred mount, and NHM mount have been inspected from complementary oblique and lateral/front-biased directions. Museum comparative anatomy text supplies the mastodon-versus-mammoth distinction. These support this explicitly interpretive original silhouette brief without generating extra concept images. None is treated as an orthographic blueprint or evidence of unpreserved soft tissue."
+  },
+  "extra_views": [],
+  "representation": "living-reconstruction",
+  "scope": "Original static refined-low-poly living reconstruction of an adult Mammut americanum. The named Warren mastodon at AMNH and Fred (Buesching mastodon) at the Indiana State Museum are skeletal comparison anchors; the NHM Hintze Hall mount is supplementary. This is a species-informed composite interpretation, not a scan, fossil replica, or reconstruction of a single measured individual.",
+  "scientific_limits": {
+    "en": "Museum mounts contain restored parts and interpretive poses; historic exaggerated tusks are excluded. Skin, coat color and length, ears, trunk shape, tail and body padding are artistic interpretations. Lower tusks vary in Mammut americanum and are omitted for this late-Pleistocene adult interpretation, not claimed absent in the species or in every reference specimen. Dimensions are illustrative, not measurements of Warren or Fred. The closed mouth does not expose diagnostic molars; species identification rests on the reference context and combined silhouette rather than one external feature.",
+    "zh": "博物馆骨架含修复部件及解释性姿态；历史展示中夸大的长牙不作为依据。皮肤、毛色与毛长、耳、象鼻、尾和躯体软组织均为美术解释。美洲乳齿象下颌长牙存在个体差异，本晚更新世成年复原选择不显示下颌长牙，不代表全物种或全部参考标本均无此结构。尺寸为示意值，并非 Warren 或 Fred 的实测值。闭口模型不展示鉴别性臼齿，物种范围依靠参考背景与组合轮廓，而非单一外形特征。"
+  },
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "name": {
+    "en": "American mastodon (Mammut americanum)",
+    "zh": "美洲乳齿象（Mammut americanum）"
+  },
+  "geometry_budget_rationale": "Practical ceilings, not targets. Aim for approximately 4500–8000 emitted triangles. Spend geometry on a low elongated head, coherent shoulder/hip transitions, four separated weight-bearing legs, tapered trunk and continuously curving paired tusks; do not waste it on hair strands or a hidden skeleton.",
+  "taxon": {
+    "scientific_name": "Mammut americanum",
+    "family": "Mammutidae",
+    "order": "Proboscidea",
+    "age_context": "Late Pleistocene",
+    "geographic_context": "North America, with eastern North American named museum specimens used as anchors",
+    "anatomical_anchors": [
+      "Warren mastodon, American Museum of Natural History, Newburgh, New York specimen",
+      "Fred / Buesching mastodon, Indiana State Museum",
+      "Modern American mastodon mount in Hintze Hall, Natural History Museum, London; restored historical assemblage, not treated as a single measured individual"
+    ],
+    "individual_scope": "Adult interpretation. No exact sex, body mass, exact fossil age or individual identity is asserted."
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_shoulder_height_m": 2.75,
+    "nominal_body_plus_head_length_excluding_trunk_tusks_tail_m": 4.2,
+    "nominal_body_width_m": 1.65,
+    "basis": "Original display proportions. Shoulder height lies within the museum-reported typical 8–10 ft range; all other target dimensions are artistic, not measured from perspective photographs. Preserve real-world scale and do not normalize to a unit cube.",
+    "uniform_scale_only": true
+  },
+  "pose": {
+    "description": "Calm grounded four-foot stance, slightly staggered far legs for readability, long head carried forward at or below shoulder level, relaxed hanging trunk with a modest inward-curved tip, short tail clear of hindfeet. Tusks point forward then curve upward and modestly outward. No rearing, charge, elevated trunk trumpet pose or museum supports.",
+    "mouth": "Closed; no exposed molars or speculative dental reconstruction.",
+    "interpretation": "Original stable exhibit pose, not a demonstrated gait or behavior."
+  },
+  "morphology": [
+    {
+      "id": "low-long-head",
+      "obligation": "Keep a forward-elongated head with a relatively broad, low cranial roof and restrained forehead. The face must not have the tall domed, front-to-back compressed mammoth profile. Build a coherent trunk root between and above the tusk roots, not a tube glued below the jaw.",
+      "sources": [
+        "AMNH-WARREN",
+        "ISM-COMPARISON"
+      ],
+      "basis": "Current skeletal images and museum comparative description, with original soft-tissue padding."
+    },
+    {
+      "id": "paired-upcurved-tusks",
+      "obligation": "Two thick-rooted tapered upper tusks emerge separately, extend forward and sweep upward in a broad gentle arc. Preserve left/right space around the trunk and visible curved tips; avoid both dead-straight spears and tight inward spiral loops. The inventory term relatively straight is comparative, not literal.",
+      "sources": [
+        "NHM-MASTODON",
+        "AMNH-WARREN",
+        "ISM-COMPARISON"
+      ],
+      "basis": "Inspected modern mounts show substantial upcurvature; comparative text means less twisted than mammoth tusks. Do not copy exaggerated historical replacements."
+    },
+    {
+      "id": "stocky-low-backed-body",
+      "obligation": "Deep broad barrel-like torso, robust weight-bearing legs and a long gently rounded back. Shoulders may be modestly higher than the rump, but no exaggerated tall mammoth shoulder hump or steep continuously falling topline. Avoid a perfectly flat plank spine.",
+      "sources": [
+        "NHM-MASTODON",
+        "ISM-COMPARISON"
+      ],
+      "basis": "Skeletal proportions and museum comparison; the fleshed dorsal contour remains interpretive."
+    },
+    {
+      "id": "broad-feet",
+      "obligation": "Four broad rounded feet have credible flattened contact patches. Keep legs robust and separated, with continuous shoulder and hip transitions. Subtle toenails are optional; no exposed splayed skeleton toes on a living reconstruction.",
+      "sources": [
+        "NHM-MASTODON"
+      ],
+      "basis": "Museum description of broad feet, interpreted as fleshed limbs rather than copied skeletal digits."
+    },
+    {
+      "id": "combined-mastodon-read",
+      "obligation": "At thumbnail scale the low long head, deep stocky torso, subdued dorsal slope and non-spiralling upcurved tusks must read together. Do not make a woolly mammoth by only changing the label, color or scale.",
+      "sources": [
+        "NHM-MASTODON",
+        "ISM-COMPARISON"
+      ],
+      "basis": "Combined silhouette requirement, not a claim that this alone proves species-level diagnosis."
+    }
+  ],
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original restrained dark umber/taupe body, subtly lighter underside and inner ear, muted ivory tusks, dark eyes/mouth seam and subdued toenails. Matte portable Principled/glTF materials; no reference pixels copied.",
+    "normal_style": "Deliberate broad faceted or mixed planes, soft integrated transitions. Suggest a short/moderate coat through contour and color only; no hair cards, strands or unverified long shag blanket."
+  },
+  "art_direction": {
+    "construction": "Use intentional lofted cross sections rather than visible assembled balls and cylinders. Keep the head, neck and shoulders integrated; use smooth decreasing tusk/trunk sections with enough bends to avoid mechanical elbows.",
+    "ears": "Modest rounded lateral ears are artistic soft-tissue choices. Do not enlarge into African-elephant sails or claim precise preserved ear anatomy.",
+    "tail": "Short tapering elephant-like tail with a restrained terminal tuft as an artistic choice; no long feline tail.",
+    "negative_space": "Trunk must separate from both tusks, chest and forefeet. Four legs and tusk roots should remain readable across the standard views; no deep cut seams, hovering feet, detached ears or tusks crossing through the face.",
+    "excluded_details": [
+      "high mammoth forehead dome",
+      "exaggerated mammoth shoulder hump",
+      "tight helical inward tusk loops",
+      "perfectly straight spear tusks",
+      "historical papier-mache tusk proportions",
+      "exposed skeletal teeth or ribs",
+      "copied museum surface colors or textures",
+      "plinth, poles, labels or scenery inside export"
+    ]
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Inspect 3–4 cheap private clay/silhouette views before final renders. Resolve head height, back slope and tusk/trunk separation first.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "acceptance_obligations": [
+    "Inspect actual exported GLB pixels for all named morphology and craft criteria; names and numeric checks alone are insufficient.",
+    "Bind source geometry/export checks, official Khronos validator and exact GLB parse/reimport evidence to final bytes.",
+    "Run two isolated deterministic rebuilds and demonstrate semantic geometry/material equivalence with all relative dependencies declared.",
+    "Fresh independent visual/factual/specification review must bind actual maker/reviewer identities and hashes. Maker leaves qa/decision.json PENDING.",
+    "GPU, populated scene, user acceptance and deployment remain UNKNOWN without their own evidence. Prep readiness and local candidate acceptance do not authorize publication."
+  ],
+  "original_inventory_identity": {
+    "id": "mammut",
+    "representation": "living-reconstruction",
+    "selection": "Retain the original Mammut entry and its low-head/deep-body/tusk distinction. Species is narrowed to Mammut americanum using named museum evidence, not a switch to Mammuthus or Mammut pacificus."
+  }
+}
