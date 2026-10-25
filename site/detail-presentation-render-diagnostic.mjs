@@ -18,8 +18,9 @@ export async function beginNativeLayerDiagnostic(owner){
   shadow_viewport:v.shadowViewport.value.toArray(),shadow_map:{auto_update:rr.shadowMap.autoUpdate,needs_update:rr.shadowMap.needsUpdate,type:rr.shadowMap.type,key_map_size:v.key.shadow.mapSize.toArray()},
   visibility:{model:v.model.visible,floor:v.floor.visible,contact:v.contact.visible,grid:v.grid.visible},scene_background:v.scene.background?.getHex?.()??null
  });
+ const poster=document.querySelector('#detail-poster');if(!poster)throw Error('Missing original poster');
  const before=snapshot(),saved={actualViewport:Array.from(gl.getParameter(gl.VIEWPORT)),actualScissor:Array.from(gl.getParameter(gl.SCISSOR_BOX)),camera:v.camera.clone(),backdropCamera:r.backdrop.camera.clone(),backdropShadowViewport:r.backdrop.shadowViewport.value.clone(),draw:r.draw,ownDraw:Object.hasOwn(r,'draw'),autoUpdate:rr.shadowMap.autoUpdate,needsUpdate:rr.shadowMap.needsUpdate,viewport:rr.getViewport(vector()),scissor:rr.getScissor(vector()),scissorTest:rr.getScissorTest(),clearColor:rr.getClearColor(color()),clearAlpha:rr.getClearAlpha(),autoClear:rr.autoClear,shadowViewport:v.shadowViewport.value.clone(),visibility:[v.model,v.floor,v.contact,v.grid].map(o=>[o,o.visible])};
- const state={owner,r,rr,v,canvas,gl,rect,saved,snapshot,before,overlay:null,suppressed:0,images:{untouched:canvas.toDataURL('image/png')},states:{before}};window.__detailLayerDiagnostic=state;
+ const state={owner,r,rr,v,canvas,gl,rect,saved,snapshot,before,overlay:null,suppressed:0,images:{untouched:canvas.toDataURL('image/png')},states:{before}};window.__detailLayerDiagnostic=state;state.poster=poster;state.posterStyle=state.poster.getAttribute('style');state.posterIdentity=JSON.stringify({src:state.poster.currentSrc||state.poster.src,id:state.poster.dataset.modelId,width:state.poster.naturalWidth,height:state.poster.naturalHeight,className:state.poster.className});
  // Prevent a late scheduled draw from replacing the isolated diagnostic layer.
  r.draw=()=>{state.suppressed++;};rr.shadowMap.autoUpdate=false;rr.shadowMap.needsUpdate=false;
  const resetVisibility=()=>{for(const[o,visible]of saved.visibility)o.visible=visible;};
@@ -44,32 +45,46 @@ export function restoreNativeLayerDiagnostic(owner){
  const state=window.__detailLayerDiagnostic;if(!state)return null;if(state.owner!==owner)throw Error('Diagnostic owner mismatch');
  const{r,rr,v,canvas,gl,saved,snapshot}=state;let result;
  try{
-  state.overlay?.remove();for(const[o,visible]of saved.visibility)o.visible=visible;v.camera.copy(saved.camera);r.backdrop.camera.copy(saved.backdropCamera);r.backdrop.shadowViewport.value.copy(saved.backdropShadowViewport);
+  state.overlay?.remove();if(state.posterStyle===null)state.poster.removeAttribute('style');else state.poster.setAttribute('style',state.posterStyle);for(const[o,visible]of saved.visibility)o.visible=visible;v.camera.copy(saved.camera);r.backdrop.camera.copy(saved.backdropCamera);r.backdrop.shadowViewport.value.copy(saved.backdropShadowViewport);
   rr.shadowMap.autoUpdate=saved.autoUpdate;rr.shadowMap.needsUpdate=saved.needsUpdate;rr.autoClear=saved.autoClear;
   v.shadowViewport.value.copy(saved.shadowViewport);rr.setClearColor(saved.clearColor,saved.clearAlpha);rr.setViewport(saved.viewport);rr.setScissor(saved.scissor);rr.setScissorTest(saved.scissorTest);rr.state.viewport(v.shadowViewport.value.clone().set(...saved.actualViewport));rr.state.scissor(v.shadowViewport.value.clone().set(...saved.actualScissor));
   if(saved.ownDraw)r.draw=saved.draw;else delete r.draw;
   saved.draw.call(r);
-  const restored=canvas.toDataURL('image/png'),after=snapshot();
-  result={images:state.images,states:state.states,image:restored,state:after,restored_exact:restored===state.images.untouched,state_exact:JSON.stringify(after)===JSON.stringify(state.before),suppressed_draw_calls:state.suppressed,gl_error:gl.getError()};
- }catch(error){result={images:state.images,states:state.states,restored_exact:false,state_exact:false,restoration_error:error.message,suppressed_draw_calls:state.suppressed};try{result.image=canvas.toDataURL('image/png');}catch{}try{result.state=snapshot();}catch{}}finally{state.overlay?.remove();if(saved.ownDraw)r.draw=saved.draw;else delete r.draw;delete window.__detailLayerDiagnostic;}
+  const restored=canvas.toDataURL('image/png'),after=snapshot(),posterAfter={style:state.poster.getAttribute('style'),identity:JSON.stringify({src:state.poster.currentSrc||state.poster.src,id:state.poster.dataset.modelId,width:state.poster.naturalWidth,height:state.poster.naturalHeight,className:state.poster.className})};
+  result={poster_restoration:{before:{style:state.posterStyle,identity:state.posterIdentity},after:posterAfter},poster_exact:state.poster.getAttribute('style')===state.posterStyle&&JSON.stringify({src:state.poster.currentSrc||state.poster.src,id:state.poster.dataset.modelId,width:state.poster.naturalWidth,height:state.poster.naturalHeight,className:state.poster.className})===state.posterIdentity,images:state.images,states:state.states,image:restored,state:after,restored_exact:restored===state.images.untouched,state_exact:JSON.stringify(after)===JSON.stringify(state.before),suppressed_draw_calls:state.suppressed,gl_error:gl.getError()};
+ }catch(error){result={images:state.images,states:state.states,restored_exact:false,state_exact:false,restoration_error:error.message,suppressed_draw_calls:state.suppressed};try{result.image=canvas.toDataURL('image/png');}catch{}try{result.state=snapshot();}catch{}}finally{state.overlay?.remove();if(state.posterStyle===null)state.poster.removeAttribute('style');else state.poster.setAttribute('style',state.posterStyle);if(saved.ownDraw)r.draw=saved.draw;else delete r.draw;delete window.__detailLayerDiagnostic;}
  return result;
 }
 
 export async function captureNativeLayerDiagnostic(page){
  const owner=randomUUID();let result,error,restored;
  try{result=await page.evaluate(beginNativeLayerDiagnostic,owner);
-  // Preserve a real ready-UI backdrop screenshot, not the earlier loading UI.
-  result.states.background_stage=await page.evaluate(owner=>{const s=window.__detailLayerDiagnostic;if(s?.owner!==owner)throw Error('Diagnostic owner mismatch');s.overlay.style.visibility='hidden';const rect=e=>{const b=e.getBoundingClientRect();return{x:b.x,y:b.y,width:b.width,height:b.height};};return{...s.snapshot(),ui:{loading:{text:document.querySelector('#loading').textContent,rect:rect(document.querySelector('#loading'))},compare:{disabled:document.querySelector('#compare').disabled,rect:rect(document.querySelector('#compare'))}}};},owner);
+  result.composite=await page.locator('#detail').screenshot();
+  result.states.background_stage=await page.evaluate(prepareDiagnosticPosterStage,{owner,show:false});
   result.background_stage=await page.locator('#detail').screenshot();
-  await page.evaluate(owner=>{const s=window.__detailLayerDiagnostic;if(s?.owner!==owner)throw Error('Diagnostic owner mismatch');s.overlay.style.visibility='visible';},owner);
-  result.composite=await page.locator('#detail').screenshot();}
+  const before=await page.evaluate(prepareDiagnosticPosterStage,{owner,show:true});
+  result.same_ui_poster=await page.locator('#detail').screenshot();
+  const after=await page.evaluate(prepareDiagnosticPosterStage,{owner,show:true});
+  result.states.same_ui_poster={...before,after,source_kind:'controlled-ready-ui-original-css-image'};
+  assert.deepEqual(after,before,'Controlled poster UI/source/CSS changed during screenshot');}
+
  catch(e){error=e;}
  finally{try{restored=await page.evaluate(restoreNativeLayerDiagnostic,owner);}catch(e){error??=e;}}
  if(restored){
   result??={kind:'native-layer-diagnostic-only',images:restored.images,states:restored.states};
-  if(restored.image)result.images.restored=restored.image;if(restored.state)result.states.restored=restored.state;result.restoration_error=restored.restoration_error??null;result.restored_exact=restored.restored_exact;result.suppressed_draw_calls=restored.suppressed_draw_calls;
-  try{assert(!restored.restoration_error,'Diagnostic restoration failed: '+restored.restoration_error);assert.equal(restored.gl_error,0,'Diagnostic restore WebGL error');assert(restored.restored_exact,'Diagnostic changed the untouched native raster');assert(restored.state_exact,'Diagnostic changed camera/renderer state');}catch(e){error??=e;}
+  if(restored.image)result.images.restored=restored.image;if(restored.state)result.states.restored=restored.state;result.restoration_error=restored.restoration_error??null;result.restored_exact=restored.restored_exact;result.poster_restored_exact=restored.poster_exact;result.poster_restoration=restored.poster_restoration;result.suppressed_draw_calls=restored.suppressed_draw_calls;
+  try{assert(!restored.restoration_error,'Diagnostic restoration failed: '+restored.restoration_error);assert(restored.poster_exact,'Diagnostic changed original poster identity/style');assert.equal(restored.gl_error,0,'Diagnostic restore WebGL error');assert(restored.restored_exact,'Diagnostic changed the untouched native raster');assert(restored.state_exact,'Diagnostic changed camera/renderer state');}catch(e){error??=e;}
  }
  if(error){error.diagnostic={...result,error:error.message};throw error;}
  assert(restored,'Missing diagnostic restore');return result;
+}
+
+// Only original loaded image visibility/transition changes; no reconstructed image.
+export function prepareDiagnosticPosterStage({owner,show}){
+ const s=window.__detailLayerDiagnostic;if(s?.owner!==owner)throw Error('Diagnostic owner mismatch');s.overlay.style.visibility='hidden';
+ const p=s.poster;if(show){p.style.transition='none';p.style.opacity='1';p.style.visibility='visible';}
+ const rect=e=>{const b=e.getBoundingClientRect();return{x:b.x,y:b.y,width:b.width,height:b.height};};
+ const css=getComputedStyle(p);if(css.opacity!==(show?'1':'0')||show&&css.visibility!=='visible')throw Error('Unexpected actual poster handoff visibility');const image={id:p.dataset.modelId,state:p.dataset.state,src:p.currentSrc||p.src,width:p.naturalWidth,height:p.naturalHeight,rect:rect(p),transform:css.transform,origin:css.transformOrigin,fit:css.objectFit,position:css.objectPosition,opacity:css.opacity};
+ if(image.id!==s.v.asset.id||image.state!=='ready'||!image.width)throw Error('Original ready poster binding unavailable');
+ return{...s.snapshot(),image,ui:{loading:{text:document.querySelector('#loading').textContent,rect:rect(document.querySelector('#loading'))},compare:{disabled:document.querySelector('#compare').disabled,rect:rect(document.querySelector('#compare'))}}};
 }
