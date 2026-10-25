@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import index from './gallery/wheel-presentations-index.js';
-import {resolveGalleryPoster,validPresentationSpec} from './gallery/wheel-presentations.js';
+import {resolveGalleryPoster,resolveWheelPoster,validPresentationSpec} from './gallery/wheel-presentations.js';
 import {prepareModels,loadGalleryCatalog} from './gallery/catalog-source.js';
 import {galleryStartupContent} from './gallery/startup.mjs';
 import {wheelHistoricalBaseline} from './wheel-historical-baseline.mjs';
@@ -66,24 +66,24 @@ test('every new PNG and same-call framing is bound to preserved capture/report e
     assert.deepEqual(entry.capture_binding,{source_glb_sha256:result.source_glb_sha256,wheel_sha256:result.wheel_sha256,first_frame_id:result.first_frame_id});
     assert.deepEqual(entry.checks.decoded_pixels,pixelReport.cases.find(row=>row.id===asset.id));
     assert.deepEqual(entry.checks.lifecycle,result.lifecycle);
-    const selected=resolveGalleryPoster(asset,resources);assert.equal(selected.wheel,entry.wheel);assert.equal(selected.detail,resources.posters[asset.id].detail);
+    const selected=resolveWheelPoster(asset,resources);assert.equal(selected.wheel,entry.wheel);assert.equal(selected.detail,resources.posters[asset.id].detail);
   }
 });
 
 test('ordinary assets cannot be overridden, even by an injected matching entry',()=>{
   const fake=copy(index),poster=resources.posters[ordinary.id];fake.presentations[ordinary.id]={...copy(index.presentations[first.id]),id:ordinary.id,source_glb_sha256:ordinary.sha256.glb};
-  assert.equal(resolveGalleryPoster(ordinary,resources,fake),poster);
+  assert.equal(resolveWheelPoster(ordinary,resources,fake),poster);
   const specAdded=copy(resources);specAdded.posters[first.id].wheelSpec=copy(poster.wheelSpec);
-  assert.equal(resolveGalleryPoster(first,specAdded),specAdded.posters[first.id]);
+  assert.equal(resolveWheelPoster(first,specAdded),specAdded.posters[first.id]);
   const nonBlender={...first,production_posters:{route:'browser'}};
-  assert.equal(resolveGalleryPoster(nonBlender,resources),resources.posters[first.id]);
+  assert.equal(resolveWheelPoster(nonBlender,resources),resources.posters[first.id]);
 });
 
 test('unknown IDs, wrong source/new/old hashes, malformed framing and paths fail closed',()=>{
   const unknown={...first,id:'future-unreviewed-wheel'};
   const expanded={...resources,posters:{...resources.posters,[unknown.id]:resources.posters[first.id]}};
-  assert.equal(resolveGalleryPoster(unknown,expanded),expanded.posters[unknown.id]);
-  assert.equal(resolveGalleryPoster({...first,sha256:{glb:'f'.repeat(64)}},resources),null);
+  assert.equal(resolveWheelPoster(unknown,expanded),expanded.posters[unknown.id]);
+  assert.equal(resolveWheelPoster({...first,sha256:{glb:'f'.repeat(64)}},resources),null);
   for(const mutate of [
     e=>e.id='other',e=>e.source_glb_sha256='f'.repeat(64),e=>e.png.sha256='f'.repeat(64),
     e=>e.capture_binding.first_frame_id='other',e=>e.capture_sha256='not-a-hash',
@@ -91,8 +91,8 @@ test('unknown IDs, wrong source/new/old hashes, malformed framing and paths fail
     e=>e.production_descriptor='different-release.json',e=>e.wheel='https://other.invalid/wheel.png',
     e=>e.wheel='wheel-presentations/../other.png',e=>e.wheelSpec.zoom=NaN,e=>e.wheelSpec.offset=[0],
     e=>e.wheelSpec.projectedBounds.right=e.wheelSpec.projectedBounds.left,
-  ]){const changed=copy(index);mutate(changed.presentations[first.id]);assert.equal(resolveGalleryPoster(first,resources,changed),resources.posters[first.id]);}
-  assert.equal(resolveGalleryPoster(first,resources,null),resources.posters[first.id]);
+  ]){const changed=copy(index);mutate(changed.presentations[first.id]);assert.equal(resolveWheelPoster(first,resources,changed),resources.posters[first.id]);}
+  assert.equal(resolveWheelPoster(first,resources,null),resources.posters[first.id]);
   assert.equal(validPresentationSpec({}),false);
 });
 
@@ -105,7 +105,7 @@ test('actual native SSR and hydration select identical wheel/detail URLs, preser
     const row=html.match(new RegExp('<a class="slot"[^>]*data-id="'+asset.id+'"[^>]*>[\\s\\S]*?</a>'))?.[0];assert(row,asset.id);
     assert(row.includes('src="'+base+model.galleryPosters.wheel+'"'),asset.id+' SSR/hydration wheel');
     assert(row.includes('data-poster="'+base+model.galleryPosters.detail+'"'),asset.id+' SSR/hydration detail');
-    assert.equal(model.galleryPosters.detail,original.detail);assert.equal(model.glb,asset.glb);assert.equal(model.blend,asset.blend);
+    assert.equal(model.galleryPosters.detail,resolveGalleryPoster(asset,resources).detail);assert.equal(model.glb,asset.glb);assert.equal(model.blend,asset.blend);
     if(i<352){assert.deepEqual(model.galleryPosters,{detail:original.detail,wheel:original.wheel});assert.deepEqual(model.wheelSpec,original.wheelSpec);}
     else if(index.presentations[asset.id]){assert.equal(model.galleryPosters.wheel,index.presentations[asset.id].wheel);assert.deepEqual(model.wheelSpec,index.presentations[asset.id].wheelSpec);}
     else{assert.equal(model.galleryPosters.wheel,original.wheel);assert.deepEqual(model.wheelSpec,original.wheelSpec);}

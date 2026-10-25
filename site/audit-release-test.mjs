@@ -33,6 +33,7 @@ try{
  await put('site/model-registry-sync.mjs','export function syncRegistry(){}');
  await put('site/turntable-delivery.mjs','export async function collectTurntables(){return {files:[]};}');
  await put('site/wheel-presentations-audit.mjs','export async function auditWheelPresentations(){return {files:[]};}');
+ await put('site/detail-presentations-audit.mjs','export async function auditDetailPresentations(){return {files:[]};}');
  await put('site/gallery-assets.mjs','export async function auditGalleryAssets(){return {resources:{files:[]}};}');
  async function build(count){
   await rm(join(root,'dist'),{recursive:true,force:true});

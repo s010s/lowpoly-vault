@@ -3,6 +3,8 @@
  * Pixel/source integrity is checked by wheel-presentations-test.mjs before publication.
  */
 import wheelPresentations from './wheel-presentations-index.js';
+import detailPresentations from './detail-presentations-index.js';
+import {resolveDetailPresentation} from './detail-presentations.js';
 
 const HASH=/^[a-f0-9]{64}$/;
 const pair=value=>Array.isArray(value)&&value.length===2&&value.every(Number.isFinite);
@@ -15,7 +17,7 @@ export function validPresentationSpec(spec){
     &&spec.projectedBounds.right>spec.projectedBounds.left&&spec.projectedBounds.top>spec.projectedBounds.bottom;
 }
 
-export function resolveGalleryPoster(asset,resources={},index=wheelPresentations){
+export function resolveWheelPoster(asset,resources={},index=wheelPresentations){
   const poster=resources.posters?.[asset?.id];
   if(!poster||poster.source_glb_sha256!==asset?.sha256?.glb)return null;
   // An ordinary WebGL poster, a future asset, or an already framed resource is
@@ -38,4 +40,9 @@ export function resolveGalleryPoster(asset,resources={},index=wheelPresentations
   const sealed=pin=>HASH.test(pin?.sha256||'')&&resources.files?.some(file=>file.path===pin.path&&file.sha256===pin.sha256);
   if(!sealed(entry.previous_wheel)||!sealed(entry.unchanged_detail))return poster;
   return {...poster,wheel:entry.wheel,wheelSpec:entry.wheelSpec};
+}
+
+/** One resolver for SSR, hydration and cache warming; each side retains its own camera. */
+export function resolveGalleryPoster(asset,resources={},index=wheelPresentations,detailIndex=detailPresentations){
+ return resolveDetailPresentation(asset,resources,resolveWheelPoster(asset,resources,index),detailIndex);
 }

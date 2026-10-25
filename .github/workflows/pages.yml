@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   actions: read
+  checks: read
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
@@ -15,7 +16,7 @@ env:
   SITE_ORIGIN: https://s010s.github.io
   QA_PARSER_OUTPUT: qa/ci-parser/threejs-parser.json
 jobs:
-  # Production rejection and static checks remain mandatory. Browser work is detached.
+  # Production rejection and exact-built right-detail parity are mandatory before deployment; public browser work remains detached.
   publication:
     uses: ./.github/workflows/publication-regressions.yml
     with:
@@ -48,7 +49,35 @@ jobs:
         id: build
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node site/ci-build-release.mjs
+        run: |
+          node site/detail-capture-provenance-test.mjs
+          node site/detail-presentations-test.mjs
+          node site/detail-presentations-audit-test.mjs
+          node site/detail-pixels-test.mjs
+          node site/detail-capture-delta-test.mjs
+          node site/detail-capture-authority-test.mjs
+          node site/detail-presentation-contract.mjs
+          node site/ci-build-release.mjs
+      - name: Install pinned browser for mandatory right-detail first-frame acceptance
+        id: right_detail_install
+        run: node site/ci-install-chromium.mjs
+      - name: Actual built-page right poster and native first-frame parity
+        id: right_detail
+        env:
+          GALLERY_DIR: dist
+          DETAIL_BROWSER_TARGET: dist
+          QA_OUTPUT_DIR: qa/detail-browser-dist
+        run: |
+          node site/detail-presentation-browser-test.mjs
+          node site/detail-presentation-browser-test.mjs --verify-evidence
+      - name: Retain supplemental right-detail pixels outside Git
+        id: right_detail_artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: right-detail-dist-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa/detail-browser-dist/
+          if-no-files-found: error
       - name: Stamp exact source build after all six mandatory audit phases
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: stamp
@@ -84,7 +113,7 @@ jobs:
           import json, os, pathlib
           e = os.environ
           steps = json.loads(e['STEP_OUTCOMES'])
-          names = ['checkout', 'setup', 'dependencies', 'contracts', 'build', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
+          names = ['checkout', 'setup', 'dependencies', 'contracts', 'build', 'right_detail_install', 'right_detail', 'right_detail_artifact', 'stamp', 'scope', 'scope_upload', 'built_upload', 'pages_artifact']
           outcomes = {name: steps.get(name, {}).get('outcome', 'NOT_RUN') for name in names}
           failed = [name for name, outcome in outcomes.items() if outcome in ['failure', 'cancelled']]
           mandatory = [name for name in names if name not in ['stamp', 'scope', 'scope_upload', 'built_upload'] or (e['GITHUB_EVENT_NAME'] == 'push' and e['GITHUB_REF'] == 'refs/heads/main')]
