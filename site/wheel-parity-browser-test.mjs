@@ -5,6 +5,7 @@ import {readFile,mkdir,writeFile,stat} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import {chromium} from 'playwright';
 import {CAPTURE_POLICY} from './gallery-poster-inputs.mjs';
+import {CATALOG_PAGE_SIZE} from './routes.js';
 const out=resolve('qa/wheel-integration-evidence'),root=resolve('dist'),prefix='/lowpoly-vault/';
 const ids=['nucleocrinus','spyroceras','phragmoceras','lituites','natural-levee','teleoceras','aegirocassis','thylacoleo'];
 const report={version:1,status:'running',source_commit:process.env.GITHUB_SHA||null,physical_gpu:'unknown',cases:[],errors:[]};
@@ -17,13 +18,14 @@ try{
  const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,serviceWorkers:'block'});
  page.on('pageerror',e=>report.errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/WebGL|THREE\.|shader|CONTEXT_LOST/i.test(m.text()))report.errors.push(m.text());});
  await page.route('**/*',r=>new URL(r.request().url()).origin===base?r.continue():r.abort());
- const ssr=await (await page.request.get(base+prefix+'models/page/24/')).text();assert(ssr.includes('wheel-presentations/spyroceras.png'),'SSR boundary wheel not updated');
+ const manifest=JSON.parse(await readFile('assets/manifest.json'));const boundaryPage=Math.floor(manifest.assets.findIndex(a=>a.id==='spyroceras')/CATALOG_PAGE_SIZE)+1;assert(boundaryPage>1);
+ const ssr=await (await page.request.get(base+prefix+`models/page/${boundaryPage}/`)).text();assert(ssr.includes('wheel-presentations/spyroceras.png'),'SSR boundary wheel not updated');
  await page.goto(base+prefix+'models/');await page.waitForFunction(()=>window.__gallery?.renderer,{timeout:90000});
  await page.evaluate(()=>{window.__wheelFrames=[];const r=window.__gallery.renderer,preview=r.preview.bind(r);r.preview=async function(asset,host){const ok=await preview(asset,host);if(ok){const live=this.hover.presentation.frame,img=host.querySelector('img'),canvas=document.createElement('canvas');canvas.width=live.width;canvas.height=live.height;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);const a=ctx.getImageData(0,0,canvas.width,canvas.height).data,poster=canvas.toDataURL();ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(live,0,0);const b=ctx.getImageData(0,0,canvas.width,canvas.height).data;let intersection=0,union=0,diff=0;for(let i=0;i<a.length;i+=4){const aa=a[i+3]>200,bb=b[i+3]>200;intersection+=aa&&bb;union+=aa||bb;diff+=Math.abs(a[i]-b[i])+Math.abs(a[i+1]-b[i+1])+Math.abs(a[i+2]-b[i+2]);}window.__wheelFrames.push({id:asset.id,poster_url:img.src,wheelSpec:asset.wheelSpec,renderedSpec:this.hover.wheelSpec,mask_iou:intersection/Math.max(1,union),mean_rgb_absolute_error:diff/(canvas.width*canvas.height*3),width:canvas.width,height:canvas.height,poster,live:live.toDataURL(),context_lost:this.renderer.getContext().isContextLost(),gl_error:this.renderer.getContext().getError()});}return ok;};});
  for(const id of ids){
   await page.mouse.move(1300,50);await page.locator('#search').fill(id.replaceAll('-',' '));await page.locator('#search').press('Enter');
   const slot=page.locator(`.slot[data-id="${id}"]`);await slot.waitFor({state:'visible',timeout:30000});await slot.click();
-  await page.waitForFunction(id=>window.__gallery?.renderer?.stats.detailId===id,id,{timeout:60000});await page.waitForTimeout(500);
+  await page.waitForFunction(id=>window.__gallery?.renderer?.stats.detailId===id&&window.__gallery.renderer.stats.detailStatus==='ready',id,{timeout:60000});await page.waitForTimeout(500);
   const host=slot.locator('.slot-image');
   for(let entry=0;entry<2;entry++){
    const count=await page.evaluate(()=>window.__wheelFrames.length);await host.hover();await page.waitForFunction(n=>window.__wheelFrames.length>n,count,{timeout:30000});
