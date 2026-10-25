@@ -7,7 +7,7 @@ import {spawnSync} from 'node:child_process';
 import {dirname, join, resolve} from 'node:path';
 import {composeRegistry, digest, encode, hashBytes, importLegacySnapshot, LEGACY_OUTPUTS, recordReference} from './model-registry.mjs';
 import {createCatalog} from './catalog-build.mjs';
-import {composeSuccessorRegistry, historicalManifestView, historicalGalleryView, inspectSuccessorSelection, MESH_SUCCESSOR_IDS, METADATA_SUCCESSOR_FIELDS, selectSuccessorManifest, successorChangedFields, successorSourceClosure, successorContext, verifySuccessorPresentation} from './same-id-successors.mjs';
+import {composeSuccessorRegistry, historicalManifestView, historicalGalleryView, historicalTurntableView, inspectSuccessorSelection, MESH_SUCCESSOR_IDS, METADATA_SUCCESSOR_FIELDS, selectSuccessorManifest, successorChangedFields, successorSourceClosure, successorContext, verifySuccessorPresentation} from './same-id-successors.mjs';
 
 import baselineEvidence from './fixtures/same-id-successor-baseline.mjs';
 
@@ -86,6 +86,7 @@ test('all 14 mesh + 3 metadata replacements select exactly once, preserving hist
   }
   assert.deepEqual(historicalManifestView({manifest, read: f.read}), f.base);
   assert.deepEqual(historicalGalleryView({manifest, resources: result.gallery, read: f.read}), old.gallery);
+  assert.deepEqual(historicalTurntableView({manifest, turntables: result.turntables, read: f.read}), old.turntables);
   assert.throws(() => successorSourceClosure({...f.options()}), /Pin:|Exact current presentation/); // synthetic receipt must not enter real release closure
 });
 test('same-ID mismatch fails even with a recomputed record hash', () => { const f = fixture(); f.changeNext('azolla', row => { row.id = 'onoclea'; row.asset.id = 'onoclea'; }); assert.throws(() => selectSuccessorManifest(f.options()), /same ID|ID mismatch/); });
@@ -255,4 +256,15 @@ test('waterfall public projection remains explicit, exact-subject and independen
     (_projection, proof) => { proof.world_accepted = true; }
   ]) { const {f} = projectedFixture(mutate); assert.throws(() => selectSuccessorManifest(f.options())); }
   const tamper = projectedFixture(); tamper.f.files.set(tamper.auxiliary.path, Buffer.from('{}')); assert.throws(() => selectSuccessorManifest(tamper.f.options()), /Successor size changed|Successor hash changed/);
+});
+
+test('historical card inverse rejects changed and duplicate active pointers without changing source', () => {
+ const f=fixture(),result=composeSuccessorRegistry({...f.options(),registry:f.registry}),manifest=result.manifest,before=JSON.stringify(result.turntables);
+ const restored=historicalTurntableView({manifest,turntables:result.turntables,read:f.read});
+ assert.equal(JSON.stringify(result.turntables),before);assert.deepEqual(restored,composeRegistry(f.registry).turntables);
+ for(const mutate of [index=>index.posters[0].sha256='0'.repeat(64),index=>index.posters[0].path='assets/card-previews/wrong.webp',index=>index.posters.push(clone(index.posters[0])),index=>index.posters.shift()]){
+  const changed=clone(result.turntables);mutate(changed);assert.throws(()=>historicalTurntableView({manifest,turntables:changed,read:f.read}));
+ }
+ const bad=clone(manifest);bad.assets[0].triangles++;assert.throws(()=>historicalTurntableView({manifest:bad,turntables:result.turntables,read:f.read}));
+ const noSuccessors=historicalTurntableView({manifest:f.base,turntables:restored,read:f.read});assert.deepEqual(noSuccessors,restored);assert.notEqual(noSuccessors,restored);
 });

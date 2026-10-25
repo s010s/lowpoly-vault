@@ -300,6 +300,27 @@ export function historicalGalleryView({manifest, resources, read}) {
   }
   result.files = result.files.filter(row => !added.has(row.path)); return result;
 }
+/** Historical card routing for isolated rejection suites. Only exact selected
+ * entries may be inverted; unrelated rows and source media bytes are untouched.
+ */
+export function historicalTurntableView({manifest, turntables, read}) {
+  if (!manifest.publication?.same_id_successors) return clone(turntables);
+  const context = successorContext({manifest, read}), result = clone(turntables);
+  for (const key of ['assets', 'posters']) unique(result[key].map(row => row.id), 'Historical turntable IDs');
+  for (const {previous, next} of context.entries) {
+    for (const [key, field] of [['assets', 'asset'], ['posters', 'poster']]) {
+      const index = result[key].findIndex(row => row.id === next.id), active = index < 0 ? null : result[key][index];
+      assert.deepEqual(active, next.turntable[field], 'Active turntable pointer differs from selected successor');
+      const old = previous.turntable[field];
+      // This frozen batch never removes historical sequences: reject unsupported
+      // index insertion rather than guessing the original sequence order.
+      if (index < 0) assert.equal(old, null, 'Cannot reconstruct omitted historical sequence order');
+      else if (old === null) result[key].splice(index, 1);
+      else result[key][index] = clone(old);
+    }
+  }
+  return result;
+}
 export function successorContext({manifest, read}) {
   const reference = manifest.publication?.same_id_successors;
   if (!reference) return null;
