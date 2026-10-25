@@ -14,3 +14,8 @@ assert.throws(()=>planDetailDelta([a,b,{...a,id:'c'}],index,receipts,['a'],'r'),
 assert.throws(()=>planDetailDelta([a,b],index,[],['a'],'r'),/Changed metadata/);
 assert.equal(Object.keys(planDetailDelta([a,b,{...a,id:'c'}],index,receipts,['c'],'r').reuse).length,2);
 console.log('PASS 9 explicit-delta selection cases; source index untouched, metadata-only changes fail closed unless named; browser execution NOT RUN');
+const {planDetailRevisionSmoke}=await import('./detail-capture-delta.mjs'),{detailPresentationPolicy}=await import('./gallery/detail-presentation-policy.js');
+const probeIds=['onoclea','pertica','azolla','sidneyia','arroyo-wash'],probeAssets=probeIds.map(id=>({id}));
+for(const size of [1536,2048])assert.deepEqual(planDetailRevisionSmoke(probeAssets,probeIds,detailPresentationPolicy(size),true),{requested:probeIds,reuse:{}});
+for(const [assets,ids,presentation,smoke]of [[probeAssets,probeIds,detailPresentationPolicy(1536),false],[probeAssets,probeIds.slice(1),detailPresentationPolicy(1536),true],[probeAssets,[...probeIds,probeIds[0]],detailPresentationPolicy(1536),true],[probeAssets,[...probeIds,'natural-arch'],detailPresentationPolicy(1536),true],[probeAssets.slice(1),probeIds,detailPresentationPolicy(1536),true],[probeAssets,probeIds,{...detailPresentationPolicy(1536),minimum_margin:0},true]])assert.throws(()=>planDetailRevisionSmoke(assets,ids,presentation,smoke));
+console.log('PASS revision-2 candidate-only fixed-five scope; no full/delta reuse authorization');

@@ -11,3 +11,18 @@ assert.equal(resolve(asset,resources,poster,undefined),poster);count++;
 const ordinary={...poster,render_route:undefined};assert.equal(resolve(asset,resources,ordinary,index),ordinary);count++;
 assert.equal(resolve(asset,resources,{...poster,render_route:'blender-detail-preview-wheel-v1'},index).detail,entry.detail);count++;
 console.log(`PASS ${count} detail-only binding/guard cases; wheel and source remain untouched. Browser/pixel validation NOT RUN.`);
+const {DETAIL_HIRES_METHOD,detailPresentationPolicy}=await import('./gallery/detail-presentation-policy.js');
+for(const size of [1536,2048]){const high=structuredClone(index),e=high.presentations.spyroceras;e.png.width=e.png.height=size;e.capture.method=DETAIL_HIRES_METHOD;e.capture.presentation=detailPresentationPolicy(size);const selected=resolve(asset,resources,poster,high);assert.equal(selected.detail,e.detail);assert.deepEqual(selected.detailPresentation,e.capture.presentation);assert.equal(selected.wheel,poster.wheel);assert.equal(selected.wheelSpec,poster.wheelSpec);
+ for(const mutate of [e=>e.capture.presentation.minimum_margin=0,e=>e.capture.presentation.screen_shift=0,e=>e.capture.presentation.revision=1,e=>e.capture.presentation.raster_size=512,e=>e.capture.presentation.extra=true,e=>e.png.width=512,e=>e.capture.presentation=null]){const bad=structuredClone(high);mutate(bad.presentations.spyroceras);assert.equal(resolve(asset,resources,poster,bad),poster);}
+ assert.equal(resolve(asset,resources,ordinary,high),ordinary);
+}
+assert(!Object.hasOwn(fixed,'detailPresentation'));
+console.log('PASS explicit revision-2 policy/size binding, invalid profile rejection, old/ordinary profile absent');
+const {prepareModels}=await import('./gallery/catalog-source.js');
+for(const route of [undefined,'blender-cycles-cpu-v1']){
+ const raw={...asset,id:'unbound-detail-profile',name:{en:'Unbound'},glb:'assets/unbound.glb',blend:'assets/unbound.blend',preview:'assets/unbound.png',detailPresentation:detailPresentationPolicy(1536)};
+ const [prepared]=prepareModels({assets:[raw]},{posters:{[raw.id]:{...poster,render_route:route}}});
+ assert(!Object.hasOwn(prepared,'detailPresentation'),'Raw manifest cannot opt into a capture-owned runtime profile');
+ assert.deepEqual(raw.detailPresentation,detailPresentationPolicy(1536),'Source asset stays immutable');
+}
+console.log('PASS ordinary and rejected override cannot inject a raw detail presentation marker');

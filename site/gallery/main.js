@@ -13,7 +13,7 @@ import {ThumbnailQueue} from './thumbnail-queue.js';
 import {WheelTitle} from './wheel-title.js';
 import {WheelGuides} from './wheel-guides.js';
 import {filterItems,WheelSettler} from './state.js';
-import {PreviewRenderer,POSTER_IMAGE_SCALE} from './renderer.js';
+import {DetailRenderer as PreviewRenderer,POSTER_IMAGE_SCALE} from './detail-renderer.js';
 // Importing this module prepares code and CSS without touching the SSG document.
 // Bootstrap mounts only after every startup dependency has finished loading.
 export async function mountGallery(){

@@ -13,7 +13,9 @@ export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
     if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safeAssetPath(asset[key])))throw new Error('Invalid published model.');
     ids.add(asset.id);
     const poster=resolveGalleryPoster(asset,resources),matching=!!poster;
-    return {...asset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,
+    const {detailPresentation:untrustedDetailPresentation,...sourceAsset}=asset;
+    return {...sourceAsset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,
+      ...(poster?.detailPresentation?{detailPresentation:poster.detailPresentation}:{}),
       ...(matching?{galleryPosters:{detail:poster.detail,wheel:poster.wheel},wheelSpec:poster.wheelSpec}:{})};
   });
 }
