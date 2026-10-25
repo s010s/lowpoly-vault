@@ -1,0 +1,36 @@
+name: Capture right detail presentation parity
+on:
+  push:
+    branches: ['capture/right-detail/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: node --check site/capture-detail-presentations.mjs
+      - name: Smoke the three observed mismatch examples
+        run: node site/capture-gallery-posters.mjs --detail-presentations
+        env:
+          DETAIL_CAPTURE_IDS: spyroceras,megarachne,callichimaera
+          DETAIL_CAPTURE_OUTPUT: qa/detail-smoke
+      - run: node site/capture-gallery-posters.mjs --detail-presentations
+        env:
+          DETAIL_CAPTURE_OUTPUT: qa/detail-capture
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: right-detail-capture-${{ github.sha }}
+          path: qa/detail-capture/
+          if-no-files-found: error
+      - name: State evidence scope
+        run: echo 'Right-only normalized-runtime detail captures. Exact-build SSR/hydration/transition tests and independent visual review remain required. This does not relabel historical postrelease failures.' >> "$GITHUB_STEP_SUMMARY"

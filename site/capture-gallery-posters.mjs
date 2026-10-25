@@ -1,4 +1,6 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
+// Single supported entry: this narrow migration uses the same runtime recipe.
+if(process.argv.includes('--detail-presentations')){await import('./capture-detail-presentations.mjs');process.exit(0);}
 import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';
 // END GALLERY POSTER V3 ORCHESTRATION
 /** Complete the published gallery using its actual approved browser renderer. */
