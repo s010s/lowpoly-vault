@@ -1,0 +1,139 @@
+{
+  "template_version": "model-task-v2",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Mid-body footprint lowestpointZ0, headforward-Y. Real centimeter scale; world closeup solves visibility.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "extra_views": [],
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original muted natural palette; color artistic, not copied fossil mineral stains or reference pixels.",
+    "normal_style": "Refined broad planes, continuous transitions."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Inspect cheap clay views for morphology, silhouette and attachment before final exactGLB four views.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "acceptance_obligations": [
+    "Distinct animal silhouette and anatomical brief compliance in four exact-GLB views.",
+    "Portable embedded GLB, source reopening and scoped technical checks; independent review separate.",
+    "Mark GPU, world scene, user acceptance and deployment unverified until actually checked."
+  ],
+  "asset_id": "kootenayscolex",
+  "name": {
+    "en": "Kootenayscolex barbarensis",
+    "zh": "Kootenayscolex barbarensis"
+  },
+  "representation": "living-reconstruction",
+  "scope": "Original static complete animal for a Cambrian marine region in a prehistoric3Dworld. No rig, animation or game-ready integration claim.",
+  "scientific_limits": {
+    "en": "Body thickness, color, posture and exact bristle counts are interpretations. ROM artwork is an interpretive comparison, not fossil preservation of color. No microgeometry mandate: count simplification must be explicit."
+  },
+  "taxon": {
+    "scientific_name": "Kootenayscolex barbarensis",
+    "age_context": "Middle Cambrian",
+    "geographic_context": "Burgess Shale, British Columbia",
+    "anatomical_anchors": [
+      "ROMIP64388 holotype thumbnail inspected; reported size1–30mm. Chosen25mm body length excludes palps/chaetae and is illustrative, not a measurement of fossil."
+    ]
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_length_m": 0.025,
+    "basis": "ROMIP64388 holotype thumbnail inspected; reported size1–30mm. Chosen25mm body length excludes palps/chaetae and is illustrative, not a measurement of fossil.",
+    "uniform_scale_only": true
+  },
+  "pose": {
+    "description": "Slight gentle body curve on invisible contactplane, palps spread for readability without dramatic knots."
+  },
+  "morphology": [
+    {
+      "id": "form-1",
+      "obligation": "Segmented worm widest at middle and tapering to both ends; choose a bounded20-segment interpretation within observed up-to25, not species-fixed count.",
+      "sources": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "form-2",
+      "obligation": "Two long anterior palps plus a distinctly SHORT median antenna, attached continuously. Head carries chaetae near mouth; no large eyes or jaws invented.",
+      "sources": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "form-3",
+      "obligation": "Bilateral parapodia with distinguishable dorsal and ventral chaetal fans; simplify strand count but preserve fan silhouettes and attachment, not random hairs.",
+      "sources": [
+        "ROM"
+      ]
+    },
+    {
+      "id": "form-4",
+      "obligation": "Simple terminal pygidium without appendages; no decorative tail tentacles.",
+      "sources": [
+        "ROM"
+      ]
+    }
+  ],
+  "concept": {
+    "required": false,
+    "reason": "Actual fossil image pixels and museum anatomical description inspected; original form construction not copied reference mesh."
+  },
+  "geometry_budget_rationale": "Ceilings only, not density targets. Spend geometry on diagnostic anatomy and continuous attachments; no hidden microdetail.",
+  "art_direction": {
+    "construction": "Original coherent lofts, controlled tapered appendages and readable negative space; no floating parts or mechanically stacked primitives."
+  },
+  "world_use": {
+    "role": "Centimeter-scale Cambrian marine seafloor animal",
+    "placement": "Independent animal asset. Do not bake seabed or normalize scale; use scene closeups, not permanently enlarged source geometry. Exact community coexistence requires locality/age match.",
+    "integration_boundary": "Static output; rigs, collision,LOD and scene behavior not promised."
+  }
+}

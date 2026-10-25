@@ -169,15 +169,17 @@ export function mapV2Decision(doc,id,revision) {
   // Preserve the exact technical declaration. It is not interpreted as five PASSes.
   need(V2_TECHNICAL_DECLARATIONS.includes(doc.tests),'unsupported/nonpassing technical declaration');
   equal(doc.maker?.role,'maker','maker role missing');equal(doc.reviewer?.role,'independent-QA','independent reviewer role missing');
-  need(text(doc.maker.task)&&text(doc.reviewer.task),'maker/reviewer task missing');
+  const reviewerIdentity=doc.reviewer.task ?? (doc.reviewer.status==='CLOSED' && doc.status==='PASS' ? doc.reviewer.review_id : undefined);
+  need(text(doc.maker.task)&&text(reviewerIdentity),'maker/reviewer task missing');
   const identity = normalizeV2Identity;
-  need(identity(doc.maker.task)!==identity(doc.reviewer.task),'maker cannot self-review');
+  need(identity(doc.maker.task)!==identity(reviewerIdentity),'maker cannot self-review');
   let profile,decisionPath,value;
   if(doc.status!==undefined){profile='status-v2';decisionPath='/status';value=doc.status;need(['PASS','PASS_IN_SCOPE'].includes(value),'nonpassing status');}
   else if(doc.decision!==undefined){profile='decision-v2';decisionPath='/decision';value=doc.decision;equal(value,'PASS','nonpassing decision');}
   else {profile='reviewer-and-making-v2';decisionPath='/reviewer/status';value=doc.reviewer.status;equal(value,'PASS','independent reviewer did not pass');equal(doc.final_making_decision,'PASS','unsupported maker-only layout');}
   if(doc.decision!==undefined)equal(doc.decision,'PASS','conflicting decision');
-  if(doc.reviewer.status!==undefined)need(['PASS','PASS_IN_SCOPE','COMPLETE'].includes(doc.reviewer.status),'nonpassing reviewer status');
+  if(doc.reviewer.status!==undefined)need(['PASS','PASS_IN_SCOPE','COMPLETE','CLOSED'].includes(doc.reviewer.status),'nonpassing reviewer status');
+  if(doc.reviewer.status==='CLOSED')equal(doc.status,'PASS','Closed review without explicit passing decision');
   if(value==='PASS_IN_SCOPE')equal(doc.reviewer.status,'PASS_IN_SCOPE','scoped result disagrees with reviewer');
   for(const key of ['blocking_findings','blocking_issues','required_repairs','critical_findings','mandatory_repairs','blockers']){
     if(doc[key]!==undefined)equal(doc[key],[],'unresolved '+key);
@@ -195,7 +197,7 @@ export function mapV2Decision(doc,id,revision) {
   // Full original acceptance remains pinned, including prior_status/original_*.
   return {current_requirements:mapV2CurrentRequirements(doc),current_requirements_sha256:hash(mapV2CurrentRequirements(doc)),profile,decision_pointer:decisionPath,decision_value:value,tests:doc.tests,
     reviewer_status:doc.reviewer.status??null,review_scope_pointer:scopePointer,review_scope_sha256:hash(pointerValue(doc,scopePointer)),maker_task_sha256:hash(identity(doc.maker.task)),
-    reviewer_task_sha256:hash(identity(doc.reviewer.task)),glb_sha256:doc.glb_sha256,
+    reviewer_task_sha256:hash(identity(reviewerIdentity)),glb_sha256:doc.glb_sha256,
     preview_sha256:doc.preview_sha256,runtime: Object.fromEntries(runtimeKeys.map(k=>[k,doc[k]])),
     qualifications_sha256:hash(qualifications),evidence_sha256:hash(doc.evidence),
     evidence_count:doc.evidence.length,original_fields_sha256:hash(doc),
@@ -221,7 +223,7 @@ export function mapV2Brief(brief,references,id,mapping) {
   for(const key of ['max_triangles','max_materials','max_primitives','max_glb_bytes'])need(Number.isSafeInteger(budget[key])&&budget[key]>0,'invalid '+key);
   // Original science is preserved as source bytes, not translated into invented criteria.
   need(Object.keys(brief).some(k=>['scope','original_scope','target','diagnostic_targets','required_features','morphology','must_preserve','anatomy'].includes(k)),'missing original scientific scope');
-  const sources=references.sources??references.references;
+  const sources=Array.isArray(references)?references:references.sources??references.references;
   need(Array.isArray(sources)&&sources.length>0,'missing reference sources');
   return {kind:'model-task-v2-brief-map-v1',asset_id:id,revision:brief.revision,
     representation_mapping:clone(mapping),original_brief_semantic_sha256:hash(brief),
@@ -281,7 +283,7 @@ export function validateModelTaskV2Receipt(receipt,record,asset,brief,references
   equal(hash(d.current_requirements),d.current_requirements_sha256,'current requirement coverage changed');
   const profiles={'status-v2':['/status',['PASS','PASS_IN_SCOPE']],'decision-v2':['/decision',['PASS']],'reviewer-and-making-v2':['/reviewer/status',['PASS']]};
   need(Object.hasOwn(profiles,d.profile),'unknown decision profile');equal(d.decision_pointer,profiles[d.profile][0],'decision source changed');need(profiles[d.profile][1].includes(d.decision_value),'nonpassing decision');
-  need([null,'PASS','PASS_IN_SCOPE','COMPLETE'].includes(d.reviewer_status),'nonpassing reviewer');if(d.profile==='reviewer-and-making-v2')equal(d.reviewer_status,'PASS','maker-only approval');if(d.decision_value==='PASS_IN_SCOPE')equal(d.reviewer_status,'PASS_IN_SCOPE','scope mismatch');
+  need([null,'PASS','PASS_IN_SCOPE','COMPLETE','CLOSED'].includes(d.reviewer_status),'nonpassing reviewer');if(d.reviewer_status==='CLOSED'){equal(d.profile,'status-v2','closed review profile');equal(d.decision_value,'PASS','closed review lacks PASS');}if(d.profile==='reviewer-and-making-v2')equal(d.reviewer_status,'PASS','maker-only approval');if(d.decision_value==='PASS_IN_SCOPE')equal(d.reviewer_status,'PASS_IN_SCOPE','scope mismatch');
   need(['/reviewer/summary','/reviewer/claim_scope','/reviewer/verdict','/reviewer/verdict_scope','/claim_scope'].includes(d.review_scope_pointer),'unsupported review scope pointer');
   for(const k of ['review_scope_sha256','maker_task_sha256','reviewer_task_sha256','glb_sha256','preview_sha256','qualifications_sha256','evidence_sha256','original_fields_sha256'])need(digest(d[k]),'decision '+k+' missing');need(d.maker_task_sha256!==d.reviewer_task_sha256,'self review');
   equal(d.claim,'ORIGINAL_INDEPENDENT_LOCAL_SCOPE_ONLY_NOT_LEGACY_GATE_EQUIVALENCE','acceptance promotion');need(V2_TECHNICAL_DECLARATIONS.includes(d.tests),'invalid tests declaration');need(Number.isSafeInteger(d.evidence_count)&&d.evidence_count>0,'no evidence');

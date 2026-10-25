@@ -1,0 +1,194 @@
+{
+  "template_version": "model-task-v2",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Center of animal footprint on the mid-sagittal plane; lowest exported walking claw at Z=0, identity root. Record body-center offset for near-bottom water placement.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "extra_views": [],
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Inspect the four cheap private clay/silhouette views before final rendering. Resolve paired valve volume, pincer openings, anterior walking-leg separation, posterior paddle rhythm and terminal fork before surface polish.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "asset_id": "tokummia",
+  "revision": "r001",
+  "representation": "living-reconstruction",
+  "name": {
+    "en": "Tokummia katalepsis",
+    "zh": "Tokummia katalepsis（钳肢有颚动物）"
+  },
+  "scope": "Original static whole-animal, evidence-informed low-poly living reconstruction for a Cambrian marine 3D world. Species-informed composite, not a flattened fossil replica, scan, measured individual or museum display.",
+  "scientific_limits": {
+    "en": "Fossil compression does not preserve exact living depth. Shell thickness, body padding, color, joint angles and pose are interpretations. Head homologies and phylogenetic placement remain researched questions; follow the cited museum interpretation without claiming certainty. Reduced or absent eyes are unresolved: omit prominent eyes, not claim proven blindness. Exact dimensions and limb counts below are modeling conventions, not specimen measurements."
+  },
+  "taxon": {
+    "scientific_name": "Tokummia katalepsis",
+    "group": "Hymenocarina; Protocarididae, following ROM interpretation",
+    "age_context": "Middle Cambrian, Wuliuan Stage; approximately 507 million years ago in the current ROM account (2017 accounts used approximately 508 Ma).",
+    "geographic_context": "Burgess Shale Formation, Marble Canyon and Tokumm Creek, British Columbia, Canada.",
+    "anatomical_anchors": [
+      "ROMIP 63823, holotype: laterally compressed body and limb series",
+      "ROMIP 63826, paratype: paired valves, frontal pincers and forked tail",
+      "ROM technical reconstruction by Danielle Dufault: interpreted lateral body and ventral anterior anatomy"
+    ],
+    "individual_scope": "Large generic individual; no sex, maturity, mass or exact individual identity asserted."
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_total_length_m": 0.12,
+    "measurement_convention": "Approximate full longitudinal extent in neutral extended pose, including the anterior pincer reach and paired terminal rami. Record actual exported bounds separately.",
+    "uniform_scale_only": true,
+    "basis": "Illustrative 12 cm animal, compatible with the 2017 ROM account of extended length over 10 cm and the current account reporting a maximum around 15 cm. Not a measurement of either pictured specimen. Never enlarge the source GLB to fit a gallery; display magnification belongs to the viewer."
+  },
+  "pose": {
+    "description": "Neutral near-bottom stance with the trunk approximately horizontal, slight relaxed posterior curvature, anterior walking claws touching the datum, and both grasping limbs forward with modestly open pincers. Short antennules remain clear of the pincers. Keep the tail fork unobscured.",
+    "interpretation": "A stable display pose, not a reconstructed gait, prey capture, or proven swimming posture. No prey, water, seabed, fossil slab, support or label inside the export."
+  },
+  "concept": {
+    "required": false,
+    "reason": "Actual full-resolution ROM holotype and paratype photographs, a technical drawing and two museum reconstructions have been inspected. They sufficiently constrain this limited external-form brief. No generated concepts or reference mesh acquisition is required."
+  },
+  "morphology": [
+    {
+      "id": "paired-valves",
+      "obligation": "Broad, rounded/lobate left and right carapace valves connect along the dorsal line and shelter much of the body. Build curved three-dimensional shells with thin visible edges, an open underside and a readable anterior aperture; do not flatten into a butterfly or seal into one clam pebble.",
+      "sources": [
+        "IV-ROM-TOKUMMIA",
+        "ROM-ARIA-2017"
+      ],
+      "basis": "Fossil shell outlines plus explicitly interpretive depth from technical and life reconstructions."
+    },
+    {
+      "id": "paired-grasping-limbs",
+      "obligation": "Two articulated maxillipeds project forward, distinct from the antennules and walking legs. Each ends in a comparatively slender open pincer: the fixed finger has two terminal teeth and the opposing finger curves inward. Preserve the opening and joint sequence; avoid huge modern-lobster crusher claws.",
+      "sources": [
+        "ROM-ARIA-2017",
+        "ROM-NEWS-2017"
+      ]
+    },
+    {
+      "id": "anterior-head",
+      "obligation": "One pair of short, stout, segmented antennules; small anterior triangular cover over a paired-lobed organ, not a pair of eyeballs. Underneath, retain modest paired mandibular forms and the following small mouthpart pairs. Omit unsupported stalked eyes and long second antennae.",
+      "sources": [
+        "IV-ROM-TOKUMMIA",
+        "ROM-NEWS-2017",
+        "ROM-ARIA-2017"
+      ],
+      "basis": "Museum identification and technical drawing; simplified superficial mouthparts only, no invented internal mechanism."
+    },
+    {
+      "id": "serial-trunk-and-limbs",
+      "obligation": "Long tubular segmented trunk continues behind the valves. Preserve the dense repeated paired-limb rhythm: robust anterior walking branches end in claws; posterior lobate branches form a diminishing paddle fringe. Keep the walking and flap branches distinct rather than replacing the animal with a few shrimp legs or a solid skirt.",
+      "sources": [
+        "IV-ROM-TOKUMMIA",
+        "ROM-ARIA-2017",
+        "ROM-NEWS-2017"
+      ],
+      "basis": "Museum description reports about 50 trunk limb pairs, with flap enlargement beginning around trunk limb pair 9; fine segmentation need not be resolved from distant views."
+    },
+    {
+      "id": "terminal-fork",
+      "obligation": "Taper the rear trunk into a small terminal plate and two separate narrow caudal rami. The fork must be visible in side or perspective and top views; no broad fish tail, scorpion sting or lobster fan.",
+      "sources": [
+        "IV-ROM-TOKUMMIA",
+        "ROM-ARIA-2017"
+      ]
+    }
+  ],
+  "geometry_budget_rationale": "Ceilings, not targets. Spend triangles on valve curvature, negative space within the pincers, anterior articulations, rear limb rhythm and paired rami. Batch repeated geometry into a small number of semantic exported mesh groups so limb count does not force one GLB primitive per limb. Do not model microscopic setae or a hidden detailed digestive system.",
+  "art_direction": {
+    "construction": "Author original lofted surfaces and jointed tapered sections. Retain two shell volumes, central trunk and attached paired limb arrays as editable semantic parts. Preserve living volume; never trace the compressed fossils into flat cards.",
+    "palette": "Original subdued slate-teal shell, muted warm grey/ochre appendages and a slightly lighter underside. Museum artwork colors are not evidence and are not copied.",
+    "negative_space": "Separate both grasping claws from shell rims and antennae; prevent walking legs or repeated paddles from intersecting their neighbors. Close only accidental holes, not the intentional ventral opening.",
+    "excluded_details": [
+      "prominent stalked eyes",
+      "two long antenna pairs",
+      "crab-like short abdomen",
+      "only five modern decapod walking-leg pairs",
+      "solid feather/skirt substitute for limb geometry",
+      "fish fins",
+      "scorpion sting",
+      "museum reference textures or copied artwork",
+      "fossil substrate, plinth, lights or cameras in export"
+    ]
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original restrained matte palette; portable Principled/glTF materials only. No borrowed image pixels, emissive features or transparent shell.",
+    "normal_style": "Broad deliberate shell planes with coherent curvature, and restrained faceting on the jointed limbs. No random polygon color noise."
+  },
+  "world_use": {
+    "role": "Small nektobenthic arthropod predator for a Wuliuan Cambrian marine region.",
+    "placement": "Place at or just above the seabed at physical centimeter scale. World controls movement, depth, lighting and display magnification. Do not infer exact habitat depth, prey pairing or coexistence with unrelated prehistoric assets.",
+    "integration_boundary": "Static standalone prop only. No rig, collision proxy, LOD, locomotion controller or populated-world performance is promised; world integration needs separate evidence."
+  },
+  "maker_handoff": {
+    "start_state": "Brief ready only; no Blender generation or acceptance has occurred.",
+    "environment": "Current authorized cloud only; follow the project-required modeling runtime and model before starting Blender.",
+    "execution_order": [
+      "Probe Blender/exporter and consuming runtime versions; freeze brief and reference hashes.",
+      "Build shell/trunk/pincers/paired tail before dense secondary limbs. Inspect four low-cost greybox views.",
+      "Parameterize approximately 50 paired trunk stations, with 50 as a declared approximation, not an observed exact fossil count; use a transition to broader posterior flaps informed by the source. Record the counting convention including or excluding the grasping pair, and do not silently omit whole limb classes.",
+      "Resolve silhouette, attachment and negative space; then add modest superficial mouthparts and original palette.",
+      "Save editable source plus deterministic generator/config and declared relative dependencies. Export only the asset; then validate and cleanly reimport the exact final GLB.",
+      "Create only the four canonical final views and preview; allow a specific private close-up only to resolve an actual issue. Queue fresh independent review."
+    ]
+  },
+  "acceptance_obligations": [
+    "All five morphology obligations must be judged from actual final-GLB pixels and, where occluded, the editable geometry or a specific cheap private diagnostic view. Labels and numeric counts do not establish anatomy.",
+    "Bind source/export measurements, Khronos validation, exact GLB parsing/reimport and preview manifest to final hashes. Preserve centimeter-scale dimensions in meters.",
+    "Run two isolated deterministic rebuilds with semantic geometry/material equivalence and declared dependencies.",
+    "Independent visual/factual/specification review must use actual reviewer identity and fresh hash-bound evidence. Maker decision remains PENDING until that review.",
+    "GPU rendering, populated world, user acceptance and deployment remain UNKNOWN until separately tested. Brief readiness grants no upload, Git, publication or deployment authority."
+  ],
+  "original_inventory_identity": {
+    "id": "tokummia",
+    "representation": "living-reconstruction",
+    "selection": "Retain the inventory animal and its paired carapace/long trunk/frontal pincer distinction; narrow the genus entry to the museum-supported Tokummia katalepsis, not a different bivalved arthropod."
+  }
+}

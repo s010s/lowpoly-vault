@@ -3,6 +3,7 @@
  * Process evidence stays in the private archive; one detached review binds its projection.
  */
 import assert from 'node:assert/strict';
+import {PRODUCTION_WHEEL_ROUTE,verifyProductionWheel} from './production-wheel-contract.mjs';
 import {inspectContentProductionRelease,verifyContentProjectionReviews,CONTENT_PRODUCTION_CHECKS} from './content-production-acceptance.mjs';
 import {inspectTypedProductionRelease,verifyTypedProjectionReviews,loadProductionRegistry,resolveImplementationCompatibility,productionSourceClosure as sourceClosure} from './typed-production-release.mjs';
 import {readFile,realpath,stat} from 'node:fs/promises';
@@ -229,14 +230,15 @@ export async function appendProductionReleases(root,base,registryPath,results){
 }
 // END_EXPLICIT_PRODUCTION_REGISTRY
 export async function verifyProductionPosters(root,asset,record){
- const p=record.final_posters;assert(p&&p.route==='blender-cycles-cpu-v1','Final poster route required');assert.equal(p.source_glb_sha256,asset.sha256.glb);assert.equal(p.browser_capture,false);
+ const p=record.final_posters;assert(p&&['blender-cycles-cpu-v1',PRODUCTION_WHEEL_ROUTE].includes(p.route),'Final poster route required');const mixed=p.route===PRODUCTION_WHEEL_ROUTE;assert.equal(p.source_glb_sha256,asset.sha256.glb);assert.equal(p.browser_capture,mixed);
  assert(digest(p.recipe_sha256)&&typeof p.blender_version==='string');
  const recipe=JSON.parse(await pinned(root,p.recipe));assert.equal(p.recipe.sha256,p.recipe_sha256);assert.equal(recipe.source_glb_sha256,asset.sha256.glb);assert.equal(recipe.blender_version,p.blender_version);assert.equal(recipe.rendered_unchanged_source,true);for(const source of recipe.files)await pinned(root,source);
- for(const [kind,size]of [['detail',[512,512]],['wheel',[768,432]]]){
+ for(const [kind,size]of (mixed?[['detail',[512,512]]]:[['detail',[512,512]],['wheel',[768,432]]])){
   const config=JSON.parse(await pinned(root,p[kind].render_config));assert.equal(config.source_geometry_and_materials_unchanged,true);assert.equal(config.film_transparent,true);assert.equal(config.version,p.blender_version);assert.equal(config.renderer_sha256,recipe.files[0].sha256);assert.deepEqual(config.resolution,size);
   const b=await pinned(root,p[kind]);assert.equal(b.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.deepEqual([b.readUInt32BE(16),b.readUInt32BE(20)],size);assert.equal(b[24],8,'8-bit final poster required');assert.equal(b[25],6,'RGBA final poster required');
   assert.deepEqual(p[kind].camera_degrees,[42,23.3]);assert.equal(p[kind].source_glb_sha256,asset.sha256.glb);assert(digest(p[kind].pixel_sha256));
  }
+ if(mixed)await verifyProductionWheel(root,asset,record);
  assert.equal(asset.production_posters?.route,p.route);for(const kind of ['detail','wheel'])assert.equal(asset.production_posters[kind],p[kind].path);
  return p;
 }
@@ -248,7 +250,7 @@ export async function productionGalleryResources(root,manifest,resources,results
  for(const asset of additions){if(!checked.has(asset.production_release))checked.set(asset.production_release,results?.get(asset.production_release)?.assets??await collectProductionRelease(root,asset.production_release));assertProductionMetadata(checked.get(asset.production_release).find(a=>a.id===asset.id),asset);
  if(!inspections.has(asset.production_release))inspections.set(asset.production_release,results?.get(asset.production_release)??await inspectProductionRelease(root,asset.production_release));
  const inspected=inspections.get(asset.production_release),record=inspected.records.find(r=>r.asset_id===asset.id),p=record.final_posters;const existing=next.posters[asset.id];
- const expected={render_route:p.route,source_glb_sha256:asset.sha256.glb,production_descriptor:asset.production_release,recipe_sha256:p.recipe_sha256,detail:p.detail.path.replace(/^site\/public\//,''),wheel:p.wheel.path.replace(/^site\/public\//,'')};
+ const expected={render_route:p.route,source_glb_sha256:asset.sha256.glb,production_descriptor:asset.production_release,recipe_sha256:p.recipe_sha256,detail:p.detail.path.replace(/^site\/public\//,''),wheel:p.wheel.path.replace(/^site\/public\//,''),...(p.route===PRODUCTION_WHEEL_ROUTE?{wheelSpec:p.wheel.wheelSpec}:{})};
  if(existing)assert.deepEqual(existing,expected,'Cannot replace existing gallery poster');else next.posters[asset.id]=expected;
  for(const kind of ['detail','wheel']){const seal={path:expected[kind],sha256:p[kind].sha256,bytes:p[kind].bytes},old=next.files.find(f=>f.path===seal.path);if(old)assert.deepEqual(old,seal,'Changed production poster');else next.files.push(seal);}
  }return next;
@@ -271,7 +273,7 @@ export async function appendProductionPosterInputState(root,assets,resources,leg
   assertProductionMetadata(checked.get(asset.production_release).find(a=>a.id===asset.id),asset);
   if(!inspections.has(asset.production_release))inspections.set(asset.production_release,results?.get(asset.production_release)??await inspectProductionRelease(root,asset.production_release));
   const inspected=inspections.get(asset.production_release),p=inspected.records.find(r=>r.asset_id===asset.id).final_posters,poster=resources.posters[asset.id];
-  assert.equal(poster?.render_route,'blender-cycles-cpu-v1','Explicit final production poster route required');assert.equal(poster.recipe_sha256,p.recipe_sha256);assert.equal(poster.production_descriptor,asset.production_release);assert.equal(poster.source_glb_sha256,asset.sha256.glb);
+  assert(['blender-cycles-cpu-v1',PRODUCTION_WHEEL_ROUTE].includes(p.route),'Explicit final production poster route required');assert.equal(poster?.render_route,p.route);if(p.route===PRODUCTION_WHEEL_ROUTE)assert.deepEqual(poster.wheelSpec,p.wheel.wheelSpec);assert.equal(poster.recipe_sha256,p.recipe_sha256);assert.equal(poster.production_descriptor,asset.production_release);assert.equal(poster.source_glb_sha256,asset.sha256.glb);
   for(const kind of ['detail','wheel']){assert.equal(poster[kind],p[kind].path.replace(/^site\/public\//,''));const seal=resources.files.find(f=>f.path===poster[kind]);assert.equal(seal?.sha256,p[kind].sha256);assert.equal(seal?.bytes,p[kind].bytes);}
   assert(!valid.includes(asset.id),'Duplicate production input state');valid.push(asset.id);production.push(asset.id);
  }

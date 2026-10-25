@@ -5,12 +5,13 @@ import {resolve,sep} from 'node:path';
 import index from './gallery/wheel-presentations-index.js';
 import {resolveGalleryPoster} from './gallery/wheel-presentations.js';
 import {assertWheelPresentation,wheelHash} from './wheel-presentation-contract.mjs';
+import {wheelHistoricalBaseline} from './wheel-historical-baseline.mjs';
 import {posterRendererFiles} from './gallery-poster-inputs.mjs';
 async function bytes(root,path){assert(typeof path==='string'&&!/[\\\u0000-\u001f?#%]/.test(path)&&!path.split('/').some(p=>!p||p==='.'||p==='..'));const file=resolve(root,path);assert(file.startsWith(resolve(root)+sep));assert.equal(await realpath(file),file,'Symlink wheel input');return readFile(file);}
 export async function auditWheelPresentations(manifest,{root=process.cwd(),outputRoot}={}){
  const manifestBytes=await bytes(root,'assets/manifest.json'),resourceBytes=await bytes(root,'site/public/gallery/resources.json'),resources=JSON.parse(resourceBytes);
- assert.equal(wheelHash(manifestBytes),index.source_manifest_sha256);assert.equal(wheelHash(resourceBytes),index.source_resources_sha256);
- const affected=manifest.assets.filter(a=>resources.posters[a.id]?.render_route==='blender-cycles-cpu-v1'&&!resources.posters[a.id]?.wheelSpec);
+ const historical=await wheelHistoricalBaseline(root,manifest,resources,index);
+ const affected=historical.manifest.assets.filter(a=>resources.posters[a.id]?.render_route==='blender-cycles-cpu-v1'&&!resources.posters[a.id]?.wheelSpec);
  assert.deepEqual(Object.keys(index.presentations).sort(),affected.map(a=>a.id).sort());assert.equal(index.count,affected.length);
  for(const pin of Object.values(index.evidence)){const data=await bytes(root,pin.path);assert.equal(data.length,pin.bytes);assert.equal(wheelHash(data),pin.sha256);}
  const report=JSON.parse(await bytes(root,index.evidence.batch_report.path));assert.equal(report.status,'capture-and-geometry-check-pass');assert.deepEqual(report.errors,[]);assert.equal(report.cases.length,affected.length);

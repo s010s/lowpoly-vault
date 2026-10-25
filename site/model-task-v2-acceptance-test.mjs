@@ -170,3 +170,11 @@ test('historical independent issue closure layouts preserve evidence and reject 
  }
  for(const issue of [{id:'X',status:'CLOSED'},{id:'X',status:'CLOSED',supplement_status:'MAKER_ACCEPTED',resolution_evidence:'qa/evidence/review.json'},{id:'X',resolution_status:'CLOSED_BY_INDEPENDENT_RECHECK',reviewer_status:'OPEN'}])assert.throws(()=>mapV2Decision({...d,issues:[issue]},d.asset_id,d.revision));
 });
+test('closed independent review retains explicit PASS and stable review identity without rewriting original',()=>{
+ const f=fixture(),d=structuredClone(f.decision);d.reviewer.status='CLOSED';const before=JSON.stringify(d);const got=mapV2Decision(d,d.asset_id,d.revision);assert.equal(got.reviewer_status,'CLOSED');assert.equal(JSON.stringify(d),before);
+ delete d.reviewer.task;d.reviewer.review_id='sample-independent-review-r001';assert.equal(mapV2Decision(d,d.asset_id,d.revision).reviewer_task_sha256,hash(d.reviewer.review_id));
+ for(const edit of [x=>x.status='REVISE',x=>delete x.status,x=>x.reviewer.review_id='',x=>x.reviewer.review_id=x.maker.task,x=>x.blocking_findings=['open'],x=>x.reviewer.status='PENDING']){const bad=structuredClone(d);edit(bad);assert.throws(()=>mapV2Decision(bad,bad.asset_id,bad.revision));}
+});
+test('array-form original references retain original semantic binding and nonempty requirement',()=>{
+ const f=fixture(),mapping=f.input.representation_mapping;const refs=[{title:'Reference',url:'https://example.org/reference'}];const got=mapV2Brief(f.brief,refs,f.brief.asset_id,mapping);assert.equal(got.original_references_semantic_sha256,hash(refs));assert.throws(()=>mapV2Brief(f.brief,[],f.brief.asset_id,mapping));
+});

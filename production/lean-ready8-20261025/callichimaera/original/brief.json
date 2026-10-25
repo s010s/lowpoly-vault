@@ -1,0 +1,154 @@
+{
+  "template_version": "model-task-v2",
+  "revision": "r001",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "direction_substitutions": [],
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Mid-carapace horizontal center, lowest exported surface Z0; headforward-Y, meters. Include limbs when recording bounds but not when matching carapace scale.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "extra_views": [],
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original muted natural palette; color artistic, not copied fossil mineral stains or reference pixels.",
+    "normal_style": "Refined broad planes, continuous transitions."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Inspect cheap clay views for morphology, silhouette and attachment before final exactGLB four views.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "acceptance_obligations": [
+    "Distinct animal silhouette and anatomical brief compliance in four exact-GLB views.",
+    "Portable embedded GLB, source reopening and scoped technical checks; independent review separate.",
+    "Mark GPU, world scene, user acceptance and deployment unverified until actually checked."
+  ],
+  "asset_id": "callichimaera",
+  "name": {
+    "en": "Callichimaera perplexa",
+    "zh": "Callichimaera perplexa"
+  },
+  "representation": "living-reconstruction",
+  "scope": "Original static whole animal for a mid-Cretaceous marine prehistoric 3D world region. No rig, animation or scene-readiness claim.",
+  "scientific_limits": {
+    "en": "Colour, inflated soft volume and chosen resting/swimming pose are interpretive. No arbitrary enlarged eyes beyond source proportions; distal leg lamellae follow fossil/reconstruction evidence. Sex-neutral simplified pleon, no claim of reproductive microanatomy."
+  },
+  "taxon": {
+    "scientific_name": "Callichimaera perplexa",
+    "age_context": "Upper Cenomanian to lower Turonian, approximately 95-90 Ma",
+    "geographic_context": "Churuvita Group, Pesca, Boyaca, Colombia; additional Frontier Formation specimens in United States",
+    "anatomical_anchors": [
+      "Holotype IGM p881215 carapace length8.5mm width5.2mm; primary2019paper Figs1,3,4 directly inspected."
+    ]
+  },
+  "scale": {
+    "unit": "meter",
+    "carapace_length_m": 0.0085,
+    "carapace_width_m": 0.0052,
+    "basis": "Holotype published carapace dimensions, NOT total body or limb span. Record total exported dimensions separately.",
+    "uniform_scale_only": true
+  },
+  "pose": {
+    "description": "Gentle static swimming or spread-limb pose preserving two paddle pairs and two reduced rear leg pairs. No substrate, no shell carried, no extra tail fan."
+  },
+  "morphology": [
+    {
+      "id": "form-1",
+      "obligation": "Fusiform carapace distinctly longer than wide, cervical and branchiocardiac grooves and axial ridge; not a generic wide modern crab.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    },
+    {
+      "id": "form-2",
+      "obligation": "Very large subglobular compound eyes on short peduncles with no enclosing orbit, bifid rostrum and two small antennal pairs between eyes.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    },
+    {
+      "id": "form-3",
+      "obligation": "One pair P1 stout spanner-like claws, fixed finger deflected about90 degrees, paired mobile dactyl. No three-finger claw.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    },
+    {
+      "id": "form-4",
+      "obligation": "Exactly two large oar-like limb pairs P2 and P3, flattened distal propodus/dactylus.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    },
+    {
+      "id": "form-5",
+      "obligation": "Exactly two reduced narrow posterior pairs P4 and P5, subdorsal, directed back; P5 smallest. These are not paddles, pincers or shell-carrying hooks.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    },
+    {
+      "id": "form-6",
+      "obligation": "Readable ventral pediform third maxillipeds plus symmetrical segmented pleon with small telson, no uropods or shrimp tail fan. Simplify hidden microanatomy honestly.",
+      "sources": [
+        "LUQUE2019"
+      ]
+    }
+  ],
+  "concept": {
+    "required": false,
+    "reason": "Primary fossil plates and author reconstruction Figs1/3/4 actual pixels inspected. Original geometry, no copied meshes or reference texture pixels."
+  },
+  "geometry_budget_rationale": "Ceilings only, not density targets. Spend geometry on diagnostic anatomy and continuous attachments; no hidden microdetail.",
+  "art_direction": {
+    "construction": "Original coherent lofts, controlled tapered appendages and readable negative space; no floating parts or mechanically stacked primitives."
+  },
+  "world_use": {
+    "role": "Small active mid-Cretaceous marine swimmer in a locality-matched region",
+    "placement": "Keep actual millimeter-centimeter scale. Closeup interaction can improve visibility; never enlarge source scale or claim coexistence with Cambrian assets.",
+    "integration_boundary": "Static candidate only; animation, collisions, LOD and populated-scene performance untested."
+  }
+}
