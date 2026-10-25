@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,writeFile,cp,mkdir} from 'node:fs/promises';
@@ -9,6 +10,8 @@ const root=resolve(process.env.PRODUCTION_SOURCE_ROOT||'.'),fixture=resolve(proc
 assert.notEqual(root,fixture,'Tests never approve real staging');
 const descriptor='production/recovery-20261022/release.json',read=async p=>JSON.parse(await readFile(resolve(fixture,p))),save=async(p,j)=>writeFile(resolve(fixture,p),JSON.stringify(j,null,2)+'\n'),hash=b=>createHash('sha256').update(b).digest('hex');
 await mkdir(fixture,{recursive:true});await cp(resolve(root,'assets'),resolve(fixture,'assets'),{recursive:true});await cp(resolve(root,'production'),resolve(fixture,'production'),{recursive:true});await cp(resolve(root,'site/public'),resolve(fixture,'site/public'),{recursive:true});
+// Detached legacy adapter fixture uses only the authenticated historical source view.
+await save('assets/manifest.json',historicalManifestView({manifest:JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),read:successorReader(root)}));
 const original=await read(descriptor),recordPath=original.assets[0].evidence.path,originalRecord=await read(recordPath),reviewPath=original.review_path;
 for(const pin of original.implementation){await mkdir(resolve(fixture,pin.path,'..'),{recursive:true});await cp(resolve(root,pin.path),resolve(fixture,pin.path));}
 async function repin(){const d=await read(descriptor);for(const row of d.assets)for(const key of ['metadata','evidence']){const b=await readFile(resolve(fixture,row[key].path));row[key].sha256=hash(b);row[key].bytes=b.length;}await save(descriptor,d);}

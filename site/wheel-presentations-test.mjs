@@ -1,3 +1,4 @@
+import {successorReader,historicalManifestView} from './same-id-successors.mjs';
 /** Focused additive correction checks. Does not claim fresh browser/GPU visual approval. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -27,7 +28,7 @@ test('index membership is exactly the 242 original unframed Blender wheels',asyn
   assert.deepEqual(Object.keys(index.presentations),affected.map(asset=>asset.id));
   assert.deepEqual(affected.map(asset=>asset.id),historical.manifest.assets.slice(352).map(asset=>asset.id));
   // Exact historical global seals are authenticated by wheelHistoricalBaseline above.
-  assert.deepEqual(manifest.assets.slice(0,594),historical.manifest.assets);
+  assert.deepEqual(historicalManifestView({manifest,read:successorReader(new URL('..',import.meta.url).pathname)}).assets.slice(0,594),historical.manifest.assets);
   assert.equal(index.review_summary.physical_gpu,'unknown');
   assert.equal(index.review_summary.publication_authority,false);
 });

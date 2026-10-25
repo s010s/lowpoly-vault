@@ -1,3 +1,4 @@
+import {successorReader,successorContext,historicalGalleryView} from './same-id-successors.mjs';
 /** Authenticate the original capture snapshot, then permit strictly additive catalog growth.
  * The 594-asset capture is not relabelled as a capture of the expanded manifest.
  */
@@ -27,5 +28,6 @@ export async function wheelHistoricalBaseline(root,manifest,resources,index){
  if(wheelHash(mb)===index.source_manifest_sha256&&wheelHash(rb)===index.source_resources_sha256)return {manifest,resources};
  const oldManifest=await productionWheelBytes(root,DIRECTORY+'/baseline-manifest.json'),oldResources=await productionWheelBytes(root,DIRECTORY+'/baseline-resources.json');
  assert.equal(wheelHash(oldManifest),index.source_manifest_sha256,'Historical manifest snapshot changed');assert.equal(wheelHash(oldResources),index.source_resources_sha256,'Historical resources snapshot changed');
- return assertWheelHistoricalExtension(manifest,resources,JSON.parse(oldManifest),JSON.parse(oldResources));
+ const read=successorReader(root),context=successorContext({manifest,read});
+ return assertWheelHistoricalExtension(context?context.base:manifest,historicalGalleryView({manifest,resources,read}),JSON.parse(oldManifest),JSON.parse(oldResources));
 }

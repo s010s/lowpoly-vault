@@ -1,3 +1,4 @@
+import {MESH_SUCCESSOR_IDS} from './same-id-successors.mjs';
 import {collectProductionRelease,assertProductionMetadata} from './production-release.mjs';
 /** Optional image sequences are separately sealed; source GLB/Blend publication remains unchanged. */
 import { readFile, mkdir, cp, realpath, writeFile } from 'node:fs/promises';
@@ -13,6 +14,14 @@ const presetHash=createHash('sha256').update(JSON.stringify(CARD_RENDER_PRESET))
 export function publishedImagePaths(asset,manifest,imageVariant=variant) {
   assert(/^v[0-9]+-[0-9]+-q[0-9]+$/.test(imageVariant),'Safe render variant required');
   assert(/^[a-z0-9-]+$/.test(asset.id||''),'Safe published asset ID required');
+  // Only the explicit bounded successor manifest may select this new static-card
+  // location. Final publication separately authenticates its descriptor and bytes.
+  if(manifest.publication?.same_id_successors&&MESH_SUCCESSOR_IDS.includes(asset.id)&&asset.glb?.startsWith('assets/successors/')){
+    assert(typeof asset.revision==='string'&&/^[a-z0-9][a-z0-9._-]*$/.test(asset.revision)&&!asset.revision.includes('..'),'Safe successor revision required');
+    const parts=asset.glb.split('/');assert(parts.length>=5&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(parts[2])&&parts[3]===asset.id,'Owned successor model route required');
+    for(const key of ['glb','blend','preview'])assert(asset[key].startsWith(`assets/successors/${parts[2]}/${asset.id}/`),'Same successor owner required');
+    return {revised:false,successor:true,manifest:`assets/turntables/${asset.id}/${asset.revision}/${imageVariant}/turntable.json`,poster:`assets/card-previews/${asset.id}-${asset.revision}-${imageVariant}.webp`};
+  }
   const selected=manifest.release_status==='mixed'&&manifest.publication?.approved_asset_ids?.includes(asset.id);
   const revised=selected||asset.revision!==undefined||asset.quality_status==='accepted_for_brief'||asset.revision_provenance!==undefined;
   if(revised) {
@@ -65,6 +74,7 @@ export async function collectTurntables(manifest,root=process.cwd(),productionRe
   assert.equal(source.version,1);assert(Array.isArray(source.assets));assert.equal(source.render_preset_sha256,presetHash,'Website frames must match the active viewer preset');const descriptors=new Map(),posters=new Map(),posterFrames=new Map(),files=[];
   for(const item of source.assets) {
     const asset=manifest.assets.find(a=>a.id===item.id);assert(asset,'Turntable must match a published asset');assert(!descriptors.has(item.id),'Duplicate turntable');
+    assert(!paths.get(item.id).successor,'Successor route cannot inherit or invent a turntable sequence');
     const {manifest:path,revised}=paths.get(item.id);assert.equal(item.manifest,path);assert.equal(item.source_glb_sha256,asset.sha256.glb);
     assert.equal(await realpath(resolve(root,path)),resolve(root,path),'Turntable metadata symlinks are not allowed');
     const bytes=await readFile(resolve(root,path));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.manifest_sha256,'Turntable metadata changed');
@@ -84,12 +94,12 @@ export async function collectTurntables(manifest,root=process.cwd(),productionRe
   assert.equal(source.posters?.length,manifest.assets.length,'Every published card needs a matching lightweight poster');
   for(const item of source.posters) {
     const asset=manifest.assets.find(a=>a.id===item.id);assert(asset);assert(!posters.has(item.id));
-    const {poster:posterPath,revised}=paths.get(item.id);assert.equal(item.path,posterPath);assert.equal(item.source_glb_sha256,asset.sha256.glb);assert.equal(item.render_preset_sha256,presetHash);
+    const {poster:posterPath,revised,successor}=paths.get(item.id);assert.equal(item.path,posterPath);assert.equal(item.source_glb_sha256,asset.sha256.glb);assert.equal(item.render_preset_sha256,presetHash);
     assert.equal(await realpath(resolve(root,item.path)),resolve(root,item.path),'Poster symlinks are not allowed');
     if(revised){const frame=posterFrames.get(item.id);assert(frame,'Revised cards require the accepted revision sequence');assert.equal(item.sha256,frame.sha256,'Revision poster must match frame 0');assert.equal(item.bytes,frame.bytes,'Revision poster bytes must match frame 0');assert.equal(item.sha256,asset.sha256.preview,'Revision poster must match the approved published preview');}
     if(manifest.publication?.approved_addition_ids?.includes(asset.id)){assert.equal(item.sha256,asset.sha256.preview,'Addition poster must match its published canonical preview');assert(!descriptors.has(asset.id),'Small-life additions are poster-only, never sequence frames');}
     const bytes=await readFile(resolve(root,item.path));assert.equal(bytes.length,item.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
-    assert.deepEqual(webpDimensions(bytes),[CARD_RENDER_PRESET.image.width,CARD_RENDER_PRESET.image.height]);if(revised||manifest.publication?.approved_addition_ids?.includes(asset.id))assert(webpHasAlpha(bytes),'Published accepted poster must contain encoded alpha');assert.equal(item.width,CARD_RENDER_PRESET.image.width);assert.equal(item.height,CARD_RENDER_PRESET.image.height);posters.set(item.id,item.path);files.push(item.path);
+    assert.deepEqual(webpDimensions(bytes),[CARD_RENDER_PRESET.image.width,CARD_RENDER_PRESET.image.height]);if(revised||successor||manifest.publication?.approved_addition_ids?.includes(asset.id))assert(webpHasAlpha(bytes),'Published accepted poster must contain encoded alpha');assert.equal(item.width,CARD_RENDER_PRESET.image.width);assert.equal(item.height,CARD_RENDER_PRESET.image.height);posters.set(item.id,item.path);files.push(item.path);
   }
   return {descriptors,posters,files};
 }

@@ -96,7 +96,7 @@ try{
  await put('events','');let result=run();assert.equal(result.status,0,result.stderr);assert.deepEqual((await readFile(join(root,'events'),'utf8')).trim().split('\n'),order);
  let report=JSON.parse(await readFile(join(root,'qa/ci-timings/build.json')));assert.equal(report.status,'pass');assert.equal(report.phases.length,6);
  for(const name of order){await put('events','');result=run(name);assert.notEqual(result.status,0,name);assert.deepEqual((await readFile(join(root,'events'),'utf8')).trim().split('\n'),order.slice(0,order.indexOf(name)+1));report=JSON.parse(await readFile(join(root,'qa/ci-timings/build.json')));assert.equal(report.status,'fail');assert.equal(report.phases.at(-1).exit_code,1);}
- for(const file of ['turntable-delivery.mjs','image-scrub.js','render-preset.js','refinable-asset-ids.mjs'])await copyFile(resolve('site',file),join(root,'site',file));
+ for(const file of ['turntable-delivery.mjs','image-scrub.js','render-preset.js','refinable-asset-ids.mjs','same-id-successors.mjs','model-registry.mjs','curation.js','catalog-data.json','final-delivery.mjs'])await copyFile(resolve('site',file),join(root,'site',file));
  await put('site/production-release.mjs',`import assert from 'node:assert/strict';export let calls=0;export async function collectProductionRelease(){calls++;return [{id:'one',production_release:'batch'},{id:'two',production_release:'batch'}];}export function assertProductionMetadata(a,b){assert.deepEqual(a,b);}`);
  const module=await import('file://'+join(root,'site/turntable-delivery.mjs')),production=await import('file://'+join(root,'site/production-release.mjs'));
  const manifest={assets:[{id:'one',production_release:'batch'},{id:'two',production_release:'batch'}]};

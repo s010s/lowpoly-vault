@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 /** Exact-seven scope, immutable source/QA, and explicitly unapproved formal gates. */
 import assert from 'node:assert/strict';
 import { mkdtemp,readFile,writeFile,rm } from 'node:fs/promises';
@@ -13,7 +14,7 @@ async function mutate(path,change,action){const bytes=await readFile(resolve(roo
 try {
  for(const dir of ['assets','production','qa','scripts','experiments','package-lock.json'])execFileSync('cp',['-a','--reflink=auto',dir,resolve(root,dir)]);
  const collect=async()=>collectConceptSevenRelease(root,await pin(file));
- const manifest=await collect(),before=JSON.parse(await readFile('assets/manifest.json'));
+ const manifest=await collect(),before=historicalManifestView({manifest:JSON.parse(await readFile('assets/manifest.json')),read:successorReader(process.cwd())});
  assert.equal(manifest.assets.length,182);assert.deepEqual(manifest.assets.slice(0,175),before.assets.slice(0,175));assert.deepEqual(manifest.assets.slice(175).map(a=>a.id).sort(),CONCEPT_SEVEN_IDS);checks++;
  assert(!manifest.assets.some(a=>a.id==='ctenoimbricata'));checks++;
  for(const a of manifest.assets.slice(175)){

@@ -1,0 +1,190 @@
+{
+  "schema": "bounded-independent-static-review-v1",
+  "asset_id": "onoclea",
+  "revision": "world-r003",
+  "review_revision": "independent-r001",
+  "reviewer": "independent subagent review_onoclea_basal_repair",
+  "first_verdict_formed_without_maker_self_review_or_historical_independent_verdict": true,
+  "verdict": "PASS_BOUNDED_STATIC_BASAL_REPAIR",
+  "acceptance_scope": "Only the frozen basal-ring repair brief. Not formal production, target-world, runtime/GPU, user acceptance, or publication approval.",
+  "bindings": {
+    "model": {
+      "path": "candidate/onoclea/onoclea.glb",
+      "sha256": "e1cc0e89e278128753ee4f6400b43ff806142cadc61cfe65afaa7fad9aa1be17",
+      "bytes": 260148
+    },
+    "editable_source": {
+      "path": "candidate/onoclea/onoclea.blend",
+      "sha256": "8f21e1131fa349f7617bf5a606ca07bee183d6def5fa115d0745909397cbec71",
+      "bytes": 1033316
+    },
+    "brief": {
+      "path": "brief.json",
+      "sha256": "1141daf33ccb681033ff1da5de6ab5fcc17e86cc16fefc94ad9a878d1e076b2e",
+      "bytes": 7336
+    },
+    "references": {
+      "path": "references.json",
+      "sha256": "9041cf9ea69eacb8d9bdbdc0ea90200c930f28565cd618f5339cac17bf6f02a3",
+      "bytes": 1339
+    },
+    "reference_removal": {
+      "path": "references-correction.json",
+      "sha256": "e214f11301f080924778d80be7a8b8129af771a409476beb5a1689f2451e1940",
+      "bytes": 1709
+    },
+    "source_generator": {
+      "path": "source/production/continuous-small-life-20261018/work/batch-03/build_batch03.py",
+      "sha256": "af8d68d828eb0362a82c2d5792d2f6b11fb383fc5d30cb44cd430f31d6eab798",
+      "bytes": 20124
+    },
+    "config": {
+      "path": "source/production/continuous-small-life-20261018/items/onoclea/build-config.json",
+      "sha256": "3626500a45af1a1c3520b93e4b7cad814b5bd6619b216810adaa4b73a1035ba0",
+      "bytes": 4197
+    },
+    "source_patch": {
+      "path": "source/generator.patch",
+      "sha256": "d927e1f549408257e64f95fcfdaa7f16a1f02d2420dd0cdf009f68144bfb02bb",
+      "bytes": 1235
+    }
+  },
+  "criteria": [
+    {
+      "id": "source_identity_and_bounded_edit",
+      "status": "pass",
+      "finding": "Independently reopened exact original and candidate .blend files with scripts disabled. Exactly indices 1040..1047 of tapered-sterile-and-fertile-frond-axes changed; 6,728 other source vertices are bitwise coordinate-identical. Faces, triangle tessellation, material indices, smooth flags, parents, transforms and units are identical. Generator diff is exactly the retained local ring-translation patch; helper/config are unchanged.",
+      "evidence": [
+        "independent-source-diff.json",
+        "independently-reopened-sources.json",
+        "bindings-and-preservation.json"
+      ]
+    },
+    {
+      "id": "original_gap_and_all_axis_contacts",
+      "status": "pass",
+      "finding": "Independent triangle-distance calculation reproduces the original 3.234839127 mm gap. All eight candidate axes have explicit triangle intersection witnesses with the unchanged basal network, including the repaired axis.",
+      "evidence": [
+        "independent-contact-and-containment.json"
+      ]
+    },
+    {
+      "id": "entire_ring_inside_existing_rhizome",
+      "status": "pass",
+      "finding": "The base-ring center is inside the closed original rhizome under three independent ray directions. Its nearest surface clearance minus the whole ring circumradius is 2.704540892 mm, proving the entire ring, edges and cap disk fit inside that body, not mere edge touching. Center target error is 2.52531410841e-08 m.",
+      "evidence": [
+        "independent-contact-and-containment.json"
+      ]
+    },
+    {
+      "id": "protected_geometry_topology_materials_bounds",
+      "status": "pass",
+      "finding": "12,776 triangles, 5 meshes, 8 primitives, 5 opaque materials, zero textures and 7,336 exported position-stream vertices. Exactly 8 unique exported positions differ by at most 0.011264619274 m. Only 22 triangles are position-affected, all below glTF Y=0.031160302 m; 16 changed smooth normals remain below 0.032 m. Every other exported position/normal, all indices, materials, root transforms and final bounds are unchanged. No degenerate triangles; global minimum area 1.134043134e-8 m2.",
+      "evidence": [
+        "independent-glb-diff.json"
+      ]
+    },
+    {
+      "id": "actual_soil_free_connection_visual",
+      "status": "pass",
+      "finding": "Opened actual final before/after 896 px images and checked their exact model/image hashes, render script and log. Locked camera, exposure, lighting, soil-free visibility and imported exact GLB are documented. The repaired center brown axis visibly enters the rhizome without added collar/bulb or broken first-segment shading. The localized bend is expected from the bounded base-only edit, not a new organ. Numerical proof resolves the deceptive overlap in the baseline projection.",
+      "evidence": [
+        "opened-pixel-evidence.json",
+        "../world-r003/evidence/base-render-manifest.json",
+        "../world-r003/source/render_base_comparison_v2.py"
+      ]
+    },
+    {
+      "id": "historical_unchanged_form_and_scale",
+      "status": "pass",
+      "finding": "Opened all eight original exact-export full-form views, historical 80/160/240 px and 360 px hero, and shared meter-scale evidence. The above-base broad-versus-beaded dimorphism, five broad blades, three fertile systems, crown, palette, spacing and source scale are protected by independent geometry equality. Historical evidence is used only for unchanged form, never as a candidate runtime verdict. At 80 px fine bead anatomy is not claimed legible.",
+      "evidence": [
+        "opened-pixel-evidence.json",
+        "independent-glb-diff.json",
+        "independent-source-diff.json"
+      ]
+    },
+    {
+      "id": "source_export_and_rebuild_binding",
+      "status": "pass",
+      "finding": "Actual reopened source positions bidirectionally match candidate GLB positions within 1e-7 m after coordinate conversion. Exact original bytes independently match immutable source Git objects. Existing producer source-reopened and both deterministic rebuilt GLBs are independently hash-checked and byte-identical to the reviewed GLB. Reviewer did not re-export, rebuild or rerender. Existing hash-bound Khronos validator report has zero errors/warnings; the reviewer independently decoded topology/counts, finite coordinates and unit normals but did not rerun the validator.",
+      "evidence": [
+        "bindings-and-preservation.json",
+        "independent-source-diff.json",
+        "independent-glb-diff.json",
+        "../world-r003/checks/gltf-validator.report.json"
+      ]
+    },
+    {
+      "id": "references_correction_only",
+      "status": "pass",
+      "finding": "Exact JSON comparison proves only removal of the unrelated Joffrea clause. Candidate reference copy and metadata sources match; originals independently match recovered Git bytes. No new scientific assertion, species rename, source-reading claim or reconstruction claim was added. This is metadata correction verification, not a fresh scientific-source assessment.",
+      "evidence": [
+        "bindings-and-preservation.json",
+        "../world-r003/references.json",
+        "../world-r003/references-correction.json"
+      ]
+    },
+    {
+      "id": "runtime",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    },
+    {
+      "id": "physical_GPU",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    },
+    {
+      "id": "target_world_integration",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    },
+    {
+      "id": "populated_scene_performance",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    },
+    {
+      "id": "user_acceptance",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    },
+    {
+      "id": "deployed",
+      "status": "unknown",
+      "finding": "Not run or established for this exact revision; no historical acceptance transfer."
+    }
+  ],
+  "blocking_defects": [],
+  "advisory_limits": [
+    "The isolated first-segment bend is visible in the magnified diagnostic, but is expected and within the frozen eight-vertex-only repair; do not cosmetically revise protected rings.",
+    "The original 80 px view supports coarse dimorphism, not detailed bead anatomy.",
+    "Source parts intentionally overlap; no boolean union, collision suitability or manifold combined union is claimed.",
+    "External factual citations were not reassessed; the revision only removes the inapplicable clause."
+  ],
+  "web_wheel_status": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE",
+  "publication": "NOT_AUTHORIZED_BY_THIS_REVIEW",
+  "actions_not_taken": [
+    "No maker files changed",
+    "No source save or export",
+    "No rebuild",
+    "No new render",
+    "No upload",
+    "No Git mutation",
+    "No Mac use",
+    "No new environment"
+  ],
+  "evidence_files": [
+    "bindings-and-preservation.json",
+    "independent-source-diff.json",
+    "independent-glb-diff.json",
+    "independent-contact-and-containment.json",
+    "opened-pixel-evidence.json",
+    "maker-frozen-inventory-verification.json",
+    "source-reopen.log",
+    "independent-verification.log",
+    "reopen_sources.py",
+    "verify_independently.py"
+  ]
+}

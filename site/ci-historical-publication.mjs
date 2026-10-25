@@ -1,3 +1,4 @@
+import {successorReader,historicalManifestView,historicalGalleryView,historicalTurntableView} from './same-id-successors.mjs';
 /** Test-only isolated historical manifest. Never relax or alter original rejection suites. */
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync,mkdtempSync,copyFileSync,constants,existsSync,symlinkSync,unlinkSync,rmSync,lstatSync,readdirSync,readlinkSync,realpathSync} from 'node:fs';
@@ -30,7 +31,11 @@ function dependencyInventory(root){
 }
 export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tmpdir()}={}){
  assert(HISTORICAL_PUBLICATION_SUITES.includes(name),'Unsupported historical suite');
- const original=readFileSync(resolve(source,'assets/manifest.json')),manifest=JSON.parse(original);
+ const original=readFileSync(resolve(source,'assets/manifest.json')),selected=JSON.parse(original),read=successorReader(source),manifest=historicalManifestView({manifest:selected,read});
+ const historicalMedia=selected.publication?.same_id_successors?{
+  'assets/turntables/index.json':historicalTurntableView({manifest:selected,turntables:JSON.parse(read('assets/turntables/index.json')),read}),
+  'site/public/gallery/resources.json':historicalGalleryView({manifest:selected,resources:JSON.parse(read('site/public/gallery/resources.json')),read})
+ }:{};
  const reviewed=await collectManifestProduction(source,manifest),projected=projectHistoricalManifest(manifest,reviewed);
  const paths=execFileSync('git',['ls-files','-z'],{cwd:source,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean);
  assert(paths.includes('assets/manifest.json')&&paths.includes(`site/${name}-test.mjs`),'Real tracked source inventory required');
@@ -43,6 +48,9 @@ export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tm
   execFileSync('git',['init','-q',fixture]);
   for(const path of paths){assert(!path.startsWith('/')&&!path.split('/').includes('..'));const full=resolve(source,path);assert(lstatSync(full).isFile()&&!lstatSync(full).isSymbolicLink(),'Ordinary tracked fixture input required: '+path);privateCopy(full,resolve(fixture,path));}
   unlinkSync(resolve(fixture,'assets/manifest.json'));writeFileSync(resolve(fixture,'assets/manifest.json'),JSON.stringify(projected,null,2)+'\n');
+  // Only private fixture aggregates are projected; original collector assertions
+  // still validate every frozen historical media pin against its actual bytes.
+  for(const [path,value] of Object.entries(historicalMedia)){unlinkSync(resolve(fixture,path));writeFileSync(resolve(fixture,path),JSON.stringify(value,null,2)+'\n');}
   const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:source,encoding:'utf8'}).trim();
   const objectPath=execFileSync('git',['rev-parse','--git-path','objects'],{cwd:source,encoding:'utf8'}).trim();
   const environment={...process.env,GIT_ALTERNATE_OBJECT_DIRECTORIES:resolve(source,objectPath)};

@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 /** Bounded marine quartet: exact revisions, immutable baseline and no formal promotion. */
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, writeFile, rm, rename, symlink } from 'node:fs/promises';
@@ -66,7 +67,7 @@ try {
 
   const baseline = await collectConceptSevenRelease(root, fixed.base_descriptor);
   const manifest = await collect();
-  const before = await json('assets/manifest.json');
+  const before = historicalManifestView({manifest:await json('assets/manifest.json'),read:successorReader(process.cwd())});
   assert.equal(baseline.assets.length, BASE_COUNT);
   assert.equal(manifest.assets.length, BASE_COUNT + CONCEPT_QUARTETS_IDS.length);
   assert.deepEqual(manifest.assets.slice(0, BASE_COUNT), baseline.assets, 'Every field of the existing 182 assets is preserved');

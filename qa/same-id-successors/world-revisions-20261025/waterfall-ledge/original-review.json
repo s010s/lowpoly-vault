@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "asset_id": "waterfall-ledge",
+  "revision": "world-r002",
+  "reviewer": "Independent static reviewer",
+  "reviewed_at_utc": "2026-10-24T16:36:58.402086+00:00",
+  "decision": "PASS",
+  "accepted_scope": "bounded_independent_static_geometry_visual_specification_review_only",
+  "production_or_runtime_acceptance": false,
+  "subject_glb_sha256": "23d8a24159973bb8721690338b79830a0331c925eb3f795d468ed2576b9d3497",
+  "qa_inputs_sha256": "138a41b0cda2de9f4682ff041a1a1688dbf7a2c097c8607eb4dd070f86a8a63a",
+  "brief_sha256": "406e9baa6fa2c1c8ff539540ae835f8b1e4d6a9b07ce1cfdf750675134e8cdd3",
+  "evidence_manifest": "evidence.json",
+  "evidence_manifest_sha256": "ae6c2cea030bb10d3f7b28e44873796fca153ae224c29407b41b791082c10ed5",
+  "criteria": [
+    {
+      "criterion": "integrity",
+      "status": "pass",
+      "finding": "All 99 qa-inputs entries and all pre-existing checksum-index entries match. Original r001 GLB and Blend remain at pinned hashes."
+    },
+    {
+      "criterion": "continuous_rock_and_naturalized_ends",
+      "status": "pass",
+      "finding": "One closed welded component. Both former planar C-section side cuts now vary over approximately 38.3/41.7 mm in X and terminate in broad nonplanar facets. Rear/bottom remain intentionally broad buried boundaries, with low-frequency irregularity. No detached panel, loose rock stack or display pedestal."
+    },
+    {
+      "criterion": "principal_dimensions",
+      "status": "pass",
+      "finding": "LOD0 1.1000000238 x 0.5500000119 x 0.6321529746 m; maximum difference from r001 0.003555%, within 5%. No auxiliary skirt counted."
+    },
+    {
+      "criterion": "triangle_budget",
+      "status": "pass",
+      "finding": "LOD0 450 <=1000; LOD1 274 <=400; non-convex static collision 106 triangles."
+    },
+    {
+      "criterion": "topology_normals",
+      "status": "pass",
+      "finding": "All three exact GLBs: one welded component, zero boundary/nonmanifold/inconsistent-winding/degenerate/duplicate findings; all finite positions; positive signed volume and outward flat normals. No global self-intersection certification."
+    },
+    {
+      "criterion": "overhang_and_recess",
+      "status": "pass",
+      "finding": "Actual upper lip and lower undercut visible from both sides, front and hero. Exact sections at X=-0.20/+0.20 m retain 0.342611/0.338662 m setbacks. Collision retains 0.342017/0.341212 m rather than a convex-filled recess."
+    },
+    {
+      "criterion": "local_gray_bank_contact",
+      "status": "pass",
+      "finding": "Final v4 standalone, embedded and all four joint views inspected. Closed side/rear host solids cover buried regions while central lip/recess remain exposed. No proven uncovered gap, floating thin host, or pedestal. Rear narrow contact shadow was examined separately: overlap samples and a maximum central rear top offset of 13.282 mm support a shallow contact step, not a through-crack. Perfectly flush or shadow-free contact is not required by the brief."
+    },
+    {
+      "criterion": "attach_anchor_and_water_scope",
+      "status": "pass",
+      "finding": "Four advisory left/right/back/bottom attachment envelopes; bottom-contact-center identity root; meters, +Y up/+Z front. Water is metadata-only polyline; exact GLBs contain rock meshes/materials only, no water, emissive material, spray or simulation."
+    },
+    {
+      "criterion": "lod_static_silhouette",
+      "status": "pass",
+      "finding": "Five common-meter LOD0/1 projections and individual masks inspected; IoU 0.995862-0.998404, no major outline drift or lost recess. This does not validate runtime transitions."
+    },
+    {
+      "criterion": "existing_validation_and_rebuilds",
+      "status": "pass",
+      "finding": "Hash-bound Khronos reports show zero errors/warnings for all tiers. Existing two serial rebuilds independently rehashed byte-identical. Existing Three.js r180 Node parse evidence reviewed, not promoted to GPU rendering."
+    },
+    {
+      "criterion": "claim_scope",
+      "status": "pass",
+      "finding": "Original stylized erosion-form concept; nominal dimensions are artistic. No claim to reconstruct a specific NPS locality, geological age or navigable world. No new reference media or external factual claims introduced."
+    },
+    {
+      "criterion": "actual_world_collision_navigation",
+      "status": "unknown",
+      "finding": "Not run in the actual terrain/world or engine; static triangle mesh support and navigation remain unverified."
+    },
+    {
+      "criterion": "water_intersections_dynamic_shadows",
+      "status": "unknown",
+      "finding": "No actual-world water placement or dynamic shadow test."
+    },
+    {
+      "criterion": "browser_physical_gpu_performance",
+      "status": "unknown",
+      "finding": "No browser GPU draw, hardware render or populated-world performance test."
+    },
+    {
+      "criterion": "lod_switching",
+      "status": "unknown",
+      "finding": "No LOD binding, thresholds or transition execution supplied/tested."
+    },
+    {
+      "criterion": "user_acceptance_deployment",
+      "status": "unknown",
+      "finding": "No user acceptance or deployed-state verification. Review does not authorize release."
+    }
+  ],
+  "blocking_defects": [],
+  "required_local_repairs": [],
+  "observations": [
+    {
+      "id": "contact-shadow-01",
+      "status": "resolved_nonblocking",
+      "evidence": "candidate/evidence/fixture-v4/joint-back.png",
+      "observation": "A narrow rear/side contact shadow and shallow step remain visible. Initially investigated as a possible seam; exact source inspection establishes closed overlapping bank volumes at all 21 sampled columns. There is no supported finding of an uncovered slit or suspended edge in the supplied view.",
+      "limits": "Discrete contact probes and these camera views do not certify an arbitrary assembled world."
+    }
+  ],
+  "same_id_replacement": {
+    "asset_id": "waterfall-ledge",
+    "replaces_revision": "r001",
+    "new_asset_count": 0,
+    "candidate_is_not_deployed": true
+  },
+  "release": {
+    "git_actions_performed": false,
+    "uploads_performed": false,
+    "publication_performed": false,
+    "deployed_overwrite_performed": false,
+    "deletion_performed": false,
+    "requires_separate_authorized_integration": true
+  },
+  "input_records_preserved": true,
+  "remaining_unknowns": [
+    "actual terrain collision",
+    "navigation",
+    "water intersection",
+    "dynamic shadows",
+    "browser shader behavior",
+    "physical GPU",
+    "populated-world performance",
+    "LOD switching",
+    "user acceptance",
+    "deployed state"
+  ]
+}

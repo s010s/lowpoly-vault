@@ -1,3 +1,4 @@
+import {successorContext,composeSuccessorRegistry} from './same-id-successors.mjs';
 /** Small storage/projection bridge. Never approves a model, captures proof, or runs Git/CI. */
 import assert from 'node:assert/strict';
 import {existsSync, linkSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, renameSync, rmSync, writeFileSync} from 'node:fs';
@@ -30,8 +31,10 @@ function targetPath(base, path, create = false) {
 /** Keep the existing collector's exact model values, order and publication headers.
  * A supplied manifest is reference DATA, not proof that its collector/QA passed.
  * The unchanged publication:check must still validate this result before release. */
-export function projectRegistryRelease(registry, releaseManifest) {
-  const output = composeRegistry(registry), byID = new Map(output.manifest.assets.map(asset => [asset.id, asset]));
+export function projectRegistryRelease(registry, releaseManifest, {read} = {}) {
+  const successors = releaseManifest?.publication?.same_id_successors ? successorContext({manifest: releaseManifest, read}) : null;
+  const output = successors ? composeSuccessorRegistry({registry, baseManifest: successors.base, selection: successors.selection, selectionPin: successors.selectionPin, read}) : composeRegistry(registry);
+  const byID = new Map(output.manifest.assets.map(asset => [asset.id, asset]));
   assert(Array.isArray(releaseManifest?.assets) && !releaseManifest.review_only, 'Existing release manifest required');
   const ids = releaseManifest.assets.map(asset => asset.id);
   assert.equal(new Set(ids).size, ids.length, 'Duplicate release model ID');
@@ -56,7 +59,8 @@ export function assertNewRegistryInputs(registry, read) {
  * Per-file renames are atomic, not a five-file transaction. After interruption rerun
  * sync/check before the existing release gates. A lock rejects simultaneous syncs. */
 export function syncRegistry({registry, releaseManifest, targetRoot, check = false, readInputs}) {
-  const output = projectRegistryRelease(registry, releaseManifest), base = rootPath(targetRoot);
+  const base = rootPath(targetRoot), read = readInputs || localReader(base);
+  const output = projectRegistryRelease(registry, releaseManifest, {read});
   const checkedInputs = assertNewRegistryInputs(registry, readInputs || localReader(base));
   const files = Object.entries(LEGACY_OUTPUTS).map(([key, path]) => {
     const full = targetPath(base, path); return {path, value: output[key], full, before: existsSync(full) ? hashBytes(readFileSync(full)) : null};

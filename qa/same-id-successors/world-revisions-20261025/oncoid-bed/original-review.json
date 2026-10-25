@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "asset_id": "oncoid-bed",
+  "revision": "world-r002",
+  "defect_id": "OCB-CONTACT-001",
+  "decision": "PASS_LOCAL_GEOMETRY_FIX",
+  "status": "PASS_LOCAL_GEOMETRY_FIX",
+  "reviewed_at": "2026-10-24T22:04:55.465427+00:00",
+  "independent": true,
+  "candidate_glb_sha256": "117b18e476249c85b4e45ebbdbdd51c1dddf392b5aef8ffe967c39742723e2fa",
+  "candidate_blend_sha256": "f7971884330c22c315915deeab200c0c2d7040765889ea196e74a9e0a10e15a2",
+  "summary": "The 142 exclusive grain-03 vertices are translated only in Blender -Z / GLB -Y by the requested amount within exact float32 rounding. The selected grain now seats 0.09999983012676239 mm into the unchanged bed. Other 2263 vertices, all fifteen other grains, three teaching cutaways, topology, materials, normals, groups, transforms and whole-model bounds remain unchanged. Saved Blend geometry and material-indexed GLB triangles agree.",
+  "checks_passed": 74,
+  "source_vertices": 2405,
+  "target_vertices_changed": 142,
+  "protected_vertices_unchanged": 2263,
+  "translation_blender_xyz_m": [
+    0,
+    0,
+    -0.0012670980602502823
+  ],
+  "seating_mm": 0.09999983012676239,
+  "minimum_verified_neighbor_separation_m": 0.0021400305220375393,
+  "evidence": [
+    {
+      "path": "qa/independent-geometry-source-check.json",
+      "sha256": "48a1f21125107e17795b219e65b84d15d5767c06486afe963725d20fbbfb6f93"
+    },
+    {
+      "path": "qa/independent-visual-review.json",
+      "sha256": "1e761d9c0f4dc984d3edd0882172b0aa0d12902dc94d0d87dc0a3853b4278e11"
+    },
+    {
+      "path": "qa/independent_check.py",
+      "sha256": "da02327c14c14e40b7cb162bdf762e8ec0b907f6fd95b6c7548d471041be9fce"
+    },
+    {
+      "path": "qa/blend_sdna_reader.py",
+      "sha256": "3f3edf74c974a4f16bf91b184841ea33e67f8095a36fdf0253a5c798a77b2ad3"
+    },
+    {
+      "path": "qa/independent-check.log",
+      "sha256": "ad0739991a7815745b3c9aedc719abf1ef7a1aad02fb8f648c188cf3d6906c18"
+    },
+    {
+      "path": "qa/independent-final-check.log",
+      "sha256": "5974b40308f7d0f33fc4dd396f7ecd90fdfb21fd0aa4cb3db874625c4bb01a34"
+    }
+  ],
+  "original_files_preserved": true,
+  "original_pinned_files_checked": 22,
+  "recovery_entries_checked": 54,
+  "recovery_input_closure_files_checked": 12,
+  "checksum_lines_checked": {
+    "candidate": 55,
+    "preparation": 42
+  },
+  "package_followup": "Add the qa deliverables to the parent-owned recovery/backup package. Existing candidate manifest and recovery index still correctly identify the pre-review candidate, with their historical QA-pending labels; this decision supplies independent local acceptance only.",
+  "blockers": [],
+  "scope": "Incremental local contact repair on the teaching asset only. No full validation or promotion to natural-world, host-terrain, GPU/runtime, physics, full-view or release acceptance.",
+  "browser_wheel_status": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE",
+  "external_actions_performed": false
+}

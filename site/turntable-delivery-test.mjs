@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 import assert from 'node:assert/strict';
 import { readFile, writeFile, mkdtemp, mkdir, cp, rm, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -8,19 +9,23 @@ import { collectInitialRelease } from './initial-release.mjs';
 import {collectManifestProduction} from './production-publication.mjs';
 import {projectHistoricalManifest} from './ci-historical-publication.mjs';
 const root=process.cwd(),publishedManifest=JSON.parse(await readFile('assets/manifest.json'));const hash=b=>createHash('sha256').update(b).digest('hex');
-// Production PNGs are not WebP card/turntable files. Verify their real accepted
-// closure first, then exercise every unchanged historical negative on exact352.
-const production=await collectManifestProduction(root,publishedManifest);
-const manifest=production.length?projectHistoricalManifest(publishedManifest,production):publishedManifest;
+// Authenticate the exact successor inverse and the protected historical352 first.
+// Image routing exercises the selected objects for precisely those legacy IDs;
+// the original first10 sequence/revision negatives remain unchanged.
+const historical=historicalManifestView({manifest:publishedManifest,read:successorReader(root)});
+const production=await collectManifestProduction(root,historical);
+const legacy=production.length?projectHistoricalManifest(historical,production):historical;
+const legacyIds=new Set(legacy.assets.map(asset=>asset.id));
+const manifest={...publishedManifest,assets:publishedManifest.assets.filter(asset=>legacyIds.has(asset.id))};
 const initial=await collectTurntables(manifest),published=await collectTurntables(publishedManifest);
-assert.deepEqual(published,initial,'Production routing must retain every legacy frame/poster byte and no synthetic sequence');
+assert.deepEqual(published,initial,'Production routing must retain every explicitly selected legacy frame/poster byte and no synthetic sequence');
 assert.equal(initial.descriptors.size,10);assert.equal(initial.posters.size,manifest.assets.length);
 assert.equal(initial.files.length,250+manifest.assets.length);let checks=3;
 const productionMedia=[];
 if(production.length){
  const resources=JSON.parse(await readFile('site/public/gallery/resources.json'));
  for(const asset of production){
-  assert.equal(asset.production_posters.route,'blender-cycles-cpu-v1');
+  assert(['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(asset.production_posters.route),'Only either fully verified production poster route');
   assert(!published.descriptors.has(asset.id)&&!published.posters.has(asset.id),'No invented legacy browser sequence or card poster');
   for(const kind of ['detail','wheel']){
    const path=asset.production_posters[kind],bytes=await readFile(resolve(root,path));

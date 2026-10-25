@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 /** Data-only additions cannot approve releases or alter legacy catalog content. */
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
@@ -11,7 +12,8 @@ import * as gallery from './gallery/catalog-source.js';
 const hash=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
 const fixture=JSON.parse(await readFile(new URL('./catalog-data-legacy-fixture.json',import.meta.url)));
 const manifest=JSON.parse(await readFile(new URL('../assets/manifest.json',import.meta.url)));
-const legacyAssets=fixture.asset_ids.map(id=>manifest.assets.find(asset=>asset.id===id));
+const historical=historicalManifestView({manifest,read:successorReader(new URL('..',import.meta.url))});
+const legacyAssets=fixture.asset_ids.map(id=>historical.assets.find(asset=>asset.id===id));
 assert(legacyAssets.every(Boolean),'All legacy models remain present');
 const select=(object,ids)=>Object.fromEntries(ids.map(id=>[id,object[id]]));
 assert.equal(hash({WORLD_LABELS:select(WORLD_LABELS,fixture.world_ids),PACK_LABELS:select(PACK_LABELS,fixture.pack_ids),PACK_RECORDS:select(PACK_RECORDS,fixture.pack_ids),memberships:[...legacyAssets,...fixture.membership_cases].map(asset=>[asset.id,catalogMembership(asset)])}),fixture.exports_sha256,'Every exported legacy label/description/owner and all 190 memberships are unchanged');

@@ -34,3 +34,30 @@ export async function assertHistoricalPosterRecipe({root,baseline,shared}){
  }
  return historical;
 }
+
+/** Registry canonicalization changes JSON key order, not pixels. Reconstruct only
+ * the two original seal layouts and original poster schema. The entire original
+ * approval hash must match; no new hash or visual approval is manufactured.
+ * Used solely for the authenticated successor inverse, not ordinary captures.
+ */
+export function restoreHistoricalPosterSerialization(resources,baseline){
+ const result=structuredClone(resources);
+ const ordered=(value,keys)=>{assert(value&&typeof value==='object'&&!Array.isArray(value));assert.deepEqual(Object.keys(value).sort(),keys.slice().sort(),'Historical poster serialization schema changed');return Object.fromEntries(keys.map(key=>[key,value[key]]));};
+ for(const [id,approval] of Object.entries(baseline?.posters||{})){
+  const source=result.posters[id];assert(source,`Missing historical approved poster: ${id}`);
+  const poster=ordered(source,['source_glb_sha256','wheelSpec','detail','wheel']);
+  poster.wheelSpec=ordered(poster.wheelSpec,['azimuth','elevation','zoom','offset','projectedBounds','aspect','floorCenter','floorPoints']);
+  poster.wheelSpec.projectedBounds=ordered(poster.wheelSpec.projectedBounds,['left','right','top','bottom']);
+  const files=result.files.filter(file=>[poster.detail,poster.wheel].includes(file.path)).sort((a,b)=>a.path.localeCompare(b.path));
+  assert.equal(files.length,2,`Missing/duplicate historical poster seals: ${id}`);
+  let restored;
+  for(const first of [['path','sha256','bytes'],['path','bytes','sha256']])for(const second of [['path','sha256','bytes'],['path','bytes','sha256']]){
+   const seals=[ordered(files[0],first),ordered(files[1],second)];
+   if(hash(JSON.stringify({poster,seals}))===approval.poster_sha256)restored=seals;
+  }
+  assert(restored,`Approved poster pixels or metadata changed: ${id}; historical serialization cannot restore approval`);
+  result.posters[id]=poster;
+  for(const seal of restored){const index=result.files.findIndex(file=>file.path===seal.path);result.files[index]=seal;}
+ }
+ return result;
+}

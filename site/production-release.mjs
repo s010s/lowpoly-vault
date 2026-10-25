@@ -1,3 +1,4 @@
+import {successorReader,successorContext,composeSuccessorRegistry} from './same-id-successors.mjs';
 /** Additive compact production acceptance. Does not change legacy QA or grant publication.
  * Independent review is an auditable attestation, not cryptographic reviewer authentication.
  * Process evidence stays in the private archive; one detached review binds its projection.
@@ -71,7 +72,9 @@ async function resolveProductionValidationPlan(root='.'){
    const authenticated=await fetchVerifiedProductionBase({root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
    if(!authenticated.capability)return full(authenticated.reasons.join('; '));
    const baseline=authenticatedProductionBase(authenticated.capability,{root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
-   const prior=JSON.parse(git('show',`${base}:assets/manifest.json`)),current=JSON.parse(await readFile(resolve(key,'assets/manifest.json')));
+   const prior=JSON.parse(git('show',`${base}:assets/manifest.json`)),selected=JSON.parse(await readFile(resolve(key,'assets/manifest.json')));
+   const successorRead=successorReader(key),successors=successorContext({manifest:selected,read:successorRead}),current=successors?successors.base:selected;
+   if(successors)assert.equal(successors.selection.baseline_commit,base,'Successor baseline commit moved; rebind and independently review the exact current base');
    checkingGlobal=true;
    const unique=m=>Array.isArray(m.assets)&&new Set(m.assets.map(a=>a.id)).size===m.assets.length;
    assert(unique(prior)&&unique(current),'Duplicate/missing catalog IDs');
@@ -83,12 +86,12 @@ async function resolveProductionValidationPlan(root='.'){
    const previousRegistry=JSON.parse(git('show',`${base}:${registry}`)),nextRegistry=await loadProductionRegistry(key,registry);
    assert(isDeepStrictEqual(nextRegistry.descriptors.slice(0,previousRegistry.descriptors.length),previousRegistry.descriptors),'Old registered descriptor changed');
    assert(isDeepStrictEqual(nextRegistry.asset_ids.slice(0,previousRegistry.asset_ids.length),previousRegistry.asset_ids),'Old registered IDs changed');
-   const allPaths=new Set(await sourceClosure(key,current));
+   const allPaths=new Set(await sourceClosure(key,selected));
    // Reuse the existing global registry composition and append-only validators.
    const {readRegistry,readRegistryAtCommit}=await import('./model-registry-cli.mjs');
    const {assertRegistryAppend,composeRegistry,LEGACY_OUTPUTS,recordReference}=await import('./model-registry.mjs');
    const previousModels=readRegistryAtCommit(key,base),currentModels=readRegistry(key);
-   const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=composeRegistry(currentModels);
+   const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=successors?composeSuccessorRegistry({registry:currentModels,baseManifest:current,selection:successors.selection,selectionPin:successors.selectionPin,read:successorRead}):composeRegistry(currentModels);
    assert.deepEqual(current.assets.map(a=>a.id).sort(),currentModels.records.map(r=>r.id).sort(),'Registry/manifest ID coverage differs');
    for(const record of currentModels.records)assert.deepEqual(record.asset,current.assets.find(a=>a.id===record.id),'Registry/manifest metadata differs');
    for(const [kind,path]of Object.entries(LEGACY_OUTPUTS)){

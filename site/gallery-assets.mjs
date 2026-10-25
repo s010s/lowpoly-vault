@@ -1,3 +1,4 @@
+import {successorReader,successorContext,historicalGalleryView,verifySuccessorPresentation} from './same-id-successors.mjs';
 import {productionGalleryResources,appendProductionPosterInputState} from './production-release.mjs';
 /** Validate the explicit gallery resource allowlist without selecting catalog assets. */
 import assert from 'node:assert/strict';
@@ -45,14 +46,19 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
   const storedResources = JSON.parse(await verifiedFile(resourceRoot, 'gallery/resources.json'));
   // The source baseline stays byte-for-byte historical; only explicit reviewed additions extend it.
   const resources = await productionGalleryResources(root,manifest,storedResources,productionResults);
+  const successorRead=successorReader(root),successors=successorContext({manifest,read:successorRead});
+  await verifySuccessorPresentation(root,successors);
+  const historicalResources=historicalGalleryView({manifest,resources,read:successorRead});
+  const successorRows=new Map((successors?.entries||[]).map(row=>[row.entry.id,row]));
   assert.equal(resources.version, 1, 'Unsupported gallery resource version');
   assert(resources.posters && resources.references && Array.isArray(resources.files), 'Invalid gallery resources');
   for (const key of ['approved_site_commit', 'runtime_revision', 'source_renderer_sha256']) assert.equal(resources[key], reviewed[key], `Reviewed gallery provenance changed: ${key}`);
   assert.deepEqual(resources.references, reviewed.references, 'Reviewed scale references changed');
-  for (const [id, poster] of Object.entries(reviewed.posters)) assert.deepEqual(resources.posters[id], poster, `Reviewed gallery poster or framing changed: ${id}`);
+  for (const [id, poster] of Object.entries(reviewed.posters)) assert.deepEqual(historicalResources.posters[id], poster, `Reviewed gallery poster or framing changed: ${id}`);
   const reviewedFiles = new Map(reviewed.files.map(file => [file.path, file]));
   reviewedFiles.set('gallery/approved-resources.json', {path:'gallery/approved-resources.json', sha256:REVIEWED_RESOURCES_SHA256, bytes:reviewedBytes.length});
   const allowedGeneratedFiles = new Set(Object.keys(resources.posters).filter(id => !Object.hasOwn(reviewed.posters, id)).flatMap(id => [`gallery/posters/${id}.png`, `gallery/posters/${id}-wheel.png`]));
+  for(const {entry,next} of successors?.entries||[])if(entry.kind==='mesh')for(const file of next.gallery.files)allowedGeneratedFiles.add(file.path);
   const published = new Map(manifest.assets.map(asset => [asset.id, asset]));
   assert.equal(published.size, manifest.assets.length, 'Duplicate published model IDs');
   const files = new Map();
@@ -80,7 +86,8 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
     assert.equal(await realpath(modelPath), modelPath, `GLB symlinks are not allowed: ${id}`);
     assert.equal(hash(await readFile(modelPath)), poster.source_glb_sha256, `Gallery source GLB bytes changed: ${id}`);
     for (const kind of ['detail', 'wheel']) {
-      assert.equal(poster[kind], `gallery/posters/${id}${kind === 'wheel' ? '-wheel' : ''}.png`, `Unexpected ${kind} poster path: ${id}`);
+      const selected=successorRows.get(id);
+      assert.equal(poster[kind], selected?selected.next.gallery.poster[kind]:`gallery/posters/${id}${kind === 'wheel' ? '-wheel' : ''}.png`, `Unexpected ${kind} poster path: ${id}`);
       assert(files.has(poster[kind]), `Unsealed ${kind} poster: ${id}`);
       const bytes = await verifiedFile(resourceRoot, poster[kind]);
       assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `Invalid ${kind} PNG: ${id}`);
@@ -95,7 +102,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
     assert(Array.isArray(spec.floorPoints) && spec.floorPoints.length >= 3 && spec.floorPoints.every(point => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite)), `Invalid wheel floor contour: ${id}`);
     assert(spec.projectedBounds && ['left', 'right', 'top', 'bottom'].every(key => Number.isFinite(spec.projectedBounds[key])), `Invalid wheel projected bounds: ${id}`);
   }
-  const inputState = productionResults ? await appendProductionPosterInputState(root,manifest.assets.filter(a=>a.production_release),resources,await posterInputState({...manifest,assets:manifest.assets.filter(a=>!a.production_release)},resources,{root}),productionResults) : await posterInputState(manifest, resources, { root });
+  const inputState = productionResults&&!successors ? await appendProductionPosterInputState(root,manifest.assets.filter(a=>a.production_release),resources,await posterInputState({...manifest,assets:manifest.assets.filter(a=>!a.production_release)},resources,{root}),productionResults) : await posterInputState(manifest, resources, { root });
   const missing = manifest.assets.filter(asset => !Object.hasOwn(resources.posters, asset.id) || inputState.stale.includes(asset.id)).map(asset => asset.id);
   if (requireComplete) assert.equal(missing.length, 0, `Canonical gallery posters missing: ${missing.join(', ')}`);
   return { resources, inputState, coverage: { published: manifest.assets.length, matched: inputState.valid.length, stale: inputState.stale, missing }, files: files.size, bytes: [...files.values()].reduce((sum, file) => sum + file.bytes, 0) };
