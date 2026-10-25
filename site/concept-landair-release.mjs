@@ -8,6 +8,8 @@ import {CONCEPT_LANDAIR_RELEASE as fixed} from './accepted-concept-landair-relea
 import {collectConceptQuartetsRelease} from './concept-quartets-release.mjs';
 import {assetFileAllowlist} from './asset-delivery.mjs';
 import {CARD_RENDER_PRESET} from './render-preset.js';
+import {isDeepStrictEqual} from 'node:util';
+import {historicalTurntableView,successorReader} from './same-id-successors.mjs';
 export const CONCEPT_LANDAIR_IDS=fixed.additions.map(a=>a.id).sort();
 export const CONCEPT_LANDAIR_PACK='prehistoric-concept-landair-20261019';
 export async function collectConceptLandairRelease(root,descriptor){
@@ -94,6 +96,15 @@ export async function collectBatches5253Additions(root,descriptor){
  const policy=await json(release.publication_policy);assert.equal(policy.authority,'owner_authorized_qa_passed_batch_release');assert.equal(policy.candidate_gate_grants_publication,false);
  const bundle=await json(release.source_bundle);assert.equal(bundle.version,1);assert.equal(new Set(bundle.files.map(p=>p.path)).size,bundle.files.length);for(const pin of bundle.files)await checked(pin);
  const capture=await json(release.capture.report),index=await json(release.capture.index),publicIndex=JSON.parse(await readFile(resolve(root,'assets/turntables/index.json'))),independent=await json(release.capture.independent_review);
+ let historicalIndex;
+ async function originalCardRows(id,card){
+  const current=publicIndex.posters.filter(x=>x.id===id);
+  if(isDeepStrictEqual(current,[card]))return current;
+  // A changed live card requires the complete authenticated successor inverse.
+  // Missing evidence fails closed; original card bytes and QA remain mandatory.
+  historicalIndex??=historicalTurntableView({manifest:JSON.parse(await readFile(resolve(root,'assets/manifest.json'))),turntables:publicIndex,read:successorReader(root)});
+  return historicalIndex.posters.filter(x=>x.id===id);
+ }
  assert.equal(independent.status,'limited_acceptance');assert.equal(independent.limited_disposition,'independent_qa_accepted_stylized_prop');assert.equal(independent.capture_run.artifact_id,12239712485);assert.equal(independent.capture_run.workflow_run_id,39366960658);assert.equal(independent.verification_checks.all_eight_source_glb_hashes_match_capture_descriptor,true);assert.equal(independent.verification_checks.all_eight_assets_fit_in_current_capture_frame,true);
  assert.equal(capture.status,'pass');assert.equal(capture.target_renderer,'threejs-modelstage');assert.equal(capture.viewer_source_sha256,sha(await readFile(resolve(root,'site/viewer.js'))));assert.equal(capture.render_preset_sha256,sha(JSON.stringify(CARD_RENDER_PRESET)));assert.equal(capture.chromium_version,capture.pinned_chromium_version);
  const exactEight=['aturia','cave-popcorn','curvolithus-trilobed-trail','halopoa-furrowed-burrow','hypoturrilites','iodes-brownii','phoenicopsis','welded-ignimbrite-outcrop'];assert.deepEqual(capture.assets.map(a=>a.id).sort(),exactEight);assert.deepEqual(independent.per_asset.map(x=>x.asset_id).sort(),exactEight);
@@ -112,7 +123,7 @@ export async function collectBatches5253Additions(root,descriptor){
   for(const key of ['glb','blend'])assert.equal(a.sha256[key],source.sha256[key]);assert.equal(candidate.artifacts.glb.sha256,a.sha256.glb);assert.equal(candidate.artifacts.source.sha256,a.sha256.blend);
   for(const kind of ['glb','source','generator','config'])await checked(candidate.artifacts[kind]);
   if(batch===53)assert(reviewBytes.toString().includes(a.sha256.glb));else if(a.id==='aturia')assert.equal(review.artifact.glb_sha256,a.sha256.glb);else{const v=review.verdicts[a.id];assert.equal(v.glb_sha256,a.sha256.glb);assert.equal(v.revision,entry.revision);assert.equal(v.technical,a.id==='curvolithus-trilobed-trail'?'pass_with_reviewed_source_style_warning':'pass');assert.equal(v.specification,'pass');assert(v.visual.startsWith('pass'));}
-  const reviewed=independent.per_asset.find(x=>x.asset_id===a.id);assert.equal(reviewed.source_glb_sha256,a.sha256.glb);assert.equal(reviewed.source_commit,release.source_commit);assert.equal(reviewed.review_commit,release.review_commit);assert.equal(reviewed.current_capture_fit,'pass');assert.equal(reviewed.limited_disposition,'independent_qa_accepted_stylized_prop');const record=capture.assets.find(x=>x.id===a.id),card=index.posters.find(x=>x.id===a.id);assert.equal(record.source_glb_sha256,a.sha256.glb);assert.equal(card.source_glb_sha256,a.sha256.glb);assert.deepEqual(publicIndex.posters.filter(x=>x.id===a.id),[card]);const bytes=await checked({path:card.path,sha256:card.sha256});assert.equal(bytes.length,card.bytes);assert.equal(entry.capture_reference.sha256,a.sha256.preview);await checked(entry.capture_reference);
+  const reviewed=independent.per_asset.find(x=>x.asset_id===a.id);assert.equal(reviewed.source_glb_sha256,a.sha256.glb);assert.equal(reviewed.source_commit,release.source_commit);assert.equal(reviewed.review_commit,release.review_commit);assert.equal(reviewed.current_capture_fit,'pass');assert.equal(reviewed.limited_disposition,'independent_qa_accepted_stylized_prop');const record=capture.assets.find(x=>x.id===a.id),card=index.posters.find(x=>x.id===a.id);assert.equal(record.source_glb_sha256,a.sha256.glb);assert.equal(card.source_glb_sha256,a.sha256.glb);assert.deepEqual(await originalCardRows(a.id,card),[card]);const bytes=await checked({path:card.path,sha256:card.sha256});assert.equal(bytes.length,card.bytes);assert.equal(entry.capture_reference.sha256,a.sha256.preview);await checked(entry.capture_reference);
   additions.push({...a,quality_status:'independent_qa_accepted_stylized_prop',approval_provenance:{source_commit:release.source_commit,review_commit:release.review_commit,review_sha256:release.review.sha256,source_contract:'bounded-stylized-study:original independent QA plus explicitly scoped difference QA where applicable',candidate_record_approved_for_brief:false,formal_profile_acceptance:'BLOCKED',hardware_gpu_verified:false,target_scene_verified:false,concept_chronology:'Exact provider generation timestamp unknown; original evidence preserved'}});
  }
  return {release,additions};

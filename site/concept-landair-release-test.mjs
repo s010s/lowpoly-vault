@@ -3,6 +3,7 @@ if(process.argv.includes('--batches5657-only')){await testBatches5657();process.
 if(process.argv.includes('--batches52-53-only')){await testBatches5253();process.exit(0);}
 /** Bounded land/air quartet: exact revisions, immutable baseline and no formal promotion. */
 import assert from 'node:assert/strict';
+import {claimHistoricalFixture} from './ci-historical-publication.mjs';
 import { mkdtemp, mkdir, readFile, writeFile, rm, rename, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -34,7 +35,9 @@ const BASE_COUNT = 186;
 const revisions = { sapeornis: 'r001', longirostravis: 'r001', dunbaria: 'r001', chimerarachne: 'r001' };
 const expectedIds = Object.keys(revisions).sort();
 const descriptorPath = 'assets/releases/concept-landair-20261019.json';
-const root = await mkdtemp(join(tmpdir(), 'vault-concept-landair-'));
+await import('./ci-historical-fixture-handoff-test.mjs');
+const borrowedRoot = claimHistoricalFixture('concept-landair-release');
+const root = borrowedRoot || await mkdtemp(join(tmpdir(), 'vault-concept-landair-'));
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const pin = async path => ({ path, sha256: sha(await readFile(resolve(root, path))) });
 const json = async path => JSON.parse(await readFile(resolve(root, path), 'utf8'));
@@ -76,11 +79,13 @@ function validateCandidate(path, requireApproved = false) {
 
 try {
   // Mutations are confined to an isolated copy; reviewed files in the checkout stay untouched.
+  if(!borrowedRoot){
   for (const path of ['assets', 'production', 'qa', 'scripts', 'experiments', 'package-lock.json']) {
     execFileSync('cp', ['-a', '--reflink=auto', path, resolve(root, path)]);
   }
   await mkdir(resolve(root, 'site'));
   await writeFile(resolve(root, 'site/viewer.js'), await readFile('site/viewer.js'));
+  } // The historical runner already owns a complete inode-distinct private tree.
   const collect = async () => collectConceptLandairRelease(root, await pin(descriptorPath));
   assert.deepEqual(CONCEPT_LANDAIR_IDS, expectedIds, 'Only the four independently reviewed land/air IDs are authorized');
   assert.deepEqual(fixed.additions.map(entry => entry.id).sort(), expectedIds);
@@ -299,7 +304,7 @@ try {
   checks++;
   console.log(`Concept-landair release: ${checks} checks passed; exact reviewed quartet, unchanged ${BASE_COUNT}, frozen source/QA bindings, and blocked formal/hardware/scene gates preserved.`);
 } finally {
-  await rm(root, { recursive: true, force: true });
+  if(!borrowedRoot)await rm(root, { recursive: true, force: true });
 }
 
 }
