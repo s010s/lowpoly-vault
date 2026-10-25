@@ -1,0 +1,22 @@
+{
+  "python": "Blender bundled Python; standard library and bpy/bmesh/mathutils only for generation",
+  "blender": "4.3.2",
+  "gltf_exporter": "4.3.47",
+  "three": "0.180.0",
+  "gltf-validator": "2.0.0-dev.3.10",
+  "node": "v24.22.1",
+  "generation_dependency_files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "a2eecc54fc9b21cf9a9387916541af5e681e0eea03169ac77e924aa4e0f5a519"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    }
+  ],
+  "node_install": "cd source && npm ci --ignore-scripts",
+  "network_required_for_build": false,
+  "network_required_for_first_node_dependency_install": true,
+  "model_external_resources": []
+}

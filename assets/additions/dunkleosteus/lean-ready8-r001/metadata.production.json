@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "id": "dunkleosteus",
+  "name": {
+    "en": "Dunkleosteus terrelli",
+    "zh": "邓氏鱼"
+  },
+  "category": "animals",
+  "subcategory": "fish",
+  "collection": "prehistoric",
+  "worlds": [
+    "prehistoric"
+  ],
+  "packs": [
+    "reviewed-forms-20261025-b8"
+  ],
+  "description": {
+    "en": "Dunkleosteus terrelli. Posterior body, fin outlines, soft tissue and coloration are interpretations. A chosen 3.4 m total length is a working reconstruction, not a settled measured adult size. Do not claim complete fossil preservation or animation readiness.",
+    "zh": "邓氏鱼的示意性活体复原。后躯、鳍轮廓、软组织及颜色为推定；3.4米总长是工作性复原选择，并非已确定的实测成体尺寸，不宣称完整化石保存或动画就绪。"
+  },
+  "representation": "living-reconstruction",
+  "reconstruction_type": "whole-organism",
+  "author": "Leon Made This / s010s",
+  "license": "CC-BY-4.0",
+  "units": "meters",
+  "revision": "r001",
+  "glb": "assets/additions/dunkleosteus/lean-ready8-r001/model.glb",
+  "blend": "assets/additions/dunkleosteus/lean-ready8-r001/model.blend",
+  "triangles": 3072,
+  "dimensions": [
+    1.8600000143051147,
+    1.7829999923706055,
+    3.399999976158142
+  ],
+  "sha256": {
+    "glb": "d7906b2eb87cb53b054bb6f1606b35559f401237484449e385260930dc3e5347",
+    "blend": "3aec4364270caa484963a1b2eb726c54a28085f7299264a3832014cc8d96a556",
+    "preview": "3eb0d788624b8aa62264f29d8369f39dbf403d152de1929cdb774a7c63bb0fec"
+  },
+  "frozen_scientific_scope": {
+    "authoring_profile": "model-task-v2 + release-fit-1",
+    "surface_profile": {
+      "name": "palette-only",
+      "textures": false,
+      "max_texture_bytes": 0,
+      "max_decoded_texture_bytes": 0,
+      "alpha_mode": "OPAQUE",
+      "materials": "Original muted blue-grey body with restrained lighter underside; color is artistic. No textures.",
+      "normal_style": "Refined broad planes and coherent surface transitions."
+    },
+    "view_plan": {
+      "greybox": [
+        "front",
+        "side",
+        "top",
+        "perspective"
+      ],
+      "greybox_note": "Inspect cheap private clay/silhouette views before final renders. Resolve head/armor, gill gap, mouth and fin-root separation first.",
+      "final": [
+        "front",
+        "side",
+        "top",
+        "perspective"
+      ],
+      "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+      "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+      "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+    },
+    "runtime_profile": {
+      "kind": "static standalone embedded-buffer GLB",
+      "rig": false,
+      "animation": false,
+      "required_extensions": [],
+      "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+    },
+    "representation": "living-reconstruction",
+    "name": {
+      "en": "Dunkleosteus terrelli",
+      "zh": "邓氏鱼"
+    },
+    "scope": "Original static living animal for a prehistoric 3D world; Late Devonian marine use. Not an exhibit mount, scan, rigged swimming character, or exact preserved whole individual.",
+    "scientific_limits": {
+      "en": "Posterior body, fin outlines, soft tissue and coloration are interpretations. A chosen 3.4 m total length is a working reconstruction, not a settled measured adult size. Do not claim complete fossil preservation or animation readiness."
+    },
+    "taxon": {
+      "scientific_name": "Dunkleosteus terrelli",
+      "age_context": "Late Devonian, Famennian",
+      "geographic_context": "Cleveland Shale, Ohio, North America",
+      "anatomical_anchors": [
+        "CMNH 5768",
+        "CMNH 6090",
+        "CMNH 7054"
+      ]
+    },
+    "scale": {
+      "unit": "meter",
+      "nominal_total_length_m": 3.4,
+      "uniform_scale_only": true,
+      "basis": "Selected interpretation informed by Engelman 2023 length estimates. Keep physical units; never normalize the source GLB to gallery bounds."
+    },
+    "pose": {
+      "description": "Neutral swimming posture with gently parted mouth; no embedded water, seabed, museum supports or labels. Static body, no claimed locomotion."
+    },
+    "morphology": [
+      {
+        "id": "armored-front",
+        "obligation": "Integrated armored head and deep anterior trunk; paired gnathal cutting plates instead of rows of shark teeth; separate head/trunk joint and intervening gill opening.",
+        "sources": [
+          "ENGELMAN2024"
+        ]
+      },
+      {
+        "id": "stocky-body",
+        "obligation": "Deep compact trunk, anterior pectoral origins and narrow tail base. Follow reference silhouette rather than a stretched shark body.",
+        "sources": [
+          "ENGELMAN2024"
+        ]
+      },
+      {
+        "id": "interpreted-fins",
+        "obligation": "Fin outlines and posterior body remain explicitly inferred; balance the reconstruction, avoid claiming fossil-exact tail shape.",
+        "sources": [
+          "ENGELMAN2024"
+        ]
+      }
+    ],
+    "geometry_budget_rationale": "Use inherited ceilings as ceilings, not density targets. Allocate triangles to head silhouette, mouth separation and coherent fin roots; no hidden skeleton.",
+    "art_direction": {
+      "construction": "Continuous original lofted body and attached fins; readable armor transitions without mechanical seams. No borrowed reference texture pixels."
+    },
+    "world_use": {
+      "role": "Large marine animal for a Late Devonian underwater region",
+      "placement": "Separate animal asset, no environment baked in; world controls water depth, movement and spawn scale. Do not imply coexistence with Early Devonian Erbenochile or Cambrian taxa merely because all are marine.",
+      "integration_boundary": "No rig, collision proxy, LOD or runtime swim behavior is promised by this static brief. Scene needs must be checked against world PR before those are added."
+    },
+    "acceptance_obligations": [
+      "Distinct animal silhouette and anatomical brief compliance in four exact-GLB views.",
+      "Portable embedded GLB, source reopening and scoped technical checks; independent review separate.",
+      "Mark GPU, world scene, user acceptance and deployment unverified until actually checked."
+    ],
+    "reconstruction_type": "whole-organism"
+  },
+  "quality_status": "accepted_for_production",
+  "source_publication_status": "NOT_PUBLISHED",
+  "production_acceptance_adapter": "model-task-v2",
+  "production_release": "production/lean-ready8-20261025/release.json",
+  "reference_credits": [
+    {
+      "title": "ENGELMAN2024",
+      "url": "https://doi.org/10.26879/1343",
+      "use": "consulted-only; no source media embedded"
+    },
+    {
+      "title": "ENGELMAN2023",
+      "url": "https://doi.org/10.3390/d15030318",
+      "use": "consulted-only; no source media embedded"
+    }
+  ],
+  "credits": "assets/additions/dunkleosteus/lean-ready8-r001/CREDITS.txt",
+  "production_posters": {
+    "route": "blender-detail-preview-wheel-v1",
+    "detail": "site/public/gallery/posters/dunkleosteus.png",
+    "wheel": "site/public/gallery/posters/dunkleosteus-wheel.png"
+  },
+  "preview": "assets/additions/dunkleosteus/lean-ready8-r001/preview.png"
+}

@@ -7,6 +7,7 @@ import index from './gallery/wheel-presentations-index.js';
 import {resolveGalleryPoster,validPresentationSpec} from './gallery/wheel-presentations.js';
 import {prepareModels,loadGalleryCatalog} from './gallery/catalog-source.js';
 import {galleryStartupContent} from './gallery/startup.mjs';
+import {wheelHistoricalBaseline} from './wheel-historical-baseline.mjs';
 import {assertWheelSpec,assertWheelPNG} from './wheel-presentation-contract.mjs';
 
 const read=path=>readFile(new URL('../'+path,import.meta.url));
@@ -14,18 +15,19 @@ const json=async path=>JSON.parse(await read(path));
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const manifest=await json('assets/manifest.json');
 const resources=await json('site/public/gallery/resources.json');
-const affected=manifest.assets.filter(asset=>resources.posters[asset.id]?.render_route==='blender-cycles-cpu-v1'&&!resources.posters[asset.id].wheelSpec);
+const historical=await wheelHistoricalBaseline(new URL('..',import.meta.url).pathname,manifest,resources,index);
+const affected=historical.manifest.assets.filter(asset=>resources.posters[asset.id]?.render_route==='blender-cycles-cpu-v1'&&!resources.posters[asset.id].wheelSpec);
 const first=affected[0],ordinary=manifest.assets[0];
 const copy=value=>structuredClone(value);
 
 // These baseline seals protect immutable inputs without re-rendering the library.
 test('index membership is exactly the 242 original unframed Blender wheels',async()=>{
   assert.equal(index.version,1);assert.equal(index.kind,'wheel-only-presentations');
-  assert.equal(manifest.assets.length,594);assert.equal(index.count,242);
+  assert.equal(historical.manifest.assets.length,594);assert.equal(index.count,242);
   assert.deepEqual(Object.keys(index.presentations),affected.map(asset=>asset.id));
-  assert.deepEqual(affected.map(asset=>asset.id),manifest.assets.slice(352).map(asset=>asset.id));
-  assert.equal(hash(await read('assets/manifest.json')),index.source_manifest_sha256);
-  assert.equal(hash(await read('site/public/gallery/resources.json')),index.source_resources_sha256);
+  assert.deepEqual(affected.map(asset=>asset.id),historical.manifest.assets.slice(352).map(asset=>asset.id));
+  // Exact historical global seals are authenticated by wheelHistoricalBaseline above.
+  assert.deepEqual(manifest.assets.slice(0,594),historical.manifest.assets);
   assert.equal(index.review_summary.physical_gpu,'unknown');
   assert.equal(index.review_summary.publication_authority,false);
 });
@@ -104,7 +106,8 @@ test('actual native SSR and hydration select identical wheel/detail URLs, preser
     assert(row.includes('data-poster="'+base+model.galleryPosters.detail+'"'),asset.id+' SSR/hydration detail');
     assert.equal(model.galleryPosters.detail,original.detail);assert.equal(model.glb,asset.glb);assert.equal(model.blend,asset.blend);
     if(i<352){assert.deepEqual(model.galleryPosters,{detail:original.detail,wheel:original.wheel});assert.deepEqual(model.wheelSpec,original.wheelSpec);}
-    else{assert.equal(model.galleryPosters.wheel,index.presentations[asset.id].wheel);assert.deepEqual(model.wheelSpec,index.presentations[asset.id].wheelSpec);}
+    else if(index.presentations[asset.id]){assert.equal(model.galleryPosters.wheel,index.presentations[asset.id].wheel);assert.deepEqual(model.wheelSpec,index.presentations[asset.id].wheelSpec);}
+    else{assert.equal(model.galleryPosters.wheel,original.wheel);assert.deepEqual(model.wheelSpec,original.wheelSpec);}
   }
   assert.equal(JSON.stringify(resources),before);assert.equal(JSON.stringify(manifest),assetsBefore);
 });

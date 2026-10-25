@@ -1,0 +1,23 @@
+{
+  "blender": "4.3.2",
+  "gltf_exporter": "4.3.47",
+  "three": "0.180.0",
+  "gltf-validator": "2.0.0-dev.3.10",
+  "node": "v24.22.1",
+  "generation_dependencies": "Blender bundled Python standard library, bpy/bmesh/mathutils, retained helper files only.",
+  "generation_dependency_files": [
+    {
+      "path": "source/deps/asset_common.py",
+      "sha256": "5595086a3096571a2aa4d21c089cecae0ab489219667076456aeab5ff158b778"
+    },
+    {
+      "path": "source/deps/qa_glb.py",
+      "sha256": "7595959ff7acfa328df8adef0fa87947c66f2fb804e10eaf6ec0c37da3c505fa"
+    }
+  ],
+  "helper_changes": "Copied project asset_common.py and qa_glb.py, parameterized triangle-area and contact tolerances for the real 25 mm animal; never enlarge the model to satisfy meter-scale tolerances.",
+  "node_install": "cd source && npm ci --ignore-scripts",
+  "network_required_for_build": false,
+  "network_required_for_first_node_dependency_install": true,
+  "model_external_resources": []
+}
