@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      native_layer_diagnostic:
+        description: Diagnostic layers only,1536 candidate; never quality acceptance
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: read
   actions: read
@@ -43,18 +48,20 @@ jobs:
         env:
           DISPATCH_DETAIL_IDS: ${{ inputs.detail_ids }}
           DISPATCH_CANDIDATE_SMOKE: ${{ inputs.candidate_smoke }}
+          DISPATCH_NATIVE_LAYER_DIAGNOSTIC: ${{ inputs.native_layer_diagnostic }}
         run: |
           node --input-type=module <<'JS'
           import assert from 'node:assert/strict';
           import {readFile,appendFile} from 'node:fs/promises';
-          let ids,smoke=false;
-          if(process.env.GITHUB_EVENT_NAME==='workflow_dispatch'){ids=process.env.DISPATCH_DETAIL_IDS.split(',').filter(Boolean);smoke=process.env.DISPATCH_CANDIDATE_SMOKE==='true';}
-          else {const request=JSON.parse(await readFile('qa/detail-capture-request.json'));assert.equal(request.version,1);assert.equal(request.kind,'bounded-detail-capture-request');ids=request.ids;smoke=request.candidate_smoke===true;}
+          let ids,smoke=false,diagnostic=false;
+          if(process.env.GITHUB_EVENT_NAME==='workflow_dispatch'){ids=process.env.DISPATCH_DETAIL_IDS.split(',').filter(Boolean);smoke=process.env.DISPATCH_CANDIDATE_SMOKE==='true';diagnostic=process.env.DISPATCH_NATIVE_LAYER_DIAGNOSTIC==='true';}
+          else {const request=JSON.parse(await readFile('qa/detail-capture-request.json'));assert.equal(request.version,1);assert.equal(request.kind,'bounded-detail-capture-request');ids=request.ids;smoke=request.candidate_smoke===true;diagnostic=request.native_layer_diagnostic===true;}
           assert(Array.isArray(ids)&&ids.length>0&&new Set(ids).size===ids.length&&ids.every(id=>/^[a-z0-9-]+$/.test(id)),'Explicit unique model IDs required');
           const assets=JSON.parse(await readFile('assets/manifest.json')).assets,resources=JSON.parse(await readFile('site/public/gallery/resources.json'));
           for(const id of ids)assert(assets.some(a=>a.id===id)&&['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[id]?.render_route),'Unknown right delivery scope '+id);
+          assert(!diagnostic||smoke,'Native diagnostic requires explicit unaccepted candidate mode');
           if(smoke)assert.deepEqual([...ids].sort(),['onoclea','pertica','azolla','sidneyia','arroyo-wash'].sort(),'Candidate probe requires exactly the reviewed five IDs');
-          await appendFile(process.env.GITHUB_OUTPUT,'ids='+ids.join(',')+'\nsmoke='+smoke+'\n');
+          await appendFile(process.env.GITHUB_OUTPUT,'ids='+ids.join(',')+'\nsmoke='+smoke+'\ndiagnostic='+diagnostic+'\n');
           console.log('Explicit bounded right-detail request:',JSON.stringify(ids));
           JS
       - run: npx playwright install --with-deps chromium
@@ -64,15 +71,23 @@ jobs:
           DETAIL_DELTA_IDS: ${{ steps.request.outputs.ids }}
           DETAIL_CAPTURE_OUTPUT: qa/detail-capture-delta
         run: node site/capture-gallery-posters.mjs --detail-presentations "--detail-ids=$DETAIL_DELTA_IDS"
-      - name: Unaccepted five-model high-resolution actual-page probe
+      - name: Unaccepted five-model actual-page probe or bounded layer diagnostic
         if: steps.request.outputs.smoke == 'true'
         env:
           DETAIL_DELTA_IDS: ${{ steps.request.outputs.ids }}
+          NATIVE_LAYER_DIAGNOSTIC: ${{ steps.request.outputs.diagnostic }}
         run: |
           node site/detail-presentation-smoke-test.mjs
           DETAIL_BROWSER_PROFILE=candidate-smoke node site/detail-presentation-browser-test.mjs --self-test
+          sizes='1536 2048'
+          if [ "$NATIVE_LAYER_DIAGNOSTIC" = true ]; then
+            sizes=1536
+            export DETAIL_BROWSER_PROFILE=native-layer-diagnostic
+            node --test site/detail-presentation-render-diagnostic-test.mjs
+            node site/detail-presentation-browser-test.mjs --self-test
+          fi
           failed=0
-          for size in 1536 2048; do
+          for size in $sizes; do
             if DETAIL_CAPTURE_REVISION=2 DETAIL_CAPTURE_SIZE=$size DETAIL_CAPTURE_CANDIDATE_SMOKE=1 DETAIL_EXPECTED_COUNT=264 DETAIL_CAPTURE_OUTPUT=qa/detail-candidate-probe/$size/capture node site/capture-gallery-posters.mjs --detail-presentations "--detail-ids=$DETAIL_DELTA_IDS"; then
               node site/detail-presentation-smoke.mjs "qa/detail-candidate-probe/$size/capture/fresh" "$size" "qa/detail-candidate-probe/$size/browser" || failed=1
             else
