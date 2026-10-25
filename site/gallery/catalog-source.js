@@ -1,6 +1,7 @@
 /** The release manifest owns membership. Reviewed resources only decorate matching bytes. */
 import {parseRoute,routeHref} from '../routes.js';
 import {siteRoot,assetURL} from './urls.js';
+import {resolveGalleryPoster} from './wheel-presentations.js';
 export {siteRoot,assetURL};
 export let models=[];
 export let catalog={};
@@ -11,7 +12,7 @@ export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
   return manifest.assets.map(asset=>{
     if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safeAssetPath(asset[key])))throw new Error('Invalid published model.');
     ids.add(asset.id);
-    const poster=resources.posters?.[asset.id],matching=poster&&poster.source_glb_sha256===asset.sha256?.glb;
+    const poster=resolveGalleryPoster(asset,resources),matching=!!poster;
     return {...asset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,
       ...(matching?{galleryPosters:{detail:poster.detail,wheel:poster.wheel},wheelSpec:poster.wheelSpec}:{})};
   });
