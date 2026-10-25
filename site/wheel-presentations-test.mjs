@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import index from './gallery/wheel-presentations-index.js';
+import detailIndex from './gallery/detail-presentations-index.js';
 import {resolveGalleryPoster,resolveWheelPoster,validPresentationSpec} from './gallery/wheel-presentations.js';
 import {prepareModels,loadGalleryCatalog} from './gallery/catalog-source.js';
 import {galleryStartupContent} from './gallery/startup.mjs';
@@ -96,8 +97,11 @@ test('unknown IDs, wrong source/new/old hashes, malformed framing and paths fail
   assert.equal(validPresentationSpec({}),false);
 });
 
-test('actual native SSR and hydration select identical wheel/detail URLs, preserving first352',()=>{
+test('actual native SSR and hydration agree: preserve every wheel and ordinary detail, apply bound right overrides',()=>{
   const before=JSON.stringify(resources),assetsBefore=JSON.stringify(manifest);
+  const detailAssets=manifest.assets.filter(asset=>['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[asset.id]?.render_route));
+  assert.deepEqual(Object.keys(detailIndex.presentations).sort(),detailAssets.map(asset=>asset.id).sort(),'Exact current right override membership');
+  const detailIds=new Set(detailAssets.map(asset=>asset.id));
   const models=prepareModels(manifest,resources),base='/lowpoly-vault/';
   const html=galleryStartupContent(manifest.assets,{lang:'en',base},{header:'<header>Wheel parity</header>',resources});
   for(let i=0;i<manifest.assets.length;i++){
@@ -106,7 +110,19 @@ test('actual native SSR and hydration select identical wheel/detail URLs, preser
     assert(row.includes('src="'+base+model.galleryPosters.wheel+'"'),asset.id+' SSR/hydration wheel');
     assert(row.includes('data-poster="'+base+model.galleryPosters.detail+'"'),asset.id+' SSR/hydration detail');
     assert.equal(model.galleryPosters.detail,resolveGalleryPoster(asset,resources).detail);assert.equal(model.glb,asset.glb);assert.equal(model.blend,asset.blend);
-    if(i<352){assert.deepEqual(model.galleryPosters,{detail:original.detail,wheel:original.wheel});assert.deepEqual(model.wheelSpec,original.wheelSpec);}
+    // Right migration includes 14 same-ID replacements inside the historical first352.
+    // Its membership is independent of the immutable wheel migration's positional cohort.
+    const wheelOnly=resolveWheelPoster(asset,resources);
+    assert.equal(model.galleryPosters.wheel,wheelOnly.wheel,asset.id+' right override preserves wheel');
+    assert.deepEqual(model.wheelSpec,wheelOnly.wheelSpec,asset.id+' right override preserves wheel framing');
+    if(detailIds.has(asset.id)){
+      const entry=detailIndex.presentations[asset.id];
+      assert.equal(entry.source_glb_sha256,asset.sha256.glb,asset.id+' right source');
+      assert.equal(entry.previous_detail.path,original.detail,asset.id+' original right binding');
+      assert.equal(entry.detail,`detail-presentations/${asset.id}.png`);
+      assert.equal(model.galleryPosters.detail,entry.detail,asset.id+' authorized runtime right');
+    }else assert.equal(model.galleryPosters.detail,original.detail,asset.id+' ordinary right unchanged');
+    if(i<352){assert.equal(model.galleryPosters.wheel,original.wheel);assert.deepEqual(model.wheelSpec,original.wheelSpec);}
     else if(index.presentations[asset.id]){assert.equal(model.galleryPosters.wheel,index.presentations[asset.id].wheel);assert.deepEqual(model.wheelSpec,index.presentations[asset.id].wheelSpec);}
     else{assert.equal(model.galleryPosters.wheel,original.wheel);assert.deepEqual(model.wheelSpec,original.wheelSpec);}
   }
