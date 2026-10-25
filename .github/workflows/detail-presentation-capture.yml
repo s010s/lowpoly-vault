@@ -38,10 +38,10 @@ jobs:
           JS
       - run: npx playwright install --with-deps chromium
       - run: node --check site/capture-detail-presentations.mjs
-      - name: Smoke the three observed mismatch examples
+      - name: Smoke observed mismatches and the native-clipping regression
         run: node site/capture-gallery-posters.mjs --detail-presentations
         env:
-          DETAIL_CAPTURE_IDS: spyroceras,megarachne,callichimaera
+          DETAIL_CAPTURE_IDS: spyroceras,megarachne,callichimaera,tempskya
           DETAIL_CAPTURE_OUTPUT: qa/detail-smoke
       - run: node site/capture-gallery-posters.mjs --detail-presentations
         env:
