@@ -1,3 +1,4 @@
+import './gallery-poster-order-test.mjs';
 import {successorReader,historicalManifestView,historicalGalleryView} from './same-id-successors.mjs';
 /** Candidate-authored matching hashes cannot create or rewrite a historical approval. */
 import assert from 'node:assert/strict';
@@ -5,14 +6,14 @@ import {mkdtemp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,dirname,resolve} from 'node:path';
 import {posterInputState,posterInputKey,posterSharedInputs} from './gallery-poster-inputs.mjs';
-import {HISTORICAL_APPROVALS_SHA256} from './gallery-poster-compat.mjs';
+import {HISTORICAL_APPROVALS_SHA256,restoreHistoricalPosterSerialization} from './gallery-poster-compat.mjs';
 import {createHash} from 'node:crypto';
 import {productionSourceClosure} from './production-release.mjs';
 import {collectManifestProduction} from './production-publication.mjs';
 const root=await mkdtemp(join(tmpdir(),'frozen-poster-approvals-'));
 const approvalPath='site/gallery/approved-poster-inputs.json';
 const original=await readFile(approvalPath),baseline=JSON.parse(original),selected=JSON.parse(await readFile('assets/manifest.json')),selectedResources=JSON.parse(await readFile('site/public/gallery/resources.json'));
-const successorRead=successorReader(process.cwd()),manifest=historicalManifestView({manifest:selected,read:successorRead}),resources=historicalGalleryView({manifest:selected,resources:selectedResources,read:successorRead});
+const successorRead=successorReader(process.cwd()),manifest=historicalManifestView({manifest:selected,read:successorRead}),resources=restoreHistoricalPosterSerialization(historicalGalleryView({manifest:selected,resources:selectedResources,read:successorRead}),baseline);
 assert.equal(createHash('sha256').update(original).digest('hex'),HISTORICAL_APPROVALS_SHA256);
 try{
  // Verify the current disjoint production set first, then copy its complete
