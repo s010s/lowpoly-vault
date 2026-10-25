@@ -18,7 +18,7 @@ if(mode==='publication'){
  }
  if(scope.website){
   for(const task of ['test:catalog','test:theme','test:preview','test:redesign'])run('npm',['run',task]);
-  for(const file of ['image-scrub-test','turntable-mixed-source-test'])run(process.execPath,[`site/${file}.mjs`]);
+  for(const file of ['image-scrub-test','turntable-mixed-source-test','capture-wheel-frame-test','wheel-presentation-contract-test','wheel-presentations-test'])run(process.execPath,[`site/${file}.mjs`]);
   // The source/output gallery audit belongs to the build, not a second test pass.
   const geometry=new Set(['reset-transition-test','single-framing-test','poster-projection-test','selection-orbit-controls-test','compare-ground-regression-test','model-support-test'].map(name=>`node site/gallery/tests/${name}.mjs`));
   const runGeometry=needsGeometryRegression(scope.paths);

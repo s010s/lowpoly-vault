@@ -71,51 +71,32 @@ jobs:
           path: qa/ci-publication-capture/
       - name: State capture scope
         run: echo 'Capture-only public image generation. Publication tests, exact poster reproduction, full review, Pages and live browser gates remain required separately.' >> "$GITHUB_STEP_SUMMARY"
-  wheel-parity-capture:
+  wheel-parity-integration:
     if: github.ref == 'refs/heads/capture/wheel-parity-20261024'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
+    env:
+      SITE_BASE: /lowpoly-vault/
+      SITE_ORIGIN: https://s010s.github.io
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - run: npm ci --ignore-scripts
-      - run: node --test site/capture-wheel-frame-test.mjs site/wheel-presentation-contract-test.mjs
+      - run: node --test site/capture-wheel-frame-test.mjs site/wheel-presentation-contract-test.mjs site/wheel-presentations-test.mjs
+      - run: node site/ci-build-release.mjs
       - run: npx playwright install --with-deps chromium
-      - name: Capture explicitly scoped wheel presentations only
-        run: node site/capture-wheel-parity.mjs
+      - run: node site/wheel-parity-browser-test.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: wheel-parity-part-0-${{ github.sha }}
-          path: qa/wheel-parity-output/part-0/
+          name: wheel-integration-${{ github.sha }}
+          path: |
+            qa/wheel-integration-evidence/
+            qa/ci-timings/build.json
           if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: wheel-parity-part-1-${{ github.sha }}
-          path: qa/wheel-parity-output/part-1/
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: wheel-parity-part-2-${{ github.sha }}
-          path: qa/wheel-parity-output/part-2/
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: wheel-parity-part-3-${{ github.sha }}
-          path: qa/wheel-parity-output/part-3/
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: wheel-parity-report-${{ github.sha }}
-          path: qa/wheel-parity-output/report.json
-          if-no-files-found: error
-      - name: Record capture-only scope
-        if: always()
-        run: echo 'Exact pinned wheel capture scope only. No detail or source files changed, no publication or visual acceptance, physical GPU unknown. Inspect PNGs and report before any publication.' >> "$GITHUB_STEP_SUMMARY"

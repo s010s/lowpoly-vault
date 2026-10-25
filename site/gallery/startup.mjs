@@ -4,6 +4,7 @@ import {routeHref,CATALOG_PAGE_SIZE} from '../routes.js';
 import {modelShortName,galleryCategoryLabel} from './presentation-labels.js';
 import {modelHeight} from './model-dimensions.js';
 import {iconMarkup} from './icons.js';
+import {resolveGalleryPoster} from './wheel-presentations.js';
 const icon=name=>`<span class="icon" aria-hidden="true">${iconMarkup(name).replace('<svg ','<svg width="20" height="20" ')}</span>`;
 const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const local=(value,lang)=>typeof value==='string'?value:value?.[lang==='zh-CN'?'zh':'en']||value?.en||'';
@@ -18,7 +19,7 @@ export async function galleryStartupResources(){
 export function galleryStartupContent(assets,{lang,base,page=0,review=false},startup){
  const zh=lang==='zh-CN',t=(en,cn)=>zh?cn:en,pages=Math.max(1,Math.ceil(assets.length/CATALOG_PAGE_SIZE));
  const selected=(!page&&assets.find(asset=>asset.id==='cooperoceras'))||assets[Math.min(assets.length-1,page*CATALOG_PAGE_SIZE)];
- const poster=(asset,wheel=false)=>{const resource=startup.resources.posters?.[asset.id];return base+(resource&&resource.source_glb_sha256===asset.sha256?.glb?resource[wheel?'wheel':'detail']:asset.card_preview||asset.preview);};
+ const poster=(asset,wheel=false)=>{const resource=resolveGalleryPoster(asset,startup.resources);return base+(resource&&resource.source_glb_sha256===asset.sha256?.glb?resource[wheel?'wheel':'detail']:asset.card_preview||asset.preview);};
  const detail=asset=>routeHref({type:'detail',id:asset.id,lang},base);
  const title=asset=>modelShortName(asset,lang),subtitle=asset=>galleryCategoryLabel(asset.category,lang)+' / '+t('Stylized specimen','风格化示意');
  const filesize=asset=>Math.round((asset.glb_bytes||asset.file_sizes?.glb||0)/1024)+' KB';
