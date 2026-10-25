@@ -9,6 +9,7 @@ import {posterInputState,posterInputKey,posterSharedInputs} from './gallery-post
 import {HISTORICAL_APPROVALS_SHA256,restoreHistoricalPosterSerialization} from './gallery-poster-compat.mjs';
 import {createHash} from 'node:crypto';
 import {productionSourceClosure} from './production-release.mjs';
+import {productionWheelRenderer} from './production-wheel-contract.mjs';
 import {collectManifestProduction} from './production-publication.mjs';
 const root=await mkdtemp(join(tmpdir(),'frozen-poster-approvals-'));
 const approvalPath='site/gallery/approved-poster-inputs.json';
@@ -21,8 +22,19 @@ try{
  // No review result, historical byte or source file is manufactured here.
  await collectManifestProduction(process.cwd(),manifest);
  const productionPaths=await productionSourceClosure(process.cwd(),manifest);
+ // The authenticated production wheel route also reads its live renderer closure,
+ // including capture-wheel-frame.js; copy those real inputs, not a fabricated seal.
+ const wheelRenderer=await productionWheelRenderer(process.cwd());
+ const wheelRendererPaths=wheelRenderer.files.map(file=>file.path);
  for(const path of productionPaths)assert(!path.startsWith('/')&&!path.includes('\\')&&path.split('/').every(p=>p&&p!=='.'&&p!=='..'),'Safe pinned production fixture input');
- for(const path of new Set([...baseline.shared.files.map(row=>row[0]),approvalPath,'node_modules/playwright-core/browsers.json',...productionPaths])){await mkdir(join(root,dirname(path)),{recursive:true});await writeFile(join(root,path),await readFile(resolve(path)));}
+ for(const path of new Set([...baseline.shared.files.map(row=>row[0]),approvalPath,'node_modules/playwright-core/browsers.json',...productionPaths,...wheelRendererPaths])){await mkdir(join(root,dirname(path)),{recursive:true});await writeFile(join(root,path),await readFile(resolve(path)));}
+ assert.deepEqual(await productionWheelRenderer(root),wheelRenderer,'Private fixture must preserve the complete real wheel renderer');
+ const framePath=join(root,'site/capture-wheel-frame.js'),frame=await readFile(framePath);
+ try{await rm(framePath);await assert.rejects(()=>productionWheelRenderer(root),/ENOENT/,'Missing renderer inputs must fail closed');}
+ finally{await writeFile(framePath,frame);}
+ try{await writeFile(framePath,Buffer.concat([frame,Buffer.from('\n// tamper\n')]));assert.notDeepEqual(await productionWheelRenderer(root),wheelRenderer,'Renderer-byte tampering must change the authenticated closure');}
+ finally{await writeFile(framePath,frame);}
+ assert.deepEqual(await productionWheelRenderer(root),wheelRenderer);
  // The isolated legacy fixture must not load the effective successor manifest from its copied file.
  await writeFile(join(root,'assets/manifest.json'),JSON.stringify(manifest));
  const good=await posterInputState(manifest,resources,{root});assert.equal(good.approved.length,182);assert.deepEqual(good.approved.sort(),Object.keys(baseline.posters).sort());

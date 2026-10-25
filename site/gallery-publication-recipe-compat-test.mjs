@@ -4,7 +4,7 @@ import {mkdtemp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
 import {resolve,dirname,join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {posterSharedInputs} from './gallery-poster-inputs.mjs';
-import {MAIN842_POSTER_RECIPE} from './gallery-main842-compat.mjs';
+import {MAIN842_POSTER_RECIPE,MAIN842_DETAIL_DISPATCH,main842CaptureSource} from './gallery-main842-compat.mjs';
 import {assertRecordedGalleryRecipe} from './gallery-publication-recipe-compat.mjs';
 const root=resolve(process.env.GALLERY_RECIPE_SOURCE_ROOT||'.');
 const current=await posterSharedInputs(root);
@@ -34,6 +34,27 @@ try{
    else await writeFile(p,Buffer.concat([bytes,Buffer.from('\n/* changed actual input */\n')]));
    await assert.rejects(assertRecordedGalleryRecipe(MAIN842_POSTER_RECIPE,fixture));pass('reject changed actual input '+file);
   }finally{await writeFile(p,bytes);}
+ }
+ const capture=resolve(fixture,'site/capture-gallery-posters.mjs'),captureBytes=await readFile(capture,'utf8');
+ const historicalCapture=main842CaptureSource(captureBytes);
+ try{
+  await writeFile(capture,historicalCapture);
+  assert.deepEqual(await assertRecordedGalleryRecipe(MAIN842_POSTER_RECIPE,fixture),MAIN842_POSTER_RECIPE);pass('exact original pair-capture source remains accepted');
+ }finally{await writeFile(capture,captureBytes);}
+ const prefix='// BEGIN GALLERY POSTER V3 ORCHESTRATION\n';
+ for(const [label,changed]of [
+  ['dispatch flag',captureBytes.replace("includes('--detail-presentations')","includes('--anything')")],
+  ['dispatch body',captureBytes.replace('process.exit(0);','process.exit(1);')],
+  ['duplicate dispatch',captureBytes.replace(MAIN842_DETAIL_DISPATCH,MAIN842_DETAIL_DISPATCH+MAIN842_DETAIL_DISPATCH)],
+  ['moved dispatch',MAIN842_DETAIL_DISPATCH+historicalCapture],
+  ['unreviewed top import',prefix+"import './extra-unreviewed.mjs';\n"+captureBytes.slice(prefix.length)],
+  ['new static detail import',captureBytes.replace(MAIN842_DETAIL_DISPATCH,MAIN842_DETAIL_DISPATCH+"import './capture-detail-presentations.mjs';\n")],
+  ['historical detail render removed',captureBytes.replace('detail=await preview.renderer.poster(asset),','detail=null,')],
+  ['historical app comparison skipped',captureBytes.replace('await capturePair(comparisonPage,id,false)','capture')],
+  ['historical body mutation',captureBytes+'\n// changed old pair renderer\n'],
+ ]){
+  assert.notEqual(changed,captureBytes,label+' mutation applied');
+  try{await writeFile(capture,changed);await assert.rejects(assertRecordedGalleryRecipe(MAIN842_POSTER_RECIPE,fixture));pass('reject '+label);}finally{await writeFile(capture,captureBytes);}
  }
  const renderer=resolve(fixture,'site/gallery/renderer.js'),bytes=await readFile(renderer);
  await writeFile(resolve(fixture,'site/gallery/extra-unreviewed.js'),'export const unreviewed=true;\n');

@@ -115,13 +115,34 @@ export function main842PosterSource(source){
  for(const insertion of INSERTIONS){assert.equal(source.split(insertion).length,2,'Main842 compatibility insertion changed');source=source.replace(insertion,'');}
  return source;
 }
+// Only this reviewed, explicit opt-in dispatch may be absent from the older pair recipe.
+// Its dynamic imports execute only in --detail-presentations mode; that mode's
+// outputs require their separate mandatory detail-capture authority and closure proof.
+// This does NOT authenticate the new mode or rewrite any historical receipt.
+export const MAIN842_DETAIL_DISPATCH = "// Single supported entry: this narrow migration uses the same runtime recipe.\nif(process.argv.includes('--detail-presentations')){\n const delta=process.argv.find(arg=>arg.startsWith('--detail-ids='));\n if(delta){const {captureDetailDelta}=await import('./detail-capture-delta.mjs');await captureDetailDelta(delta.slice('--detail-ids='.length).split(',').filter(Boolean));}\n else {const {default:detailIndex}=await import('./gallery/detail-presentations-index.js');if(Object.keys(detailIndex.presentations||{}).length)throw new Error('Existing right deliveries require explicit --detail-ids for incremental capture; a full renderer migration needs separate review');await import('./capture-detail-presentations.mjs');}\n process.exit(0);\n}\n";
+export function main842CaptureSource(source){
+ const expected=MAIN842_POSTER_RECIPE.files.find(([path])=>path==='site/capture-gallery-posters.mjs')[1];
+ if(hash(source)===expected)return source;
+ const prefix='// BEGIN GALLERY POSTER V3 ORCHESTRATION\n';
+ const next="import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';\n";
+ assert(source.startsWith(prefix+MAIN842_DETAIL_DISPATCH+next),'Main842 detail dispatch position or bytes changed');
+ assert.equal(source.split(MAIN842_DETAIL_DISPATCH).length,2,'Main842 detail dispatch must occur exactly once');
+ const historical=prefix+source.slice(prefix.length+MAIN842_DETAIL_DISPATCH.length);
+ assert.equal(hash(historical),expected,'Main842 historical pair capture body changed');
+ return historical;
+}
 export async function assertMain842PosterRecipe({root,shared}){
  const expected=MAIN842_POSTER_RECIPE;
  assert.equal(expected.sha256,hash(JSON.stringify({domain:'gallery-poster-capture-v3',policy:expected.policy,files:expected.files,browser:expected.browser})),'Main842 recipe seal differs');
  assert.deepEqual(shared.policy,expected.policy,'Main842 capture policy changed');assert.equal(shared.browser,expected.browser,'Main842 browser changed');
  assert.deepEqual(shared.files.map(row=>row[0]),expected.files.map(row=>row[0]),'Main842 renderer dependency closure changed');
  for(const [path,digest]of expected.files){
-  const actual=path==='site/gallery-poster-inputs.mjs'?hash(main842PosterSource(await readFile(resolve(root,path),'utf8'))):shared.files.find(row=>row[0]===path)?.[1];
+  let actual=shared.files.find(row=>row[0]===path)?.[1];
+  if(path==='site/gallery-poster-inputs.mjs')actual=hash(main842PosterSource(await readFile(resolve(root,path),'utf8')));
+  if(path==='site/capture-gallery-posters.mjs'){
+   const source=await readFile(resolve(root,path),'utf8');assert.equal(hash(source),actual,'Main842 supplied capture input differs from actual bytes');
+   actual=hash(main842CaptureSource(source));
+  }
   assert.equal(actual,digest,`Main842 actual renderer/harness input changed: ${path}`);
  }
  return expected;

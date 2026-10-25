@@ -14,7 +14,7 @@ if(mode==='publication'){
 }else{
  if(scope.mode==='content')run(process.execPath,['site/content-production-acceptance-test.mjs']);
  if(scope.framework){
-  for(const file of ['ci-lean-release-test','ci-release-fast-scope-test','ci-production-baseline-test','ci-production-incremental-test','model-registry-test','model-registry-sync-test','content-production-acceptance-test','audit-release-test','production-poster-input-memo-test','concept-landair-successor-test'])run(process.execPath,[`site/${file}.mjs`]);
+  for(const file of ['ci-lean-release-test','ci-release-fast-scope-test','ci-production-baseline-test','ci-production-incremental-test','model-registry-test','model-registry-sync-test','content-production-acceptance-test','audit-release-test','production-poster-input-memo-test','concept-landair-successor-test','historical-media-comparison-test'])run(process.execPath,[`site/${file}.mjs`]);
  }
  if(scope.website){
   for(const task of ['test:catalog','test:theme','test:preview','test:redesign'])run('npm',['run',task]);
