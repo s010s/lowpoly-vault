@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "asset_id": "deflation-hollow",
+  "candidate_revision": "world-r002",
+  "defect_id": "DH-FAN-001",
+  "decision": "PASS_LOCAL_GEOMETRY_FIX",
+  "status": "PASS_LOCAL_GEOMETRY_FIX",
+  "reviewed_at": "2026-10-24T21:51:31.326500+00:00",
+  "reviewer_role": "independent_incremental_QA",
+  "scope": "Only the one-seed DH-FAN-001 construction repair against exact pinned preparation. The directory label world-r002 does not represent world acceptance.",
+  "candidate_bindings": [
+    {
+      "path": "model.glb",
+      "sha256": "1c29a7d85aee52759e2b7a3851273b9f94938e544099aa478ec743c7ba487cc1",
+      "bytes": 108392
+    },
+    {
+      "path": "source.blend",
+      "sha256": "f07c29259ddd682eaa814a0729ec9b4a3681e07f8a3fd8aae0e3274ed5be035c",
+      "bytes": 499556
+    },
+    {
+      "path": "generator.py",
+      "sha256": "3bb9e4bb907bbe3b5b619b12b273bfa4279a5be9e929e64be63d7f4c12fa1be6",
+      "bytes": 7948
+    },
+    {
+      "path": "candidate-manifest.json",
+      "sha256": "38f3e7ac0adaadb99c65c8357988dcb3894e73a357b668c0dcfe7d40b4409c6d",
+      "bytes": 7989
+    },
+    {
+      "path": "recovery-index.json",
+      "sha256": "7d21ed38d6fce2dc6ceab374dd37849b47d69ae88f9cc57dd7c766abc14ce524",
+      "bytes": 7003
+    },
+    {
+      "path": "checksums.sha256",
+      "sha256": "74497607fa3a4418772a70cd780ea6121c9c15eddf4437e25756e2f899ab6bb8",
+      "bytes": 3186
+    }
+  ],
+  "evidence_bindings": [
+    {
+      "path": "qa/independent_check.py",
+      "sha256": "aa489820aedce3826004ca41841148b24e32cdff896685669b113efc8cda88ae",
+      "bytes": 12401
+    },
+    {
+      "path": "qa/independent-geometry-source-check.json",
+      "sha256": "16d8b71f40e3f139874938bff8c92211195a8ca74f68f31342836b18c833c298",
+      "bytes": 4766
+    },
+    {
+      "path": "qa/independent-check.log",
+      "sha256": "16d8b71f40e3f139874938bff8c92211195a8ca74f68f31342836b18c833c298",
+      "bytes": 4766
+    },
+    {
+      "path": "qa/visual-review.json",
+      "sha256": "f209759a6c98ff8e639f00a96541cd68e61734c4ef7c5dccb2098251470ddaa0",
+      "bytes": 1482
+    }
+  ],
+  "summary": {
+    "changed_source_vertices": [
+      0
+    ],
+    "seed_before_blender_m": [
+      0.0,
+      -0.18000000715255737,
+      0.09000000357627869
+    ],
+    "seed_after_blender_m": [
+      0.0,
+      -0.17000000178813934,
+      0.09000000357627869
+    ],
+    "seed_height_unchanged": true,
+    "all_other_720_vertices_exact_unchanged": true,
+    "triangles_and_oriented_connectivity_unchanged": 1438,
+    "all_upper_triangles_positive_projected_area": 1296,
+    "minimum_upper_projected_area_m2": 8.175978929830787e-05,
+    "original_faces_35_36_repaired_without_winding_flip": true,
+    "no_degenerate_triangles_open_or_nonmanifold_edges": true,
+    "upper_boundary_points_exact_unchanged": 48,
+    "bounds_and_materials_unchanged": true,
+    "Blend_generator_GLB_full_coordinates_match": true,
+    "all_original_file_hashes_unchanged": 23,
+    "maker_recovery_file_hashes_verified": 33,
+    "maker_checksum_lines_verified": 34
+  },
+  "independent_method": "Independent reviewer-written raw GLB decoding, raw Blend SDNA pointer traversal, AST execution of pure deflation() only; no maker checker invoked; no Blender process, export or render run.",
+  "all_checks": {
+    "generator_only_one_literal_edit": true,
+    "raw_Blend_nonposition_mesh_attributes_unchanged": true,
+    "raw_Blend_material_fields_and_shader_socket_values_unchanged": true,
+    "baseline_Blend_equals_generator_all_coordinates_and_polygons": true,
+    "candidate_Blend_equals_generator_all_coordinates_and_polygons": true,
+    "raw_Blend_objects_transforms_unchanged": true,
+    "source_exactly_vertex_0_moves": true,
+    "source_target_float32_xyz": true,
+    "source_height_unchanged": true,
+    "source_all_polygons_unchanged": true,
+    "GLB_all_source_positions_represented": true,
+    "GLB_oriented_topology_unchanged_1438_triangles": true,
+    "GLB_upper_topology_equals_generator_1296": true,
+    "GLB_one_unique_position_changed_only": true,
+    "GLB_exact_bounds_unchanged": true,
+    "48_upper_boundary_positions_exact_unchanged": true,
+    "GLB_materials_unchanged_one_material_no_textures": true,
+    "GLB_nodes_scenes_identity_unchanged": true,
+    "all_1296_upper_faces_positive_projected_area": true,
+    "original_problem_faces_identified": true,
+    "original_faces_35_36_repaired_no_winding_change": true,
+    "no_zero_area_triangles": true,
+    "closed_manifold_edge_incidence_two": true,
+    "all_exported_normals_match_winding": true,
+    "all_23_original_pinned_file_hashes_unchanged": true,
+    "candidate_manifest_hash_size_bindings": true,
+    "recovery_all_file_hash_size_bindings": true,
+    "baseline_recovery_paths_resolve_exact_prep": true,
+    "render_images_hash_and_input_GLb_bindings": true,
+    "all_checksum_lines_match": true
+  },
+  "visual_review_status": "PASS_FOCUSED_LOCAL_VISUAL_CONSISTENCY",
+  "remaining_not_failure_for_this_scope": {
+    "formal_eight_view": "NOT_RERUN_CONTRACT_RETAINED",
+    "external_crop_and_world_host": "PENDING_SEPARATE_ACCEPTANCE",
+    "gpu": "UNKNOWN_NOT_TESTED",
+    "web_wheel": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE",
+    "publication_or_original_replacement": "NOT_AUTHORIZED_BY_THIS_RECEIPT_NOT_PERFORMED"
+  },
+  "blockers": [],
+  "prohibited_actions_not_taken": [
+    "Source or generator edits",
+    "New Blender process/export/render",
+    "Full eight-view or GPU work",
+    "GitHub upload/commit/push/merge/deployment",
+    "Mac or new environment use",
+    "Hidden cleanup or deletion",
+    "Web wheel generation"
+  ],
+  "packaging_note": "This QA directory is a supplemental review bundle. Preserve the checked maker manifests unchanged; include qa/recovery-index.json and these QA files in the next authorized private backup."
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "asset_id": "rotational-landslide",
+  "revision": "world-r002",
+  "defect_id": "RL-CAP-001",
+  "reviewed_at": "2026-10-24T23:17:58.274806+00:00",
+  "reviewer": "review_landslide_bottom_cap",
+  "review_type": "INDEPENDENT_TARGETED_LOCAL_REPAIR_ACCEPTANCE",
+  "decision": "PASS",
+  "status": "ACCEPTED_LOCAL_BOTTOM_CAP_FIX_ONLY",
+  "candidate": {
+    "model.glb": {
+      "sha256": "50a704c60fbc567b07933adaa84f8c7fe81852179bdaaca6515c6f6ab453cf19",
+      "bytes": 61144
+    },
+    "source.blend": {
+      "sha256": "1d54e76dcba3857fd6405e31b532351fd881b7c491113a1fb0a2c655366747bc",
+      "bytes": 598304
+    }
+  },
+  "accepted_scope": "Only RL-CAP-001: replacement of original displaced-block nonplanar bottom polygon 372 by 50 triangles in ten original-station strips, without moving, adding, removing, or reordering any source vertex. This is not world acceptance or publication approval.",
+  "checks": {
+    "actual_source_blends_opened_fresh_read_only": "PASS",
+    "independent_glb_binary_decode": "PASS",
+    "source_glb_oriented_position_material_triangle_match": "PASS_ALL_THREE_MESHES",
+    "only_polygon_372_connectivity_changed": "PASS",
+    "all_239_block_vertices_and_52_lower_perimeter_vertices_exact": "PASS",
+    "all_1338_noncap_oriented_position_material_normal_triangles_exact": "PASS",
+    "objects_materials_collections_transforms_units_preserved": "PASS",
+    "source_curve_plus_0075_contract": "PASS_FLOAT32_TOLERANCE",
+    "whole_cap_station_strip_surface": "PASS_ZERO_EXACT_AFFINE_RESIDUAL",
+    "closed_wound_nondegenerate_block": "PASS",
+    "counts_1388_triangles_702_per_mesh_welded_positions": "PASS",
+    "all_22_guarded_originals_unchanged": "PASS",
+    "existing_readback_and_replay_glbs": "PASS_EXACT_BYTES_VERIFIED_NOT_REEXECUTED",
+    "six_cpu_stills_two_diagrams_pixels": "PASS_INDEPENDENT_INSPECTION",
+    "section_diagram_63_points_against_actual_glb": "PASS_MAX_DIFFERENCE_4_44E_MINUS16_M"
+  },
+  "measurements": {
+    "original_cap_triangles": 50,
+    "old_triangles_with_positive_excess_over_station_strip_target": 39,
+    "replacement_cap_triangles": 50,
+    "strips": 10,
+    "triangle_counts_by_strip": [
+      17,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      17
+    ],
+    "candidate_maximum_full_cap_affine_residual_m": 0.0,
+    "original_maximum_excess_m": 1.081200021845894,
+    "original_closed_block_volume_m3": 186.67161650257418,
+    "candidate_closed_block_volume_m3": 246.21526303912114,
+    "restored_file_space_volume_m3": 59.54364653654696,
+    "volume_scope": "Authored teaching-file coordinates only, not measured real landslide volume or mass."
+  },
+  "blocking_defects": [],
+  "nonblocking_notes": [
+    "The original cap contains 50 triangles, of which 39 have positive interior excess. Do not describe all 50 triangles as individually defective.",
+    "The nominal interface separation and side-band clearance are intentionally preserved, not certified as natural terrain contact.",
+    "Six CPU stills and two diagrams are sufficient targeted evidence for this bounded topology fix; this decision adds no blanket eight-view, validator-install, or historical-regression gate."
+  ],
+  "unknown_or_out_of_scope": {
+    "official_gltf_validator": "UNKNOWN_NOT_RERUN_NO_INSTALL",
+    "formal_full_angle_global_acceptance": "NOT_RERUN_NOT_CLAIMED",
+    "natural_terrain_join": "UNKNOWN_NOT_TESTED",
+    "world_host": "UNKNOWN_NOT_COMPOSED",
+    "collision": "UNKNOWN_NOT_TESTED",
+    "gpu": "UNKNOWN_NOT_TESTED",
+    "web_wheel": "UNKNOWN_PENDING_UNIFIED_PIPELINE",
+    "online": "UNKNOWN_NOT_PUBLISHED"
+  },
+  "publication": "NOT_AUTHORIZED_BY_THIS_REVIEW_NOT_PERFORMED",
+  "evidence": [
+    {
+      "path": "qa/fresh-source-inspection.json",
+      "sha256": "9f944c433836d4dc87c1aa56a49ec0385d9aef36c04acd71c1608a5d2b814523"
+    },
+    {
+      "path": "qa/independent-geometry.json",
+      "sha256": "b34dc885334a1d820ac29862d0c54a09ac07bbf20938f04c808a2ab3579ece48"
+    },
+    {
+      "path": "qa/visual-review.json",
+      "sha256": "f4d0cf306b20cba72c60d978da3fcfa85f18133fbfdbbfc6ef6abc0726a60023"
+    },
+    {
+      "path": "qa/read_blends_independently.py",
+      "sha256": "ece91b266a0737c46aea08c70e7fbb35375cd8f038fec2356fe8c17f03726d23"
+    },
+    {
+      "path": "qa/check_geometry_independently.py",
+      "sha256": "dc844bd56a9585fde44a84b6746580b500c55a2cdc66d18d81d7e1e6b5984aa4"
+    }
+  ],
+  "actions_taken": [
+    "Read existing files and inspect actual evidence pixels",
+    "Open original and candidate Blend read-only with auto-execution disabled and two threads",
+    "Independently decode/compare GLB geometry and calculate exact cap proof",
+    "Write only qa review scripts, evidence, decision and handoff"
+  ],
+  "actions_not_taken": [
+    "Source/model edits",
+    "Git operations",
+    "Drive upload",
+    "Deletion",
+    "Mac or cloud-thread creation",
+    "Publication or deployment",
+    "Validator installation",
+    "World/GPU/wheel claims"
+  ]
+}

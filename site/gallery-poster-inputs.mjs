@@ -1,4 +1,5 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
+import {successorReader,successorContext,historicalGalleryView,verifySuccessorPresentation} from './same-id-successors.mjs';
 import {assertHistoricalPosterRecipe,assertHistoricalPosterApprovals} from './gallery-poster-compat.mjs';
 import {appendProductionPosterInputState} from './production-release.mjs';
 import {assertMain842PosterRecipe} from './gallery-main842-compat.mjs';
@@ -62,6 +63,16 @@ export async function posterInputState(manifest,resources,{root=process.cwd()}={
  const shared=await posterSharedInputs(root);
  let baseline;try{baseline=JSON.parse(await readFile(resolve(root,'site/gallery/approved-poster-inputs.json')));}catch{baseline=null;}
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
+ if(manifest.publication?.same_id_successors){
+  const read=successorReader(root),context=successorContext({manifest,read});
+  await verifySuccessorPresentation(root,context);
+  const historicalResources=historicalGalleryView({manifest,resources,read});
+  const legacy=await posterInputState(context.base,historicalResources,{root});
+  const ids=context.entries.map(row=>row.entry.id);
+  // Unchanged historical metadata/pixels are checked above, fresh mesh presentation
+  // is checked separately. Do not relabel successor receipts as old golden approval.
+  return {...legacy,valid:[...new Set([...legacy.valid,...ids])],stale:legacy.stale.filter(id=>!ids.includes(id)),approved:legacy.approved.filter(id=>!ids.includes(id)),capture:legacy.capture.filter(id=>!ids.includes(id)),successors:ids};
+ }
  await assertHistoricalPosterApprovals({root,baseline});
  const production=manifest.assets.filter(asset=>asset.production_release);
  if(production.length){

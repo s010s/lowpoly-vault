@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "asset_id": "pertica",
+  "revision": "world-r004",
+  "reviewed_at_utc": "2026-10-24T20:07:15Z",
+  "reviewer": "/root/recover_interrupted_model_work/review_pertica_axis_repair",
+  "verdict": "PASS_BOUNDED_STATIC_AXIS_REPAIR",
+  "scope": "Fresh independent exact-candidate static review of the bounded 24-quad / 48-triangle main-axis repair only.",
+  "not_authorized": [
+    "formal production acceptance",
+    "release",
+    "upload",
+    "Git mutation",
+    "merge",
+    "deployment"
+  ],
+  "subject": {
+    "model.glb": "cb25577f88cc724a42d7f018a80a07769c289fcbca100abf099e1ffaa96a81b7",
+    "source.blend": "2661102d2446a9ddc0f8dfe1eec830573081945726479b8b17e87f7ed2f2b842",
+    "repair-plan.json": "b6d3ae9bd905f915e37c5b00c6bf02a055230141ec6aa1b93bcb857fba651ff1",
+    "independent-review-input.json": "dd68592ac91347fc7a3027e3b9892b9726bdacacc86d009ab5c43f4622fbfee1",
+    "source/repair_pertica.py": "0e881050de1dc9f238b569cc13bd90b30401de793a33e778fd11da73310ff5b0",
+    "source/pertica-generator-index-only.patch": "b2325c3ddb0dbb72cfb1195054bb29489c7d5ffe6f307daa97505e076781bb2d"
+  },
+  "summary": {
+    "changed_source_quads": 24,
+    "replaced_export_triangles": 48,
+    "changed_source_positions": 0,
+    "triangles": 12940,
+    "source_vertices": 7600,
+    "source_modules": 565,
+    "export_position_stream_vertices": 23936,
+    "connected_islands": 563,
+    "witnessed_contacts": 854,
+    "lateral_root_contacts": 16,
+    "sporangia": 160,
+    "sections_passed": 15,
+    "sections_tested": 15,
+    "minimum_radius_ratio": 0.9238276700980997,
+    "radius_floor": 0.9,
+    "bounds_m": [
+      0.6800000071525574,
+      1.0,
+      0.6800000071525574
+    ],
+    "blender_reexport_byte_identical": true,
+    "maker_files_changed": 0
+  },
+  "criteria": [
+    {
+      "id": "exact_identity_and_frozen_integrity",
+      "status": "pass",
+      "observation": "Expected final GLB, source, plan, input and required evidence pins verified. All 90 pre-existing maker files remain byte-identical; 86 frozen manifest entries and maker checksums pass.",
+      "evidence": [
+        "integrity-result.json",
+        "frozen-input-hashes.json",
+        "maker-checksums-verification.log",
+        "evidence-bindings.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "source_index_change_boundary",
+      "status": "pass",
+      "observation": "Independent Blender reads confirm only polygons 1\u20138, 25\u201332 and 145\u2013152 changed on dominant-upright-axis. Cyclic ring offsets 5/3/3 and the allowed same-quad cyclic rotations are exact. No other source face changes.",
+      "evidence": [
+        "source-protection.json",
+        "original-source.json",
+        "candidate-source.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "protected_vertices_and_branches",
+      "status": "pass",
+      "observation": "All 7,600 source positions remain exact: axis 168, anchorage 72, laterals 7,360. Materials, transforms, mesh attributes, modifiers and vertex-group weights are exact. All 16 named groups, 10 fertile and 6 sterile, remain.",
+      "evidence": [
+        "source-protection.json",
+        "original-source.json",
+        "candidate-source.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "exact_export_boundary",
+      "status": "pass",
+      "observation": "Exactly the 48 permitted old triangles are replaced by 48 new triangles. Other 284 axis triangles retain exact position/normal associations; all non-axis attribute/index streams and primitive materials are exact. 12,940 triangles, 3 meshes, 5 primitives, 4 opaque materials, 0 textures and original bounds remain.",
+      "evidence": [
+        "export-protection.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "source_export_binding",
+      "status": "pass",
+      "observation": "Independent Blender 4.3.2 reopening and re-export produces byte-identical final GLB cb25577f88cc724a42d7f018a80a07769c289fcbca100abf099e1ffaa96a81b7. No source save or render was executed.",
+      "evidence": [
+        "source-reopen-result.json",
+        "source-reopen.log",
+        "independent-source-export.glb"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "multisection_radius_floor",
+      "status": "pass",
+      "observation": "All 15 sections at 10/25/50/75/90 percent of spans 0/3/18 pass the unchanged 0.90 floor. Minimum ratio 0.9238276700980997. All boundaries form one closed, crossing-free loop containing the source-derived centerline. Three additional exact nominal planes y=0.025/0.175/0.925 m also pass.",
+      "evidence": [
+        "sections-topology.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "axis_topology_and_orientation",
+      "status": "pass",
+      "observation": "Exact-position-welded final axis has no boundary, nonmanifold, inconsistently wound or zero-area triangles; all side normals point outward. Original caps and non-target faces are unchanged.",
+      "evidence": [
+        "sections-topology.json",
+        "source-protection.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "component_contact_and_capsules",
+      "status": "pass",
+      "observation": "Independent sparse component and triangle-plane/barycentric contact analysis reaches all 563 islands through 854 witnessed contacts. Exactly 16 lateral roots contact the axis. All 160 material-identified sporangia islands contact young-axis neck components. All branch/fork/neck meshes are byte-exact to baseline.",
+      "evidence": [
+        "connectivity.json",
+        "export-protection.json"
+      ],
+      "limitations": [
+        "Static surface-contact graph only, not a Boolean union, skin/printability check, collision test, terrain contact or dynamic stability.",
+        "Coplanar-only contact may be missed by plane intersection; all 563 were nevertheless connected by nonparallel witnessed contacts."
+      ]
+    },
+    {
+      "id": "official_format_validation",
+      "status": "pass",
+      "observation": "Fresh official Khronos 2.0.0-dev.3.10 validation returns zero errors, warnings, infos and hints, without severity overrides.",
+      "evidence": [
+        "khronos-validation.json",
+        "khronos-validation.log"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "current_visual_and_render_bindings",
+      "status": "pass",
+      "observation": "Personally inspected target-before-after.png. Basal y\u22480.025, lower y\u22480.175 and upper y\u22480.925 pinches are visibly removed; continuous faceted taper replaces twisted waists. The branch junction at 0.175 and basal roots retain contact, with no visible local bulge, crack or detached part. All six panels are pixel-exact crops of the pinned before/after strips and the after manifest binds to final GLB.",
+      "evidence": [
+        "../evidence/target-before-after.png",
+        "evidence-bindings.json"
+      ],
+      "limitations": [
+        "A locked front target strip is bounded local visual evidence, not all-angle final-candidate acceptance or dynamic shading proof."
+      ]
+    },
+    {
+      "id": "protected_form_context",
+      "status": "pass",
+      "observation": "Personally inspected original r003 front, side, rear and clay images. The slender upright axis, ranked fertile/sterile laterals and minimal base remain the correct unchanged-form context because protected geometry is exact.",
+      "evidence": [
+        "../historical/original-proof-final-front.png",
+        "../historical/original-proof-final-side.png",
+        "../historical/original-proof-final-rear.png",
+        "../historical/original-proof-final-clay.png",
+        "export-protection.json",
+        "evidence-bindings.json"
+      ],
+      "limitations": [
+        "These are historical r003 images, not fresh world-r004 full-angle proof. Historical manifest brief SHA differs from retained original-v001; only its actual r003 GLB and frame bindings are used as context."
+      ]
+    },
+    {
+      "id": "future_generator_patch_scope",
+      "status": "pass",
+      "observation": "Unified text diff exactly matches the frozen Pertica-only patch; only plant() AST changes. The shared tube helper is not changed. The patch selects only the same 24 target faces and same cyclic rotations.",
+      "evidence": [
+        "evidence-bindings.json",
+        "../source/pertica-generator-index-only.patch"
+      ],
+      "limitations": [
+        "The future whole-plant generator was parsed and inspected, not executed or certified as a full rebuild."
+      ]
+    },
+    {
+      "id": "retained_failed_attempt",
+      "status": "pass",
+      "observation": "The distinct default-diagonal GLB 384f25d480be7156a4e8865cd67583841208efbefcf8beadde8f00e50d8eef9d remains rejected. It fails six of 15 samples across two affected spans; its two failing midpoint ratios are 0.8729799883789883 and 0.8636050606109884. Old diagnostic pass stdout is not accepted as evidence.",
+      "evidence": [
+        "sections-topology.json",
+        "../attempts/index-offset-default-diagonal/REJECTED.json"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "scientific_claim_preservation",
+      "status": "pass",
+      "observation": "No anatomy, taxonomy, artistic scale, counts or research claims were added. Original 1 m height, basal conjecture and whole-plant reconstruction limitations are preserved.",
+      "evidence": [
+        "../reference/original-brief.json",
+        "../reference/original-references.json",
+        "source-protection.json"
+      ],
+      "limitations": [
+        "No fresh scientific acceptance or new source review is claimed. The 1972 full text and plates remain uninspected per retained research."
+      ]
+    },
+    {
+      "id": "runtime",
+      "status": "unknown",
+      "observation": "Outside this bounded static review; no new acceptance established.",
+      "evidence": [],
+      "limitations": []
+    },
+    {
+      "id": "GPU",
+      "status": "unknown",
+      "observation": "Outside this bounded static review; no new acceptance established.",
+      "evidence": [],
+      "limitations": []
+    },
+    {
+      "id": "world",
+      "status": "unknown",
+      "observation": "Outside this bounded static review; no new acceptance established.",
+      "evidence": [],
+      "limitations": []
+    },
+    {
+      "id": "user",
+      "status": "unknown",
+      "observation": "Outside this bounded static review; no new acceptance established.",
+      "evidence": [],
+      "limitations": []
+    },
+    {
+      "id": "deployed",
+      "status": "unknown",
+      "observation": "Outside this bounded static review; no new acceptance established.",
+      "evidence": [],
+      "limitations": []
+    }
+  ],
+  "pending": {
+    "runtime": "UNKNOWN",
+    "GPU": "UNKNOWN",
+    "world": "UNKNOWN",
+    "user": "UNKNOWN",
+    "deployed": "UNKNOWN",
+    "web_wheel": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE"
+  },
+  "independence": "Reviewer did not author or change maker artifacts. Fresh reviewer GLB decoder, source reopening, semantic comparison, section-loop tests, SciPy island partition and plane/barycentric contact witnesses were run. Maker checker outputs were not substituted for independent numerical results. Actual supplied pixels were inspected. Historical acceptance is not inherited.",
+  "tool_versions": {
+    "Blender": "4.3.2",
+    "Python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "Khronos": "2.0.0-dev.3.10"
+  },
+  "project_skills_read": {
+    "repository_commit": "796aa0c93ec68c6d21b1a75246f9b100037ffff3",
+    "paths": [
+      "skills/asset-factual-review/SKILL.md",
+      "skills/blender-lowpoly-pipeline/SKILL.md",
+      "skills/blender-lowpoly-pipeline/references/standardized-pipeline.md",
+      "skills/lowpoly-art-direction/SKILL.md",
+      "skills/lowpoly-art-direction/references/visual-acceptance.md",
+      "skills/prehistoric-environment-art/SKILL.md"
+    ]
+  },
+  "images_personally_inspected": [
+    {
+      "path": "evidence/target-before-after.png",
+      "sha256": "93274495148efb86b7d64ead8d42b3eecd8ca22b6ad9575b773bc5c1cd04056f"
+    },
+    {
+      "path": "historical/original-proof-final-front.png",
+      "sha256": "1ab984ba6e245ff123725ce0b51ff80741bef0cb4d8eee5c856236c1e594f030"
+    },
+    {
+      "path": "historical/original-proof-final-side.png",
+      "sha256": "4aa250ae1b6c9704d3c775004a4d4d85bb83cbcb4098cbb8b31804dfa0cb5f14"
+    },
+    {
+      "path": "historical/original-proof-final-rear.png",
+      "sha256": "70c83ca1f4af540236991b473e54f7667d18c1a279e33b62f431b76a23df5a4a"
+    },
+    {
+      "path": "historical/original-proof-final-clay.png",
+      "sha256": "e9901088bf0cc1bd89f85b908ef97e77d4331a79e089d4d6244c04addbf4e91c"
+    }
+  ],
+  "limitations": [
+    "No new renders or whole-plant regeneration. No target loader/GPU/scene test.",
+    "Contact graph proves static surface connections under the documented geometric tolerance, not watertight Boolean union, printing, collision or terrain support.",
+    "Historical overview evidence provides unchanged-form context only; final target views are explicitly localized.",
+    "The 15 specified sections plus three nominal midplanes are sampled checks, not a continuous mathematical radius-floor proof over every height."
+  ]
+}

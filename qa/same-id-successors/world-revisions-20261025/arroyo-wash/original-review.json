@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "asset_id": "arroyo-wash",
+  "candidate_revision": "world-r002",
+  "defect_id": "AW-BED-001",
+  "reviewer_role": "Fresh independent targeted reviewer, separate from maker",
+  "reviewed_at_utc": "2026-10-25T00:15:20Z",
+  "decision": "PASS_BOUNDED_STATIC_LOCAL_REPAIR",
+  "accepted_for": "The exact two-triangle local dry-bed fold repair only. The revision name does not confer world acceptance.",
+  "exact_candidate": {
+    "model.glb": {
+      "sha256": "9069117a2640abbd3af340d8920f0940d06f27711a5b033f744ec0d8dad124ed",
+      "bytes": 677676
+    },
+    "source.blend": {
+      "sha256": "ae2f007cf9c918ea65a71ee80d6e872377ec0974b0833c35353ed6c689a18182",
+      "bytes": 976124
+    }
+  },
+  "conclusions": {
+    "only_intended_source_polygons_and_edge_changed": true,
+    "source_polygons": [
+      4390,
+      4391
+    ],
+    "source_edge": 3342,
+    "old_diagonal": [
+      2230,
+      2294
+    ],
+    "new_diagonal": [
+      2231,
+      2293
+    ],
+    "source_vertex_moves": 0,
+    "source_material_assignment_changes": 0,
+    "unrelated_source_geometry_changes": 0,
+    "glb_changed_primitive": 3,
+    "glb_changed_primitive_triangles": [
+      28,
+      29
+    ],
+    "glb_changed_scene_triangles": [
+      8916,
+      8917
+    ],
+    "other_triangle_positions_and_corner_normals_exact": 8950,
+    "raw_blend_to_glb_all_triangles_bound": true,
+    "all_glb_json_and_materials_exact": true,
+    "triangles": 8952,
+    "materials": 4,
+    "original_bounds_exact": true,
+    "folded_top_count_before_after": [
+      1,
+      0
+    ],
+    "sample_xz_m": [
+      -1.1670255263646443,
+      -0.771231989065806
+    ],
+    "sample_ray_hits_before_after": [
+      3,
+      1
+    ],
+    "prior_multilayer_span_m": 0.036355942126723106,
+    "directed_patch_boundary_exact": true,
+    "closed_consistently_wound_single_shell": true,
+    "topology_error_counts": {
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_triangles": 0
+    },
+    "retained_saved_source_reexport_and_recipe_replay_glb_exact": true,
+    "retained_replay_source_arrays_exact": true,
+    "prepared_files_rehashed_unchanged": 54,
+    "actual_proof_pixels_inspected": true
+  },
+  "independence": {
+    "fresh_methods": [
+      "Independent GLB parser and geometry/ray/topology implementation, not the maker validator.",
+      "Direct SDNA parsing of the exact original and candidate Blend files confirms raw coordinates, mesh attributes, connectivity, material parameters and transforms.",
+      "Raw source corners are bound to snapshot tessellation and matched against every original/candidate GLB triangle.",
+      "Retained fresh-process source re-export and replay artifacts were hash/array checked; no redundant Blender run.",
+      "Actual full-resolution diagnostic proof pixels inspected against recomputed measurements."
+    ],
+    "no_candidate_or_original_mutation": true,
+    "writes_confined_to": "qa/"
+  },
+  "normal_precision": {
+    "comparison": "Unnormalized stored GLB float32 corner normals versus double-precision geometric unit normals. Maker normalizes stored normals first, explaining the negligible numeric difference.",
+    "component_tolerance": 0.0001,
+    "global_max_component_error": 5.972628054140561e-05,
+    "changed_patch_max_component_error": 4.1030794629692835e-05,
+    "all_unchanged_corner_normal_records_exact": true
+  },
+  "brief_fit": "The repair preserves the original normally dry, broad shallow sinuous incised wash, uneven banks, coherent full volume, palette and footprint. It adds no water, tributaries, named locality, climate, period or flood-hydraulic claim. This is a preservation/delta assessment, not a fresh whole-asset factual or visual acceptance.",
+  "scope_limits": [
+    "Not a general-purpose self-intersection certificate.",
+    "No formal eight-view acceptance rerun or waiver.",
+    "Official glTF validator and pinned target runtime loader were not rerun.",
+    "GPU, host/world, collision/navigation, web wheel and dynamic performance were not tested or accepted.",
+    "No established runtime flicker or proof that the tiny fold was visible in historical 512px overview renders.",
+    "No GitHub upload, PR action, merge, deployment, publication, Drive action, deletion, model/code mutation outside qa, new render or new task environment."
+  ],
+  "publication_approved": false,
+  "blocking_findings_for_this_bounded_review": [],
+  "evidence": [
+    "qa/independent-source-measurements.json",
+    "qa/independent-geometry-measurements.json",
+    "qa/independent-integrity.json",
+    "qa/pixel-review.json",
+    "qa/verification.log",
+    "qa/verify_independent.py"
+  ],
+  "next_use": "Record AW-BED-001 as independently accepted for the frozen candidate, limited to this static local repair. Preserve unrelated pending stages and any separate publication authorization."
+}

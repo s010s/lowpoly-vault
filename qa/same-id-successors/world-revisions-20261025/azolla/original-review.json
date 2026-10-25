@@ -1,0 +1,52 @@
+{
+  "asset_id": "azolla",
+  "revision": "world-r002",
+  "decision": "PASS_BOUNDED_STATIC_REPAIR",
+  "independent_static_approval": true,
+  "formal_production_approval": false,
+  "runtime_approval": false,
+  "publication_authorized": false,
+  "same_id_replacement_intent": true,
+  "new_model_count": 0,
+  "applies_only_to": [
+    {
+      "path": "azolla-lod0.glb",
+      "sha256": "652e72849b0a03cc99c087cf69d4ffccd066a28ddf149dad778baa07f0861f24",
+      "bytes": 176540
+    },
+    {
+      "path": "azolla-lod1.glb",
+      "sha256": "b23f9e56c3026d3d544e25b685e7d6a2dad9d3a9f69f037892d12e7177791c9d",
+      "bytes": 36236
+    },
+    {
+      "path": "source.blend",
+      "sha256": "cf590d43fa496fb49608ea4089403f1c792e0414cd81fc41198009667f996d78",
+      "bytes": 931636
+    }
+  ],
+  "independent_review": {
+    "path": "qa/independent-review.json",
+    "sha256": "4e7360af6ce171f88a8e94ad3040e5c236a19b25505b9bf89dae059d2a1c2cd0",
+    "bytes": 26169
+  },
+  "numeric_audit": {
+    "path": "qa/independent-numeric-audit.json",
+    "sha256": "e7bbe7c7b15c8fcb40c794d9a2264c7db624ea3fade6ed701f860ff17e8650ef",
+    "bytes": 11828
+  },
+  "maker_snapshot_manifest": {
+    "path": "qa/maker-sha256-manifest.json",
+    "sha256": "716b4988e07c75b2e5219845bbe56db234b8b4f38082def4c4536b9465d9a3e7",
+    "bytes": 17162
+  },
+  "historical_maker_records_preserved": [
+    "brief.json",
+    "candidate.json",
+    "metadata.json",
+    "review-inputs.json",
+    "qa/maker-geometry.json"
+  ],
+  "status_interpretation": "Maker PENDING records remain byte-identical as historical snapshots; this separate exact-hash-bound decision supplies bounded independent static approval only.",
+  "next_step": "Coordinator may prepare private backup and same-ID replacement handoff; no upload, Git operation, merge or deployment was performed by this reviewer. Production/runtime gates and separately authorized release remain outstanding."
+}

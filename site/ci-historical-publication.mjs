@@ -1,3 +1,4 @@
+import {successorReader,historicalManifestView} from './same-id-successors.mjs';
 /** Test-only isolated historical manifest. Never relax or alter original rejection suites. */
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync,mkdtempSync,copyFileSync,constants,existsSync,symlinkSync,unlinkSync,rmSync,lstatSync,readdirSync,readlinkSync,realpathSync} from 'node:fs';
@@ -30,7 +31,7 @@ function dependencyInventory(root){
 }
 export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tmpdir()}={}){
  assert(HISTORICAL_PUBLICATION_SUITES.includes(name),'Unsupported historical suite');
- const original=readFileSync(resolve(source,'assets/manifest.json')),manifest=JSON.parse(original);
+ const original=readFileSync(resolve(source,'assets/manifest.json')),manifest=historicalManifestView({manifest:JSON.parse(original),read:successorReader(source)});
  const reviewed=await collectManifestProduction(source,manifest),projected=projectHistoricalManifest(manifest,reviewed);
  const paths=execFileSync('git',['ls-files','-z'],{cwd:source,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean);
  assert(paths.includes('assets/manifest.json')&&paths.includes(`site/${name}-test.mjs`),'Real tracked source inventory required');

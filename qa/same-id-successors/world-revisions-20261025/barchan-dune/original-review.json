@@ -1,0 +1,295 @@
+{
+  "asset_id": "barchan-dune",
+  "revision": "world-r002",
+  "attempt": "attempt-01",
+  "reviewer": "review_barchan_sand_slope",
+  "maker": "repair_barchan_sand_slope",
+  "created_at_utc": "2026-10-24T19:05:01.421688+00:00",
+  "decision": "PASS_BOUNDED_INDEPENDENT_STATIC_REVIEW",
+  "claim": "Conforms to the selected general dry-sand slope constraints within the frozen stylized design tolerance, while preserving readable barchan form. Not a real-world physical simulation or production acceptance.",
+  "bindings": {
+    "glb": {
+      "path": "model.glb",
+      "bytes": 40184,
+      "sha256": "d689f2d01437ebe94d0e801ab2a046f916eb412bc819b33357e0391b6c1f4617"
+    },
+    "source": {
+      "path": "source.blend",
+      "bytes": 456452,
+      "sha256": "cc206766c90e71b2840d637800d1cffea81d4589953fa7da86c403f5b966e739"
+    },
+    "brief": {
+      "path": "brief.json",
+      "bytes": 2116,
+      "sha256": "d0af1e07756c3f4dc2c80cd43a9805a6f1ff06ec38332a8b464ece6888e2b1c6"
+    },
+    "frozen_detailed_brief": {
+      "path": "inputs/PHYSICAL-CANDIDATE-BRIEF.md",
+      "bytes": 8584,
+      "sha256": "15cfe6ddc7e1a4b9cc29551a7ae2aba318de2f126d10ef8e86bde3ef1b031e90"
+    },
+    "references": {
+      "path": "references.json",
+      "bytes": 1419,
+      "sha256": "ff3da0e6735c3555ff67dd37c99586486b0dbe292b3d2f8972079a77109d4721"
+    },
+    "maker_manifest": {
+      "path": "sha256-manifest.json",
+      "bytes": 12842,
+      "sha256": "bac23395bf44781e9d34f38c9969dd910acb8b547a39ab973ecdc50f025e6bb0"
+    },
+    "view_manifest": {
+      "path": "view-manifest.json",
+      "bytes": 9169,
+      "sha256": "10453e8b909b19d89b1620d9adfb78c9cd2bd5592b6a0b372a73c9b32ac1dc18"
+    },
+    "review_inputs": {
+      "path": "review-inputs.json",
+      "bytes": 5542,
+      "sha256": "9986496b3d66fc854a9fa9622a90e2c3ec58535c1d34b06b3427e2c09602a006"
+    },
+    "independent_measurement": {
+      "path": "independent-review/measurement.json",
+      "bytes": 55082,
+      "sha256": "d2c039ca59d05a26d84313d08f8eac0a11ed86ea267ffc98e677832293cc5e71"
+    }
+  },
+  "independence": {
+    "method": "New parser and mask reconstruction against exact frozen GLB bytes; independently reopened source.blend read-only. No maker scripts imported or maker/preflight pass flags reused. Parent supplied anticipated numerical values, so this was independently computed rather than blind numeric review.",
+    "initial_findings_before_maker_observations": "Before opening maker-observations.json, all 11 required individual images and locked comparison were inspected and favorable visual findings were reported to the parent; fresh geometry/source/integrity computations then passed and were reported. Maker observations were opened only afterward for discrepancy reconciliation.",
+    "maker_reconciliation": "No material discrepancy with the independently observed form or computed values. Maker QA_PENDING records remain preserved as historical frozen inputs, not modified to claim independent approval."
+  },
+  "criteria": [
+    {
+      "criterion": "All 32 central lee triangles meet the frozen 33–35 degree design interval",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/central_lee"
+    },
+    {
+      "criterion": "All 468 exposed sand triangles meet the frozen 35 degree maximum",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/all_visible"
+    },
+    {
+      "criterion": "All 160 central stoss triangles meet the frozen 25 degree maximum",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/central_stoss"
+    },
+    {
+      "criterion": "All 84 horn-band triangles meet the frozen 35 degree maximum",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/horn_bands"
+    },
+    {
+      "criterion": "All 80 original boundary points remain on ground within 1e-5 m",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/ground_boundary"
+    },
+    {
+      "criterion": "One closed connected consistently oriented nondegenerate mesh",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/closed_connected_oriented"
+    },
+    {
+      "criterion": "Original plan, unequal tips, surface/base triangulation and material are preserved",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/preserved_plan_topology_material"
+    },
+    {
+      "criterion": "Geometry changes match only the selected 0.665 m peak and exponent 1.0 envelope",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/fixed_height_formula"
+    },
+    {
+      "criterion": "Independent read-only source reopening agrees with exact exported positions and triangles",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/source_correspondence"
+    },
+    {
+      "criterion": "Every frozen maker file remains unchanged",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/maker_manifest_integrity"
+    },
+    {
+      "criterion": "Original stylized asset and preparation records remain unchanged",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/original_prep_preserved"
+    },
+    {
+      "criterion": "Candidate, metadata, brief and render-manifest artifact bindings agree",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/semantic_hash_links"
+    },
+    {
+      "criterion": "All 11 individual images agree with the hashed view records",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/all_image_bindings"
+    },
+    {
+      "criterion": "Primary comparison keeps the original camera, lighting and color-management values",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/hero_camera_lighting_lock"
+    },
+    {
+      "criterion": "Reported dimensions and counts agree with independent measurement",
+      "status": "pass",
+      "evidence": "independent-review/measurement.json#checks/metadata_matches_measurements"
+    },
+    {
+      "criterion": "Coherent barchan form, stoss/lee distinction and open crescent survive the height revision",
+      "status": "pass",
+      "evidence": "Individual pixel observations below and evidence/hero-comparison.png",
+      "confidence": "high for this bounded static stylized claim"
+    },
+    {
+      "criterion": "Factual scope and source applicability",
+      "status": "pass",
+      "evidence": "NPS Dune Movement and Barchan Dunes checked directly on 2026-10-24; the one-degree allowance is a frozen design tolerance, not a general material-stability law."
+    }
+  ],
+  "individually_inspected_images": [
+    {
+      "view": "hero",
+      "path": "evidence/hero/hero.png",
+      "sha256": "b74154f5e380bbc3f2b3441d1dbaa78d2ada4ce15465ea6875ff49046e4b92f9",
+      "status": "pass",
+      "observation": "The lowered body remains one readable crescent, with a continuous crest and visibly open inner bay. The original steep sail-like elevation is reduced; tips remain separated and unequal. The unchanged high camera target makes the body appear lower in frame, not artificially enlarged."
+    },
+    {
+      "view": "reversehero",
+      "path": "evidence/final/reversehero.png",
+      "sha256": "5fb2356bea8763efb1640ecfb3cbb520928f8f6d5e3e6d9e0abf9f507f145c70",
+      "status": "pass",
+      "observation": "The outer body remains broad and continuous, with the two ends tapering into the same body. No detached horns, extra hump or tube-like limb appears."
+    },
+    {
+      "view": "front",
+      "path": "evidence/final/front.png",
+      "sha256": "58f69cc6b4b23513010dae5d5f4afec4a2ec630bccda4b7129b3b7a6d5bbd9cc",
+      "status": "pass",
+      "observation": "A single low convex upper profile returns to the same ground line at both ends. No vertical skirt or added base is visible."
+    },
+    {
+      "view": "side",
+      "path": "evidence/final/side.png",
+      "sha256": "1ab9c9e365a050a3988a0c5fce8cf18cbe96da37d752a0acf2950ef256b8490c",
+      "status": "pass",
+      "observation": "One crest separates a longer gradual stoss run from the shorter, steeper lee descent. The body is low, but not reduced to a flat plate."
+    },
+    {
+      "view": "rear",
+      "path": "evidence/final/rear.png",
+      "sha256": "04ab24b677b8b9a6f2696794925e686139b81fbebe3aa31932cefbbd1fffd9e8",
+      "status": "pass",
+      "observation": "One low continuous central mass with ground-level tips. No secondary peak is visible."
+    },
+    {
+      "view": "top",
+      "path": "evidence/final/top.png",
+      "sha256": "9f94c64f9d1db4d3bc60b5bddf60403529ed176778c147b20e0c56627acc3013",
+      "status": "pass",
+      "observation": "The broad outer arc and concave inner opening read clearly as a crescent; unequal horn endpoints remain. The crest separates broad stoss and narrower lee bands. No closed ring or filled mouth."
+    },
+    {
+      "view": "clay",
+      "path": "evidence/final/clay.png",
+      "sha256": "b56c760740ab99859067b06ecfc9c6bb6cb477dec3ade23c42919fb90a70b494",
+      "status": "pass",
+      "observation": "The crest and lee/stoss shape hierarchy remain legible without sand color. The body is coherent and not dependent on painted or textured shadow."
+    },
+    {
+      "view": "silhouette",
+      "path": "evidence/final/silhouette.png",
+      "sha256": "49826ee6a5518402c2c2fe63d9e76938db5590833f6a12eb3ad1c86a8b2c2d47",
+      "status": "pass",
+      "observation": "The outer sweep, two ends and open inner bay remain readable at the locked hero angle. No added appendage or closed ring."
+    },
+    {
+      "view": "bottom",
+      "path": "evidence/final/bottom.png",
+      "sha256": "913a06d008e90fe391efd798008e86e2d15e2d70e70b4763793c53b1c19a4f91",
+      "status": "pass",
+      "observation": "The closed underside follows the same concave crescent; the opening has not been triangulated into a convex hull."
+    },
+    {
+      "view": "near-left-horn",
+      "path": "evidence/final/near-left-horn.png",
+      "sha256": "a54e66a071de6e9b372e57c42d8fa1993d2cc425ac387f8199de9ad8aeabeff7",
+      "status": "pass",
+      "observation": "Height tapers continuously into a ground-level pointed tip; no stepped skirt, local lump, tubular separation or split appears."
+    },
+    {
+      "view": "near-right-horn",
+      "path": "evidence/final/near-right-horn.png",
+      "sha256": "6819126484ae0e5815475fdcf0645d298ea2a6e26b8dabf377f577bfc035a9c7",
+      "status": "pass",
+      "observation": "The curved crest and lee surface converge into the second ground-level tip as one continuous mass; no detached or upright blade is visible."
+    }
+  ],
+  "locked_comparison": {
+    "path": "evidence/hero-comparison.png",
+    "sha256": "61086bf554290a9725daeb68f95ecc227b97b105ff132596ce12eb4bea4053e1",
+    "observation": "Original and candidate retain the same footprint and framing. Peak height changes from 1.600000024 m to 0.665000021 m; reduced elevation is obvious rather than hidden by camera refitting. The main crescent identity survives."
+  },
+  "measurement_summary": {
+    "central_wind_section_original_deg": 57.9946167919165,
+    "central_wind_section_candidate_deg": 33.62390660596017,
+    "central_lee_32_range_deg": [
+      33.192639885495566,
+      34.19506421143995
+    ],
+    "all_visible_468_max_deg": 34.53517827020779,
+    "central_stoss_160_max_deg": 24.82739578804492,
+    "horn_84_max_deg": 30.245234448164915,
+    "dimensions_glb_xyz_m": [
+      8.0,
+      0.6650000214576721,
+      6.204497337341309
+    ],
+    "triangles": 546,
+    "source_vertices": 275,
+    "export_position_vertices": 1480,
+    "max_source_export_distance_m": 1.1920928955078125e-07,
+    "preserved_maker_files": 76,
+    "preserved_original_and_prep_files": 85
+  },
+  "primary_reference_checks": [
+    {
+      "id": "nps-angle",
+      "url": "https://www.nps.gov/slbe/learn/nature/sand-dune-geology.htm",
+      "section": "Dune Movement",
+      "page_updated": "2025-12-15",
+      "checked_date": "2026-10-24",
+      "finding": "The source gives a 34-degree dry-loose-sand repose reference and distinguishes a gentler windward slope from the lee side. It does not establish 35 degrees as universally stable.",
+      "application": "The brief deliberately permits a one-degree stylized design tolerance; maximum exported face 34.535178 degrees exceeds the nominal source value but lies inside that declared tolerance."
+    },
+    {
+      "id": "nps-barchan",
+      "url": "https://www.nps.gov/grsa/learn/nature/dune-types.htm",
+      "section": "Barchan Dunes",
+      "page_updated": "2025-05-01",
+      "checked_date": "2026-10-24",
+      "finding": "Simple arc with two forward arms and a dominant wind direction; consistent with the preserved +Z downwind horns and open crescent."
+    }
+  ],
+  "limitations": [
+    "No grain-size, moisture, cohesion, wind dynamics, granular simulation or slope-stability computation was performed.",
+    "Ground-level boundary preservation is not proof of seam quality, collision behavior or fit on future terrain.",
+    "Existing Khronos validator report has 0 errors and 0 warnings and was integrity-checked, not rerun. This fresh parser is a bounded geometry audit, not a substitute full glTF validator.",
+    "Existing renders were inspected, not regenerated. Their exact GLB and camera bindings were checked; clean import and baseline-lock implementation were inspected.",
+    "Fixed 16-sample CPU evidence contains mild grain. This does not establish target-renderer or GPU image quality.",
+    "No model/source edits, rebuild, new render, Git action, upload, release or environment creation occurred."
+  ],
+  "acceptance": {
+    "independent_static": "PASS_BOUNDED",
+    "runtime": "UNKNOWN",
+    "GPU": "UNKNOWN",
+    "actual_world_terrain_collision": "UNKNOWN",
+    "user_acceptance": "UNKNOWN",
+    "deployed": "UNKNOWN",
+    "web_wheel": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE"
+  },
+  "blocking_defects_in_reviewed_scope": [],
+  "next_action": "Stop geometry iteration for this candidate. Retain original stylized r001 and queue the exact reviewed candidate for separately authorized terrain/collision/runtime/GPU/user review. No release authority is granted.",
+  "maker_records_modified": false
+}

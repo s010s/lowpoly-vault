@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "asset_id": "salvinia",
+  "revision": "world-r002",
+  "reviewed_at_utc": "2026-10-24T20:29:44.641517+00:00",
+  "verdict": "PASS_BOUNDED_STATIC_REPAIR",
+  "scope": "Lowest submerged-leaf junction only. No broad regression suite, fresh full-view render, runtime/world acceptance or publication approval.",
+  "exact_glb_sha256": "49ff62889a733dd007db5184877e34967aada8f30e45735655ecb8a6232a45eb",
+  "exact_blend_sha256": "15987d4d4a1ade2750d77bcf2db872b9ec046d8ade49c0c74426690c9fdd62a2",
+  "original_glb_sha256": "266e49ba2eecf604aeb27cf0f7c31edfb061d34e21da7bda6657ed04d2cdf321",
+  "original_blend_sha256": "337b2a57188825adbce1c0cd37a0514009334d032ae910233c4620e5e4d992ce",
+  "criteria": [
+    {
+      "id": "position-change-budget",
+      "status": "pass",
+      "evidence": "Independent reopening of original and candidate .blend sources; GLB accessors independently decoded. Only submerged-leaf indices 912–917 and 1008–1013 move.",
+      "finding": "Exactly 12 source/exported positions; maximum 1.6591162188284944 mm displacement. Second rings, all branch/fork tips, four upper tiers, primary axis, floats and node/petioles remain exact."
+    },
+    {
+      "id": "two-basal-junctions",
+      "status": "pass",
+      "evidence": "Independent solid-angle winding, closest-point-to-triangle distance and segment/triangle intersection witnesses.",
+      "finding": "Both first-ring centroids have winding 0.9999999999999999 inside the unchanged axis, interior depth 0.46201307907496814 mm, and intersecting surfaces (gap 0). Ring radius/plane changes are below 0.0000001 mm, consistent with float rounding; no intentional growth."
+    },
+    {
+      "id": "whole-organ-connectivity",
+      "status": "pass",
+      "evidence": "Independent exact-position triangle components and full surface-contact graph, computed for original and candidate.",
+      "finding": "Original groups are 2,136 and 368 triangles. Repaired graph is one group of all 2,504 triangles across 25 exact-position components. The four components of the original lowest branch/fork pair now connect directly through both basal branches to the unchanged axis. Connected overlapping solids are accepted, not a single welded manifold union."
+    },
+    {
+      "id": "bounds-and-budget",
+      "status": "pass",
+      "evidence": "Independent GLB accessors and source snapshots.",
+      "finding": "Exact bounds and transforms preserved: 0.06000000238418579 × 0.051807574927806854 × 0.03999999910593033 m. 2,504 triangles; 1,304 source and exported positions; 3 meshes; 4 primitives/materials; 0 textures; 49,536 GLB bytes."
+    },
+    {
+      "id": "technical-integrity-and-source-binding",
+      "status": "pass",
+      "evidence": "Independent Blender 4.3.2 read-only reopen of both sources, independent GLB decode, independently executed Khronos 2.0.0-dev.3.10 validator, retained source-reexport hash and complete frozen-file checksum audit.",
+      "finding": "Source topology/material assignments/material node inputs/transforms/units preserved. Native source parts have no boundary/nonmanifold edges. GLB index streams and material/node/scene data are exact. Geometry/normals finite, all faces positive area, all old-to-new face-normal dot products positive (minimum normalized cosine 0.27163); normal changes restricted to faces adjacent to moved vertices. No detected nonadjacent noncoplanar self-intersections in either changed branch. Khronos: 0 errors/warnings/infos/hints. Retained maker reexport is byte-identical to the final GLB; reviewer did not rerender, export or rebuild."
+    },
+    {
+      "id": "bounded-visual-craft",
+      "status": "pass",
+      "evidence": "Actual pixels inspected in evidence/target-comparison.png at its 480, 240 and 80 px panel sizes, plus inputs/original-form-proof.png. Composite image panels independently match their source frame or LANCZOS reduction pixel-for-pixel.",
+      "finding": "The local lower junction moves toward the axis without a new visible collar, sphere, bulb or outward bump in the supplied fixed front comparison. Paired floating leaves and five descending tiers retain the same overall form, tips, palette and spacing. No apparent floating-leaf/waterline shift; source/export equality is the stronger geometric evidence. At 240/80 px the correction is subtle; physical reconnection is established numerically, not from tiny pixels.",
+      "limitations": "One no-water front comparison only under the explicit scope override. Historical original eight-view sheet is form reference, not fresh multi-angle candidate acceptance; no water-interface test."
+    },
+    {
+      "id": "inspired-by-claim-preservation",
+      "status": "pass",
+      "evidence": "Frozen original brief, reference profile, original generator semantic labels and unchanged protected morphology.",
+      "finding": "Preserves the existing freshwater Salvinia-inspired teaching scope, exactly two broad floating leaves and one dissected submerged LEAF, not true roots. No new species, taxonomic, reconstruction, material-rights or habitat claim. External sources were not re-researched; this is preservation review rather than new factual acceptance."
+    }
+  ],
+  "required_repairs": [],
+  "advisories": [
+    {
+      "id": "unchanged-petiole-exact-weld-nonmanifold",
+      "finding": "Exact-position welding of coincident paired-petiole basal loops produces 4 nonmanifold edges in both original and candidate. The component geometry/topology/volume are unchanged, native source index topology remains closed, and there is no new defect. Do not trigger unrelated petiole remodeling."
+    },
+    {
+      "id": "first-ring-transition",
+      "finding": "First-to-second-segment centerline angle is 75.159° left and 46.021° right. No radius growth, flipped/zero-area faces, detected nonadjacent noncoplanar self-crossing or visible new bulge in the supplied view. No second-ring adjustment is required for this bounded result."
+    }
+  ],
+  "unknown_gates": {
+    "water_integration": "UNKNOWN",
+    "runtime": "UNKNOWN",
+    "physical_GPU": "UNKNOWN",
+    "world": "UNKNOWN",
+    "user_acceptance": "UNKNOWN",
+    "deployed": "UNKNOWN",
+    "website_wheel": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE"
+  },
+  "frozen_maker_files_unchanged": true,
+  "publication": "Not authorized by this review. No upload, Git change, PR, merge or deployment performed.",
+  "evidence": {
+    "independent-review/independent-measurements.json": "78b2bfef0a298734bcfce2c3ecead0aa7d4c78688b21c10b18f6c4378e605aca",
+    "independent-review/source-snapshots.json": "85a3ed7067dd264ce7e46cccbb385981bc53a9d9a54a5bcc7358654d4a70cb70",
+    "independent-review/source-reopen.log": "5134ae24b3da3241f0359ac093395a1b8b3aaf9dce1f65becfc085aa8fdecbee",
+    "independent-review/khronos-validator.json": "786ade6c1c0287766d1c86e9205f57d4d28e89a75d45e935256499ea45fa81ce",
+    "independent-review/image-bindings.json": "2df2999794c2192205175a00cd983b11dbd8ec80a3b4c4afc814862576588463",
+    "evidence/target-comparison.png": "11619912636b7241748db4d854a7b1db36a3f06ae01acf8a5cde167acfb66285",
+    "inputs/original-form-proof.png": "d0ad58d92c455fe2d1326b105a176715077f662d590464b449c6c4fd07e9535b",
+    "freeze.json": "4ea4741e4399b65144e1c540235f29d0da17ebb9b4600bde1712d95c2f48d970"
+  }
+}

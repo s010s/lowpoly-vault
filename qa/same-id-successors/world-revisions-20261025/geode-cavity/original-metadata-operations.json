@@ -1,0 +1,27 @@
+{
+  "asset_id": "geode-cavity",
+  "source": {
+    "path": "assets/candidates/continuous-small-life-round29-20261020/batch-72/geode-cavity/r003/metadata.json",
+    "bytes": 11107,
+    "sha256": "f6afe9c11da3e722647f6830ceeb94295946abad6d979edd860a2bf00076c25e"
+  },
+  "apply_only_to": "A new in-memory or local candidate copy; never overwrite historical source, release metadata or registry records. Require the exact source SHA256 and byte length before applying.",
+  "target": "metadata.json",
+  "operations": [
+    {
+      "op": "test",
+      "path": "/asset_id",
+      "value": "geode-cavity"
+    },
+    {
+      "op": "test",
+      "path": "/origin",
+      "value": "floor contact footprint center"
+    },
+    {
+      "op": "replace",
+      "path": "/origin",
+      "value": "horizontal geometry-bounds center projected onto the ground plane (GLB Y=0; Blender Z=0), not the actual contact point"
+    }
+  ]
+}

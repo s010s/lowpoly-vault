@@ -1,0 +1,124 @@
+{
+  "asset_id": "folded-strata-outcrop",
+  "revision": "world-r002",
+  "decision": "PASS_LOCAL_GEOMETRY_FIX",
+  "status": "PASS_LOCAL_GEOMETRY_FIX",
+  "scope": "Independent acceptance of the bounded syncline geometry repair only. Not a global inter-bed contact-clean claim or publication/runtime acceptance.",
+  "selected_candidate": "final/candidate/folded-strata-outcrop.glb",
+  "candidate_glb_sha256": "8732d908ed85a708fb19803694da0aba0982460416d0dd859eccb6f7d66cfa6f",
+  "candidate_blend_sha256": "37c4ecb106ceaf23fceb2c72bcccf5ac9268ebb294f3d6498a6e0abcc9622364",
+  "original_glb_sha256": "dbd2512c5163b8ae8ea2f688ae94a62d62da5aea0d9ec8967e6c7f93e3086dac",
+  "original_blend_sha256": "c70a65b36102fd11c9e9e5ffa2e1f800c433e7e505ab32ccfdbadb3c6dc6675d",
+  "source_and_protection": {
+    "independent_read_only_blender_reopen": true,
+    "blender_version": "4.3.2",
+    "source_to_final_glb_bidirectional_max_residual_m": 0.0,
+    "unchanged_original_hashes": true,
+    "changed_vertices_by_bed": [
+      0,
+      0,
+      16,
+      336,
+      336,
+      336
+    ],
+    "actual_bed3_extension": "16 vertices, stations 51\u201354, cross-section indices 4\u20137, x only; maximum 0.690102577 mm (approximately 0.690 mm). Fifteen original strict crossings independently corroborate the bounded scope exception.",
+    "max_displacement_m_by_bed": [
+      0.0,
+      0.0,
+      0.0006901025772094727,
+      0.01724344927285719,
+      0.03448689263648157,
+      0.051730341909337854
+    ],
+    "protected_coordinates": "Beds 1\u20132 and every bed-3 vertex outside the explicit 16-vertex exception are byte-exact in source float coordinates. Beds 4\u20136 stations 0\u201338 and 67\u201368 are exact.",
+    "source_polygons_material_indices_smoothing_transforms_parents_constraints_modifiers_unchanged": true,
+    "glb_materials_nodes_scenes_and_material_assignments_unchanged": true,
+    "bounds_exactly_unchanged": {
+      "min": [
+        -0.5516250133514404,
+        0.0,
+        -0.12800270318984985
+      ],
+      "max": [
+        0.398375004529953,
+        0.42357734590768814,
+        0.12884145975112915
+      ]
+    },
+    "export_tessellation_note": "Source polygon topology is unchanged. Blender switched diagonals of 15 modified quads (30 triangles: bed 3=8, bed 4=10, bed 5=10, bed 6=2). Every changed triangle is contained in the same original source quad and touches modified vertices. Protected exported triangles are unchanged. Contact identity checks use source vertex triples, not bare export triangle IDs."
+  },
+  "geometry": {
+    "triangles": 9912,
+    "beds": 6,
+    "connected_components_by_bed": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "closed_consistently_oriented_finite_nondegenerate": true,
+    "whole_surface_aabb_triangle_pairs_tested": 64252,
+    "adjacent_pairs_included": 59472,
+    "strict_self_intersections": 0,
+    "positive_area_coplanar_self_overlaps": 0,
+    "positive_signed_volume_m3_by_bed": [
+      0.008699843603720293,
+      0.008679696322035874,
+      0.008666497000457088,
+      0.008461408094191812,
+      0.008511508668489206,
+      0.008573395180100193
+    ],
+    "minimum_corresponding_boundary_thickness_m": 0.03396440495823529,
+    "minimum_vertical_thickness_m": 0.023829102516174316,
+    "layer_order": "Preserved via unchanged source topology, positive upper/lower endpoint thickness, ordered shared contacts, no candidate nonadjacent-bed crossings or coplanar overlap, and visual front/rear/clay review.",
+    "all_15_between_bed_pairs_tested": true,
+    "new_strict_contact_triangle_pairs_by_source_identity": 0,
+    "proper_crossings_inside_repaired_contact_patch": 0,
+    "repaired_shared_contact_endpoint_max_mismatch_m": 0.0,
+    "all_30_five_plane_regression_crossings": 0
+  },
+  "baseline_contact_advisory": {
+    "baseline_strict_contact_pairs": 2122,
+    "candidate_strict_contact_pairs": 1259,
+    "per_adjacent_pair_candidate_counts": [
+      332,
+      336,
+      195,
+      199,
+      197
+    ],
+    "interpretation": "All remaining proper between-bed contacts are inherited source-triangle pairs outside the repaired station-39\u201366 contact patch. No global cleanup was requested or performed.",
+    "transition_touching_modified_triangles": 30,
+    "transition_location_verification": "All 30 remaining contact pairs touching modified triangles lie on transition intervals 38\u201339 or 66\u201367. Their strict-intersection witness points interpolate to source stations outside [39,66] in both beds. They are not newly introduced pairs.",
+    "original_vertical_endpoint_mismatch_max_m": 0.0009649991989135742
+  },
+  "visual_review": "qa/visual-review.json",
+  "evidence": [
+    "candidate-manifest.json",
+    "final/maker-source-check.json",
+    "final/maker-geometry-validation.json",
+    "final/static-glb-audit.json",
+    "qa/independent-source-snapshots.json",
+    "qa/reopen-source.log",
+    "qa/independent-geometry-check.json",
+    "qa/independent-geometry-check.log",
+    "qa/extra-regressions.json",
+    "qa/extra-regressions.log",
+    "qa/visual-review.json"
+  ],
+  "method_limits": [
+    "Independent raw GLB decoder plus read-only original/final Blender source reopen. Separate full-surface plane/interval/barycentric intersection logic did not use the maker VTK broad-phase predicate. Coplanar positive-area clipping includes adjacent triangle pairs.",
+    "Numerical strict-intersection thresholds: plane tolerance about 1e-11 m, intersection length greater than 1e-9 m, interior barycentrics greater than 1e-7; coplanar positive area greater than 1e-13 square metres. Intentional vertex/edge touches and coincident adjacent-bed contacts are not treated as self-intersections.",
+    "Official Khronos glTF-validator unavailable and not run; static uncompressed GLB audit and independent accessor/buffer/normal/geometry checks pass. Not elevated to a new gate.",
+    "Size proxies are downsampled CPU renders. No fresh renders, GPU runs, world composition, wheel generation, Git, upload, deletion, source overwrite or publication performed."
+  ],
+  "world": "UNKNOWN_NOT_COMPOSED",
+  "gpu": "UNKNOWN_NOT_TESTED",
+  "web_wheel_status": "WEB_WHEEL_PENDING_UNIFIED_PIPELINE",
+  "publication": "NOT_AUTHORIZED_BY_THIS_DECISION",
+  "created_at": "2026-10-24T22:48:54.710095+00:00"
+}
