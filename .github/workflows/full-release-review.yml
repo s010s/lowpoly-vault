@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read
       actions: read
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:
       DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
@@ -242,7 +242,7 @@ jobs:
       BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     needs: [scope, prepare-source]
     if: needs.scope.outputs.tasks != '["none"]'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
@@ -335,7 +335,7 @@ jobs:
         task: ${{ fromJSON(needs.prepare.outputs.tasks) }}
     needs: [scope, prepare]
     if: needs.scope.outputs.tasks != '["none"]'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

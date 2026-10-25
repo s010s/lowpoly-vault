@@ -27,7 +27,7 @@ jobs:
       build_digest: ${{ steps.stamp.outputs.build_digest }}
       marker_sha256: ${{ steps.stamp.outputs.marker_sha256 }}
       scope_sha256: ${{ steps.scope.outputs.scope_sha256 }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
     steps:
