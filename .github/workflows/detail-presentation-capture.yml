@@ -9,6 +9,8 @@ jobs:
   capture:
     runs-on: ubuntu-latest
     timeout-minutes: 35
+    env:
+      DETAIL_EXPECTED_COUNT: 264
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,6 +18,24 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
+      - name: Verify exact two authorized cohorts before rendering
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import {readFile} from 'node:fs/promises';
+          import {posterInputKey} from './site/gallery-poster-inputs.mjs';
+          const scope=JSON.parse(await readFile('qa/detail-presentation-scope-20261025.json'));
+          assert.deepEqual(scope.cohorts.map(c=>[c.id,c.count]),[['original-right250',250],['pr72-replacement14',14]]);
+          const assets=JSON.parse(await readFile('assets/manifest.json')).assets;
+          const resources=JSON.parse(await readFile('site/public/gallery/resources.json'));
+          const affected=assets.filter(a=>['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[a.id]?.render_route));
+          const expected=scope.cohorts.flatMap(c=>{assert.equal(c.assets.length,c.count);return c.assets;});
+          assert.equal(new Set(expected.map(a=>a.id)).size,264);
+          assert.deepEqual(affected.map(a=>a.id).sort(),expected.map(a=>a.id).sort());
+          for(const row of expected){const a=assets.find(a=>a.id===row.id);assert.equal(a.sha256.glb,row.source_glb_sha256,row.id);assert.equal(posterInputKey(a,{sha256:'detail-scope-source-only-v1'}),row.asset_input_sha256,row.id+' metadata');}
+          assert.equal(assets.length-affected.length,338);
+          console.log('PASS original250 + approved PR72replacement14 only; ordinary338 untouched');
+          JS
       - run: npx playwright install --with-deps chromium
       - run: node --check site/capture-detail-presentations.mjs
       - name: Smoke the three observed mismatch examples
@@ -30,7 +50,9 @@ jobs:
         if: always()
         with:
           name: right-detail-capture-${{ github.sha }}
-          path: qa/detail-capture/
+          path: |
+            qa/detail-smoke/
+            qa/detail-capture/
           if-no-files-found: error
       - name: State evidence scope
         run: echo 'Right-only normalized-runtime detail captures. Exact-build SSR/hydration/transition tests and independent visual review remain required. This does not relabel historical postrelease failures.' >> "$GITHUB_STEP_SUMMARY"
