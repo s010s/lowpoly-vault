@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {PreviewRenderer} from './renderer.js';
-import {validDetailPresentation} from './detail-presentation-policy.js';
+import {validDetailPresentation,detailScreenFrame} from './detail-presentation-policy.js';
 export {POSTER_IMAGE_SCALE} from './renderer.js';
 
 /** Only explicitly bound revision-2 right deliveries opt in. Never wheel/hover views. */
@@ -11,6 +11,13 @@ export class DetailRenderer extends PreviewRenderer{
    if(this.fitDetailMargin(view,asset.detailPresentation))view.fitDistance=view.camera.position.distanceTo(view.target);
   }
   return view;
+ }
+ renderScenePasses(view){
+  if(view===this.detail&&!this.companion&&!this.comparison&&validDetailPresentation(view.asset?.detailPresentation)){
+   const frame=detailScreenFrame(this.host.getBoundingClientRect(),{width:innerWidth,height:innerHeight},this.renderer.getPixelRatio(),view.screenShift??.06);
+   if(frame)view.shadowViewport.value.fromArray(frame.canonical_shadow_frame);
+  }
+  return super.renderScenePasses(view);
  }
  fitDetailMargin(view,policy){
   const camera=view.camera,probe=camera.clone(),point=new THREE.Vector3(),limit=1-2*policy.minimum_margin;let changed=false;

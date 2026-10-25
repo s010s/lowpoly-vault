@@ -14,21 +14,25 @@ export async function beginNativeLayerDiagnostic(owner){
   selected:v.asset.id,token:r.token,lifecycle:{comparison:!!r.comparison,hover:!!r.hover,lost:!!r.lost,motion_active:!!r.viewMotion?.active},backdrop:{camera:{position:r.backdrop.camera.position.toArray(),quaternion:r.backdrop.camera.quaternion.toArray(),projection:r.backdrop.camera.projectionMatrix.toArray(),matrix_world:r.backdrop.camera.matrixWorld.toArray(),near:r.backdrop.camera.near,far:r.backdrop.camera.far,fov:r.backdrop.camera.fov,zoom:r.backdrop.camera.zoom,aspect:r.backdrop.camera.aspect,layers:r.backdrop.camera.layers.mask,view:r.backdrop.camera.view?structuredClone(r.backdrop.camera.view):null},shadow_viewport:r.backdrop.shadowViewport.value.toArray()},render_settings:{output_color_space:rr.outputColorSpace,tone_mapping:rr.toneMapping,exposure:rr.toneMappingExposure,context_attributes:gl.getContextAttributes()},device_pixel_ratio:devicePixelRatio,renderer_pixel_ratio:rr.getPixelRatio(),canvas:{width:canvas.width,height:canvas.height},
   rect:{left:rect.left,top:rect.top,right:rect.right,bottom:rect.bottom,width:rect.width,height:rect.height},
   camera:{layers:v.camera.layers.mask,position:v.camera.position.toArray(),quaternion:v.camera.quaternion.toArray(),projection:v.camera.projectionMatrix.toArray(),matrix_world:v.camera.matrixWorld.toArray(),near:v.camera.near,far:v.camera.far,fov:v.camera.fov,zoom:v.camera.zoom,aspect:v.camera.aspect,view:v.camera.view?structuredClone(v.camera.view):null},
-  model_matrix:v.model.matrixWorld.toArray(),viewport:rr.getViewport(vector()).toArray(),scissor:rr.getScissor(vector()).toArray(),scissor_test:rr.getScissorTest(),clear_color:rr.getClearColor(color()).toArray(),clear_alpha:rr.getClearAlpha(),auto_clear:rr.autoClear,
+  actual_gl:{viewport:Array.from(gl.getParameter(gl.VIEWPORT)),scissor:Array.from(gl.getParameter(gl.SCISSOR_BOX)),scissor_enabled:gl.isEnabled(gl.SCISSOR_TEST)},model_matrix:v.model.matrixWorld.toArray(),viewport:rr.getViewport(vector()).toArray(),scissor:rr.getScissor(vector()).toArray(),scissor_test:rr.getScissorTest(),clear_color:rr.getClearColor(color()).toArray(),clear_alpha:rr.getClearAlpha(),auto_clear:rr.autoClear,
   shadow_viewport:v.shadowViewport.value.toArray(),shadow_map:{auto_update:rr.shadowMap.autoUpdate,needs_update:rr.shadowMap.needsUpdate,type:rr.shadowMap.type,key_map_size:v.key.shadow.mapSize.toArray()},
   visibility:{model:v.model.visible,floor:v.floor.visible,contact:v.contact.visible,grid:v.grid.visible},scene_background:v.scene.background?.getHex?.()??null
  });
- const before=snapshot(),saved={camera:v.camera.clone(),backdropCamera:r.backdrop.camera.clone(),backdropShadowViewport:r.backdrop.shadowViewport.value.clone(),draw:r.draw,ownDraw:Object.hasOwn(r,'draw'),autoUpdate:rr.shadowMap.autoUpdate,needsUpdate:rr.shadowMap.needsUpdate,viewport:rr.getViewport(vector()),scissor:rr.getScissor(vector()),scissorTest:rr.getScissorTest(),clearColor:rr.getClearColor(color()),clearAlpha:rr.getClearAlpha(),autoClear:rr.autoClear,shadowViewport:v.shadowViewport.value.clone(),visibility:[v.model,v.floor,v.contact,v.grid].map(o=>[o,o.visible])};
+ const before=snapshot(),saved={actualViewport:Array.from(gl.getParameter(gl.VIEWPORT)),actualScissor:Array.from(gl.getParameter(gl.SCISSOR_BOX)),camera:v.camera.clone(),backdropCamera:r.backdrop.camera.clone(),backdropShadowViewport:r.backdrop.shadowViewport.value.clone(),draw:r.draw,ownDraw:Object.hasOwn(r,'draw'),autoUpdate:rr.shadowMap.autoUpdate,needsUpdate:rr.shadowMap.needsUpdate,viewport:rr.getViewport(vector()),scissor:rr.getScissor(vector()),scissorTest:rr.getScissorTest(),clearColor:rr.getClearColor(color()),clearAlpha:rr.getClearAlpha(),autoClear:rr.autoClear,shadowViewport:v.shadowViewport.value.clone(),visibility:[v.model,v.floor,v.contact,v.grid].map(o=>[o,o.visible])};
  const state={owner,r,rr,v,canvas,gl,rect,saved,snapshot,before,overlay:null,suppressed:0,images:{untouched:canvas.toDataURL('image/png')},states:{before}};window.__detailLayerDiagnostic=state;
  // Prevent a late scheduled draw from replacing the isolated diagnostic layer.
  r.draw=()=>{state.suppressed++;};rr.shadowMap.autoUpdate=false;rr.shadowMap.needsUpdate=false;
  const resetVisibility=()=>{for(const[o,visible]of saved.visibility)o.visible=visible;};
- const clear=()=>{rr.setScissorTest(false);rr.setClearColor(0,0);rr.clear(true,true,true);rr.setViewport(rect.left,innerHeight-rect.bottom,rect.width,rect.height);rr.setScissor(rect.left,innerHeight-rect.bottom,rect.width,rect.height);rr.setScissorTest(true);v.shadowViewport.value.copy(saved.shadowViewport);};
- const record=name=>{state.images[name]=canvas.toDataURL('image/png');state.states[name]=snapshot();const e=gl.getError();if(e!==0)throw Error('Diagnostic WebGL error '+name+': '+e);};
+ // Freezing shadow updates removes Three's normal setRenderTarget(null) floor
+ // path. Logical setViewport() instead rounds. Reuse the actual integer GL state
+ // captured before mutation, through Three's state cache (never raw gl calls).
+ const nativeRaster=()=>{rr.state.viewport(vector().set(...saved.actualViewport));rr.state.scissor(vector().set(...saved.actualScissor));};
+ const clear=()=>{rr.setScissorTest(false);rr.setClearColor(0,0);rr.clear(true,true,true);nativeRaster();rr.setScissorTest(true);v.shadowViewport.value.copy(saved.shadowViewport);};
+ const record=name=>{state.images[name]=canvas.toDataURL('image/png');state.states[name]=snapshot();if(JSON.stringify(state.states[name].actual_gl.viewport)!==JSON.stringify(saved.actualViewport)||JSON.stringify(state.states[name].actual_gl.scissor)!==JSON.stringify(saved.actualScissor))throw Error('Diagnostic physical GL frame changed '+name);const e=gl.getError();if(e!==0)throw Error('Diagnostic WebGL error '+name+': '+e);};
  resetVisibility();clear();r.renderScenePasses(v);record('transparent_detail');
  resetVisibility();v.floor.visible=v.contact.visible=v.grid.visible=false;clear();r.renderScenePasses(v);record('model_only');
  resetVisibility();v.model.visible=false;clear();r.renderScenePasses(v);record('shadow_only');
- resetVisibility();clear();r.renderView(r.backdrop,rect);record('backdrop_only');
+ resetVisibility();clear();r.backdrop.shadowViewport.value.copy(saved.backdropShadowViewport);r.renderScenePasses(r.backdrop);record('backdrop_only');
  const img=new Image();state.overlay=img;img.dataset.nativeLayerDiagnostic='true';img.src=state.images.transparent_detail;
  Object.assign(img.style,{position:'fixed',left:'0',top:'0',width:'100vw',height:'100dvh',maxWidth:'none',maxHeight:'none',margin:'0',padding:'0',border:'0',transform:'none',objectFit:'fill',opacity:'1',mixBlendMode:'normal',pointerEvents:'none',zIndex:'2'});
  await img.decode();document.body.append(img);await new Promise(requestAnimationFrame);
@@ -42,7 +46,7 @@ export function restoreNativeLayerDiagnostic(owner){
  try{
   state.overlay?.remove();for(const[o,visible]of saved.visibility)o.visible=visible;v.camera.copy(saved.camera);r.backdrop.camera.copy(saved.backdropCamera);r.backdrop.shadowViewport.value.copy(saved.backdropShadowViewport);
   rr.shadowMap.autoUpdate=saved.autoUpdate;rr.shadowMap.needsUpdate=saved.needsUpdate;rr.autoClear=saved.autoClear;
-  v.shadowViewport.value.copy(saved.shadowViewport);rr.setClearColor(saved.clearColor,saved.clearAlpha);rr.setViewport(saved.viewport);rr.setScissor(saved.scissor);rr.setScissorTest(saved.scissorTest);
+  v.shadowViewport.value.copy(saved.shadowViewport);rr.setClearColor(saved.clearColor,saved.clearAlpha);rr.setViewport(saved.viewport);rr.setScissor(saved.scissor);rr.setScissorTest(saved.scissorTest);rr.state.viewport(v.shadowViewport.value.clone().set(...saved.actualViewport));rr.state.scissor(v.shadowViewport.value.clone().set(...saved.actualScissor));
   if(saved.ownDraw)r.draw=saved.draw;else delete r.draw;
   saved.draw.call(r);
   const restored=canvas.toDataURL('image/png'),after=snapshot();
@@ -53,7 +57,12 @@ export function restoreNativeLayerDiagnostic(owner){
 
 export async function captureNativeLayerDiagnostic(page){
  const owner=randomUUID();let result,error,restored;
- try{result=await page.evaluate(beginNativeLayerDiagnostic,owner);result.composite=await page.locator('#detail').screenshot();}
+ try{result=await page.evaluate(beginNativeLayerDiagnostic,owner);
+  // Preserve a real ready-UI backdrop screenshot, not the earlier loading UI.
+  result.states.background_stage=await page.evaluate(owner=>{const s=window.__detailLayerDiagnostic;if(s?.owner!==owner)throw Error('Diagnostic owner mismatch');s.overlay.style.visibility='hidden';const rect=e=>{const b=e.getBoundingClientRect();return{x:b.x,y:b.y,width:b.width,height:b.height};};return{...s.snapshot(),ui:{loading:{text:document.querySelector('#loading').textContent,rect:rect(document.querySelector('#loading'))},compare:{disabled:document.querySelector('#compare').disabled,rect:rect(document.querySelector('#compare'))}}};},owner);
+  result.background_stage=await page.locator('#detail').screenshot();
+  await page.evaluate(owner=>{const s=window.__detailLayerDiagnostic;if(s?.owner!==owner)throw Error('Diagnostic owner mismatch');s.overlay.style.visibility='visible';},owner);
+  result.composite=await page.locator('#detail').screenshot();}
  catch(e){error=e;}
  finally{try{restored=await page.evaluate(restoreNativeLayerDiagnostic,owner);}catch(e){error??=e;}}
  if(restored){

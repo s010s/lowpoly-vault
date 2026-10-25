@@ -84,6 +84,8 @@ jobs:
             sizes=1536
             export DETAIL_BROWSER_PROFILE=native-layer-diagnostic
             node --test site/detail-presentation-render-diagnostic-test.mjs
+            node --test site/detail-screen-frame-test.mjs
+            node --test site/detail-presentation-quality-test.mjs
             node site/detail-presentation-browser-test.mjs --self-test
           fi
           failed=0
