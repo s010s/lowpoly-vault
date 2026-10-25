@@ -16,7 +16,6 @@ permissions:
   contents: read
 jobs:
   capture:
-    if: github.ref != 'refs/heads/capture/wheel-parity-20261024'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -71,32 +70,3 @@ jobs:
           path: qa/ci-publication-capture/
       - name: State capture scope
         run: echo 'Capture-only public image generation. Publication tests, exact poster reproduction, full review, Pages and live browser gates remain required separately.' >> "$GITHUB_STEP_SUMMARY"
-  wheel-parity-integration:
-    if: github.ref == 'refs/heads/capture/wheel-parity-20261024'
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    env:
-      SITE_BASE: /lowpoly-vault/
-      SITE_ORIGIN: https://s010s.github.io
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: npm ci --ignore-scripts
-      - run: node --test site/capture-wheel-frame-test.mjs site/wheel-presentation-contract-test.mjs site/wheel-presentations-test.mjs
-      - run: node site/ci-build-release.mjs
-      - run: npx playwright install --with-deps chromium
-      - run: node site/wheel-parity-browser-test.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: wheel-integration-${{ github.sha }}
-          path: |
-            qa/wheel-integration-evidence/
-            qa/ci-timings/build.json
-          if-no-files-found: error
