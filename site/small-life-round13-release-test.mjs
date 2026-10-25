@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 /** New release scope, immutable evidence, and preserved pending/hardware gates. */
 import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile,rm} from 'node:fs/promises';
@@ -13,7 +14,7 @@ async function mutate(path,change,action){const bytes=await readFile(resolve(roo
 try{
  for(const dir of ['assets','production','qa','scripts','experiments','package-lock.json'])execFileSync('cp',['-a','--reflink=auto',dir,resolve(root,dir)]);
  const collect=async()=>collectRound13Release(root,await pin(file));
- const published=await collect(),before=JSON.parse(await readFile('assets/manifest.json'));
+ const published=await collect(),before=historicalManifestView({manifest:JSON.parse(await readFile('assets/manifest.json')),read:successorReader(process.cwd())});
  assert.equal(published.assets.length,175);assert.deepEqual(published.assets.slice(0,163),before.assets.slice(0,163));assert.deepEqual(published.assets.slice(163).map(a=>a.id).sort(),ROUND13_IDS);assert(published.assets.slice(163).every(a=>a.approval_provenance.candidate_record_approved_for_brief===false));checks++;
  for(const id of ['sollasina','ottoia','eocladus','limestone-pavement','gryphaea','folded-strata-outcrop','volcanic-bomb','teredolites-wood-boring-cast',...ROUND13_IDS]){const p=published.assets.find(a=>a.id===id).approval_provenance;assert.equal(p.formal_profile_acceptance,'BLOCKED');assert.equal(p.hardware_gpu_verified,false);checks++;}
  for(const change of [d=>d.additions.pop(),d=>d.additions.push(d.additions[0]),d=>d.authorization='pending',d=>d.validation_profile='legacy-v1',d=>d.rule_version='future',d=>d.batches[0].handoff_commit='0'.repeat(40),d=>d.batches[1].review_commit='0'.repeat(40),d=>d.base_descriptor.path='../escape',d=>d.source_bundle.sha256='0'.repeat(64)])await mutate(file,change,()=>assert.rejects(collect));

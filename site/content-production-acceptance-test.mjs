@@ -1,3 +1,4 @@
+import {historicalManifestView,successorReader} from './same-id-successors.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile,mkdir,rm,symlink} from 'node:fs/promises';
@@ -85,7 +86,9 @@ test('frozen historical bridge still verifies descriptor, reviewer, snapshots an
  try{
   const registryPath='production/production-releases-r002.json',registry=JSON.parse(await readFile(resolve(source,registryPath))),entry=registry.descriptors[0];
   const copy=async path=>{const b=await readFile(resolve(source,path));await mkdir(dirname(resolve(root,path)),{recursive:true});await writeFile(resolve(root,path),b);return b;};
-  await copy('assets/manifest.json');await copy(registryPath);
+  // Authenticate the actual selected source before isolating its immutable historical view.
+  const historical=historicalManifestView({manifest:JSON.parse(await readFile(resolve(source,'assets/manifest.json'))),read:successorReader(source)});
+  await mkdir(resolve(root,'assets'));await writeFile(resolve(root,'assets/manifest.json'),encode(historical));await copy(registryPath);
   // Registry membership verifies every descriptor and bridge, without loading all models.
   for(const p of registry.descriptors){await copy(p.path);if(p.compatibility)await copy(p.compatibility.path);}
   const raw=await readFile(resolve(root,entry.path)),descriptor=JSON.parse(raw),bridge=JSON.parse(await readFile(resolve(root,entry.compatibility.path)));
@@ -147,3 +150,16 @@ for(const value of [
  'https://example.org/home/paper;file:///opt/private',
  'https://','https://example.org/%ZZ','-----BEGIN PRIVATE KEY-----'
 ])test('reject private source '+value,()=>assert.throws(()=>publicMaterial(value)));
+
+
+test('missing successor evidence is not treated as an optional missing manifest',async()=>{
+ const {resolveImplementationCompatibility}=await import('./typed-production-release.mjs');
+ const root=await mkdtemp(resolve(tmpdir(),'missing-successor-evidence-'));
+ try{
+  assert.equal(await resolveImplementationCompatibility(root,'unused.json',{},Buffer.from('{}')),null);
+  await mkdir(resolve(root,'assets'));await mkdir(resolve(root,'qa'));
+  const manifest={assets:[],publication:{same_id_successors:{path:'qa/missing-selection.json',sha256:'a'.repeat(64),bytes:1}}};
+  await writeFile(resolve(root,'assets/manifest.json'),encode(manifest));
+  await assert.rejects(()=>resolveImplementationCompatibility(root,'unused.json',{},Buffer.from('{}')),error=>error.code==='ENOENT'&&error.message.includes('missing-selection.json'));
+ }finally{await rm(root,{recursive:true,force:true});}
+});

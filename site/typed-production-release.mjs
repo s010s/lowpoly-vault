@@ -95,7 +95,9 @@ export async function loadProductionRegistry(root,path){
 }
 /** No override object: only exact, registered, independently reviewed version bridges. */
 export async function resolveImplementationCompatibility(root,descriptorPath,descriptor,raw,registryPath){
- let current;try{current=historicalManifestView({manifest:JSON.parse(await read(root,'assets/manifest.json')),read:successorReader(root)});}catch(error){if(error.code!=='ENOENT')throw error;}
+ let current,manifestBytes;try{manifestBytes=await read(root,'assets/manifest.json');}catch(error){if(error.code!=='ENOENT')throw error;}
+ // Only an absent source manifest is optional. Missing successor evidence is a hard failure.
+ if(manifestBytes)current=historicalManifestView({manifest:JSON.parse(manifestBytes),read:successorReader(root)});
  assert(!(current?.publication?.production_registry&&current?.publication?.production_descriptor),'Ambiguous production routes');
  registryPath=registryPath??current?.publication?.production_registry;
  if(!registryPath)return null;

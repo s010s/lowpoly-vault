@@ -74,8 +74,12 @@ export async function sealSuccessors({root, templatePath, baseManifestPath, expe
   const context = successorContext({manifest, read: layeredRead}); await verifySuccessorPresentation(root, context);
   const files = composeSuccessorRegistry({registry: readRegistry(root), baseManifest: base, selection, selectionPin: reference, read: layeredRead});
   const closure = successorSourceClosure({selection, selectionPin: reference, read: layeredRead});
+  // Same-ID successors cannot change editorial memberships or catalog data.
+  // Preserve its exact existing bytes/order so historical generated-catalog goldens stay fixed.
+  const catalogBytes = read(LEGACY_OUTPUTS.catalog);
+  assert.deepEqual(JSON.parse(catalogBytes), files.catalog, 'Successors cannot change the existing catalog data');
   const emit = freshWriter(output); emit(path, bytes);
-  for (const [kind, relative] of Object.entries(LEGACY_OUTPUTS)) emit(relative, Buffer.from(encode(files[kind])));
+  for (const [kind, relative] of Object.entries(LEGACY_OUTPUTS)) emit(relative, kind === 'catalog' ? catalogBytes : Buffer.from(encode(files[kind])));
   emit('successor-seal.json', Buffer.from(encode({status: 'LOCAL_SELECTION_CHECKS_PASS', selection: reference, base_count: base.assets.length, final_count: manifest.assets.length, closure, publication_authorized: false, reviewer_authority: false, full_build: 'NOT_RUN', external_actions: 'NONE'})));
   return {output, selection: reference, final_count: manifest.assets.length, publication_authorized: false};
 }
