@@ -153,13 +153,45 @@ function verifyExecutedResultStructure(report,disposition){
  }
  assert.equal(exactPairs,261);assert.equal(crops,87);return {files:2295,cases:449,controls:609,exact_native_pairs:261,reviewed_cases:expectedFailures,math:'CURRENT_MATH_NOT_REEXECUTED'};
 }
+// SSR_DOCUMENT_ONLY_BEGIN: DOM attributes, not a second image/runtime loading test.
+async function createSSRDocumentReader(browser,report){
+ const context=await browser.newContext({javaScriptEnabled:false,serviceWorkers:'block'});
+ const page=await context.newPage();page.setDefaultTimeout(60000);
+ let active=null;report.ssr_documents=[];
+ await page.route('**/*',async route=>{
+  const request=route.request();
+  if(active&&request.resourceType()==='document'&&request.isNavigationRequest()&&request.frame()===page.mainFrame()&&request.url()===active.url)return route.continue();
+  if(active){const type=request.resourceType();active.blocked_subresources[type]=(active.blocked_subresources[type]||0)+1;}
+  return route.abort();
+ });
+ return {
+  page,
+  async navigate(url,pin){
+   assert(pin&&Number.isSafeInteger(pin.bytes)&&pin.bytes>0&&/^[a-f0-9]{64}$/.test(pin.sha256),'Exact SSR document pin required');
+   active={url,status:'pending',blocked_subresources:{},coverage:'ACTUAL_URL_NO_SCRIPT_DOM_ATTRIBUTES_ONLY'};report.ssr_documents.push(active);
+   try{
+    const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});assert(response,'SSR navigation returned no response');
+    const headers=await response.allHeaders();Object.assign(active,{http_status:response.status(),response_url:response.url(),content_type:headers['content-type']||null,retry_after:headers['retry-after']||null});
+    assert.equal(active.http_status,200,`SSR document HTTP ${active.http_status}: ${url}; Retry-After=${active.retry_after||'absent'}; no automatic retry`);
+    assert.equal(active.response_url,url,'SSR document redirected away from exact route');
+    assert(/^text\/html(?:;|$)/i.test(active.content_type||''),'SSR response is not HTML');
+    const bytes=await response.body();Object.assign(active,{bytes:bytes.length,sha256:sha(bytes)});
+    assert.equal(active.bytes,pin.bytes,'SSR actual document byte count differs from authenticated build');assert.equal(active.sha256,pin.sha256,'SSR actual document differs from authenticated build');
+    active.status='pass';
+   }catch(error){active.status='fail';active.error=String(error);throw error;}
+  },
+  async close(){await context.close();}
+ };
+}
+// SSR_DOCUMENT_ONLY_END
+
 async function verify(report,{visualDisposition=null,sealsOnly=false}={}){
  if(sealsOnly){assert.equal(profile,'full264-v2');assert(visualDisposition,'Pinned visual disposition required for executed-verifier reuse');}
  assert.equal(report.kind,reportKind);assert.equal((report.scene_failures||[]).length,0,'Collected independent scene failures remain mandatory FAIL');assert.equal(report.profile,profile);assert.deepEqual(report.page_errors,[],'Unexpected browser page errors');assert.equal(report.target,process.env.DETAIL_BROWSER_TARGET||'dist');assert(['dist','public'].includes(report.target));
  assert(Array.isArray(report.files)&&report.files.length>0,'Missing retained PNG inventory');assert(Array.isArray(report.cases)&&report.cases.length>0,'Missing acceptance cases');
  const expectedRoot=resolve(process.env.GALLERY_DIR||'dist'),expectedManifest=JSON.parse(await readFile(resolve(expectedRoot,'assets/manifest.json'))),expectedResources=JSON.parse(await readFile(resolve(expectedRoot,'gallery/resources.json'))),{default:expectedIndex}=await import('./gallery/detail-presentations-index.js');
  const expectedCommit=process.env.DETAIL_EXPECTED_SOURCE_COMMIT||(report.target==='public'?process.env.DEPLOYED_SHA:process.env.GITHUB_SHA);assert.match(expectedCommit||'',/^[a-f0-9]{40}$/,'Externally supplied expected source commit required');assert.equal(report.source_commit,expectedCommit);assert.equal(report.renderer_input_sha256,expectedIndex.renderer_input_sha256);assert.equal(report.capture_source_commit,expectedIndex.source_commit);assert.equal(report['assets/manifest.json_sha256'],sha(await readFile(resolve(expectedRoot,'assets/manifest.json'))));assert.equal(report['gallery/resources.json_sha256'],sha(await readFile(resolve(expectedRoot,'gallery/resources.json'))));
- if(publicReviewed)verifyPublicReviewedBindings(report,expectedIndex);
+ if(publicReviewed){verifyPublicReviewedBindings(report,expectedIndex);const routes=['','zh-CN/'].flatMap(lang=>Array.from({length:Math.ceil(expectedManifest.assets.length/24)},(_,n)=>lang+'models/'+(n?'page/'+(n+1)+'/':'')));assert.equal(report.ssr_documents?.length,routes.length,'Every actual SSR route must be retained');for(const [n,route]of routes.entries()){const document=report.ssr_documents[n],bytes=await readFile(resolve(expectedRoot,route+'index.html'));assert.equal(document.url,new URL(route,report.origin).href);assert.equal(document.response_url,document.url);assert.equal(document.http_status,200);assert.equal(document.status,'pass');assert.equal(document.coverage,'ACTUAL_URL_NO_SCRIPT_DOM_ATTRIBUTES_ONLY');assert(/^text\/html(?:;|$)/i.test(document.content_type||''));assert.equal(document.bytes,bytes.length);assert.equal(document.sha256,sha(bytes));}}
  const expectedScope=await (smoke?candidateScope:acceptanceScope)(expectedManifest,expectedResources,expectedIndex),expectedSamples=expectedScope.samples;assert.deepEqual(report.acceptance_scope,expectedScope);assert.equal(report.files.length,expectedSamples.length*(1+measurements.length*(scientific?19:(smoke||publicReviewed)?6:5))+(smoke?0:4)+(scientific?expectedSamples.length*measurements.length*QUALITY_CONTROLS.length:0),'Exact retained PNG inventory');
  const expectedCases=[];for(const id of expectedSamples)for(const size of measurements.map(sizeName))for(const kind of ['actual-css-parity-','first-frame-pixel-stability-','warm-repeat-',...(scientific?['native-layer-diagnostic-']:[])])expectedCases.push(kind+id+'-'+size);
  if(scientific){for(const id of expectedSamples)for(const m of measurements)expectedCases.push('scientific-quality-'+id+'-'+sizeName(m));}
@@ -296,7 +328,7 @@ try{
  if(!smoke){
  // Both-language hydrated mappings: the exact authorized cohorts and untouched ordinary bindings.
  for(const lang of ['', 'zh-CN/']){const page=await newPage();await page.goto(url+lang+'models/?model=spyroceras');await ready(page,'spyroceras');const bindings=await page.evaluate(()=>window.__preview.models.map(a=>[a.id,a.galleryPosters?.detail]));let repaired=0,ordinary=0;for(const [id,path]of bindings){assert.equal(path,index.presentations[id]?.detail||resources.posters[id].detail,id);index.presentations[id]?repaired++:ordinary++;}assert.equal(repaired,scope.repaired);assert.equal(ordinary,scope.ordinary);report.cases.push({name:'hydration-'+(lang||'en'),status:'pass',repaired,ordinary});await closePage(page);}
- const ssr=await newPage({javaScriptEnabled:false});for(const lang of ['', 'zh-CN/']){const ids=new Set();for(let n=0;n<Math.ceil(manifest.assets.length/24);n++){await ssr.goto(url+lang+'models/'+(n?'page/'+(n+1)+'/':''));for(const row of await ssr.locator('[data-poster]').evaluateAll(es=>es.map(e=>({id:e.dataset.id,poster:e.dataset.poster})))){assert(row.poster.endsWith('/'+(index.presentations[row.id]?.detail||resources.posters[row.id].detail)));ids.add(row.id);}}assert.equal(ids.size,manifest.assets.length);report.cases.push({name:'SSR-all'+manifest.assets.length+'-'+(lang||'en'),status:'pass'});}await closePage(ssr);
+ const ssrReader=await createSSRDocumentReader(browser,report);const ssr=ssrReader.page;try{for(const lang of ['', 'zh-CN/']){const ids=new Set();for(let n=0;n<Math.ceil(manifest.assets.length/24);n++){const route=lang+'models/'+(n?'page/'+(n+1)+'/':''),path=route+'index.html';const local=await readFile(resolve(root,path)),pin={bytes:local.length,sha256:sha(local)};if(target==='public'){const deployed=deployedMarker.files.find(f=>f.path===path);assert(deployed,'SSR route absent from authenticated deployment');assert.equal(deployed.bytes,pin.bytes);assert.equal(deployed.sha256,pin.sha256);}await ssrReader.navigate(url+route,pin);for(const row of await ssr.locator('[data-poster]').evaluateAll(es=>es.map(e=>({id:e.dataset.id,poster:e.dataset.poster})))){assert(row.poster.endsWith('/'+(index.presentations[row.id]?.detail||resources.posters[row.id].detail)));ids.add(row.id);}}assert.equal(ids.size,manifest.assets.length);report.cases.push({name:'SSR-all'+manifest.assets.length+'-'+(lang||'en'),status:'pass'});}}finally{await ssrReader.close();}
  // Adversarial cold A→B→A: held image AND GLB requests, not a warmed-cache imitation.
  const A='spyroceras',B='megarachne',a=manifest.assets.find(a=>a.id===A);const race=await newPage();let releaseA;const held=new Promise(ok=>releaseA=ok);let heldCount=0;const completions=[];
  for(const path of [a.glb,index.presentations[A].detail])await race.route('**/'+path,r=>{heldCount++;const done=(async()=>{await held;await r.continue().catch(()=>{});const response=await r.request().response();if(response)await response.finished();})();completions.push(done);return done;});
