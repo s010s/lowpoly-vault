@@ -68,8 +68,8 @@ jobs:
           DETAIL_BROWSER_TARGET: dist
           QA_OUTPUT_DIR: qa/detail-browser-dist
         run: |
-          node site/detail-presentation-browser-test.mjs
-          node site/detail-presentation-browser-test.mjs --verify-evidence
+          DETAIL_BROWSER_PROFILE=full264-v2 node site/detail-presentation-browser-test.mjs
+          DETAIL_BROWSER_PROFILE=full264-v2 node site/detail-presentation-browser-test.mjs --verify-evidence
       - name: Retain supplemental right-detail pixels outside Git
         id: right_detail_artifact
         if: always()

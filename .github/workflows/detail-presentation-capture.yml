@@ -8,6 +8,26 @@ on:
         description: Explicit comma-separated changed model IDs (no implicit full recapture)
         required: true
         type: string
+      capture_revision:
+        description: Explicit incremental runtime recipe revision
+        required: false
+        default: '1'
+        type: string
+      migration_v2:
+        description: Exact authorized 264-model revision2 migration,1536 only
+        required: false
+        default: false
+        type: boolean
+      candidate_smoke:
+        description: Unaccepted five-model 1536/2048 renderer-revision probe (never baseline or release)
+        required: false
+        default: false
+        type: boolean
+      native_layer_diagnostic:
+        description: Diagnostic layers only,1536 candidate; never quality acceptance
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: read
   actions: read
@@ -36,31 +56,100 @@ jobs:
       - name: Validate explicit right-detail capture request
         id: request
         env:
+          DISPATCH_CAPTURE_REVISION: ${{ inputs.capture_revision }}
+          DISPATCH_MIGRATION_V2: ${{ inputs.migration_v2 }}
           DISPATCH_DETAIL_IDS: ${{ inputs.detail_ids }}
+          DISPATCH_CANDIDATE_SMOKE: ${{ inputs.candidate_smoke }}
+          DISPATCH_NATIVE_LAYER_DIAGNOSTIC: ${{ inputs.native_layer_diagnostic }}
         run: |
           node --input-type=module <<'JS'
           import assert from 'node:assert/strict';
           import {readFile,appendFile} from 'node:fs/promises';
-          let ids;
-          if(process.env.GITHUB_EVENT_NAME==='workflow_dispatch')ids=process.env.DISPATCH_DETAIL_IDS.split(',').filter(Boolean);
-          else {const request=JSON.parse(await readFile('qa/detail-capture-request.json'));assert.equal(request.version,1);assert.equal(request.kind,'bounded-detail-capture-request');ids=request.ids;}
+          let ids,smoke=false,diagnostic=false,migration=false,revision=1;
+          if(process.env.GITHUB_EVENT_NAME==='workflow_dispatch'){revision=Number(process.env.DISPATCH_CAPTURE_REVISION||1);migration=process.env.DISPATCH_MIGRATION_V2==='true';ids=process.env.DISPATCH_DETAIL_IDS.split(',').filter(Boolean);smoke=process.env.DISPATCH_CANDIDATE_SMOKE==='true';diagnostic=process.env.DISPATCH_NATIVE_LAYER_DIAGNOSTIC==='true';}
+          else {const request=JSON.parse(await readFile('qa/detail-capture-request.json'));assert.equal(request.version,1);assert.equal(request.kind,'bounded-detail-capture-request');revision=Number(request.capture_revision||1);migration=request.migration_v2===true;ids=request.ids;smoke=request.candidate_smoke===true;diagnostic=request.native_layer_diagnostic===true;}
+          if(migration||smoke)revision=2;assert([1,2].includes(revision),'Unknown capture revision');
           assert(Array.isArray(ids)&&ids.length>0&&new Set(ids).size===ids.length&&ids.every(id=>/^[a-z0-9-]+$/.test(id)),'Explicit unique model IDs required');
           const assets=JSON.parse(await readFile('assets/manifest.json')).assets,resources=JSON.parse(await readFile('site/public/gallery/resources.json'));
           for(const id of ids)assert(assets.some(a=>a.id===id)&&['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[id]?.render_route),'Unknown right delivery scope '+id);
-          await appendFile(process.env.GITHUB_OUTPUT,'ids='+ids.join(',')+'\n');
+          if(migration){assert(!smoke&&!diagnostic,'Migration must not be probe/diagnostic');const {assertDetailV2Migration}=await import('./site/detail-capture-scope.mjs');assertDetailV2Migration({scopeBytes:await readFile('qa/detail-presentation-scope-20261025.json'),assets:assets.filter(a=>['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[a.id]?.render_route)),ids,presentation:{revision:2,minimum_margin:.025,screen_shift:.06,raster_size:1536}});}
+          assert(!diagnostic||smoke,'Native diagnostic requires explicit unaccepted candidate mode');
+          if(smoke)assert.deepEqual([...ids].sort(),['onoclea','pertica','azolla','sidneyia','arroyo-wash'].sort(),'Candidate probe requires exactly the reviewed five IDs');
+          await appendFile(process.env.GITHUB_OUTPUT,'ids='+ids.join(',')+'\nsmoke='+smoke+'\ndiagnostic='+diagnostic+'\nmigration='+migration+'\nrevision='+revision+'\n');
           console.log('Explicit bounded right-detail request:',JSON.stringify(ids));
           JS
       - run: npx playwright install --with-deps chromium
       - name: Capture explicit changed right-detail IDs
+        if: steps.request.outputs.smoke != 'true' && steps.request.outputs.migration != 'true'
         env:
           DETAIL_DELTA_IDS: ${{ steps.request.outputs.ids }}
+          DETAIL_CAPTURE_REVISION: ${{ steps.request.outputs.revision }}
+          DETAIL_CAPTURE_SIZE: '1536'
           DETAIL_CAPTURE_OUTPUT: qa/detail-capture-delta
         run: node site/capture-gallery-posters.mjs --detail-presentations "--detail-ids=$DETAIL_DELTA_IDS"
+      - name: Validate revision-2 all-model geometry and scope isolation
+        if: steps.request.outputs.migration == 'true'
+        run: |
+          node --test site/detail-capture-scope-test.mjs
+          node --test site/detail-browser-scope-test.mjs
+          node site/detail-v2-geometry-test.mjs
+          mkdir -p qa/detail-capture-v2
+          cp qa/detail-v2-geometry/report.json qa/detail-capture-v2/geometry-preflight.json
+      - name: Capture authorized 264 revision-2 right details
+        if: steps.request.outputs.migration == 'true'
+        env:
+          DETAIL_DELTA_IDS: ${{ steps.request.outputs.ids }}
+          DETAIL_CAPTURE_MIGRATION_V2: '1'
+          DETAIL_CAPTURE_REVISION: '2'
+          DETAIL_CAPTURE_SIZE: '1536'
+          DETAIL_CAPTURE_OUTPUT: qa/detail-capture-v2
+        run: node site/capture-gallery-posters.mjs --detail-presentations "--detail-ids=$DETAIL_DELTA_IDS"
+      - name: Unaccepted five-model actual-page probe or bounded layer diagnostic
+        if: steps.request.outputs.smoke == 'true'
+        env:
+          DETAIL_DELTA_IDS: ${{ steps.request.outputs.ids }}
+          NATIVE_LAYER_DIAGNOSTIC: ${{ steps.request.outputs.diagnostic }}
+        run: |
+          node site/detail-presentation-smoke-test.mjs
+          DETAIL_BROWSER_PROFILE=candidate-smoke node site/detail-presentation-browser-test.mjs --self-test
+          sizes='1536 2048'
+          if [ "$NATIVE_LAYER_DIAGNOSTIC" = true ]; then
+            sizes=1536
+            export DETAIL_BROWSER_PROFILE=native-layer-diagnostic
+            node --test site/detail-presentation-render-diagnostic-test.mjs
+            node --test site/detail-screen-frame-test.mjs
+            node --test site/detail-presentation-quality-test.mjs
+            node site/detail-presentation-browser-test.mjs --self-test
+          fi
+          failed=0
+          for size in $sizes; do
+            if DETAIL_CAPTURE_REVISION=2 DETAIL_CAPTURE_SIZE=$size DETAIL_CAPTURE_CANDIDATE_SMOKE=1 DETAIL_EXPECTED_COUNT=264 DETAIL_CAPTURE_OUTPUT=qa/detail-candidate-probe/$size/capture node site/capture-gallery-posters.mjs --detail-presentations "--detail-ids=$DETAIL_DELTA_IDS"; then
+              node site/detail-presentation-smoke.mjs "qa/detail-candidate-probe/$size/capture/fresh" "$size" "qa/detail-candidate-probe/$size/browser" || failed=1
+            else
+              failed=1
+            fi
+          done
+          test "$failed" = 0
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.request.outputs.smoke != 'true' && steps.request.outputs.migration != 'true'
         with:
           name: right-detail-capture-${{ github.sha }}
           path: qa/detail-capture-delta/
           if-no-files-found: error
+      - name: Retain authorized revision-2 capture evidence
+        uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.migration == 'true'
+        with:
+          name: right-detail-capture-v2-${{ github.sha }}
+          path: qa/detail-capture-v2/
+          if-no-files-found: error
+      - name: Retain unaccepted candidate probe pixels
+        uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.smoke == 'true'
+        with:
+          name: right-detail-candidate-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa/detail-candidate-probe/
+          if-no-files-found: error
       - name: State evidence scope
+        if: steps.request.outputs.smoke != 'true'
         run: echo 'Explicit fresh subset and separately authenticated unchanged entries. Original scoped render report remains untouched. Exact-built/public CSS first-frame acceptance is still required before deployment.' >> "$GITHUB_STEP_SUMMARY"
