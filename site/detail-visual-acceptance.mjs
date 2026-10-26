@@ -13,7 +13,7 @@ export const VISUAL_REVIEW=Object.freeze({repository:'s010s/lowpoly-vault',repos
 // all 602 GLBs, 264/338 posters, renderer, CSS, app, lockfile and metadata must match.
 export const ACCEPTANCE_PATHS=Object.freeze(['.github/workflows/pages.yml','.github/workflows/full-release-review.yml','site/detail-visual-acceptance.mjs','site/detail-visual-acceptance-test.mjs','site/detail-presentation-browser-test.mjs','site/detail-visual-disposition-test.mjs',VISUAL_REVIEW.review_path]);
 export const ACCEPTANCE_CONTROL_HASHES=Object.freeze({
- 'site/detail-presentation-browser-test.mjs':'b7064220f30215f90008df854649c780808ce8ad9f3b8768d204a81f32ebc3d2',
+ 'site/detail-presentation-browser-test.mjs':'d436cc05a1b83e63dcc0043a4bd807d16acd5133592d9846532053dac0cfe615',
  '.github/workflows/pages.yml':'8621b482813e0944f145f3f27dde873a9dcd1cd2af9b11e49d90c84cedc6bf43',
  '.github/workflows/full-release-review.yml':'b626703e64ff2c7fc5feb91dccf8f9716c6246462bdb3a30f544ed1723e8dc2d'
 });
