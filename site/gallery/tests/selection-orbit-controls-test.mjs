@@ -1,5 +1,6 @@
 // Executes the real main.js event wiring in a minimal DOM, not a browser/layout test.
 import * as dimensionPresentation from '../model-dimensions.js';
+import {validDetailPresentation,detailScreenFrame} from '../detail-presentation-policy.js';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
@@ -26,7 +27,7 @@ function advance(ms){const end=time+ms;for(let count=0;;count++){assert(count<10
 class Element{
  set src(value){this._src=value;queueMicrotask(()=>{if(this._src===value)this.onload?.();});}
  get src(){return this._src;}
- constructor(){this.children=[];this.events=new Map();this.dataset={};this.attributes={};this.style={setProperty(key,value){this[key]=value;}};this.scrollTop=0;this.clientHeight=600;this.hidden=false;this.value='';this.textContent='';this.classes=new Set();this.classList={add:(...v)=>v.forEach(x=>this.classes.add(x)),remove:(...v)=>v.forEach(x=>this.classes.delete(x)),contains:v=>this.classes.has(v),toggle:(v,on)=>on?this.classes.add(v):this.classes.delete(v)};}
+ constructor(){this.children=[];this.events=new Map();this.dataset={};this.attributes={};this.style={setProperty(key,value){this[key]=value;},removeProperty(key){delete this[key==='transform-origin'?'transformOrigin':key];}};this.scrollTop=0;this.clientHeight=600;this.hidden=false;this.value='';this.textContent='';this.classes=new Set();this.classList={add:(...v)=>v.forEach(x=>this.classes.add(x)),remove:(...v)=>v.forEach(x=>this.classes.delete(x)),contains:v=>this.classes.has(v),toggle:(v,on)=>on?this.classes.add(v):this.classes.delete(v)};}
  addEventListener(name,fn){if(!this.events.has(name))this.events.set(name,[]);this.events.get(name).push(fn);}
  dispatch(name,details={}){const e={target:this,preventDefault(){},stopPropagation(){},...details};for(const fn of this.events.get(name)||[])fn(e);}
  append(...items){for(const item of items){if(typeof item==='string')continue;item.parent=this;this.children.push(item);}}
@@ -74,7 +75,7 @@ r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
 const location=new URL('models/',siteRoot);
 const history={state:null,replaceState(value,_,url){this.state=structuredClone(value);latestHistorySnapshot=this.state;if(url)location.href=url;},pushState(value,_,url){this.replaceState(value,_,url);pushes++;}};
-const context=vm.createContext({HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
+const context=vm.createContext({validDetailPresentation,detailScreenFrame,innerWidth:1200,innerHeight:800,devicePixelRatio:1,HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
 // Unwrap only the mount boundary so the existing deterministic probes can still
