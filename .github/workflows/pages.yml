@@ -61,15 +61,17 @@ jobs:
       - name: Install pinned browser for mandatory right-detail first-frame acceptance
         id: right_detail_install
         run: node site/ci-install-chromium.mjs
-      - name: Actual built-page right poster and native first-frame parity
+      - name: Authenticated same-runtime evidence and explicit independent visual acceptance
         id: right_detail
         env:
           GALLERY_DIR: dist
           DETAIL_BROWSER_TARGET: dist
           QA_OUTPUT_DIR: qa/detail-browser-dist
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          DETAIL_BROWSER_PROFILE=full264-v2 node site/detail-presentation-browser-test.mjs
-          DETAIL_BROWSER_PROFILE=full264-v2 node site/detail-presentation-browser-test.mjs --verify-evidence
+          node site/detail-visual-acceptance-test.mjs
+          node site/detail-visual-disposition-test.mjs
+          node site/detail-visual-acceptance.mjs
       - name: Retain supplemental right-detail pixels outside Git
         id: right_detail_artifact
         if: always()
