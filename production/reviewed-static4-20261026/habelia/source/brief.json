@@ -1,0 +1,116 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "habelia",
+  "revision": "r001",
+  "name": {
+    "en": "Habelia optata — morph A inspired whole animal",
+    "zh": "哈贝尔虫（Habelia optata，A形态启发）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "authoring_profile": "model-task-v2-four-view-scoped",
+  "scope": "Original static complete animal informed by actual whole fossils; not same-specimen replica, scientific scan or new inventory slot. Morph A only; never combine morph A/B spines.",
+  "scale": {
+    "unit": "meter",
+    "head_plus_trunk_length": 0.02,
+    "telson_length": 0.02,
+    "posed_width_target": 0.011,
+    "body_height_target": 0.004,
+    "basis": "Nominal artist values. Body length selected within published 8.5–34 mm range, excluding telson. Posed bounds/width/height are not specimen measurements."
+  },
+  "pose": "Quiet low stance, head -Y, near-straight two-piece telson +Y; lateral appendages separated sufficiently to read. No rock, base, labels or props.",
+  "coordinates": {
+    "up": "+Z",
+    "forward": "-Y",
+    "unit": "meter",
+    "root": "habelia",
+    "collection": "EXPORT",
+    "origin": "Horizontal animal bounds center; lowest intended foot support at Z=0.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "5500–8500; ceiling is not a target",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–5 restrained slate/ochre shades plus dark eyes; no claim of fossil color.",
+    "detail": "Low-poly coherent closed solids. Sparse tubercle highlights, no noisy uniformly spiked sphere assembly. Solid tapered lamellar fringe simplification; never alpha cards."
+  },
+  "morphology": [
+    {
+      "id": "body",
+      "obligation": "Broad domed head shield; paired notch-set lateral eyes, not long eye stalks; twelve trunk tergites. First five trunk segments carry walking legs, segments6–12 smaller paddles.",
+      "source": "ARIA2017"
+    },
+    {
+      "id": "head",
+      "obligation": "Seven cephalic appendage pairs: reduced frontal pair; five gnathobase/raptorial units with slender exopod branches; posterior thoracic-like pair. Preserve organized fan, not giant single pincers.",
+      "source": "ARIA2017"
+    },
+    {
+      "id": "tail-spines",
+      "obligation": "Bipartite telson approximately body length; shorter distal piece roughly one-third proximal. MorphA has three prominent anterior dorsal spine levels; preserve bilateral projections and subdued posterior relief.",
+      "source": "ARIA2017"
+    }
+  ],
+  "scientific_limits": [
+    "Fossils are compressed; full depth, posture, pigment, minute setal densities and articulation clearances are interpretive.",
+    "Use observed whole fossils Fig1d/g and interpretive Fig3; diagram is not specimen photograph or mesh template.",
+    "Article family diagnosis says eight posterior segments despite total12 and anterior5; use explicit species description and segment6–12 passage (seven), not an invented13th. The2018 correction does not resolve that line.",
+    "Head-branch attachment, reduced frontal tip and posterior endopods remain uncertain. Use restrained connections; no asserted nerves, internal organs, inferred behavior or universal coexistence."
+  ],
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB; save camera/light config and hash-bound manifest.",
+    "extra_views": "None by default. Only a specific unresolved factual or technical issue justifies one focused diagnostic.",
+    "website_derivatives": false
+  },
+  "acceptance_obligations": [
+    "Preserve whole-body silhouette, twelve tergites and bipartite long telson; do not silently substitute Sanctacaris/Leanchoilia meshes.",
+    "Four fixed final views suffice for this scoped static task. Front checks paired head organization, side three spine levels and tail break, top segment/lateral outline, perspective coherent depth.",
+    "EXPORT contains exactly one asset-named identity root, intended meshes descendants only. Cameras/lights outside. Applied positive transforms, outward winding, single-sided OPAQUE materials; no DoubleSide workaround.",
+    "Default shared helper thresholds unchanged. Use current asset_common and exactGLB renderer; record dependency hashes/runtime/exporter versions.",
+    "Two COMPLETE isolated factory-startup rebuilds from same generator/config/seed, compare exact GLB SHA256 AND decoded geometry/material semantic digest, bounds/counts. Two exports of one scene do not qualify.",
+    "Editable .blend reopen/reexport verification plus native/export metrics, Khronos validation and scoped runtime parse. Preserve all logs.",
+    "Independent QA separate from maker. GPU-world/user acceptance/merge/deploy not run and not prerequisites to begin static making; never claim them passed."
+  ],
+  "production_plan": [
+    "Coordinator claims existing habelia slot after current duplicate recheck. Maker reads real pixels locally before geometry.",
+    "Create new generator/config with named parameters and fixed seed; build continuous carapace and tail first, then mapped appendages.",
+    "Check four cheap graybox views before detail; correct silhouette first. No eight-view or animation expansion.",
+    "Apply controlled palette; export single identity root with default helper and run complete two-build reproducibility.",
+    "Hand exact GLB/Blend/source/ref manifest and four views to separate reviewer. No upload/publish authority from this preparation."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic full generator and config/seed",
+    "dependency hashes",
+    "exact .glb",
+    "four exactGLB views and manifest",
+    "real-reference ledger with private source pixels",
+    "two full build logs and byte/semantic comparison",
+    "native/reexport comparison",
+    "technical and Khronos/runtime reports",
+    "brief.json",
+    "candidate.json",
+    "checksum manifest"
+  ]
+}

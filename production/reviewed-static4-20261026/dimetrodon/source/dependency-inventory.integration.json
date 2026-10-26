@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "kind": "integration-derived-source-dependency-inventory-v1",
+  "asset_id": "dimetrodon",
+  "revision": "r002",
+  "origin": "New explicit dependency inventory derived during integration; not an original maker manifest or independent QA verdict.",
+  "source_geometry_unchanged": true,
+  "generator_sha256": "00c8cc1cda4a09fd2e7a6ec21f6daf394e338192417d4c7af3de3342eecc6ab4",
+  "configuration_sha256": "fcd984bdaa95f39339c9fdd879065aad3ed8326a964df19e1666776478879b56",
+  "model_sha256": "493ffaeebcc73f33cde378a1a027540f27a79844ab9e9bd5281fa36e0b79d823",
+  "native_source_sha256": "873e3bf0c36587a76cd747abd26cb907d8a5006107750f151c8c9d87dc8c4383",
+  "closure": [
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/brief.json",
+      "bytes": 9706,
+      "sha256": "3a644e04880c6412c963f77addb4645621827af3cc6f56f497fd4803311a8b35"
+    },
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/generator-config.json",
+      "bytes": 1086,
+      "sha256": "fcd984bdaa95f39339c9fdd879065aad3ed8326a964df19e1666776478879b56"
+    },
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/references.json",
+      "bytes": 1584,
+      "sha256": "81de75959c4c399592b4241a2cf6c877ebc0fb392e42c90820d57fe779d3792e"
+    },
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/scripts/build_dimetrodon.py",
+      "bytes": 23554,
+      "sha256": "00c8cc1cda4a09fd2e7a6ec21f6daf394e338192417d4c7af3de3342eecc6ab4"
+    },
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/scripts/deps/asset_common.py",
+      "bytes": 27057,
+      "sha256": "05181d7e629452253d2c7a50c26b419fd72c3871a88c2895b264c90bb16ba0c0"
+    },
+    {
+      "path": "production/reviewed-static4-20261026/dimetrodon/source/scripts/deps/qa_glb.py",
+      "bytes": 13344,
+      "sha256": "88a278ddd2d2c7c7fded439db85dc4ad046893a146f6b622838364bae7d1e098"
+    }
+  ],
+  "external_modules": [
+    "argparse",
+    "bmesh",
+    "bpy",
+    "hashlib",
+    "json",
+    "math",
+    "mathutils",
+    "pathlib",
+    "random",
+    "shutil",
+    "struct",
+    "sys"
+  ],
+  "toolchain": {
+    "blender": "4.3.2",
+    "source": "Existing independently checked source-native/rebuild evidence, not a new full rebuild claim."
+  },
+  "requires_independent_projection_review": true,
+  "publication_authority": false,
+  "rebuild_invocation_note": "Use the original supported --no-render flag for model generation. Optional legacy render_views.py branch is not in the delivered source package; it is not claimed functional."
+}

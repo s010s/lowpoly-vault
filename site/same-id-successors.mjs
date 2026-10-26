@@ -3,6 +3,7 @@
  * No filesystem writes, discovery, Git operations, world configuration, or QA promotion.
  */
 import assert from 'node:assert/strict';
+import {inspectAppendContinuation} from './same-id-append-continuation.mjs';
 import {readFileSync, realpathSync, lstatSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {isDeepStrictEqual} from 'node:util';
@@ -236,7 +237,14 @@ export function inspectSuccessorSelection({selection, baseManifest, read}) {
   return {selection, base, entries, publication_authorized: false, reviewer_authority: false};
 }
 function descriptorPin(selection, reference, read) { assert.deepEqual(json(read, reference), selection, 'Selected descriptor pin differs'); }
-export function selectSuccessorManifest({baseManifest, selection, selectionPin, read}) {
+export function selectSuccessorManifest({baseManifest, selection, selectionPin, appendPin, read}) {
+  if (appendPin) {
+    const rootBase = json(read, selection.base_manifest);
+    const append = inspectAppendContinuation({read, appendPin, selectionPin, legacyBase: rootBase, extendedBase: baseManifest});
+    assertFrozenSuccessorBatch(selection, rootBase);
+    const selectedRoot = selectSuccessorManifest({baseManifest: rootBase, selection, selectionPin, read});
+    return {...selectedRoot, publication: {...selectedRoot.publication, same_id_successor_append: clone(appendPin)}, assets: [...selectedRoot.assets, ...append.records.map(record => clone(record.asset))]};
+  }
   descriptorPin(selection, selectionPin, read);
   const inspected = inspectSuccessorSelection({selection, baseManifest, read}), replacements = new Map(inspected.entries.map(row => [row.next.id, row.next.asset]));
   const result = {...clone(baseManifest), publication: {...clone(baseManifest.publication), same_id_successors: clone(selectionPin)}, assets: baseManifest.assets.map(asset => clone(replacements.get(asset.id) || asset))};
@@ -244,12 +252,15 @@ export function selectSuccessorManifest({baseManifest, selection, selectionPin, 
 }
 
 /** Apply the identical selection after normal immutable registry composition. */
-export function composeSuccessorRegistry({registry, baseManifest, selection, selectionPin, read}) {
+export function composeSuccessorRegistry({registry, baseManifest, selection, selectionPin, appendPin, read}) {
   const output = composeRegistry(registry), records = new Map(registry.records.map(row => [row.id, row]));
   assert.deepEqual([...records.keys()].sort(), baseManifest.assets.map(row => row.id).sort(), 'Registry/base IDs differ');
   for (const asset of baseManifest.assets) assert.deepEqual(records.get(asset.id).asset, asset, 'Registry/base asset differs');
-  const inspected = inspectSuccessorSelection({selection, baseManifest, read});
-  output.manifest = selectSuccessorManifest({baseManifest, selection, selectionPin, read});
+  const rootBase = appendPin ? json(read, selection.base_manifest) : baseManifest;
+  const append = appendPin ? inspectAppendContinuation({read, appendPin, selectionPin, legacyBase: rootBase, extendedBase: baseManifest}) : null;
+  if (append) for (const record of append.records) assert.deepEqual(records.get(record.id), record, 'Append registry record differs');
+  const inspected = inspectSuccessorSelection({selection, baseManifest: rootBase, read});
+  output.manifest = selectSuccessorManifest({baseManifest, selection, selectionPin, appendPin, read});
   for (const {previous, next} of inspected.entries) {
     assert.deepEqual(records.get(previous.id), previous, 'Successor old registry record mismatch');
     output.gallery.posters[next.id] = clone(next.gallery.poster);
@@ -277,9 +288,11 @@ export function composeSuccessorRegistry({registry, baseManifest, selection, sel
  */
 export function historicalManifestView({manifest, read}) {
   const reference = manifest.publication?.same_id_successors;
-  if (!reference) return clone(manifest);
-  const selection = json(read, reference), base = json(read, selection.base_manifest);
-  assert.deepEqual(manifest, selectSuccessorManifest({baseManifest: base, selection, selectionPin: reference, read}), 'Current manifest differs from exact successor selection');
+  if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(manifest); }
+  const selection = json(read, reference), rootBase = json(read, selection.base_manifest), appendPin = manifest.publication?.same_id_successor_append;
+  const append = appendPin ? inspectAppendContinuation({read, appendPin, selectionPin: reference, legacyBase: rootBase}) : null;
+  const base = append ? append.base : rootBase;
+  assert(isDeepStrictEqual(manifest, selectSuccessorManifest({baseManifest: base, selection, selectionPin: reference, appendPin, read})), 'Current manifest differs from exact successor selection');
   return base;
 }
 /** Exact gallery inverse, retaining historical seals and removing only the new
@@ -287,11 +300,17 @@ export function historicalManifestView({manifest, read}) {
  */
 export function historicalGalleryView({manifest, resources, read}) {
   const reference = manifest.publication?.same_id_successors;
-  if (!reference) return clone(resources);
-  const selection = json(read, reference), base = historicalManifestView({manifest, read});
-  const inspected = inspectSuccessorSelection({selection, baseManifest: base, read});
+  if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(resources); }
+  const context = successorContext({manifest, read}), inspected = {entries: context.entries};
   const result = clone(resources), added = new Set();
   unique(result.files.map(row => row.path), 'Gallery resource files');
+  if (context.append) {
+    assert.deepEqual(Object.keys(result.posters).sort(), manifest.assets.map(row => row.id).sort(), 'Appended gallery IDs differ from selected manifest');
+    for (const record of context.append.records) {
+      assert.deepEqual(result.posters[record.id], record.gallery.poster, 'Appended gallery pointer differs');
+      for (const file of record.gallery.files) assert.deepEqual(result.files.find(row => row.path === file.path), file, 'Appended gallery seal differs');
+    }
+  }
   for (const {previous, next} of inspected.entries) {
     assert.deepEqual(result.posters[next.id], next.gallery.poster, 'Active gallery pointer differs from selected successor');
     for (const file of [...previous.gallery.files, ...next.gallery.files]) assert.deepEqual(result.files.find(row => row.path === file.path), file, 'Missing or modified immutable gallery seal');
@@ -304,9 +323,12 @@ export function historicalGalleryView({manifest, resources, read}) {
  * entries may be inverted; unrelated rows and source media bytes are untouched.
  */
 export function historicalTurntableView({manifest, turntables, read}) {
-  if (!manifest.publication?.same_id_successors) return clone(turntables);
+  if (!manifest.publication?.same_id_successors) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(turntables); }
   const context = successorContext({manifest, read}), result = clone(turntables);
   for (const key of ['assets', 'posters']) unique(result[key].map(row => row.id), 'Historical turntable IDs');
+  if (context.append) for (const record of context.append.records) for (const [key, field] of [['assets', 'asset'], ['posters', 'poster']]) {
+    assert.deepEqual(result[key].find(row => row.id === record.id) ?? null, record.turntable[field], 'Appended turntable pointer differs');
+  }
   for (const {previous, next} of context.entries) {
     for (const [key, field] of [['assets', 'asset'], ['posters', 'poster']]) {
       const index = result[key].findIndex(row => row.id === next.id), active = index < 0 ? null : result[key][index];
@@ -323,9 +345,11 @@ export function historicalTurntableView({manifest, turntables, read}) {
 }
 export function successorContext({manifest, read}) {
   const reference = manifest.publication?.same_id_successors;
-  if (!reference) return null;
+  if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return null; }
   const selection = json(read, reference), base = historicalManifestView({manifest, read});
-  return {...inspectSuccessorSelection({selection, baseManifest: base, read}), selectionPin: reference};
+  const rootBase = json(read, selection.base_manifest), appendPin = manifest.publication?.same_id_successor_append;
+  const append = appendPin ? inspectAppendContinuation({read, appendPin, selectionPin: reference, legacyBase: rootBase, extendedBase: base}) : null;
+  return {...inspectSuccessorSelection({selection, baseManifest: rootBase, read}), base, rootBase, appendPin, append, selectionPin: reference};
 }
 /** New mesh wheels must pass the same current PreviewRenderer contract as new
  * animals. A string saying PASS or a historical image pin is insufficient.
@@ -377,9 +401,10 @@ export async function verifySuccessorPresentation(root, context) {
   }
   return checked;
 }
-export function successorSourceClosure({selection, selectionPin, read}) {
+export function successorSourceClosure({selection, selectionPin, appendPin, read}) {
   const base = json(read, selection.base_manifest), result = inspectSuccessorSelection({selection, baseManifest: base, read}); descriptorPin(selection, selectionPin, read);
   const paths = new Set([selectionPin.path, selection.base_manifest.path]);
+  if (appendPin) for (const path of inspectAppendContinuation({read, appendPin, selectionPin, legacyBase: base}).closure) paths.add(path);
   for (const {entry, next, review} of result.entries) {
     for (const reference of [entry.previous, entry.next, entry.review, ...Object.values(review.evidence)]) paths.add(reference.path);
     if (entry.kind === 'mesh') { for (const kind of ['glb', 'blend', 'preview']) paths.add(next.asset[kind]); for (const file of next.gallery.files) paths.add(`site/public/${file.path}`); paths.add(next.turntable.poster.path); }

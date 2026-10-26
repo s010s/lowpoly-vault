@@ -1,0 +1,116 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "paradoxides",
+  "revision": "r001",
+  "name": {
+    "en": "Paradoxides — reconstructed fossil dorsal exoskeleton",
+    "zh": "奇异虫（化石背甲复原）"
+  },
+  "representation": "fossil-dorsal-exoskeleton-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original 3D dorsal exoskeleton reconstruction of Paradoxides davidis davidis; NOT whole living organism or complete ventral anatomy. Artist-neutral closed underside solely for solid asset technical validity, not fossil anatomical evidence.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Paradoxides davidis davidis",
+    "context": "Middle Cambrian; type locality Porth-y-rhaw, Wales",
+    "anchors": [
+      "Bergström & Levi-Setti1978 Plate2 Fig1 BM I1 cast of near-complete exuviae",
+      "Same study Fig7A restored dorsal morphology"
+    ]
+  },
+  "scale": {
+    "total_length_including_posterior_spines_m": 0.24,
+    "maximum_cephalon_width_m": 0.13,
+    "dorsal_height_m": 0.026,
+    "basis": "Artist nominal meters, no exact specimen metric; elevation/ventral thickness unknown from compressed exuviae."
+  },
+  "pose": "Straight extended dorsal exoskeleton without substrate slab, legs, antennae or any soft parts; head -Y. Reconstruct continuous bilateral dorsal shield, not compressed crack geometry.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed solid geometry, single-sided opaque materials, subtle planar sculpting; no DoubleSide sheets, detached bead limbs or noisy repeated detail. Integument and colors artistic, not preserved facts."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "paradoxides",
+    "collection": "EXPORT",
+    "origin": "Centered footprint of shell projected to underside baseline Z0; no feet or substrate."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect dorsal silhouette/20 tergites and finite relief; closure must remain shallow and subordinate, not a slab or invented animal belly.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Source is cast/replica photography of exuviae with compression and displaced cheeks, not intact living anatomy. Restore bilateral continuous head shield; do not copy cracks or shifted moult pieces.",
+    "Primary study shows thoracic count variability and disputed treatment of last tergite; select 20 thoracic tergites following Fig7A and Plate2 Fig1, not assert invariant species count.",
+    "Fig7A only defines selected subspecies. Fig7B/C other subspecies and Fig7D another species excluded from silhouette mixing. Field Museum photo link fetched a map, not fossil; map explicitly not morphology evidence.",
+    "No limbs, antennae, gills, mouthparts or other unpreserved ventral soft anatomy. This scoped asset is dorsal exoskeleton ONLY; must not be counted or labeled as complete living-anatomy reconstruction.",
+    "Underside is a visually neutral unsegmented shallow closure, explicitly artistic technical backing, not reconstructed ventral cuticle or hypostome. It must not resemble a base/slab.",
+    "Dorsal elevation, physical thickness and neutral coloration are artist interpretation; no preserved pigment claim."
+  ],
+  "morphology": [
+    {
+      "id": "cephalon",
+      "obligation": "Broad semicircular head shield with swollen anterior glabella and two crescent-like lateral eye lobes; paired long genal spines sweep backward beside anterior thorax. No stalked globular eyes, horns or triangular crab face.",
+      "source": "Bergström & Levi-Setti1978 Fig7A and Plate2; frontal volume reconstructed."
+    },
+    {
+      "id": "thorax",
+      "obligation": "20 clearly articulated transverse thoracic tergites with central raised narrow axial lobe and bilateral pleural lobes; pleural ends sweep backward, increasingly long posteriorly. Preserve low arched cross-section, not flat fan or millipede cylinders.",
+      "source": "Primary Fig7A and Plate2 Fig1; count selected as one documented variant."
+    },
+    {
+      "id": "posterior",
+      "obligation": "Small narrow pygidium near midline and pronounced final thoracic paired sabre-like spines extending behind it; do not turn pygidium into broad horseshoe-crab shield or median telson.",
+      "source": "Fig7A and Plate2 Fig2, main description."
+    },
+    {
+      "id": "technical-underside",
+      "obligation": "Use a shallow neutral continuous closure that follows the dorsal exoskeleton perimeter and closes all plate/spine volumes. No walking legs, antennae, branchia, ventral segmentation or hypostome implied.",
+      "source": "Technical artwork closure only; no anatomical source claim."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exact-finalGLB front/side/top/perspective: top broad cephalon,20 thoracic tergites,three longitudinal lobes,swept pleura,small pygidium and paired final thoracic spines; front finite arched section/glabella/lateral eye lobes; side low but volumetric relief; perspective continuous plate roots without crossing spines.",
+    "Asset name/metadata must say fossil dorsal exoskeleton reconstruction, with artistic underside closure. No whole-living-organism claim and no appendages.",
+    "Closure must not be a rectangular slab, black void, implausible belly or DoubleSide rescue. All plate/spine surfaces outward-facing closed opaque solids. A targeted underside diagnostic only if a concrete technical closure issue is unresolved.",
+    "Two complete deterministic isolated factory-startup builds, semantic digests and metrics, default asset_common/render_candidate_views helpers; dedicated EXPORT one identity asset root and48 primitive cap.",
+    "Independent morphology QA for dorsal anatomy; full static8/GPU/runtime/scene/user acceptance separate."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "brief_version": "source-scope-v2-dorsal-exoskeleton"
+}

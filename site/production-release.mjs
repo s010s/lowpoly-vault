@@ -91,7 +91,7 @@ async function resolveProductionValidationPlan(root='.'){
    const {readRegistry,readRegistryAtCommit}=await import('./model-registry-cli.mjs');
    const {assertRegistryAppend,composeRegistry,LEGACY_OUTPUTS,recordReference}=await import('./model-registry.mjs');
    const previousModels=readRegistryAtCommit(key,base),currentModels=readRegistry(key);
-   const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=successors?composeSuccessorRegistry({registry:currentModels,baseManifest:current,selection:successors.selection,selectionPin:successors.selectionPin,read:successorRead}):composeRegistry(currentModels);
+   const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=successors?composeSuccessorRegistry({registry:currentModels,baseManifest:current,selection:successors.selection,selectionPin:successors.selectionPin,appendPin:successors.appendPin,read:successorRead}):composeRegistry(currentModels);
    assert.deepEqual(current.assets.map(a=>a.id).sort(),currentModels.records.map(r=>r.id).sort(),'Registry/manifest ID coverage differs');
    for(const record of currentModels.records)assert.deepEqual(record.asset,current.assets.find(a=>a.id===record.id),'Registry/manifest metadata differs');
    for(const [kind,path]of Object.entries(LEGACY_OUTPUTS)){

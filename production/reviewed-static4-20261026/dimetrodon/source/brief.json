@@ -1,0 +1,171 @@
+{
+  "template_version": "model-task-v2",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "4500–8500; ceiling not target",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Ground plane at sagittal trunk midpoint; lowest foot Z=0.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ]
+  },
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original restrained natural palette; no source pixels, copied reconstruction palette or fossil mineral colors.",
+    "normal_style": "Deliberate broad anatomical planes, continuous transitions; no asserted fossil skin texture or gratuitous scales."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Four inexpensive graybox views first: deep head, smooth-spine tall sail and continuous root, sprawling stance, long tapering tail, complete feet. Final evidence from exact imported GLB.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "asset_id": "dimetrodon",
+  "revision": "r002",
+  "name": {
+    "en": "Dimetrodon — D. milleri-inspired adult form",
+    "zh": "异齿龙（D. milleri 启发成年形态）"
+  },
+  "representation": "living-reconstruction",
+  "scope": "Original static whole-animal evidence-informed stylization, existing planned genus ID; not specimen replica, not exact species anatomical restoration.",
+  "preparation_status": "PACKAGING_REPAIR",
+  "taxon": {
+    "scientific_name": "Dimetrodon",
+    "form_anchor": "Harvard Museum D. milleri type specimen illustrated by holding museum",
+    "classification": "Non-mammalian synapsid, not dinosaur",
+    "context": "Early Permian; no precise locality scene or coexistence asserted"
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_nose_to_tail_m": 1.8,
+    "basis": "Artistic target below museum-reported approximately 2 m D. milleri length; not measured fossil.",
+    "body_excluding_head_tail_m": 0.65,
+    "head_length_m": 0.28,
+    "tail_length_m": 0.77,
+    "height_to_sail_top_m": 0.72,
+    "stance_width_m": 0.46,
+    "note": "All detailed proportions are art nominal targets; coherent silhouette takes precedence. Record final bounds separately; uniform scale only."
+  },
+  "scientific_limits": [
+    "No fossil color or skin pattern claimed. Smooth restrained surface is an artistic simplification, not evidence of scaleless skin.",
+    "Sail membrane, tissue thickness, lip coverage, eye appearance and neutral standing posture are interpretive. No claim sail purpose is established.",
+    "Harvard specimen side image is main proportional anchor but tail is cropped and mount includes reconstructed positioning; do not mirror its missing extent as actual tail termination.",
+    "Gilmore 1919 USNM 8635 historically D. gigas is genus-level supplementary skeletal context only, NOT D. milleri species evidence. Its mount combines individuals and plaster, historic lizard-derived pose; do not copy it as life-position proof.",
+    "No species-exact neural-spine count, tooth count, scale count or muscle reconstruction. No inferred internal organs."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Deep, substantial predator head, short neck, not small Edaphosaurus herbivore head. Broad cheek region behind eye, tapered snout without crocodile-length muzzle. Small relaxed jaw gap may expose one enlarged upper canine region per side plus restrained smaller teeth; no identical shark-tooth comb.",
+      "source": "Harvard D. milleri specimen and Harvard dentition account; Gilmore as genus context."
+    },
+    {
+      "id": "sail",
+      "obligation": "Tall narrow midline dorsal sail with rounded high crest, rising behind neck, descending toward sacral/tail base. Continuous membrane volume smoothly rooted into dorsal body, not disconnected fence, stack of fins, or swollen hump. Subtle radial support rhythm allowed; no Edaphosaurus transverse crossbar knobs.",
+      "source": "Harvard actual specimen pixels and explicit smooth-spine contrast."
+    },
+    {
+      "id": "trunk",
+      "obligation": "Deep trunk with continuous shoulder/hip masses; visually narrower than a spherical barrel. Keep body underside clear of ground while feet contact ground; no dinosaur upright legs.",
+      "source": "Harvard skeleton + genus supplementary rear plate."
+    },
+    {
+      "id": "limbs",
+      "obligation": "Four short robust limbs with lateral upper-limb spread and bent joints; readable wrists/ankles and five tapered toe rays per foot, not paw lumps. No disconnected toes or pinned-on limbs.",
+      "source": "Gilmore skeletal discussion and actual plates; count is genus-level conservative reconstruction, not milleri-specific assertion."
+    },
+    {
+      "id": "tail",
+      "obligation": "Long gradually narrowing muscular tail, broad integrated root; modest lateral curve only, distinct from sail. No paddle, spikes, terminal club, or abrupt cutoff.",
+      "source": "Harvard long-tail account; complete extent art-nominal."
+    }
+  ],
+  "art_direction": {
+    "palette": "4–6 opaque matte earth/moss neutral colors; body, subtly lighter underside, subdued sail, eye, ivory teeth/claws. Colors artistic, no source texture copying.",
+    "construction": "Purpose-built lofted anatomy; broad quiet facets and soft transitions, avoid repeated primitive/bead torso, visible sausage limb seams, or razor-thin membrane.",
+    "sail_thickness_m": "Art target 0.012–0.025 with thicker root; closed volume and readable rim. Not a biological measurement."
+  },
+  "pose": {
+    "description": "Quiet alert four-foot standing pose with head toward -Y; sail upright +Z, tail +Y, slight asymmetry only if it preserves four-view comparison. No roaring, lunging, base or terrain."
+  },
+  "acceptance_obligations": [
+    "Maker must open actual reference image files before geometry, read scientific limits, inspect greybox front/side/top/perspective before polish.",
+    "Independent QA from clean import of exact final GLB: front -Y tests head width, central sail thickness, paired limb attachment and stance; side +X tests deep head, continuous tall sail, long tapered tail, ground contact; top +Z tests midline sail, limb spread, body/tail continuity and no hidden intersections; perspective (1,-1,1) tests coherence and readable distinctness from Edaphosaurus.",
+    "Check 4 limbs / 5 toe rays each, differentiated rather than uniformly repeated teeth when visible, no self-intersection, floating feet, detached sail or tail; if obscured add only targeted closeup.",
+    "Technical checks: triangle/material/primitive/byte ceilings, no external resources, finite transforms, Blender source reopen, portable GLB clean import, correct orientation and meter scale.",
+    "No rig, animation, physics, populated-world GPU cost, user acceptance or deployment is established. Mark those UNKNOWN."
+  ],
+  "deliverables": [
+    "brief.json",
+    "references.json",
+    "editable .blend",
+    "original generator or editable source",
+    "exact final .glb",
+    "four exact-GLB QA images front/side/top/perspective",
+    "technical measurements + independent review evidence",
+    "one file hash manifest"
+  ],
+  "prohibited": [
+    "No GitHub upload/PR/deploy from this task. Private process/reference evidence only.",
+    "Do not reuse or recolor Edaphosaurus geometry; one genus ID only. Stop if same-taxon historical candidate is found."
+  ],
+  "revision_scope": {
+    "parent_revision": "r001",
+    "required_issue": "DIM-R001-ROOT-01",
+    "allowed_changes": [
+      "EXPORT collection and dimetrodon identity EMPTY root",
+      "Root-parent four unchanged mesh children",
+      "Explicit shared-helper export contract and standard preview recipe",
+      "Authorized minimum topology collapse of the inherited 2.760789e-11 m2 foot palette-cut sliver; shared numerical thresholds unchanged"
+    ],
+    "unchanged": [
+      "All retained endpoint coordinates outside the recorded single micro-collapse",
+      "External macroscopic silhouette",
+      "PBR materials and colors",
+      "Nominal scale and ground origin",
+      "34 editable original lofts"
+    ],
+    "views": "Four fresh exact-GLB canonical views. Previews now use shared Standard/None profile; do not claim image pixels unchanged from r001 AgX.",
+    "strict_geometry_identity": false,
+    "authorization": "Coordinator instructed minimal geometry repair instead of lowering helper default thresholds; preserve FAIL and compare exact changed geometry."
+  }
+}

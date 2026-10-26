@@ -1,0 +1,131 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "acanthodes",
+  "revision": "r002",
+  "name": {
+    "en": "Acanthodes — A. lopatini-inspired adult",
+    "zh": "棘鱼 Acanthodes（A. lopatini 成年形态）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original small living Acanthodes lopatini, anchored species-level articulated specimens and primary lateral/ventral reconstruction. Not generic spiny shark or species-name color variant.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Acanthodes lopatini",
+    "context": "Early Carboniferous Tournaisian, southern central Siberia; not Permian A.bronni.",
+    "anchors": [
+      "Beznosov2009 neotype LP-42/1",
+      "Paratypes LP-42/2, LP-42/3 and LP-42/13",
+      "Fig7 primary species reconstruction"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.1,
+    "maximum_body_height_m": 0.0167,
+    "head_including_gill_region_m": 0.02,
+    "maximum_width_m": 0.012,
+    "pectoral_spine_length_m": 0.012,
+    "basis": "Artist nominal adult10cm within paper60–120mm adult material, broad height1/6 and head1/5 proportions; width/soft volumes artist choice. Spines target article proportion ranges, not one exact specimen."
+  },
+  "pose": "Neutral straight-bodied horizontal swim, paired pectoral spines extend backward/outward below head; no stand or floor support.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "acanthodes",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Primary species is A.lopatini, not a mixed A.bronni/A.sulcatus generalized skull-body composite. Existing inventory broad Carboniferous/Permian range narrowed to this species Tournaisian.",
+    "Fossils flattened/ventrolaterally buried; anterior fusiform and posterior compressed form supported qualitatively, exact width and soft surface are art.",
+    "Fig7 shows anatomical structures including internal gill arches and otoliths; do NOT expose them through living skin or turn diagram labels/lines into external armor.",
+    "The apparent extra pelvic pair is prohibited: paper identifies the ventral fin spine as UNPAIRED. Only pectoral spines are paired.",
+    "Adult coverage of fine scales does not require individual scale meshes; subdued continuous facets, no Dapedium-style giant armor plates.",
+    "Colors, exact fin-web translucency/soft margins and eyeball surface are unknown; use restrained opaque original artwork. Mouth closed, no invented teeth.",
+    "Caudal axial lobe varies between specimens; small distal lobe and asymmetric tail follow source, but no exaggerated shark upper scythe. Do not reproduce specimen malformation in Fig4L."
+  ],
+  "morphology": [
+    {
+      "id": "body-head",
+      "obligation": "Slender fusiform anterior body with head/gill region about1/5 total and body depth about1/6; posterior body laterally compressed. Rounded blunt head, two relatively large anterior eyes, compact closed mouth. No long snout or separate spherical eyeballs.",
+      "source": "Beznosov2009 adult description and Fig7."
+    },
+    {
+      "id": "spines",
+      "obligation": "Exactly FIVE leading-edge fin spines: two long paired pectoral; one smaller midline ventral; one anal; one dorsal. Pectorals slightly sabre-curved, not rigid straight antennae. Ventral spine20–45% of pectoral length; dorsal/anal roughly65–85% of pectoral and similar to each other.",
+      "source": "Adult diagnosis p186 and spine description p190; actual Fig2/3/4/7 pixels."
+    },
+    {
+      "id": "fin-placement",
+      "obligation": "Single dorsal fin near rear, origin slightly posterior to anal origin. One long shallow midline ventral fin between pectoral region and anal, its small anterior spine closer to anal than pectoral. Pectoral soft webs understated behind leading spines. NO paired pelvic fins, no second dorsal, no extra belly spine pairs.",
+      "source": "Primary Fig7 side AND ventral views; adult diagnosis."
+    },
+    {
+      "id": "tail",
+      "obligation": "Asymmetric caudal contour with near-horizontal dorsal edge and stronger downward ventral lobe; retain small distal axial extension. Continuous tapered body-tail transition, not symmetric V-fork or separately attached triangle.",
+      "source": "Paper p187, Fig4L variability and Fig7."
+    },
+    {
+      "id": "surface",
+      "obligation": "Tiny scales only suggested by subtle facets across adult trunk/head and median fins; continuous fine surface. Paired pectoral fin webs generally not scaled. Fin roots and spine bases must read integrated.",
+      "source": "Adult squamation paragraph p191, not preserved pigmentation."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective; side must show dorsal origin behind anal and single shallow ventral fin; front/top confirm just one paired spine set and slender volumetric body. Perspective verifies spine roots, finite webs and tail asymmetry.",
+    "Count five spines explicitly in geometry report. Single ventral spine/fan on midline, NOT bilateral pelvic pair. If underside hidden, targeted belly diagnostic permitted rather than default8views.",
+    "Reconstruct living exterior: no exposed otoliths/gill skeleton/fossil cracks or outline labels from Fig7. Eyes integrated, not giant beads.",
+    "Thin solids with outward normals and single-sided culling; spine tips may be artist-thickened only enough to survive lowpoly views; disclose actual dimensions. No DoubleSide rescue.",
+    "Two COMPLETE deterministic builds, shared helper, semantic digest comparison, clean-import4views, native/export/validator reports, independent morphology QA. Full production/GPU/user approval remains separate."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "repair_scope": {
+    "finding": "ACAN-01",
+    "change": "Pectoral web cap topology only: matched explicit XY-projected cap triangulation and closed explicit side-wall triangles. Existing perimeter/positions/constantZ thickness preserved. Both mirrored caps tested.",
+    "preserved": "All other source geometry, five spines, single midline ventral fin, scale, palette, canonical helpers.",
+    "base_brief_sha256": "305cd567c01d070fa3befe39603f943e27e7770e52b5467d81971f59f6cb5338",
+    "independent_failure_sha256": "dc8b3fe7ba54618f6fe7f6b872c9306f380abfea9e3ff99572af8a5f0b9bea49"
+  }
+}

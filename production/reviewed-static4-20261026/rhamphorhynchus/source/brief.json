@@ -1,0 +1,312 @@
+{
+  "template_version": "model-task-v2",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "4500–8500; ceiling not target",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "coordinates": {
+    "up": "+Z",
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Local ground/bounds datum at lowest exported animal surface Z=0; horizontal body center X=Y=0. Static airborne pose, this is NOT a ground-contact or flight-height claim.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ]
+  },
+  "authoring_profile": "static-stylized-v1 explicit profile; local maker repair plus pending formal production gates",
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "alpha_mode": "OPAQUE",
+    "materials": "Original restrained natural palette; no source pixels, copied reconstruction palette or fossil mineral colors.",
+    "normal_style": "Quiet softly faceted body; smooth controlled wing surfaces; no feather fans or actinofibril microgeometry."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Four cheap clay views before polish: wingfinger/continuous membrane attachment, toothed slender head, long stiff tail and vertical diamond vane. Final views must clean-import exact GLB.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB. Perspective and preview may reuse identical bytes.",
+    "extra_views": "None by default; add a local view only for a specific unresolved issue.",
+    "website_reuse": "Website renderer/camera configuration has not been verified during prep. Keep canonical QA directions, do not claim website compatibility, and do not produce 768x432 derivatives here."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture or buffer dependencies. Maker records observed Blender, exporter and consuming Three.js versions."
+  },
+  "asset_id": "rhamphorhynchus",
+  "revision": "r002",
+  "name": {
+    "en": "Rhamphorhynchus muensteri-inspired form",
+    "zh": "喙嘴翼龙（R. muensteri 启发形态）"
+  },
+  "representation": "living-reconstruction",
+  "scope": "Existing planned genus ID; original static whole-animal evidence-informed stylization, not scanned specimen, flight simulation or species-exact replica.",
+  "preparation_status": "FROZEN_R002_REPAIR_AND_EXPLICIT_STATIC_PROFILE",
+  "taxon": {
+    "scientific_name": "Rhamphorhynchus muensteri",
+    "context": "Late Jurassic Solnhofen/Eichstaett southern Germany; no coexistence with generic dinosaurs implied.",
+    "primary_anchors": [
+      "JME SOS4784 Dark Wing, Elgin et al. 2011 Figs3A/4A",
+      "NHMUK PV OR37787, OR37003 and NMS G.1994.13.1 tail vanes, Jagielska et al. 2024 Fig2"
+    ]
+  },
+  "scale": {
+    "unit": "meter",
+    "nominal_wingspan_m": 1.2,
+    "nominal_head_length_m": 0.12,
+    "nominal_body_plus_neck_length_m": 0.2,
+    "nominal_tail_length_m": 0.35,
+    "nominal_vane_length_m": 0.075,
+    "nominal_vane_height_m": 0.045,
+    "nominal_body_width_m": 0.065,
+    "basis": "Art nominal proportions, not measurement of one specimen. 1.2m span contextualized by OR37787 estimate; other values a conservative art fit across specified specimens.",
+    "uniform_scale_only": true,
+    "measurement_rule": "Report span and nose-tail centerline separately from posed bounds. Do not use article 700/750/720mm vane typo: these conflict with stated 320–362mm total tail and figure scale bars."
+  },
+  "pose": {
+    "description": "Static near-level gliding presentation, wings spread laterally +X/-X with mild elbow bend and very slight dihedral; head -Y, tail +Y. Long tail nearly straight, not dog curl. Hindlegs gently trailing/spread; not dragging or quadruped pose. No stand/terrain, prey or fishing behavior.",
+    "limits": "Glide is an inspectable art pose, not solved aerodynamic performance."
+  },
+  "scientific_limits": [
+    "No fossil pigment, pelage distribution, lip coverage, exact muscle volume or membrane thickness claimed. Restrained matte surface is stylization; no naked-skin scientific claim.",
+    "Wing proximal attachment follows Elgin2011 lower-leg/ankle-supported interpretation; exact chord curvature, tension, camber and hind-membrane extent remain reconstructive. Do not copy taphonomically shrunken or torn wing margins.",
+    "Composite evidence-based art, not one fossil. Different specimens and ontogenetic stages are not interchangeable exact proportions. Vane chosen as diamond-like mature form rather than juvenile oval.",
+    "Tail vane is thin, tall and sagittal/vertical, not horizontal fish fluke. Fibrous internal lattice is not an exposed bony comb; omit submillimeter detail.",
+    "Jagielska text has inconsistent vane lengths (700/750/720mm versus 320–362mm total tail); no literal adoption. Nominal 75mm vane is art choice informed by 1cm figure scale, not corrected author data.",
+    "Hone2015 PeerJ request returned403 and PMC challenge; not used as a fully-read source, no retry/bypass.",
+    "No rig, aerodynamic validation, collision, populated-world GPU costs or deployment proven."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Elongate narrow pointed jaws with distinct cranium/eye region and a small toothless terminal tip. Sparse long forward-angled conical teeth behind the tip, interleaving without collisions; no duck bill, massive crest, generic bird beak, or crocodile tooth comb. A shallow relaxed jaw opening may make dentition inspectable.",
+      "source": "Elgin2011 Fig3A fossil and Fig4A outline; Jagielska specimen descriptions for anterior dentition. Exact tooth count not asserted."
+    },
+    {
+      "id": "wings",
+      "obligation": "Two integrated membrane wings. Short upper arm and forearm lead to wrist, then ONE long fourth-digit-supported outer leading edge per wing with successive bends. Broad proximal membrane continues to torso/hindleg near lower leg/ankle. Distal wing narrows to rounded point; continuous leading/trailing rims, no feather layers, fan of bat finger struts, or triangular disconnected sail panels.",
+      "source": "Elgin2011 anatomy section, Figs3A/4A and lower-leg attachment discussion."
+    },
+    {
+      "id": "hands",
+      "obligation": "Keep three small free clawed manual digits near each wrist, distinct from long wing finger. Tiny coherent details rather than oversized decorative claws.",
+      "source": "Elgin2011 Fig4A and wing skeletal architecture; simplified soft volumes."
+    },
+    {
+      "id": "tail",
+      "obligation": "Long slim reinforced-looking tail with quiet tapered surface; terminal vertically oriented diamond/leaf vane, integrated around tail axis. Broadest near middle-to-distal region, tapering both ends, softly rounded edge. No exposed lattice rods or spade-on-stick abrupt joint.",
+      "source": "Jagielska2024 Fig2A–C actual LSF specimens; do not copy Fig2E artwork."
+    },
+    {
+      "id": "trunk_feet",
+      "obligation": "Compact coherent trunk, short neck, two slender hindlimbs ending in small clawed feet. Four small main toe rays plus a modest elongated fifth ray supporting interpretive hind membrane; avoid treating fifth toe as another giant grasping claw. Keep a conservative small hind membrane rather than oversized bat-tail web.",
+      "source": "Elgin2011 comparative membrane anatomy and Dark Wing figure; exact hind membrane outline remains art interpretation."
+    }
+  ],
+  "art_direction": {
+    "palette": "4–6 opaque materials: muted warm gray/brown body, subdued ochre wing surface, darker thin rim, restrained eye and ivory dentition/claws. No source-image pixel use.",
+    "construction": "Original curved membrane mesh with solid rim and finite thickness (art 0.0015–0.003m). Quiet broad planar highlights; coherent shoulder/wrist roots, no rods visibly glued to sheets. Body faceting deliberate not bead chain.",
+    "detail_policy": "Spend budget on head/wing attachment and vane silhouette. Do not model microscopic actinofibrils, fossil cracks or sediment. No borrowed reconstruction silhouette/mesh tracing."
+  },
+  "acceptance_obligations": [
+    "Maker opens local primary fossil figure PNGs and reads source limits before modeling; independently inspect four graybox views before materials.",
+    "Final QA front camera -Y: paired wing roots, no disconnected shoulder membranes, plausible narrow head and wings without feather/bat fingers; side +X: head profile/teeth and long tail terminating in vertical diamond vane; top +Z: wing planform, ankle-side attachments, bilateral topology, tail nearly straight and vane edge-on; perspective (1,-1,1): coherent original animal and readable head-wing-tail distinction.",
+    "Exactly two wings, two hindlimbs, three free hand digits each; no accidental extra limbs, duplicate tooth spikes, folded-through membrane, zero-area tip shards, floating eyes or detached vane. Inspect targeted closeup only if four main views cannot resolve the point.",
+    "Technical: clean-import exactGLB, correct meters/axes, finite transforms, complete opaque embedded materials, no external textures/buffers; source .blend reopens; record actual tris/materials/primitives/bytes and bounds.",
+    "At most12000 triangles,8 materials,48 primitives,4MiB GLB. 4500–8500 target only if morphology warrants. Independent reviewer separate from maker.",
+    "Static animal acceptance only; no claims of rigging, animation, aerodynamic performance, populated scene readiness, user acceptance or release."
+  ],
+  "deliverables": [
+    "brief.json",
+    "references.json",
+    "original editable .blend and generator/source",
+    "exact delivered .glb",
+    "four canonical clean-import exactGLB PNGs",
+    "technical measurements and separate independent QA",
+    "one SHA256 file manifest"
+  ],
+  "prohibited": [
+    "No public upload, GitHub write, PR or deploy. Parent handles authorized private backup.",
+    "Do not use existing Pterodaustro/Quetzalcoatlus or museum artwork as recolor/template geometry. Stop if a prior same-taxon lowpoly candidate emerges."
+  ],
+  "schema_version": 1,
+  "brief_version": "r002",
+  "profile": "production",
+  "validation_profile": "static-stylized-v1",
+  "profile_rule_version": "2026-10-18.1",
+  "publication_authority": "separate",
+  "required_stages": [
+    "technical",
+    "visual",
+    "factual",
+    "specification",
+    "runtime_parse",
+    "gpu",
+    "scene"
+  ],
+  "required_views": [
+    "hero",
+    "reversehero",
+    "front",
+    "side",
+    "rear",
+    "top",
+    "clay",
+    "silhouette"
+  ],
+  "turntable_frames": 0,
+  "coverage_justification": "Parent explicitly requested the static-profile route for this evidence-informed repair. Exactly eight distinct named fixed views are rendered; canonical perspective, alternate-key clay, actual triangulated wireframe and head details are additional evidence, not relabeled substitutes. GPU and scene stages remain required for full production approval, but are unrun integration gates. This does not retrospectively convert r001 or invent pre-model ImageGen provenance.",
+  "view_exemptions": {},
+  "texture_policy": {
+    "max_textures": 0,
+    "max_dimension": 0,
+    "max_total_bytes": 0,
+    "max_decoded_bytes": 0
+  },
+  "repair_scope": {
+    "finding": "RHAM-01",
+    "prior_decision": "REPAIR_REQUIRED",
+    "change": "Embed all 18 roots into actual closed jaw surfaces and use continuous conical crowns preserving original tip locations. Keep non-dentition geometry unchanged.",
+    "reviewer_status": "OPEN_PENDING_INDEPENDENT_RECHECK"
+  },
+  "additional_views": [
+    "canonical-perspective",
+    "exact-clay-alt",
+    "exact-triangulated-wireframe",
+    "head-side",
+    "head-perspective"
+  ],
+  "formal_route_notes": "Historical policy is a parser pin only. Current scope overrides it: no GitHub upload, PR, merge or deployment authorized. Current model-task-v2 output mapping is supplemental, not an equivalence waiver.",
+  "criteria": [
+    {
+      "id": "technical-acceptance",
+      "stage": "technical",
+      "critical": true,
+      "description": "Exact static GLB, official validator, source/export identity and complete procedural rebuild, bounded units and budgets.",
+      "required_sources": []
+    },
+    {
+      "id": "visual-acceptance",
+      "stage": "visual",
+      "critical": true,
+      "description": "Inspect static eight-view profile and additional exactGLB diagnostics, continuous conical implanted roots, sparse separate crowns, original wing/tail regressions.",
+      "required_sources": [
+        "ELGIN2011",
+        "JAGIELSKA2024"
+      ]
+    },
+    {
+      "id": "factual-head",
+      "stage": "factual",
+      "critical": true,
+      "description": "Elongate narrow pointed jaw, toothless tips, sparse forward-angled teeth with actual jaw attachment; dental count remains artistic.",
+      "required_sources": [
+        "ELGIN2011",
+        "JAGIELSKA2024"
+      ]
+    },
+    {
+      "id": "factual-wings",
+      "stage": "factual",
+      "critical": true,
+      "description": "Two continuous ankle/lower-leg attached membranes, single long digit IV leading edge, no feathers or bat-finger fan.",
+      "required_sources": [
+        "ELGIN2011"
+      ]
+    },
+    {
+      "id": "factual-hands-feet",
+      "stage": "factual",
+      "critical": true,
+      "description": "Three free wrist digits; two hindlimbs with four main rays and modest fifth support; conservative hind membrane.",
+      "required_sources": [
+        "ELGIN2011"
+      ]
+    },
+    {
+      "id": "factual-tail",
+      "stage": "factual",
+      "critical": true,
+      "description": "Long thin near-straight tail and thin sagittal diamond/leaf vane; do not expose internal lattice as bones.",
+      "required_sources": [
+        "JAGIELSKA2024"
+      ]
+    },
+    {
+      "id": "specification-acceptance",
+      "stage": "specification",
+      "critical": true,
+      "description": "All bounded brief obligations, source roles, private reference provenance, native hierarchy and preservation of r001 failure; no approval or publication implied.",
+      "required_sources": []
+    },
+    {
+      "id": "runtime_parse-acceptance",
+      "stage": "runtime_parse",
+      "critical": true,
+      "description": "Exact bytes parsed using pinned Three.js GLTFLoader and bounds measured; not GPU proof.",
+      "required_sources": []
+    },
+    {
+      "id": "gpu-acceptance",
+      "stage": "gpu",
+      "critical": true,
+      "description": "Actual authorized target graphics runtime and reviewed frames required before formal production approval; presently unrun.",
+      "required_sources": []
+    },
+    {
+      "id": "scene-acceptance",
+      "stage": "scene",
+      "critical": true,
+      "description": "Actual composed scene, scaling and measured work required for production/integration approval; presently unrun.",
+      "required_sources": []
+    }
+  ],
+  "required_deliverables": [
+    {
+      "role": "source",
+      "path": "rhamphorhynchus-r002.blend",
+      "sha256": "2e735ea0335d31e2fa41252eb81c14f7d4db93cc7adb68df9af10c1add29aef2"
+    },
+    {
+      "role": "generator",
+      "path": "scripts/build_rhamphorhynchus.py",
+      "sha256": "7084fc612c71dc3aaf4e3f93e60097cff54d3b75cb53f1c760e1ab08b777d76f"
+    },
+    {
+      "role": "config",
+      "path": "generator-config.json",
+      "sha256": "9ce8c5591c6621ea08bf72045646ff328ed45460cb9c4b9b91a6e8b9642252f5"
+    },
+    {
+      "role": "dependencies",
+      "path": "dependency-list.json",
+      "sha256": "4874c8a7ba06c9e3db44884237b677db2df3ca7c73cd928bddfc70984fbff690"
+    }
+  ]
+}

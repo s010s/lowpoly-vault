@@ -1,0 +1,29 @@
+{
+  "revision": "r002",
+  "blender_version": "4.3.2",
+  "blender_threads": 4,
+  "body_voxel_m": 0.0027,
+  "body_pre_palette_target_triangles": 5500,
+  "canonicalization": {
+    "vertex_order": "lexicographic exact float32 coordinates",
+    "face_order": "material index, outward-winding-preserving cyclic minimum index tuple",
+    "before_smooth_decimate": true,
+    "before_export": "canonical polygons then triangulate then canonical triangles",
+    "coordinate_quantization": false,
+    "external_mesh_cache": false
+  },
+  "materials": {
+    "closed_surface_single_sided": true,
+    "backface_culling": true
+  },
+  "procedural_inputs": "Original this-task Dimetrodon lofts only. Generic canonical_mesh algorithm reused with permission from adjacent Carnotaurus r002; no anatomical geometry reused.",
+  "seed": 0,
+  "packaging": {
+    "collection": "EXPORT",
+    "root": "dimetrodon",
+    "root_type": "EMPTY",
+    "identity_root_and_children": true,
+    "source_lofts_exported": false
+  },
+  "baseline_glb_sha256": "9f409b82bebea9418eff868dc8d9c28ba74a36aa4c2ace5fda593fd482874808"
+}
