@@ -77,6 +77,17 @@ jobs:
       - run: node site/ci-install-chromium.mjs
         id: install
         if: success() && steps.verify.outcome == 'success'
+      - name: Actual public identity and state checks with same-runtime visual review reuse
+        id: right_detail
+        if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
+        env:
+          DETAIL_BROWSER_TARGET: public
+          QA_OUTPUT_DIR: qa/detail-browser-public
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node site/detail-visual-acceptance.mjs --public-binding
+          DETAIL_BROWSER_PROFILE=public-reviewed-state node site/detail-presentation-browser-test.mjs
+          DETAIL_BROWSER_PROFILE=public-reviewed-state node site/detail-presentation-browser-test.mjs --verify-evidence
       - name: Runtime entry lifecycle and thumbnail transition regressions
         id: runtime_regression
         if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
@@ -91,17 +102,6 @@ jobs:
         id: shared
         if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
         run: node site/ci-post-release-shared.mjs
-      - name: Actual public identity and state checks with same-runtime visual review reuse
-        id: right_detail
-        if: always() && steps.verify.outcome == 'success' && steps.install.outcome == 'success'
-        env:
-          DETAIL_BROWSER_TARGET: public
-          QA_OUTPUT_DIR: qa/detail-browser-public
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          node site/detail-visual-acceptance.mjs --public-binding
-          DETAIL_BROWSER_PROFILE=public-reviewed-state node site/detail-presentation-browser-test.mjs
-          DETAIL_BROWSER_PROFILE=public-reviewed-state node site/detail-presentation-browser-test.mjs --verify-evidence
       - name: Always summarize every prerequisite and runtime outcome
         id: summary
         if: always()

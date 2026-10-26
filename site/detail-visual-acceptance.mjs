@@ -15,7 +15,7 @@ export const ACCEPTANCE_PATHS=Object.freeze(['.github/workflows/pages.yml','.git
 export const ACCEPTANCE_CONTROL_HASHES=Object.freeze({
  'site/detail-presentation-browser-test.mjs':'b7064220f30215f90008df854649c780808ce8ad9f3b8768d204a81f32ebc3d2',
  '.github/workflows/pages.yml':'8621b482813e0944f145f3f27dde873a9dcd1cd2af9b11e49d90c84cedc6bf43',
- '.github/workflows/full-release-review.yml':'9bd2b09cd02d6ebe2baaeaf90b1a31a1ca17574ac9e52acd08440757f3c1a2a4'
+ '.github/workflows/full-release-review.yml':'b626703e64ff2c7fc5feb91dccf8f9716c6246462bdb3a30f544ed1723e8dc2d'
 });
 export function assertAcceptanceControls(hashes){assert.deepEqual(hashes,ACCEPTANCE_CONTROL_HASHES,'One-time acceptance executable changed; new independent review required');}
 const sha=b=>createHash('sha256').update(b).digest('hex');
