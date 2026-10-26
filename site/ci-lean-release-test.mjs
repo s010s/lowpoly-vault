@@ -103,7 +103,42 @@ try{
  await module.collectTurntables(manifest,root);assert.equal(production.calls,1,'One collection per descriptor, not per model');
  const wrong=structuredClone(manifest);wrong.assets[1].unbound=true;await assert.rejects(module.collectTurntables(wrong,root));
  const pages=await readFile('.github/workflows/pages.yml','utf8'),pub=await readFile('.github/workflows/publication-regressions.yml','utf8');
- assert.equal((pages.match(/run: node site\/ci-build-release.mjs/g)||[]).length,1);assert(!/ci-production-release-check.mjs|ci-release-fast-path.mjs|CI_PUBLICATION_RECEIPT/.test(pages));
+ // Parse the bounded, literal build step rather than assuming a one-line YAML run.
+ // Fail closed on shell wrappers, conditionals, ignored failures or extra commands.
+ const buildCommands=[
+  'node site/detail-capture-provenance-test.mjs','node site/detail-presentations-test.mjs',
+  'node site/detail-presentations-audit-test.mjs','node site/detail-pixels-test.mjs',
+  'node site/detail-capture-delta-test.mjs','node site/detail-capture-authority-test.mjs',
+  'node site/detail-presentation-contract.mjs','node site/ci-build-release.mjs',
+ ];
+ function assertMandatoryBuild(workflow){
+  const steps=workflow.split(/(?=^      - )/m);
+  const matches=steps.filter(step=>/^        id: build$/m.test(step));
+  assert.equal(matches.length,1,'Exactly one build step');
+  const step=matches[0];
+  assert(!/^        (?:if|continue-on-error|shell):/m.test(step),'No build bypass or custom shell');
+  const run=step.match(/^        run: \|\n((?:          [^\n]*\n)+)/m);
+  assert(run,'Build must use a literal ordered command block');
+  assert.deepEqual(run[1].trimEnd().split('\n').map(line=>line.slice(10)),buildCommands,
+   'Mandatory detail checks must succeed before the exactly-once build');
+  for(const command of [buildCommands.at(-2),buildCommands.at(-1)])
+   assert.equal(workflow.split(command).length-1,1,`${command} occurs exactly once`);
+ }
+ assertMandatoryBuild(pages);
+ const contract='          node site/detail-presentation-contract.mjs\n';
+ const build='          node site/ci-build-release.mjs\n';
+ for(const [name,mutated] of [
+  ['missing contract',pages.replace(contract,'')],
+  ['contract after build',pages.replace(contract+build,build+contract)],
+  ['duplicate build',pages.replace(build,build+build)],
+  ['ignored contract failure',pages.replace(contract,contract.trimEnd()+' || true\n')],
+  ['conditional contract',pages.replace(contract,'          if false; then node site/detail-presentation-contract.mjs; fi\n')],
+  ['conditional step',pages.replace('        id: build\n','        id: build\n        if: false\n')],
+  ['ignored step failure',pages.replace('        id: build\n','        id: build\n        continue-on-error: true\n')],
+  ['custom non-failing shell',pages.replace('        id: build\n','        id: build\n        shell: bash {0}\n')],
+  ['duplicate build step',pages.replace('        id: contracts\n','        id: build\n')],
+ ])assert.throws(()=>assertMandatoryBuild(mutated),undefined,name);
+ assert(!/ci-production-release-check.mjs|ci-release-fast-path.mjs|CI_PUBLICATION_RECEIPT/.test(pages));
  assert.match(pages,/needs: \[build, publication\]/);assert.match(pub,/name: Require every publication suite/);assert(!/matrix:|shard: \[/.test(pub));
  console.log('PASS lean release: scope selection, exactly-once ordered build, all seven failure stops, same in-memory checked results, no four empty shard jobs.');
 }finally{await rm(root,{recursive:true,force:true});}

@@ -1,7 +1,7 @@
 import {successorReader,historicalManifestView,historicalGalleryView,historicalTurntableView} from './same-id-successors.mjs';
 /** Test-only isolated historical manifest. Never relax or alter original rejection suites. */
 import assert from 'node:assert/strict';
-import {readFileSync,writeFileSync,mkdirSync,mkdtempSync,copyFileSync,constants,existsSync,symlinkSync,unlinkSync,rmSync,lstatSync,readdirSync,readlinkSync,realpathSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync,mkdtempSync,copyFileSync,constants,existsSync,symlinkSync,unlinkSync,rmSync,lstatSync,readdirSync,readlinkSync,realpathSync,openSync,closeSync,fstatSync} from 'node:fs';
 import {dirname,resolve,join,relative,sep} from 'node:path';
 import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
@@ -28,6 +28,34 @@ function privateCopy(source,target){
 }
 function dependencyInventory(root){
  const records=[];const walk=path=>{for(const name of readdirSync(resolve(root,path)).sort()){const rel=path?path+'/'+name:name,full=resolve(root,rel),stat=lstatSync(full);if(stat.isSymbolicLink()){const target=readlinkSync(full),resolved=resolve(dirname(full),target);assert(resolved.startsWith(root+sep),'Dependency link escapes private tree: '+rel);records.push({path:rel,target});}else if(stat.isDirectory())walk(rel);else{assert(stat.isFile());records.push({path:rel,sha256:hash(readFileSync(full)),mode:stat.mode&0o7777,bytes:stat.size});}}};walk('');return records;
+}
+// FD 3 is an unlinked, parent-owned handoff, never an environment bypass flag.
+// The child rechecks every tracked input is private before any destructive test.
+export function claimHistoricalFixture(suite){
+ if(!process.argv.includes('--reuse-private-historical-fixture'))return null;
+ assert.equal(suite,'concept-landair-release','Only the nested full-copy suite may reuse its private fixture');
+ const fd=fstatSync(3);assert(fd.isFile()&&fd.uid===process.getuid()&&fd.nlink===0,'Handoff must be an unlinked parent-owned regular file');
+ const handoff=JSON.parse(readFileSync(3,'utf8'));
+ assert.equal(handoff.kind,'private-historical-fixture-v1');assert.equal(handoff.suite,suite);
+ assert.equal(handoff.parent_pid,process.ppid,'Private fixture must come from this process parent');
+ const root=realpathSync(process.cwd()),source=realpathSync(handoff.source);
+ assert.equal(handoff.fixture,root);assert.notEqual(root,source);
+ assert(!root.startsWith(source+sep)&&!source.startsWith(root+sep),'Private fixture and checkout must be separate trees');
+ const owner=lstatSync(root);assert(owner.isDirectory()&&!owner.isSymbolicLink());
+ assert.equal(owner.uid,process.getuid());assert.equal(owner.dev,handoff.device);assert.equal(owner.ino,handoff.inode);
+ assert(Array.isArray(handoff.paths)&&handoff.paths.includes('assets/manifest.json')&&handoff.paths.includes(`site/${suite}-test.mjs`));
+ const inventory=cwd=>execFileSync('git',['ls-files','-z'],{cwd,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean);
+ assert.equal(new Set(handoff.paths).size,handoff.paths.length,'Duplicate private fixture paths');
+ assert.deepEqual(handoff.paths,inventory(source),'Handoff must cover the complete source inventory');
+ assert.deepEqual(handoff.paths,inventory(root),'Private fixture index must match source inventory');
+ for(const path of handoff.paths){
+  assert(typeof path==='string'&&path&&!path.startsWith('/')&&!path.split('/').some(p=>!p||p==='.'||p==='..'));
+  const original=resolve(source,path),copy=resolve(root,path),a=lstatSync(original),b=lstatSync(copy);
+  assert(a.isFile()&&b.isFile()&&!a.isSymbolicLink()&&!b.isSymbolicLink());
+  assert.equal(realpathSync(copy),copy);assert.equal(realpathSync(original),original);
+  assert(a.dev!==b.dev||a.ino!==b.ino,'Private fixture aliases checkout inode: '+path);
+ }
+ return root;
 }
 export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tmpdir()}={}){
  assert(HISTORICAL_PUBLICATION_SUITES.includes(name),'Unsupported historical suite');
@@ -58,9 +86,19 @@ export async function runHistoricalSuite(name,{source=process.cwd(),temporary=tm
   execFileSync('git',['read-tree',sourceCommit],{cwd:fixture,env:environment});
   assert.deepEqual(execFileSync('git',['ls-files','-z'],{cwd:fixture,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean),paths,'Fixture index must preserve the real source inventory');
   mkdirSync(resolve(fixture,'node_modules'));for(const dep of dependencies){const target=resolve(fixture,'node_modules',dep.path);if(dep.target){mkdirSync(dirname(target),{recursive:true});const inside=relative(dirname(resolve(dependencyRoot,dep.path)),resolve(dirname(resolve(dependencyRoot,dep.path)),dep.target));symlinkSync(inside,target);}else privateCopy(resolve(dependencyRoot,dep.path),target);}
-  const result=spawnSync(process.execPath,[`site/${name}-test.mjs`],{cwd:fixture,stdio:'inherit',env:environment});if(result.error)throw result.error;
-  assert.equal(hash(readFileSync(resolve(source,'assets/manifest.json'))),hash(original),'Source manifest changed during isolated suite');
-  return result.status??1;
+  let handoffFd;
+  try{
+   const args=[`site/${name}-test.mjs`];
+   if(name==='concept-landair-release'){
+    const owner=lstatSync(fixture),handoffPath=resolve(fixture,'.git/private-fixture-handoff.json');
+    writeFileSync(handoffPath,JSON.stringify({kind:'private-historical-fixture-v1',suite:name,parent_pid:process.pid,source:realpathSync(source),fixture:realpathSync(fixture),device:owner.dev,inode:owner.ino,paths}),{flag:'wx',mode:0o600});
+    handoffFd=openSync(handoffPath,'r');unlinkSync(handoffPath);
+    args.push('--reuse-private-historical-fixture');
+   }
+   const result=spawnSync(process.execPath,args,{cwd:fixture,stdio:handoffFd===undefined?'inherit':['inherit','inherit','inherit',handoffFd],env:environment});if(result.error)throw result.error;
+   assert.equal(hash(readFileSync(resolve(source,'assets/manifest.json'))),hash(original),'Source manifest changed during isolated suite');
+   return result.status??1;
+  }finally{if(handoffFd!==undefined)closeSync(handoffFd);} 
  }finally{try{for(const before of snapshot){const full=resolve(source,before.path);assert.equal(hash(readFileSync(full)),before.sha256,'Source bytes changed: '+before.path);assert.equal(lstatSync(full).mode&0o7777,before.mode,'Source mode changed: '+before.path);}assert.deepEqual(dependencyInventory(dependencyRoot),dependencies,'Source installed dependencies changed');assert.deepEqual(execFileSync('git',['ls-files','-z'],{cwd:source,maxBuffer:64*1024*1024}).toString().split('\0').filter(Boolean),paths,'Source tracked inventory changed');}finally{rmSync(fixture,{recursive:true,force:true});}}
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){

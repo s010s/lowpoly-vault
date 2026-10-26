@@ -11,6 +11,7 @@ import { CATALOG_PAGE_SIZE } from './routes.js';
 import { CATALOG_SHARD_SIZE } from './catalog-build.mjs';
 import { assetFileAllowlist, creditText }  from './asset-delivery.mjs';
 import { auditGalleryAssets } from './gallery-assets.mjs';
+import {auditDetailPresentations} from './detail-presentations-audit.mjs';
 import {auditWheelPresentations} from './wheel-presentations-audit.mjs';
 import { readRegistry } from './model-registry-cli.mjs';
 import { syncRegistry } from './model-registry-sync.mjs';
@@ -56,6 +57,7 @@ async function walk(directory='') {
 const gallery=await auditGalleryAssets(source,{outputRoot:root,productionResults,requireComplete:process.env.REQUIRE_COMPLETE_GALLERY==='1'});
 expected.add('gallery/resources.json');for(const file of gallery.resources.files)expected.add(file.path);
 const wheels=await auditWheelPresentations(source,{outputRoot:root});for(const file of wheels.files)expected.add(file);
+const details=await auditDetailPresentations(source,{outputRoot:root});for(const file of details.files)expected.add(file);
 const files=await walk();
 for(const file of files) assert(expected.has(file)||/^assets\/(?:index|viewer|presentation|main|preload-helper|catalog-source|routes|bootstrap)-[A-Za-z0-9_-]+\.(?:js|css)$/.test(file),`Unexpected deployment file: ${file}`);
 for(const file of expected)assert(files.includes(file),`Missing deployment file: ${file}`);

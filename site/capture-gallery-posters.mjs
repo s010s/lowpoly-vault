@@ -1,4 +1,11 @@
 // BEGIN GALLERY POSTER V3 ORCHESTRATION
+// Single supported entry: this narrow migration uses the same runtime recipe.
+if(process.argv.includes('--detail-presentations')){
+ const delta=process.argv.find(arg=>arg.startsWith('--detail-ids='));
+ if(delta){const {captureDetailDelta}=await import('./detail-capture-delta.mjs');await captureDetailDelta(delta.slice('--detail-ids='.length).split(',').filter(Boolean));}
+ else {const {default:detailIndex}=await import('./gallery/detail-presentations-index.js');if(Object.keys(detailIndex.presentations||{}).length)throw new Error('Existing right deliveries require explicit --detail-ids for incremental capture; a full renderer migration needs separate review');await import('./capture-detail-presentations.mjs');}
+ process.exit(0);
+}
 import {preparePosterCapture,completePosterCapture} from './gallery-poster-orchestration.mjs';
 // END GALLERY POSTER V3 ORCHESTRATION
 /** Complete the published gallery using its actual approved browser renderer. */

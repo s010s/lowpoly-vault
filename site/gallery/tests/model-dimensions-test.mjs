@@ -3,6 +3,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import vm from 'node:vm';
 import {formatModelLength,modelHeight,dimensionDetails,dimensionNote,comparisonMeasurement,comparisonText} from '../model-dimensions.js';
 import {publishedModels} from './geometry-fixtures.mjs';
+import {validDetailPresentation,detailScreenFrame} from '../detail-presentation-policy.js';
 const root=new URL('./',import.meta.url),models=await publishedModels(),source=await readFile(new URL('../main.js',root),'utf8'),html=await readFile(new URL('../shell.html',root),'utf8');
 const checks=[];assert(models.length>0);
 const cycad=models.find(a=>a.id==='cycad');assert.equal(modelHeight(cycad),'1.37 m');assert.equal(dimensionDetails(cycad),'Height (Y): 1.37 m · Width (X): 2.11 m · Depth (Z): 2.17 m');assert.equal(dimensionDetails(cycad,'zh'),'高度 (Y)：1.37 m · 宽度 (X)：2.11 m · 深度 (Z)：2.17 m');checks.push('Exact cycad identity: 1.37 m height, 2.11 m width, 2.17 m depth in both languages');
@@ -50,7 +51,7 @@ assert.match(html,/id="dimensions"><\/strong><span data-en="Model height" data-z
 assert.doesNotMatch(source,/Math\.max\(\.\.\.asset\.dimensions\)/);assert.match(source,/\$\('#dimensions'\)\.textContent=modelHeight\(asset\);/);
 checks.push('Production main.js uses modelHeight, and index.html labels it Model height / 模型高度');
 class Node{
- constructor(){this.children=[];this.dataset={};this.attributes={};this.textContent='';this.hidden=false;this.style={};this.classList={add(){},remove(){}};}
+ constructor(){this.children=[];this.dataset={};this.attributes={};this.textContent='';this.hidden=false;this.style={removeProperty(name){delete this[name==='transform-origin'?'transformOrigin':name];}};this.classList={add(){},remove(){}};}
  append(...nodes){this.children.push(...nodes);}
  replaceChildren(...nodes){this.children=[...nodes];}
  setAttribute(name,value){this.attributes[name]=value;}
@@ -77,15 +78,17 @@ renderer.compare=function(){this.comparison=!this.comparison;return this.compari
 renderer.reset=function(){this.comparison=false;};
 renderer.select=async function(){this.comparison=false;return true;};
 renderer.detail={metric:{available:true}};
-Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},hover:{pause(){},refresh(){}},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:()=>({ready:Promise.resolve(true)}),mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
+Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},hover:{pause(){},refresh(){}},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:asset=>{const image=get('#detail-poster');Object.assign(image.dataset,{modelId:asset.id,source:'canonical',presentationFrame:'native-viewport-v2'});Object.assign(image.style,{transform:'stale',transformOrigin:'0 0'});return {ready:Promise.resolve(true)};},validDetailPresentation,detailScreenFrame,mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
 document.body=new Node();ui.filter={open:false};
-vm.runInContext(source.slice(source.indexOf('async function choose('),source.indexOf('function showError(')),context);
+const frameStart=source.indexOf('function updateSelectedPosterFrame(){'),frameEnd=source.indexOf('function selectPoster(',frameStart);assert(frameStart>=0&&frameEnd>frameStart);
+vm.runInContext(source.slice(frameStart,frameEnd)+source.slice(source.indexOf('async function choose('),source.indexOf('function showError(')),context);
 const resetStart=source.indexOf("$('#reset').onclick="),resetEnd=source.indexOf(";$('#retry').onclick=",resetStart);vm.runInContext(source.slice(resetStart,resetEnd)+';',context);
 const errorStart=source.indexOf('renderer.onReferenceError='),errorEnd=source.indexOf(';renderer.onInteraction=',errorStart);assert(errorEnd>errorStart);vm.runInContext(source.slice(errorStart,errorEnd)+';',context);
 const pointerHandlers=[];document.addEventListener=(name,handler)=>{if(name==='pointerdown')pointerHandlers.push(handler);};
 vm.runInContext(source.split('\n').find(line=>line.startsWith("document.addEventListener('pointerdown'")&&line.includes('ui.filter.open')),context);
 for(const lang of ['en','zh']){
  state.lang=lang;await vm.runInContext("choose('wave-ripple-surface',{push:false,openMobile:false});",context);
+ assert.equal(get('#detail-poster').style.transform,undefined);assert.equal(get('#detail-poster').dataset.presentationFrame,undefined,'real frame helper clears ordinary stale layout in both languages');
  assert.equal(get('#comparison-label').hidden,true);assert.equal(get('#compare').attributes['aria-pressed'],'false');assert.equal(get('#dimensions').textContent,'8.1 cm');
  renderer.kind='human';get('#compare').onclick();assert.equal(get('#comparison-label').textContent,comparisonText('human',lang,wave));
  get('#language').onclick();assert.equal(get('#comparison-label').textContent,comparisonText('human',state.lang,wave));

@@ -60,15 +60,15 @@ try{
  const workflow=readFileSync('.github/workflows/full-release-review.yml','utf8');assert.match(workflow,/Always summarize every prerequisite and runtime outcome[\s\S]*if: always\(\)/);assert.match(workflow,/id: shared\n        if: always\(\) && steps.verify.outcome == 'success' && steps.install.outcome == 'success'/);assert(!workflow.includes('continue-on-error'));assert.match(workflow,/Explicitly retain artifact upload failures/);checks++;
  const summaryScript=(yaml,tag)=>{const text=yaml.split(`python3 - <<'${tag}'\n`)[1].split('          '+tag)[0];return text.split('\n').map(line=>line.startsWith('          ')?line.slice(10):line).join('\n');};
  const runtimeSummary=summaryScript(workflow,'PY_SUMMARY'),productionSummary=summaryScript(readFileSync('.github/workflows/pages.yml','utf8'),'PY_STATIC_SUMMARY');
- for(const [script,names,folder,extra]of [[runtimeSummary,['checkout','setup','dependencies','receipt','scope','build','verify','install','browser','shared'],'post-release-summary',{UPSTREAM_CONCLUSION:'success',DEPLOYED_SHA:head,UPSTREAM_RUN_ID:'101',UPSTREAM_RUN_ATTEMPT:'2'}],[productionSummary,['checkout','setup','memo','dependencies','contracts','layered','brand','production','build','delivery','stamp','scope','scope_upload','built_upload','pages_artifact'],'production-summary',{GITHUB_EVENT_NAME:'push',GITHUB_REF:'refs/heads/main',GITHUB_SHA:head,GITHUB_RUN_ID:'101',GITHUB_RUN_ATTEMPT:'2'}]]){
+ for(const [script,names,folder,extra]of [[runtimeSummary,['checkout','setup','dependencies','receipt','scope','build','verify','install','runtime_regression','browser','shared','right_detail'],'post-release-summary',{UPSTREAM_CONCLUSION:'success',DEPLOYED_SHA:head,UPSTREAM_RUN_ID:'101',UPSTREAM_RUN_ATTEMPT:'2'}],[productionSummary,['checkout','setup','dependencies','contracts','build','right_detail_install','right_detail','right_detail_artifact','stamp','scope','scope_upload','built_upload','pages_artifact'],'production-summary',{GITHUB_EVENT_NAME:'push',GITHUB_REF:'refs/heads/main',GITHUB_SHA:head,GITHUB_RUN_ID:'101',GITHUB_RUN_ATTEMPT:'2'}]]){
   for(let index=0;index<names.length;index++){
    const steps=Object.fromEntries(names.map((name,i)=>[name,{outcome:i<index?'success':i===index?'failure':'skipped'}]));
    // Shared regressions still run after an independently failed public browser.
    if(names[index]==='browser')steps.shared.outcome='success';
    const result=spawnSync('python3',['-c',script],{encoding:'utf8',env:{...process.env,...extra,STEP_OUTCOMES:JSON.stringify(steps),RUNNER_TEMP:root,GITHUB_STEP_SUMMARY:join(root,'summary.txt')}});assert.equal(result.status,0,result.stderr);
    const report=JSON.parse(readFileSync(join(root,folder,'report.json')));assert.equal(report.status,'FAIL');assert.equal(report.failed_phase,names[index]);assert.equal(report.expected_source,head);
-   if(folder==='post-release-summary'&&index<8)assert.deepEqual(report.downstream,{browser:'NOT_RUN',shared:'NOT_RUN'});
-   if(names[index]==='browser')assert.deepEqual(report.downstream,{browser:'FAIL',shared:'success'});checks++;
+   if(folder==='post-release-summary'&&index<8)assert.deepEqual(report.downstream,{browser:'NOT_RUN',shared:'NOT_RUN',right_detail:'NOT_RUN'});
+   if(names[index]==='browser')assert.deepEqual(report.downstream,{browser:'FAIL',shared:'success',right_detail:'NOT_RUN'});checks++;
   }
  }
  console.log(`PASS deployment repair: ${checks} adversarial checks for exact official deployment/build, expected event base/run/attempt, private cross-filesystem fixtures, source mutation refusal and early reports.`);

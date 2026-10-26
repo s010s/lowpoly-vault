@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,readdir,realpath} from 'node:fs/promises';
 import {resolve,sep} from 'node:path';
 import index from './gallery/wheel-presentations-index.js';
-import {resolveGalleryPoster} from './gallery/wheel-presentations.js';
+import {resolveWheelPoster} from './gallery/wheel-presentations.js';
 import {assertWheelPresentation,wheelHash} from './wheel-presentation-contract.mjs';
 import {wheelHistoricalBaseline} from './wheel-historical-baseline.mjs';
 import {posterRendererFiles} from './gallery-poster-inputs.mjs';
@@ -22,7 +22,7 @@ export async function auditWheelPresentations(manifest,{root=process.cwd(),outpu
  const browser=JSON.parse(await readFile(resolve(root,'node_modules/playwright-core/browsers.json'))).browsers.find(b=>b.name==='chromium').browserVersion;assert.equal(browser,index.browser_version);
  const files=[];
  for(const asset of affected){const entry=index.presentations[asset.id],poster=resources.posters[asset.id],record=saved.records.find(row=>row.id===asset.id);assert(record);assert.equal(wheelHash(JSON.stringify(record.record,null,2)),entry.capture_sha256);
-  const selected=resolveGalleryPoster(asset,resources);assert.equal(selected.wheel,entry.wheel);assert.equal(selected.detail,poster.detail);assert.deepEqual(selected.wheelSpec,entry.wheelSpec);
+  const selected=resolveWheelPoster(asset,resources);assert.equal(selected.wheel,entry.wheel);assert.equal(selected.detail,poster.detail);assert.deepEqual(selected.wheelSpec,entry.wheelSpec);
   const png=await bytes(root,'site/public/'+entry.wheel);assertWheelPresentation(record.record,{asset,sourceGLB:await bytes(root,asset.glb),previousWheel:await bytes(root,'site/public/'+poster.wheel),unchangedDetail:await bytes(root,'site/public/'+poster.detail),png,rendererSha256,browserVersion:browser});
   assert.equal(record.record.png.sha256,entry.png.sha256);assert.deepEqual(record.record.wheelSpec,entry.wheelSpec);
   const result=report.cases.find(c=>c.id===asset.id);assert(result);assert.equal(result.source_glb_sha256,asset.sha256.glb);assert.equal(result.wheel_sha256,entry.png.sha256);assert.deepEqual(result.spec,entry.wheelSpec);assert(result.mask_iou>.98&&result.mean_rgb_absolute_error<2);assert.equal(result.gl_error,0);assert.equal(result.context_lost,false);

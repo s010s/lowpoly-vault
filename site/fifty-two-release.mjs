@@ -1,3 +1,4 @@
+import {historicalMediaComparison} from './historical-media-comparison.mjs';
 import {assertRecordedGalleryRecipe} from './gallery-publication-recipe-compat.mjs';
 /** Exact52 source/card preflight plus separate mandatory final-subject gallery gate. */
 import assert from 'node:assert/strict';
@@ -180,13 +181,14 @@ export async function collectFiftyTwoAdditions(root,descriptors) {
  assert.deepEqual(sortedIds(review.models),FIFTY_TWO_IDS);
  const gallery = JSON.parse(await local('site/public/gallery/resources.json'));
  const publicIndex = JSON.parse(await local('assets/turntables/index.json'));
+ const media = historicalMediaComparison({root,turntables:publicIndex,gallery});
  const originalIndex = await json(capture.index);
  for (const asset of additions) {
   const pair = receipt.rows.find(row => row.id === asset.id), visual = review.models.find(row => row.id === asset.id);
-  assert.deepEqual(publicIndex.posters.filter(row => row.id === asset.id),originalIndex.posters.filter(row => row.id === asset.id),'Public card must equal the original exact-renderer card');
+  assert.deepEqual(media.cardRows(asset.id,originalIndex.posters.filter(row => row.id === asset.id)),originalIndex.posters.filter(row => row.id === asset.id),'Public card must equal the original exact-renderer card');
   assert(passPresentation(visual.result)); assert.equal(visual.source_glb_sha256,asset.sha256.glb);
   assert.deepEqual(visual.original_pngs.map(row => row.kind),['detail','wheel']);
-  assert.deepEqual(gallery.posters[asset.id],pair.poster);
+  assert.deepEqual(media.galleryPoster(asset.id,pair.poster),pair.poster);
   assert.deepEqual(pair.files.map(file => file.path).sort(),[`gallery/posters/${asset.id}-wheel.png`,`gallery/posters/${asset.id}.png`].sort());
   for (const kind of ['detail','wheel']) {
    const path = `gallery/posters/${asset.id}${kind === 'wheel' ? '-wheel' : ''}.png`;

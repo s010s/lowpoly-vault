@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {HoverIntent,hoverRowAt} from '../hover-intent.js';
 import {WheelSettler} from '../state.js';
+import {validDetailPresentation,detailScreenFrame} from '../detail-presentation-policy.js';
 const source=readFileSync(new URL('../main.js',import.meta.url),'utf8');
 const flush=async()=>{for(let i=0;i<8;i++)await Promise.resolve();};
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
@@ -94,26 +95,30 @@ await test('actual main pointer wiring and choose ready callback recover the sel
  Object.assign(document,{hidden:false,documentElement:new EventTarget(),elementFromPoint:()=>({closest:()=>row})});
  let timerId=0;const timers=new Map(),loads=[],previews=[];
  const asset={id:'a',name:{en:'A'},category:'geology',triangles:1};
- const node=()=>({dataset:{},style:{},classList:{add(){},remove(){}},setAttribute(){}}),nodes=new Map();
+ const frameClears=[];
+ const node=()=>({dataset:{},style:{removeProperty(name){frameClears.push(name);delete this[name==='transform-origin'?'transformOrigin':name];}},classList:{add(){},remove(){}},setAttribute(){}}),nodes=new Map();
  const $=id=>{if(!nodes.has(id))nodes.set(id,node());return nodes.get(id);};
  const renderer={wire:false,detail:{metric:{available:true}},stops:0,reveals:0,animations:0,
-  select(){const load=deferred();loads.push(load);return load.promise;},
+  select(){assert.deepEqual(frameClears,['transform-origin','transform'],'real poster frame update precedes model selection');const load=deferred();loads.push(load);return load.promise;},
   preview(){const load=deferred();previews.push(load);this.hover={};return load.promise;},
   stopHover(){this.stops++;this.hover=null;},revealHover(){this.reveals++;return Promise.resolve(true);},animateHover(){this.animations++;}};
  const settler={state:'idle',stop(){this.state='idle';},centerOn(){}};
  const context=vm.createContext({HoverIntent:class extends HoverIntent{constructor(args){super({...args,schedule:fn=>{timers.set(++timerId,fn);return timerId;},cancel:id=>timers.delete(id)});}},hoverRowAt,
   HoverTurntable:class{ready(){}stop(){}},renderer,document,window,wheel,slots,settler,matchMedia:()=>media,reduced:()=>false,
   currentReady:true,selectionVersion:0,selectionLoadingTimer:0,state:{selected:'a',results:[asset],lang:'en'},sample:[asset],
-  ui:{resetCopy(){}},closeInfo(){},saveCurrentHistory(){},pushHistory(){},selectPoster:()=>({ready:Promise.resolve(true)}),
+  ui:{resetCopy(){}},closeInfo(){},saveCurrentHistory(){},pushHistory(){},selectPoster:asset=>{const image=$('#detail-poster');Object.assign(image.dataset,{modelId:asset.id,source:'canonical',presentationFrame:'native-viewport-v2'});Object.assign(image.style,{transform:'stale',transformOrigin:'0 0'});return {ready:Promise.resolve(true)};},
+  validDetailPresentation,detailScreenFrame,
   infoContent(){},renderSummary(){},renderWheel(){},syncMobileView(){},mobile:()=>false,modelHeight:()=>'',short:()=> 'A',
   t:en=>en,categories:{geology:['Geology','地质']},urlAsset:value=>value,$,cancelSelectedPoster:null,
   setTimeout:()=>0,clearTimeout(){}});
  const hoverStart=source.indexOf('const hover=new HoverIntent('),hoverEnd=source.indexOf('function renderWheel(){',hoverStart);
  const chooseStart=source.indexOf('async function choose('),chooseEnd=source.indexOf('function syncMobileView(){',chooseStart);
- vm.runInContext(source.slice(hoverStart,hoverEnd)+source.slice(chooseStart,chooseEnd),context);
+ const frameStart=source.indexOf('function updateSelectedPosterFrame(){'),frameEnd=source.indexOf('function selectPoster(',frameStart);assert(frameStart>=0&&frameEnd>frameStart);
+ vm.runInContext(source.slice(frameStart,frameEnd)+source.slice(hoverStart,hoverEnd)+source.slice(chooseStart,chooseEnd),context);
  const move=(x=50,type='mouse')=>document.dispatchEvent(Object.assign(new Event('pointermove'),{clientX:x,clientY:50,pointerType:type}));
  move();const choice=vm.runInContext("choose('a',{center:true})",context);assert.equal(timers.size,0);
- loads[0].resolve(true);await choice;assert.equal(timers.size,1,'real choose readiness retries retained pointer');
+ if(!loads.length)await choice;assert.equal(loads.length,1,'actual choose reaches renderer selection');
+ loads[0].resolve(true);await choice;assert.equal($('#detail-poster').style.transform,undefined);assert.equal($('#detail-poster').dataset.presentationFrame,undefined);assert.equal(timers.size,1,'real choose readiness retries retained pointer');
  for(const fn of timers.values())fn();timers.clear();assert.equal(previews.length,1);previews[0].resolve(true);await flush();assert.equal(renderer.animations,1);
  document.hidden=true;document.dispatchEvent(new Event('visibilitychange'));assert.equal(renderer.hover,null);
  document.hidden=false;document.dispatchEvent(new Event('visibilitychange'));assert.equal(timers.size,0);
