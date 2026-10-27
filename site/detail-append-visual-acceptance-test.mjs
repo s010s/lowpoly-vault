@@ -1,5 +1,7 @@
+import './detail-presentation-quality-test.mjs';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {APPEND_CONTRACT_PATHS} from './detail-append-visual-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {projectLegacyBuiltInputs,assertLegacyBuiltInputSeals,LEGACY_BUILT_INPUT_SEALS,assertLegacyDataProjection,assertVisualLedger,assertAppendRegistrationProjection,assertAppendChangeMode,freshAppendProofClosure,moduleData,APPEND_BATCH_PATH,APPEND_PRODUCTION_REGISTRY_PATH,APPEND_VISUAL_BASE,APPEND_VISUAL_PATH,APPEND_VISUAL_REVIEW_PATH} from './detail-append-visual-acceptance.mjs';
 import {composeRegistry,encode,importLegacySnapshot,LEGACY_OUTPUTS,recordReference} from './model-registry.mjs';
@@ -193,3 +195,10 @@ for(const [label,mutate]of [
  ['duplicate source',f=>{f.source.assets[1]=structuredClone(f.source.assets[0]);f.built=structuredClone(f.source);}]
 ])test('append browser rejects changed source binding: '+label,()=>{const f=scopeInputs();mutate(f);assert.throws(()=>detailAppendScopeSource({manifest:f.built,read:f.read}));});
 test('non-append historical browser path keeps its original manifest input',()=>{const source={assets:[{id:'old'}]},manifest={assets:[{id:'old',file_sizes:{glb:100}}]};assert.equal(detailAppendScopeSource({manifest,read:()=>enc(source)}),manifest);});
+
+test('ledger includes only the two named reviewed quality contracts, not arbitrary policy files',()=>{for(const path of ['site/detail-presentation-quality.mjs','site/detail-presentation-quality-test.mjs']){const f=ledger();f.descriptor.files[0].path=path;f.changes[0]=path;rebind(f);assert.equal(assertVisualLedger(f).changed_files,1);}for(const path of ['site/detail-other-quality.mjs','site/gallery/detail-presentation-policy.js','site/gallery/renderer.js']){const f=ledger();f.descriptor.files[0].path=path;f.changes[0]=path;rebind(f);assert.throws(()=>assertVisualLedger(f));}});
+test('reviewed offline contract inventory remains exactly25 named paths',()=>{assert.equal(APPEND_CONTRACT_PATHS.length,25);assert.equal(new Set(APPEND_CONTRACT_PATHS).size,25);assert.deepEqual(APPEND_CONTRACT_PATHS.slice(-2),['site/detail-presentation-quality.mjs','site/detail-presentation-quality-test.mjs']);assert(!APPEND_CONTRACT_PATHS.includes('site/gallery/detail-presentation-policy.js'));});
+
+import {appendThreeReviewClosure,APPEND_THREE_CASE_REVIEW_PATH,APPEND_THREE_CASE_REVIEW_SHA} from './detail-append-visual-acceptance.mjs';
+import {readFileSync as readThreeReviewFile} from 'node:fs';
+test('three-case visual review has only its exact independently pinned closure path',()=>{const bytes=readThreeReviewFile(new URL('../'+APPEND_THREE_CASE_REVIEW_PATH,import.meta.url));assert.equal(sha(bytes),APPEND_THREE_CASE_REVIEW_SHA);assert.deepEqual(appendThreeReviewClosure(p=>{assert.equal(p,APPEND_THREE_CASE_REVIEW_PATH);return bytes;}),[APPEND_THREE_CASE_REVIEW_PATH]);assert.throws(()=>appendThreeReviewClosure(()=>Buffer.concat([bytes,Buffer.from(' ')])),/Pinned three-case/);assert.throws(()=>appendThreeReviewClosure(()=>Buffer.from('{}')),/Pinned three-case/);});

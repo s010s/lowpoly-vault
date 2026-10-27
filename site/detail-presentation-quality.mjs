@@ -5,6 +5,16 @@ import assert from 'node:assert/strict';
 import {deflateSync} from 'node:zlib';
 import {FULL264_REPRESENTATIVE_IDS,FULL264_ORDINARY_CONTROL,FULL264_MEASUREMENTS} from './detail-browser-scope.mjs';
 export const DETAIL_QUALITY_RULE_VERSION='right-detail-local-sampling-candidate-v3';
+// This fixed compute cohort is not source/capture authority or visual approval.
+// The browser authenticates its exact append selection independently before use.
+export const APPEND_DETAIL_QUALITY_IDS=Object.freeze(['acanthodes','alalcomenaeus','birkenia','camptosaurus','dapedium','diictodon','dimetrodon','diplocaulus','eusthenopteron','habelia','mammuthus','nipponites','paradoxides','proganochelys','pterichthyodes','rhamphorhynchus','thrinaxodon','xiphactinus','yochelcionella']);
+export const APPEND_DETAIL_QUALITY_PROFILE='append19-v2-current-source';
+export function detailQualityProfileFor(browserProfile,id){
+ if(browserProfile==='append19-v2'||browserProfile==='full264-v2'&&APPEND_DETAIL_QUALITY_IDS.includes(id))return APPEND_DETAIL_QUALITY_PROFILE;
+ if(browserProfile==='full264-v2'||browserProfile==='public-reviewed-state')return 'full264-v2-representative';
+ return undefined;
+}
+
 export const DETAIL_QUALITY_CONTROL_NAMES=Object.freeze(['blur_1css','blur_2css','local_blur_1css','shift_3css','scale_105pct','missing_branch','wrong_model']);
 export const DETAIL_QUALITY_POLICY=Object.freeze({support_radius_css:1,tile_css:16,contrast:12,reverse_reference_contrast:6,interior_margin_css:2,reference_blur_css:1,max_missing_support_pixels:0,max_unexpected_contrast_pixels:0,max_geometry_edge_pixels:0,min_direction_cosine:.75,min_relative_contrast:.2,min_global_energy_ratio:.8,max_global_energy_ratio:1.25,min_edge_spread_separation:.15,min_edge_peak_css:24,min_edge_energy_css:10,edge_halo_css:2,max_interior_rgb_mae:8,max_interior_tile_rgb_mae:12,min_shadow_strength_ratio:.75,max_shadow_strength_ratio:1.25,max_shadow_rgb_mae:3,max_shadow_tile_rgb_mae:6,calibration:'EXPERIMENTAL: three named1536 candidates plus unchanged natural-arch512 control, three measured viewport/DPR pairs; requires all same-rule positive and adversarial cases plus independent visual review'});
 const P=DETAIL_QUALITY_POLICY;
@@ -66,17 +76,17 @@ export function judgeDetailPresentationMetrics(metrics){const failures=[];if(!me
 // independently authenticates the cohort/resources and matches this shared fixed set.
 export function detailQualityScopeMatches(metadata){
  try{referenceRaster(metadata);}catch{return false;}
- const{id,rasterSize,viewport:v,dpr,rect:r,nativeBuffer:b,actualGL:g,profile,presentation:p}=metadata,ratio=Math.min(dpr,1.75),full=profile==='full264-v2-representative';
- if(profile!==undefined&&!full)return false;
- const ids=full?[...FULL264_REPRESENTATIVE_IDS,FULL264_ORDINARY_CONTROL]:['pertica','onoclea','sidneyia','natural-arch'];
+ const{id,rasterSize,viewport:v,dpr,rect:r,nativeBuffer:b,actualGL:g,profile,presentation:p}=metadata,ratio=Math.min(dpr,1.75),full=profile==='full264-v2-representative',appended=profile===APPEND_DETAIL_QUALITY_PROFILE;
+ if(profile!==undefined&&!full&&!appended)return false;
+ const ids=appended?[...APPEND_DETAIL_QUALITY_IDS,FULL264_ORDINARY_CONTROL]:full?[...FULL264_REPRESENTATIVE_IDS,FULL264_ORDINARY_CONTROL]:['pertica','onoclea','sidneyia','natural-arch'];
  if(!ids.includes(id)||rasterSize!==(id===FULL264_ORDINARY_CONTROL?512:1536)||!FULL264_MEASUREMENTS.some(q=>q[0]===v.width&&q[1]===v.height&&q[2]===dpr))return false;
- if(full){
+ if(full||appended){
   if(id===FULL264_ORDINARY_CONTROL){if(p!==null||metadata.classification!=='UNCHANGED_CONTROL')return false;}
   else if(!p||JSON.stringify(Object.keys(p).sort())!==JSON.stringify(['minimum_margin','raster_size','revision','screen_shift'])||p.revision!==2||p.minimum_margin!==.025||p.screen_shift!==.06||p.raster_size!==1536||metadata.classification!=='CANDIDATE')return false;
  }
  const expected=[Math.floor(r.left*ratio),Math.floor((v.height-r.top-r.height)*ratio),Math.floor(r.width*ratio),Math.floor(r.height*ratio)];return b.width===Math.floor(v.width*ratio)&&b.height===Math.floor(v.height*ratio)&&JSON.stringify(g?.viewport)===JSON.stringify(expected)&&JSON.stringify(g?.scissor)===JSON.stringify(expected);
 }
-function representativeLabel(metadata){return metadata.profile==='full264-v2-representative'?{scope:'FULL264_V2_REPRESENTATIVE_COMPUTED_ONLY_NOT_PUBLIC_ACCEPTANCE',calibration:'NOT_CALIBRATED_YET'}:{};}
+function representativeLabel(metadata){return metadata.profile===APPEND_DETAIL_QUALITY_PROFILE?{scope:'EXPLICIT_APPEND19_CURRENT_SOURCE_COMPUTED_ONLY_NOT_PUBLIC_ACCEPTANCE',calibration:'NOT_CALIBRATED_YET'}:metadata.profile==='full264-v2-representative'?{scope:'FULL264_V2_REPRESENTATIVE_COMPUTED_ONLY_NOT_PUBLIC_ACCEPTANCE',calibration:'NOT_CALIBRATED_YET'}:{};}
 
 export function evaluateDetailPresentationQuality(inputs){const metrics=measureDetailPresentationQuality(inputs),failures=judgeDetailPresentationMetrics(metrics),calibratedScope=detailQualityScopeMatches(inputs.metadata);return{ruleVersion:DETAIL_QUALITY_RULE_VERSION,policy:DETAIL_QUALITY_POLICY,status:calibratedScope?(failures.length?'FAIL':'PASS'):'UNCALIBRATED',scope:'BOUNDED_CANDIDATE_ONLY_NOT_PUBLIC_ACCEPTANCE',...representativeLabel(inputs.metadata),classification:inputs.metadata.id==='natural-arch'?'UNCHANGED_CONTROL':'CANDIDATE',metrics,failures:calibratedScope?failures:['outside_fixed_candidate_scope',...failures]};}
 function blur(source,sigma){const a=rgba(source),radius=Math.ceil(3*sigma),kernel=[],tmp=new Float64Array(a.data.length),out=rgba(a);let total=0;for(let j=-radius;j<=radius;j++){const z=Math.exp(-j*j/(2*sigma*sigma));kernel.push(z);total+=z;}for(let i=0;i<kernel.length;i++)kernel[i]/=total;for(let y=0;y<a.h;y++)for(let x=0;x<a.w;x++)for(let c=0;c<3;c++){let z=0;for(let k=-radius;k<=radius;k++)z+=a.data[(y*a.w+Math.max(0,Math.min(a.w-1,x+k)))*4+c]*kernel[k+radius];tmp[(y*a.w+x)*4+c]=z;}for(let y=0;y<a.h;y++)for(let x=0;x<a.w;x++)for(let c=0;c<3;c++){let z=0;for(let k=-radius;k<=radius;k++)z+=tmp[(Math.max(0,Math.min(a.h-1,y+k))*a.w+x)*4+c]*kernel[k+radius];out.data[(y*a.w+x)*4+c]=Math.round(z);}return out;}

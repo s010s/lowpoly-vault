@@ -13,19 +13,23 @@ import {readRegistry,readRegistryAtCommit} from './model-registry-cli.mjs';
 export const APPEND_VISUAL_BASE='05cf27f6ccee363043f4adf19ed3acbad71439d9';
 export const APPEND_VISUAL_PATH='production/reviewed-static4-20261026/visual-continuation.json';
 export const APPEND_VISUAL_REVIEW_PATH='production/reviewed-static4-20261026/visual-continuation-review.json';
+export const APPEND_THREE_CASE_REVIEW_PATH='qa/detail-presentation-evidence/reviews/40479699435-append19-three-case-visual-disposition.json';
+export const APPEND_THREE_CASE_REVIEW_SHA='db7ba824edeccf11bc72e25176583344b10eb5698c9a959225897cd4b5303137';
 const IDS='acanthodes alalcomenaeus birkenia camptosaurus dapedium diictodon dimetrodon diplocaulus eusthenopteron habelia mammuthus nipponites paradoxides proganochelys pterichthyodes rhamphorhynchus thrinaxodon xiphactinus yochelcionella'.split(' ');
 export const APPEND_BATCH_PATH='registry/batches/reviewed-static4-20261026.json';
 export const APPEND_PRODUCTION_REGISTRY_PATH='production/production-releases-r002.json';
 const DATA_PATHS=['assets/manifest.json','site/catalog-data.json','assets/turntables/index.json','site/public/gallery/resources.json','site/gallery/wheel-framing.json','site/gallery/detail-presentations-index.js','site/gallery/detail-input-proofs.js'];
 // Not a configurable allowlist: these offline contracts/tests cannot replace any
-// browser executable, CSS, HTML, renderer, policy, dependency or Vite build code.
+// gallery executable, CSS, HTML, renderer, delivery policy or Vite build code.
+// The two named quality contracts only extend the exact compute cohort, not thresholds.
 export const APPEND_CONTRACT_PATHS=Object.freeze([
  'site/model-task-static4-acceptance.mjs','site/model-task-static4-acceptance-test.mjs','site/static4-source-profiles.mjs','site/static4-test-observed-checklists.mjs',
  'site/production-release.mjs','site/typed-production-release.mjs','site/asset-delivery.mjs','site/initial-release.mjs','site/initial-release-test.mjs',
  'site/same-id-append-continuation.mjs','site/same-id-append-continuation-test.mjs','site/same-id-successors.mjs','site/model-registry-sync.mjs',
  'site/detail-append-cohort.mjs','site/detail-browser-scope-test.mjs','site/detail-presentation-browser-test.mjs','site/detail-visual-disposition-test.mjs',
  'site/detail-visual-acceptance.mjs','site/detail-append-visual-acceptance.mjs','site/detail-append-visual-acceptance-test.mjs',
- 'site/detail-capture-authority-test.mjs','site/ci-lean-release-test.mjs','site/concept-landair-successor-test.mjs'
+ 'site/detail-capture-authority-test.mjs','site/ci-lean-release-test.mjs','site/concept-landair-successor-test.mjs',
+ 'site/detail-presentation-quality.mjs','site/detail-presentation-quality-test.mjs'
 ]);
 const sha=b=>createHash('sha256').update(b).digest('hex'),copy=x=>structuredClone(x);
 const git=(root,...args)=>execFileSync('git',args,{cwd:root,env:immutableGitEnv(),maxBuffer:64*1024**2,timeout:60000});
@@ -105,6 +109,13 @@ export function freshAppendProofClosure({before,after,read}){
  }
  assert.deepEqual([...seen].sort(),IDS);return paths;
 }
+// Exactly one independently signed three-case record; no path or review configuration.
+export function appendThreeReviewClosure(read){
+ const bytes=read(APPEND_THREE_CASE_REVIEW_PATH);assert.equal(sha(bytes),APPEND_THREE_CASE_REVIEW_SHA,'Pinned three-case visual review bytes required');const r=json(bytes);
+ assert.equal(r.kind,'independent-explicit19-three-case-visual-disposition-v1');assert.equal(r.reviewer_kind,'INDEPENDENT_AI_REVIEW');assert.equal(r.disposition,'ACCEPTABLE_CURRENT_DISPLAY_CONSISTENCY_NOT_PIXEL_IDENTITY');assert.notEqual(canonicalActor(r.reviewer),'integrate_ready_model_release');
+ assert.deepEqual(r.cases.map(c=>c.name),['scientific-quality-alalcomenaeus-1440x900-dpr1','scientific-quality-alalcomenaeus-900x1200-dpr1','scientific-quality-proganochelys-1440x900-dpr1']);for(const k of ['publication_authorized','reviewer_authority','productionAccepted'])assert.equal(r[k],false);
+ return [APPEND_THREE_CASE_REVIEW_PATH];
+}
 export function assertVisualLedger({descriptor,review,changes,read,baseExists,closure,registration}){
  exact(descriptor,['version','kind','baseline','append','new_ids','producer','files','review_path','publication_authorized','reviewer_authority'],'Visual descriptor');assert.equal(descriptor.version,1);assert.equal(descriptor.kind,'exact602-264-plus-explicit19-visual-continuation-v1');assert.equal(descriptor.baseline,APPEND_VISUAL_BASE);assert.deepEqual(descriptor.new_ids,IDS);assert.equal(descriptor.review_path,APPEND_VISUAL_REVIEW_PATH);
  assert.equal(descriptor.publication_authorized,false);assert.equal(descriptor.reviewer_authority,false);
@@ -127,7 +138,7 @@ export async function assertAppendVisualRuntime({root,api,currentSha,legacy}){
  const projection=assertLegacyDataProjection({before,after,records:context.append.records});selectedDetailAppend({manifest,index:after.detail,read});
  const descriptor=json(read(APPEND_VISUAL_PATH)),review=json(read(APPEND_VISUAL_REVIEW_PATH));assert.deepEqual(descriptor.append,context.appendPin);
  const changed=git(root,'diff','--name-status','--no-renames',APPEND_VISUAL_BASE,currentSha).toString().trim().split('\n').filter(Boolean).map(row=>{const [status,path,...extra]=row.split('\t');assert(!extra.length&&['A','M'].includes(status),'Only regular added/modified files permitted');const item=git(root,'ls-tree',currentSha,'--',path).toString(),previous=git(root,'ls-tree',APPEND_VISUAL_BASE,'--',path).toString();assert(item.startsWith('100644 blob '),'No mode/link/gitlink changes');assertAppendChangeMode({status,before:previous?previous.split(' ')[0]:null,after:item.split(' ')[0]});return path;});
- const closure=[...context.append.closure,...context.append.records.flatMap(r=>[r.asset.glb,r.asset.blend,r.asset.preview,r.asset.credits,...r.gallery.files.map(f=>'site/public/'+f.path)]),...Object.values(after.detail.presentations).filter(e=>IDS.includes(e.id)).map(e=>'site/public/'+e.detail),...freshAppendProofClosure({before:before.proofs,after:after.proofs,read})];
+ const closure=[...context.append.closure,...context.append.records.flatMap(r=>[r.asset.glb,r.asset.blend,r.asset.preview,r.asset.credits,...r.gallery.files.map(f=>'site/public/'+f.path)]),...Object.values(after.detail.presentations).filter(e=>IDS.includes(e.id)).map(e=>'site/public/'+e.detail),...freshAppendProofClosure({before:before.proofs,after:after.proofs,read}),...appendThreeReviewClosure(read)];
  const registration={beforeRegistry:readRegistryAtCommit(root,APPEND_VISUAL_BASE),afterRegistry:readRegistry(root),beforeProduction:json(raw(root,APPEND_PRODUCTION_REGISTRY_PATH)),afterProduction:json(read(APPEND_PRODUCTION_REGISTRY_PATH)),append:context.append.descriptor,records:context.append.records,catalog:after.catalog};
  const ledger=assertVisualLedger({descriptor,review,changes:changed,read,registration,baseExists:path=>{try{raw(root,path);return true;}catch{return false;}},closure});
  for(const [path,hash]of Object.entries(legacy.ACCEPTANCE_CONTROL_HASHES))assert.equal(sha(raw(root,path)),hash,'Baseline controls must equal reviewed PR75');
