@@ -161,3 +161,35 @@ for(const [name,mutate]of [
  ['raw602 in place of actual built621',f=>f.builtManifest=structuredClone(f.baselineManifest)],['missing delivered ID',f=>f.builtManifest.assets.pop()],['extra delivered ID',f=>f.builtManifest.assets.push({id:'carnotaurus'})],['duplicate delivered ID',f=>f.builtManifest.assets[2].id=f.builtManifest.assets[1].id],['delivered order',f=>f.builtManifest.assets.reverse()],['old source metadata',f=>f.sourceManifest.assets[0].value++],['old source order',f=>f.sourceManifest.assets.reverse()],['publication pointer missing',f=>delete f.sourceManifest.publication.same_id_successor_append],['delivered publication change',f=>f.builtManifest.publication.extra=true],['delivered GLB binding',f=>f.builtManifest.assets[0].glb='wrong.glb'],['old resource mutation',f=>f.builtResources.posters.old0.detail='changed.png'],['resource extra field',f=>f.builtResources.extra=true],['raw resources not delivery',f=>delete f.builtResources.production_projection],['new source poster missing',f=>delete f.sourceResources.posters.acanthodes],['new source file missing',f=>f.sourceResources.files.pop()],['new source poster aliases old',f=>f.sourceResources.posters.acanthodes.detail='old.png'],['old source resource mutated with build',f=>{f.sourceResources.posters.old0.detail='changed';f.builtResources.posters.old0.detail='changed';}]
 ])test('built input projection rejects '+name,()=>{const f=builtProjection();mutate(f);assert.throws(()=>projectLegacyBuiltInputs(f));});
 test('one immutable historical built/report seal set, not caller-selected expected hashes',()=>{assert.deepEqual(LEGACY_BUILT_INPUT_SEALS,{report_sha256:'9fdd81660e6c95108eb62747bdb5dc6497346614364c3eea7d018bc0fa8f6d9a',manifest_sha256:'443a4b788511cec6b642691faaa6da78244d4f73948984e1f08e14a90ea1d589',resources_sha256:'c01b9e47d478992bdb35497567ae00e046b994b0a1f9e715aa177e087326b8b6'});assert(Object.isFrozen(LEGACY_BUILT_INPUT_SEALS));for(const reportSha256 of [LEGACY_BUILT_INPUT_SEALS.report_sha256,'0'.repeat(64),undefined])assert.throws(()=>assertLegacyBuiltInputSeals({manifestBytes:Buffer.from('{}'),resourcesBytes:Buffer.from('{}'),reportSha256}));});
+
+// Browser source binding is shared by dist collection, retained verification,
+// public reviewed-state, and the offline scope check; no Chromium is launched.
+import {detailAppendScopeSource} from './detail-append-cohort.mjs';
+function scopeInputs(){
+ const asset=id=>({id,units:'meters',dimensions:{x:1,y:2,z:3},glb:`assets/${id}/model.glb`,blend:`assets/${id}/source.blend`,preview:`assets/${id}/preview.png`,sha256:{glb:'a'.repeat(64),blend:'b'.repeat(64),preview:'c'.repeat(64)},description:{en:'bounded original representation'},qa:`assets/${id}/qa.json`,material_count:2});
+ const source={version:1,publication:{same_id_successors:{path:'selection.json'},same_id_successor_append:{path:'append.json',sha256:'d'.repeat(64)}},assets:[asset('old'),asset('new')]};
+ const built=structuredClone(source);for(const a of built.assets){delete a.qa;a.material_count=3;a.file_sizes={glb:100,blend:200,bundle:150};a.glb_bytes=100;a.blend_bytes=200;a.downloads={glb:a.glb,blend:a.blend,bundle:`assets/downloads/${a.id}.zip`,credits:`assets/downloads/${a.id}-CREDITS.txt`};a.worlds=['derived'];a.packs=['derived'];a.card_preview=`assets/card-previews/${a.id}.webp`;a.turntable={frame_count:36};}
+ return {source,built,read:path=>{assert.equal(path,'assets/manifest.json');return enc(source);}};
+}
+test('append browser uses exact source for selection while retaining actual built subject binding',()=>{const f=scopeInputs(),before=JSON.stringify(f);assert.deepEqual(detailAppendScopeSource({manifest:f.built,read:f.read}),f.source);assert.deepEqual(detailAppendScopeSource({manifest:f.source,read:f.read}),f.source);assert.equal(JSON.stringify(f),before);});
+for(const [label,mutate]of [
+ ['publication',f=>{f.built.publication.same_id_successor_append.sha256='e'.repeat(64);}],
+ ['missing append',f=>{delete f.built.publication.same_id_successor_append;}],
+ ['missing source append',f=>{delete f.source.publication.same_id_successor_append;}],
+ ['top-level extra',f=>{f.built.release_override=true;}],
+ ['order',f=>{f.built.assets.reverse();}],
+ ['duplicate',f=>{f.built.assets[1]=structuredClone(f.built.assets[0]);}],
+ ['extra ID',f=>{f.built.assets.push({...f.built.assets[1],id:'third'});}],
+ ['missing ID',f=>{f.built.assets.pop();}],
+ ['units',f=>{delete f.built.assets[1].units;}],
+ ['dimensions',f=>{f.built.assets[1].dimensions.y=9;}],
+ ['GLB path',f=>{f.built.assets[1].glb='assets/other/model.glb';}],
+ ['GLB hash',f=>{f.built.assets[1].sha256.glb='f'.repeat(64);}],
+ ['native hash',f=>{f.built.assets[1].sha256.blend='f'.repeat(64);}],
+ ['preview hash',f=>{f.built.assets[1].sha256.preview='f'.repeat(64);}],
+ ['scientific text',f=>{f.built.assets[1].description.en='unreviewed entire animal';}],
+ ['old subject',f=>{f.built.assets[0].units='millimeters';}],
+ ['unrecognized field',f=>{f.built.assets[1].unknown_render_override=1;}],
+ ['duplicate source',f=>{f.source.assets[1]=structuredClone(f.source.assets[0]);f.built=structuredClone(f.source);}]
+])test('append browser rejects changed source binding: '+label,()=>{const f=scopeInputs();mutate(f);assert.throws(()=>detailAppendScopeSource({manifest:f.built,read:f.read}));});
+test('non-append historical browser path keeps its original manifest input',()=>{const source={assets:[{id:'old'}]},manifest={assets:[{id:'old',file_sizes:{glb:100}}]};assert.equal(detailAppendScopeSource({manifest,read:()=>enc(source)}),manifest);});

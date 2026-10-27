@@ -11,7 +11,7 @@ import {createServer} from 'node:http';
 import {chromium} from 'playwright';
 import {CAPTURE_POLICY,posterInputKey} from './gallery-poster-inputs.mjs';
 import {FULL264_REPRESENTATIVE_IDS,ORDINARY_RUNTIME_BASELINE} from './detail-browser-scope.mjs';
-import {exactDetailCohorts,selectedDetailAppend} from './detail-append-cohort.mjs';
+import {exactDetailCohorts,selectedDetailAppend,detailAppendScopeSource} from './detail-append-cohort.mjs';
 import {successorReader} from './same-id-successors.mjs';
 import {detailScreenFrame,validDetailPresentation} from './gallery/detail-presentation-policy.js';
 const out=resolve(process.env.QA_OUTPUT_DIR||'qa/detail-browser'),sha=b=>createHash('sha256').update(b).digest('hex');
@@ -74,7 +74,8 @@ async function acceptanceScope(manifest,resources,index){
  const {default:proofs}=await import('./gallery/detail-input-proofs.js');const initial=proofs.receipts.find(r=>r.run_id===40165644448&&r.source_commit==='1f35d87f50d8958958f82f789f4969b97fa54d9e');assert(initial,'Historical accepted cohort receipt missing');assert.equal(initial.capture_index_path,'qa/detail-presentation-evidence/captures/40165644448/original-capture-index.js');const originalBytes=await readFile(initial.capture_index_path);assert.equal(sha(originalBytes),'ad45e3e4c0f70c34fda4819497f4de36a3b9928ce6b20db1ddf686ce1819d97e');const original=JSON.parse(originalBytes.toString().slice(15).trim().replace(/;$/,''));
  // Original source pins remain historical: legitimate later same-ID captures do not rewrite them.
  for(const pin of scoped){assert.equal(original.presentations[pin.id].source_glb_sha256,pin.source_glb_sha256);assert.equal(initial.assets[pin.id].source_glb_sha256,pin.source_glb_sha256);assert.equal(initial.assets[pin.id].asset_input_sha256,pin.asset_input_sha256);assert(index.presentations[pin.id],'Original cohort ID disappeared');}
- const append=selectedDetailAppend({manifest,index,read:successorReader(process.cwd())}),appendIds=append?.ids||[];
+ const sourceRead=successorReader(process.cwd()),sourceManifest=detailAppendScopeSource({manifest,read:sourceRead});
+ const append=selectedDetailAppend({manifest:sourceManifest,index,read:sourceRead}),appendIds=append?.ids||[];
  const affected=manifest.assets.filter(a=>['blender-cycles-cpu-v1','blender-detail-preview-wheel-v1'].includes(resources.posters[a.id]?.render_route));assert.deepEqual(affected.map(a=>a.id).sort(),Object.keys(index.presentations).sort());
  const changed=[];for(const asset of affected){const entry=index.presentations[asset.id],matches=proofs.receipts.filter(r=>r.source_commit===entry.capture.source_commit&&r.renderer_input_sha256===entry.capture.renderer_input_sha256&&r.assets?.[asset.id]?.detail_png_sha256===entry.png.sha256);assert.equal(matches.length,1,'Current unique capture receipt '+asset.id);const pin=matches[0].assets[asset.id];assert.equal(asset.sha256.glb,pin.source_glb_sha256,asset.id);assert.equal(entry.source_glb_sha256,pin.source_glb_sha256,asset.id);assert.equal(posterInputKey(asset,{sha256:'detail-scope-source-only-v1'}),pin.asset_input_sha256,asset.id+' current metadata');if(!original.presentations[asset.id]||JSON.stringify(entry)!==JSON.stringify(original.presentations[asset.id]))changed.push(asset.id);}
  const mixed=affected.filter(a=>resources.posters[a.id]?.render_route==='blender-detail-preview-wheel-v1'&&!appendIds.includes(a.id)).map(a=>a.id);const samples=[...new Set(['spyroceras','megarachne','callichimaera','phragmoceras','natural-levee','teleoceras','tempskya',...mixed,...(fullV2?[]:changed.filter(id=>!appendIds.includes(id)))])];for(const id of samples)assert(index.presentations[id]);

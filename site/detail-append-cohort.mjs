@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {hashBytes} from './model-registry.mjs';
 import {successorContext} from './same-id-successors.mjs';
+import {posterInputKey} from './gallery-poster-inputs.mjs';
 export function exactDetailCohorts({legacyIds,appendIds,indexIds,affectedIds}){
  assert.equal(legacyIds.length,264);assert.equal(new Set(legacyIds).size,264,'Immutable original264 contains duplicates');
  assert.equal(new Set(appendIds).size,appendIds.length,'Duplicate explicit append sample');
@@ -23,4 +24,23 @@ export function selectedDetailAppend({manifest,index,read}){
   subjects.push({id:record.id,source_glb_sha256:record.asset.sha256.glb,detail:entry.detail,png_sha256:entry.png.sha256,png_bytes:entry.png.bytes});
  }
  return {pin:context.appendPin,ids,subjects,legacy_appearance:'ORIGINAL264_REVIEW_NOT_RELABELED',new_appearance:'EXPLICIT_NEW_SAMPLES_REQUIRE_CURRENT_EXECUTION',publication_authorized:false};
+}
+
+/** Bind the actual browser input to its exact source selection, without treating
+ * build-derived delivery fields as source metadata. This checks the visual
+ * subject only; mandatory final-dist auditing still verifies every delivery
+ * field and byte. The original successor selector remains source-only.
+ */
+export function detailAppendScopeSource({manifest,read}){
+ const source=JSON.parse(read('assets/manifest.json'));
+ if(!source.publication?.same_id_successor_append&&!manifest.publication?.same_id_successor_append)return manifest;
+ assert(source.publication?.same_id_successor_append,'Actual source append selection is required');
+ const {assets:sourceAssets,...sourceHeaders}=source,{assets:deliveredAssets,...deliveredHeaders}=manifest;
+ assert.deepEqual(deliveredHeaders,sourceHeaders,'Browser manifest headers differ from exact source');
+ assert(Array.isArray(sourceAssets)&&Array.isArray(deliveredAssets));
+ assert.equal(new Set(sourceAssets.map(a=>a.id)).size,sourceAssets.length,'Duplicate source browser ID');
+ assert.deepEqual(deliveredAssets.map(a=>a.id),sourceAssets.map(a=>a.id),'Browser manifest IDs/order differ from exact source');
+ const domain={sha256:'detail-scope-source-only-v1'};
+ for(let i=0;i<sourceAssets.length;i++)assert.equal(posterInputKey(deliveredAssets[i],domain),posterInputKey(sourceAssets[i],domain),'Browser render subject differs from exact source: '+sourceAssets[i].id);
+ return source;
 }
