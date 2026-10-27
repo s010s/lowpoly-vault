@@ -6,6 +6,7 @@ import {tmpdir} from 'node:os';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {immutableGitEnv} from './ci-git.mjs';
+import {proofGet} from './ci-proof-fetch.mjs';
 import {successorContext,successorReader} from './same-id-successors.mjs';
 import {selectedDetailAppend} from './detail-append-cohort.mjs';
 import {assertRegistryAppend,composeRegistry,encode,recordReference} from './model-registry.mjs';
@@ -114,7 +115,8 @@ export function appendThreeReviewClosure(read){
  const bytes=read(APPEND_THREE_CASE_REVIEW_PATH);assert.equal(sha(bytes),APPEND_THREE_CASE_REVIEW_SHA,'Pinned three-case visual review bytes required');const r=json(bytes);
  assert.equal(r.kind,'independent-explicit19-three-case-visual-disposition-v1');assert.equal(r.reviewer_kind,'INDEPENDENT_AI_REVIEW');assert.equal(r.disposition,'ACCEPTABLE_CURRENT_DISPLAY_CONSISTENCY_NOT_PIXEL_IDENTITY');assert.notEqual(canonicalActor(r.reviewer),'integrate_ready_model_release');
  assert.deepEqual(r.cases.map(c=>c.name),['scientific-quality-alalcomenaeus-1440x900-dpr1','scientific-quality-alalcomenaeus-900x1200-dpr1','scientific-quality-proganochelys-1440x900-dpr1']);for(const k of ['publication_authorized','reviewer_authority','productionAccepted'])assert.equal(r[k],false);
- return [APPEND_THREE_CASE_REVIEW_PATH];
+ const variantBytes=read(EXECUTED_APPEND.variant_path);assert.equal(sha(variantBytes),EXECUTED_APPEND.variant_sha256,'Fixed actual variant review changed');const v=json(variantBytes);assert.equal(v.kind,'independent-exact-three-case-recapture-variant-observation-v1');assert.equal(v.visual_disposition,'ACCEPTABLE_CURRENT_DISPLAY_CONSISTENCY_NOT_PIXEL_IDENTITY');assert.equal(v.case_name,'scientific-quality-alalcomenaeus-900x1200-dpr1');assert.notEqual(canonicalActor(v.reviewer),'integrate_ready_model_release');for(const key of ['publication_authorized','reviewer_authority','productionAccepted','postReleaseVerified'])assert.equal(v[key],false);
+ return [APPEND_THREE_CASE_REVIEW_PATH,EXECUTED_APPEND.variant_path];
 }
 export function assertVisualLedger({descriptor,review,changes,read,baseExists,closure,registration}){
  exact(descriptor,['version','kind','baseline','append','new_ids','producer','files','review_path','publication_authorized','reviewer_authority'],'Visual descriptor');assert.equal(descriptor.version,1);assert.equal(descriptor.kind,'exact602-264-plus-explicit19-visual-continuation-v1');assert.equal(descriptor.baseline,APPEND_VISUAL_BASE);assert.deepEqual(descriptor.new_ids,IDS);assert.equal(descriptor.review_path,APPEND_VISUAL_REVIEW_PATH);
@@ -191,19 +193,84 @@ export async function createBaselineVerifierSnapshot(root,target,reportSha256){
  for(const [bytes,path]of [[projected.manifestBytes,'baseline-gallery/assets/manifest.json'],[projected.resourcesBytes,'baseline-gallery/gallery/resources.json']]){await mkdir(dirname(join(target,path)),{recursive:true});await writeFile(join(target,path),bytes,{flag:'wx'});}
  await symlink(resolve(root,'node_modules'),join(target,'node_modules'));return paths;
 }
+// A single already-executed acquisition. Its failed run/report are immutable;
+// only current offline acceptance and the separate public state run may succeed.
+export const EXECUTED_APPEND=Object.freeze({repository:'s010s/lowpoly-vault',repository_id:1422307926,head:'1c172a8e0cc18c2012cd776425c1a2af23416d4a',source:'9d3b4c42dbc66a97b280979c2e150793bb588238',tree:'40dbe1e361fe7afbf4f1ce6a6f7148dc4167ee79',base:APPEND_VISUAL_BASE,run:40505676492,job:122194247397,suite:109783977308,workflow:387257789,artifact:12738642137,zip_bytes:729714149,zip_sha256:'cf871af090a1840b4a972a372906b238a7ac4eae6cc3dc36d2e1a668bbc00b27',report_bytes:150473688,report_sha256:'bc976bb0e33e2e46dad708a809e33ac2e55535bd0f4a8278ef8d47a723368277',variant_path:'qa/detail-presentation-evidence/reviews/40505676492-append19-alal900-variant-visual-disposition.json',variant_sha256:'2324613844dae9c99aad30d7ad8e44102f57f75b43d3c4797e1facab5830c09d',manifest_sha256:'b7de789d7243eaf2f1967030789f994966a90c54558fc7869c0665472b3fda9b',resources_sha256:'a5c6aea28a20627d33d6f093ed33eaff235b82aee246af48b93540824d7e25d1'});
+export const EXECUTED_APPEND_ACCEPTANCE_PATHS=Object.freeze(['site/detail-presentation-browser-test.mjs','site/detail-visual-disposition-test.mjs','site/detail-append-visual-acceptance.mjs','site/detail-append-visual-acceptance-test.mjs','site/detail-visual-acceptance.mjs',APPEND_VISUAL_PATH,APPEND_VISUAL_REVIEW_PATH,EXECUTED_APPEND.variant_path]);
+export function assertExecutedAppendRun(run){const p=EXECUTED_APPEND;assert.equal(run.id,p.run);assert.equal(run.run_attempt,1);assert.equal(run.head_sha,p.head);assert.equal(run.head_branch,'integrate/reviewed-static4-20261026');assert.equal(run.path,'.github/workflows/pages.yml');assert.equal(run.workflow_id,p.workflow);assert.equal(run.event,'pull_request');assert.equal(run.status,'completed');assert.equal(run.conclusion,'failure','Original run must remain failed');assert.equal(run.check_suite_id,p.suite);for(const key of ['repository','head_repository']){assert.equal(run[key].id,p.repository_id);assert.equal(run[key].full_name,p.repository);}}
+export function assertExecutedAppendJob(job){const p=EXECUTED_APPEND;assert.equal(job.id,p.job);assert.equal(job.run_id,p.run);assert.equal(job.run_attempt,1);assert.equal(job.head_sha,p.head);assert.equal(job.name,'build');assert.equal(job.status,'completed');assert.equal(job.conclusion,'failure');let last=0;for(const name of ['Run actions/checkout@v4','Run actions/setup-node@v4','Run npm ci','Run affected regressions','Validate source, build once and audit final dist','Install pinned browser for mandatory right-detail first-frame acceptance','Retain supplemental right-detail pixels outside Git']){const rows=job.steps.filter(s=>s.name===name);assert.equal(rows.length,1);assert.equal(rows[0].status,'completed');assert.equal(rows[0].conclusion,'success');assert(rows[0].number>last);last=rows[0].number;}assert.deepEqual(job.steps.filter(s=>s.conclusion==='failure').map(s=>s.name),['Authenticated same-runtime evidence and explicit independent visual acceptance']);}
+export function assertExecutedAppendArtifact(a,job){const p=EXECUTED_APPEND;assert.equal(a.id,p.artifact);assert.equal(a.name,`right-detail-dist-${p.source}-${p.run}-1`);assert.equal(a.expired,false);assert.equal(a.size_in_bytes,p.zip_bytes);assert.equal(a.digest,'sha256:'+p.zip_sha256);assert.deepEqual(a.workflow_run,{id:p.run,repository_id:p.repository_id,head_repository_id:p.repository_id,head_branch:'integrate/reviewed-static4-20261026',head_sha:p.head});const upload=job.steps.find(s=>s.name==='Retain supplemental right-detail pixels outside Git'),t=Date.parse(a.created_at);assert(Number.isFinite(t)&&t>=Date.parse(upload.started_at)&&t<=Date.parse(upload.completed_at),'Artifact not uploaded in exact original attempt');}
+export function assertExecutedAppendSource(source){const p=EXECUTED_APPEND;assert.equal(source.sha,p.source);assert.equal(source.tree.sha,p.tree);assert.deepEqual(source.parents.map(x=>x.sha),[p.base,p.head]);}
+export function assertExecutedAppendBuiltInputs({manifestBytes,resourcesBytes}){assert.equal(sha(manifestBytes),EXECUTED_APPEND.manifest_sha256,'Current delivered manifest differs from actual capture');assert.equal(sha(resourcesBytes),EXECUTED_APPEND.resources_sha256,'Current delivered resources differ from actual capture');}
+// Compare the complete Git Merkle trees, not a handpicked renderer list. Only
+// named acceptance leaves can differ; all assets, metadata, served PNGs, JS/CSS,
+// HTML, fonts, dependencies, workflow/browser installation inputs stay exact.
+export async function compareExecutedAppendTrees({oldRoot,newRoot,oldTree,newTree}){
+ assert.equal(oldRoot,EXECUTED_APPEND.tree);const changed=[];
+ const entries=async(reader,id)=>{if(id===null)return new Map();const tree=await reader(id);assert.equal(tree.sha,id);assert.equal(tree.truncated,false);const map=new Map();for(const e of tree.tree){assert(typeof e.path==='string'&&e.path&&!e.path.includes('/')&&!['.','..'].includes(e.path));assert(!map.has(e.path));assert(/^[a-f0-9]{40}$/.test(e.sha));assert(['blob','tree','commit'].includes(e.type));map.set(e.path,e);}return map;};
+ const walk=async(a,b,prefix='')=>{if(a===b)return;const [old,current]=await Promise.all([entries(oldTree,a),entries(newTree,b)]);for(const name of new Set([...old.keys(),...current.keys()])){const path=prefix+name,x=old.get(name),y=current.get(name);if(x&&y&&x.sha===y.sha&&x.mode===y.mode&&x.type===y.type)continue;if(EXECUTED_APPEND_ACCEPTANCE_PATHS.includes(path)){assert(y&&y.type==='blob'&&y.mode==='100644');if(x)assert(x.type==='blob'&&x.mode==='100644');changed.push(path);continue;}assert(EXECUTED_APPEND_ACCEPTANCE_PATHS.some(p=>p.startsWith(path+'/')),'Executed visual input changed: '+path);for(const e of [x,y])if(e)assert(e.type==='tree'&&e.mode==='040000');await walk(x?.sha??null,y?.sha??null,path+'/');}};
+ await walk(oldRoot,newRoot);return changed.sort();
+}
+export function assertExecutedAppendAcquisition(before,after){const start="const APPEND_THREE_REVIEW_PATH=",tail="const target=process.env.DETAIL_BROWSER_TARGET||'dist';";for(const marker of [start,tail]){assert.equal(before.split(marker).length,2);assert.equal(after.split(marker).length,2);}assert.equal(after.slice(0,after.indexOf(start)),before.slice(0,before.indexOf(start)),'Capture profiles/physical inputs/helpers changed');assert.equal(after.slice(after.indexOf(tail)),before.slice(before.indexOf(tail)),'Actual browser acquisition changed');const ssrStart='// SSR_DOCUMENT_ONLY_BEGIN',ssrEnd='// SSR_DOCUMENT_ONLY_END';for(const marker of [ssrStart,ssrEnd]){assert.equal(before.split(marker).length,2);assert.equal(after.split(marker).length,2);}assert.equal(after.slice(after.indexOf(ssrStart),after.indexOf(ssrEnd)),before.slice(before.indexOf(ssrStart),before.indexOf(ssrEnd)),'Document acquisition helper changed');}
+export const extractExecutedAppendPython=String.raw`import zipfile,sys,pathlib,stat
+z=zipfile.ZipFile(sys.argv[1]); root=pathlib.Path(sys.argv[2]); seen=set(); total=0; counts={'fresh19':0,'legacy264':0}
+for f in z.infolist():
+ p=pathlib.PurePosixPath(f.filename)
+ assert not f.is_dir() and not p.is_absolute() and '..' not in p.parts and len(p.parts)==2
+ assert p.parts[0] in counts and p.parts[1] not in ('','.','..')
+ assert f.filename not in seen and not stat.S_ISLNK(f.external_attr>>16)
+ assert p.name in ('report.json','report.sha256') or p.name.endswith('.png')
+ assert 0<=f.file_size<=300*1024*1024
+ seen.add(f.filename); total+=f.file_size; counts[p.parts[0]]+=1
+ assert total<=1166738447 and len(seen)<=3883
+ if p.parts[0]=='fresh19':
+  with z.open(f) as src, open(root/p.name,'xb') as out:
+   while True:
+    b=src.read(1024*1024)
+    if not b: break
+    out.write(b)
+assert total==1166738447 and counts=={'fresh19':1586,'legacy264':2297}
+assert 'fresh19/report.json' in seen and 'fresh19/report.sha256' in seen
+assert len([x for x in seen if x.startswith('fresh19/') and x.endswith('.png')])==1584
+`;
+// Transport is isolated from the historical capture-authority executable: changing
+// that executable would invalidate the original exact capture-source closure.
+// Same proofGet policy, fixed repository/id/digest, no configurable archive limit.
+export async function downloadExecutedAppendArchive({token=process.env.GITHUB_TOKEN,fetchImpl=fetch,timeoutMs=180000,now=()=>performance.now()}={}){
+ assert(token,'Read-only Actions token required');assert(Number.isFinite(timeoutMs)&&timeoutMs>0&&timeoutMs<=180000);const p=EXECUTED_APPEND,controller=new AbortController(),start=now();let stage='redirect';const timer=setTimeout(()=>controller.abort(new DOMException('Fixed archive deadline','TimeoutError')),timeoutMs);const checkBudget=()=>{controller.signal.throwIfAborted();assert(now()-start<=timeoutMs,'Fixed archive network budget exceeded');};
+ try{checkBudget();const response=await proofGet(`https://api.github.com/repos/${p.repository}/actions/artifacts/${p.artifact}/zip`,{headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},redirect:'manual',signal:controller.signal},{fetchImpl,stage:'fixed executed archive redirect',checkBudget});checkBudget();assert.equal(response.status,302);const url=new URL(response.headers.get('location'));assert.equal(url.protocol,'https:');assert(!url.username&&!url.password);assert(/(?:^|\.)(?:blob\.core\.windows\.net|githubusercontent\.com)$/.test(url.hostname),'Unexpected artifact storage host');
+  stage='body';const body=await proofGet(url.href,{redirect:'error',signal:controller.signal},{fetchImpl,stage:'fixed executed archive bytes',checkBudget});checkBudget();assert(body.ok);const bytes=Buffer.from(await body.arrayBuffer());checkBudget();stage='integrity';assert.equal(bytes.length,p.zip_bytes);assert.equal(sha(bytes),p.zip_sha256);return bytes;
+ }catch(error){const name=['TimeoutError','AbortError','AssertionError'].includes(error?.name)?error.name:'ReadError';throw new Error(`Fixed executed artifact failed at ${stage} (${name})`);}finally{clearTimeout(timer);}
+}
+
+export async function authenticateExecutedAppendEvidence({root,api,currentSha,out}){
+ const p=EXECUTED_APPEND;assert.equal(git(root,'rev-parse','HEAD').toString().trim(),currentSha);assert.equal(git(root,'status','--porcelain','--untracked-files=no').toString().trim(),'');
+ const run=await api.json(`actions/runs/${p.run}`);assertExecutedAppendRun(run);assertExecutedAppendRun(await api.json(`actions/runs/${p.run}/attempts/1`));const suite=await api.json(`check-suites/${p.suite}`);assert.equal(suite.id,p.suite);assert.equal(suite.head_sha,p.head);assert.equal(suite.app?.id,15368);assert.equal(suite.app?.slug,'github-actions');assert.equal(suite.status,'completed');assert.equal(suite.conclusion,'failure');const job=await api.json(`actions/jobs/${p.job}`);assertExecutedAppendJob(job);assertExecutedAppendArtifact(await api.json(`actions/artifacts/${p.artifact}`),job);const source=await api.json('git/commits/'+p.source);assertExecutedAppendSource(source);
+ const localTree=async id=>({sha:id,truncated:false,tree:git(root,'ls-tree','-z',id).toString().split('\0').filter(Boolean).map(row=>{const at=row.indexOf('\t'),[mode,type,sha]=row.slice(0,at).split(' ');return {mode,type,sha,path:row.slice(at+1)};})});
+ const changed=await compareExecutedAppendTrees({oldRoot:source.tree.sha,newRoot:git(root,'rev-parse',currentSha+'^{tree}').toString().trim(),oldTree:id=>api.json('git/trees/'+id),newTree:localTree});
+ assertExecutedAppendAcquisition((await api.source('site/detail-presentation-browser-test.mjs',p.source)).toString(),(await readFile(join(root,'site/detail-presentation-browser-test.mjs'))).toString());
+ assertExecutedAppendBuiltInputs({manifestBytes:await readFile(join(root,'dist/assets/manifest.json')),resourcesBytes:await readFile(join(root,'dist/gallery/resources.json'))});
+ const dir=await mkdtemp(join(tmpdir(),'executed-append-'));try{const zip=await downloadExecutedAppendArchive();assert.equal(zip.length,p.zip_bytes);assert.equal(sha(zip),p.zip_sha256);const archive=join(dir,'original.zip');await writeFile(archive,zip);await mkdir(out,{recursive:true});execFileSync('python3',['-c',extractExecutedAppendPython,archive,out],{maxBuffer:1024**2});const reportBytes=await readFile(join(out,'report.json'));assert.equal(reportBytes.length,p.report_bytes);assert.equal(sha(reportBytes),p.report_sha256);
+  execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs','--verify-executed-append19'],{cwd:root,env:{...immutableGitEnv(),GALLERY_DIR:resolve(root,'dist'),DETAIL_BROWSER_PROFILE:'append19-v2',DETAIL_BROWSER_TARGET:'dist',DETAIL_EXPECTED_SOURCE_COMMIT:p.source,QA_OUTPUT_DIR:out},stdio:'inherit'});
+  assert.equal(sha(await readFile(join(out,'report.json'))),p.report_sha256,'Original failed report changed');assertExecutedAppendRun(await api.json(`actions/runs/${p.run}`));
+  return {status:'VERIFIED_FIXED_EXECUTED_PIXELS_WITH_EXACT_THREE_VISUAL_DISPOSITIONS',original_run_status:'FAIL',original_report_status:'fail',run_id:p.run,artifact_id:p.artifact,artifact_sha256:p.zip_sha256,report_sha256:p.report_sha256,variant_review_sha256:p.variant_sha256,current_source:currentSha,tested_source:p.source,acceptance_only_changes:changed,runtime_identity:'ALL_OTHER_TRACKED_BYTES_AND_CURRENT_BUILT_INPUTS_IDENTICAL',current_math:'ALL_60_SCIENTIFIC_CASES_AND_420_NEGATIVE_CONTROLS_RECOMPUTED',new_capture:'NOT_RUN',public_state:'NOT_CONFERRED'};
+ }finally{await rm(dir,{recursive:true,force:true});}
+}
+
 export async function authenticateAppendVisualEvidence({root,api,currentSha,out,legacy}){
  const binding=await assertAppendVisualRuntime({root,api,currentSha,legacy}),p=legacy.VISUAL_REVIEW;legacy.assertRun(await api.json(`actions/runs/${p.run}`));legacy.assertRun(await api.json(`actions/runs/${p.run}/attempts/1`));const suite=await api.json(`check-suites/${p.suite}`);assert.equal(suite.id,p.suite);assert.equal(suite.head_sha,p.head);assert.equal(suite.app?.id,15368);assert.equal(suite.app?.slug,'github-actions');assert.equal(suite.status,'completed');assert.equal(suite.conclusion,'failure');const job=await api.json(`actions/jobs/${p.job}`);legacy.assertJob(job);legacy.assertArtifact(await api.json(`actions/artifacts/${p.artifact}`),job);
  const dir=await mkdtemp(join(tmpdir(),'append-visual-'));try{const oldOut=join(out,'legacy264'),freshOut=join(out,'fresh19');await mkdir(oldOut,{recursive:true});const zip=await api.archive(p.artifact,{revision:2});assert.equal(zip.length,p.zip_bytes);assert.equal(sha(zip),p.zip_sha256);const archive=join(dir,'original.zip');await writeFile(archive,zip);execFileSync('python3',['-c',legacy.extractPython,archive,oldOut],{maxBuffer:1024**2});assert.equal(sha(await readFile(join(oldOut,'report.json'))),p.report_sha256);
   const snapshot=join(dir,'baseline');await mkdir(snapshot);await createBaselineVerifierSnapshot(root,snapshot,p.report_sha256);
   execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs','--verify-visual-disposition-seals'],{cwd:snapshot,env:{...immutableGitEnv(),GALLERY_DIR:join(snapshot,'baseline-gallery'),DETAIL_BROWSER_PROFILE:'full264-v2',DETAIL_BROWSER_TARGET:'dist',DETAIL_EXPECTED_SOURCE_COMMIT:p.source,QA_OUTPUT_DIR:oldOut},stdio:'inherit'});
   legacy.assertRun(await api.json(`actions/runs/${p.run}`));
-  for(const args of [[],['--verify-evidence']])execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs',...args],{cwd:root,env:{...immutableGitEnv(),GALLERY_DIR:resolve(root,'dist'),DETAIL_BROWSER_PROFILE:'append19-v2',DETAIL_BROWSER_TARGET:'dist',GITHUB_SHA:currentSha,QA_OUTPUT_DIR:freshOut},stdio:'inherit'});
-  const bytes=await readFile(join(freshOut,'report.json')),fresh=json(bytes);assert.equal(fresh.status,'pass');assert.equal(fresh.profile,'append19-v2');assert.equal(fresh.source_commit,currentSha);
-  const result={status:'PASS_BOUNDED_APPEND_WITH_AUTHENTICATED_LEGACY_REUSE',...binding,legacy264:{original_run_status:'FAIL',original_report_status:'fail',artifact_sha256:p.zip_sha256,report_sha256:p.report_sha256,review_sha256:p.review_sha256,math:'CURRENT_MATH_NOT_REEXECUTED'},new19:{status:'PASS',report_sha256:sha(bytes),profile:'append19-v2',scope:'ALL_19_FRESH_PLUS_UNCHANGED_CONTROL'},public_acceptance:'NOT_RUN'};await writeFile(join(out,'acceptance.json'),JSON.stringify(result,null,2)+'\n');return result;
+  const executed=await authenticateExecutedAppendEvidence({root,api,currentSha,out:freshOut});
+  const result={status:'PASS_BOUNDED_APPEND_WITH_AUTHENTICATED_LEGACY_REUSE',...binding,legacy264:{original_run_status:'FAIL',original_report_status:'fail',artifact_sha256:p.zip_sha256,report_sha256:p.report_sha256,review_sha256:p.review_sha256,math:'CURRENT_MATH_NOT_REEXECUTED'},new19:executed,public_acceptance:'NOT_RUN'};await writeFile(join(out,'acceptance.json'),JSON.stringify(result,null,2)+'\n');return result;
  }finally{await rm(dir,{recursive:true,force:true});}
 }
 
-export async function executeFreshAppendPublic({root,currentSha,out}){
- const freshOut=join(out,'fresh19');for(const args of [[],['--verify-evidence']])execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs',...args],{cwd:root,env:{...immutableGitEnv(),GALLERY_DIR:resolve(root,'dist'),DETAIL_BROWSER_PROFILE:'append19-v2',DETAIL_BROWSER_TARGET:'public',GITHUB_SHA:currentSha,DEPLOYED_SHA:currentSha,QA_OUTPUT_DIR:freshOut},stdio:'inherit'});
- const bytes=await readFile(join(freshOut,'report.json')),fresh=json(bytes);assert.equal(fresh.status,'pass');assert.equal(fresh.profile,'append19-v2');assert.equal(fresh.source_commit,currentSha);assert.equal(fresh.target,'public');return {status:'PASS',report_sha256:sha(bytes),profile:'append19-v2',scope:'ALL_19_FRESH_PLUS_UNCHANGED_CONTROL'};
+export async function verifyExecutedAppendPublic({root,api,currentSha,out}){
+ // Actual public27 state/SSR/first-frame and all283 PNG checks remain the next
+ // mandatory workflow commands. This only rechecks identical-source science.
+ const result=await authenticateExecutedAppendEvidence({root,api,currentSha,out:join(out,'executed19')});
+ return {...result,public_state:'REQUIRES_FOLLOWING_ACTUAL_OLD8_PLUS19_AND_ALL283_PNG_CHECKS'};
 }
