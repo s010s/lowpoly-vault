@@ -25,7 +25,7 @@ export const APPEND_CONTRACT_PATHS=Object.freeze([
  'site/same-id-append-continuation.mjs','site/same-id-append-continuation-test.mjs','site/same-id-successors.mjs','site/model-registry-sync.mjs',
  'site/detail-append-cohort.mjs','site/detail-browser-scope-test.mjs','site/detail-presentation-browser-test.mjs','site/detail-visual-disposition-test.mjs',
  'site/detail-visual-acceptance.mjs','site/detail-append-visual-acceptance.mjs','site/detail-append-visual-acceptance-test.mjs',
- 'site/detail-capture-authority-test.mjs'
+ 'site/detail-capture-authority-test.mjs','site/ci-lean-release-test.mjs','site/concept-landair-successor-test.mjs'
 ]);
 const sha=b=>createHash('sha256').update(b).digest('hex'),copy=x=>structuredClone(x);
 const git=(root,...args)=>execFileSync('git',args,{cwd:root,env:immutableGitEnv(),maxBuffer:64*1024**2,timeout:60000});
