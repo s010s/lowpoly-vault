@@ -6,10 +6,10 @@
     "id": "audit_release_ready_selection",
     "task_id": "audit_release_ready_selection"
   },
-  "reviewed_at_utc": "2026-10-27T02:43:01.848Z",
+  "reviewed_at_utc": "2026-10-27T04:04:38.615Z",
   "descriptor": {
     "path": "production/reviewed-static4-20261026/visual-continuation.json",
-    "sha256": "cf78b110a4ad42a906e35a368137bb770f5b4a9a7edcfed74c71c428b2b18ffc",
+    "sha256": "9d9afb1ce6af1a9d37f797946f2fa4d9b72f82863207caac52971b5ff04021b0",
     "bytes": 116606
   },
   "baseline": "05cf27f6ccee363043f4adf19ed3acbad71439d9",
@@ -34,7 +34,7 @@
     "xiphactinus",
     "yochelcionella"
   ],
-  "candidate_commit": "1a9b7067f522d1fa2728e3792204b0e8ccf4b9ab",
+  "candidate_commit": "682364fecde2842ac0fec388ab80fad69b3d5520",
   "scope": "EXACT_LEDGER_SOURCE_ACTUAL_RIGHT_CAPTURE_AND_MANDATORY_GATE_ENFORCEMENT_ONLY_NOT_CI_EXECUTION_OR_USER_VISUAL_APPROVAL",
   "checks": {
     "exact_changed_file_inventory": "PASS",
@@ -47,24 +47,26 @@
     "mandatory_dist_and_public_execution": "PASS"
   },
   "check_semantics": {
-    "exact_changed_file_inventory": "ACTUALLY_EXECUTED:460 exact changed Git paths/bytes/modes. Relative to prior reviewed458 ledger,456 pins remain byte-identical,2 bridge pins replaced and2 exact offline fixture paths added. Prior live ledger/review removed only to regenerate; historical originals retained. No model/source/renderer/workflow/authority/capture or old264 evidence changed.",
-    "unchanged_runtime_dependency_closure": "ACTUALLY_CHECKED:fixed whole23 codegate03852caa and helperc6fc5869 exact bytes; unchanged57JS/data+3Python execution dependency closure.19 prior code pins identical,2 reviewed bridge deltas and2 named offline fixture tests. Production guard/CI classifier unchanged.",
+    "exact_changed_file_inventory": "ACTUALLY_EXECUTED:460 exact changed Git paths/bytes/modes. Relative to prior460 ledger,458pins identical and only2 previously classified bridge code/test pins replaced. No newpaths. Old ledger/review originals retained; no model/source/renderer/workflow/authority/capture or old264 evidence changed.",
+    "unchanged_runtime_dependency_closure": "ACTUALLY_CHECKED:fixedwhole23 r005 codegate0cbfc7d7 and fixedr005 helper exact bytes. Same23literal paths,57JS/data+3Python closure;21previous codepins unchanged,only2reviewed bridge changes. No production authority,CI classifier,renderer or model modifications.",
     "original602_inverse_projection": "UNCHANGED_AUTHENTICATED_DATA_PLUS_CURRENT_REGISTRATION_CHECK:all7 aggregate pins identical to prior independently validated candidate; current original602/58registry and exact19new621/59 registration projection rechecked. No repeated model scan.",
     "original264_and_receipts_unchanged": "UNCHANGED_AUTHENTICATED_BYTES:merged right index,proof receipts,all delivery/source pins identical to prior actual19 capture/import review. Old264 NOT fresh or re-signed; no model or renderer change requires recapture.",
-    "baseline_snapshot_complete_and_exact": "PRIOR_AUTHENTICATED_SNAPSHOT_CONTINUITY_REUSED:390 immutable05cf snapshot files previously independently checked; constructor and baseline identity unchanged. No claim of a new historical artifact/browser execution.",
-    "historical_failed_artifact_authentication": "GATE_ENFORCEMENT_ONLY:unchanged reviewed bridge mandates authenticating original failed run/job/artifact and original seals. HistoricalFAIL remainsFAIL; raw historical442MB replay NOT executed by this review.",
+    "baseline_snapshot_complete_and_exact": "CODE_AND_ACTUAL_INPUT_SCOPE_CHECK:immutable05cf executable388 source blobs retained. Original390snapshot files independently rehashed; separate projected historical delivered manifest/resources independently matched fixed443a/c01b SHA and originalreport9fdd. Originalimmutable scope checker produced exact29/602 reportscope. Full snapshot historicalPNGseal execution remains mandatory in CI; priorraw-source two gallery inputs are not reused as delivered-byte proof.",
+    "historical_failed_artifact_authentication": "PARTIAL_ACTUAL_BYTES_PLUS_GATE_ENFORCEMENT:independently streamed original442MBZIP and254MBreport to existingfixedSHA; source/buildhash fields and actualoldbuiltbytes matched. Unchanged runtime mandates originalsource/run/attempt/job/artifact authentication and original2295PNG/case seals. Fullseal replay NOT_EXECUTED_BY_THIS_REVIEW; historicalFAIL remainsFAIL.",
     "fresh19_profile_and_all_negative_controls": "GATE_ENFORCEMENT_ONLY:reviewedappend19-v2 requires all19fresh plus unchangedcontrol and original negative controls in normalCI. Actualright19 capture passed separately; finalbuilt-page profile NOT executed by this review.",
     "mandatory_dist_and_public_execution": "GATE_ENFORCEMENT_ONLY:normalexact-headCI requires freshdist/browser evidence and laterpublic acceptance; neither is substituted by thisledgerreview. NOT_RUN_UNTIL_CI_AND_DEPLOYMENT."
   },
   "execution_status": {
     "actual_right19_capture_and_import": "PASS",
     "current_source_content_append_inverse": "PASS",
-    "historical_artifact_reauthentication": "NOT_RUN_UNTIL_CI",
+    "historical_artifact_reauthentication": "FULL_RUNTIME_AUTHENTICATION_AND2295PNG_SEALS_REQUIRED_IN_CI_NOT_COMPLETED_BY_THIS_REVIEW",
     "fresh19_final_dist_profile": "NOT_RUN_UNTIL_CI",
     "post_deployment_public_profile": "NOT_RUN_UNTIL_DEPLOYMENT",
-    "full_production_ci": "CORRECTED_REMOTE_FULL_CI_PENDING_PRIOR_PR_BUILD_FAIL_PRESERVED",
+    "full_production_ci": "LATEST_PR_VISUAL_BRIDGE_FAIL_PRESERVED_CORRECTED_CI_PENDING",
     "user_visual_approval": "NOT_ASSERTED",
-    "local_complete_contracts": "OWNER_EXECUTED_EXIT0_TERMINAL_LOG_AND_CODE_PINS_INDEPENDENTLY_VERIFIED_NOT_A_SECOND_RUN"
+    "local_complete_contracts": "PRIOR_ORIGINAL_CONTRACTS_EXIT0_RETAINED_NOT_RERUN_FOR_THIS_TWOFILE_CHANGE",
+    "current_offline_tests": "INDEPENDENT135BRIDGE_151MANDATORY_PLUS46ORIGINAL_17HELPER_PASS",
+    "historical_input_scope": "INDEPENDENT_EXACT_OLD_BUILT_1POSITIVE15NEGATIVE_ORIGINAL29SAMPLE602_SCOPE_PASS"
   },
   "evidence": [
     {
@@ -73,34 +75,34 @@
       "bytes": 9974
     },
     {
-      "role": "whole23-code-and-fixture-review",
-      "sha256": "03852caa290f362ec488f2dfa2d047dfb580769977838e45412a47988e557f7d",
-      "bytes": 12772
+      "role": "whole23-r005-code-review",
+      "sha256": "0cbfc7d73386b1c96b7986c0e89b72f8dc9944a27c7e6ae9a1c4a89be04a52d3",
+      "bytes": 12576
     },
     {
-      "role": "fixed-r004-local-helper-code-review",
-      "sha256": "c6fc5869446a196a516059e8f799d5bb8ddae2d79b5d8e3705bbfc1ddff51a1f",
-      "bytes": 2373
+      "role": "fixed-r005-local-helper-review",
+      "sha256": "19929d28f5375f77898724d792ac3959b3fd993d46b3c04295b11d6ee9ff2c27",
+      "bytes": 2174
     },
     {
-      "role": "prior-exact458-candidate-ledger-review",
-      "sha256": "c639a6641a5d165481c589881c9d4ef3229fe204f64ce9ee5719ee768748ff7d",
-      "bytes": 5435
+      "role": "prior-exact460-ledger-review",
+      "sha256": "1fc49898a77efccb08e7293b656e2c33babcf19f5e20d729fe86aacdf38d5d39",
+      "bytes": 6566
     },
     {
-      "role": "owner-original-complete-contracts-terminal-outcome",
-      "sha256": "97363e7e10c9e29e2616b10718f08f7364e50e09ad48ce2c434ad3c785b9d150",
-      "bytes": 1245
+      "role": "originalarchive-report-builtbyte-diagnosis",
+      "sha256": "882ab70a4932a06fff5cb2480b46f9143bfeae8f51bd7328f5b0a980485c7e4d",
+      "bytes": 2691
     },
     {
-      "role": "owner-original-complete-contracts-terminal-log",
-      "sha256": "b5eb7400355883537b71a75bfe8fd269ae345ffc225bdcfba24e63195fa9a9ab",
-      "bytes": 89356
+      "role": "realhistoricalbuilt-and-originalscope-independent-tests",
+      "sha256": "4df64ff8ce654f4dc6b102d45497d938c3ee4276c4fc6ef347d0e34e64fed38f",
+      "bytes": 1419
     },
     {
-      "role": "baseline-snapshot390-prior-byte-continuity",
-      "sha256": "ed3099ef1a6519fc8c24500195e5460c3b237209384eaaf3a7913c217e85cd53",
-      "bytes": 374
+      "role": "latest-actual-PR-visual-bridge-failure",
+      "sha256": "62d1b965dceb6b901dcd4c9aa3d6f974c9735f7fc5892f6435b5e928ab89f34d",
+      "bytes": 2076287
     }
   ],
   "blocking_findings": [],
@@ -108,20 +110,17 @@
   "reviewer_authority": false,
   "postReleaseVerified": false,
   "local_fixture_resolution": {
-    "status": "BOTH_EXACT_OFFLINE_DEPENDENCY_OMISSIONS_CORRECTED_WITHOUT_GUARD_CHANGE",
-    "independent_ci_lean_exit": 0,
-    "independent_landair_checks": 13,
-    "independent_bridge_tests": 116,
-    "independent_mandatory_tests": 132,
+    "prior_two_dependency_repairs": "UNCHANGED_ALREADY_REVIEWED",
+    "current_historical_input_repair": "RAW_SOURCE_REPLACED_ONLY_IN_GALLERY_SNAPSHOT_BY_EXACT_ORIGINAL_DELIVERED_BYTE_INVERSE",
+    "independent_bridge_tests": 135,
+    "independent_mandatory_tests": 151,
     "original_mandatory_checks": 46,
-    "independent_helper_tests": 16,
-    "owner_original_complete_contracts": {
-      "exit_code": 0,
-      "log_sha256": "b5eb7400355883537b71a75bfe8fd269ae345ffc225bdcfba24e63195fa9a9ab",
-      "terminal_at": "2026-10-27T02:39:00.455175+00:00"
-    },
-    "prior_remote_failure": "PRESERVED_NOT_REWRITTEN",
-    "prior_local_missing_append_failure": "PRESERVED_NOT_REWRITTEN",
-    "prior_local_child_status_null": "PRESERVED_CAUSE_UNESTABLISHED_NOT_COUNTED_AS_PASS"
+    "independent_helper_tests": 17,
+    "independent_actual_old_built_positive": 1,
+    "independent_actual_old_built_negative": 15,
+    "original_scope_samples": 29,
+    "original_scope_catalog": 602,
+    "latest_original_CI_FAIL": "PRESERVED_NOT_REWRITTEN",
+    "full_historical_seals": "NOT_EXECUTED_BY_THIS_REVIEW"
   }
 }

@@ -137,18 +137,53 @@ export async function assertAppendVisualRuntime({root,api,currentSha,legacy}){
  assert.equal(sha(await api.source('.github/workflows/pages.yml',p.source)),p.workflow_sha256);assert.equal(sha(await api.source('site/detail-presentation-browser-test.mjs',p.source)),p.browser_sha256);assert.equal(sha(raw(root,p.review_path)),p.review_sha256);
  return {current_source:currentSha,baseline_source:APPEND_VISUAL_BASE,...projection,...ledger,runtime_identity:'UNCHANGED_OLD_RUNTIME_AND_EXACT_REVIEWED_19_DATA_APPEND'};
 }
-// Exact Git blobs, not copied current files and not a fabricated checkout. This
-// snapshot only executes the immutable old offline verifier, never Chromium.
-export async function createBaselineVerifierSnapshot(root,target){
+// The historical report sealed delivered metadata, not raw source JSON. These
+// immutable seals belong to the same already-authenticated failed PR73 report.
+export const LEGACY_BUILT_INPUT_SEALS=Object.freeze({
+ report_sha256:'9fdd81660e6c95108eb62747bdb5dc6497346614364c3eea7d018bc0fa8f6d9a',
+ manifest_sha256:'443a4b788511cec6b642691faaa6da78244d4f73948984e1f08e14a90ea1d589',
+ resources_sha256:'c01b9e47d478992bdb35497567ae00e046b994b0a1f9e715aa177e087326b8b6'
+});
+export function assertLegacyBuiltInputSeals({manifestBytes,resourcesBytes,reportSha256}){
+ assert.equal(reportSha256,LEGACY_BUILT_INPUT_SEALS.report_sha256,'Historical report cannot be replaced');
+ assert.equal(sha(manifestBytes),LEGACY_BUILT_INPUT_SEALS.manifest_sha256,'Historical delivered manifest bytes differ');
+ assert.equal(sha(resourcesBytes),LEGACY_BUILT_INPUT_SEALS.resources_sha256,'Historical delivered resources bytes differ');
+}
+export function projectLegacyBuiltInputs({baselineManifest,sourceManifest,baselineResources,sourceResources,builtManifest,builtResources}){
+ const selected=new Set(IDS),oldIds=baselineManifest.assets.map(a=>a.id);
+ assert.equal(oldIds.length,602);assert.equal(new Set(oldIds).size,602);assert(oldIds.every(id=>!selected.has(id)));
+ assert.deepEqual(sourceManifest.assets.map(a=>a.id),[...oldIds,...IDS],'Exact source621 order required');
+ const sourceInverse=copy(sourceManifest);sourceInverse.assets=sourceInverse.assets.slice(0,602);
+ assert(sourceInverse.publication?.same_id_successor_append,'Authenticated append pointer required');delete sourceInverse.publication.same_id_successor_append;
+ assert.deepEqual(sourceInverse,baselineManifest,'Original source602 changed');
+ assert.deepEqual(builtManifest.assets.map(a=>a.id),[...oldIds,...IDS],'Delivered metadata must contain exact621, not raw602');
+ assert.deepEqual({...builtManifest,assets:sourceManifest.assets},sourceManifest,'Delivered headers changed');
+ for(let i=0;i<sourceManifest.assets.length;i++)for(const key of ['id','glb','blend','preview','sha256'])assert.deepEqual(builtManifest.assets[i][key],sourceManifest.assets[i][key],'Delivered source binding changed: '+key);
+ const newPaths=new Set(IDS.flatMap(id=>['gallery/posters/'+id+'.png','gallery/posters/'+id+'-wheel.png']));
+ assert.deepEqual(Object.keys(sourceResources.posters).filter(id=>!Object.hasOwn(baselineResources.posters,id)).sort(),IDS);
+ for(const id of IDS){assert.equal(sourceResources.posters[id].detail,'gallery/posters/'+id+'.png');assert.equal(sourceResources.posters[id].wheel,'gallery/posters/'+id+'-wheel.png');}
+ for(const path of newPaths)assert.equal(sourceResources.files.filter(f=>f.path===path).length,1,'Exact added poster file required');
+ const resourceInverse=copy(sourceResources);resourceInverse.posters=removeKeys(resourceInverse.posters,selected);resourceInverse.files=resourceInverse.files.filter(f=>!newPaths.has(f.path));assert.deepEqual(resourceInverse,baselineResources,'Original source resources changed');
+ assert.deepEqual(builtResources,{...sourceResources,production_projection:true},'Delivered resources differ from authenticated source projection');
+ const manifest=copy(builtManifest);manifest.assets=manifest.assets.slice(0,602);delete manifest.publication.same_id_successor_append;
+ const resources=copy(builtResources);resources.posters=removeKeys(resources.posters,selected);resources.files=resources.files.filter(f=>!newPaths.has(f.path));
+ return {manifestBytes:Buffer.from(JSON.stringify(manifest,null,2)+'\n'),resourcesBytes:Buffer.from(JSON.stringify(resources,null,2)+'\n')};
+}
+// Executable snapshot sources are exact Git blobs, never current code. Only the
+// two delivered metadata inputs use the exact inverse above plus immutable byte
+// seals. The snapshot executes the old offline verifier, never Chromium.
+export async function createBaselineVerifierSnapshot(root,target,reportSha256){
+ const projected=projectLegacyBuiltInputs({baselineManifest:json(raw(root,'assets/manifest.json')),sourceManifest:json(await readFile(join(root,'assets/manifest.json'))),baselineResources:json(raw(root,'site/public/gallery/resources.json')),sourceResources:json(await readFile(join(root,'site/public/gallery/resources.json'))),builtManifest:json(await readFile(join(root,'dist/assets/manifest.json'))),builtResources:json(await readFile(join(root,'dist/gallery/resources.json')))});
+ assertLegacyBuiltInputSeals({...projected,reportSha256});
  const paths=git(root,'ls-tree','-rz','--name-only',APPEND_VISUAL_BASE).toString().split('\0').filter(p=>p&&((p.startsWith('site/')&&!p.startsWith('site/public/')&&/\.(mjs|js|json)$/.test(p))||(p.startsWith('qa/detail-presentation-')&&/\.(js|json)$/.test(p))||p==='package.json'));
  for(const path of paths){await mkdir(dirname(join(target,path)),{recursive:true});await writeFile(join(target,path),raw(root,path),{flag:'wx'});}
- for(const [source,path]of [['assets/manifest.json','baseline-gallery/assets/manifest.json'],['site/public/gallery/resources.json','baseline-gallery/gallery/resources.json']]){await mkdir(dirname(join(target,path)),{recursive:true});await writeFile(join(target,path),raw(root,source),{flag:'wx'});}
+ for(const [bytes,path]of [[projected.manifestBytes,'baseline-gallery/assets/manifest.json'],[projected.resourcesBytes,'baseline-gallery/gallery/resources.json']]){await mkdir(dirname(join(target,path)),{recursive:true});await writeFile(join(target,path),bytes,{flag:'wx'});}
  await symlink(resolve(root,'node_modules'),join(target,'node_modules'));return paths;
 }
 export async function authenticateAppendVisualEvidence({root,api,currentSha,out,legacy}){
  const binding=await assertAppendVisualRuntime({root,api,currentSha,legacy}),p=legacy.VISUAL_REVIEW;legacy.assertRun(await api.json(`actions/runs/${p.run}`));legacy.assertRun(await api.json(`actions/runs/${p.run}/attempts/1`));const suite=await api.json(`check-suites/${p.suite}`);assert.equal(suite.id,p.suite);assert.equal(suite.head_sha,p.head);assert.equal(suite.app?.id,15368);assert.equal(suite.app?.slug,'github-actions');assert.equal(suite.status,'completed');assert.equal(suite.conclusion,'failure');const job=await api.json(`actions/jobs/${p.job}`);legacy.assertJob(job);legacy.assertArtifact(await api.json(`actions/artifacts/${p.artifact}`),job);
  const dir=await mkdtemp(join(tmpdir(),'append-visual-'));try{const oldOut=join(out,'legacy264'),freshOut=join(out,'fresh19');await mkdir(oldOut,{recursive:true});const zip=await api.archive(p.artifact,{revision:2});assert.equal(zip.length,p.zip_bytes);assert.equal(sha(zip),p.zip_sha256);const archive=join(dir,'original.zip');await writeFile(archive,zip);execFileSync('python3',['-c',legacy.extractPython,archive,oldOut],{maxBuffer:1024**2});assert.equal(sha(await readFile(join(oldOut,'report.json'))),p.report_sha256);
-  const snapshot=join(dir,'baseline');await mkdir(snapshot);await createBaselineVerifierSnapshot(root,snapshot);
+  const snapshot=join(dir,'baseline');await mkdir(snapshot);await createBaselineVerifierSnapshot(root,snapshot,p.report_sha256);
   execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs','--verify-visual-disposition-seals'],{cwd:snapshot,env:{...immutableGitEnv(),GALLERY_DIR:join(snapshot,'baseline-gallery'),DETAIL_BROWSER_PROFILE:'full264-v2',DETAIL_BROWSER_TARGET:'dist',DETAIL_EXPECTED_SOURCE_COMMIT:p.source,QA_OUTPUT_DIR:oldOut},stdio:'inherit'});
   legacy.assertRun(await api.json(`actions/runs/${p.run}`));
   for(const args of [[],['--verify-evidence']])execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs',...args],{cwd:root,env:{...immutableGitEnv(),GALLERY_DIR:resolve(root,'dist'),DETAIL_BROWSER_PROFILE:'append19-v2',DETAIL_BROWSER_TARGET:'dist',GITHUB_SHA:currentSha,QA_OUTPUT_DIR:freshOut},stdio:'inherit'});
