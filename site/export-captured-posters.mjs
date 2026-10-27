@@ -1,3 +1,4 @@
+import {verifyCorrectiveWheelOutput} from './old-corrective-ten-capture.mjs';
 /** Public capture transport for environments unable to download Actions artifacts. */
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -6,6 +7,7 @@ import {createHash} from 'node:crypto';
 import {LANDAIR_CAPTURE} from './accepted-landair-capture.mjs';
 import {QUARTETS_CAPTURE} from './accepted-quartets-capture.mjs';
 import {CONCEPT_SEVEN_IDS} from './concept-seven-release.mjs';
+if(await verifyCorrectiveWheelOutput())process.exit(0);
 const root=resolve(process.env.PREVIEW_OUTPUT||'qa/ci-publication-capture');
 const report=JSON.parse(await readFile(resolve(root,'render-report.json')));
 const index=JSON.parse(await readFile(resolve(root,'assets/turntables/index.json')));

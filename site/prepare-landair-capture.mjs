@@ -1,3 +1,5 @@
+import {spawnSync} from 'node:child_process';
+import {prepareCorrectiveCapture,loadCorrectiveCapture} from './old-corrective-ten-capture.mjs';
 /** Hash-checked candidate staging is separate from the publication manifest. */
 import assert from 'node:assert/strict';
 import {readFile,writeFile,realpath,mkdir,cp,appendFile} from 'node:fs/promises';
@@ -7,6 +9,7 @@ import {createHash} from 'node:crypto';
 import {prepareRenderCapture} from './prepare-render-capture.mjs';
 import {LANDAIR_CAPTURE as fixed} from './accepted-landair-capture.mjs';
 export async function prepareLandairCapture({root=process.cwd(),outDir=resolve(process.env.GALLERY_DIR||'qa/capture-inputs-site')}={}){
+ if(await prepareCorrectiveCapture({root}))return {capture_only:true,publication_authority:false};
  const descriptor=JSON.parse(await readFile(resolve(root,'qa/landair-release-20261019/capture-inputs.json')));
  assert.deepEqual(descriptor,fixed);assert.equal(descriptor.publication_authority,false);
  async function checked(pin){assert(/^(production|qa)\/[a-zA-Z0-9_./-]+$/.test(pin.path)&&!pin.path.split('/').includes('..'));const p=resolve(root,pin.path);assert.equal(await realpath(p),p);const b=await readFile(p);assert.equal(createHash('sha256').update(b).digest('hex'),pin.sha256);return b;}
@@ -18,4 +21,7 @@ export async function prepareLandairCapture({root=process.cwd(),outDir=resolve(p
  if(process.env.GITHUB_ENV)await appendFile(process.env.GITHUB_ENV,`PREVIEW_ASSET_IDS=${ids.join(',')}\n`);
  console.log(`Staged ${ids.length} exact candidate GLBs for capture only. Published manifest and approval gates are unchanged.`);return manifest;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)await prepareLandairCapture();
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
+ if(await loadCorrectiveCapture()){const tests=spawnSync(process.execPath,['--test','site/old-corrective-ten-capture-test.mjs'],{stdio:'inherit',env:{...process.env,CORRECTIVE_TEST_ROOT:process.cwd()}});assert(!tests.error&&tests.status===0,'Exact corrective capture tests must pass before browser acquisition');}
+ await prepareLandairCapture();
+}
