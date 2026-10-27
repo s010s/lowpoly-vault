@@ -1,4 +1,7 @@
+import './model-task-static4-acceptance-test.mjs';
 /** Publication-boundary regressions use disposable copies, never mutate original assets or QA. */
+import './same-id-append-continuation-test.mjs';
+import './detail-append-visual-acceptance-test.mjs';
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, copyFile, readFile, writeFile, rename, symlink, rm } from 'node:fs/promises';
 import { dirname, join, resolve, basename } from 'node:path';

@@ -1,0 +1,121 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "alalcomenaeus",
+  "revision": "r001",
+  "name": {
+    "en": "Alalcomenaeus cambricus — Burgess Shale whole-animal study",
+    "zh": "阿拉尔柯美纳虫（Alalcomenaeus cambricus）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "authoring_profile": "model-task-v2-four-view-scoped",
+  "scope": "Original static complete animal informed by actual whole Burgess Shale specimens ROM45616/53352; not same-specimen replica, scientific scan or substitute of indeterminate Chinese/Utah Alalcomenaeus. Existing inventory slot.",
+  "scale": {
+    "unit": "meter",
+    "head_to_telson_length": 0.05,
+    "posed_width_target": 0.018,
+    "posed_height_target": 0.013,
+    "frontal_filament_extra_extent_target": 0.015,
+    "basis": "Artist nominal adult values, not one specimen metric. ROM lists photographed specimens45mm/55mm; frontal filament extent and width/depth are artistic parameters, with all bounds recorded after posing."
+  },
+  "pose": "Static near-bottom swimming/resting interpretation, body gently arched, head -Y, spatulate tail +Y; limbs spread modestly without splaying as a centipede. Lowest exported surface at Z0 is datum, not foot-ground or habitat claim. No base or water.",
+  "coordinates": {
+    "up": "+Z",
+    "forward": "-Y",
+    "unit": "meter",
+    "root": "alalcomenaeus",
+    "collection": "EXPORT",
+    "origin": "Horizontal animal bounds center; lowest exported surface Z0 as display datum, not ground-contact claim.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z"
+  },
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "4500–8000; ceiling is not a target",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–5 muted slate-blue/olive/ochre tones plus dark eyes; original art, no fossil pigment claim.",
+    "detail": "Coherent softly faceted closed solids, controlled taper; solid slightly thickened lamellar fringe simplification; no alpha cards or ornamental shell spots."
+  },
+  "morphology": [
+    {
+      "id": "body",
+      "obligation": "Eleven trunk tergites, enclosing pleural flanks and paired dorsal carinae; broad shield tapering forward, no inflated bivalved shell.",
+      "source": "BRIGGS1999 + ROM"
+    },
+    {
+      "id": "appendages",
+      "obligation": "Paired compact-base great appendages, each with three flagellate claws; two posterior cephalic biramous pairs and eleven trunk pairs. Outer branches paddle-like/fringed; inner branches jointed and restrainedly spinose.",
+      "source": "BRIGGS1999"
+    },
+    {
+      "id": "tail",
+      "obligation": "Single broad spatulate telson with posterior planar fringe; not a pointed Leanchoilia tail, three tail paddles, or shrimp fan.",
+      "source": "BRIGGS1999 + ROM"
+    },
+    {
+      "id": "eyes-interpretive",
+      "obligation": "Two prominent short-stalked lateral eyes. Three tiny median ocelli follow the selected Burgess1999/2023 interpretation, explicitly uncertain; do not build five equally large eye stalks.",
+      "source": "BRIGGS1999 + SCHOENEMANN2023"
+    }
+  ],
+  "scientific_limits": [
+    "Whole fossils preserve the body; original 3D depth, posture, colors, tiny setal density and some proximal limb attachments remain interpretive. Do not model rock cracks or mineral shine as anatomy.",
+    "Eye interpretation differs:1999 and2023 accounts favor three median eyes in A.cambricus; current ROM page says a smaller median pair for leanchoiliids. Adopt the documented1999 alternative for this asset, with three understated ocelli and an explicit uncertainty label; do not call this resolved consensus.",
+    "No nervous-system reconstruction or phylogeny claim; historical and recent literature disputes internal traces. Whole external shape does not require settling that debate.",
+    "No transfer of Chengjiang/Utah indeterminate species proportions or extra limbs; no anatomical exactness or all-era coexistence claim."
+  ],
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB; save camera/light config and hash-bound manifest.",
+    "extra_views": "None by default. Only a specific unresolved factual or technical issue justifies one focused diagnostic.",
+    "website_derivatives": false
+  },
+  "acceptance_obligations": [
+    "Preserve eleven tergites, compact-based triflagellate frontal appendages and broad single spatulate tail. Shape must differ from existing Leanchoilia, not just palette/size/pose.",
+    "Four fixed final views suffice. Front checks paired eye/appendage organization, side coherent carapace/limb layers, top eleven-segment enclosing flank and spatulate tail, perspective full readable depth.",
+    "EXPORT contains exactly one asset-named identity root, intended meshes descendants only. Cameras/lights outside. Applied positive transforms, outward winding, single-sided OPAQUE materials; no DoubleSide workaround.",
+    "Default shared helper thresholds unchanged. Use current asset_common and exactGLB renderer; record dependency hashes/runtime/exporter versions.",
+    "Two COMPLETE isolated factory-startup rebuilds from same generator/config/seed, compare exact GLB SHA256 AND decoded geometry/material semantic digest, bounds/counts. Two exports of one scene do not qualify.",
+    "Editable .blend reopen/reexport verification plus native/export metrics, Khronos validation and scoped runtime parse. Preserve all logs.",
+    "Independent QA separate from maker. GPU-world/user acceptance/merge/deploy not run and not prerequisites to begin static making; never claim them passed."
+  ],
+  "production_plan": [
+    "Coordinator claims existing alalcomenaeus slot after current duplicate recheck. Maker inspects the two actual2560px source images locally before geometry.",
+    "Create new parameterized deterministic generator; use eleven named segments and mapped cephalic/trunk appendages, not recolored Leanchoilia mesh.",
+    "Four cheap graybox views establish enclosing flank, compact claw bases and broad spatula tail first; no mandatory extra views.",
+    "Apply controlled palette, single-root export and complete two-build byte/semantic check. Keep eye choice and interpretation in metadata.",
+    "Hand exact GLB/Blend/source/ref manifest and four views to separate reviewer; no upload or public release from this preparation."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic full generator and config/seed",
+    "dependency hashes",
+    "exact .glb",
+    "four exactGLB views and manifest",
+    "real-reference ledger with private source pixels",
+    "two full build logs and byte/semantic comparison",
+    "native/reexport comparison",
+    "technical and Khronos/runtime reports",
+    "brief.json",
+    "candidate.json",
+    "checksum manifest"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "template_version": "model-task-v2",
+  "revision": "r001",
+  "authoring_profile": "model-task-v2 + release-fit-1",
+  "asset_id": "yochelcionella",
+  "name": {
+    "en": "Yochelcionella greenlandica — internal-mould fossil study",
+    "zh": "Yochelcionella greenlandica（内模化石形态研究）"
+  },
+  "representation": "fossil-specimen",
+  "preparation_status": "BRIEF_FROZEN",
+  "scope": "Existing planned genus ID; original stylized isolated internal-mould fossil form, principally MGUH27016 holotype. Not living whole animal, hollow original shell, scan, exact specimen replica or new genus variant.",
+  "taxon": {
+    "scientific_name": "Yochelcionella greenlandica Atkins & Peel 2004",
+    "primary_specimen": "MGUH27016, GGU271471, Aftenstjernesoe Formation, Broenlund Fjord Group, central North Greenland",
+    "classification_limit": "Helcionelloid mollusc context; no asserted modern gastropod anatomy, orientation or snorkel function.",
+    "context": "Lower Cambrian; source interval labels historical, no precise numerical-age claim."
+  },
+  "coordinates": {
+    "up": "+Z",
+    "object_forward": "-Y",
+    "right": "+X",
+    "unit": "meter",
+    "origin": "Center of lowermost mould footprint at Z=0; presentation datum only, not original life posture.",
+    "gltf_up": "+Y",
+    "gltf_forward": "+Z",
+    "front_camera": "-Y",
+    "side_camera": "+X",
+    "top_camera": "+Z",
+    "perspective_camera": [
+      1,
+      -1,
+      1
+    ],
+    "orientation_note": "Subapical snorkel projection points toward -Y. Camera front is presentation label, NOT anatomical anterior, which is debated."
+  },
+  "scale": {
+    "nominal_height_m": 0.001,
+    "nominal_apical_to_opposite_base_extent_m": 0.00105,
+    "nominal_width_m": 0.00065,
+    "nominal_snorkel_projection_m": 0.00025,
+    "basis": "Millimeter-scale artistic nominal specimen study, not measured holotype. Figure2 states x35 magnification; do not derive exact dimension from arbitrarily scaled screen image. Inventory hand-scale label not adopted as real size.",
+    "uniform_scale_only": true,
+    "world_boundary": "Microscopic fossil item: viewer zoom allowed; do not enlarge physical scale silently for scene readability.",
+    "dimensions_note": "Nominal body footprint Y length 1.05 mm; total bound including short solid projection is reported separately. Shapes are artistic nominal, not measured holotype."
+  },
+  "geometry_policy": {
+    "target_triangles": "1200–2500 only as needed",
+    "max_triangles": 6000,
+    "max_materials": 4,
+    "max_primitives": 16,
+    "max_glb_bytes": 2097152
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "max_texture_bytes": 0,
+    "max_decoded_texture_bytes": 0,
+    "normal_style": "Broad clean fossil-form planes, restrained smooth transitions; two/three readable rugae, not noisy triangulation.",
+    "materials": "2–3 subdued warm gray/slate stone-like matte palette, artistic only; no painted SEM photo pixels."
+  },
+  "runtime_profile": {
+    "kind": "static standalone embedded-buffer GLB",
+    "rig": false,
+    "animation": false,
+    "required_extensions": [],
+    "portability": "No external texture/buffer dependencies; maker records exporter/importer versions."
+  },
+  "view_plan": {
+    "greybox": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "greybox_note": "Check internal-mould mass, overhanging apex, subapical projection, lateral compression and rugae before polish.",
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "final_source": "Clean import of exact delivered GLB; same bytes/hash reviewed independently.",
+    "extra_views": "Only targeted close-up if canonical views do not resolve diagnostic feature.",
+    "website_reuse": "No website camera/physical-scale integration proven."
+  },
+  "morphology": [
+    {
+      "id": "cap",
+      "obligation": "One bilaterally symmetric, moderately laterally compressed cap-like internal mould. Broad low oval footprint, rounded apex bent/overhanging toward -Y subapical side. Side silhouette gently sigmoid on opposite supra-apical wall; not spherical limpet, straight traffic cone or complete spiraled snail.",
+      "source": "Atkins & Peel2004 pp3,5; Fig2A–D MGUH27016."
+    },
+    {
+      "id": "projection",
+      "obligation": "One short integrated subapical snorkel FILL projection, near apex but below its overhang, pointing slightly upward away from -Y wall. Rounded cross-section and mild outward flare; same solid fossil mass. Truncated/soft blunt terminal is preservation-bounded. NO drilled hollow aperture or separate attached cylinder.",
+      "source": "Fig2B/D and p5: these specimens phosphatic internal moulds; shell thickness/ornament unknown."
+    },
+    {
+      "id": "rugae",
+      "obligation": "Two or three broad restrained lateral comarginal rugae, with first aligned in inclination with snorkel and not wrapping as a uniform ring across subapical face; later rugae continue beneath apex. Preserve a quiet curved cap between ridges. Do not add fine shell ornament, scales, segment seams or ribs copied from Y.gracilis.",
+      "source": "pp3,5 diagnosis/description and actual Fig2A–D."
+    },
+    {
+      "id": "underside",
+      "obligation": "Conservative subtly uneven closed mould basal surface, no inferred living mantle cavity, foot, mouth or operculum. Do not create substrate, fossil slab, plinth or stand.",
+      "source": "Fossil-form internal mould scope; original aperture outline described oval3:2 but actual full basal surface not pictured in selected holotype panels."
+    }
+  ],
+  "scientific_limits": [
+    "This is internal mineral mould, not shell exterior. Solid snorkel fill is intentional; hollow tube requires separate evidence and scope change.",
+    "Original shell thickness and ornament explicitly unknown in source. No soft animal, eyes, tentacles, muscular foot or mantle invented.",
+    "Function/orientation of snorkel debated in primary source; presentation -Y is not claim of inhalant/anterior anatomy.",
+    "Original specimen missing/damaged parts must not be reconstructed as exact anatomy. Subtle completed basal closure is technical/art inference, not direct fossil evidence.",
+    "Actual fossil color is not inferred from SEM grayscale. No precise measured size claimed; nominal dimensions declared.",
+    "Use Fig2A–D holotype as principal multi-view anchor. Fig2E–Q paratypes only variation context; Fig3 Y.gracilis is different species and excluded.",
+    "Classification in fossil animal category does NOT make this a living creature model. Counts one existing planned concept only."
+  ],
+  "art_direction": {
+    "hierarchy": "Dominant bent compressed cap; secondary integrated subapical projection; tertiary broad rugae. Small deliberate asymmetry only for fossil preservation, not low-quality lumpy mesh.",
+    "construction": "Purpose-built continuous surface with integrated fill projection and rounded ridges. No stacked torus rings, boolean-hole fakery, bead chain or noisy decimation."
+  },
+  "acceptance_obligations": [
+    "Maker must inspect source Fig2A–D pixels before making, retain internal-mould scope, no open shell/tube.",
+    "Front -Y: bilateral compression and single projection under overhanging apex; side +X: bent apex, short mildly upturned snorkel fill, sigmoid supra-apical side and broad rugae; top +Z: oval footprint, narrow bilateral mass, centered projection; perspective(1,-1,1): coherent continuous fossil silhouette, not hollow shell or simple cone.",
+    "QA checks connected solid surface, no detached projection/rings, no unnecessary holes or invented soft parts; only targeted underside image if needed to verify technical closure.",
+    "Clean exactGLB import, finite bounds/transforms, millimeter dimensions expressed in meters, no external buffers/textures, reopen source .blend; report triangles/materials/bytes.",
+    "Independent reviewer separate. No live animal behavior, site integration, user acceptance, deployed or GPU/populated-world performance claims."
+  ],
+  "deliverables": [
+    "brief.json",
+    "references.json",
+    "original editable .blend/generator",
+    "exact .glb",
+    "four exactGLB PNGs",
+    "technical report and separate independent QA",
+    "one file SHA manifest"
+  ],
+  "prohibited": [
+    "No public upload/Git/PR/deploy; parent owns private backup.",
+    "Stop if historical same-taxon lowpoly exists. No genus/species duplicate count padding."
+  ]
+}

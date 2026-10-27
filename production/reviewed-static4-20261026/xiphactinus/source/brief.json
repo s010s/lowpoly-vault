@@ -1,0 +1,116 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "xiphactinus",
+  "revision": "r001",
+  "name": {
+    "en": "Xiphactinus audax — restrained living reconstruction",
+    "zh": "剑射鱼 Xiphactinus audax"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original living large predatory fish anchored Sternberg whole skeleton; not a tarpon recolor or reused fish mesh.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Xiphactinus audax",
+    "context": "Late Cretaceous Western Interior Seaway",
+    "anchors": [
+      "FHSU Sternberg Fish-within-a-Fish archive sa_fp_009_006",
+      "Shelburne2020 primary comparative cranial study, X.audax text only"
+    ]
+  },
+  "scale": {
+    "total_length_m": 4.3,
+    "maximum_body_depth_m": 0.85,
+    "body_width_m": 0.55,
+    "head_length_m": 0.72,
+    "basis": "Artist nominal adult near reported14ft Sternberg specimen. Width, live flesh and exact posed bounds art, not original-specimen measurements."
+  },
+  "pose": "Straight neutral swimming, jaws nearly closed with only a narrow dark mouth seam; no swallowed prey, feeding violence or exposed skeleton. Paired fins slightly spread.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "xiphactinus",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Whole skeleton is a prepared museum mount in plaster; restored edges and skeletal pose do not give exact flesh depth or fin-web margins. Fin positions reliable broad anchors, not a scan-copy.",
+    "Contained Gillicus is separate swallowed prey; do NOT convert its bones into extra Xiphactinus fins or body structures.",
+    "Shelburne2020 Figs1–2 are Megalops/tarpon comparison specimens, NOT approved Xiphactinus skull image anchors; explicitly exclude these rendered pages. Thesis supports important cranial differences, not tarpon cloning.",
+    "Quiet nearly closed mouth avoids unsupported exact tooth counts. A few understated anterior tooth hints optional only if integrated with source skull; no giant outside fangs or invented hanging fang curtain.",
+    "Color, scales, soft lip thickness and body cross-section artist inferred. No exact pigment, locomotion speed or feeding-mechanism claim.",
+    "No reuse of museum scans/3D models or copied photo textures."
+  ],
+  "morphology": [
+    {
+      "id": "body",
+      "obligation": "Elongate powerful fish body with relatively deep blunt cranial region, broad gill-cover mass, tapering trunk and narrow caudal peduncle; not cylindrical pipe or huge spherical head.",
+      "source": "Actual Sternberg whole mounted skeleton photo and thesis comparative text."
+    },
+    {
+      "id": "head",
+      "obligation": "Short deep head with steep/upturned anterior mouth profile and robust lower jaw, moderate lateral eyes; mouth seam follows cranial outline. Do not lengthen snout to barracuda or project tarpon-like chin.",
+      "source": "FHSU actual skull portion; Shelburne2020 discussion of short robust maxilla and caudally inflected anterior dentary."
+    },
+    {
+      "id": "fins",
+      "obligation": "One dorsal fin well back on body, one anal fin on rear underside; long swept paired pectorals directly behind head, smaller paired pelvics on belly, deep forked caudal fin with two pointed lobes. No adipose fin, second dorsal, armor or spiny dorsal ridge.",
+      "source": "Actual mounted fins and thesis caudally positioned dorsal/deeply forked tail description."
+    },
+    {
+      "id": "surface",
+      "obligation": "Cohesive lowpoly fleshy exterior, restrained fine scale suggestion and subtle fin-ray ridges; do not expose rib cage or reproduce fossil cracks/plaster.",
+      "source": "Living-body inference declared; skeletal reference only."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective: side confirms short deep head/upturned mouth and posterior dorsal/anal plus forked tail; top/front confirm realistic body/head width and both paired fin sets; perspective verifies integrated fin roots and no skeleton artifacts.",
+    "Count7 fins:2pectoral+2pelvic+1dorsal+1anal+1caudal. Swallowed prey must not create extra anatomy.",
+    "Do not use thesisFigs1–2 as Xiphactinus skull references, nor generic tarpon head template. No gaping theatrical jaws required.",
+    "Closed thin-solid fins, single-sided culling; two COMPLETE deterministic rebuilds with semantic digests; default helpers; source/export/validator/clean-import4view reports.",
+    "Independent morphology QA; full production8/GPU/scene/user acceptance separately unclaimed."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

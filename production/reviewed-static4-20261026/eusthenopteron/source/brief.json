@@ -1,0 +1,121 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "eusthenopteron",
+  "revision": "r001",
+  "name": {
+    "en": "Eusthenopteron foordi — small-bodied individual",
+    "zh": "真掌鳍鱼 Eusthenopteron foordi（小型个体）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original whole living fish based on articulated small E.foordi specimens; not an amphibian walking pose or generic coelacanth recolor.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Eusthenopteron foordi",
+    "context": "Late Devonian Miguasha, Quebec; aquatic reconstruction, not direct-ancestor certainty or terrestrial locomotion claim.",
+    "anchors": [
+      "MHNM06-1754 and MHNM06-1769 in Charest et al2023 Figs10–11",
+      "MHNM06-59 caudal region in Leblanc2005 Fig6"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.16,
+    "body_height_m": 0.032,
+    "body_width_m": 0.025,
+    "head_length_m": 0.043,
+    "basis": "Artist nominal small individual, near primary small-specimen size class; NOT giant adult dimensions or exact same-specimen measurements. Whole living thickness and fin stance are inferred. Report actual bounds."
+  },
+  "pose": "Neutral fully aquatic horizontal swim; head closed mouth; pectoral/pelvic fins slightly spread with fleshy bases connected to body, no supporting feet or terrain.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "eusthenopteron",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Primary illustrated specimens include small individuals; this asset is explicitly small-bodied, not an adult giant scaled from a juvenile skull.",
+    "Fossil flattening and internal skeleton do not establish exact skin thickness, live cross-section or pigmentation. Muted original colors and lowpoly flesh volumes are artwork.",
+    "Fin-ray skeleton can guide outline but is not exposed externally; living fins have continuous opaque thin-solid webs with few stylized radial ridges.",
+    "No digits, toes, walking elbows or terrestrial support pose. Lobe-fin anatomy is not proof of walking or direct human ancestry.",
+    "Caudal contour is a single integrated fin with upper/lower lobes and axial terminal region, not three separate tail fins; terminal shape softly simplified within inspected evidence.",
+    "Closed mouth avoids inventing exact tooth display. Head-roof/opercular seams understated, no osteological holes or huge external nostrils."
+  ],
+  "morphology": [
+    {
+      "id": "body-head",
+      "obligation": "Elongate fish body, broad moderately flattened elongated head with a rounded snout and two modest dorsolateral eyes; body tapers toward tail. Cohesive gill cover/cheek volume, no neck or primitive bead junctions.",
+      "source": "Charest et al2023 Figs10–11 actual small whole fossils; soft volumes interpretive."
+    },
+    {
+      "id": "paired-fins",
+      "obligation": "Two paired pectoral and two paired pelvic fins. Each has a fleshy lobe-like base flowing into fan-shaped ray-bearing fin; pelvic pair distinctly farther back. No fingers or separate terrestrial limbs.",
+      "source": "Actual whole specimens Figs10–11 and Leblanc2005 fin study."
+    },
+    {
+      "id": "median-fins",
+      "obligation": "Exactly two separated dorsal fins plus one anal fin. First dorsal near mid-trunk; second farther posterior and approximately paired in position/shape with anal below. Second dorsal and anal narrow-based, posteriorly pointed; no continuous eel dorsal ribbon or huge sail.",
+      "source": "Charest et al2023 text E.foordi, actual Figs10–11."
+    },
+    {
+      "id": "tail",
+      "obligation": "One broad integrated caudal fin with upper and lower ray fields and subtle central/axial termination; continuous peduncle. Preserve separation from second dorsal and anal; no shark scythe or tuna V-tail.",
+      "source": "Leblanc2005 Fig6 MHNM06-59 actual caudal structure drawing; CharestFig11 fossil."
+    },
+    {
+      "id": "surface",
+      "obligation": "Restrained close-packed scale/facet suggestion, not giant blocky armored tiles. Fin-base flesh and fine ray-fan surfaces should remain distinct.",
+      "source": "Visible specimen scales and fin regions; texture density/colors artist choices."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective; side confirms2dorsals+anal and one integrated caudal; top/front confirms both paired fin sets, broad head and finite body thickness; perspective confirms fleshy bases, no disconnected fans or walking limbs.",
+    "Count8 fins:2pectoral+2pelvic+2dorsal+1anal+1caudal. Left/right counterparts must exist even if occluded in side. Targeted underside view only if needed.",
+    "Species silhouette combines elongated head, fleshy paired fins and2dorsal+anal arrangement, not generic trout or coelacanth reused geometry. Small individual scope must remain in metadata.",
+    "Single-sided closed thin-solid fins, no DoubleSide rescue. Two complete deterministic factory builds with semantic digests; default helper; exactGLB/native/export/validator reports.",
+    "Independent morphology QA; full production8/GPU/scene/user acceptance not claimed."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

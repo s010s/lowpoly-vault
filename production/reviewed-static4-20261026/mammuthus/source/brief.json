@@ -1,0 +1,122 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "mammuthus",
+  "revision": "r001",
+  "name": {
+    "en": "Woolly mammoth — Mammuthus primigenius-inspired adult",
+    "zh": "猛犸象（真猛犸象启发成年形态）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original static evidence-informed whole adult mammoth, not same-specimen replica or reused Mammut. Existing planned genus ID.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Mammuthus primigenius",
+    "context": "Late Pleistocene cold-adapted elephant; no universal co-occurrence or specific scene claim.",
+    "anchors": [
+      "MNHN-F-MAQ287 skull/tusks, holding museum photograph",
+      "Grigoriev et al2017 Malolyakhovsky adult female carcass, Figs3–6"
+    ]
+  },
+  "scale": {
+    "shoulder_height_m": 2.7,
+    "body_nose_to_rump_excluding_tusks_m": 3.8,
+    "nominal_width_m": 1.55,
+    "tusk_centerline_length_m": 1.8,
+    "trunk_centerline_length_m": 1.8,
+    "basis": "Artist nominal adult targets, not one measured individual. MNHN reports 2.70×4.85×1.70m mount; paper estimates female shoulder2.40m. Do not equate posed bounds to those observations."
+  },
+  "pose": "Quiet four-foot stance, head -Y, trunk lowered with tip slightly inward; two tusks sweep forward/out then upward/in in three dimensions without crossing trunk. Tail short and relaxed; no stand or terrain.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "5000–8500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 muted warm/chocolate gray-browns with ivory tusks, dark eyes/nose, no exact pigment claim.",
+    "detail": "Broad overlapping fur masses/small selected tapering locks, not thousands of hairs, sharp cones everywhere or modern elephant smoothness. Single-sided solid geometry only."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "mammuthus",
+    "collection": "EXPORT",
+    "origin": "Ground plane footprint center; all four feet grounded."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import; stable numeric cameras/light/color config and hash-bound full resolution manifest.",
+    "greybox": "All around before expensive polish; inspect head/shoulders/tusks/feet silhouette.",
+    "extra_views": "Only targeted diagnostic if a concrete unresolved issue; no default8 required for scoped model making."
+  },
+  "scientific_limits": [
+    "Whole-body volume, pose, hair distribution/colors and precise ear/tail silhouette are conservative art choices, not fossil-exact reconstruction.",
+    "MNHN MAQ287 museum mount is male; carcass is an older female. Composite form anchors do not imply same individual or sex-specific dimensions.",
+    "No source-image textures, scans or meshes incorporated. No use of old museum model or Mammut geometry.",
+    "Tusks vary by age/sex/individual. Preserve double curvature, not universal exact tusk shape or count of growth bands.",
+    "Trunk tip damaged in studied carcass; do not present exposed cut end as life anatomy. Small understated paired prehensile tip region is interpretive, not measured here.",
+    "Molar lamellae distinguish elephant dentition, but mouth remains closed so do not invent a visible tooth row."
+  ],
+  "morphology": [
+    {
+      "id": "head-back",
+      "obligation": "High domed cranium, high shoulder region and back sloping toward lower rump; must be distinct from low-headed mastodon. Maintain separate head/neck/shoulder transitions without visible primitive spheres.",
+      "source": "NHM Lister account; actual MAQ287 skull profile."
+    },
+    {
+      "id": "tusks",
+      "obligation": "Exactly2 upper tusks, continuous taper from upper-face roots, curving forward/outward/upward/inward in 3D; not flat semicircles, straight spears, lower tusks or duplicated rings. Clearance from trunk and ground in every required view.",
+      "source": "MAQ287 actual skull/tusk photo; Grigoriev2017 Fig4."
+    },
+    {
+      "id": "trunk",
+      "obligation": "One muscular continuous tapering trunk rooted between tusks, hanging with relaxed distal bend; readable tip without huge drilled nostrils. Do not retain taphonomic bends/injuries of specimen.",
+      "source": "Grigoriev2017 Fig3 actual soft tissues."
+    },
+    {
+      "id": "ears-tail",
+      "obligation": "Small ears close to head, short slim tail with understated terminal hair. Do not use large fan elephant ears.",
+      "source": "NHM mammoth expert account; exact soft geometry art."
+    },
+    {
+      "id": "body-limbs",
+      "obligation": "Deep compact hairy trunk, four load-bearing columnar limbs with broad rounded feet, clear inter-leg negative spaces, cohesive belly/hip/shoulder. No exposed bones, giant toe claws or animal armor.",
+      "source": "Elephant whole-body anatomy anchored museum specimen/context; art volumes declared."
+    }
+  ],
+  "acceptance_obligations": [
+    "Exactly front/side/top/perspective for current model-task-v2 scoped making and independent QA; specific issues may require targeted diagnostics. Do not claim full production acceptance.",
+    "Perspective confirms coherent form/tusk clearance; front paired tusks/small ears/one trunk; side domed head/sloping back; top3D tusk curvature and width. Check rear limbs/tail in perspective; add rear/clay only for actual ambiguity.",
+    "All4 intended feet contact floor; no self-intersecting tusks/trunk, detached coat fragments or repeated bead limbs. Compare distinctness against existing Mammut only for differentiation, not as source template.",
+    "Two complete builds; single-sided culling checks; default helper; source and exactGLB bounds/counts; official validation and separate runtime gates.",
+    "Independent QA separate from maker. No user acceptance/GPU scene/deploy claim unless actually evidenced."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

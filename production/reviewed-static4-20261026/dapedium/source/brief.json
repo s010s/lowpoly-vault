@@ -1,0 +1,115 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "dapedium",
+  "revision": "r001",
+  "name": {
+    "en": "Dapedium — D. stollorum-inspired adult",
+    "zh": "深体硬鳞鱼 Dapedium"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original living deep-bodied fish grounded in D.stollorum holotype/paratype, no scan or museum-model reuse.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Dapedium stollorum",
+    "context": "Early Toarcian Posidonia Shale, Holzmaden area southern Germany",
+    "anchors": [
+      "Thies & Hauff2011 holotype SMNS16219 Plate1",
+      "Paratype1 UHH3 Plate2"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.34,
+    "body_height_m": 0.2,
+    "body_width_m": 0.055,
+    "basis": "Artist nominal length broadly matching UHH3 reported34cm; height/width and living thickness artistic, not exact fossil metric. Tail/fin pose changes bounds."
+  },
+  "pose": "Neutral horizontal swimming, near-straight body, paired fins slightly splayed for legibility; no ground contact or support.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "dapedium",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Species ID anchored explicitly D.stollorum, not older mislabeled Holzmaden D.punctatum.",
+    "Lateral compression obscures live thickness; head/body thickness, soft tissues and colors are conservative art, not exact preserved values.",
+    "Thies/Hauff Fig13A is modern commissioned museum reconstruction based on UHH3, NOT fossil; use only secondary volume sanity check, not copy its spotted palette, mesh or shape. Fig13B feeding scene is speculative, excluded.",
+    "Holotype caudal distal edge incomplete. Use paratype UHH3 broad tail evidence but exact fin margin/soft web remains interpretive.",
+    "No exact scale/ray counts demanded in stylization. Preserve regional scale-row trends and fin identity; do not convert ray fins to separate stiff spines.",
+    "Mouth closed; do not invent visible dental battery, huge jaws or unicuspid tooth display."
+  ],
+  "morphology": [
+    {
+      "id": "body",
+      "obligation": "Strongly deep oval laterally compressed body with small compact anterior head; arched back and rounded belly, narrow caudal peduncle; front/top must show finite tapered thickness, not flat token or inflated sphere.",
+      "source": "Thies/Hauff2011 Plates1–2 actual fossil pixels."
+    },
+    {
+      "id": "fins",
+      "obligation": "One low long-based dorsal fin on posterior half, one similar lower posterior anal fin; anterior height decreases toward tail. Distinct broad caudal fan with shallow notch, not shark heterocercal tail or exaggerated tuna fork. Paired pectorals behind gill region and much smaller paired pelvics on lower body.",
+      "source": "Paper p191 detailed fins, Plates1–2; exact distal outline simplified."
+    },
+    {
+      "id": "head",
+      "obligation": "Small terminal closed mouth, modest eye on each side, broad opercular area integrated into body; subtle opercular seam not open gill slit canyon. No horn or elongated snout.",
+      "source": "Holotype/paratype photos, paper head description."
+    },
+    {
+      "id": "scales",
+      "obligation": "Coherent rhombic/rectangular ganoid scale indication in selected connected rows or facet bands; anterior flank scales taller than long and trend smaller posteriorly; restrained caudal-edge relief optional. Do not tile protruding spikes or cover fins with body scales.",
+      "source": "Primary scale descriptions and Plates1–2."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective; front/top confirm compressed yet volumetric form and bilateral paired fins; side confirms deep oval shape, dorsal/anal placement and narrow peduncle; perspective confirms no detached scale armor or fin-root gaps.",
+    "All7 fins present: 2pectoral+2pelvic+1dorsal+1anal+1caudal. Tiny pelvics may need targeted underside diagnostic only if unreadable in4 views.",
+    "Avoid generic round tropical fish: armor-row structure plus compact head and paired posterior seam fins must read without excessive surface noise.",
+    "Closed thin-solid fins, outward normals and single-sided culling; no DoubleSide rescue. Two full deterministic builds and semantic digest comparison, default helpers, exactGLB/native reports and validator.",
+    "Independent morphology QA; full static8/GPU/scene/user acceptance remain separate unclaimed."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

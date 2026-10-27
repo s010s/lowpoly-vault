@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "kind": "independent-production-wheel-review",
+  "status": "PASS",
+  "reviewer": {
+    "id": "audit_release_ready_selection",
+    "task_id": "audit_release_ready_selection"
+  },
+  "reviewed_at_utc": "2026-10-26T14:40:55Z",
+  "asset_id": "rhamphorhynchus",
+  "reviewed_capture_sha256": "a957dd445d77bea73d39efeeee7d38997d3cfa8232119e450f12f8148e448a9e",
+  "reviewed_report_sha256": "07e97e9bf83cc1a44a53c6f35c86a7d542b40e251a9cf4a0f64813f7123fc056",
+  "source_glb_sha256": "a21ed6bdfa7613667bdca232064c2f667a2c3dac5dcd63f755f65dd6dc8b9f02",
+  "wheel_sha256": "7f4ecec8f47cfbeacd6c69b6f6e5382092d131dba8067ebe71ef70395039f07e",
+  "unchanged_detail_sha256": "aacf59657045fed0cd972c20733a4cf1684e52e78b09f2a2df490a14b4e1d325",
+  "checks": {
+    "same_source_detail": "PASS",
+    "first_frame_parity": "PASS",
+    "hover_reentry": "PASS",
+    "turntable_no_clipping": "PASS",
+    "visual_presentation": "PASS"
+  },
+  "blocking_findings": [],
+  "publication_authority": false,
+  "physical_gpu": "unknown",
+  "scope": "CURRENT_EXACT_GLB_BROWSER_WHEEL_AND_HOVER_PRESENTATION_ONLY",
+  "observations": {
+    "observation": "Both wing tips, beak, long tail and tail vane remain complete; additionally inspected original-resolution wheel, with no apparent wing crop or live-frame jump.",
+    "inspected_images": [
+      "wheel.png",
+      "live-first-frame.png",
+      "comparison.png",
+      "turn-0.png",
+      "turn-45.png",
+      "turn-90.png",
+      "turn-135.png",
+      "turn-180.png",
+      "turn-225.png",
+      "turn-270.png",
+      "turn-315.png",
+      "unchanged source-bound Blender detail"
+    ],
+    "inspection_method": "Original run images for all24 were personally inspected under the pinned prior review. Independently compared all264 actual new archive PNGs byte-for-byte to those personally inspected originals; every image is identical, so those visual observations apply to these exact bytes. Four newly extracted case contact sheets additionally viewed now: habelia, rhamphorhynchus, xiphactinus, paradoxides. No claim of re-rendering or newly seeing different pixels.",
+    "same_source_detail": "Exact actual GLB and unchanged Blender detail SHA binding checked by original repository contract. Different Blender/browser camera and lighting are retained, not forced to identical pixels.",
+    "first_frame_parity": "Actual new authenticated CI report passes original canvas gate; newly independently decoded PNG gate also passes. Separate measurement paths retained, not required to be numerically equal.",
+    "hover_reentry": "New exact successful run used unchanged pinned capture code and its actual lifecycle/report show reentry byte equality, no context loss, zero GL error. Original and new lifecycle bytes are identical. No local browser executed.",
+    "turntable_no_clipping": "All192 new yaw PNGs independently decoded:zero opaque border pixels and same41px minimum margin. Every yaw byte is identical to personally inspected prior images; no new clipping. Four new contact sheets spot-checked now.",
+    "decoded_png_metrics": {
+      "mask_iou": 1.0,
+      "mean_rgb_absolute_error": 0.0022796505272633743
+    },
+    "original_browser_canvas_metrics": {
+      "mask_iou": 1,
+      "mean_rgb_absolute_error": 0
+    },
+    "retained_yaw_member_hashes": [
+      {
+        "yaw": 0,
+        "sha256": "ba8b9c6ce55ac1743ff36da26ce8b49adb45633bae09a8947fee93d22c833230",
+        "bytes": 229210,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          209,
+          84,
+          611,
+          313
+        ]
+      },
+      {
+        "yaw": 45,
+        "sha256": "6d42f2a761cdf0fb70d27bc5a7f6ec7656861a9018b6a0cd6e30f6d043dea04a",
+        "bytes": 223253,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          118,
+          120,
+          649,
+          307
+        ]
+      },
+      {
+        "yaw": 90,
+        "sha256": "f579ad26569a72f3ac18543801b5a54b43c97c483227a8ba891f9c14fa400633",
+        "bytes": 228468,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          182,
+          74,
+          544,
+          329
+        ]
+      },
+      {
+        "yaw": 135,
+        "sha256": "6f55c7741350ee56745020ed02fd04b1352d2a1eaafe4850758c607c24ce73ad",
+        "bytes": 224615,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          237,
+          42,
+          535,
+          389
+        ]
+      },
+      {
+        "yaw": 180,
+        "sha256": "f2f5629b8a204a2793802d1928921650ae9d6bffed08d09c0ca9398615910ccc",
+        "bytes": 225170,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          216,
+          80,
+          617,
+          306
+        ]
+      },
+      {
+        "yaw": 225,
+        "sha256": "931118fec583e80805e3be70543c2668bbacfd545c7aa927a892b01bd7241967",
+        "bytes": 218300,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          119,
+          108,
+          646,
+          304
+        ]
+      },
+      {
+        "yaw": 270,
+        "sha256": "39012b5f3f51a38df3053b2fac4814c3f364834cac5fbc7c818c799cd8852eb0",
+        "bytes": 225633,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          173,
+          71,
+          536,
+          323
+        ]
+      },
+      {
+        "yaw": 315,
+        "sha256": "04dc85f079a6ac5e42d35443963cf89a7755d18159cb10ae0c6374ccd6611012",
+        "bytes": 226592,
+        "opaque_border_pixels": 0,
+        "opaque_bbox": [
+          235,
+          42,
+          533,
+          389
+        ]
+      }
+    ]
+  },
+  "capture_provenance": {
+    "repository": "s010s/lowpoly-vault",
+    "source_commit": "ce068d087acf10bcb42448310881f80cf4dfc219",
+    "run_id": 40340198861,
+    "run_attempt": 1,
+    "job_id": 121632528796,
+    "artifact_id": 12658548779,
+    "artifact_sha256": "7e31d4437bbde78ee4aff8d5f01d9b2cd3a7cd7db97ba424da30bd7d456d13f5",
+    "artifact_bytes": 44754964,
+    "browser_version": "141.0.7390.37",
+    "renderer_sha256": "f25626b74087690fc9d807fd473f719b2a22082038a47c5922e6f1bb977681b5",
+    "authentication": "Reviewer independently fetched exact run-attempt, jobs and artifact metadata via GitHub connector; actual archive digest, complete member inventory and extracted bytes independently matched."
+  },
+  "not_claimed": [
+    "historical maker or source-QA authorship replacement",
+    "new whole-model scientific or full-formal acceptance",
+    "1536 right-detail capture acceptance",
+    "final production projection or registry activation",
+    "full built-page/public runtime acceptance",
+    "physical GPU or world/physics/scene acceptance",
+    "platform approval, merge, deployment or user acceptance"
+  ],
+  "review_mode": "NEW_RUN_AUTHENTICATION_AND_CURRENT_METADATA_BINDING_WITH_EXACT_IMAGE_CONTINUITY",
+  "prior_visual_review": {
+    "sha256": "b14b0f0f37bb04d5d7b10e5927d2ad06d03c415cf23c0bba3c0cd00620a33cff",
+    "bytes": 6369,
+    "location": "PRIVATE_INDEPENDENT_AUDIT_EVIDENCE_NOT_A_PUBLIC_DELIVERY_PATH"
+  },
+  "image_continuity_evidence": {
+    "sha256": "72c47e645c35fbcd4404427ebde2302975285c8a46c84c040e6565a5bba1e0b0",
+    "bytes": 1294,
+    "location": "PRIVATE_INDEPENDENT_AUDIT_EVIDENCE_NOT_A_PUBLIC_DELIVERY_PATH"
+  },
+  "final_render_asset_binding": {
+    "units": "meters",
+    "evidence": {
+      "sha256": "3a83a5e9cbdb1f33b83878c352847fda57531e889971a108954edc1d9971015e",
+      "bytes": 5775,
+      "location": "PRIVATE_INDEPENDENT_AUDIT_EVIDENCE_NOT_A_PUBLIC_DELIVERY_PATH"
+    },
+    "note": "Actual unchanged productionWheelAsset/assertProductionWheel accepts current frozen final metadata for all19; same old capture is still rejected."
+  }
+}

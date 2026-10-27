@@ -1,0 +1,119 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "thrinaxodon",
+  "revision": "r002",
+  "name": {
+    "en": "Thrinaxodon — T. liorhinus-inspired reconstruction",
+    "zh": "三尖叉齿兽"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "R002_ORIGIN_ONLY_REPAIR",
+  "scope": "Original whole living cynodont, skeletal anchors with explicitly artistic soft tissues and neutral stance. Not a fossil replica or modern mammal variant.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Thrinaxodon liorhinus",
+    "context": "Early Triassic southern Africa",
+    "anchors": [
+      "Brink skeleton BPI287",
+      "DigiMorph UCMP40466 skull",
+      "Kümmell & Frey2014 Fig15 manus BP/1/5558"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.45,
+    "shoulder_height_m": 0.11,
+    "trunk_width_m": 0.1,
+    "head_length_m": 0.09,
+    "tail_length_m": 0.12,
+    "basis": "All artist nominal proportions for small cynodont readability, NOT measurements of any single specimen. Tail incomplete in Brink specimen; exact length unknown."
+  },
+  "pose": "Quiet quadrupedal stance, forelimbs moderately splayed, low but ground-clear torso, hindfeet beneath/just lateral to hips; head -Y, relaxed tapering tail. Limb angles are conservative art, not claimed uniquely established gait.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed solid geometry, single-sided opaque materials, subtle planar sculpting; no DoubleSide sheets, detached bead limbs or noisy repeated detail. Integument and colors artistic, not preserved facts."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "thrinaxodon",
+    "collection": "EXPORT",
+    "origin": "Exact bbox center of actual Z0 contact points from the four feet. Algorithm and tolerance in origin-scope-addendum.json; not whole-body bbox or point mean."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect head/trunk/limb/tail silhouette and four grounded feet before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Brink Fig5A/B drawings include freely restored and rearranged obscured regions; Fig6 is the actual fossil. Never trace drawing as entirely preserved anatomy.",
+    "Distal tail vertebrae in Brink drawings were weathered away; tail length/curve artist nominal. No sleeping/hibernating behavior claim from curled fossil.",
+    "Skull CT rendering is bone, not living head surface: cover temporal openings and cheek arches with plausible soft tissues, do not make hollow living head.",
+    "No preserved coat/color/whiskers/external pinna evidence in these sources. Choose understated textureless integument; neither claim hairlessness nor add fluffy fur, prominent mammalian ears or whisker arrays.",
+    "Five manual digits directly anchored by Fig15; hindfeet conservatively reconstructed with compact five-digit cynodont pattern, not directly resolved by the selected specimen photos. Exact phalangeal counts and hindclaw morphology unclaimed.",
+    "Do not copy scan, mesh, source image texture or existing animal model. All original lowpoly geometry."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Moderately elongated low snout, broad posterior skull/cheek region and short neck; small lateral eyes. Closed mouth, no exposed skeletal fenestrae or giant saber tusks. Canine presence may stay under closed lip.",
+      "source": "DigiMorph UCMP40466 actual CT skull pixels."
+    },
+    {
+      "id": "trunk",
+      "obligation": "Elongated low trunk with coherent shoulder-to-hip transition and finite rounded width; four short bent limbs, forelimbs lateral rather than columnar mammal legs; neutral stance is interpretive.",
+      "source": "Brink actual Fig6 fossil and explicitly restored Fig5A/B; living volume artistic."
+    },
+    {
+      "id": "feet",
+      "obligation": "Four compact feet; five small separated manual digits with restrained curved claws, no mitten paddle or giant digging shovel. Hindfeet five understated digits as declared reconstruction; avoid claims of exact joints.",
+      "source": "Kümmell & Frey2014 Fig15 actual manus BP/1/5558; pes conservative inference."
+    },
+    {
+      "id": "tail",
+      "obligation": "One slender smoothly tapering tail, modest length and relaxed curve, no fan/tassel or stiff reptile spikes.",
+      "source": "Proximal skeleton and declared missing distal portion; exact length artistic."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exact-final-GLB views front/side/top/perspective only: front shows broad cheek/low head and two forefeet; side elongated trunk, short bent limbs and clear belly; top finite width and four limb roots; perspective confirms all four grounded feet, tail attachment and no bead joints.",
+    "Manual digit/claw structure should read in source and at useful render size; use only a targeted foot diagnostic if four standard views leave concrete doubt. Do not silently certify unresolved toes.",
+    "No horns/tusks, external ear flaps, armor, fluffy dog coat or exposed skull holes. Distinguish from Diictodon via non-beaked snout and absence of enlarged paired tusks.",
+    "Two full deterministic factory-startup builds in isolated outputs with semantic digests/metrics, not two exports; default asset_common/render_candidate_views helpers, dedicated EXPORT with one identity asset root, closed opaque single-sided solids.",
+    "Independent morphology QA; full production eight-view/GPU/runtime/scene/user acceptance not implied."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "origin_scope_addendum": "origin-scope-addendum.json"
+}

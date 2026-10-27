@@ -1,0 +1,119 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "proganochelys",
+  "revision": "r001",
+  "name": {
+    "en": "Proganochelys — P. quenstedti-inspired stem turtle",
+    "zh": "原颚龟（带甲颈尾早期龟）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original living stem-turtle reconstruction anchored to AMNH documented skeletal display photograph and published anatomical review. No copied mount mesh and no claim of specimen-exact soft tissues.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Proganochelys quenstedti",
+    "context": "Late Triassic European stem turtle; nomenclatural spelling follows selected references",
+    "anchors": [
+      "AMNH ptc-5825, Craig Chesek1996, asset AN1181882",
+      "Schoch & Sues2019 online/2020 publication, Figs3 and5B; incorporates personal observations plus earlier research"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.95,
+    "carapace_length_m": 0.55,
+    "carapace_width_m": 0.42,
+    "shell_dome_height_m": 0.18,
+    "tail_length_m": 0.22,
+    "basis": "Artist nominal meters; posed height differs with limbs. No exact dimension claim for AMNH mount or species maximum."
+  },
+  "pose": "Quiet four-foot terrestrial stance, moderately splayed short stout limbs; extended short neck/head -Y, armored tail relaxed rearward and slightly aside for visibility. All four feet grounded, plastron clear of ground, no stand.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed solid geometry, single-sided opaque materials, subtle planar sculpting; no DoubleSide sheets, detached bead limbs or noisy repeated detail. Integument and colors artistic, not preserved facts."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "proganochelys",
+    "collection": "EXPORT",
+    "origin": "Ground plane footprint center; all four feet grounded, no stand. State exact posed bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect head/trunk/limb/tail silhouette and four grounded feet before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "AMNH photograph is a reconstructed museum skeletal display, not an unmodified single articulated fossil or living animal. Extent of restoration/composite mounting not identified; use broad form with anatomy review, not exact pose or specimen measurements.",
+    "Schoch & Sues is explicitly a review with personal observations; its figures are modified reconstructions, not new direct photographs of individual fossils. Fig3 rightmost Proganochelys only and Fig5B only apply; adjacent taxa excluded.",
+    "Correct inventory shorthand high shell: use a moderately domed broad shell, dorsoventrally lower than strongly domed Proterochersis; do not make giant tortoise hemisphere or flat sea-turtle disc.",
+    "Carapace scute boundaries are not underlying bone sutures. Selected review explicitly notes underlying bony configuration not evident in known specimens; use observed/reconstructed scute pattern rather than claiming exact bone plate map.",
+    "Neck/limb/tail osteoderms and club-like distal tail supported, but exact count, keratin height and soft-skin margins unresolved. No oversized ankylosaur hammer, Meiolania skull horns or dragon spikes.",
+    "Five digits per manus/pes consistent with reduced2-2-2-2-2 formula; exact outward toe spread and claw length artistic. No flippers.",
+    "No marginal jaw teeth; palatal denticles are not an external tooth row. Mouth closed, modest beak. Skin/color/posture are art; no fossil pigment claim.",
+    "No images, scanned bones, museum mount meshes or third-party reconstruction geometry incorporated. Gaffney monograph BHL access denied, PMC unrelated2022 paper CAPTCHA; neither claimed downloaded/read."
+  ],
+  "morphology": [
+    {
+      "id": "shell",
+      "obligation": "Broad oval-to-subrectangular moderately domed carapace with marginal scalloped scutes and readable central/lateral scute rows; complete lower plastron connects by left/right bridges. Head/limbs/tail emerge through appropriate front/rear openings, not drilled holes through dorsal shell. No open black void or detached turtle-lid shell.",
+      "source": "AMNH ptc-5825 actual exhibit pixels; Schoch/Sues Fig3 reconstruction and Fig5B plastron."
+    },
+    {
+      "id": "head-neck",
+      "obligation": "Small stout turtle head with blunt beak, lateral eyes, short extended neck showing modest projecting armor groups. Living surfaces cover skeletal openings; no exposed bone jaw, large ears, toothy crocodile muzzle or horns.",
+      "source": "AMNH actual skull/neck mount, review osteoderm discussion; living volumes art."
+    },
+    {
+      "id": "limbs",
+      "obligation": "Four short sturdy bent limbs, small low osteoderm accents, broad feet with five compact clawed digits each; clear negative spaces under shell. Avoid thin skeletal sticks or elephant columns.",
+      "source": "Review digit formula, AMNH mount and Fig3 limb topology; soft bulk art."
+    },
+    {
+      "id": "tail",
+      "obligation": "Substantial tapering armored tail projecting behind shell with visible successive osteoderm groups and modest terminal club-like structure integrated into tail, not a floating ball/giant mace. Tail cannot be hidden inside shell.",
+      "source": "AMNH mount tail and review explicit terminal armor; exact living thickness art."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective: front head/beak/neck armor and bilateral forelimbs; side moderately domed shell with plastron/belly clearance,short bent limbs and armored tail; top broad shell/scute rows/limb roots; perspective four grounded feet,bridges and tail club attachment.",
+    "Plastron should exist as an anatomically shaped lower shell not a cosmetic floor cap. Add targeted underside diagnostic only if bridge/plastron connection cannot be assessed; do not mandate eight views.",
+    "Must distinguish from generic modern tortoise through neck armor,armored club-like tail,scute arrangement and moderate shell profile; no arbitrary color-based identity. No Meiolania horns or sea turtle flippers.",
+    "Two complete deterministic isolated factory-startup builds with semantic digests and metrics; shared default asset_common/render_candidate_views helpers. Dedicated EXPORT exactly one identity asset root, closed opaque single-sided solids, no DoubleSide rescue.",
+    "Independent morphology QA; full static8/GPU/runtime/scene/user acceptance remains separate unapproved."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

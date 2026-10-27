@@ -65,9 +65,9 @@ export async function checkPublishedManifest(root=process.cwd(),{productionResul
   const selected=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   const successorRead=successorReader(root),successors=successorContext({manifest:selected,read:successorRead});
   const current=successors?successors.base:selected;
-  if(successors)assertFrozenSuccessorBatch(successors.selection,current);
+  if(successors)assertFrozenSuccessorBatch(successors.selection,successors.rootBase);
   await verifySuccessorPresentation(root,successors);
-  const selectFinal=base=>successors?selectSuccessorManifest({baseManifest:base,selection:successors.selection,selectionPin:successors.selectionPin,read:successorRead}):base;
+  const selectFinal=base=>successors?selectSuccessorManifest({baseManifest:base,selection:successors.selection,selectionPin:successors.selectionPin,appendPin:successors.appendPin,read:successorRead}):base;
   assert(!current.review_only,'A review-only manifest cannot be published');
   const productionPlan=await productionValidationPlan(root);
   if(productionPlan.mode==='incremental'){

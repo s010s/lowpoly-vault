@@ -1,0 +1,119 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "diplocaulus",
+  "revision": "r001",
+  "name": {
+    "en": "Diplocaulus — D. magnicornis-inspired aquatic reconstruction",
+    "zh": "笠头螈（宽角头形态复原）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original living aquatic amphibian with direct skull photograph and historical primary osteology. Long tail and soft contours explicitly interpretive, not intact single-specimen replication.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Diplocaulus magnicornis-inspired",
+    "context": "Permian North American nectridean amphibian",
+    "anchors": [
+      "AMNH archival skull+axial bones photo17550, genus-level catalogue",
+      "Douthitt1917 University of Chicago1015 axial specimen,1009 hand,1317 hindfoot remains; Figures3–6"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.75,
+    "head_width_m": 0.24,
+    "head_front_to_posterior_corners_m": 0.13,
+    "head_and_trunk_length_m": 0.35,
+    "tail_length_m": 0.4,
+    "trunk_width_m": 0.12,
+    "basis": "Artist nominal, not measured specimen; tail total length is reconstructed from incomplete series and must not be presented as exact fossil metric."
+  },
+  "pose": "Neutral unsupported aquatic presentation, horizontal body and head -Y, four small limbs gently splayed, long tail with restrained lateral curve. No ground-contact gait or display base.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "3–5 muted olive/slate/brown values, not known pigment. Preflight head/body differentiation and small eye visibility under the fixed four-view neutral-light template before detail. Avoid near-black eyes vanishing into dark head or white shell-like bands.",
+    "detail": "Closed opaque single-sided solids; head/horn perimeter explicitly triangulated with consistent winding and intentional diagonals. Do not cap a concave boomerang with a single n-gon or fan from an exterior center. Use valid interior triangulation/quad strips, finite positive horn thickness, no self-intersections at neck/head seam."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "diplocaulus",
+    "collection": "EXPORT",
+    "origin": "SWIMMING, not grounded. Compute AABB of ALL final evaluated exported mesh vertices after modifiers, including horns/toes/tail. Translate geometry by negative ((xmin+xmax)/2,(ymin+ymax)/2,(zmin+zmax)/2); bake transforms, identity root. ExactGLB clean-import verify same whole-asset AABB center within1e-5m. No foot-contact footprint or support-point mean; no automatic drop-to-floor."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact finalGLB clean-import, fixed numeric camera/light/color and hash-bound manifest.",
+    "greybox": "Check top boomerang outline and side finite head thickness/long tail, then low-contrast material preflight before detail.",
+    "extra_views": "Targeted horn underside/feet diagnostic only if actual ambiguity; not mandatory8."
+  },
+  "scientific_limits": [
+    "AMNH17550 catalogue identifies genus only; do not claim a species/collnumber not supplied. D. magnicornis-inspired form uses primary comparative osteology, not exact identity of archival specimen.",
+    "Douthitt1917 is historical primary anatomy, not current consensus on classification or ecology. Its speculative interpretations of girdle homology, aquatic degeneration or relationships not adopted as established fact.",
+    "Fig3 includes reconstructed missing vertebrae/interpolations from other specimens; Fig4 is explicitly restored and barred regions are missing portions. No claim of complete preserved tail.",
+    "Tail inference from disarticulated/partial caudal sequences supports a long tapering form; exact total length/vertebral count/fin outline unknown. Choose moderate laterally compressed soft tail, not giant ribbon fin or precisely45 vertebrae.",
+    "Four forefingers described in specimen1009; hindfoot of1317 incomplete. Five small hind toes follow Fig4 historical reconstruction and are declared reconstruction, not intact foot observation.",
+    "Whole living thickness, skin coloration, eye soft tissues, horn margins and limb posture art. No claim of exact membrane connection from skull horns to flank; omit large speculative triangular skin sails.",
+    "Do not expose skull fenestrae/bone texture on living head, add modern salamander external gills or giant tooth rows. Mouth closed. No imported specimen mesh/texture or existing animal-template geometry."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Extremely broad low boomerang-like head, small rounded anterior snout and two smoothly tapering posterolateral skull extensions swept backward; widest region at posterior corners. Small dorsally placed eyes near anterior-central skull region, not at horn tips. Head has finite thickness and natural neck transition.",
+      "source": "Actual AMNH17550 skull photograph and Douthitt figures; living soft outline art."
+    },
+    {
+      "id": "trunk",
+      "obligation": "Low broad elongated trunk behind narrow central head attachment, short weak limbs and four modest feet. Do not make a ray disc, lizard armor, long neck or bulky mammalian barrel.",
+      "source": "Primary axial/rib evidence and explicitly restored Fig4, not its missing regions as exact facts."
+    },
+    {
+      "id": "tail",
+      "obligation": "One long gradually tapering tail with modest lateral compression, flowing continuously from rear trunk; restrained curve and no fluke, barbed sting or tuft. Tail length comparable to slightly exceeding head+trunk as declared art.",
+      "source": "Douthitt caudal series discussion, Fig3/4 partial-restored anatomy."
+    },
+    {
+      "id": "limbs",
+      "obligation": "Four short simple bent limbs,4 small foredigits and5 modest hinddigits as declared reconstruction. Rounded tips, no invented prominent reptile claws, no fins replacing limbs. Keep foot roots readable without detached beads.",
+      "source": "Douthitt p26 hand evidence, Fig6 foot fragments and Fig4 reconstructed arrangement."
+    }
+  ],
+  "acceptance_obligations": [
+    "Top shows broad swept paired horn extensions,narrow central neck,trunk and long tail; front finite low head and central eyes; side low profile,four short limb placement and long tapered tail; perspective confirms no flat/cardboard horns,detached limb balls or head-trunk seam gaps.",
+    "ExactGLB and native mesh triangle topology must agree after explicit triangulation; inspect concave head cap for flipped normals/overlapping fans and show single-sided render. Every horn has finite thickness, not DoubleSide workaround.",
+    "Four foredigits/five hinddigits are modeling convention with stated evidence boundary; do not self-certify as intact fossil foot anatomy. No gills,ray wings,tail barb or invented giant sail.",
+    "Audit swimming-origin using complete final exported mesh XYZ AABB, no feet or whole-body center-of-mass shortcut. Report native and exactGLB center residual <=1e-5m.",
+    "Two complete deterministic isolated factory-startup builds with semantic digest/metrics; default asset_common/render_candidate_views helpers, EXPORT one identity asset root. Independent QA; full static8/GPU/runtime/scene/user acceptance separate."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

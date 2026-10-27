@@ -1,0 +1,133 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "pterichthyodes",
+  "revision": "r002",
+  "name": {
+    "en": "Pterichthyodes milleri — plated antiarch fish",
+    "zh": "翼鳍鱼 Pterichthyodes milleri"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original whole living antiarch with box-like anterior armor and paired articulated pectoral paddles; not Bothriolepis reused geometry or walking/flying creature.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Pterichthyodes milleri",
+    "context": "Middle Devonian Old Red Sandstone, Scotland; no exact lake/feeding reconstruction.",
+    "anchors": [
+      "Trewin2003 Fig3 Achanarras specimen photograph",
+      "Trewin Fig2 dorsal/ventral/lateral reconstruction explicitly after Hemmings1978",
+      "eLife2022 article76661 Fig8 P.milleri scale-region comparison"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.2,
+    "armored_trunk_length_m": 0.085,
+    "armored_trunk_width_m": 0.043,
+    "armored_trunk_height_m": 0.032,
+    "pectoral_paddle_length_m": 0.05,
+    "basis": "All artist nominal targets, NOT exact specimen dimensions or universal species size. Refine proportions from figures and report actual bounds."
+  },
+  "pose": "Neutral horizontal aquatic/resting-near-bottom attitude without terrain. Pectoral paddles partly swept backward/outward and separated from body; not fully extended flight wings or load-bearing legs. Tail gently straight.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "pterichthyodes",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "TrewinFig3 is direct published fossil photograph but specimen catalog ID not supplied; detached head and spread appendages are taphonomic pose, not live anatomy.",
+    "TrewinFig2 is an expert secondary reconstruction after primary Hemmings1978, not newly measured fossil. eLifeFig8 is a comparative redraw, not actual pigment or identical individual. These evidence types remain distinct.",
+    "Paddle distal-width variants documented but not proven sex; choose moderate form, do not label male/female or count variant as new asset.",
+    "Bony plate form/appendages supported; exact living skin, thickness, eye tissues, colors and fin-web edges artistic. No speculative pelvic fins, anal fin, walking joints or claws.",
+    "Head must attach to anterior shield; do not preserve detached fossil head. Small dorsal eye region must not become empty helmet hole.",
+    "Mouth ventral and understated, nearly closed; no displayed teeth. Feeding/rowing/weak-swimmer statements are interpretations, not behaviors represented by this static model.",
+    "Scale-region chart colors are categorical labels, never life coloration. Only P.milleri panel used, not adjacent Bothriolepis/Asterolepis/Remigolepis."
+  ],
+  "morphology": [
+    {
+      "id": "shield",
+      "obligation": "Distinct anterior armor box with broadly flat underside and arched/faceted dorsal roof; small attached front headshield with dorsal eye region. A few structural plate seams, not random stone blocks or turtle shell scutes.",
+      "source": "Trewin2003 Fig2 top/bottom/side and actualFig3."
+    },
+    {
+      "id": "paddles",
+      "obligation": "Exactly two long narrow bony pectoral paddles articulated laterally to anterior armor, with readable proximal/distal segments and tapered distal ends. Preserve continuous joint roots and clearance; no feather membranes, fingers, elbows or duplicated paddles.",
+      "source": "TrewinFig2/3 and accompanying description afterHemmings."
+    },
+    {
+      "id": "tail",
+      "obligation": "Posterior body exits rear shield as a longer narrowing scaled tail region; one small dorsal fin on posterior body and strongly heterocercal caudal with axial extension into UPPER lobe. Lower fin web smaller; not Birkenia lower-long orientation or symmetric tuna fork.",
+      "source": "TrewinFig2 side/description and eLifeFig8 P.milleri panel."
+    },
+    {
+      "id": "surface",
+      "obligation": "Armor plates visibly larger than tail scales. Tail has restrained orderly scale/facet rows; finite thin-solid dorsal/caudal webs. No full-body sphere tiles or chart-colored stripes.",
+      "source": "eLife2022Fig8 species scale-region comparison; TrewinFig2."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective: top must show two bony paddle forms, head attached and shield plate organization; side flat belly/arched back, long scaled tail and upper-long heterocercal caudal; front shield thickness and dorsal eyes; perspective clean paddle roots/segments and fin webs.",
+    "External appendages:two armored pectoral paddles+one small dorsal+one caudal. No extra modern paired pelvic fans, legs, teeth or detached head.",
+    "Source-specific paddle/armor proportions must distinguish from generic antiarch; no reused Bothriolepis mesh or same model recolor.",
+    "Closed single-sided solids and thin finite fin webs; two complete deterministic builds with semantic digests; default helpers; exactGLB/native/export/validator reports and independent morphology QA.",
+    "Full production8/GPU/scene/user acceptance remains separate unclaimed; any underside mouth/armor ambiguity may use one targeted diagnostic."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "revision_scope": {
+    "issue": "shield-source-specific-plate-organization",
+    "prior_independent_report": "history-r001/independent-review.json",
+    "requested_change": "Only continuous armor-region layout: source-led central dorsal and paired shoulder/lateral plates, no three circumferential rings or overlays.",
+    "preserve": [
+      "head anatomy",
+      "eyes",
+      "paddles",
+      "tail",
+      "dorsal",
+      "caudal",
+      "nominal dimensions"
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "birkenia",
+  "revision": "r001",
+  "name": {
+    "en": "Birkenia elegans — conservative scaled jawless fish",
+    "zh": "比尔肯鱼 Birkenia elegans"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original whole jawless anaspid based on complete articulated cast specimens and taxonomic reconstruction. Correct orientation; not an ordinary fish fitted with spines.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Birkenia elegans",
+    "context": "Silurian, early Wenlock of Scotland; no detailed habitat or direct-ancestor claim.",
+    "anchors": [
+      "Blom, Märss & Miller2002(for2001) Fig11 KIMMG:Vf6/7 part/counterpart latex casts",
+      "Fig5D species-specific reconstruction",
+      "Fig14 external scale/dorsal-spine details"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.08,
+    "body_depth_m": 0.021,
+    "body_width_m": 0.009,
+    "basis": "Artist nominal8cm within primary up-to10cm account; exact width/soft thickness and posed bounds inferred, not measured replica."
+  },
+  "pose": "Neutral horizontal aquatic pose, small blunt jawless mouth closed/minimally defined; tail orientation with extended LOWER lobe. No stand or floor contact.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed thin-solid fins, single-sided materials; no paper-thin DoubleSide planes. Selective facet/scale structure, no thousands of separate scales or detached bead objects."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "birkenia",
+    "collection": "EXPORT",
+    "origin": "Model centerline projected to lowest-body reference plane at Z0; neutral unsupported swimming pose, no stand. State exact bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect silhouette/body thickness and all fin placements before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Whole external dermal armor well documented; exact live thickness, soft tissue, eye appearance and colors are art, not preserved pigment.",
+    "Use species-specific Fig5D, not neighboring Fig5A–C species or generic Fig6 fins. Fig11 is actual latex cast of fossil external mould, not unmodified fossil photograph.",
+    "Historical Traquair upside-down/heterocercal reconstructions excluded. Strongly hypocercal tail has axial elongation directed into LOWER lobe; never reverse to shark-like upper extension.",
+    "Small ventrolateral plate/postbranchial spine area remains close to body. Do not add speculative large paired pectoral/pelvic fan membranes or copy generic Fig6 ventrolateral fin. Distal soft fold extent is not approved here.",
+    "Dorsal ridge consists of enlarged scales/spines, including diagnostic double-headed element; not a ray-bearing continuous dorsal sail. Exact repeated ridge-spine count is stylized, not universal species meristic assertion.",
+    "Fine tubercles and exact sutures not required individually. Eight branchial openings per side represented understated; no drilled through-holes or fish operculum copied from jawed fish.",
+    "JNCC PDF figure2.11A photograph is missing/blank in downloaded file; NOT an inspected photo. Figure2.11B historical restoration is context only, modern primary cast anchors take priority."
+  ],
+  "morphology": [
+    {
+      "id": "body",
+      "obligation": "Small elongate laterally compressed spindle with compact head; tapering caudal peduncle, not a broad circular Dapedium body. Finite width clear in front/top.",
+      "source": "Blom et al Fig11 casts, Fig5D."
+    },
+    {
+      "id": "head-gills",
+      "obligation": "Jawless rounded front with small simple mouth, two small lateral eyes; one slanted row of8 understated branchial marks on each side, leading to small postbranchial plate/spine region. No toothed jaws, gaping predatory mouth or bony helmet.",
+      "source": "Family diagnosis8 openings, species Fig11 and head scales; exact surface relief simplified."
+    },
+    {
+      "id": "armor",
+      "obligation": "Long narrow scale elements grouped into coherent oblique flank rows; orientation changes over dorsal/ventral regions, giving ordered herringbone-like armor rather than round scales or spikes. Small head plates. Avoid thousands of disconnected pieces; prefer integrated faceted relief/bands.",
+      "source": "Species diagnosis, Fig11 whole rows and Fig14 scale detail."
+    },
+    {
+      "id": "dorsal-ridge",
+      "obligation": "Low midline series of raised dorsal ridge elements; a prominent but small double-headed spine points both fore and aft around mid-back, followed by smaller swept ridge spines. No tall fin web connecting them.",
+      "source": "Species diagnosis and Fig11/14; silhouette simplification declared."
+    },
+    {
+      "id": "tail-anal",
+      "obligation": "Asymmetric hypocercal caudal fin, LOWER lobe longer; small short anal fin on lower posterior trunk, not paired pelvic fans. Keep median fin/web finite thin-solid and distinct from belly.",
+      "source": "Primary Fig5D/11 and family diagnosis."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exactGLB front/side/top/perspective. Side mandatory: lower-long hypocercal tail, double-headed dorsal spine, short anal fin, ordered flank rows. Front/top: narrow but volumetric body and bilateral head/branchial region. Perspective: clean integrated armor, finite fin/spine thickness and no floating plates.",
+    "No large pectoral/pelvic fans, no continuous dorsal sail, no upper-long shark tail, no hinged tooth jaw. Generic neighboring taxon diagrams cannot override species Fig5D/11.",
+    "Dorsal-spine simplification and small ventrolateral region documented. If tiny branchial row ambiguous, targeted close-up allowed instead of mandatory8 views.",
+    "Single-sided closed thin solids, outward normals, no DoubleSide masking. Two complete deterministic builds and semantic digests, shared default helpers, source/exactGLB reports and official validation.",
+    "Independent morphology QA; full production/GPU/scene/user acceptance remain separate unclaimed."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}

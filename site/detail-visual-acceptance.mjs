@@ -42,7 +42,7 @@ export async function assertReviewedRuntime({root=process.cwd(),api,currentSha=p
  assert.equal(sha(await readFile(join(root,p.review_path))),p.review_sha256);
  return {current_source:currentSha,tested_source:p.source,tested_tree:source.tree.sha,acceptance_only_changes:paths,runtime_identity:'ALL_OTHER_TRACKED_BYTES_IDENTICAL'};
 }
-const extractPython=String.raw`import zipfile,sys,pathlib,stat
+export const extractPython=String.raw`import zipfile,sys,pathlib,stat
 z=zipfile.ZipFile(sys.argv[1]); root=pathlib.Path(sys.argv[2]); seen=set(); total=0
 for f in z.infolist():
  p=pathlib.PurePosixPath(f.filename)
@@ -61,6 +61,8 @@ assert len([x for x in seen if x.endswith('.png')])==2295
 assert 'report.json' in seen and 'report.sha256' in seen
 `;
 export async function authenticateVisualEvidence({root=process.cwd(),api,currentSha=process.env.GITHUB_SHA,out=resolve('qa/detail-browser-dist')}={}){
+ const manifest=JSON.parse(await readFile(join(root,'assets/manifest.json')));
+ if(manifest.publication?.same_id_successor_append){const {authenticateAppendVisualEvidence}=await import('./detail-append-visual-acceptance.mjs');return authenticateAppendVisualEvidence({root,api,currentSha,out,legacy:{VISUAL_REVIEW,ACCEPTANCE_CONTROL_HASHES,compareRuntimeTrees,assertRun,assertJob,assertArtifact,extractPython}});}
  const p=VISUAL_REVIEW,binding=await assertReviewedRuntime({root,api,currentSha});const run=await api.json(`actions/runs/${p.run}`);assertRun(run);assertRun(await api.json(`actions/runs/${p.run}/attempts/1`));const suite=await api.json(`check-suites/${p.suite}`);assert.equal(suite.id,p.suite);assert.equal(suite.head_sha,p.head);assert.equal(suite.app?.id,15368);assert.equal(suite.app?.slug,'github-actions');assert.equal(suite.status,'completed');assert.equal(suite.conclusion,'failure');const job=await api.json(`actions/jobs/${p.job}`);assertJob(job);const artifact=await api.json(`actions/artifacts/${p.artifact}`);assertArtifact(artifact,job);
  const dir=await mkdtemp(join(tmpdir(),'right-visual-review-'));try{const zip=await api.archive(p.artifact,{revision:2});assert.equal(zip.length,p.zip_bytes);assert.equal(sha(zip),p.zip_sha256);const archive=join(dir,'original.zip');await writeFile(archive,zip);await mkdir(out,{recursive:true});execFileSync('python3',['-c',extractPython,archive,out],{maxBuffer:1024*1024});assert.equal(sha(await readFile(join(out,'report.json'))),p.report_sha256);
   execFileSync(process.execPath,['site/detail-presentation-browser-test.mjs','--verify-visual-disposition-seals'],{cwd:root,env:{...immutableGitEnv(),DETAIL_BROWSER_PROFILE:'full264-v2',DETAIL_BROWSER_TARGET:'dist',DETAIL_EXPECTED_SOURCE_COMMIT:p.source,QA_OUTPUT_DIR:out,DETAIL_VISUAL_DISPOSITION_PATH:join(root,p.review_path)},stdio:'inherit'});
@@ -74,7 +76,10 @@ export function assertAcceptedDeployment(run,job,context){
 }
 export async function authenticatePublicBinding({root=process.cwd(),api}={}){
  const {loadVerifiedRelease}=await import('./ci-layered-release-scope.mjs');const {context}=loadVerifiedRelease({root});assert.equal(context.repository,VISUAL_REVIEW.repository);
- const binding=await assertReviewedRuntime({root,api,currentSha:context.head});const run=await api.json(`actions/runs/${context.runId}/attempts/${context.runAttempt}`),jobs=await api.json(`actions/runs/${context.runId}/attempts/${context.runAttempt}/jobs?per_page=100`);assert.equal(jobs.total_count,jobs.jobs.length);const candidates=jobs.jobs.filter(j=>j.name==='build');assert.equal(candidates.length,1);const job=await api.json('actions/jobs/'+candidates[0].id);assertAcceptedDeployment(run,job,context);
+ const appended=!!JSON.parse(await readFile(join(root,'assets/manifest.json'))).publication?.same_id_successor_append;
+ const bridge=appended?await import('./detail-append-visual-acceptance.mjs'):null;
+ const binding=appended?await bridge.assertAppendVisualRuntime({root,api,currentSha:context.head,legacy:{VISUAL_REVIEW,ACCEPTANCE_CONTROL_HASHES,compareRuntimeTrees}}):await assertReviewedRuntime({root,api,currentSha:context.head});const run=await api.json(`actions/runs/${context.runId}/attempts/${context.runAttempt}`),jobs=await api.json(`actions/runs/${context.runId}/attempts/${context.runAttempt}/jobs?per_page=100`);assert.equal(jobs.total_count,jobs.jobs.length);const candidates=jobs.jobs.filter(j=>j.name==='build');assert.equal(candidates.length,1);const job=await api.json('actions/jobs/'+candidates[0].id);assertAcceptedDeployment(run,job,context);
+ if(appended){const fresh=await bridge.verifyExecutedAppendPublic({root,api,currentSha:context.head,out:resolve(process.env.QA_OUTPUT_DIR||'qa/detail-browser-public')});return {status:'AUTHENTICATED_DEPLOYED_APPEND_WITH_FIXED_EXECUTED19_SCIENCE',legacy_appearance:'REUSED_EXACT_264_DIST_VISUAL_REVIEW',new19:fresh,deployed_run_id:context.runId,deployed_run_attempt:context.runAttempt,...binding,public_state:'REQUIRES_FOLLOWING_OLD8_PLUS19_PUBLIC_STATE_RUN'};}
  return {status:'AUTHENTICATED_DEPLOYED_SOURCE_WITH_ACCEPTED_DIST_REVIEW',appearance:'REUSED_DIST_VISUAL_REVIEW',review_sha256:VISUAL_REVIEW.review_sha256,reviewed_report_sha256:VISUAL_REVIEW.report_sha256,deployed_run_id:context.runId,deployed_run_attempt:context.runAttempt,...binding,public_state:'PENDING_ACTUAL_BROWSER'};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){const api=detailAuthorityTransport({repository:VISUAL_REVIEW.repository,token:process.env.GITHUB_TOKEN});const result=process.argv.includes('--public-binding')?await authenticatePublicBinding({api}):await authenticateVisualEvidence({api});console.log(JSON.stringify(result));}

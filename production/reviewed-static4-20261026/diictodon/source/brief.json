@@ -1,0 +1,125 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "diictodon",
+  "revision": "r002",
+  "name": {
+    "en": "Diictodon — D. feliceps tusked morph",
+    "zh": "双犬齿兽（具獠牙形态）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "R002_ORIGIN_ONLY_REPAIR",
+  "scope": "Original living small dicynodont with primary skull, postcranial description and photographed articulated skeleton anchors. Tusked morph without asserting sex.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Diictodon feliceps",
+    "context": "Late Permian southern Africa",
+    "anchors": [
+      "Rabe et al2024 skull series",
+      "Ray & Chinsamy2003 primary abstract",
+      "Iziko paired articulated skeleton display photograph"
+    ]
+  },
+  "scale": {
+    "total_length_m": 0.45,
+    "shoulder_height_m": 0.14,
+    "trunk_width_m": 0.12,
+    "head_length_m": 0.11,
+    "tail_length_m": 0.06,
+    "basis": "Artist nominal model dimensions only, NOT measurements of pictured fossil. Relative soft-tissue volumes and tail extension reconstructed."
+  },
+  "pose": "Quiet four-foot stance, short bent forelimbs directed somewhat outward/backward, hindlimbs more underneath hips; cylindrical trunk raised clear of floor. Head -Y, small relaxed tail; no burrow/stand or implied behavioral event.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 subdued gray/olive/slate/tan palette values, not fossil pigment claim. No emissive eyes.",
+    "detail": "Closed solid geometry, single-sided opaque materials, subtle planar sculpting; no DoubleSide sheets, detached bead limbs or noisy repeated detail. Integument and colors artistic, not preserved facts."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "diictodon",
+    "collection": "EXPORT",
+    "origin": "Ground-contact footprint center: horizontal bounding-box midpoint of 41 unique exact exported vertices at Z0 (glTF Y0), covering all four soles; keep the asset root and every mesh transform identity. Not the whole head/trunk/tail projected bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import, fixed numeric camera/light/color template and hash-bound manifest.",
+    "greybox": "Inspect head/trunk/limb/tail silhouette and four grounded feet before detail.",
+    "extra_views": "Only targeted diagnostic for concrete ambiguity; no mandatory8 views in current scoped making."
+  },
+  "scientific_limits": [
+    "Tusked and tuskless morphotypes occur; do not assert this individual male or universal tusks in all Diictodon. Juvenile versus adult skull proportions differ.",
+    "Iziko image is a firsthand photographer image of a museum display, not a collection catalogue or verified unmodified fossil record. Restoration status/catalogue numbers unverified. Do not infer specimen measurements from perspective or copy its crushed/curling posture.",
+    "Photo caption claims about sex, hibernation and cause of death are NOT adopted. Ray & Chinsamy locomotion/digging interpretations are hypotheses, not a required action pose.",
+    "Ray & Chinsamy2003 full PDF not accessed: shell Wiley403 respected; only publicly readable primary abstract supports postcranial summary. No assertion that its figures were viewed.",
+    "Ray2006 comparison PDF has mainly Wadiasaurus/Lystrosaurus figures, NOT Diictodon geometry. Retained research context only, excluded as visual template.",
+    "Kümmell2020 Fig5A is Diictodon carpus; Fig5B/C other taxa and Fig4 other synapsids. Carpal reduction is not toe loss; selected plate does not directly establish all distal toe/claw shapes. Five small digits per foot are conservative generalized reconstruction, exact phalangeal morphology unclaimed.",
+    "Living beak margin, skin, color, tail and body volume are artistic; no giant pinnae, furry modern rodent coat, armored scales or mammal nose leather claimed. No image textures/scan mesh reuse."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Compact broad-cheeked skull with relatively short narrowing snout and blunt keratinous beak region; small lateral eyes and closed jaw. Exactly two moderate upper tusks beside beak, down-directed with slight backward curvature, no lower tusks or exposed skeletal temporal holes.",
+      "source": "Rabe2024 Fig1 skull views and tusked-morph discussion; actual Iziko skull/tusk pixels. Beak soft margin art."
+    },
+    {
+      "id": "trunk",
+      "obligation": "Compact cylindrical torso, short neck, short limbs; no sprawling pancake belly or elephant columns. Shoulder/hip transitions coherent, belly above floor. Forelimbs modestly more lateral than hindlimbs, not extreme mole shovels.",
+      "source": "Ray & Chinsamy2003 abstract and actual articulated Iziko skeleton photograph. Neutral joint angles art."
+    },
+    {
+      "id": "feet",
+      "obligation": "Longer/wider forefeet with restrained elongated blunt claws; smaller hindclaws. Five compact toes per foot as generalized reconstruction, not exact fossil-distal measurement; no rake-like needle claws or exaggerated giant manus.",
+      "source": "Ray & Chinsamy2003 primary abstract; Kümmell2020 Fig5A carpus contextual only."
+    },
+    {
+      "id": "tail",
+      "obligation": "One short tapering tail naturally rooted at rump, no tuft/fan, not long lizard whip. Exact length artistic rather than claimed preserved outline.",
+      "source": "Conservative whole-body reconstruction; selected fossils do not fix distal soft outline."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exact-finalGLB views front/side/top/perspective: front paired moderate upper tusks/blunt beak and bilateral forefeet; side short head/cylindrical body/short bent limbs and belly clearance; top coherent finite-width head/trunk and limb connections; perspective four feet grounded, rear feet/tail visible, tusks not crossing jaw or floor.",
+    "Must not read as Thrinaxodon or modern rodent: beak plus exactly two upper tusks, robust compact cylindrical torso, short limbs and differential fore/hind feet. No buck teeth, huge ear flaps, fur puffs or enormous tusks.",
+    "Feet cannot be floating/clipped/bead stacks. If toe/claw details not assessable in standard four, add only targeted foot diagnostic; declare interpretive distal anatomy.",
+    "Two complete isolated deterministic factory-startup builds, semantic digest/count comparison; shared default asset_common/render_candidate_views helpers, EXPORT exactly one identity asset-named root, closed opaque single-sided solids.",
+    "Independent morphology QA separate from maker. Full static8/GPU/runtime/scene/user acceptance remains unclaimed."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "revision_scope": {
+    "prior_brief_sha256": "fdf1efeadeee5a94afc3ff20feb17bc13c6c4b3307e7e9e4992c51cbcb8b5b8c",
+    "allowed_change": "Uniform local geometry translation only to satisfy the existing footprint-center requirement. Original scientific morphology, scale, palette and reconstruction limits are unchanged.",
+    "prior_independent_review": "prior-review/independent-qa.json",
+    "issue": "HOLD_ORIGIN_SPEC"
+  }
+}

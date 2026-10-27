@@ -1,0 +1,142 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "camptosaurus",
+  "revision": "r002",
+  "name": {
+    "en": "Camptosaurus dispar — conservative adult",
+    "zh": "弯龙（异弯龙启发成年形态）"
+  },
+  "representation": "living-reconstruction",
+  "preparation_status": "ORIGIN_ONLY_REVISION_IN_PROGRESS",
+  "scope": "Original whole living Camptosaurus dispar-inspired adult using corrected cranial reconstruction and explicitly identified C.dispar postcrania. Not Theiophytalia, Uteodon or a resized existing dinosaur.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Camptosaurus dispar",
+    "context": "Late Jurassic Morrison Formation; no precise co-occurrence claim",
+    "anchors": [
+      "Brill & Carpenter Fig3.2 E/F and Fig3.3 corrected composite skull",
+      "Gilmore1912 USNM4282/2210 postcranial mounts only; obsolete pose/head excluded",
+      "Carpenter & Wilson2008 Fig23 B–E C.dispar manus"
+    ]
+  },
+  "scale": {
+    "total_length_m": 5.0,
+    "hip_height_m": 1.65,
+    "torso_width_m": 0.75,
+    "head_length_m": 0.46,
+    "tail_length_m": 2.5,
+    "basis": "All artist nominal proportion targets, not specimen measurements. NHM broad genus summary gives5m; allow coherent proportion refinement and report actual bounds."
+  },
+  "pose": "Calm bipedal balanced stance on two hind feet; trunk near horizontal with modest rise forward, tail carried clear of ground as counterbalance. Short forelimbs relaxed with inward-facing palms, not forced palms-down pronation. Avoid old kangaroo/tail-prop mount pose. No stand.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "4500–8500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "4–6 muted olive/tan/umber palette colors; no exact pigment claim.",
+    "detail": "Smooth coherent low-poly broad facets; restrained color variation without invented fossil patterns. Closed single-sided solids, no scales-by-thousands or detached spheres."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y",
+    "root": "camptosaurus",
+    "collection": "EXPORT",
+    "origin": "Actual active-scene referenced world vertices in Blender XYZ meters: lowest Z=0; select abs(Z)<=1e-7m; origin XY is midpoint of combined contact XY extrema. Uniform mesh-local translation keeps all object/root transforms identity. Not animal bbox center, designed foot extent or mass centroid."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact final GLB clean-import; stable numeric cameras/light/color config and hash-bound full resolution manifest.",
+    "greybox": "Four views early; resolve corrected head silhouette, short forelimbs, long tail and complete digits before polish.",
+    "extra_views": "Only targeted diagnostic if a concrete unresolved issue; no default8 required for scoped model making."
+  },
+  "scientific_limits": [
+    "Living skin thickness, musculature, coloration and exact body proportions are conservative artwork, not preserved integument or specimen replica.",
+    "Brill/Carpenter corrected skull is a multi-specimen composite, not complete individual. Only Fig3.2 E/F and Fig3.3 are approved head anchors; A–D older reconstructions and Fig3.4/3.5 YPM1887 are excluded.",
+    "Gilmore1912 mounts preserve useful relative postcranial anatomy, but restored skulls, old upright/tail-dragging posture and steel supports are NOT life-anatomy evidence.",
+    "Carpenter/Wilson2008 main taxon C.aphanoecetes later separated as Uteodon: do not borrow its specific skeleton/hand. Only captions explicitly identifying C.dispar specimens are approved.",
+    "No fossil-fine diagnostic sutures or exposed tooth count demanded in living closed-mouth asset. No crest, giant thumb spike, armor or theropod claws.",
+    "Five manus digits, hindfoot three main weight-bearing digits II–IV plus small raised medial digit I; omit no digit silently. Exact phalangeal articulation is simplified, not scientific rig."
+  ],
+  "morphology": [
+    {
+      "id": "head",
+      "obligation": "Small low elongated wedge head with gently descending snout; narrower anterior beak than rear skull, rounded compact beak not hadrosaur paddle or parrot hook. Corrected skull tapers in top view. Add restrained soft tissues; no skeletal fenestra holes in living skin. Closed mouth with no teeth exposed.",
+      "source": "Brill/Carpenter PDFp3 Fig3.2 E/F and p4 Fig3.3, actual inspected pixels."
+    },
+    {
+      "id": "torso-tail",
+      "obligation": "Deep herbivorous torso, compact neck, raised hips, long tapering muscular tail with smooth continuous body transition; no bead-chain tail or tail on ground.",
+      "source": "Gilmore1912 plates56/59 postcrania only; body volume and modern balanced stance artist interpretation."
+    },
+    {
+      "id": "limbs",
+      "obligation": "Two robust hindlimbs much longer than short forelimbs; thigh/calf/ankle readable, two feet planted. Forelimbs hang naturally, hands angled inward; avoid duplicated theropod arms.",
+      "source": "Gilmore1912 postcranial mounts; live pose interpretive."
+    },
+    {
+      "id": "hands-feet",
+      "obligation": "Each hand five short distinct digits with unequal lengths, small digitI and short lateralV; no Iguanodon-like large conical thumb spike. Each hindfoot three principal spread toes plus small elevated inner digitI. Blunt small claw tips, not huge talons.",
+      "source": "Carpenter/Wilson2008 Fig23 B–E actual C.dispar manus; Gilmore1909 C.dispar hindlimb/foot description and generic pes summary."
+    }
+  ],
+  "acceptance_obligations": [
+    "Four exact-finalGLB views front/side/top/perspective; numeric fixed camera/light/color template and hash-bound manifest. No full production acceptance claim.",
+    "Side: near-horizontal balanced body, small corrected head, short forelimbs, strong hindlimbs and continuous elevated tail. Top: tapered narrow beak/rear skull width, torso-tail continuity. Front: bilateral limbs, inward hands and no large thumb spike. Perspective: complete readable toes/fingers, tail clearance and cohesive volumes.",
+    "Judge against approved subfigures only; no old Theiophytalia skull or Uteodon skeleton substitutions. Specific digit ambiguity may use one targeted diagnostic rather than mandatory8views.",
+    "No foot sinking, tail-ground support, detached fingers, duplicate bead joints or strongly intersecting elbows/torso. Skin is opaque single-sided closed solids.",
+    "Two COMPLETE independent deterministic rebuilds with semantic digests; shared helpers; exactGLB/source bounds and counts; official validator separate runtime reports.",
+    "Independent reviewer must verify head evidence, digit count and morphology, not just technical pass. GPU/full-scene/profile approval remains separate.",
+    "r002 delta acceptance: exact active-scene GLB contact XY bbox centered within1e-8m; referenced indexed-expanded triangle-corner geometry exactly float32 uniform-world-translation equivalent; identical materials, source polygon topology and scene hierarchy; identity new transforms. Recomputed normal rounding and raw accessor split/index differences must be quantified, not falsely claimed identical. Old r001 independent PASS remains historical; new independent delta QA required."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate.",
+  "origin_revision": {
+    "scope": "origin-only; no shape, pose, scale or material redesign",
+    "contact_epsilon_m": 1e-07,
+    "expected_pretranslation_center_blender_xy_m": [
+      0,
+      0.19499999284744263
+    ],
+    "uniform_delta_blender_xyz_m": [
+      0,
+      -0.19499999284744263,
+      0
+    ],
+    "root_and_mesh_transform_policy": "identity; bake one identical translation into every mesh vertex",
+    "posttranslation_center_tolerance_m": 1e-08,
+    "baseline_glb_sha256": "f5a9fc905904d3e9138ed48ef65ba65f7bdd3dde95447913684700ae3879b104",
+    "predecessor_revision": "r001",
+    "baseline_brief_sha256": "d663f214db237994032bd6acfcce24774c66ddfa0dc4b10ebd0eccd364ed77bc",
+    "integration_audit": "rolling-ten-integration-20261025/origin-spec-audit-20261025/origin-audit.json",
+    "algorithm": "Reproduce r001; bake its existing common object Z grounding -0.0018804073333740234m into mesh vertices and set mesh transforms identity, preserving world geometry modulo float32. Measure active-scene referenced world vertices; verify minimum Z0; select |Z|<=1e-7m; compute midpoint of contact XY extrema; add identical (-centerX,-centerY,0) to every mesh vertex. Remeasure final exact GLB and disclose float32 coordinate/normal rounding.",
+    "baseline_common_grounding_z_m": -0.0018804073333740234,
+    "transform_normalization": "Bake existing common r001 Z grounding transform into vertices before origin-only XY translation; no added world-space Z displacement, modulo float32 coordinate storage."
+  }
+}

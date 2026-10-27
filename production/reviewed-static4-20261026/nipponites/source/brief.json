@@ -1,0 +1,110 @@
+{
+  "template_version": "model-task-v2",
+  "asset_id": "nipponites",
+  "revision": "r001",
+  "name": {
+    "en": "Nipponites — reconstructed heteromorph shell",
+    "zh": "日本菊石（异形外壳复原）"
+  },
+  "representation": "fossil-shell-reconstruction",
+  "preparation_status": "SOURCE_READY_WAITING_COORDINATOR_CLAIM",
+  "scope": "Original external shell only, inspired by N. mirabilis; not complete living animal or copied scan. No arms/eyes/funnel; no invisible internal septal simulation claimed.",
+  "validation_profile": "model-task-v2-four-view-scoped",
+  "contract_file": "production-contract-overlay.json",
+  "taxon": {
+    "scientific_name": "Nipponites mirabilis",
+    "context": "Late Cretaceous heteromorph ammonoid",
+    "anchors": [
+      "Peterman/Mikami/Inoue2020 INM-4-346 CT-derived shell",
+      "MCM-A0435 scan illustration",
+      "NMNS PM35490 physical shell section photos"
+    ]
+  },
+  "scale": {
+    "maximum_shell_extent_m": 0.18,
+    "terminal_tube_diameter_m": 0.027,
+    "basis": "Artist nominal dimensions for display, not source specimen measurements. Aperture rim1.5–2mm and recessed cavity depth are technical art dimensions, not measured shell-wall thickness."
+  },
+  "pose": "Unsupported museum-style shell presentation in source-inspired compact orientation, aperture directed toward -Y with slightly upward lip. No soft animal, terrain or stand; not a physically resting/buoyant equilibrium claim.",
+  "geometry_policy": {
+    "max_triangles": 12000,
+    "target_triangles": "3500–7500 as useful",
+    "max_materials": 8,
+    "max_primitives": 48,
+    "max_glb_bytes": 4194304
+  },
+  "surface_profile": {
+    "name": "palette-only",
+    "textures": false,
+    "alpha_mode": "OPAQUE",
+    "materials": "3–5 muted warm gray/tan values; rim/interior distinguishable under fixed neutral light, no fossil pigment claim. Preflight low-contrast material swatches in fixed four-view lighting before final detail; do not rely on black AO to explain loops.",
+    "detail": "Closed solid tube/rim with positive wall thickness, single-sided materials. Explicit consistent triangle winding; no concave or nonplanar n-gon caps. Use clean rings/quads split deterministically with stable diagonals. Check near-self-crossings after rib relief and triangulation."
+  },
+  "coordinates": {
+    "unit": "meter",
+    "up": "+Z",
+    "forward": "-Y aperture-facing convention",
+    "root": "nipponites",
+    "collection": "EXPORT",
+    "origin": "NON-GROUNDED shell object. After final evaluated geometry and all modifiers, compute world-space AABB over ALL exported mesh vertices; subtract ((xmin+xmax)/2,(ymin+ymax)/2,(zmin+zmax)/2) from geometry, bake transforms, identity root. Do not use contact footprint, center of mass or authored control-point mean. ExactGLB clean-import audit must report center residual <=1e-5m and same source bounds."
+  },
+  "view_plan": {
+    "final": [
+      "front",
+      "side",
+      "top",
+      "perspective"
+    ],
+    "turntable_frames": 0,
+    "source": "Exact finalGLB clean-import fixed numeric cameras/lights/color and hash-bound manifest.",
+    "greybox": "First check growth-path continuity/loop gaps and near/far winding in all4 views; then low-contrast palette preflight, then ribs.",
+    "extra_views": "Only targeted aperture/topology diagnostic for actual ambiguity, not mandatory8."
+  },
+  "scientific_limits": [
+    "Whole external shell only. Ammonoid soft parts are largely unknown; Fig1 inferred arms/funnel excluded. No claim of full living organism anatomy.",
+    "Fig2A is CT-derived surface, Fig2B/D contain restored missing portions; Fig4E is scan rendering, not a direct fossil photograph. Fig4A-C ARE photographs of physical fossil sections. Keep these evidence types distinct.",
+    "Initial inner whorls and terminal aperture restored in study. Exact full centerline, rib count and missing terminal shape not uniquely observed; use restrained original interpretation without arbitrary knot topology.",
+    "N. mirabilis compact winding chosen; do not mix more open N. occidentalis/N. bacchus. Shell is one continuous growth tube, not linked independent toruses.",
+    "Do not model transparent internal chambers, colorful sutural frills or invented external coral spines. Rib ornament is external transverse relief; complex sutures are internal septal contacts not external raised ridges.",
+    "Hydrostatic orientation/behavior are modeled hypotheses and not certified by this visual asset. Neutral material color and aperture inner cap are art. No downloaded CT volume or mesh used."
+  ],
+  "morphology": [
+    {
+      "id": "growth-path",
+      "obligation": "One continuous increasing-diameter shell tube: small open planispiral inner juvenile coiling transitions into alternating three-dimensional U bends around it, ending at one larger terminal aperture. Distinct near/far loops and enclosed negative spaces, not random spaghetti, stacked donuts or flat spiral ammonite.",
+      "source": "Primary Fig2A/D and Fig4E; reconstructed parts expressly acknowledged."
+    },
+    {
+      "id": "tube-ribs",
+      "obligation": "Rounded oval tube section with coherent transverse slightly oblique ribs following local tube direction. Selective broad lowpoly relief, not thousands of detached rings or sharp fins; taper small early end.",
+      "source": "Fig4 physical sections and scanned MCM-A0435; rib amplitude simplified."
+    },
+    {
+      "id": "aperture",
+      "obligation": "Single larger terminal opening with continuous solid rim and inward wall, recessed neutral interior closure so visible depth reads without endless black hole. No external tentacles or duplicate openings.",
+      "source": "Aperture partly crushed/missing in specimens; shape and technical closed backing artistic."
+    }
+  ],
+  "acceptance_obligations": [
+    "Front aperture-facing view confirms one rim and bounded cavity; side/top show nonplanar alternating U-bends, small inner coiling and near/far clearance; perspective proves tube continuity with no intersecting rib loops or disconnected toruses.",
+    "Name/metadata must say shell reconstruction, not living whole organism. Neutral inner closure not anatomical septum claim.",
+    "Generator must expose centerline checkpoints and radial profile; reject self-intersection between non-neighbor tube spans. All surfaces explicitly triangulated consistently before native/GLB comparison, no hidden n-gon ambiguity; test single-sided culling and positive rim thickness.",
+    "Report NON-GROUNDED full-final-mesh AABB center algorithm and exactGLB center residual, not footprint/support-point average. Use same evaluated vertex set for native and GLB audit.",
+    "Two complete deterministic isolated factory-startup builds/semantic digest+metrics; default asset_common/render_candidate_views helpers; dedicated EXPORT one identity asset root. Independent QA, full static8/GPU/runtime/scene acceptance separate."
+  ],
+  "required_deliverables": [
+    "editable .blend",
+    "deterministic generator",
+    "config/seed",
+    "exact .glb",
+    "4 exactGLB views+manifest",
+    "two full rebuild reports/digests",
+    "source_export+technical+Khronos+runtime reports",
+    "candidate.json",
+    "scoped-status.json (full production profile remains unapproved)",
+    "brief.json",
+    "references.json",
+    "one checksum manifest"
+  ],
+  "production_boundary": "Full static-stylized-v1 production8/GPU/scene contract is retained as reference but NOT claimed passed or imposed as current maker scope; user-requested4view model acceptance is separate."
+}
