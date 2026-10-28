@@ -1,5 +1,7 @@
 /** Small executable orchestration/selection fixtures, never model acceptance evidence. */
 import assert from 'node:assert/strict';
+import {correctiveTurntableInputs,publishedImagePaths} from './turntable-delivery.mjs';
+import {successorReader} from './same-id-successors.mjs';
 import {mkdtemp,mkdir,writeFile,readFile,copyFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,dirname,resolve} from 'node:path';
@@ -142,3 +144,43 @@ try{
  assert.match(pages,/needs: \[build, publication\]/);assert.match(pub,/name: Require every publication suite/);assert(!/matrix:|shard: \[/.test(pub));
  console.log('PASS lean release: scope selection, exactly-once ordered build, all seven failure stops, same in-memory checked results, no four empty shard jobs.');
 }finally{await rm(root,{recursive:true,force:true});}
+
+// The reviewed corrective subjects are static PNG deliveries, not invented legacy
+// sequences. Real source selection and exact current index remain the authority.
+assert.equal(correctiveTurntableInputs({assets:[]},()=>{throw Error('unexpected read');}),null);
+const staticRead=successorReader(process.cwd()),staticSource=JSON.parse(staticRead('assets/manifest.json'));
+if(staticSource.publication?.old_corrective_ten){
+ const cache=new Map(),read=path=>{if(!cache.has(path))cache.set(path,staticRead(path));return cache.get(path);};
+ const checked=correctiveTurntableInputs(staticSource,read),ids=new Set(checked.context.entries.map(row=>row.next.id));
+ assert.equal(ids.size,11);assert.equal(staticSource.assets.length,627);assert.equal(checked.legacy.assets.length,616);
+ assert.deepEqual(checked.legacy.assets,staticSource.assets.filter(a=>!ids.has(a.id)));
+ assert(!checked.legacy.publication.old_corrective_ten);
+ const delivered=structuredClone(staticSource);
+ for(const a of delivered.assets){a.file_sizes={glb:1,blend:2};a.downloads={glb:a.glb};a.worlds=[];a.packs=[];if(!ids.has(a.id)){a.card_preview='synthetic-delivery-only';a.turntable={synthetic:true};}}
+ assert.deepEqual(correctiveTurntableInputs(delivered,read).legacy.assets.map(a=>a.id),checked.legacy.assets.map(a=>a.id));
+ let negatives=0;
+ const bad=(label,mutate)=>{const m=structuredClone(staticSource);mutate(m);assert.throws(()=>correctiveTurntableInputs(m,read),undefined,label);negatives++;};
+ const first=m=>m.assets.find(a=>ids.has(a.id));
+ for(const [key,value]of [['units','centimeters'],['description','altered science'],['name','altered name'],['glb','assets/elsewhere.glb'],['blend','assets/elsewhere.blend'],['preview','assets/elsewhere.png'],['unreviewed',true]])bad(key,m=>{first(m)[key]=value;});
+ bad('glb hash',m=>{first(m).sha256.glb='0'.repeat(64);});
+ bad('dimensions',m=>{first(m).dimensions={x:9,y:9,z:9};});
+ bad('old metadata',m=>{m.assets.find(a=>!ids.has(a.id)).description='changed';});
+ bad('headers',m=>{m.version='changed';});
+ bad('pointer',m=>{m.publication.old_corrective_ten={path:'wrong',sha256:'0'.repeat(64)};});
+ bad('order',m=>{[m.assets[0],m.assets[1]]=[m.assets[1],m.assets[0]];});
+ bad('duplicate',m=>{m.assets[1]=m.assets[0];});bad('missing ID',m=>{m.assets.pop();});
+ for(const key of ['card_preview','turntable'])for(const value of [null,{},'inherited'])bad(key,m=>{first(m)[key]=value;});
+ const originalIndex=JSON.parse(read('assets/turntables/index.json'));
+ for(const kind of ['assets','posters']){
+  const changed=structuredClone(originalIndex);changed[kind].push({...changed[kind][0],id:[...ids][0]});
+  assert.throws(()=>correctiveTurntableInputs(staticSource,p=>p==='assets/turntables/index.json'?Buffer.from(JSON.stringify(changed)):read(p)));negatives++;
+ }
+ const changedIndex=structuredClone(originalIndex);changedIndex.posters[0].source_glb_sha256='0'.repeat(64);
+ assert.throws(()=>correctiveTurntableInputs(staticSource,p=>p==='assets/turntables/index.json'?Buffer.from(JSON.stringify(changedIndex)):read(p)));negatives++;
+ const changedSource=structuredClone(staticSource);first(changedSource).units='centimeters';
+ assert.throws(()=>correctiveTurntableInputs(changedSource,p=>p==='assets/manifest.json'?Buffer.from(JSON.stringify(changedSource)):read(p)));negatives++;
+ assert.throws(()=>correctiveTurntableInputs(staticSource,()=>{throw Error('missing exact source');}));negatives++;
+ // The legacy route is still strict; the correction must authenticate before routing.
+ assert.throws(()=>publishedImagePaths(staticSource.assets.find(a=>a.id==='oncoid-bed'),staticSource),/Safe successor revision required/);negatives++;
+ console.log(`PASS corrective static delivery: actual627/exact11, enriched metadata binding, ${negatives} rejected source/index/inheritance changes; legacy revision guard retained.`);
+}else console.log('Corrective static delivery positive NOT_APPLICABLE: no selected corrective batch.');

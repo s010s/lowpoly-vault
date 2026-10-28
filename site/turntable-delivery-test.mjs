@@ -4,7 +4,7 @@ import { readFile, writeFile, mkdtemp, mkdir, cp, rm, symlink } from 'node:fs/pr
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
-import { collectTurntables, webpDimensions, publishedImagePaths } from './turntable-delivery.mjs';
+import { collectTurntables, webpDimensions, publishedImagePaths, correctiveTurntableInputs } from './turntable-delivery.mjs';
 import { collectInitialRelease } from './initial-release.mjs';
 import {collectManifestProduction} from './production-publication.mjs';
 import {projectHistoricalManifest} from './ci-historical-publication.mjs';
@@ -16,7 +16,10 @@ const historical=historicalManifestView({manifest:publishedManifest,read:success
 const production=await collectManifestProduction(root,historical);
 const legacy=production.length?projectHistoricalManifest(historical,production):historical;
 const legacyIds=new Set(legacy.assets.map(asset=>asset.id));
-const manifest={...publishedManifest,assets:publishedManifest.assets.filter(asset=>legacyIds.has(asset.id))};
+const corrective=correctiveTurntableInputs(publishedManifest,successorReader(root));
+const selectedLegacy=corrective?.legacy||publishedManifest;
+const manifest={...selectedLegacy,assets:selectedLegacy.assets.filter(asset=>legacyIds.has(asset.id))};
+if(corrective){assert.equal(corrective.context.entries.length,11);assert.equal(manifest.assets.length,347);assert(!manifest.publication.old_corrective_ten);}
 const initial=await collectTurntables(manifest),published=await collectTurntables(publishedManifest);
 assert.deepEqual(published,initial,'Production routing must retain every explicitly selected legacy frame/poster byte and no synthetic sequence');
 assert.equal(initial.descriptors.size,10);assert.equal(initial.posters.size,manifest.assets.length);
@@ -33,7 +36,7 @@ if(production.length){
    assert.equal(bytes.length,seal.bytes);assert.equal(hash(bytes),seal.sha256);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
    productionMedia.push({id:asset.id,kind,path,bytes:bytes.length,sha256:hash(bytes)});checks++;
   }
-  const changed=structuredClone(publishedManifest);changed.assets.find(a=>a.id===asset.id).sha256.glb='0'.repeat(64);
+  const changed=structuredClone(selectedLegacy);changed.assets.find(a=>a.id===asset.id).sha256.glb='0'.repeat(64);
   await assert.rejects(()=>collectTurntables(changed,root),/Unbound production metadata/);checks++;
  }
  assert.equal(productionMedia.length,2*production.length,'No production final view may be omitted');

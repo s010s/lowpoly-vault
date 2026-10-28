@@ -32,7 +32,7 @@ export async function authenticateCorrectiveBaseline({root,api,out}){const p=COR
 }
 export const CORRECTIVE_CONTRACT_PATHS=Object.freeze([
  'site/old-corrective-ten-baseline.mjs','site/old-corrective-ten-source-profiles.mjs','site/old-corrective-ten-source-binding.mjs','site/old-corrective-ten-selection.mjs','site/old-corrective-ten-selection-test.mjs','site/old-corrective-ten-detail-scope.mjs','site/old-corrective-ten-detail-scope-test.mjs','site/old-corrective-ten-visual-acceptance.mjs','site/old-corrective-ten-visual-acceptance-test.mjs',
- 'site/same-id-successors.mjs','site/model-registry-sync.mjs','site/initial-release.mjs','site/initial-release-test.mjs','site/typed-production-release.mjs','site/production-release.mjs','site/detail-capture-authority.mjs','site/detail-capture-authority-test.mjs','site/ci-post-release-browser.mjs','site/ci-post-release-browser-test.mjs','site/detail-presentation-browser-test.mjs','site/detail-presentation-quality.mjs','site/detail-presentation-quality-test.mjs','site/detail-visual-acceptance.mjs','site/gallery-poster-inputs.mjs','site/gallery-main842-compat.mjs','site/gallery-assets.mjs','site/detail-browser-scope-test.mjs','site/ci-lean-release-test.mjs','site/concept-landair-successor-test.mjs','site/historical-media-comparison-test.mjs','site/detail-visual-disposition-test.mjs'
+ 'site/same-id-successors.mjs','site/model-registry-sync.mjs','site/initial-release.mjs','site/initial-release-test.mjs','site/typed-production-release.mjs','site/production-release.mjs','site/detail-capture-authority.mjs','site/detail-capture-authority-test.mjs','site/ci-post-release-browser.mjs','site/ci-post-release-browser-test.mjs','site/detail-presentation-browser-test.mjs','site/detail-presentation-quality.mjs','site/detail-presentation-quality-test.mjs','site/detail-visual-acceptance.mjs','site/gallery-poster-inputs.mjs','site/gallery-main842-compat.mjs','site/gallery-assets.mjs','site/detail-browser-scope-test.mjs','site/ci-lean-release-test.mjs','site/concept-landair-successor-test.mjs','site/historical-media-comparison-test.mjs','site/detail-visual-disposition-test.mjs','site/turntable-delivery.mjs','site/turntable-delivery-test.mjs'
 ]);
 const DATA=Object.freeze({manifest:'assets/manifest.json',catalog:'site/catalog-data.json',gallery:'site/public/gallery/resources.json',turntables:'assets/turntables/index.json',framing:'site/gallery/wheel-framing.json',detail:'site/gallery/detail-presentations-index.js',proofs:'site/gallery/detail-input-proofs.js'});
 export const CORRECTIVE_RUNNER_PINS=Object.freeze({
@@ -45,11 +45,72 @@ export function assertCorrectiveRunnerBytes(path,bytes,before){
  assert.deepEqual(Buffer.from(bytes.toString().replace('runs-on: ubuntu-24.04','runs-on: ubuntu-latest')),before);
 }
 
-export function assertCorrectiveVisualLedger({descriptor,review,changes,read,context,detail,index,proofs,baseBytes}){
+// This continuation only revises five code files over the immutable PR head.
+// The complete already-public 216-file ledger and its real independent review
+// stay byte-identical. No asset/source reference is copied into the new proof.
+export const CORRECTIVE_CODE_REVISION_PATH='qa/old-corrective-ten-20261027/code-revision.json';
+export const CORRECTIVE_CODE_REVIEW_PATH='qa/old-corrective-ten-20261027/code-revision-review.json';
+export const CORRECTIVE_CODE_PARENT=Object.freeze({commit:'042e7e4f35d8f10e2fb324363021c3436d912f9c',tree:'92e10af6c5cdfa70d7787f17a485023f81c13247'});
+export const CORRECTIVE_CODE_BASE=Object.freeze({
+ ledger:Object.freeze({path:CORRECTIVE_VISUAL_PATH,sha256:'4fa208749d7a2b16073292c5fb6a41911f890fcf7f9c7a86bc1259d8beed277e',bytes:54989}),
+ review:Object.freeze({path:CORRECTIVE_VISUAL_REVIEW_PATH,sha256:'8924812044ae8c35180c52f884fc06740e513c3ee9ef29c1db3e8ea475215c3f',bytes:6823})
+});
+export const CORRECTIVE_CODE_BEFORE=Object.freeze([
+ Object.freeze({path:'site/ci-lean-release-test.mjs',sha256:'6608d5d3724913f97c9cce5f80d73ae1aa1c24120334c4558e8a7b26a804804d',bytes:14756}),
+ Object.freeze({path:'site/old-corrective-ten-visual-acceptance-test.mjs',sha256:'2db97feb2e14080c3c080bc34a59d72536c2dc8f1bd8908e206e0aa2e60be90d',bytes:5963}),
+ Object.freeze({path:'site/old-corrective-ten-visual-acceptance.mjs',sha256:'2bdc3d3e4864ffb1b77f622c031664040baa5091b381496a1ea0658eb1f7d81b',bytes:20663}),
+ Object.freeze({path:'site/turntable-delivery-test.mjs',sha256:'5200a51f6358b458e56dc3ee3c5357ad8d684a3fc4cc995976559b0d7b6681d6',bytes:19600}),
+ Object.freeze({path:'site/turntable-delivery.mjs',sha256:'699fb63ed1124623f9f6a41c7d4cb7a3c926023f7f6298c685717df84c650b48',bytes:12480})
+]);
+const CORRECTIVE_BASE_CONTRACT_PATHS=Object.freeze(CORRECTIVE_CONTRACT_PATHS.filter(p=>!['site/turntable-delivery.mjs','site/turntable-delivery-test.mjs'].includes(p)));
+const canonical=x=>Buffer.from(JSON.stringify(x,null,2)+'\n');
+const bytesPin=(b,p)=>{assert(Buffer.isBuffer(b));assert.equal(b.length,p.bytes);assert.equal(sha(b),p.sha256);};
+const CODE_CHECKS=Object.freeze(['immutable_parent_and_complete_base_ledger','exact_five_code_delta_and_modes','unchanged_source_model_image_and_runtime','independent_code_and_negative_tests','all_existing_dist_and_public_gates_preserved']);
+export function assertCorrectiveCodeRevision({revision,revisionReview,read,parentRead,revisionChanges,context}){
+ exact(revision,['schema_version','kind','parent','base_ledger','base_review','producer','changes','publication_authorized']);
+ assert.equal(revision.schema_version,1);assert.equal(revision.kind,'exact-corrective-code-revision-v1');assert.equal(revision.publication_authorized,false);
+ assert.deepEqual(revision.parent,CORRECTIVE_CODE_PARENT);assert.deepEqual(revision.base_ledger,CORRECTIVE_CODE_BASE.ledger);assert.deepEqual(revision.base_review,CORRECTIVE_CODE_BASE.review);
+ assert.deepEqual(read(CORRECTIVE_CODE_REVISION_PATH),canonical(revision));
+ for(const pin of Object.values(CORRECTIVE_CODE_BASE)){bytesPin(read(pin.path),pin);bytesPin(parentRead(pin.path),pin);}
+ assert(Array.isArray(revision.changes));assert.deepEqual(revision.changes.map(r=>r.path),CORRECTIVE_CODE_BEFORE.map(p=>p.path));
+ for(let i=0;i<CORRECTIVE_CODE_BEFORE.length;i++){
+  const p=CORRECTIVE_CODE_BEFORE[i],r=revision.changes[i];exact(r,['path','before','after','mode']);assert.equal(r.mode,'100644');
+  assert.deepEqual(r.before,{sha256:p.sha256,bytes:p.bytes});bytesPin(parentRead(p.path),p);
+  exact(r.after,['sha256','bytes']);assert(/^[0-9a-f]{64}$/.test(r.after.sha256));assert(Number.isSafeInteger(r.after.bytes)&&r.after.bytes>0);assert.notEqual(r.after.sha256,p.sha256);bytesPin(read(p.path),r.after);
+ }
+ const expected=[...CORRECTIVE_CODE_BEFORE.map(p=>({path:p.path,status:'M',before_mode:'100644',after_mode:'100644'})),...[CORRECTIVE_CODE_REVISION_PATH,CORRECTIVE_CODE_REVIEW_PATH].map(path=>({path,status:'A',before_mode:null,after_mode:'100644'}))].sort((a,b)=>a.path.localeCompare(b.path));
+ assert.deepEqual(revisionChanges,expected,'Only the exact five code revisions and two new proof files are allowed');
+ exact(revisionReview,['schema_version','kind','status','reviewer','revision_sha256','parent','checks','execution_status','blocking_findings','publication_authorized']);
+ assert.equal(revisionReview.schema_version,1);assert.equal(revisionReview.kind,'independent-corrective-code-revision-v1');assert.equal(revisionReview.status,'PASS_BOUNDED_CODE_REVISION_AND_PRESERVED_BASE');assert.equal(revisionReview.publication_authorized,false);
+ assert.equal(revisionReview.revision_sha256,sha(canonical(revision)));assert.deepEqual(revisionReview.parent,CORRECTIVE_CODE_PARENT);assert.deepEqual(revisionReview.blocking_findings,[]);
+ assert.notEqual(actor(revisionReview.reviewer),actor(revision.producer));for(const e of context.entries)assert.notEqual(actor(revisionReview.reviewer),actor(e.receipt.maker));
+ exact(revisionReview.checks,CODE_CHECKS);for(const k of CODE_CHECKS)assert.equal(revisionReview.checks[k],'PASS');
+ assert.deepEqual(revisionReview.execution_status,{current_ci:'NOT_RUN_BY_CODE_REVIEW',public:'NOT_RUN_BY_CODE_REVIEW'});
+ assert.deepEqual(read(CORRECTIVE_CODE_REVIEW_PATH),canonical(revisionReview));
+ return{revision_sha256:sha(canonical(revision)),revision_review_sha256:sha(canonical(revisionReview)),parent:CORRECTIVE_CODE_PARENT.commit,code_files:5};
+}
+export function assertCorrectiveVisualLedger(args){
+ const {descriptor,review,changes,read,parentRead,parentChanges,revisionChanges,context}=args;
+ const revision=json(read(CORRECTIVE_CODE_REVISION_PATH)),revisionReview=json(read(CORRECTIVE_CODE_REVIEW_PATH));
+ const codeRevision=assertCorrectiveCodeRevision({revision,revisionReview,read,parentRead,revisionChanges,context});
+ bytesPin(canonical(descriptor),CORRECTIVE_CODE_BASE.ledger);bytesPin(canonical(review),CORRECTIVE_CODE_BASE.review);
+ assert.equal(descriptor.files.length,216);assert.equal(review.code_pins.length,31);
+ const changed=new Set(CORRECTIVE_CODE_BEFORE.map(p=>p.path));
+ // Read every unchanged historical item from the current checkout, not a
+ // synthetic old snapshot. Only the five explicitly revised code files use
+ // the authenticated parent's bytes for the old 216-item verification.
+ for(const f of descriptor.files)if(!changed.has(f.path))assert.deepEqual(read(f.path),parentRead(f.path),'Historical current bytes changed: '+f.path);
+ const baseRead=p=>changed.has(p)?parentRead(p):read(p);
+ const base=assertCorrectiveBaseVisualLedger({...args,changes:parentChanges,read:baseRead});
+ const expected=[...new Set([...parentChanges,...CORRECTIVE_CODE_BEFORE.map(p=>p.path),CORRECTIVE_CODE_REVISION_PATH,CORRECTIVE_CODE_REVIEW_PATH])].sort();
+ assert.deepEqual(changes.slice().sort(),expected,'Complete baseline-to-current delta differs');
+ return{...base,changed_files:218,base_ledger_files:216,code_revision:codeRevision};
+}
+function assertCorrectiveBaseVisualLedger({descriptor,review,changes,read,context,detail,index,proofs,baseBytes}){
  exact(descriptor,['schema_version','kind','baseline','selection','ids','producer','files','publication_authorized']);assert.equal(descriptor.schema_version,1);assert.equal(descriptor.kind,'exact-old-corrective-ten-visual-delta-v1');assert.equal(descriptor.baseline,CORRECTIVE_BASELINE_COMMIT);assert.deepEqual(descriptor.selection,context.selectionPin);assert.deepEqual(descriptor.ids,CORRECTIVE_IDS);assert.equal(descriptor.publication_authorized,false);
  exact(review,['schema_version','kind','status','reviewer','descriptor_sha256','baseline','selection','ids','code_pins','checks','execution_status','blocking_findings','publication_authorized']);assert.equal(review.schema_version,1);assert.equal(review.kind,'independent-old-corrective-ten-visual-delta-v1');assert.equal(review.status,'PASS_BOUNDED_DELTA_AND_REQUIRED_EXECUTION_MECHANISM');assert.equal(review.descriptor_sha256,sha(Buffer.from(JSON.stringify(descriptor,null,2)+'\n')));assert.equal(review.baseline,CORRECTIVE_BASELINE_COMMIT);assert.deepEqual(review.selection,context.selectionPin);assert.deepEqual(review.ids,CORRECTIVE_IDS);assert.deepEqual(review.blocking_findings,[]);assert.equal(review.publication_authorized,false);assert.notEqual(actor(review.reviewer),actor(descriptor.producer));for(const e of context.entries)assert.notEqual(actor(review.reviewer),actor(e.receipt.maker));
  const checks=['exact_current_selection_and_source_reviews','exact_git_delta_and_unchanged_runtime','historical_receipts_and_original_failures_preserved','current_eleven_right_bindings','no_old_scientific_grant_for_replacements','same_v3_metrics_and_seven_negative_controls','required_dist_science_and_actual_public_state'];exact(review.checks,checks);for(const k of checks)assert.equal(review.checks[k],'PASS');assert.equal(review.execution_status.current_ci,'NOT_RUN_BY_DELTA_REVIEW');assert.equal(review.execution_status.public,'NOT_RUN_BY_DELTA_REVIEW');
- const code=new Map(review.code_pins.map(p=>[p.path,p]));assert.deepEqual([...code.keys()].sort(),[...CORRECTIVE_CONTRACT_PATHS].sort());for(const p of code.values()){exact(p,['path','sha256','bytes']);const b=read(p.path);assert.equal(b.length,p.bytes);assert.equal(sha(b),p.sha256);}
+ const code=new Map(review.code_pins.map(p=>[p.path,p]));assert.deepEqual([...code.keys()].sort(),[...CORRECTIVE_BASE_CONTRACT_PATHS].sort());for(const p of code.values()){exact(p,['path','sha256','bytes']);const b=read(p.path);assert.equal(b.length,p.bytes);assert.equal(sha(b),p.sha256);}
  const fresh=proofs.receipts.at(-1),closure=new Set([...correctiveSourceClosure(context,read),...Object.values(CORRECTIVE_DETAIL_BASE).map(p=>p.path),'qa/detail-presentation-evidence/captures/40372761108/execution-source.json',fresh.capture_index_path,fresh.decoded_proof.path,...detail.subjects.map(p=>'site/public/'+p.detail)]);
  const files=descriptor.files;assert.deepEqual(files.map(f=>f.path),[...new Set(files.map(f=>f.path))].sort());assert.deepEqual(changes.filter(p=>![CORRECTIVE_VISUAL_PATH,CORRECTIVE_VISUAL_REVIEW_PATH].includes(p)).sort(),files.map(f=>f.path));
  for(const f of files){exact(f,['path','sha256','bytes','role']);const b=read(f.path);assert.equal(b.length,f.bytes);assert.equal(sha(b),f.sha256);if(code.has(f.path)){assert.equal(f.role,'independently-reviewed-contract');assert.equal(f.sha256,code.get(f.path).sha256);}else if(Object.values(DATA).includes(f.path))assert.equal(f.role,'authenticated-current-data');else if(Object.hasOwn(CORRECTIVE_RUNNER_PINS,f.path)){assert.equal(f.role,'one-line-reviewed-runner-compatibility');assertCorrectiveRunnerBytes(f.path,b,baseBytes(f.path));}else{assert(closure.has(f.path),'Unclassified corrective file '+f.path);assert.equal(f.role,'exact-current-delivery');const old=baseBytes(f.path);if(old){assert.equal(f.path,'site/public/detail-presentations/oncoid-bed.png','Existing immutable source/asset may not be overwritten');assert.equal(f.sha256,index.presentations['oncoid-bed'].png.sha256);}}}
@@ -62,7 +123,11 @@ export async function assertCorrectiveVisualRuntime({root,api,currentSha}){
  const index=parseDeclarativeModule(read(DATA.detail)),proofs=parseDeclarativeModule(read(DATA.proofs)),detail=selectedCorrectiveDetail({manifest,index,proofs,read});
  const changes=git(root,'diff','--name-status','--no-renames',CORRECTIVE_BASELINE_COMMIT,currentSha).toString().trim().split('\n').filter(Boolean).map(row=>{const [status,path,...extra]=row.split('\t');assert(!extra.length&&['A','M'].includes(status));const current=git(root,'ls-tree',currentSha,'--',path).toString();assert(current.startsWith('100644 blob '));const before=git(root,'ls-tree',CORRECTIVE_BASELINE_COMMIT,'--',path).toString();assert(!before||before.startsWith('100644 blob '));return path;});
  const baseBytes=path=>{const entry=git(root,'ls-tree',CORRECTIVE_BASELINE_COMMIT,'--',path).toString();return entry?git(root,'show',CORRECTIVE_BASELINE_COMMIT+':'+path):null;};
- const ledger=assertCorrectiveVisualLedger({descriptor:json(read(CORRECTIVE_VISUAL_PATH)),review:json(read(CORRECTIVE_VISUAL_REVIEW_PATH)),changes,read,context,detail,index,proofs,baseBytes});
+ const p=CORRECTIVE_CODE_PARENT,parent=await api.json('git/commits/'+p.commit);assert.equal(parent.sha,p.commit);assert.equal(parent.tree.sha,p.tree);assert.equal(git(root,'rev-parse',p.commit+'^{tree}').toString().trim(),p.tree);git(root,'merge-base','--is-ancestor',p.commit,currentSha);
+ const parentRead=path=>git(root,'show',p.tree+':'+path);
+ const parentChanges=git(root,'diff','--name-only','--no-renames',CORRECTIVE_BASELINE_COMMIT,p.tree).toString().trim().split('\n').filter(Boolean);
+ const revisionChanges=git(root,'diff','--name-status','--no-renames',p.tree,currentSha).toString().trim().split('\n').filter(Boolean).map(row=>{const [status,path,...extra]=row.split('\t');assert(!extra.length);const before=git(root,'ls-tree',p.tree,'--',path).toString(),after=git(root,'ls-tree',currentSha,'--',path).toString();return{path,status,before_mode:before?before.split(' ')[0]:null,after_mode:after?after.split(' ')[0]:null};}).sort((a,b)=>a.path.localeCompare(b.path));
+ const ledger=assertCorrectiveVisualLedger({descriptor:json(read(CORRECTIVE_VISUAL_PATH)),review:json(read(CORRECTIVE_VISUAL_REVIEW_PATH)),changes,read,context,detail,index,proofs,baseBytes,parentRead,parentChanges,revisionChanges});
  return{current_source:currentSha,baseline_source:CORRECTIVE_BASELINE_COMMIT,ids:CORRECTIVE_IDS,catalog_count:627,current_right_count:293,unchanged_right_count:282,...ledger,runtime_identity:'EXACT_REVIEWED_DATA_AND_VALIDATOR_DELTA_ONLY_RENDERER_UNCHANGED',historical_scope:'EXCLUDES_ALL_ELEVEN_CURRENT_SUBJECTS',public_acceptance:'NOT_RUN'};
 }
 export async function authenticateCorrectiveVisualEvidence({root,api,currentSha,out}){

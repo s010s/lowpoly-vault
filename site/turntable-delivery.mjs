@@ -1,3 +1,6 @@
+import {isDeepStrictEqual} from 'node:util';
+import {successorReader} from './same-id-successors.mjs';
+import {correctiveContext,correctiveOutputView,verifyCorrectivePresentation} from './old-corrective-ten-selection.mjs';
 import {MESH_SUCCESSOR_IDS} from './same-id-successors.mjs';
 import {collectProductionRelease,assertProductionMetadata} from './production-release.mjs';
 /** Optional image sequences are separately sealed; source GLB/Blend publication remains unchanged. */
@@ -58,7 +61,40 @@ export function webpDimensions(bytes) {
   }
   throw new Error('WebP dimensions unavailable');
 }
+/** Corrective11 is a reviewed static route, never a legacy WebP sequence.
+ * Bind source or enriched delivery metadata to the real exact selection before
+ * removing those eleven subjects from this optional legacy-image consumer.
+ * Delivery-only fields confer no authority; final-dist audits still check them.
+ */
+export function correctiveTurntableInputs(manifest,read) {
+  if(!manifest.publication?.old_corrective_ten)return null;
+  const source=JSON.parse(read('assets/manifest.json'));
+  const context=correctiveContext({manifest:source,read});
+  assert(context,'Actual corrective source selection required');
+  const {assets:sourceAssets,...sourceHeaders}=source,{assets:actualAssets,...actualHeaders}=manifest;
+  assert.deepEqual(actualHeaders,sourceHeaders,'Corrective delivery headers differ');
+  assert(Array.isArray(actualAssets));
+  assert.deepEqual(actualAssets.map(a=>a.id),sourceAssets.map(a=>a.id),'Corrective delivery IDs/order differ');
+  const derived=new Set(['qa','material_count','file_sizes','glb_bytes','blend_bytes','downloads','worlds','packs','card_preview','turntable']);
+  const subject=a=>Object.fromEntries(Object.entries(a).filter(([key])=>!derived.has(key)));
+  for(let i=0;i<sourceAssets.length;i++)assert(isDeepStrictEqual(subject(actualAssets[i]),subject(sourceAssets[i])),'Corrective delivery metadata differs: '+sourceAssets[i].id);
+  const ids=new Set(context.entries.map(row=>row.next.id));
+  for(const asset of actualAssets.filter(a=>ids.has(a.id))){
+    assert(!Object.hasOwn(asset,'card_preview')&&!Object.hasOwn(asset,'turntable'),'Corrective static models cannot inherit card or sequence fields');
+  }
+  const index=JSON.parse(read('assets/turntables/index.json'));
+  correctiveOutputView({manifest:source,kind:'turntables',value:index,read});
+  for(const key of ['assets','posters'])assert(index[key].every(row=>!ids.has(row.id)),'Corrective static models cannot acquire legacy image entries');
+  const legacy={...manifest,publication:{...manifest.publication},assets:actualAssets.filter(a=>!ids.has(a.id))};
+  delete legacy.publication.old_corrective_ten;
+  return {context,legacy};
+}
 export async function collectTurntables(manifest,root=process.cwd(),productionResults) {
+  if(manifest.publication?.old_corrective_ten){
+    const {context,legacy}=correctiveTurntableInputs(manifest,successorReader(root));
+    await verifyCorrectivePresentation(root,context);
+    return collectTurntables(legacy,root,productionResults);
+  }
   const production=manifest.assets.filter(a=>a.production_release);
   if(production.length){
    const releases=new Map();
