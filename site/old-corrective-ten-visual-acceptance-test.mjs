@@ -26,8 +26,9 @@ test('old poster recipe strips only literal corrective dispatch, retaining old b
 });
 
 test('only exact historical-card test and two one-line runner repairs are classified',()=>{
- assert.equal(CORRECTIVE_CONTRACT_PATHS.length,30);
+ assert.equal(CORRECTIVE_CONTRACT_PATHS.length,31);
  assert.equal(CORRECTIVE_CONTRACT_PATHS.filter(p=>p==='site/historical-media-comparison-test.mjs').length,1);
+ assert.equal(CORRECTIVE_CONTRACT_PATHS.filter(p=>p==='site/detail-visual-disposition-test.mjs').length,1);
  assert(!CORRECTIVE_CONTRACT_PATHS.includes('site/unreviewed-test.mjs'));
  assert.deepEqual(Object.keys(CORRECTIVE_RUNNER_PINS),['.github/workflows/publication-poster-capture.yml','.github/workflows/postrelease-fixture-regression.yml']);
  for(const path of Object.keys(CORRECTIVE_RUNNER_PINS)){
