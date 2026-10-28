@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {mkdtemp,mkdir,writeFile,readFile,rm,symlink,copyFile,stat} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {resolve,join,dirname} from 'node:path';
+import {buildSimple,copyPublicMember} from './ci-build-simple.mjs';
+import {testsFor} from './ci-code-tests.mjs';
+const source=process.cwd(),root=await mkdtemp(join(tmpdir(),'simple-build-'));
+const put=async(path,value)=>{await mkdir(dirname(join(root,path)),{recursive:true});await writeFile(join(root,path),value);};
+try{
+ const original=JSON.parse(await readFile('assets/manifest.json'));const a=structuredClone(original.assets[0]);
+ a.glb=`assets/${a.id}/model.glb`;a.blend=`assets/${a.id}/source.blend`;a.preview=`assets/${a.id}/preview.png`;delete a.production_release;delete a.production_posters;
+ await put('assets/manifest.json',JSON.stringify({...original,publication:{},assets:[a]}));
+ for(const path of [a.glb,a.blend,a.preview])await put(path,'nonempty fixture; model QA is deliberately not repeated');
+ const resources={posters:{[a.id]:{source_glb_sha256:a.sha256.glb,wheel:`gallery/${a.id}/wheel.png`,detail:`gallery/${a.id}/detail.png`}}};
+ await put('site/public/gallery/resources.json',JSON.stringify(resources));for(const p of ['wheel','detail'])await put(`site/public/gallery/${a.id}/${p}.png`,'image fixture');
+ for(const name of ['wheel','detail'])await put(`site/gallery/${name}-presentations-index.js`,'export default {presentations:{}};');
+ await put('assets/turntables/index.json','{"assets":[],"posters":[]}');
+ await put('package.json','{"type":"module"}');await put('index.html','<html lang="en"><head><title>Fixture</title></head><body><div id="app"></div></body></html>');
+ await put('vite.config.js',`export default {publicDir:'site/public'};`);
+ for(const path of ['LICENSE','THIRD_PARTY_NOTICES.md','LICENSES/CC-BY-4.0.txt','LICENSES/MIT.txt'])await put(path,'Fixture license');
+ await symlink(resolve('node_modules'),join(root,'node_modules'),'dir');
+ await assert.rejects(copyPublicMember(root,join(root,'out'),'../escape'));
+ await put('empty','');await assert.rejects(copyPublicMember(root,join(root,'out'),'empty'));
+ assert.deepEqual(testsFor(['assets/new/model.glb','site/public/gallery/new.png']),[]);
+ assert(testsFor(['site/ci-build-simple.mjs']).includes('site/ci-simple-build-test.mjs'));
+ process.chdir(root);const result=await buildSimple();assert.equal(result.status,'PASS');assert.equal(result.models,1);
+ assert.equal((await readFile('dist/'+a.glb,'utf8')),'nonempty fixture; model QA is deliberately not repeated');
+ assert((await stat(`dist/assets/downloads/${a.id}.zip`)).size>0);
+ await writeFile('vite.config.js','invalid JavaScript syntax !');await assert.rejects(buildSimple(),/Vite failed/);
+ console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
+}finally{process.chdir(source);await rm(root,{recursive:true,force:true});}

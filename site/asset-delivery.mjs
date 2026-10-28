@@ -21,7 +21,7 @@ export function assetFileAllowlist(manifest) {
   }
   return [...paths].sort();
 }
-export async function enrichManifest(manifest, root = process.cwd()) {
+export async function enrichManifest(manifest, root = process.cwd(), { verifyHashes = true } = {}) {
   assetFileAllowlist(manifest);
   const assetRoot = await realpath(resolve(root,'assets'));
   const assets = [];
@@ -33,7 +33,7 @@ export async function enrichManifest(manifest, root = process.cwd()) {
       const info = await stat(source);
       if (!info.isFile() || !info.size) throw new Error(`Empty or non-file asset: ${asset[key]}`);
       if (key !== 'preview') file_sizes[key] = info.size;
-      if (asset.sha256?.[key] && createHash('sha256').update(await readFile(source)).digest('hex') !== asset.sha256[key]) throw new Error(`Asset differs from approved manifest checksum: ${asset[key]}`);
+      if (verifyHashes && asset.sha256?.[key] && createHash('sha256').update(await readFile(source)).digest('hex') !== asset.sha256[key]) throw new Error(`Asset differs from approved manifest checksum: ${asset[key]}`);
     }
     let material_count;
     try { const qa = JSON.parse(await readFile(resolve(root,dirname(asset.glb),'qa.json'),'utf8'));
@@ -67,9 +67,9 @@ export async function clearDeliveredAssets(outDir) {
     if (item.isDirectory() || !/\.(?:js|css|map)$/.test(item.name)) await rm(join(folder,item.name),{recursive:true,force:true});
   }
 }
-export async function deliverManifestAssets(manifest, outDir, { root = process.cwd(), review = false } = {}) {
+export async function deliverManifestAssets(manifest, outDir, { root = process.cwd(), review = false, verifyHashes = true } = {}) {
   if (manifest.review_only && !review) throw new Error('A review-only manifest cannot be released.');
-  const enriched = await enrichManifest(manifest,root);
+  const enriched = await enrichManifest(manifest,root,{verifyHashes});
   for (const path of assetFileAllowlist(enriched)) {
     await mkdir(dirname(resolve(outDir,path)),{recursive:true});
     await cp(resolve(root,path),resolve(outDir,path));

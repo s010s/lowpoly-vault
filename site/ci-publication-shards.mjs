@@ -6,7 +6,8 @@ import {dirname,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {git,sha256,controlDigest,runtimeConfig} from './ci-provenance.mjs';
 
-export const PUBLICATION_SUITES=Object.freeze(['initial-release','refined-release','small-life-release','small-fauna-release','small-life-batch-release','small-life-round02-release','small-life-round03-release','small-life-round04-release','small-life-round05-release','small-life-round06-release','small-life-round07-release','small-life-round08-release','small-life-round09-release','small-life-round10-release','small-life-round11-release','small-life-round12-release','small-life-round13-release','concept-seven-release','quartets-capture','concept-quartets-release','landair-capture','concept-landair-release','forty-four-release','fifty-two-release','final-five-release']);
+// Legacy plan-reader compatibility only; current CI has no publication shards.
+export const PUBLICATION_SUITES=Object.freeze(['unified-delivery-contract']);
 export const PUBLICATION_SHARD_COUNT=4;
 const seal=body=>({...body,report_sha256:sha256(JSON.stringify(body))});
 function assertSeal(value){
