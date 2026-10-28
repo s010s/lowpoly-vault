@@ -1,3 +1,4 @@
+import {correctiveManifestView,correctiveOutputView} from './old-corrective-ten-selection.mjs';
 /** Explicit final-selection layer. Historical collectors/registry remain append-only.
  * A reviewed receipt is an attestation, not reviewer authentication or publication authority.
  * No filesystem writes, discovery, Git operations, world configuration, or QA promotion.
@@ -287,6 +288,7 @@ export function composeSuccessorRegistry({registry, baseManifest, selection, sel
  * caller-supplied legacy metadata. Existing historical gates must still validate it.
  */
 export function historicalManifestView({manifest, read}) {
+  manifest=correctiveManifestView({manifest,read});
   const reference = manifest.publication?.same_id_successors;
   if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(manifest); }
   const selection = json(read, reference), rootBase = json(read, selection.base_manifest), appendPin = manifest.publication?.same_id_successor_append;
@@ -299,6 +301,7 @@ export function historicalManifestView({manifest, read}) {
  * explicitly selected versioned files from the comparison view. No broad prefixes.
  */
 export function historicalGalleryView({manifest, resources, read}) {
+  resources=correctiveOutputView({manifest,kind:'gallery',value:resources,read}); manifest=correctiveManifestView({manifest,read});
   const reference = manifest.publication?.same_id_successors;
   if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(resources); }
   const context = successorContext({manifest, read}), inspected = {entries: context.entries};
@@ -323,6 +326,7 @@ export function historicalGalleryView({manifest, resources, read}) {
  * entries may be inverted; unrelated rows and source media bytes are untouched.
  */
 export function historicalTurntableView({manifest, turntables, read}) {
+  turntables=correctiveOutputView({manifest,kind:'turntables',value:turntables,read}); manifest=correctiveManifestView({manifest,read});
   if (!manifest.publication?.same_id_successors) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return clone(turntables); }
   const context = successorContext({manifest, read}), result = clone(turntables);
   for (const key of ['assets', 'posters']) unique(result[key].map(row => row.id), 'Historical turntable IDs');
@@ -344,6 +348,7 @@ export function historicalTurntableView({manifest, turntables, read}) {
   return result;
 }
 export function successorContext({manifest, read}) {
+  manifest=correctiveManifestView({manifest,read});
   const reference = manifest.publication?.same_id_successors;
   if (!reference) { assert(!manifest.publication?.same_id_successor_append, 'Append requires its exact legacy successor selection'); return null; }
   const selection = json(read, reference), base = historicalManifestView({manifest, read});

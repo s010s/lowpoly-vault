@@ -112,6 +112,8 @@ const INSERTIONS=[
   "  // Existing non-golden consistency is retained only for the exact main842 v3\n  // recipe. These captures remain unapproved and stay in the fresh-capture list.\n  if(!approved&&baseline?.shared){\n   const main842=await assertMain842PosterRecipe({root,shared});\n   if(poster.input_sha256===posterInputKey(asset,main842)&&poster.browser_version===main842.browser){valid.push(asset.id);continue;}\n  }\n"
 ];
 export function main842PosterSource(source){
+ // Exact new dispatch removed only for old recipe comparison; its own source/presentation gate remains mandatory.
+ for(const insertion of ["import {correctiveContext,correctiveOutputView,verifyCorrectivePresentation} from './old-corrective-ten-selection.mjs';\n", " if(manifest.publication?.old_corrective_ten){\n  const read=successorReader(root),context=correctiveContext({manifest,read});\n  await verifyCorrectivePresentation(root,context);\n  const historicalResources=correctiveOutputView({manifest,kind:'gallery',value:resources,read});\n  const legacy=await posterInputState(context.baseline.manifest,historicalResources,{root});\n  const ids=context.entries.map(e=>e.next.id);\n  return {...legacy,valid:[...new Set([...legacy.valid,...ids])],stale:legacy.stale.filter(id=>!ids.includes(id)),approved:legacy.approved.filter(id=>!ids.includes(id)),capture:legacy.capture.filter(id=>!ids.includes(id)),corrective:ids};\n }\n"]){if(source.includes(insertion)){assert.equal(source.split(insertion).length,2);source=source.replace(insertion,'');}}
  for(const insertion of INSERTIONS){assert.equal(source.split(insertion).length,2,'Main842 compatibility insertion changed');source=source.replace(insertion,'');}
  return source;
 }

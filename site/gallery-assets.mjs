@@ -1,3 +1,4 @@
+import {correctiveContext,verifyCorrectivePresentation} from './old-corrective-ten-selection.mjs';
 import {successorReader,successorContext,historicalGalleryView,verifySuccessorPresentation} from './same-id-successors.mjs';
 import {productionGalleryResources,appendProductionPosterInputState} from './production-release.mjs';
 /** Validate the explicit gallery resource allowlist without selecting catalog assets. */
@@ -48,6 +49,9 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
   const resources = await productionGalleryResources(root,manifest,storedResources,productionResults);
   const successorRead=successorReader(root),successors=successorContext({manifest,read:successorRead});
   await verifySuccessorPresentation(root,successors);
+  const corrective=correctiveContext({manifest,read:successorRead});
+  await verifyCorrectivePresentation(root,corrective);
+  const correctiveRows=new Map((corrective?.entries||[]).map(row=>[row.next.id,row]));
   const historicalResources=historicalGalleryView({manifest,resources,read:successorRead});
   const successorRows=new Map((successors?.entries||[]).map(row=>[row.entry.id,row]));
   assert.equal(resources.version, 1, 'Unsupported gallery resource version');
@@ -59,6 +63,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
   reviewedFiles.set('gallery/approved-resources.json', {path:'gallery/approved-resources.json', sha256:REVIEWED_RESOURCES_SHA256, bytes:reviewedBytes.length});
   const allowedGeneratedFiles = new Set(Object.keys(resources.posters).filter(id => !Object.hasOwn(reviewed.posters, id)).flatMap(id => [`gallery/posters/${id}.png`, `gallery/posters/${id}-wheel.png`]));
   for(const {entry,next} of successors?.entries||[])if(entry.kind==='mesh')for(const file of next.gallery.files)allowedGeneratedFiles.add(file.path);
+  for(const {next} of corrective?.entries||[])for(const file of next.gallery.files)allowedGeneratedFiles.add(file.path);
   const published = new Map(manifest.assets.map(asset => [asset.id, asset]));
   assert.equal(published.size, manifest.assets.length, 'Duplicate published model IDs');
   const files = new Map();
@@ -86,7 +91,7 @@ export async function auditGalleryAssets(manifest, { root = process.cwd(), outpu
     assert.equal(await realpath(modelPath), modelPath, `GLB symlinks are not allowed: ${id}`);
     assert.equal(hash(await readFile(modelPath)), poster.source_glb_sha256, `Gallery source GLB bytes changed: ${id}`);
     for (const kind of ['detail', 'wheel']) {
-      const selected=successorRows.get(id);
+      const selected=correctiveRows.get(id)||successorRows.get(id);
       assert.equal(poster[kind], selected?selected.next.gallery.poster[kind]:`gallery/posters/${id}${kind === 'wheel' ? '-wheel' : ''}.png`, `Unexpected ${kind} poster path: ${id}`);
       assert(files.has(poster[kind]), `Unsealed ${kind} poster: ${id}`);
       const bytes = await verifiedFile(resourceRoot, poster[kind]);

@@ -1,3 +1,4 @@
+import {correctiveContext,correctiveSourceClosure} from './old-corrective-ten-selection.mjs';
 import {successorReader,historicalManifestView,successorContext,successorSourceClosure} from './same-id-successors.mjs';
 /** Opt-in typed route. Legacy production-release-v1 remains on its existing implementation. */
 import assert from 'node:assert/strict';
@@ -145,5 +146,6 @@ export async function productionSourceClosure(root,manifest,descriptorPaths){
   for(const item of descriptor.assets){add(item.metadata);add(item.evidence);const record=JSON.parse(await pinned(root,item.evidence));Object.values(record.roles).forEach(add);record.build_closure.forEach(add);add(record.preview);if(record.typed_compatibility)add(record.typed_compatibility);for(const p of record.independence_evidence||[])add(p);const posters=record.final_posters;add(posters.recipe);for(const kind of ['detail','wheel']){add(posters[kind]);add(posters[kind].render_config);if(kind==='wheel'&&posters.route==='blender-detail-preview-wheel-v1'){add(posters[kind].capture_report);add(posters[kind].visual_review);}}const recipe=JSON.parse(await pinned(root,posters.recipe));recipe.files.forEach(add);}
  }
  if(!descriptorPaths&&manifest.publication?.same_id_successors){const read=successorReader(root),context=successorContext({manifest,read});for(const path of successorSourceClosure({selection:context.selection,selectionPin:context.selectionPin,appendPin:context.appendPin,read}))paths.add(path);}
+ if(!descriptorPaths){const read=successorReader(root),corrective=correctiveContext({manifest,read});if(corrective)for(const path of correctiveSourceClosure(corrective,read))paths.add(path);}
  return [...paths];
 }

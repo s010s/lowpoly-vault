@@ -1,6 +1,7 @@
 /** Complete selected mesh/current-media boundary regression, using real checked-in evidence. */
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {correctiveContext} from './old-corrective-ten-selection.mjs';
 import {historicalMediaComparison} from './historical-media-comparison.mjs';
 import {successorContext,successorReader,MESH_SUCCESSOR_IDS} from './same-id-successors.mjs';
 import {collectBatches5253Additions,collectBatches5657Additions,collectBatches5859Additions,collectBatches6267Additions} from './concept-landair-release.mjs';
@@ -8,6 +9,7 @@ import {collectFortyFourAdditions} from './forty-four-release.mjs';
 import {collectFiftyTwoAdditions} from './fifty-two-release.mjs';
 const root=process.cwd(),read=successorReader(root),manifest=JSON.parse(read('assets/manifest.json'));
 const turntables=JSON.parse(read('assets/turntables/index.json')),gallery=JSON.parse(read('site/public/gallery/resources.json'));
+const corrective=correctiveContext({manifest,read});
 const context=successorContext({manifest,read});assert(context,'Actual authorized successor selection required');
 const routes={
  'azolla':'small-life-round10:immutable-only','waterfall-ledge':'small-life-round08:immutable-only','onoclea':'small-life:immutable-only','salvinia':'small-life-round07:immutable-only','folded-strata-outcrop':'small-life-round12:immutable-only',
@@ -19,7 +21,18 @@ try{
  const media=historicalMediaComparison({root,turntables,gallery});
  for(const {entry,previous} of context.entries.filter(row=>row.entry.kind==='mesh')){
   const expected=[previous.turntable.poster];assert.deepEqual(media.cardRows(entry.id,expected),expected);assert.deepEqual(media.galleryPoster(entry.id,previous.gallery.poster),previous.gallery.poster);checks+=2;
-  const cards=structuredClone(turntables);cards.posters.find(row=>row.id===entry.id).path+='unapproved';assert.throws(()=>assert.deepEqual(historicalMediaComparison({root,turntables:cards}).cardRows(entry.id,expected),expected));checks++;
+  const cards=structuredClone(turntables),activeCard=cards.posters.find(row=>row.id===entry.id);
+  if(activeCard)activeCard.path+='unapproved';
+  else{
+   // A later exact static-only selection removes its active turntable row.
+   // Inject an unapproved row and require the same production inverse to reject it.
+   const replacement=corrective?.entries.find(row=>row.entry.id===entry.id);
+   assert(replacement,'Only an authenticated later selection may omit the current card');
+   assert.equal(replacement.next.turntable.poster,null);
+   assert.equal(expected.length,1);assert(expected[0]&&typeof expected[0].path==='string');
+   cards.posters.push({...structuredClone(expected[0]),path:expected[0].path+'unapproved'});
+  }
+  assert.throws(()=>assert.deepEqual(historicalMediaComparison({root,turntables:cards}).cardRows(entry.id,expected),expected));checks++;
   const resources=structuredClone(gallery);resources.posters[entry.id].detail+='unapproved';assert.throws(()=>assert.deepEqual(historicalMediaComparison({root,gallery:resources}).galleryPoster(entry.id,previous.gallery.poster),previous.gallery.poster));checks++;
   // Exact old fixtures must not need any manifest, even for a selected ID.
   const legacy=historicalMediaComparison({root:'/nonexistent-historical-fixture',turntables:{posters:expected},gallery:{posters:{[entry.id]:previous.gallery.poster}}});assert.deepEqual(legacy.cardRows(entry.id,expected),expected);assert.deepEqual(legacy.galleryPoster(entry.id,previous.gallery.poster),previous.gallery.poster);checks+=2;

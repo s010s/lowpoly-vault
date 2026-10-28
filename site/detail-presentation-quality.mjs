@@ -9,7 +9,10 @@ export const DETAIL_QUALITY_RULE_VERSION='right-detail-local-sampling-candidate-
 // The browser authenticates its exact append selection independently before use.
 export const APPEND_DETAIL_QUALITY_IDS=Object.freeze(['acanthodes','alalcomenaeus','birkenia','camptosaurus','dapedium','diictodon','dimetrodon','diplocaulus','eusthenopteron','habelia','mammuthus','nipponites','paradoxides','proganochelys','pterichthyodes','rhamphorhynchus','thrinaxodon','xiphactinus','yochelcionella']);
 export const APPEND_DETAIL_QUALITY_PROFILE='append19-v2-current-source';
+export const CORRECTIVE_DETAIL_QUALITY_IDS=Object.freeze(['coal-seam-outcrop','flute-cast-slab','mudpot','oncoid-bed','serac','banded-iron-formation-far-lod','calamites-crown-lod0','calamites-crown-lod1','cave-popcorn-far-lod','parabolic-dune-terrain-only','stromatolite-mound-full-exterior']);
+export const CORRECTIVE_DETAIL_QUALITY_PROFILE='corrective11-v2-current-source';
 export function detailQualityProfileFor(browserProfile,id){
+ if(browserProfile==='corrective11-v2')return CORRECTIVE_DETAIL_QUALITY_PROFILE;
  if(browserProfile==='append19-v2'||browserProfile==='full264-v2'&&APPEND_DETAIL_QUALITY_IDS.includes(id))return APPEND_DETAIL_QUALITY_PROFILE;
  if(browserProfile==='full264-v2'||browserProfile==='public-reviewed-state')return 'full264-v2-representative';
  return undefined;
@@ -76,11 +79,11 @@ export function judgeDetailPresentationMetrics(metrics){const failures=[];if(!me
 // independently authenticates the cohort/resources and matches this shared fixed set.
 export function detailQualityScopeMatches(metadata){
  try{referenceRaster(metadata);}catch{return false;}
- const{id,rasterSize,viewport:v,dpr,rect:r,nativeBuffer:b,actualGL:g,profile,presentation:p}=metadata,ratio=Math.min(dpr,1.75),full=profile==='full264-v2-representative',appended=profile===APPEND_DETAIL_QUALITY_PROFILE;
- if(profile!==undefined&&!full&&!appended)return false;
- const ids=appended?[...APPEND_DETAIL_QUALITY_IDS,FULL264_ORDINARY_CONTROL]:full?[...FULL264_REPRESENTATIVE_IDS,FULL264_ORDINARY_CONTROL]:['pertica','onoclea','sidneyia','natural-arch'];
+ const{id,rasterSize,viewport:v,dpr,rect:r,nativeBuffer:b,actualGL:g,profile,presentation:p}=metadata,ratio=Math.min(dpr,1.75),full=profile==='full264-v2-representative',appended=profile===APPEND_DETAIL_QUALITY_PROFILE,corrective=profile===CORRECTIVE_DETAIL_QUALITY_PROFILE;
+ if(profile!==undefined&&!full&&!appended&&!corrective)return false;
+ const ids=corrective?[...CORRECTIVE_DETAIL_QUALITY_IDS,FULL264_ORDINARY_CONTROL]:appended?[...APPEND_DETAIL_QUALITY_IDS,FULL264_ORDINARY_CONTROL]:full?[...FULL264_REPRESENTATIVE_IDS,FULL264_ORDINARY_CONTROL]:['pertica','onoclea','sidneyia','natural-arch'];
  if(!ids.includes(id)||rasterSize!==(id===FULL264_ORDINARY_CONTROL?512:1536)||!FULL264_MEASUREMENTS.some(q=>q[0]===v.width&&q[1]===v.height&&q[2]===dpr))return false;
- if(full||appended){
+ if(full||appended||corrective){
   if(id===FULL264_ORDINARY_CONTROL){if(p!==null||metadata.classification!=='UNCHANGED_CONTROL')return false;}
   else if(!p||JSON.stringify(Object.keys(p).sort())!==JSON.stringify(['minimum_margin','raster_size','revision','screen_shift'])||p.revision!==2||p.minimum_margin!==.025||p.screen_shift!==.06||p.raster_size!==1536||metadata.classification!=='CANDIDATE')return false;
  }
