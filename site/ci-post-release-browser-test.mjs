@@ -16,7 +16,7 @@ const output=resolve(process.env.QA_OUTPUT_DIR||'qa/post-release-browser-regress
 async function queueContracts(){
  const rows=[],body=Buffer.from('actual browser response'),pin={path:'entry.js',bytes:body.length,sha256:createHash('sha256').update(body).digest('hex')};
  async function test(name,fn){await fn();rows.push({name,status:'PASS'});}
- function fixture({files=[pin],read=async()=>body,ok=true,timeoutMs=1000}={}){const page=new EventEmitter(),report={entry_errors:[],loaded_entries:[]},request={url:()=> 'https://fixture.invalid/app/entry.js',failure:()=>({errorText:'ABORTED'})},response={request:()=>request,ok:()=>ok,status:()=>ok?200:404,body:read},audit=createRuntimeEntryAudit(page,{base:'https://fixture.invalid/app/',files,report,timeoutMs});return {page,report,request,response,audit,emit(){page.emit('request',request);page.emit('response',response);}};}
+ function fixture({files=[pin],read=async()=>body,ok=true,status=ok?200:404,timeoutMs=1000}={}){const page=new EventEmitter(),report={entry_errors:[],loaded_entries:[]},request={url:()=> 'https://fixture.invalid/app/entry.js',failure:()=>({errorText:'ABORTED'})},response={request:()=>request,ok:()=>ok,status:()=>status,body:read},audit=createRuntimeEntryAudit(page,{base:'https://fixture.invalid/app/',files,report,timeoutMs});return {page,report,request,response,audit,emit(){page.emit('request',request);page.emit('response',response);}};}
  await test('pending-body-must-settle-before-drain',async()=>{let release;const x=fixture({read:()=>new Promise(r=>release=r)});x.emit();let complete=false;const wait=x.audit.drain().then(()=>complete=true);await new Promise(r=>setTimeout(r,20));assert.equal(complete,false);assert.deepEqual(x.report.loaded_entries,[]);release(body);await wait;assert.deepEqual(x.report.loaded_entries,['entry.js']);x.audit.detach();assert.equal(x.page.listenerCount('response'),0);});
  for(const [name,options,pattern] of [
   ['reject-wrong-hash',{files:[{...pin,sha256:'0'.repeat(64)}]},/hash differs/],
@@ -25,6 +25,15 @@ async function queueContracts(){
   ['reject-HTTP-failure',{ok:false},/HTTP 404/],
   ['reject-unreadable-CDP-body',{read:async()=>{throw Error('Network.getResponseBody missing');}},/Network.getResponseBody/]
  ])await test(name,async()=>{const x=fixture(options);x.emit();await assert.rejects(()=>x.audit.drain());assert.match(x.report.entry_errors.join(' '),pattern);assert.deepEqual(x.report.loaded_entries,[]);x.audit.detach();});
+ await test('conditional-304-still-requires-the-actual-complete-marker-body',async()=>{const x=fixture({ok:false,status:304});x.emit();await x.audit.drain();assert.deepEqual(x.report.loaded_entries,['entry.js']);x.audit.detach();});
+ for(const [name,options,pattern] of [
+  ['304-empty-body',{read:async()=>Buffer.alloc(0)},/size differs/],
+  ['304-wrong-hash',{files:[{...pin,sha256:'0'.repeat(64)}]},/hash differs/],
+  ['304-wrong-size',{files:[{...pin,bytes:pin.bytes+1}]},/size differs/],
+  ['304-unreadable-body',{read:async()=>{throw Error('Missing cached CDP body');}},/Missing cached CDP body/],
+  ['304-unknown-entry',{files:[]},/Unexpected runtime entry/],
+  ['other-redirect-remains-rejected',{status:302},/HTTP 302/]
+ ])await test(name,async()=>{const x=fixture({ok:false,status:304,...options});x.emit();await assert.rejects(()=>x.audit.drain());assert.match(x.report.entry_errors.join(' '),pattern);assert.deepEqual(x.report.loaded_entries,[]);x.audit.detach();});
  await test('reject-unfinished-request-without-response',async()=>{const x=fixture({timeoutMs:20});x.page.emit('request',x.request);await assert.rejects(()=>x.audit.drain(),/Unfinished runtime entries/);assert.deepEqual(x.report.loaded_entries,[]);x.page.emit('requestfailed',x.request);await assert.rejects(()=>x.audit.drain(),/Actual loaded entry verification failed/);x.audit.detach();});
  await test('requests-arriving-while-draining-are-also-awaited',async()=>{let releaseA,releaseB;const x=fixture({read:()=>new Promise(r=>releaseA=r)});x.emit();const requestB={...x.request},responseB={...x.response,request:()=>requestB,body:()=>new Promise(r=>releaseB=r)};let done=false;const waiting=x.audit.drain().then(()=>done=true);x.page.emit('request',requestB);x.page.emit('response',responseB);releaseA(body);await new Promise(r=>setTimeout(r,10));assert.equal(done,false);releaseB(body);await waiting;assert.equal(x.report.loaded_entries.length,2);x.audit.detach();});
  return rows;
@@ -36,13 +45,14 @@ if(process.env.QA_QUEUE_CONTRACT_ONLY==='1'){const result={status:'PASS',scope:'
 // Fetch exposes the stream without waiting for classic-script compilation at EOF.
 const bytes=Buffer.from('/*'+ 'streaming-fixture '.repeat(2048)+'*/\nwindow.fixtureLoaded = true;\n'),hash=b=>createHash('sha256').update(b).digest('hex');
 const report={status:'RUNNING',scope:'Real local Chromium fixtures, not public deployment acceptance.',cases:queue_cases};
-let browser;const contexts=[];let heldResponse,releaseHeldBody;
+let browser;const contexts=[];let heldResponse,releaseHeldBody;let conditional304Count=0;
 const server=createServer((req,res)=>{const u=new URL(req.url,'http://fixture');
  if(u.pathname==='/page'){res.setHeader('Content-Type','text/html');res.end(`<script src="/entry.js?mode=${u.searchParams.get('mode')||'normal'}"></script>`);return;}
  if(u.pathname==='/away'){res.end('<p>away</p>');return;}
  if(u.pathname==='/entry.js'){
   res.setHeader('Content-Type','text/javascript');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Cache-Control','public,max-age=3600');
   const mode=u.searchParams.get('mode');
+  if(mode==='conditional'){res.setHeader('ETag','"exact-browser-entry-v1"');res.setHeader('Cache-Control','no-cache');if(req.headers['if-none-match']==='"exact-browser-entry-v1"'){conditional304Count++;res.writeHead(304);res.end();return;}}
   if(mode==='404'){res.writeHead(404);res.end('missing');return;}
   if(mode==='reset'){req.socket.destroy();return;}
   if(mode==='slow'||mode==='hold'){
@@ -94,6 +104,7 @@ try{
   await page.goto(base+'away');
  });
  await fixture('cached-navigation-and-reload-retain-exact-bodies',async({page,result,observe})=>{const audit=observe();for(let i=0;i<4;i++){await audit.drain();await page.goto(base+'page');await audit.drain();await page.reload();}await audit.drain();assert.equal(result.loaded_entries.length,8);assert.deepEqual(result.entry_errors,[]);});
+ await fixture('conditional-cache-304-keeps-actual-exact-browser-bodies',async({page,result,observe})=>{const before=conditional304Count,audit=observe();for(let i=0;i<3;i++){await audit.drain();await page.goto(base+'page?mode=conditional');await audit.drain();await page.reload();}await audit.drain();assert(conditional304Count>before,'Server must actually receive conditional requests and return 304');assert.equal(result.loaded_entries.length,6);assert.deepEqual(result.entry_errors,[]);assert.equal(await page.evaluate(()=>window.fixtureLoaded),true);});
  for(const [name,files,mode,pattern] of [
   ['wrong-hash-is-rejected',[{...pins[0],sha256:'0'.repeat(64)}],'normal',/hash differs/],
   ['wrong-size-is-rejected',[{...pins[0],bytes:bytes.length+1}],'normal',/size differs/],

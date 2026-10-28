@@ -1,3 +1,4 @@
+import {correctiveContext,correctiveSourceClosure} from './old-corrective-ten-selection.mjs';
 /** Actual selected Batch53 successor + immutable historical pins; private copies only. */
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdtempSync,mkdirSync,copyFileSync,rmSync} from 'node:fs';
@@ -10,8 +11,8 @@ const source=process.cwd(),read=successorReader(source),manifest=JSON.parse(read
 assert(manifest.publication?.same_id_successors,'This regression requires the actual selected successor release');
 const selectionPin=manifest.publication.same_id_successors,selection=JSON.parse(read(selectionPin.path));
 const descriptor=manifest.publication.batches52_53_descriptors.find(p=>p.path==='assets/releases/batch53-20261020.json');assert(descriptor);
-const context=successorContext({manifest,read});
-const paths=new Set(['site/viewer.js','assets/manifest.json','assets/turntables/index.json',...successorSourceClosure({selection,selectionPin,read}),...(context.append?.closure??[])]);
+const context=successorContext({manifest,read}),corrective=correctiveContext({manifest,read});
+const paths=new Set(['site/viewer.js','assets/manifest.json','assets/turntables/index.json',...successorSourceClosure({selection,selectionPin,read}),...(context.append?.closure??[]),...(corrective?correctiveSourceClosure(corrective,read):[])]);
 function pins(value){if(!value||typeof value!=='object')return;if(value.path&&value.sha256)paths.add(value.path);for(const child of Object.values(value))pins(child);}
 const release=JSON.parse(read(descriptor.path));pins(descriptor);pins(release);pins(JSON.parse(read(release.source_bundle.path)));
 for(const entry of release.additions){const asset=JSON.parse(read(entry.metadata.path));for(const key of ['glb','blend','preview'])paths.add(asset[key]);pins(JSON.parse(read(entry.candidate.path)));}
@@ -23,6 +24,7 @@ async function rejected(path,modify){const full=resolve(root,path),before=readFi
 try{
  for(const path of paths){mkdirSync(dirname(resolve(root,path)),{recursive:true});copyFileSync(resolve(source,path),resolve(root,path));}
  const before=await collect();assert.equal(before.additions.length,4);checks++;
+ if(corrective){const p=resolve(root,corrective.selectionPin.path),saved=readFileSync(p);rmSync(p);try{await assert.rejects(collect);checks++;}finally{writeFileSync(p,saved);}}
  if(context.appendPin){const appendPath=resolve(root,context.appendPin.path),original=readFileSync(appendPath);rmSync(appendPath);try{await assert.rejects(collect);checks++;}finally{writeFileSync(appendPath,original);}}
  const id='welded-ignimbrite-outcrop',indexPath='assets/turntables/index.json';
  for(const key of ['path','source_glb_sha256','sha256','bytes'])await rejected(indexPath,raw=>{const value=JSON.parse(raw),row=value.posters.find(p=>p.id===id);row[key]=key==='bytes'?row[key]+1:row[key]+'tamper';return JSON.stringify(value);});

@@ -1,3 +1,6 @@
+import './old-corrective-ten-selection-test.mjs';
+import './old-corrective-ten-detail-scope-test.mjs';
+import './old-corrective-ten-visual-acceptance-test.mjs';
 import './model-task-static4-acceptance-test.mjs';
 /** Publication-boundary regressions use disposable copies, never mutate original assets or QA. */
 import './same-id-append-continuation-test.mjs';

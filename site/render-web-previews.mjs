@@ -1,4 +1,3 @@
-import {runCorrectiveWheelCapture} from './old-corrective-ten-capture.mjs';
 /** Offline image generation: the public list receives WebP, never this WebGL process. */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -8,7 +7,6 @@ import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { CARD_RENDER_PRESET } from './render-preset.js';
 import { publishedImagePaths } from './turntable-delivery.mjs';
-if(await runCorrectiveWheelCapture())process.exit(process.exitCode||0);
 const root=resolve(process.env.GALLERY_DIR||'dist'),out=resolve(process.env.PREVIEW_OUTPUT||'qa/web-card-previews'),prefix='/lowpoly-vault/';
 const imageSize=Number(process.env.PREVIEW_SIZE||CARD_RENDER_PRESET.image.width),imageQuality=Number(process.env.PREVIEW_QUALITY||CARD_RENDER_PRESET.image.quality);
 assert(Number.isInteger(imageSize)&&imageSize>=320&&imageSize<=1024);assert(imageQuality>=.75&&imageQuality<=1);

@@ -1,3 +1,5 @@
+// Exact historical first19 execution-source mechanism; no new capture grant.
+import {assertReviewedStatic19Execution,STATIC19_EXECUTION} from './detail-capture-authority.mjs';
 /** Offline synthetic provenance fixtures, never model or visual acceptance. */
 import assert from 'node:assert/strict';
 import {inspect} from 'node:util';
@@ -159,3 +161,13 @@ try{
  await test('changed validation control requires fresh authority',()=>execute({base:true,denyArtifact:true,edit:()=>put('site/detail-presentation-contract.mjs',Buffer.from('// altered\n'))}));
  console.log(`PASS ${total} offline authority tests; actual API/browser acceptance NOT_RUN`);
 }finally{await rm(root,{recursive:true,force:true});}
+
+await test('first19 historical execution source remains exact and cannot authorize another capture',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const raw=await readFile(STATIC19_EXECUTION.path),{default:current}=await import('./gallery/detail-input-proofs.js');
+ const receipt=current.receipts.find(r=>r.run_id===STATIC19_EXECUTION.run),record=assertReviewedStatic19Execution(raw,receipt,'s010s/lowpoly-vault');
+ for(const key of ['source_commit','run_id','run_attempt','artifact_id','artifact_sha256','capture_index_sha256','workflow_sha256','scope_kind','capture_revision','renderer_input_sha256','assets','requested_ids','source_manifest_sha256']){const r=structuredClone(receipt);r[key]=typeof r[key]==='number'?r[key]+1:typeof r[key]==='string'?r[key]+'changed':null;assert.throws(()=>assertReviewedStatic19Execution(raw,r,'s010s/lowpoly-vault'));}
+ assert.throws(()=>assertReviewedStatic19Execution(raw,receipt,'other/repo'));
+ const changed=Buffer.from(raw);changed[42]^=1;assert.throws(()=>assertReviewedStatic19Execution(changed,receipt,'s010s/lowpoly-vault'));
+ const pin=record.files.find(f=>f.path==='site/ci-git.mjs');assert(pin);const bytes=await readFile(pin.path);assertExecutionSourceBytes(bytes,{file:pin,historical:true});const bad=Buffer.from(bytes);bad[10]^=1;assert.throws(()=>assertExecutionSourceBytes(bad,{file:pin,historical:true}));
+});

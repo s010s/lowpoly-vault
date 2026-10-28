@@ -8,7 +8,9 @@ import {waitForDeployedBuild} from './ci-deployment-contract.mjs';
 import {createHash} from 'node:crypto';
 import {waitForDeployedRelease} from './live-release-contract.mjs';
 /** Keep actual browser response bodies alive until their exact pins are checked.
- * Do not refetch or accept a missing CDP body: those are different evidence. */
+ * A conditional-cache 304 is accepted only when this same browser response
+ * still yields the complete exact marker-pinned body below. No refetch, empty
+ * body, previous-request substitution or missing CDP body is accepted. */
 export function createRuntimeEntryAudit(page,{base,files,report,timeoutMs=30000}) {
  const origin=new URL(base),pins=new Map(files.filter(f=>/\.(?:js|css|json)$/.test(f.path)).map(f=>[f.path,f])),pending=new Map();
  const entryPath=request=>{const url=new URL(request.url());return url.origin===origin.origin&&url.pathname.startsWith(origin.pathname)&&/\.(?:js|css|json)$/.test(url.pathname)?decodeURIComponent(url.pathname.slice(origin.pathname.length)):null;};
@@ -16,7 +18,7 @@ export function createRuntimeEntryAudit(page,{base,files,report,timeoutMs=30000}
  const finish=request=>{const task=pending.get(request);pending.delete(request);task?.done();};
  const onRequest=request=>{begin(request);};
  const onResponse=response=>{const request=response.request(),task=begin(request);if(!task)return;
-  void (async()=>{const pin=pins.get(task.path);assert(pin,'Unexpected runtime entry: '+task.path);assert(response.ok(),'Runtime entry HTTP '+response.status()+': '+task.path);const bytes=await response.body();assert.equal(bytes.length,pin.bytes,'Loaded entry size differs: '+task.path);assert.equal(createHash('sha256').update(bytes).digest('hex'),pin.sha256,'Loaded entry hash differs: '+task.path);report.loaded_entries.push(task.path);})().catch(error=>{report.entry_errors.push(task.path+': '+error.message);}).finally(()=>finish(request));
+  void (async()=>{const pin=pins.get(task.path);assert(pin,'Unexpected runtime entry: '+task.path);assert(response.ok()||response.status()===304,'Runtime entry HTTP '+response.status()+': '+task.path);const bytes=await response.body();assert.equal(bytes.length,pin.bytes,'Loaded entry size differs: '+task.path);assert.equal(createHash('sha256').update(bytes).digest('hex'),pin.sha256,'Loaded entry hash differs: '+task.path);report.loaded_entries.push(task.path);})().catch(error=>{report.entry_errors.push(task.path+': '+error.message);}).finally(()=>finish(request));
  };
  const onFailed=request=>{const task=begin(request);if(!task)return;report.entry_errors.push(task.path+': '+(request.failure()?.errorText||'Runtime request failed'));finish(request);};
  page.on('request',onRequest);page.on('response',onResponse);page.on('requestfailed',onFailed);

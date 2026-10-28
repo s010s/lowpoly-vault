@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "kind": "compact-old-corrective-ten-source-v1",
+  "entry_id": "serac",
+  "stable_model_id": "serac",
+  "configuration": "local02",
+  "operation": "same_id_successor",
+  "profile_sha256": "a216a1adf50f8a7781fdf2b1176e2be2fd7328f06c23efc57f5fb77e925e6a85",
+  "original_documents": {
+    "original_review": {
+      "sha256": "cecb942b080668ed1387543dac9d78e54044aba83c5ce2f9b9f3918a2f69db70",
+      "bytes": 6038
+    },
+    "original_qa_event": {
+      "sha256": "30b08f788e910a91aa9450f505062a50e945fc2df6dd63988af74b6e1f3c0b79",
+      "bytes": 2297
+    },
+    "original_maker_evidence": {
+      "sha256": "7edc13bf1939e8af8c6eda413e8495f696f1b88d75a68e055bc3bcb1f47485a9",
+      "bytes": 1339
+    }
+  },
+  "original_decision": {
+    "document": "original_review",
+    "pointer": "/verdict",
+    "value": "PASS"
+  },
+  "maker": {
+    "id": "start_serac_fixed_chain01/maker_serac_junction01",
+    "task_id": "start_serac_fixed_chain01/maker_serac_junction01"
+  },
+  "original_reviewer": {
+    "id": "start_serac_fixed_chain01/maker_serac_junction01/qa_serac_junction01",
+    "task_id": "start_serac_fixed_chain01/maker_serac_junction01/qa_serac_junction01"
+  },
+  "source_subject": {
+    "glb": {
+      "path": "assets/successors/old-corrective-ten-20261027-r001/serac/model.glb",
+      "sha256": "262f633da317773c7724fb6a56a32b2553827f97f9066443fd716cc449762342",
+      "bytes": 504688
+    },
+    "blend": {
+      "path": "assets/successors/old-corrective-ten-20261027-r001/serac/source.blend",
+      "sha256": "0622757b38263ca6614c1b896c53ce425f4c1bc9fb22c4443f9548b69a0a74ca",
+      "bytes": 837012
+    }
+  },
+  "semantic_binding": {
+    "id": "serac",
+    "name": {
+      "en": "Serac form study",
+      "zh": "冰塔"
+    },
+    "description": {
+      "en": "Generic glacier-serac source-art correction limited to the fixed northeast and southwest channel junctions. The bounded local changes weaken grid-like junction readings while preserving the remaining source geometry and nominal 30 × 30 m footprint. This is not a full-field naturalization, named glacier, age or measured hazard/ice-dynamics simulation. Host integration, collision and physical GPU performance remain separate unverified concerns.",
+      "zh": "通用冰塔源美术修正版，仅修改固定东北和西南沟道交汇局部，以弱化交点网格读感，其余源几何及名义30×30米占地保留。不是整片地形自然化、特定冰川、年代或实测危险性/冰动力模拟；宿主整合、碰撞与物理GPU性能仍待各自验证。"
+    },
+    "dimensions": [
+      30,
+      18.040258407592773,
+      30
+    ],
+    "units": "meters",
+    "triangles": 6942,
+    "source_model_identity": {
+      "stable_model_id": "serac",
+      "original_catalog_id": "serac",
+      "original_catalog_glb_sha256": "ef5e2e8bfce46ba5bac00557573dacfcbe13384f1ddde27bf743c8af93be2ee5",
+      "representation_configuration": "local02",
+      "is_new_scientific_subject": false
+    }
+  },
+  "original_scoped_statements": {
+    "limits": [
+      "PASS binds only this exact fixed candidate, not any later revision.",
+      "No automatic qualification-count increase, release, GitHub upload, merge, publication or deployment.",
+      "No hardware GPU, target scene, terrain seams, collision, navigation, LOD or production world-host acceptance claimed.",
+      "No retry, new Research/Maker dispatch, or budget renewal."
+    ],
+    "summary": "独立技术及固定视觉验收通过。局部 NE/SW 交汇错位在 512/256 均清晰可见，值得保留；塔体、低槽陡壁连续性与源拓扑/材质/场景保持。仅此 sealed candidate 的合同内 PASS，不是发布或 world-host/GPU/物理批准。"
+  },
+  "identity_supplement": null,
+  "source_limits": "Fixed local anti-grid standalone asset only; no user visual acceptance, GPU, world host, integration or deployment claim",
+  "source_method": "EDITABLE_NATIVE_CORRECTIVE_SOURCE_NOT_NEW_GENERATOR_RECONSTRUCTION",
+  "original_teaching_near_preserved": false,
+  "original_reports_unchanged": true,
+  "production_acceptance_created": false,
+  "publication_authorized": false,
+  "world_accepted": false,
+  "physics_accepted": false,
+  "host_accepted": false,
+  "hardware_gpu_accepted": false,
+  "user_visual_acceptance": false
+}

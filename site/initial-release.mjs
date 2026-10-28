@@ -1,3 +1,4 @@
+import {correctiveContext,selectCorrectiveManifest,verifyCorrectivePresentation} from './old-corrective-ten-selection.mjs';
 import {assertFrozenSuccessorBatch,successorReader,successorContext,selectSuccessorManifest,verifySuccessorPresentation} from './same-id-successors.mjs';
 import {appendProductionRelease,appendProductionReleases,productionValidationPlan} from './production-release.mjs';
 import {appendFinalFiveRelease} from './final-five-release.mjs';
@@ -64,10 +65,12 @@ export async function collectInitialRelease(root=process.cwd()) {
 export async function checkPublishedManifest(root=process.cwd(),{productionResults}={}) {
   const selected=JSON.parse(await readFile(resolve(root,'assets/manifest.json'),'utf8'));
   const successorRead=successorReader(root),successors=successorContext({manifest:selected,read:successorRead});
+  const corrective=correctiveContext({manifest:selected,read:successorRead});
   const current=successors?successors.base:selected;
+  await verifyCorrectivePresentation(root,corrective);
   if(successors)assertFrozenSuccessorBatch(successors.selection,successors.rootBase);
   await verifySuccessorPresentation(root,successors);
-  const selectFinal=base=>successors?selectSuccessorManifest({baseManifest:base,selection:successors.selection,selectionPin:successors.selectionPin,appendPin:successors.appendPin,read:successorRead}):base;
+  const selectFinal=base=>{const prior=successors?selectSuccessorManifest({baseManifest:base,selection:successors.selection,selectionPin:successors.selectionPin,appendPin:successors.appendPin,read:successorRead}):base;return corrective?selectCorrectiveManifest({baseManifest:prior,selection:corrective.selection,selectionPin:corrective.selectionPin,read:successorRead}):prior;};
   assert(!current.review_only,'A review-only manifest cannot be published');
   const productionPlan=await productionValidationPlan(root);
   if(productionPlan.mode==='incremental'){

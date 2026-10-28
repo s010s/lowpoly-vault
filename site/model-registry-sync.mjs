@@ -1,3 +1,4 @@
+import {correctiveContext,composeCorrectiveRegistry} from './old-corrective-ten-selection.mjs';
 import {successorContext,composeSuccessorRegistry} from './same-id-successors.mjs';
 /** Small storage/projection bridge. Never approves a model, captures proof, or runs Git/CI. */
 import assert from 'node:assert/strict';
@@ -33,7 +34,9 @@ function targetPath(base, path, create = false) {
  * The unchanged publication:check must still validate this result before release. */
 export function projectRegistryRelease(registry, releaseManifest, {read} = {}) {
   const successors = releaseManifest?.publication?.same_id_successors ? successorContext({manifest: releaseManifest, read}) : null;
-  const output = successors ? composeSuccessorRegistry({registry, baseManifest: successors.base, selection: successors.selection, selectionPin: successors.selectionPin, appendPin: successors.appendPin, read}) : composeRegistry(registry);
+  const corrective=correctiveContext({manifest:releaseManifest,read});
+  let output = successors ? composeSuccessorRegistry({registry, baseManifest: successors.base, selection: successors.selection, selectionPin: successors.selectionPin, appendPin: successors.appendPin, read}) : composeRegistry(registry);
+  if(corrective)output=composeCorrectiveRegistry({baseOutput:output,context:corrective});
   const byID = new Map(output.manifest.assets.map(asset => [asset.id, asset]));
   assert(Array.isArray(releaseManifest?.assets) && !releaseManifest.review_only, 'Existing release manifest required');
   const ids = releaseManifest.assets.map(asset => asset.id);

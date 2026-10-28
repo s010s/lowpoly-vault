@@ -1,4 +1,5 @@
-import {successorReader,successorContext,composeSuccessorRegistry} from './same-id-successors.mjs';
+import {correctiveContext,correctiveManifestView,composeCorrectiveRegistry} from './old-corrective-ten-selection.mjs';
+import {successorReader,successorContext,composeSuccessorRegistry,historicalManifestView} from './same-id-successors.mjs';
 /** Additive compact production acceptance. Does not change legacy QA or grant publication.
  * Independent review is an auditable attestation, not cryptographic reviewer authentication.
  * Process evidence stays in the private archive; one detached review binds its projection.
@@ -72,9 +73,11 @@ async function resolveProductionValidationPlan(root='.'){
    const authenticated=await fetchVerifiedProductionBase({root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
    if(!authenticated.capability)return full(authenticated.reasons.join('; '));
    const baseline=authenticatedProductionBase(authenticated.capability,{root:key,repository:process.env.GITHUB_REPOSITORY,baseSha:base,currentSha:checkout});
-   const prior=JSON.parse(git('show',`${base}:assets/manifest.json`)),selected=JSON.parse(await readFile(resolve(key,'assets/manifest.json')));
+   let prior=JSON.parse(git('show',`${base}:assets/manifest.json`));const selected=JSON.parse(await readFile(resolve(key,'assets/manifest.json')));
    const successorRead=successorReader(key),successors=successorContext({manifest:selected,read:successorRead}),current=successors?successors.base:selected;
-   if(successors)assert.equal(successors.selection.baseline_commit,base,'Successor baseline commit moved; rebind and independently review the exact current base');
+   const corrective=correctiveContext({manifest:selected,read:successorRead});
+   if(corrective){assert.equal(corrective.selection.baseline_commit,base,'Corrective baseline moved');assert(isDeepStrictEqual(prior,corrective.baseline.manifest),'Corrective before-image differs from authenticated production base');prior=historicalManifestView({manifest:prior,read:successorRead});}
+   else if(successors)assert.equal(successors.selection.baseline_commit,base,'Successor baseline commit moved; rebind and independently review the exact current base');
    checkingGlobal=true;
    const unique=m=>Array.isArray(m.assets)&&new Set(m.assets.map(a=>a.id)).size===m.assets.length;
    assert(unique(prior)&&unique(current),'Duplicate/missing catalog IDs');
@@ -94,8 +97,9 @@ async function resolveProductionValidationPlan(root='.'){
    const addedIds=assertRegistryAppend(previousModels,currentModels),added=new Set(addedIds),composed=successors?composeSuccessorRegistry({registry:currentModels,baseManifest:current,selection:successors.selection,selectionPin:successors.selectionPin,appendPin:successors.appendPin,read:successorRead}):composeRegistry(currentModels);
    assert.deepEqual(current.assets.map(a=>a.id).sort(),currentModels.records.map(r=>r.id).sort(),'Registry/manifest ID coverage differs');
    for(const record of currentModels.records)assert.deepEqual(record.asset,current.assets.find(a=>a.id===record.id),'Registry/manifest metadata differs');
+   const finalComposition=corrective?composeCorrectiveRegistry({baseOutput:composed,context:corrective}):composed;
    for(const [kind,path]of Object.entries(LEGACY_OUTPUTS)){
-    if(kind!=='manifest')assert.deepEqual(JSON.parse(await read(key,path)),composed[kind],'Derived registry output differs: '+path);
+    if(kind!=='manifest')assert.deepEqual(JSON.parse(await read(key,path)),finalComposition[kind],'Derived registry output differs: '+path);
     allPaths.add(path);
    }
    allPaths.add('registry/baseline.json');
