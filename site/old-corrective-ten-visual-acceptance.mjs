@@ -45,7 +45,7 @@ export function assertCorrectiveRunnerBytes(path,bytes,before){
  assert.deepEqual(Buffer.from(bytes.toString().replace('runs-on: ubuntu-24.04','runs-on: ubuntu-latest')),before);
 }
 
-// This continuation only revises five code files over the immutable PR head.
+// This continuation only revises seven code files over the immutable PR head.
 // The complete already-public 216-file ledger and its real independent review
 // stay byte-identical. No asset/source reference is copied into the new proof.
 export const CORRECTIVE_CODE_REVISION_PATH='qa/old-corrective-ten-20261027/code-revision.json';
@@ -57,6 +57,8 @@ export const CORRECTIVE_CODE_BASE=Object.freeze({
 });
 export const CORRECTIVE_CODE_BEFORE=Object.freeze([
  Object.freeze({path:'site/ci-lean-release-test.mjs',sha256:'6608d5d3724913f97c9cce5f80d73ae1aa1c24120334c4558e8a7b26a804804d',bytes:14756}),
+ Object.freeze({path:'site/detail-capture-authority-test.mjs',sha256:'da81b51f714cb8466d3b461f6c653baac7e30370dca8da945bb59adfcfd85a3b',bytes:51443}),
+ Object.freeze({path:'site/detail-capture-authority.mjs',sha256:'8e3653cf688c71f35457e26875d8249b1cdad11ee668fbd41ae2341c02a62011',bytes:46812}),
  Object.freeze({path:'site/old-corrective-ten-visual-acceptance-test.mjs',sha256:'2db97feb2e14080c3c080bc34a59d72536c2dc8f1bd8908e206e0aa2e60be90d',bytes:5963}),
  Object.freeze({path:'site/old-corrective-ten-visual-acceptance.mjs',sha256:'2bdc3d3e4864ffb1b77f622c031664040baa5091b381496a1ea0658eb1f7d81b',bytes:20663}),
  Object.freeze({path:'site/turntable-delivery-test.mjs',sha256:'5200a51f6358b458e56dc3ee3c5357ad8d684a3fc4cc995976559b0d7b6681d6',bytes:19600}),
@@ -65,7 +67,7 @@ export const CORRECTIVE_CODE_BEFORE=Object.freeze([
 const CORRECTIVE_BASE_CONTRACT_PATHS=Object.freeze(CORRECTIVE_CONTRACT_PATHS.filter(p=>!['site/turntable-delivery.mjs','site/turntable-delivery-test.mjs'].includes(p)));
 const canonical=x=>Buffer.from(JSON.stringify(x,null,2)+'\n');
 const bytesPin=(b,p)=>{assert(Buffer.isBuffer(b));assert.equal(b.length,p.bytes);assert.equal(sha(b),p.sha256);};
-const CODE_CHECKS=Object.freeze(['immutable_parent_and_complete_base_ledger','exact_five_code_delta_and_modes','unchanged_source_model_image_and_runtime','independent_code_and_negative_tests','all_existing_dist_and_public_gates_preserved']);
+const CODE_CHECKS=Object.freeze(['immutable_parent_and_complete_base_ledger','exact_seven_code_delta_and_modes','unchanged_source_model_image_and_runtime','independent_code_and_negative_tests','all_existing_dist_and_public_gates_preserved']);
 export function assertCorrectiveCodeRevision({revision,revisionReview,read,parentRead,revisionChanges,context}){
  exact(revision,['schema_version','kind','parent','base_ledger','base_review','producer','changes','publication_authorized']);
  assert.equal(revision.schema_version,1);assert.equal(revision.kind,'exact-corrective-code-revision-v1');assert.equal(revision.publication_authorized,false);
@@ -79,7 +81,7 @@ export function assertCorrectiveCodeRevision({revision,revisionReview,read,paren
   exact(r.after,['sha256','bytes']);assert(/^[0-9a-f]{64}$/.test(r.after.sha256));assert(Number.isSafeInteger(r.after.bytes)&&r.after.bytes>0);assert.notEqual(r.after.sha256,p.sha256);bytesPin(read(p.path),r.after);
  }
  const expected=[...CORRECTIVE_CODE_BEFORE.map(p=>({path:p.path,status:'M',before_mode:'100644',after_mode:'100644'})),...[CORRECTIVE_CODE_REVISION_PATH,CORRECTIVE_CODE_REVIEW_PATH].map(path=>({path,status:'A',before_mode:null,after_mode:'100644'}))].sort((a,b)=>a.path.localeCompare(b.path));
- assert.deepEqual(revisionChanges,expected,'Only the exact five code revisions and two new proof files are allowed');
+ assert.deepEqual(revisionChanges,expected,'Only the exact seven code revisions and two new proof files are allowed');
  exact(revisionReview,['schema_version','kind','status','reviewer','revision_sha256','parent','checks','execution_status','blocking_findings','publication_authorized']);
  assert.equal(revisionReview.schema_version,1);assert.equal(revisionReview.kind,'independent-corrective-code-revision-v1');assert.equal(revisionReview.status,'PASS_BOUNDED_CODE_REVISION_AND_PRESERVED_BASE');assert.equal(revisionReview.publication_authorized,false);
  assert.equal(revisionReview.revision_sha256,sha(canonical(revision)));assert.deepEqual(revisionReview.parent,CORRECTIVE_CODE_PARENT);assert.deepEqual(revisionReview.blocking_findings,[]);
@@ -87,7 +89,7 @@ export function assertCorrectiveCodeRevision({revision,revisionReview,read,paren
  exact(revisionReview.checks,CODE_CHECKS);for(const k of CODE_CHECKS)assert.equal(revisionReview.checks[k],'PASS');
  assert.deepEqual(revisionReview.execution_status,{current_ci:'NOT_RUN_BY_CODE_REVIEW',public:'NOT_RUN_BY_CODE_REVIEW'});
  assert.deepEqual(read(CORRECTIVE_CODE_REVIEW_PATH),canonical(revisionReview));
- return{revision_sha256:sha(canonical(revision)),revision_review_sha256:sha(canonical(revisionReview)),parent:CORRECTIVE_CODE_PARENT.commit,code_files:5};
+ return{revision_sha256:sha(canonical(revision)),revision_review_sha256:sha(canonical(revisionReview)),parent:CORRECTIVE_CODE_PARENT.commit,code_files:7};
 }
 export function assertCorrectiveVisualLedger(args){
  const {descriptor,review,changes,read,parentRead,parentChanges,revisionChanges,context}=args;
@@ -97,7 +99,7 @@ export function assertCorrectiveVisualLedger(args){
  assert.equal(descriptor.files.length,216);assert.equal(review.code_pins.length,31);
  const changed=new Set(CORRECTIVE_CODE_BEFORE.map(p=>p.path));
  // Read every unchanged historical item from the current checkout, not a
- // synthetic old snapshot. Only the five explicitly revised code files use
+ // synthetic old snapshot. Only the seven explicitly revised code files use
  // the authenticated parent's bytes for the old 216-item verification.
  for(const f of descriptor.files)if(!changed.has(f.path))assert.deepEqual(read(f.path),parentRead(f.path),'Historical current bytes changed: '+f.path);
  const baseRead=p=>changed.has(p)?parentRead(p):read(p);

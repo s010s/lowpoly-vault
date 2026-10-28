@@ -1,3 +1,4 @@
+import {CORRECTIVE11_EXECUTION,assertCorrective11ExecutionReceipt,assertCorrective11ExecutionSources,readCorrective11ExecutionSources} from './detail-capture-authority.mjs';
 // Exact historical first19 execution-source mechanism; no new capture grant.
 import {assertReviewedStatic19Execution,STATIC19_EXECUTION} from './detail-capture-authority.mjs';
 /** Offline synthetic provenance fixtures, never model or visual acceptance. */
@@ -16,6 +17,27 @@ function png(size=512){const chunk=(t,d)=>{const b=Buffer.alloc(d.length+12);b.w
 function zipFiles(files){const ls=[],cs=[];let off=0;for(const [name,d]of files){const n=Buffer.from(name),l=Buffer.alloc(30+n.length),c=Buffer.alloc(46+n.length);l.writeUInt32LE(0x04034b50);l.writeUInt16LE(20,4);l.writeUInt32LE(crc(d),14);l.writeUInt32LE(d.length,18);l.writeUInt32LE(d.length,22);l.writeUInt16LE(n.length,26);n.copy(l,30);ls.push(l,d);c.writeUInt32LE(0x02014b50);c.writeUInt16LE(20,4);c.writeUInt16LE(20,6);c.writeUInt32LE(crc(d),16);c.writeUInt32LE(d.length,20);c.writeUInt32LE(d.length,24);c.writeUInt16LE(n.length,28);c.writeUInt32LE(off,42);n.copy(c,46);cs.push(c);off+=l.length+d.length;}const central=Buffer.concat(cs),end=Buffer.alloc(22);end.writeUInt32LE(0x06054b50);end.writeUInt16LE(files.size,8);end.writeUInt16LE(files.size,10);end.writeUInt32LE(central.length,12);end.writeUInt32LE(off,16);return Buffer.concat([...ls,central,end]);}
 let total=0;const test=async(name,fn)=>{await fn();console.log('PASS '+name);total++;};
 try{
+ await test('fixed eleven original execution authenticates all 64 original sources without granting current science',async()=>{
+  const p=CORRECTIVE11_EXECUTION,paths=await reviewedDeltaClosure(source),proofs=parseDeclarativeModule(await readFile(join(source,'site/gallery/detail-input-proofs.js'))),receipt=proofs.receipts.find(r=>r.run_id===p.run),sources=new Map();
+  assert(receipt);for(const path of paths)sources.set(path,execFileSync('git',['show',p.source+':'+path],{cwd:source,env:immutableGitEnv(),maxBuffer:16*1024*1024,stdio:['ignore','pipe','pipe']}));
+  assert.equal(assertCorrective11ExecutionReceipt(receipt,p.repository),p);const result=assertCorrective11ExecutionSources(receipt,p.repository,sources);
+  assert.equal(result.path_count,64);assert.equal(result.scope,'ORIGINAL_CAPTURE_EXECUTION_ONLY_CURRENT_SCIENCE_NOT_CONFERRED');assert.equal(result.source_commit,p.source);
+  const calls=[],read=await readCorrective11ExecutionSources({receipt,repository:p.repository,paths,source:async(path,ref)=>{calls.push([path,ref]);assert.equal(ref,p.source);return sources.get(path);}});assert.deepEqual(read,sources);assert.equal(calls.length,64);
+  let rejected=0;for(const path of paths){const altered=new Map(sources);altered.set(path,Buffer.concat([sources.get(path),Buffer.from(' ')]));assert.throws(()=>assertCorrective11ExecutionSources(receipt,p.repository,altered),path);rejected++;}
+  for(const altered of [new Map([...sources].slice(1)),new Map([...sources,['site/unreviewed.mjs',Buffer.from('export default 1;')]])]){assert.throws(()=>assertCorrective11ExecutionSources(receipt,p.repository,altered));rejected++;}
+  for(const path of ['site/detail-capture-authority.mjs','site/turntable-delivery.mjs']){const altered=new Map(sources);altered.set(path,await readFile(join(source,path)));assert.throws(()=>assertCorrective11ExecutionSources(receipt,p.repository,altered));rejected++;}
+  for(const badPaths of [paths.slice(1),[...paths,paths[0]],[...paths.slice(1),'site/other.mjs']])await assert.rejects(readCorrective11ExecutionSources({receipt,repository:p.repository,paths:badPaths,source:()=>{throw Error('must reject before source reads');}}));
+  await assert.rejects(readCorrective11ExecutionSources({receipt,repository:p.repository,paths,source:async(path)=>path===paths[0]?Buffer.from('untrusted'):sources.get(path)}));
+  assert.equal(rejected,68);
+ });
+ await test('fixed eleven provenance rejects every receipt mutation and cannot apply to another run or repository',async()=>{
+  const p=CORRECTIVE11_EXECUTION,proofs=parseDeclarativeModule(await readFile(join(source,'site/gallery/detail-input-proofs.js'))),receipt=proofs.receipts.find(r=>r.run_id===p.run);
+  for(const key of Object.keys(receipt)){const bad=structuredClone(receipt);bad[key]=typeof bad[key]==='number'?bad[key]+1:typeof bad[key]==='string'?bad[key]+'changed':null;assert.throws(()=>assertCorrective11ExecutionReceipt(bad,p.repository),key);}
+  assert.throws(()=>assertCorrective11ExecutionReceipt({...receipt,publication_authorized:true},p.repository));assert.throws(()=>assertCorrective11ExecutionReceipt(receipt,'other/repo'));
+  for(const old of proofs.receipts.filter(r=>r!==receipt))assert.throws(()=>assertCorrective11ExecutionReceipt(old,p.repository));
+  assert.throws(()=>assertExecutionSourceBytes(Buffer.from('old execution'),{file:{path:'site/turntable-delivery.mjs'},currentBytes:Buffer.from('current consumer')}));
+ });
+
  await test('network budget excludes CPU intervals but includes response body',async()=>{
   let clock=0;const logs=[];const api=detailAuthorityTransport({repository:'fixture/repo',token:'secret',timeoutMs:100,now:()=>clock,log:x=>logs.push(x),fetchImpl:async()=>{clock+=10;return{ok:true,json:async()=>{clock+=10;return{};}};}});
   await api.json('actions/runs/1');clock+=100000;await api.json('actions/runs/1');assert(logs[1].includes('cumulative 40/100ms'));assert(!logs.join('').includes('secret'));
