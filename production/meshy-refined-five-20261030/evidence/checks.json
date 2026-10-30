@@ -1,0 +1,106 @@
+{
+  "status": "LOCAL_INTEGRATION_CHECKS_PASS",
+  "source_checkout": {
+    "commit": "bd07cc709dd7ce4cfa1d87043fcf8a6ed7b8aca6",
+    "tree": "9cbc9242fd8042431bf59e2a10cf116cdc609324"
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "playwright": "1.56.1",
+    "three": "0.180.0",
+    "browser": "154.0.8037.57",
+    "graphics": "SwiftShader; no physical GPU claim"
+  },
+  "checks": [
+    {
+      "name": "npm ci --ignore-scripts",
+      "result": "PASS",
+      "note": "Writable temporary npm cache used; package-lock unchanged; first default-cache attempt failed"
+    },
+    {
+      "name": "npm test",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "node site/capture-model-images-test.mjs",
+      "result": "PASS",
+      "cases": 14
+    },
+    {
+      "name": "node site/capture-wheel-frame-test.mjs",
+      "result": "PASS",
+      "cases": 3
+    },
+    {
+      "name": "exact-five capture wrapper CLI checks",
+      "result": "PASS",
+      "scope": "accept exact arguments; reject missing/duplicate options and bad commit pin"
+    },
+    {
+      "name": "prepare-final-catalog.py --self-test",
+      "result": "PASS"
+    },
+    {
+      "name": "frozen GLB/source/poster hashes",
+      "result": "PASS",
+      "scope": "5 GLBs, 5 paired Blender sources, 10 generated gallery images and 5 matching preview copies"
+    },
+    {
+      "name": "production provenance Draft 2020-12 schema and subject/hash bindings",
+      "result": "PASS",
+      "models": 5,
+      "independent_qa": "pending retained"
+    },
+    {
+      "name": "read-only gltf-validator",
+      "result": "PASS",
+      "models": 5,
+      "errors": 0,
+      "warnings": 0,
+      "note": "Unused-attribute informational messages for paraceratherium and uintatherium; historical reports preserved"
+    },
+    {
+      "name": "752 delivery/build checks",
+      "result": "PASS",
+      "build_seconds": 36.864017908,
+      "scope": "npm run build with SITE_BASE=/lowpoly-vault/; Vite, GLB/Blend/ZIP, static routes and delivery roles; model QA and all historical hashes not repeated"
+    },
+    {
+      "name": "752/747 invariants",
+      "result": "PASS",
+      "scope": "same ordered 752 IDs; 747 untouched asset raw JSON slices; 747 untouched poster raw JSON slices; every prior resources.files record preserved, ten new records appended"
+    },
+    {
+      "name": "git diff --check",
+      "result": "PASS"
+    },
+    {
+      "name": "synthetic cold built-website loading",
+      "result": "PASS",
+      "cases": 10,
+      "scope": "5 Mbps/80 ms and 20 Mbps/40 ms; cache disabled, service workers blocked, fresh contexts, uncompressed loopback HTTP; model request/bytes recorded separately from JS and posters; zero Blend requests"
+    },
+    {
+      "name": "scoped five-model mouse interaction checks",
+      "result": "PASS",
+      "scope": "Each exact model: orbit, wheel zoom, reset and one renderer; not broad device acceptance"
+    }
+  ],
+  "baseline_failure": {
+    "test": "node site/detail-capture-scope-test.mjs",
+    "result": "FAIL",
+    "timing": "Observed before either production aggregate JSON was changed",
+    "reason": "Historical migration fixture pins oncoid-bed GLB 117b18e476249c85b4e45ebbdbdd51c1dddf392b5aef8ffe967c39742723e2fa, while baseline metadata now uses e7d1d99d272800e4d43dd559233dd514efa9cc0c5668fdfc235e69979fbcfbb2",
+    "scope": "Unchanged historical migration guard, outside this five-model integration; 11 other cases passed"
+  },
+  "required_ci": "PENDING_EXACT_HEAD_REMOTE_CI",
+  "unrun": [
+    "Independent model/reference/colour QA",
+    "Animation or rigging checks",
+    "Physical device/GPU performance",
+    "Real CDN timing",
+    "Live deployment verification"
+  ]
+}

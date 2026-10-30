@@ -1,0 +1,128 @@
+{
+  "schema": "bounded-candidate-qa-summary-v1",
+  "asset_id": "paraceratherium",
+  "taxon_scope": "Paraceratherium; P. grangeri reference convention",
+  "recorded_date": "2026-10-30",
+  "summary_kind": "sanitized factual summary of exact-candidate historical reviews plus a new read-only format/source audit; not a new visual or browser review",
+  "subject": {
+    "revision": "meshy-refined-five-20261030",
+    "candidate_label": "rough-color-v2-toe-corrected",
+    "glb": {
+      "path": "assets/revisions/meshy-refined-five-20261030/paraceratherium/model.glb",
+      "sha256": "9febf81df9730fda570a60f7ac7b5c293b818bee0b6bae7591b5db530ff669c2",
+      "bytes": 4626896
+    },
+    "editable_source": {
+      "sha256": "81ea12793f2d3033ab0ef2cda875a25618eb1d3147d39833c9f28fcd4c228306",
+      "bytes": 11258592,
+      "preserved_frozen_bytes": true
+    }
+  },
+  "provenance_facts": {
+    "external_base_provider": "Meshy",
+    "retained_base_glb_sha256": "7a9ec8cd6f9c5eb7e797eeef6abd8ff92e6a0fda50fe9b5f3bbf3d6ef5f41dbb",
+    "refinement_tool": "Blender",
+    "originality_limit": "Externally generated base followed by local editing. This is not a deterministic from-scratch reconstruction of the service output.",
+    "concept_and_science_limit": "Generated design references and artistic color/soft-tissue choices are not fossil measurements or scientific evidence of actual coloration."
+  },
+  "historical_independent_review": {
+    "subject_sha256": "9febf81df9730fda570a60f7ac7b5c293b818bee0b6bae7591b5db530ff669c2",
+    "verdicts": [
+      {
+        "area": "coarse_color_design_translation",
+        "result": "PASS",
+        "scope": "Final exact candidate after local lateral nail-cap coverage correction."
+      },
+      {
+        "area": "lighting_material_presentation",
+        "result": "PASS_NEUTRAL_LIGHTING_ONLY",
+        "scope": "Reviewed static neutral-light and effective-baseColor unlit comparisons; not target-site lighting or device performance."
+      }
+    ],
+    "observations_and_limits": [
+      "102,032 triangles. Final-color recheck records unchanged POSITION, NORMAL, TEXCOORD_0, indices and node transforms relative to the retained geometry baseline.",
+      "The latest correction changes local vertex-color coverage at the toe/nail boundary; earlier insufficient-coverage renders and conclusions are not promoted to final-candidate acceptance.",
+      "This candidate uses vertex color rather than a base-color image. Presence of a UV attribute does not mean a texture is used."
+    ],
+    "original_review_documents": [
+      {
+        "document": "RECHECK.md",
+        "sha256": "c380872ffb516e17353c797064ab5cb9f276a55ea56262c363574d4918bd6a35",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "RESULT.json",
+        "sha256": "241b62631864f41b79e8845650101267324b33208ecf1e133ce199cea295399b",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "independent-byte-check.json",
+        "sha256": "35583a4a319fca9589056415757f9056bd7e72130bbda5f07cff6402b19b936f",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      }
+    ]
+  },
+  "history_preserved": [
+    {
+      "subject_sha256": "60dd68cbf9344bb36d8f9003a2a82354cabcd7846d1a64ee6e186171f5872857",
+      "role": "pre-correction coarse-color candidate; local toe-coverage issue retained in history, not accepted as the selected revision"
+    },
+    {
+      "subject_sha256": "c1f10bf040f17511fdc16ee709f4872f44bd817e31785128e9b95c8842be5b35",
+      "role": "earlier refined geometry baseline; not the selected color revision"
+    }
+  ],
+  "new_readonly_format_audit": {
+    "subject_sha256": "9febf81df9730fda570a60f7ac7b5c293b818bee0b6bae7591b5db530ff669c2",
+    "validator_report": {
+      "path": "production/meshy-refined-five-20261030/models/paraceratherium/gltf-validator.json",
+      "sha256": "a6388c9c053efcc3e22d423d977db7a6c26f371e91ac8c60113b1591a10c281c"
+    },
+    "validator": "2.0.0-dev.3.10",
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "triangles": 102032,
+    "export_vertices_unique_position_accessors": 70848,
+    "glb_external_resource_uris": [],
+    "embedded_images_decoded": true,
+    "finite_attribute_values": true,
+    "indices_in_range": true,
+    "editable_source_reopened_readonly": true,
+    "editable_source_saved_or_modified": false,
+    "scope_limit": "Format and read-only data/source checks do not certify image quality, independent visual review, performance, rights or release approval.",
+    "embedded_image_count": 0
+  },
+  "user_disposition": {
+    "date": "2026-10-30",
+    "current_visual_result": "accepted_for_draft_integration_without_more_refinement",
+    "independent_historical_verdicts_rewritten": false,
+    "merge_authorized_by_this_disposition": false,
+    "deployment_authorized_by_this_disposition": false
+  },
+  "integration_checks_at_this_summary": {
+    "new_website_capture": "PENDING_NEW_EVIDENCE",
+    "browser_runtime": "NOT_TESTED",
+    "device_performance": "NOT_TESTED",
+    "animation": "NOT_TESTED",
+    "note": "Do not relabel historical Blender renders as website screenshots. Any later integration evidence must bind this exact candidate hash and its actually tested scope."
+  },
+  "production_provenance_note": "The conservative pending independent_qa stage is for the combined integration-readiness record. It does not erase the narrower historical results above. Refinement completed means the selected maker revision is frozen, not that every possible fine-surface goal or runtime check passed.",
+  "retained_research_citations": [
+    {
+      "title": "AMNH Perissodactyl Research: Hyracodontidae",
+      "url": "https://research.amnh.org/paleontology/perissodactyl/evolution/groups/hyracodontidae",
+      "use": "Historical skull/body-outline reconstruction for gross relationships; low-resolution images are not precise metrology."
+    },
+    {
+      "title": "Deng et al. (2021): An Oligocene giant rhino provides insights into Paraceratherium evolution",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8211792/",
+      "use": "Comparative long-neck and weight-bearing context; do not transfer P. linxiaense skull identity to this genus-level convention."
+    }
+  ],
+  "research_and_rights_boundary": "These URLs record the retained research basis, not a new verification of every source. Consulted third-party photographs/PDFs/artwork are not distributed in this package as original product art. No legal-terms or redistribution-rights certification is asserted.",
+  "production_provenance_record": {
+    "path": "production/meshy-refined-five-20261030/models/paraceratherium/production-provenance.json",
+    "sha256": "d322650f88ef0d9277457dafe4c1778bfbf2069a97849775c0f8ed91c3ca6183"
+  }
+}
