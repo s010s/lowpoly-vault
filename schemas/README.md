@@ -307,3 +307,9 @@ Default `legacy-v1` retains every existing study/production requirement. The exp
 ## Optional concept-first study evidence
 
 For genuine ImageGen-before-modeling studies, the additive [concept-guided skill](../skills/concept-guided-lowpoly/SKILL.md) supplies a brief/prompt template and a supplemental `concept_evidence` sidecar. `scripts/validate_concept_evidence.py` reuses the safe file/hash and render-manifest checks here; it never changes candidate stages, approves a release or reduces profile coverage. See its [commands and limitations](../skills/concept-guided-lowpoly/references/workflow.md).
+
+## Optional production provenance
+
+[Production provenance](../docs/production-provenance.md) separates external base
+generation, refinement and exact-version QA. Its standalone schema/template is
+optional, does not amend this candidate gate, and does not migrate old records.

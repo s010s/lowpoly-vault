@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/s010s/lowpoly-vault/blob/main/schemas/production-provenance.schema.json",
+  "title": "Optional production provenance (not approval or release authority)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "asset_id",
+    "subject",
+    "stages"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?![\\s\\S])"
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision",
+        "glb_sha256"
+      ],
+      "properties": {
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "glb_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}(?![\\s\\S])",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      }
+    },
+    "stages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "external_generation",
+        "refinement",
+        "independent_qa"
+      ],
+      "properties": {
+        "external_generation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "base_glb_sha256"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "not_started",
+                "in_progress",
+                "completed",
+                "failed",
+                "not_applicable"
+              ]
+            },
+            "provider": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            },
+            "tool_route": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            },
+            "base_glb_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[a-f0-9]{64}(?![\\s\\S])",
+              "minLength": 64,
+              "maxLength": 64
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "completed"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "base_glb_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}(?![\\s\\S])",
+                    "minLength": 64,
+                    "maxLength": 64
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "refinement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "not_started",
+                "in_progress",
+                "completed",
+                "failed",
+                "not_applicable"
+              ]
+            },
+            "tool": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            }
+          }
+        },
+        "independent_qa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "scope",
+            "evidence"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "pending",
+                "pass",
+                "fail",
+                "stale"
+              ]
+            },
+            "scope": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}(?![\\s\\S])",
+                    "minLength": 64,
+                    "maxLength": 64
+                  }
+                }
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "pass"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "scope": {
+                    "minItems": 1
+                  },
+                  "evidence": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          {
+            "properties": {
+              "stages": {
+                "properties": {
+                  "refinement": {
+                    "properties": {
+                      "status": {
+                        "const": "completed"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "stages": {
+                "properties": {
+                  "independent_qa": {
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "pass",
+                          "fail",
+                          "stale"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "subject": {
+            "properties": {
+              "revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "glb_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}(?![\\s\\S])",
+                "minLength": 64,
+                "maxLength": 64
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

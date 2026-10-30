@@ -7,6 +7,8 @@ description: Translate genuine ImageGen design concepts into editable volumetric
 
 Use ImageGen to establish the intended shape and visual language **before constructing the model**. Then author real geometry, inspect the exact exported GLB, and report the visible differences. This is a provisional method learned from three examples, not an automatic image-to-mesh reconstruction system.
 
+For an external creature-base workflow, use [Meshy → Blender](../meshy-blender-creatures/SKILL.md). Reuse suitable retained research and design views; this concept-first module does not require generating a new concept for every external-base refinement.
+
 ## Work from a frozen design
 
 1. Confirm subject, use/viewing role, dimensions, intended factual claims and the current experiment boundary. Use [the brief/prompt template](assets/concept-brief.template.md); keep English primary and optional bilingual asset labels. Apply [lowpoly-art-direction](../lowpoly-art-direction/SKILL.md) and [blender-lowpoly-pipeline](../blender-lowpoly-pipeline/SKILL.md) rather than replacing their contracts.
