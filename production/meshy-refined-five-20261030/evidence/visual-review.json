@@ -1,0 +1,96 @@
+{
+  "scope": "Integrator inspected all ten pinned PreviewRenderer/DetailRenderer PNGs; static integration review only, not independent model/colour/reference QA.",
+  "result": "PASS_WITH_EXISTING_RENDERER_ADVISORY",
+  "inspected": [
+    {
+      "id": "gomphotherium",
+      "roles": [
+        "wheel",
+        "detail"
+      ],
+      "findings": "Model visible and complete; expected material appearance; no severe model clipping, blank output or stale model."
+    },
+    {
+      "id": "paraceratherium",
+      "roles": [
+        "wheel",
+        "detail"
+      ],
+      "findings": "Model visible and complete; expected material appearance; no severe model clipping, blank output or stale model."
+    },
+    {
+      "id": "uintatherium",
+      "roles": [
+        "wheel",
+        "detail"
+      ],
+      "findings": "Model visible and complete; expected material appearance; no severe model clipping, blank output or stale model."
+    },
+    {
+      "id": "thylacosmilus",
+      "roles": [
+        "wheel",
+        "detail"
+      ],
+      "findings": "Model visible and complete; expected material appearance; no severe model clipping, blank output or stale model."
+    },
+    {
+      "id": "smilodon",
+      "roles": [
+        "wheel",
+        "detail"
+      ],
+      "findings": "Model visible and complete; expected material appearance; no severe model clipping, blank output or stale model."
+    }
+  ],
+  "advisory": {
+    "finding": "Ground/shadow stripes visible in all ten captures. The existing published baseline gomphotherium detail poster and a fresh baseline GLB capture show the same artifact. It is not isolated to the new candidate geometry. Renderer code and accepted artwork remain unchanged.",
+    "baseline_published_evidence": "site/public/gallery/posters/gomphotherium.png",
+    "runtime": "System Chromium 154.0.8037.57 / SwiftShader",
+    "root_cause": "NOT_ESTABLISHED; comparison supports a pre-existing presentation issue, not a new model-specific regression"
+  },
+  "browser_setup": {
+    "npm_ci": "PASS after selecting writable temporary npm cache; package-lock unchanged",
+    "required_installer": "FAILED: root dependency installation unavailable (su authentication failure, three installer attempts)",
+    "paired_browser_download": "DENIED by destination policy for Playwright CDN endpoints; stopped without bypass",
+    "used": "Preinstalled system Chromium, supported executablePath option"
+  },
+  "not_tested": [
+    "Physical GPU/device performance",
+    "Animation or rigging",
+    "Independent full colour/reference or naturalness acceptance",
+    "All viewpoints",
+    "Real CDN delivery"
+  ],
+  "built_website_review": {
+    "result": "PASS",
+    "scope": "Inspected all five 1440x1000 built-website screenshots: matching titles, selected list thumbnails and live model; no blank/stale model or severe clipping. Full website composite has readable ground shadows. Raw transparent capture ground fringe advisory remains recorded.",
+    "images": [
+      {
+        "id": "gomphotherium",
+        "path": "production/meshy-refined-five-20261030/evidence/website/website-gomphotherium.png",
+        "sha256": "e2e16d7f415c88fd368d2c4d0534a22dea28949fbdbf96b4a868059fb9afcfbf"
+      },
+      {
+        "id": "paraceratherium",
+        "path": "production/meshy-refined-five-20261030/evidence/website/website-paraceratherium.png",
+        "sha256": "c4c1560abe5941c11cc28da3d478cbb854f8110d80f23051bce4512ddc8e79d6"
+      },
+      {
+        "id": "uintatherium",
+        "path": "production/meshy-refined-five-20261030/evidence/website/website-uintatherium.png",
+        "sha256": "e19c4bd8fdb48bf0925a764dc4276a4f54801759a7d644832ad919ddb0e8b15c"
+      },
+      {
+        "id": "thylacosmilus",
+        "path": "production/meshy-refined-five-20261030/evidence/website/website-thylacosmilus.png",
+        "sha256": "cb518d9cd9c69f869ad46c578be9b4cd130b734c7342bd3ec46810ab71ecc5dc"
+      },
+      {
+        "id": "smilodon",
+        "path": "production/meshy-refined-five-20261030/evidence/website/website-smilodon.png",
+        "sha256": "e4eb55364a386f21a5a05f8a6b22104bae77f00b8e1778c25e0df26f639d250d"
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema": "bounded-candidate-qa-summary-v1",
+  "asset_id": "uintatherium",
+  "taxon_scope": "Uintatherium anceps",
+  "recorded_date": "2026-10-30",
+  "summary_kind": "sanitized factual summary of exact-candidate historical reviews plus a new read-only format/source audit; not a new visual or browser review",
+  "subject": {
+    "revision": "meshy-refined-five-20261030",
+    "candidate_label": "coarse-color-v2b-tail",
+    "glb": {
+      "path": "assets/revisions/meshy-refined-five-20261030/uintatherium/model.glb",
+      "sha256": "3a26fdaadc463c2053457df0d1a00cac8231e339e32602e1610b591b8a35ea94",
+      "bytes": 4472888
+    },
+    "editable_source": {
+      "sha256": "8121614c8c390883e9fd983663f7447808153b8ef88e908b51a1c62647109e79",
+      "bytes": 10831938,
+      "preserved_frozen_bytes": true
+    }
+  },
+  "provenance_facts": {
+    "external_base_provider": "Meshy",
+    "retained_base_glb_sha256": "5fed9f05a094de4cb8eca55f6298399a90679f24ab6f5e555c1fca5ff75f8518",
+    "refinement_tool": "Blender",
+    "originality_limit": "Externally generated base followed by local editing. This is not a deterministic from-scratch reconstruction of the service output.",
+    "concept_and_science_limit": "Generated design references and artistic color/soft-tissue choices are not fossil measurements or scientific evidence of actual coloration."
+  },
+  "historical_independent_review": {
+    "subject_sha256": "3a26fdaadc463c2053457df0d1a00cac8231e339e32602e1610b591b8a35ea94",
+    "verdicts": [
+      {
+        "area": "coarse_color_design_translation",
+        "result": "PASS_COARSE_COLOR",
+        "scope": "Includes the final bounded dark-tail-tip correction and independent recheck."
+      },
+      {
+        "area": "lighting_material_presentation",
+        "result": "PASS_REVIEWED_NEUTRAL_STATIC_PREVIEW",
+        "scope": "Reviewed neutral-light and unlit comparisons; no target-browser/device or final fine-surface claim."
+      }
+    ],
+    "observations_and_limits": [
+      "97,218 triangles. Independent checks retain original POSITION, NORMAL, TEXCOORD_0, TANGENT, triangle multiset/winding and node transforms.",
+      "The final v2-to-v2b correction changes only 1,018 tail-end COLOR_0 vertices; the earlier omitted-tail result stays in history.",
+      "Editable source includes a neutral preview ground. It is not part of the selected asset-only GLB; future exports must select the asset rather than blindly export every source-scene object."
+    ],
+    "original_review_documents": [
+      {
+        "document": "FINAL-REVIEW.md",
+        "sha256": "43d918f28501e85d85119ab192dcc4779b4ba19ffa294e0a29b3f966d4e8e612",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "independent-invariants.json",
+        "sha256": "40ec8ef29e0778dd13aa8d4a1932afc6a2a60cd6181d9c2b67b7b1705cbc04fd",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "independent-tail-delta.json",
+        "sha256": "eafd923f0b958a4468d070744fcfd435e3222545f5a1e31bc54a23386fa854fe",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      }
+    ]
+  },
+  "history_preserved": [
+    {
+      "subject_sha256": "aa59c75262b63e49a2a3f2c34cdfb8f70817e3b317b5500fcdfba72dee582436",
+      "role": "earlier coarse color with omitted tail-end translation; NEEDS_LOCAL_REPAIR retained, not retroactively passed"
+    },
+    {
+      "subject_sha256": "3eb70ce679887b3766c189c1bf0a6737ae277207b3508a03478419ac513a86ef",
+      "role": "earlier refined geometry baseline; not the selected color revision"
+    }
+  ],
+  "new_readonly_format_audit": {
+    "subject_sha256": "3a26fdaadc463c2053457df0d1a00cac8231e339e32602e1610b591b8a35ea94",
+    "validator_report": {
+      "path": "production/meshy-refined-five-20261030/models/uintatherium/gltf-validator.json",
+      "sha256": "d44baadec1c9ffe00ef643f90fcee9cc5ef2e3e7db935841d4a543447a26bb75"
+    },
+    "validator": "2.0.0-dev.3.10",
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "triangles": 97218,
+    "export_vertices_unique_position_accessors": 49816,
+    "glb_external_resource_uris": [],
+    "embedded_images_decoded": true,
+    "finite_attribute_values": true,
+    "indices_in_range": true,
+    "editable_source_reopened_readonly": true,
+    "editable_source_saved_or_modified": false,
+    "scope_limit": "Format and read-only data/source checks do not certify image quality, independent visual review, performance, rights or release approval.",
+    "embedded_image_count": 3
+  },
+  "user_disposition": {
+    "date": "2026-10-30",
+    "current_visual_result": "accepted_for_draft_integration_without_more_refinement",
+    "independent_historical_verdicts_rewritten": false,
+    "merge_authorized_by_this_disposition": false,
+    "deployment_authorized_by_this_disposition": false
+  },
+  "integration_checks_at_this_summary": {
+    "new_website_capture": "PENDING_NEW_EVIDENCE",
+    "browser_runtime": "NOT_TESTED",
+    "device_performance": "NOT_TESTED",
+    "animation": "NOT_TESTED",
+    "note": "Do not relabel historical Blender renders as website screenshots. Any later integration evidence must bind this exact candidate hash and its actually tested scope."
+  },
+  "production_provenance_note": "The conservative pending independent_qa stage is for the combined integration-readiness record. It does not erase the narrower historical results above. Refinement completed means the selected maker revision is frozen, not that every possible fine-surface goal or runtime check passed.",
+  "retained_research_citations": [
+    {
+      "title": "Mulcahy (2026): Linear morphometrics fail to support strong sexual dimorphism in Uintatherium anceps",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0345236",
+      "use": "Named skull and historical skeletal restoration; no precise soft-tissue proportions or sex inference from bosses."
+    },
+    {
+      "title": "Gwacheon National Science Museum: Uintatherium sp.",
+      "url": "https://artsandculture.google.com/asset/%EC%9A%B0%EC%9D%B8%ED%83%80%ED%85%8C%EB%A6%AC%EC%9B%80/fAHlTAexkhtZEA",
+      "use": "Genus-level mounted-skeleton context only."
+    }
+  ],
+  "research_and_rights_boundary": "These URLs record the retained research basis, not a new verification of every source. Consulted third-party photographs/PDFs/artwork are not distributed in this package as original product art. No legal-terms or redistribution-rights certification is asserted.",
+  "production_provenance_record": {
+    "path": "production/meshy-refined-five-20261030/models/uintatherium/production-provenance.json",
+    "sha256": "30351b12b5a694db1c4425c37c9945f5c739e32bb0ff68f2656fcec3fbb60732"
+  }
+}

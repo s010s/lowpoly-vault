@@ -1,0 +1,134 @@
+{
+  "schema": "bounded-candidate-qa-summary-v1",
+  "asset_id": "thylacosmilus",
+  "taxon_scope": "Thylacosmilus atrox",
+  "recorded_date": "2026-10-30",
+  "summary_kind": "sanitized factual summary of exact-candidate historical reviews plus a new read-only format/source audit; not a new visual or browser review",
+  "subject": {
+    "revision": "meshy-refined-five-20261030",
+    "candidate_label": "rough-color-v2",
+    "glb": {
+      "path": "assets/revisions/meshy-refined-five-20261030/thylacosmilus/model.glb",
+      "sha256": "759b44b25a20d6e46c5dad067e4d6d8ecb58dfcd20cd78663d2ba6495c3fcc86",
+      "bytes": 2382948
+    },
+    "editable_source": {
+      "sha256": "2be92780575c7aeaeb8745574dbb6c06610f808e475add44ced986f5dc2f115f",
+      "bytes": 8203624,
+      "preserved_frozen_bytes": true
+    }
+  },
+  "provenance_facts": {
+    "external_base_provider": "Meshy",
+    "retained_base_glb_sha256": "fa5b81956b1747861954bf6c421be244b6d934c87c72eb1471d71357adc6dd15",
+    "refinement_tool": "Blender",
+    "originality_limit": "Externally generated base followed by local editing. This is not a deterministic from-scratch reconstruction of the service output.",
+    "concept_and_science_limit": "Generated design references and artistic color/soft-tissue choices are not fossil measurements or scientific evidence of actual coloration.",
+    "concept_input_note": "Retained concept provenance records third-party artwork used as a species-support input in a front-view correction. That artwork is not redistributed here; this summary does not establish rights to redistribute it."
+  },
+  "historical_independent_review": {
+    "subject_sha256": "759b44b25a20d6e46c5dad067e4d6d8ecb58dfcd20cd78663d2ba6495c3fcc86",
+    "verdicts": [
+      {
+        "area": "rough_color_design_translation",
+        "result": "PASS_ROUGH_COLOR",
+        "scope": "Warm outer coat, light throat/chest/belly/inner-limb regions and retained tooth/jaw-flange distinctions."
+      },
+      {
+        "area": "lighting_material_presentation",
+        "result": "PASS_FOR_REVIEWED_NEUTRAL_STATIC_LIGHTS",
+        "scope": "Independent final-GLB import and sampled lit/unlit views; no new full-anatomy or browser/device acceptance."
+      }
+    ],
+    "observations_and_limits": [
+      "98,222 triangles. Independent evidence records identical GLB JSON and all bytes outside the coat COLOR_0 buffer relative to r3.",
+      "The existing no-UV state is retained. This is a valid vertex-color material route, not evidence that UV texturing or final fine-surface work was completed.",
+      "Darker underside shadows in maker top-light views do not establish missing base color; independent unlit and fill-light evidence separates the two."
+    ],
+    "original_review_documents": [
+      {
+        "document": "QA-RESULT.json",
+        "sha256": "2e551e84cbc9bbd901b179a7985823bf130477688f4bff41ef8acb37f143cdc3",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "REVIEW.md",
+        "sha256": "08645fd04b3da86efe588e9ac75a893c58ab7449bed70b3810a43108aae6a52c",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      },
+      {
+        "document": "independent-integrity-audit.json",
+        "sha256": "ca909da6caacb978039f9f3131b878145edba855ea064bebd1eb5047883ce64d",
+        "relationship": "retained original review record; this file is a sanitized summary, not a rewritten original verdict"
+      }
+    ]
+  },
+  "history_preserved": [
+    {
+      "subject_sha256": "f99966bad720ca0e5ba7ed0132970f205ca67eb85bc399a928504a09dbe4a7df",
+      "role": "r3 geometry/color baseline; the selected rough-color revision has its own exact-hash review"
+    },
+    {
+      "role": "earlier local rough-color drafts",
+      "disposition": "retained as history, not accepted or relabeled as the selected candidate"
+    }
+  ],
+  "new_readonly_format_audit": {
+    "subject_sha256": "759b44b25a20d6e46c5dad067e4d6d8ecb58dfcd20cd78663d2ba6495c3fcc86",
+    "validator_report": {
+      "path": "production/meshy-refined-five-20261030/models/thylacosmilus/gltf-validator.json",
+      "sha256": "78084db1e76dfd5b2ea0e2121c734be87293a9fbffa2ae685c041138bd4831a7"
+    },
+    "validator": "2.0.0-dev.3.10",
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "triangles": 98222,
+    "export_vertices_unique_position_accessors": 49765,
+    "glb_external_resource_uris": [],
+    "embedded_images_decoded": true,
+    "finite_attribute_values": true,
+    "indices_in_range": true,
+    "editable_source_reopened_readonly": true,
+    "editable_source_saved_or_modified": false,
+    "scope_limit": "Format and read-only data/source checks do not certify image quality, independent visual review, performance, rights or release approval.",
+    "embedded_image_count": 0
+  },
+  "user_disposition": {
+    "date": "2026-10-30",
+    "current_visual_result": "accepted_for_draft_integration_without_more_refinement",
+    "independent_historical_verdicts_rewritten": false,
+    "merge_authorized_by_this_disposition": false,
+    "deployment_authorized_by_this_disposition": false
+  },
+  "integration_checks_at_this_summary": {
+    "new_website_capture": "PENDING_NEW_EVIDENCE",
+    "browser_runtime": "NOT_TESTED",
+    "device_performance": "NOT_TESTED",
+    "animation": "NOT_TESTED",
+    "note": "Do not relabel historical Blender renders as website screenshots. Any later integration evidence must bind this exact candidate hash and its actually tested scope."
+  },
+  "production_provenance_note": "The conservative pending independent_qa stage is for the combined integration-readiness record. It does not erase the narrower historical results above. Refinement completed means the selected maker revision is frozen, not that every possible fine-surface goal or runtime check passed.",
+  "retained_research_citations": [
+    {
+      "title": "Gaillard, MacPhee and Forasiepi (2023), Communications Biology 6:257",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10030895/",
+      "use": "FMNH P14531 cranial/canine/orbit evidence; not a whole-body metric scan."
+    },
+    {
+      "title": "CONICET: study of Thylacosmilus vision",
+      "url": "https://www.conicet.gov.ar/revelan-como-era-la-vision-de-un-mamifero-sudamericano-que-se-extinguio-hace-3-millones-de-anos/",
+      "use": "Author-institution context and partial-body artwork; distal feet/tail and exact proportions are not measured by it."
+    },
+    {
+      "title": "University of Bristol (2020): saber-tooth study release",
+      "url": "https://www.bristol.ac.uk/news/2020/june/saber-tooth.html",
+      "use": "Structural context; speculative feeding interpretations are not adopted as model facts."
+    }
+  ],
+  "research_and_rights_boundary": "These URLs record the retained research basis, not a new verification of every source. Consulted third-party photographs/PDFs/artwork are not distributed in this package as original product art. No legal-terms or redistribution-rights certification is asserted.",
+  "production_provenance_record": {
+    "path": "production/meshy-refined-five-20261030/models/thylacosmilus/production-provenance.json",
+    "sha256": "b78a5a0068724064a9ee59fe34ddd7e34ae50cf605488b6b9af362c0d3ba3127"
+  }
+}
