@@ -30,7 +30,7 @@
       try{Promise.resolve(thumbnail.decode?.()).then(()=>{if(thumbnail.dataset.thumbnailState==='decoding'){thumbnail.dataset.thumbnailState='ready';revealDecodedThumbnail(thumbnail);}},fail);}catch{fail();}
     };
     thumbnail.addEventListener('load',loaded,{once:true});thumbnail.addEventListener('error',fail,{once:true});
-    if(thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}
+    if(thumbnail.hasAttribute('src')&&thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}
   }
   const url=new URL(location.href),requested=url.searchParams.get('model');
   const explicit=rows.find(row=>row.dataset.id===requested);
@@ -46,6 +46,13 @@
   image.src=selected.dataset.poster;image.alt=selected.getAttribute('aria-label');
   setText('title',selected.dataset.title);setText('subtitle',selected.dataset.subtitle);setText('triangles',selected.dataset.triangles);setText('dimensions',selected.dataset.dimensions);setText('file-size',selected.dataset.fileSize);
   for(const id of ['download','blend','info'])root.querySelector('#'+id).href=selected.dataset[id];
+  // Native lazy loading fetches rows far outside the clipped wheel. Until the
+  // full app mounts, observe this actual scrolling viewport with zero overscan.
+  const observer=new IntersectionObserver(entries=>{
+    for(const entry of entries){const thumbnail=entry.target;
+      if(entry.isIntersecting&&!thumbnail.hasAttribute('src'))thumbnail.src=thumbnail.dataset.src;
+    }
+  },{root:wheel,rootMargin:'0px'});
   const paint=()=>{
     const index=wheel.scrollTop/128,nearest=Math.max(0,Math.min(rows.length-1,Math.round(index))),reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
     for(let i=0;i<rows.length;i++){
@@ -57,6 +64,10 @@
   };
   if(!mobileDetail)wheel.scrollTop=rows.indexOf(selected)*128;
   root.dataset.startupInitialized='true';paint();
+  const observe=()=>{if(!mobileDetail)for(const row of rows)observer.observe(row.querySelector('.slot-image img'));};observe();
+  // Detached roots must not keep observing the entire native catalog.
+  document.addEventListener('gallery-restore',observe,{once:true});
+  document.addEventListener('gallery-mount',()=>observer.disconnect(),{once:true});
   let frame=0;
   wheel.addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(()=>{frame=0;paint();});},{passive:true});
 })();

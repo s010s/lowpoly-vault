@@ -11,6 +11,7 @@ export const ACTIVE_CODE_TESTS=Object.freeze([
  'site/ci-code-tests-test.mjs',
  'site/ci-live-smoke-test.mjs',
  'site/ci-simple-build-test.mjs',
+ 'site/gallery-loading-test.mjs',
  'site/unified-delivery-contract-test.mjs',
 ]);
 export function testsFor(paths){

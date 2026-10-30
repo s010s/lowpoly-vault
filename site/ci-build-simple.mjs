@@ -6,6 +6,7 @@ import {pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {clearDeliveredAssets,deliverManifestAssets} from './asset-delivery.mjs';
 import {writeCatalog} from './catalog-build.mjs';
+import {writeGalleryCatalog} from './gallery/catalog-build.mjs';
 import {writeStaticRoutes} from './static-routes.mjs';
 export async function copyPublicMember(root,out,path){
  assert(typeof path==='string'&&!/[\\\u0000-\u001f?#%]/.test(path)&&!path.startsWith('/')&&path.split('/').every(x=>x&&x!=='.'&&x!=='..'),'Unsafe delivery path');
@@ -36,6 +37,7 @@ export async function buildSimple(){
  manifest=await deliverLegacyMedia(manifest);
  await writeFile('dist/assets/manifest.json',JSON.stringify(manifest,null,2)+'\n');
  await writeCatalog(manifest,'dist',{approvedOnly:true});
+ await writeGalleryCatalog(manifest,'dist');
  for(const path of ['LICENSE','THIRD_PARTY_NOTICES.md'])await cp(path,resolve('dist',path));
  await cp('LICENSES','dist/LICENSES',{recursive:true});
  await writeStaticRoutes(manifest,'dist');

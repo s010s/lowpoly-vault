@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {ACTIVE_CODE_TESTS,testsFor,changedPaths} from './ci-code-tests.mjs';
-const expected=['site/capture-model-images-test.mjs','site/ci-code-tests-test.mjs','site/ci-live-smoke-test.mjs','site/ci-simple-build-test.mjs','site/unified-delivery-contract-test.mjs'];
+const expected=['site/capture-model-images-test.mjs','site/ci-code-tests-test.mjs','site/ci-live-smoke-test.mjs','site/ci-simple-build-test.mjs','site/gallery-loading-test.mjs','site/unified-delivery-contract-test.mjs'];
 assert.deepEqual(ACTIVE_CODE_TESTS,expected);
 const fixture=JSON.parse(await readFile(new URL('../qa/ci-fixtures/pr77-cumulative-paths.json',import.meta.url)));
 assert.equal(fixture.head,'9af07afdf4080afc52652e43f6b8face33cd0611');assert.equal(fixture.changed.length,280);assert.equal(fixture.previous_selection.length,16);
@@ -26,4 +26,4 @@ try{
  await writeFile(join(root,'calls'),'');r=run(expected[1]);assert.notEqual(r.status,0);assert.deepEqual((await readFile(join(root,'calls'),'utf8')).trim().split('\n'),expected.slice(0,2));
  await rm(join(root,expected[0]));assert.notEqual(run().status,0,'Missing active fixture cannot silently pass');
 }finally{await rm(root,{recursive:true,force:true});}
-console.log('PASS cumulative 280-path PR regression: exactly 5 active fixtures, 12 retired suites excluded, data-only skip, unknown-diff safe fallback, CLI success/failure/missing-test propagation');
+console.log('PASS cumulative 280-path PR regression: exactly 6 active fixtures, 12 retired suites excluded, data-only skip, unknown-diff safe fallback, CLI success/failure/missing-test propagation');

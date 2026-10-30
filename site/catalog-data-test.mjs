@@ -8,6 +8,7 @@ import {tmpdir} from 'node:os';
 import {CATALOG_DATA,WORLD_LABELS,PACK_LABELS,PACK_RECORDS,catalogMembership,createCuration,validateCatalogData,catalogDataForAsset,inspectCatalogDataAppend} from './curation.js';
 import {createCatalog} from './catalog-build.mjs';
 import {writeStaticRoutes} from './static-routes.mjs';
+import {createGalleryCatalog} from './gallery/catalog-build.mjs';
 import * as gallery from './gallery/catalog-source.js';
 const hash=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
 const fixture=JSON.parse(await readFile(new URL('./catalog-data-legacy-fixture.json',import.meta.url)));
@@ -127,22 +128,23 @@ try{
  assert.throws(()=>validateCatalogData(orphan,{manifest}),/unknown model/);
  const missingOwner=structuredClone(CATALOG_DATA);missingOwner.packs[0].asset_ids.pop();
  assert.throws(()=>validateCatalogData(missingOwner,{manifest}),/omits owner/);
- // Three asynchronous prerequisites must resolve before any exported state changes.
+ // The generated payload must resolve before any exported state changes.
  globalThis.document={body:{dataset:{}}};globalThis.location=new URL('http://localhost/models/');
- const values={'assets/manifest.json':nextManifest,'gallery/resources.json':{},'assets/catalog.json':withBatch.index};
+ const generated=createGalleryCatalog(nextManifest,{}, {index:withBatch.index});
+ const values={'assets/gallery.json':generated};
  const fetchNow=async url=>({ok:true,json:async()=>structuredClone(values[new URL(url).pathname.slice(1)])});
  const initialModels=gallery.models,initialCatalog=gallery.catalog;
  let resolveIndex;const indexReady=new Promise(resolve=>resolveIndex=resolve);
- const delayed=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/catalog.json')?indexReady:fetchNow(url)});
+ const delayed=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/gallery.json')?indexReady:fetchNow(url)});
  await new Promise(resolve=>setImmediate(resolve));assert.equal(gallery.models,initialModels);assert.equal(gallery.catalog,initialCatalog);
- resolveIndex({ok:true,json:async()=>withBatch.index});await delayed;
+ resolveIndex({ok:true,json:async()=>generated});await delayed;
  assert.deepEqual(gallery.catalog.packs,withBatch.index.packs);assert.deepEqual(gallery.catalog.worlds,withBatch.index.worlds);
  const acceptedModels=gallery.models,acceptedCatalog=gallery.catalog;
  for(const failure of ['http','malformed','count','owners','duplicate','review']){
   await assert.rejects(()=>gallery.loadGalleryCatalog({fetchImpl:async url=>{
-   if(!new URL(url).pathname.endsWith('/assets/catalog.json'))return fetchNow(url);
+   if(!new URL(url).pathname.endsWith('/assets/gallery.json'))return fetchNow(url);
    if(failure==='http')return {ok:false,status:503};
-   const index=structuredClone(withBatch.index);
+   const index=structuredClone(generated);
    if(failure==='malformed')index.packs[0].name={en:42,zh:'文字'};
    if(failure==='count')index.total++;
    if(failure==='owners')index.packs.at(-1).asset_ids=['not-present'];
@@ -155,8 +157,8 @@ try{
  const controller=new AbortController();controller.abort();
  await assert.rejects(()=>gallery.loadGalleryCatalog({fetchImpl:fetchNow,signal:controller.signal}),{name:'AbortError'});
  let finishOlder;const olderReady=new Promise(resolve=>finishOlder=resolve);
- const older=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/catalog.json')?olderReady:fetchNow(url)});
+ const older=gallery.loadGalleryCatalog({fetchImpl:async url=>new URL(url).pathname.endsWith('/assets/gallery.json')?olderReady:fetchNow(url)});
  await gallery.loadGalleryCatalog({fetchImpl:fetchNow});const newest=gallery.catalog;
- finishOlder({ok:true,json:async()=>withBatch.index});await assert.rejects(()=>older,{name:'AbortError'});assert.equal(gallery.catalog,newest);
+ finishOlder({ok:true,json:async()=>generated});await assert.rejects(()=>older,{name:'AbortError'});assert.equal(gallery.catalog,newest);
  console.log('Catalog data passed: all 190 legacy exports/memberships/catalog bytes unchanged; bilingual static bytes preserve all three prior full-document goldens by reversing only the exact animation API guard, reviewed thumbnail additions and desktop-axis expression; JSON-only additions provide labels/routes without approval or existing model key changes; strict schema/append ownership guards; atomic, delayed, interrupted, superseded and mismatched gallery index loads.');
 }finally{await rm(out,{recursive:true,force:true});}

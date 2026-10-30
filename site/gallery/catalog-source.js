@@ -1,23 +1,19 @@
 /** The release manifest owns membership. Reviewed resources only decorate matching bytes. */
 import {parseRoute,routeHref} from '../routes.js';
 import {siteRoot,assetURL} from './urls.js';
-import {resolveGalleryPoster} from './wheel-presentations.js';
 export {siteRoot,assetURL};
 export let models=[];
 export let catalog={};
-const safeAssetPath=value=>typeof value==='string'&&value.startsWith('assets/')&&!/[\\\u0000-\u001f?#%]/.test(value)&&!value.split('/').some(part=>!part||part==='.'||part==='..');
-export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
-  if((manifest?.review_only&&!allowReview)||!Array.isArray(manifest?.assets))throw new Error('Published catalog unavailable.');
-  const ids=new Set();
-  return manifest.assets.map(asset=>{
-    if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safeAssetPath(asset[key])))throw new Error('Invalid published model.');
-    ids.add(asset.id);
-    const poster=resolveGalleryPoster(asset,resources),matching=!!poster;
-    const {detailPresentation:untrustedDetailPresentation,...sourceAsset}=asset;
-    return {...sourceAsset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,
-      ...(poster?.detailPresentation?{detailPresentation:poster.detailPresentation}:{}),
-      ...(matching?{galleryPosters:{detail:poster.detail,wheel:poster.wheel},wheelSpec:poster.wheelSpec}:{})};
-  });
+const safePath=(value,prefix)=>typeof value==='string'&&value.startsWith(prefix)&&!/[\\\u0000-\u001f?#%]/.test(value)&&value.split('/').every(part=>part&&part!=='.'&&part!=='..');
+export function validateGalleryModels(index,{allowReview=false}={}){
+ if(index?.kind!=='gallery-display-v1'||(index.review_only&&!allowReview)||!Array.isArray(index.assets))throw new Error('Published gallery unavailable.');
+ const ids=new Set();
+ for(const asset of index.assets){
+  if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safePath(asset[key],'assets/'))||!Array.isArray(asset.worlds)||!Array.isArray(asset.packs))throw new Error('Invalid gallery model.');
+  if(asset.galleryPosters&&!['wheel','detail'].every(key=>safePath(asset.galleryPosters[key],'gallery/')||safePath(asset.galleryPosters[key],'wheel-presentations/')||safePath(asset.galleryPosters[key],'detail-presentations/')))throw new Error('Invalid gallery poster.');
+  ids.add(asset.id);
+ }
+ return index.assets;
 }
 /** Only generated, membership-matching facets can supply browser labels. */
 export function validateGalleryCatalog(index, prepared, { reviewOnly = false } = {}) {
@@ -45,13 +41,13 @@ let loadGeneration = 0;
 export async function loadGalleryCatalog({fetchImpl=fetch,signal}={}) {
   const generation = ++loadGeneration;
   const read=async path=>{const response=await fetchImpl(assetURL(path),{signal});if(!response.ok)throw new Error(`Catalog request failed (${response.status}).`);return response.json();};
-  const [manifest,resources,index]=await Promise.all([read('assets/manifest.json'),read('gallery/resources.json'),read('assets/catalog.json')]);
+  const index=await read('assets/gallery.json');
   if (signal?.aborted) throw signal.reason || new DOMException('Catalog load aborted.','AbortError');
   if (generation !== loadGeneration) throw new DOMException('Catalog load superseded.','AbortError');
-  const prepared=prepareModels(manifest,resources,{allowReview:document.body.dataset.reviewOnly==='true'});
-  validateGalleryCatalog(index,prepared,{reviewOnly:manifest.review_only===true});
-  // Publish all state together. An index failure never leaves a half-loaded gallery.
-  models=prepared;catalog={manifest,resources,worlds:index.worlds,packs:index.packs,route:parseRoute(location.pathname,siteRoot.pathname)};
+  const prepared=validateGalleryModels(index,{allowReview:document.body.dataset.reviewOnly==='true'});
+  validateGalleryCatalog(index,prepared,{reviewOnly:index.review_only===true});
+  // One generated response contains the resolved display fields and matching facets.
+  models=prepared;catalog={manifest:{review_only:index.review_only},worlds:index.worlds,packs:index.packs,route:parseRoute(location.pathname,siteRoot.pathname)};
   return {models,catalog};
 }
 export const emptyFacets=()=>({worlds:[],packs:[],category:[],collection:[],triangleBand:[],triangleMax:[]});
