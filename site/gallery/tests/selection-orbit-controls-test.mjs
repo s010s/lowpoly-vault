@@ -1,3 +1,4 @@
+import {prepareModels} from '../catalog-build.mjs';
 // Executes the real main.js event wiring in a minimal DOM, not a browser/layout test.
 import * as dimensionPresentation from '../model-dimensions.js';
 import {validDetailPresentation,detailScreenFrame} from '../detail-presentation-policy.js';
@@ -11,7 +12,7 @@ import {WheelTitle} from '../wheel-title.js';
 import {HoverIntent,hoverRowAt} from '../hover-intent.js';
 import {filterItems,WheelSettler} from '../state.js';
 import {publishedModels,assetURL as fixtureAssetURL,repositoryURL,installGeometryOnlyTextureFixture} from './geometry-fixtures.mjs';
-import {prepareModels,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from '../catalog-source.js';
+import {siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from '../catalog-source.js';
 import {PACK_LABELS,WORLD_LABELS} from '../../curation.js';
 import {modelShortName} from '../presentation-labels.js';
 import {ThumbnailQueue} from '../thumbnail-queue.js';

@@ -21,3 +21,7 @@ body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content)
 @media(prefers-reduced-motion:reduce){.gallery-static .slot-image{transform:none!important}}
 
 .gallery-static .slot[data-selected=true] .slot-marker{background:var(--green);box-shadow:0 0 0 2px #f6f3ec,0 0 0 3px var(--green);border-color:var(--green)}
+
+/* Script-managed images have a no-JS counterpart in noscript. */
+.gallery-static .slot-image img:not([src]){visibility:hidden}
+.gallery-static:not([data-startup-initialized]) .slot-image>img{display:none}

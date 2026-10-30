@@ -1,3 +1,4 @@
+import {prepareModels,createGalleryCatalog} from './gallery/catalog-build.mjs';
 import {successorReader,historicalManifestView} from './same-id-successors.mjs';
 /** Focused additive correction checks. Does not claim fresh browser/GPU visual approval. */
 import test from 'node:test';
@@ -7,7 +8,7 @@ import {createHash} from 'node:crypto';
 import index from './gallery/wheel-presentations-index.js';
 import detailIndex from './gallery/detail-presentations-index.js';
 import {resolveGalleryPoster,resolveWheelPoster,validPresentationSpec} from './gallery/wheel-presentations.js';
-import {prepareModels,loadGalleryCatalog} from './gallery/catalog-source.js';
+import {loadGalleryCatalog} from './gallery/catalog-source.js';
 import {galleryStartupContent} from './gallery/startup.mjs';
 import {wheelHistoricalBaseline} from './wheel-historical-baseline.mjs';
 import {assertWheelSpec,assertWheelPNG} from './wheel-presentation-contract.mjs';
@@ -134,7 +135,7 @@ test('the real asynchronous catalog loader uses the same selector',async()=>{
   globalThis.document={body:{dataset:{}}};globalThis.location=new URL('http://localhost/models/');
   try{
     const assets=[ordinary,first].map(asset=>({...asset,collection:undefined,worlds:[],packs:[]}));
-    const values={'assets/manifest.json':{...manifest,assets},'gallery/resources.json':resources,'assets/catalog.json':{version:1,total:2,review_only:false,worlds:[],packs:[]}};
+    const values={'assets/gallery.json':createGalleryCatalog({...manifest,assets},resources,{index:{worlds:[],packs:[]}})};
     const loaded=await loadGalleryCatalog({fetchImpl:async url=>({ok:true,json:async()=>copy(values[new URL(url).pathname.slice(1)])})});
     assert.equal(loaded.models[0].galleryPosters.wheel,resources.posters[ordinary.id].wheel);
     assert.equal(loaded.models[1].galleryPosters.wheel,index.presentations[first.id].wheel);

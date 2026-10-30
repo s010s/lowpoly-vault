@@ -18,7 +18,7 @@ for(const size of [1536,2048]){const high=structuredClone(index),e=high.presenta
 }
 assert(!Object.hasOwn(fixed,'detailPresentation'));
 console.log('PASS explicit revision-2 policy/size binding, invalid profile rejection, old/ordinary profile absent');
-const {prepareModels}=await import('./gallery/catalog-source.js');
+const {prepareModels}=await import('./gallery/catalog-build.mjs');
 for(const route of [undefined,'blender-cycles-cpu-v1']){
  const raw={...asset,id:'unbound-detail-profile',name:{en:'Unbound'},glb:'assets/unbound.glb',blend:'assets/unbound.blend',preview:'assets/unbound.png',detailPresentation:detailPresentationPolicy(1536)};
  const [prepared]=prepareModels({assets:[raw]},{posters:{[raw.id]:{...poster,render_route:route}}});

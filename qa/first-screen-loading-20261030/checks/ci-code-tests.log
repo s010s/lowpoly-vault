@@ -1,0 +1,80 @@
+{"changed":["package.json"],"tests":["site/capture-model-images-test.mjs","site/ci-code-tests-test.mjs","site/ci-live-smoke-test.mjs","site/ci-simple-build-test.mjs","site/gallery-loading-test.mjs","site/unified-delivery-contract-test.mjs"],"model_qa":"NOT_REPEATED"}
+✔ explicit IDs preserve selected order only (1.709198ms)
+✔ reject arguments [] (0.73374ms)
+✔ reject arguments ["--ids",""] (0.137008ms)
+✔ reject arguments ["--all"] (0.101685ms)
+✔ reject arguments ["--ids","toy,toy"] (0.140081ms)
+✔ reject arguments ["--ids","../toy"] (0.147127ms)
+✔ reject arguments ["--ids","toy,"] (0.146923ms)
+✔ reject arguments ["--ids"," toy"] (0.125926ms)
+✔ reject arguments ["--ids","toy","--output","site/public"] (0.144199ms)
+✔ reject unknown (0.561701ms)
+✔ reject duplicate (0.196564ms)
+✔ reject unsafe GLB (0.139023ms)
+✔ reject empty IDs (0.120927ms)
+✔ server serves selected GLB and scripts, rejects unselected/traversal/symlink (9.465447ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.566058
+PASS cumulative 280-path PR regression: exactly 6 active fixtures, 12 retired suites excluded, data-only skip, unknown-diff safe fallback, CLI success/failure/missing-test propagation
+PASS 6 live readback cases: current deployment, stale commit, empty catalog, missing file, path escape, missing expected SHA
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html  0.09 kB │ gzip: 0.09 kB
+✓ built in 41ms
+{"status":"PASS","models":1,"seconds":0.290398411,"model_qa":"NOT_REPEATED","hashes":"NOT_REPEATED"}
+✘ [ERROR] Expected ";" but found "JavaScript"
+
+    vite.config.js:1:258:
+      1 │ ...tmp/simple-build-rOB4OQ/vite.config.js";invalid JavaScript syntax !
+        │                                                    ~~~~~~~~~~
+        ╵                                                    ;
+
+failed to load config from /tmp/simple-build-rOB4OQ/vite.config.js
+error during build:
+Error: Build failed with 1 error:
+vite.config.js:1:258: ERROR: Expected ";" but found "JavaScript"
+    at failureErrorWithLog (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:1752:15)
+    at /workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:1211:25
+    at runOnEndCallbacks (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:1592:45)
+    at buildResponseToResult (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:1209:7)
+    at /workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:1236:16
+    at responseCallbacks.<computed> (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:886:9)
+    at handleIncomingPacket (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:941:12)
+    at Socket.readFromStdout (/workspace/lowpoly-vault/node_modules/esbuild/lib/main.js:864:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12)
+PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, no hash replay, unsafe/empty path rejected, data-only unit tests skipped
+PASS gallery loading: 752 models preserve every display/camera/source field, one payload, exact facets, immutable input, malformed/failed/aborted/stale loads remain atomic
+✔ existing manifest/resources resolve four actual paths without new schema (10.485421ms)
+✔ default deliberately does not repeat handoff hashes or model QA (4.532996ms)
+✔ explicit one-time handoff hashes verify existing pins (7.661596ms)
+✔ stale override retains actual renderer legacy fallback (4.045044ms)
+✔ reject duplicate ID (4.119141ms)
+✔ reject missing Blend path (2.746108ms)
+✔ reject missing physical file (3.061991ms)
+✔ reject empty left image (3.269222ms)
+✔ reject missing poster ID (3.223052ms)
+✔ reject mismatched resource source identity (3.12943ms)
+✔ reject traversal (2.533548ms)
+✔ reject absolute path (2.475487ms)
+✔ reject different model image path (2.85266ms)
+✔ reject different model source path (2.643294ms)
+✔ reject wrong source extension (4.297924ms)
+✔ reject symlink file (3.684291ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71.60165

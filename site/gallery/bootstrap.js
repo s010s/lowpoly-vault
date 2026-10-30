@@ -10,6 +10,7 @@ try {
   // The module has no DOM side effects until mountGallery is called below.
   const [{mountGallery}]=await Promise.all([import('./main.js'),loadGalleryCatalog()]);
   const fragment=document.createElement('template');fragment.innerHTML=shell;
+  document.dispatchEvent?.(new Event('gallery-mount'));
   document.body.replaceChildren(fragment.content.cloneNode(true));
   document.body.dataset.gallery='approved-v55';document.body.classList.remove('gallery-loading');loadingStyle.remove();
   document.documentElement.dataset.theme='light';
@@ -17,6 +18,7 @@ try {
 } catch(error) {
   console.error('Gallery enhancement unavailable',error);
   document.body.replaceChildren(...previous);
+  document.dispatchEvent?.(new Event('gallery-restore'));
   delete document.body.dataset.gallery;document.head.append(loadingStyle);document.body.classList.add('gallery-loading');
   if(previousTheme)document.documentElement.dataset.theme=previousTheme;
   document.querySelector('#static-route-content')?.removeAttribute('hidden');

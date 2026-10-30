@@ -105,10 +105,10 @@ export class PreviewRenderer {
   }
   return {scene,camera,key,floor,grid,contact,shadowViewport,target:new THREE.Vector3(),model:null,asset:null,scale:1};
  }
- async resource(asset,signal){
+ async resource(asset,signal,priority='auto'){
   if(this.cache.has(asset.id)){const e=this.cache.get(asset.id);this.cache.delete(asset.id);this.cache.set(asset.id,e);return e;}
   this.stats.requests++;
-  const response=await fetch(new URL(assetURL(asset.glb)),{signal});if(!response.ok)throw new Error('GLB '+response.status);
+  const response=await fetch(new URL(assetURL(asset.glb)),{signal,priority});if(!response.ok)throw new Error('GLB '+response.status);
   const bytes=await response.arrayBuffer();if(signal?.aborted)throw new DOMException('Cancelled','AbortError');
   // Only reviewed support overrides need a byte-level identity check. A changed
   // source safely falls back to the existing box origin until reviewed again.
@@ -239,7 +239,7 @@ export class PreviewRenderer {
   const controller=new AbortController();this.controller=controller;this.detach(this.detail);this.detail.contact.visible=false;this.detail.asset=asset;this.stats.detailId=asset.id;this.stats.detailFirstFrameId=null;this.stats.detailFirstFrameToken=null;this.stats.detailStatus='loading';this.clearDetailPixels();this.draw();
   try{
    if(this.lost)throw new Error('WebGL context is unavailable');
-   const entry=await this.resource(asset,controller.signal);if(token!==this.token||controller.signal.aborted){this.stats.stale++;return false;}
+   const entry=await this.resource(asset,controller.signal,'high');if(token!==this.token||controller.signal.aborted){this.stats.stale++;return false;}
    // Poster decode can outlive a lost context or an obsolete selection. Abort
    // releases this gate even if the image never settles, so callers can retire
    // their loading UI and no suspended select promise is left hanging.
