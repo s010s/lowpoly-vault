@@ -60,6 +60,8 @@ Start with [low-poly art direction](skills/lowpoly-art-direction/SKILL.md) for t
 
 Use [factual review](skills/asset-factual-review/SKILL.md) for the claims the brief actually makes and [prehistoric environment guidance](skills/prehistoric-environment-art/SKILL.md) when that subject applies. A bounded study can preserve explicit unknowns; formal production acceptance and authorized publication remain separate. More detailed geometry is not automatically a better revision.
 
+For external creature bases and subsequent Blender refinement, use [Meshy → Blender](skills/meshy-blender-creatures/SKILL.md). Start repository subtasks with the [task entrypoint](AGENTS.md); record generation, refinement and exact-version QA separately using the optional [provenance contract](docs/production-provenance.md). These records do not grant publication authority.
+
 ## License & credit
 
 Different content uses different licenses:

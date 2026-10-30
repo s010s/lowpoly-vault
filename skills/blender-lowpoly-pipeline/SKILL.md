@@ -7,11 +7,13 @@ description: Build original concept-guided low-poly Blender assets, editable sou
 
 ## Scope and runtime
 
-Honor the requested environment, model, and repository permissions. For lowpoly-vault the current instruction is cloud-only, no user Mac, with Blender modeling performed using GPT-6 Astra at xhigh reasoning. This skill grants no publishing or Git authority.
+Honor the current task’s authorized execution environment, tool choices and repository permissions. Probe the actual runtime rather than treating a requested tool or model as verified. This skill grants no publishing or Git authority.
 
 The researched baseline is Blender 4.3.2, verified at `/usr/bin/blender` on 2026-10-16. Probe the actual runtime and exporter RNA before using version-sensitive options. Pin Blender, the generator seed, Python source, parameters, exporter settings, and the consuming Three.js version in build metadata. Do not silently replace the requested model or Blender environment.
 
 Read [standardized-pipeline.md](references/standardized-pipeline.md) for the required brief-to-review lifecycle and parallel batch boundaries. For surface or delivery-size revisions, use the [controlled optimization checklist](references/controlled-optimization.md) and the [measured lightweight case study](../../docs/case-studies/lightweight-triceratops.md). Use [production-contract.md](references/production-contract.md) for asset decisions and [qa-design.md](references/qa-design.md) for existing executable checks. Official references and observed runtime facts are in [sources.md](references/sources.md).
+
+For externally generated creature bases, route through [Meshy → Blender](../meshy-blender-creatures/SKILL.md) before selecting a candidate profile. Reuse applicable export and QA checks here, but do not claim deterministic reconstruction of an external base. Preserve its source bytes and provenance; any incompatible formal profile needs an explicit scoped adjustment, not a relabeled pass.
 
 ## Choose the review scope, then establish the concept
 
