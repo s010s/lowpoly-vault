@@ -11,6 +11,7 @@ const base=new URL(process.env.SITE_URL);assert.equal(base.origin,'https://s010s
 const report={status:'RUNNING',source_commit:expected,scope:'Actual public GitHub Pages HTTP bytes from GitHub Actions, not a browser or physical-device test.',models:[],superseded:[]};
 const get=async(path,method='GET')=>{assert(!path.startsWith('/')&&!path.includes('..'));const u=new URL(path,base);u.searchParams.set('deployment',expected);const r=await fetch(u,{method,signal:AbortSignal.timeout(60000),cache:'no-store'});assert(r.ok,`${path}: HTTP ${r.status}`);return r;};
 const sha=b=>createHash('sha256').update(b).digest('hex');
+const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 try{
  const marker=await(await get('release-build.json')).json();assert.equal(marker.source_commit,expected);
  const manifest=await(await get('assets/manifest.json')).json(),gallery=await(await get('assets/gallery.json')).json();
@@ -22,7 +23,7 @@ try{
   const glb=Buffer.from(await(await get(live.glb)).arrayBuffer());assert.equal(sha(glb),row.glb_sha256);assert.equal(glb.length,row.glb_bytes);
   const poster=resources.posters[row.id],images=[];
   for(const role of ['wheel','detail']){const path=poster[role],pin=resources.files.find(f=>f.path===path);assert(pin);const b=Buffer.from(await(await get(path)).arrayBuffer());assert.equal(sha(b),pin.sha256);images.push({role,path,sha256:sha(b),bytes:b.length});assert.equal(display.galleryPosters[role],path);}
-  for(const path of [`models/${row.id}/`,`zh-CN/models/${row.id}/`]){const html=await(await get(path)).text();assert(html.includes(current.name.en));}
+  for(const [path,lang] of [[`models/${row.id}/`,'en'],[`zh-CN/models/${row.id}/`,'zh']]){const html=await(await get(path)).text();assert(html.includes(escapeHTML(current.name[lang])),`Localized model name missing: ${path}`);}
   const blend=await get(live.blend,'HEAD');assert.equal(Number(blend.headers.get('content-length')),current.file_sizes.blend);
   report.models.push({id:row.id,status:'PASS',glb_sha256:sha(glb),glb_bytes:glb.length,posters:images,bilingual_pages:true,blend_head_bytes:current.file_sizes.blend});
   console.log('LIVE_BYTES_PASS',row.id,glb.length,row.glb_sha256);
