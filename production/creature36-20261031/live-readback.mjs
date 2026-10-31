@@ -14,7 +14,7 @@ const sha=b=>createHash('sha256').update(b).digest('hex');
 try{
  const marker=await(await get('release-build.json')).json();assert.equal(marker.source_commit,expected);
  const manifest=await(await get('assets/manifest.json')).json(),gallery=await(await get('assets/gallery.json')).json();
- assert.deepEqual(manifest.assets.map(a=>a.id),source.assets.map(a=>a.id));assert.equal(gallery.assets.length,752);report.total_catalog_ids=manifest.assets.length;
+ assert.deepEqual(manifest.assets.map(a=>a.id),source.assets.map(a=>a.id));assert.equal(gallery.assets.length,source.assets.length);report.total_catalog_ids=manifest.assets.length;
  for(const row of ledger.models){
   const current=source.assets.find(a=>a.id===row.id);assert(current);
   if(current.sha256.glb!==row.glb_sha256){report.superseded.push(row.id);continue;}
