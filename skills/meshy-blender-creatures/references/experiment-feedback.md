@@ -32,6 +32,7 @@ measurements:
   runtime: {}                   # 加载/渲染等实际测过的结果；没有测试不推断
 review:
   independent_qa: {status: pending, scope: null, evidence: []}
+  gates: {}                     # 源结构 / 表面 / 编码 / 配对 / 尺度落地 / web与GPU / 发布分别记
   user_verdict: {status: pending, evidence: null} # 用户未评价不能写接受
 failures: []                    # 失败/无收益尝试、原因证据、保留的版本；不能只留最佳结果
 applicability: {supported: [], not_tested: [], avoid_when: []}
@@ -57,6 +58,16 @@ lesson: {finding: null, confidence: null, skill_change: null, next_evidence: nul
 区分依赖当前几何的区域提取、中心线/方向与 UV 映射，和可复用的生成、烘焙、导出检查管线。前者保留适配方法及失败条件；把坐标常数改成命令行参数不等于已具备跨物种通用性，也不为一次局部试验强建批量框架。
 
 公共 Skill 只保留可解释的做法、必要例证和边界；项目的原始图像、运行记录、私有定位与恢复材料留在项目记录中。已存在记录能证明结论就引用，不建立平行账本。当前试验尚无测量或评价时，先交付模板和待验项，取得证据后再做最小修订；保留被否定的假设，不反向改写历史。
+
+## 批量制作与恢复的窄经验
+
+以下为 2026-10-30 私有 21:29 交接的历史报告摘要，不是本次重新渲染/逐包下载验证；原始证据的 historical、changed、missing 标签保留在私有索引，不复制成公共文件或升级为新 PASS。
+
+- Standard + 2K PBR + inline triangle 80k 的若干返回值约 82k–84k，pre-remesh 可无 UV/纹理；这支持检查实物与报告实际值，不支持硬上限或“有纹理高模”保证。
+- Deinocheirus 多前趾、Quetzalcoatlus 重复长翼指等源结构 HOLD 曾与压缩 PASS 并存；切趾/补 UV 的亮缝、暗缺口没有因计数或封闭检查通过而消失。Basilosaurus 微小退化趾反例说明不能搬用其他物种趾式；Diplocaulus 的具体阻断是与批准四可见前趾设计冲突，不是新认证的化石趾式。
+- 2K Q90 在已审候选上节省文件体积，1K 控制组可使眼/吻变软或产生斑点；这些是限定资产/视图结论，不证明全物种、所有 PBR 通道等质或浏览器性能改善。
+- 一次环境重建丢失 3 张 Stegosaurus、9 张 Pareiasaurus 尚未消耗 Meshy 积分的参考图；协调者报告全部付费 Meshy 原件已私有备份。未付费不等于无图像生成资源成本；图像、prompt 和输入缺陷分别记，不能把未通过输入写成模型失败。
+- Estemmenosuchus 曾丢失最终 QA，候选/证据恢复后另做 replacement 复核并保存新哈希，没有冒称旧报告恢复。由此采用任务配置中的逐图完整回读、及时独审检查点；历史预算快照不授予新消费权限。
 
 ## 一次局部鼻褶试验留下的窄经验
 

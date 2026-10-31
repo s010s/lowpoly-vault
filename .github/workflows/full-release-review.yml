@@ -25,6 +25,11 @@ jobs:
           SITE_URL: https://s010s.github.io/lowpoly-vault/
           DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
         run: node site/ci-live-smoke.mjs
+      - name: Read back the 36 creature model files, posters and bilingual pages
+        env:
+          SITE_URL: https://s010s.github.io/lowpoly-vault/
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: node production/creature36-20261031/live-readback.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

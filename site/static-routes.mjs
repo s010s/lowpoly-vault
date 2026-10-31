@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { normalizeSiteBase, routeHref, filterAndSortCatalog, CATALOG_PAGE_SIZE } from './routes.js';
 import { createCuration, CATALOG_DATA } from './curation.js';
 import { words } from './words.js';
+import {homepageStartupStyle} from './home-startup.mjs';
 import {galleryStartupResources,galleryStartupContent} from './gallery/startup.mjs';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const localized = (value,lang) => typeof value === 'string' ? value : value?.[lang === 'zh-CN' ? 'zh' : 'en'] || value?.en || '';
@@ -34,12 +35,14 @@ export async function writeStaticRoutes(manifest,outDir,{base=process.env.SITE_B
  base=normalizeSiteBase(base);origin=new URL(origin).origin;
  const template=await readFile(resolve(outDir,'index.html'),'utf8');
  const galleryStartup=await galleryStartupResources();
+ const homeStartup=await homepageStartupStyle();
  const assets=filterAndSortCatalog(manifest?.assets||[]),review=manifest?.review_only===true;
  for(const directory of ['models','zh-CN','about']) await rm(resolve(outDir,directory),{recursive:true,force:true});
  const urls=[];
  async function emit(route,content,title,description,asset){
   const href=routeHref(route,base),url=origin+href;
   let html=metadata(template,{title,description,url,alternateEN:origin+routeHref({...route,lang:'en'},base),alternateZH:origin+routeHref({...route,lang:'zh-CN'},base),image:asset?origin+base+asset.preview:assets[0]?origin+base+assets[0].preview:undefined,lang:route.lang,review,asset,base});
+  if(route.type==='home')html=html.replace('</head>',homeStartup+'</head>');
   if(route.type==='models')html=html.replace('<html lang="'+route.lang+'">','<html lang="'+route.lang+'" data-application="gallery">').replace('</head>',galleryStartup.style+'</head>');
   html=html.replace(/<body\b([^>]*)>/,`<body$1 data-static-route="${route.type}"${review?' data-review-only="true"':''} data-site-base="${escape(base)}">`);
   html=html.replace(/(<a\b[^>]*?)href=["'][^"']*["']([^>]*data-route=["'](home|catalog|models|about)["'][^>]*>)/g,(_,start,rest,type)=>`${start}href="${routeHref({type,lang:route.lang},base)}"${rest}`);
