@@ -18,21 +18,27 @@ asset:
 execution:
   environment: "task-defined"       # local / remote / cloud 由实际任务决定
   storage: "task-defined"           # 不预设服务商
-  concurrency: 1                   # 示例值，按资源与服务限制调整
+  maker_lanes: 4                   # 本项目：每条从研究到最终归档，非按阶段拆线
+  independent_support_slots: 2     # 独立 QA / 归档支持；不自审代替独审
+  budget_writer_and_dispatcher: "coordinator"
 generation:
   provider: "meshy"
-  model: "verify-at-execution"
-  geometry_resolution: "standard" # 可选起点，不是全局强制
-  texture_at_provider: false        # 适用于计划自行处理表面的任务
+  model: "meshy-7.1"               # 调用前复核版本与费用
+  geometry_resolution: "standard"
+  texture_at_provider: true         # 本项目：参考驱动 2K PBR，详见 meshy-api.md
+  texture_resolution: "2k"
+  enable_pbr: true
+  inline_remesh: {topology: triangle, target_polycount: 80000, save_pre_remeshed_model: true}
 budget:
   approved_credit_cap: null         # 尚未填写授权，不能据此付费
   approved_attempt_limit: null
   reserve_for_revision: null        # 由任务决定
 delivery:
-  triangle_target: null             # 先按用途确定，允许说明例外
+  triangle_target: 80000            # 近似目标，实际 triangles / vertices 必须测量
   file_size_target_bytes: null
-  texture_profile: "decide-after-clay-review"
-  required_runtime_checks: []       # 按交付用途填写；空表不表示免检
+  texture_profile: "source-2k-pbr"   # Q90 等衍生版另验，保留原件
+  required_runtime_checks: [physical_scale_and_ground, web_viewer_load, browser_gpu, published_readback]
+  integration: "deferred"          # 静态通过后，等本次集成授权生效再校准/运行时验收
 authorization:
   generate: false
   modify: false
@@ -50,6 +56,33 @@ authorization:
 - **时间**：服务端处理、客户端等待/下载、实验墙钟与确实计时的主动操作分列；没有数据填“未记录”。
 
 真实任务 ID、私有引用和明细账可留在私有工作记录中；公开案例用虚构 ID 和聚合统计，且明确标为示例。不要删除旧失败、篡改旧账或把费用未知改成零；新增授权另记，不把旧失败当作永远不能继续的理由。
+
+每条制作线隔离物种 brief、参考身份/路径/哈希、候选修订与当前门禁；换执行者交接真实任务 ID 和已知 POST 状态，不重置预算。负责人持续拥有研究、参考、真实 GLB 重载、自检、必要修复/减面、最终 GLB/Blend 与归档；独立支持负责复核/归档协助，阶段切换不新增制作线。
+
+## 检查点与恢复门禁
+
+每张生成图成功后，先保存可取得的原始 bytes、实际 prompt、物种/视图身份、版本和检查记录到获授权的私有目录；完整远端下载核对 bytes/SHA256 后，才生成下一张。被拒图标清 rejected，不送入 API。拿不到原始 bytes/恢复入口时明确缺口并暂停依赖它的后续生成；本地副本或对话展示不算持久备份。
+
+输入门禁、服务任务 ID、原件下载、候选冻结、每份完成的独立 QA 报告均及时形成检查点。图像与 prompt 配对保存；排除密钥、认证头和临时带令牌链接。已冻结包/manifest 不改写，后续状态、QA 与恢复更新放 sidecar，以精确 ID/哈希关联。
+
+归档原件（含 pre-remesh/返回贴图）、参考/处理记录、请求 builder/摘要、可编辑源、精确候选、通过/失败证据、费用与恢复索引。验证目标目录与上传文件均保持 owner-only，不扩大共享；完整下载核对 SHA256，ZIP 另验 CRC、清单每个成员的路径/大小/哈希及无漏项后才写 archived。恢复索引分列标签、远端 ID、bytes、SHA256；临时 URL 不作恢复入口。
+
+复用如下私有检查点字段；示例 null/pending 不是已完成记录：
+
+```yaml
+checkpoint:
+  kind: null                       # image+prompt / input / service-task / candidate / independent-qa
+  asset_revision: null
+  frozen_manifest_sha256: null
+  files: []                        # label, path, bytes, sha256, exact_remote_id
+  privacy: pending                 # 目标与文件 owner-only 的实际元数据证据
+  full_download: {status: pending, bytes: null, sha256: null}
+  archive_checks: {zip_crc: pending, every_manifest_member: pending}
+  evidence_availability: null       # freshly-verified / historical / changed / missing
+  next_gate: pending
+```
+
+恢复后只对实际读取的 bytes 作新验证；历史账本只是快照，不授权继续消费。遗失 QA 须做标为 replacement 的新评审并保存新哈希，不能重建文本后套旧哈希。历史证据的可用性标签也不自动升级为本环境新验收。
 
 ## 与已有资产流程并用
 
