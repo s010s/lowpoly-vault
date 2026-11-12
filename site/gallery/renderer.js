@@ -234,7 +234,7 @@ export class PreviewRenderer {
   if(this.detail.scene.fog){this.detail.scene.fog.near=Math.max(6,distance*1.5);this.detail.scene.fog.far=Math.max(18,distance*5);}
   c.lookAt(this.controls.target);this.resizeCamera(this.detail,this.detail.viewportWidth||c.aspect,this.detail.viewportHeight||1);if(cameraOwned)this.keepResetFramed();this.updateControls();this.draw();
  }
- async select(asset,{presentationReady=Promise.resolve(true)}={}){
+ async select(asset,{presentationReady=Promise.resolve(true),beforeFirstFrame}={}){
   this.cancelDetailFrame();this.cancelCamera(true);const token=++this.token;this.controller?.abort();this.stopHover();this.comparison=false;this.removeReference();this.resetControlSession();
   const controller=new AbortController();this.controller=controller;this.detach(this.detail);this.detail.contact.visible=false;this.detail.asset=asset;this.stats.detailId=asset.id;this.stats.detailFirstFrameId=null;this.stats.detailFirstFrameToken=null;this.stats.detailStatus='loading';this.clearDetailPixels();this.draw();
   try{
@@ -252,7 +252,7 @@ export class PreviewRenderer {
    // Every selection is a new inspection session, including cached assets,
    // retries and a hover-to-detail click. Never inherit pose, zoom or framing.
    const painted=new Promise(resolve=>{this.firstDetailFrame={token,id:asset.id,resolve,frame:0};});
-   this.attach(this.detail,asset,entry);this.applyState(this.singleState());this.updateControls();this.wireframe(this.wire);this.stats.detailStatus='rendering';this.draw();this.trim();
+   this.attach(this.detail,asset,entry);beforeFirstFrame?.();this.applyState(this.singleState());this.updateControls();this.wireframe(this.wire);this.stats.detailStatus='rendering';this.draw();this.trim();
    const ready=await painted;if(!ready||token!==this.token||controller.signal.aborted||this.lost)return false;
    this.controls.enabled=true;this.stats.detailStatus='ready';return true;
   }catch(e){
@@ -459,11 +459,29 @@ export class PreviewRenderer {
   Object.assign(this.renderer.domElement.style,{width:'100vw',height:'100dvh'});
   this.renderer.domElement.style.visibility='visible';
   this.stats.logicalWidth=width;this.stats.logicalHeight=height;this.stats.pixelRatio=ratio;this.stats.bufferWidth=this.renderer.domElement.width;this.stats.bufferHeight=this.renderer.domElement.height;
-  if(!hoverOnly){this.renderer.setScissorTest(false);this.renderer.setClearColor(0,0);this.renderer.clear(true,true,true);if(this.visible){const rect=this.host.getBoundingClientRect();this.renderView(this.backdrop,rect);if(this.renderView(this.detail,rect,rect,{overlay:true}))this.acknowledgeDetailFrame();}}
+  if(!hoverOnly){
+   this.renderer.setScissorTest(false);this.renderer.setClearColor(0,0);this.renderer.clear(true,true,true);
+   const rect=this.host.getBoundingClientRect();
+   // The phone pane can already be on screen when its intersection callback is still pending.
+   this.renderView(this.backdrop,rect);
+   if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true}))this.acknowledgeDetailFrame();
+  }
   if(this.hover?.host.isConnected&&this.hover.model){const hostRect=this.hover.host.getBoundingClientRect(),rw=Math.min(hostRect.width,hostRect.height*WHEEL_ASPECT),rh=rw/WHEEL_ASPECT,r={left:hostRect.left+(hostRect.width-rw)/2,top:hostRect.top+(hostRect.height-rh)/2,width:rw,height:rh};r.right=r.left+r.width;r.bottom=r.top+r.height;const list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),w=Math.max(1,Math.floor(r.width*ratio)),h=Math.max(1,Math.floor(r.height*ratio)),sx=Math.floor(r.left*ratio),sy=this.renderer.domElement.height-Math.floor((innerHeight-r.bottom)*ratio)-h;this.hover.presentation.update(this.renderer.domElement,sx,sy,w,h,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
   this.renderer.setScissorTest(false);this.stats.frames++;this.stats.detailId=this.detail.asset?.id||null;
  }
- captureDetail(){this.draw();const rect=this.host.getBoundingClientRect(),ratio=this.renderer.getPixelRatio();const canvas=document.createElement('canvas');canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);canvas.getContext('2d').drawImage(this.renderer.domElement,rect.left*ratio,rect.top*ratio,rect.width*ratio,rect.height*ratio,0,0,canvas.width,canvas.height);return canvas;}
+ captureDetail({transparent=false}={}){
+  const rect=this.host.getBoundingClientRect(),ratio=this.renderer.getPixelRatio();
+  if(rect.width<1||rect.height<1||this.lost)return null;
+  try{
+   if(transparent){
+    this.renderer.setClearColor(0,0);
+    if(!this.renderView(this.detail,rect,rect))return null;
+   }else this.draw();
+   const canvas=document.createElement('canvas');canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);
+   canvas.getContext('2d').drawImage(this.renderer.domElement,rect.left*ratio,rect.top*ratio,rect.width*ratio,rect.height*ratio,0,0,canvas.width,canvas.height);
+   return canvas;
+  }finally{if(transparent)this.draw();}
+ }
  async poster(asset,{wheel=false}={}){const controller=new AbortController();const entry=await this.resource(asset,controller.signal);const view=this.makeView(false);this.attach(view,asset,entry);if(wheel)this.wheelFrame(view,asset,{rebuild:true});
   const oldSize=this.renderer.getSize(new THREE.Vector2()),oldRatio=this.renderer.getPixelRatio();this.renderer.setPixelRatio(1);const w=wheel?768:512,h=wheel?432:512;this.renderer.setSize(w,h,false);this.renderer.setScissorTest(false);this.renderer.setViewport(0,0,w,h);this.renderer.setClearColor(0,0);this.resizeCamera(view,w,h);view.shadowViewport.value.set(0,0,w,h);this.renderer.clear(true,true,true);this.renderer.render(view.scene,view.camera);const data=this.renderer.domElement.toDataURL('image/png');this.lastPosterSpec=wheel?view.wheelSpec:null;this.disposeView(view);this.renderer.setPixelRatio(oldRatio);this.renderer.setSize(oldSize.x,oldSize.y,false);this.draw();return data;
  }

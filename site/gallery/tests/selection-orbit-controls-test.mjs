@@ -83,10 +83,9 @@ assert(source.includes('export async function mountGallery(){'),'The app must mo
 // inspect its lexical state. All application event wiring remains the real code.
 source=source.replace('export async function mountGallery(){','').replace('mountIcons(document);','').replace(/\n}\s*$/,'');
 source=source.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace(/if\(state.selected\)await choose\(/m,'if(state.selected)void choose(');
-// Execute the actual UI helper inside this deterministic DOM harness too.
-const uiSource=(await readFile(new URL('../ui-feedback.js',import.meta.url),'utf8')).replace(/^export /gm,'');
-const guideSource=(await readFile(new URL('../wheel-guides.js',import.meta.url),'utf8')).replace(/^export /gm,'');
-vm.runInContext(uiSource+'\n'+guideSource+'\n'+source,context);
+// Execute the real UI modules in the same deterministic DOM as the entry point.
+const uiModules=await Promise.all(['ui-feedback','wheel-guides','wheel-continuity','detail-continuity'].map(async name=>(await readFile(new URL(`../${name}.js`,import.meta.url),'utf8')).replace(/^export /gm,'')));
+vm.runInContext([...uiModules,source].join('\n'),context);
 
 const p=window.__preview,checks=[];
 const flush=async()=>{for(let i=0;i<3;i++){await new Promise(resolve=>setImmediate(resolve));advance(40);}};
