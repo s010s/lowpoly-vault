@@ -57,7 +57,15 @@ export function createUIFeedback({t,reduced,getSelection}){
  listen(document,'pointerdown',()=>{input='pointer';root.dataset.uiInput=input;},{capture:true});
  listen(document,'keydown',()=>{input='keyboard';root.dataset.uiInput=input;},{capture:true});
  root.dataset.uiInput=input;
- const filter=createPopover(document.querySelector('#filter-panel'),document.querySelector('#filters'),{reduced,schedule:later,cancel:clear});
+ const filterPanel=document.querySelector('#filter-panel'),filterForm=document.querySelector('#filter-form');
+ function updateFilterOverflow(){filterPanel.dataset.more=String(!filterPanel.hidden&&overflowRemaining(filterForm));}
+ function fitFilterPanel(){
+  const visual=window.visualViewport,viewportBottom=(visual?.offsetTop||0)+(visual?.height||window.innerHeight||root.clientHeight||768);
+  const top=(filterPanel.offsetParent?.getBoundingClientRect().top||0)+(filterPanel.offsetTop||0);
+  filterPanel.style.setProperty('--filter-room',Math.max(0,viewportBottom-top)+'px');
+  updateFilterOverflow();
+ }
+ const filter=createPopover(filterPanel,document.querySelector('#filters'),{reduced,schedule:later,cancel:clear,beforeEnter:fitFilterPanel});
  const infoPanel=document.querySelector('#info-panel'),infoContent=document.querySelector('#info-content'),infoTrigger=document.querySelector('#info');
  let safeProbe=null;
  function safeInsets(){
@@ -83,10 +91,12 @@ export function createUIFeedback({t,reduced,getSelection}){
  const info=createPopover(infoPanel,infoTrigger,{enter:150,exit:125,reduced,schedule:later,cancel:clear,beforeEnter:positionInfo});
  function updateOverflow(){infoPanel.dataset.more=String(info.open&&overflowRemaining(infoContent));}
  function refreshInfoViewport(){if(info.open)positionInfo();updateOverflow();}
- listen(infoContent,'scroll',updateOverflow,{passive:true});listen(window,'resize',refreshInfoViewport,{passive:true});listen(window,'scroll',refreshInfoViewport,{passive:true});
- if(window.visualViewport){listen(window.visualViewport,'resize',refreshInfoViewport,{passive:true});listen(window.visualViewport,'scroll',refreshInfoViewport,{passive:true});}
- const resize=typeof ResizeObserver==='function'?new ResizeObserver(updateOverflow):null;
- resize?.observe(infoContent);resize?.observe(infoPanel);
+ function refreshPanelsViewport(){if(filter.open)fitFilterPanel();refreshInfoViewport();}
+ listen(filterForm,'scroll',updateFilterOverflow,{passive:true});listen(infoContent,'scroll',updateOverflow,{passive:true});
+ listen(window,'resize',refreshPanelsViewport,{passive:true});listen(window,'scroll',refreshPanelsViewport,{passive:true});
+ if(window.visualViewport){listen(window.visualViewport,'resize',refreshPanelsViewport,{passive:true});listen(window.visualViewport,'scroll',refreshPanelsViewport,{passive:true});}
+ const resize=typeof ResizeObserver==='function'?new ResizeObserver(()=>{updateFilterOverflow();updateOverflow();}):null;
+ resize?.observe(filterForm);resize?.observe(infoContent);resize?.observe(infoPanel);
  const mutation=typeof MutationObserver==='function'?new MutationObserver(refreshInfoViewport):null;
  mutation?.observe(infoContent,{childList:true,subtree:true,characterData:true});
  function reveal(node,{animate=false,duration=150,remove=false}={}){
@@ -158,6 +168,6 @@ export function createUIFeedback({t,reduced,getSelection}){
  listen(window,'pointerup',release,{passive:true});listen(window,'pointercancel',release,{passive:true});listen(window,'blur',release);
  const media=matchMedia('(prefers-reduced-motion: reduce)');
  listen(media,'change',()=>{filter.settle();info.settle();release();for(const [node,id] of reveals){clear(id);if(node.inert)node.remove();else{node.classList.remove('ui-reveal');delete node.dataset.visible;}}reveals.clear();updateOverflow();});
- return {filter,info,pointer,get pointerInput(){return input==='pointer';},get copyState(){return copyState;},renderChips,reveal,resetCopy,copyAttribution,updateOverflow,
+ return {filter,info,pointer,get pointerInput(){return input==='pointer';},get copyState(){return copyState;},renderChips,reveal,resetCopy,copyAttribution,updateOverflow,updateFilterOverflow,
   dispose(){if(disposed)return;disposed=true;abort.abort();resize?.disconnect();mutation?.disconnect();safeProbe?.remove();filter.dispose();info.dispose();resetCopy();for(const timer of timers)clearTimeout(timer);timers.clear();reveals.clear();}};
 }

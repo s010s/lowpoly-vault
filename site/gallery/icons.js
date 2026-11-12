@@ -1,5 +1,6 @@
 /** A single 20 px stroke family for controls; visible text supplies the accessible name. */
 const paths={
+ 'chevron-down':'<path d="m6 9 6 6 6-6"/>',
  wireframe:'<path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9m-8-4.5 8-4.5 8 4.5M12 3v9"/>',
  compare:'<rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7v4m4-4v6m4-6v4m4-4v6"/>',
  reset:'<path d="M3.5 10a8.5 8.5 0 1 1 1.7 7.3M3.5 4.5V10H9"/>',
