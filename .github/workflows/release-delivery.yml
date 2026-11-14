@@ -1,0 +1,44 @@
+name: Verify released model deliveries
+on:
+  pull_request:
+    paths:
+      - site/ci-release-delivery.mjs
+      - site/ci-release-delivery.test.mjs
+      - .github/workflows/release-delivery.yml
+  workflow_run:
+    workflows: ['Validate and deploy asset gallery']
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  delivery:
+    if: github.event_name == 'pull_request' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
+          persist-credentials: false
+          sparse-checkout: |
+            site/ci-release-delivery.mjs
+            site/ci-release-delivery.test.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Test delivery validation
+        run: node --test site/ci-release-delivery.test.mjs
+      - name: Read every model delivery changed since the catalog baseline
+        env:
+          SITE_URL: https://s010s.github.io/lowpoly-vault/
+          DEPLOYED_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.event.pull_request.base.sha }}
+          # Public catalog checkpoint preceding the reviewed model replacements.
+          DELIVERY_BASELINE_SHA: 44a9d6a0c56920658369b374a0aa4b458e7845f0
+        run: node site/ci-release-delivery.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-delivery-${{ github.run_id }}
+          path: qa/live-smoke/release-delivery.json
+          if-no-files-found: error
