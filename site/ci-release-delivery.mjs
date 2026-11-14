@@ -10,6 +10,30 @@ import {pathToFileURL} from 'node:url';
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const commit = value => { assert(/^[a-f0-9]{40}$/.test(value || ''), 'Full commit SHA required'); return value; };
+async function httpFailure(path, response) {
+  const headers = {};
+  for (const name of ['date', 'server', 'via', 'content-type', 'retry-after', 'age', 'x-cache', 'x-cache-hits', 'x-served-by', 'x-github-request-id', 'x-fastly-request-id', 'cf-ray']) {
+    const value = response.headers.get(name);
+    if (value !== null) headers[name] = value.slice(0, 256);
+  }
+  const details = {path, http_status: response.status, status_text: response.statusText, response_headers: headers};
+  // Collect at most 2048 public error-text bytes; cancel error bodies on every content type.
+  if (/^(text\/|application\/(?:json|xml|problem\+json))/i.test(headers['content-type'] || '') && response.body) {
+    const reader = response.body.getReader(), chunks = []; let size = 0;
+    try {
+      while (size < 2048) {
+        const {done, value} = await reader.read();
+        if (done) break;
+        const chunk = Buffer.from(value.subarray(0, 2048 - size)); chunks.push(chunk); size += chunk.length;
+      }
+      details.public_error_excerpt = Buffer.concat(chunks).toString('utf8').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').slice(0, 512);
+    } catch { details.public_error_excerpt_unavailable = true; }
+    finally { try { await reader.cancel(); } catch {} finally { reader.releaseLock(); } }
+  } else if (response.body) await response.body.cancel().catch(() => {});
+  const error = new Error(`${path}: HTTP ${response.status}`);
+  error.delivery_error_kind = 'HTTP_RESPONSE_ERROR'; error.delivery_failure_details = details;
+  return error;
+}
 function anchorTargets(html, pageURL) {
   // Ignore JSON-LD, script strings and comments: they are not download anchors.
   const markup = html.replace(/<!--[\s\S]*?-->|<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
@@ -39,7 +63,7 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
     assert(url.origin === base.origin && url.pathname.startsWith(base.pathname), 'Delivery path escapes site');
     url.searchParams.set('deployment', expectedSha);
     const response = await fetcher(url, {signal: AbortSignal.timeout(60000), cache: 'no-store'});
-    assert(response.ok, `${path}: HTTP ${response.status}`);
+    if (!response.ok) throw await httpFailure(path, response);
     return response;
   };
   const marker = await (await get('release-build.json')).json();
@@ -62,7 +86,12 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
     assert(Number.isInteger(expectedBytes) && expectedBytes > 0, `Missing size: ${path}`);
     const response = await get(path), bytes = Buffer.from(await response.arrayBuffer());
     const actual = {path, http_status: response.status, bytes: bytes.length, sha256: sha(bytes)};
-    assert.equal(actual.sha256, expectedHash, `SHA mismatch: ${path}`);
+    if (actual.sha256 !== expectedHash) {
+      const error = new Error(`SHA mismatch: ${path}`);
+      error.delivery_error_kind = 'CONTENT_HASH_MISMATCH';
+      error.delivery_failure_details = {...actual, expected_sha256: expectedHash};
+      throw error;
+    }
     assert.equal(bytes.length, expectedBytes, `Size mismatch: ${path}`);
     return actual;
   };
@@ -90,7 +119,11 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
           row.pages.push({path, language, http_status: response.status, bytes: Buffer.byteLength(html), sha256: sha(html), checks: ['localized-name', 'selected-glb-link', 'CC-BY-4.0-link']});
         }
         row.status = 'PASS';
-      } catch (error) { row.status = 'FAIL'; row.error = error.message; }
+      } catch (error) {
+        row.status = 'FAIL'; row.error = error.message;
+        row.error_kind = error.delivery_error_kind || 'DELIVERY_CHECK_ERROR';
+        if (error.delivery_failure_details) row.failure_details = error.delivery_failure_details;
+      }
       report.models.push(row);
       console.log('DELIVERY_' + row.status, row.id, row.error || row.glb.sha256);
     }
@@ -115,7 +148,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const [baseline, source, resources] = await Promise.all([pinned(baselineSha, 'assets/manifest.json'), pinned(expectedSha, 'assets/manifest.json'), pinned(expectedSha, 'site/public/gallery/resources.json')]);
     report = await checkDelivery({baseURL: process.env.SITE_URL, expectedSha, baseline, source, resources});
     report.baseline_commit = baselineSha;
-  } catch (error) { report = {status: 'FAIL', error: error.message}; }
+  } catch (error) {
+    report = {status: 'FAIL', error: error.message, error_kind: error.delivery_error_kind || 'DELIVERY_CHECK_ERROR'};
+    if (error.delivery_failure_details) report.failure_details = error.delivery_failure_details;
+  }
   await mkdir('qa/live-smoke', {recursive: true});
   await writeFile('qa/live-smoke/release-delivery.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify({status: report.status, selected: report.selected_count, passed: report.passed, failed: report.failed, error: report.error}));

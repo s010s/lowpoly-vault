@@ -79,3 +79,41 @@ test('blocks asset paths outside the site', async () => {
   assert.match(report.models[0].error, /escapes site/);
   assert(!requests.some(url => url.includes('elsewhere.invalid')));
 });
+
+test('records bounded HTTP503 evidence without calling it a hash failure or capturing cookies', async () => {
+  const {options} = fixture(); const original = options.fetcher;
+  options.fetcher = async url => url.pathname.endsWith('new-model-wheel.png')
+    ? new Response('upstream unavailable\n' + 'x'.repeat(4096), {status: 503, headers: {'content-type': 'text/plain', server: 'example-gateway', 'retry-after': '3', 'set-cookie': 'must-not-be-recorded'}})
+    : original(url);
+  const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
+  assert.equal(report.failed, 1); assert.equal(report.passed, 1);
+  assert.equal(row.error_kind, 'HTTP_RESPONSE_ERROR'); assert.equal(row.failure_details.http_status, 503);
+  assert.equal(row.failure_details.path, 'gallery/new-model-wheel.png');
+  assert.equal(row.failure_details.response_headers.server, 'example-gateway');
+  assert.equal(row.failure_details.response_headers['retry-after'], '3');
+  assert(row.failure_details.public_error_excerpt.startsWith('upstream unavailable'));
+  assert(row.failure_details.public_error_excerpt.length <= 512);
+  assert(!JSON.stringify(report).includes('must-not-be-recorded'));
+});
+
+test('distinguishes a successful HTTP response with corrupt bytes from a service error', async () => {
+  const {options} = fixture({fault: {path: 'assets/new-model.glb', body: 'wrong'}});
+  const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
+  assert.equal(row.error_kind, 'CONTENT_HASH_MISMATCH');
+  assert.equal(row.failure_details.http_status, 200);
+  assert.equal(row.failure_details.sha256, sha('wrong'));
+  assert.equal(row.failure_details.expected_sha256, options.source.assets[0].sha256.glb);
+  assert.equal(report.models.find(r => r.id === 'replacement').status, 'PASS');
+});
+
+test('cancels non-text HTTP failure streams while retaining the service status', async () => {
+  const {options} = fixture(); const original = options.fetcher; let cancelled = false;
+  options.fetcher = async url => url.pathname.endsWith('new-model-wheel.png')
+    ? new Response(new ReadableStream({cancel() {cancelled = true;}}), {status: 503, headers: {'content-type': 'application/octet-stream'}})
+    : original(url);
+  const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
+  assert(cancelled); assert.equal(row.error_kind, 'HTTP_RESPONSE_ERROR');
+  assert.equal(row.failure_details.http_status, 503);
+  assert.equal(row.failure_details.public_error_excerpt, undefined);
+  assert.equal(report.models.find(r => r.id === 'replacement').status, 'PASS');
+});
