@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "browser": "154.0.8037.57",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "hardwarePerformanceVerified": false,
+  "checks": [
+    "9 real sample models, one selected option, one shared renderer",
+    "left wheel and settling keep detail selection unchanged",
+    "keyboard browse is separate from Enter selection",
+    "keyboard rotation and zoom equivalents",
+    "right wheel zooms without scrolling left list",
+    "metric comparison allows interaction and restores camera snapshot within floating-point tolerance",
+    "info hover travel, click pinning, Escape and focus return",
+    "filter drafts cancel, apply atomically, selected detail survives exclusion",
+    "chip removal and zero results preserve detail identity",
+    "Chinese composition does not submit partial query",
+    "delayed A→B selection cancels stale network and keeps title/download/model identity",
+    "intentional hover loads GLB, click retains observed orientation and reuses renderer",
+    "network failure retains correct poster/download and explicit retry recovers",
+    "Back restores the previous selected model",
+    "direct dragging rotates the detail",
+    "runtime reduced motion stops hover and preserves natural scroll stopping position",
+    "1024px layout remains within viewport",
+    "200% equivalent 720×450 CSS viewport has no horizontal overflow; native browser zoom remains manual",
+    "all sample GLB/Blend/image downloads match exact source bytes",
+    "wireframe toggle updates the real model materials",
+    "WebGL context loss preserves fallback and restoration recovers",
+    "repeated real select/hover release stays inside entry and estimated-byte cache bounds",
+    "390px touch collection → static detail → opt-in 3D → exit → return"
+  ],
+  "errors": [],
+  "limits": [
+    "9-model preview only; no 1k/10k performance certification",
+    "Chromium SwiftShader only; Safari and physical devices unverified",
+    "200% equivalent viewport checked; native browser zoom and pinch require manual verification",
+    "Isolated preview uses query-state URLs; production SSG routes are unchanged"
+  ]
+}
