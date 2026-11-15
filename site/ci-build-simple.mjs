@@ -39,7 +39,8 @@ export async function buildSimple(){
  await clearDeliveredAssets('dist');
  let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false});
  manifest=await deliverLegacyMedia(manifest);
- await checkGlbSizes({assets:manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id))},{root:'dist'});
+ const changedAssets=manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id));
+ if(changedAssets.length)await checkGlbSizes({assets:changedAssets},{root:'dist'});
  await writeFile('dist/glb-byte-budget.json',JSON.stringify(byteBudget,null,2)+'\n');
  await writeFile('dist/assets/manifest.json',JSON.stringify(manifest,null,2)+'\n');
  await writeCatalog(manifest,'dist',{approvedOnly:true});
