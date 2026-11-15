@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
 import {mkdtemp,mkdir,writeFile,readFile,rm,symlink,copyFile,stat} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {resolve,join,dirname} from 'node:path';
 import {buildSimple,copyPublicMember} from './ci-build-simple.mjs';
 import {testsFor} from './ci-code-tests.mjs';
+const originalBaseline=process.env.GLB_SIZE_BASELINE_COMMIT;
 const source=process.cwd(),root=await mkdtemp(join(tmpdir(),'simple-build-'));
 const put=async(path,value)=>{await mkdir(dirname(join(root,path)),{recursive:true});await writeFile(join(root,path),value);};
 try{
@@ -23,9 +25,26 @@ try{
  await put('empty','');await assert.rejects(copyPublicMember(root,join(root,'out'),'empty'));
  assert.deepEqual(testsFor(['assets/new/model.glb','site/public/gallery/new.png']),[]);
  assert(testsFor(['site/ci-build-simple.mjs']).includes('site/ci-simple-build-test.mjs'));
- process.chdir(root);const result=await buildSimple();assert.equal(result.status,'PASS');assert.equal(result.models,1);
- assert.equal((await readFile('dist/'+a.glb,'utf8')),'nonempty fixture; model QA is deliberately not repeated');
+ // The release byte gate intentionally requires Git history. Give this isolated
+ // fixture its own baseline rather than weakening the production gate or using
+ // the caller's release commit, which does not exist in this temporary checkout.
+ const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'});
+ git('init','-q');git('add','assets/manifest.json',a.glb);
+ git('-c','user.name=Test','-c','user.email=test@users.noreply.github.com','commit','-qm','Fixture baseline');
+ process.env.GLB_SIZE_BASELINE_COMMIT=git('rev-parse','HEAD').trim();
+ process.chdir(root);
+ // Changing bytes at the same path must still be checked even when metadata is
+ // unchanged. Verify the build entry point rejects over-budget replacement data.
+ await writeFile(a.glb,Buffer.alloc(5_000_001));
+ await assert.rejects(buildSimple(),/exceeds 5000000 bytes/);
+ await writeFile(a.glb,'nonempty fixture; model QA is deliberately not repeated');
+ const result=await buildSimple();assert.equal(result.status,'PASS');assert.equal(result.models,1);
+ assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,0);
+ await writeFile(a.glb,'under-budget replacement fixture');
+ const replacement=await buildSimple();assert.equal(replacement.status,'PASS');
+ assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,1);
+ assert.equal((await readFile('dist/'+a.glb,'utf8')),'under-budget replacement fixture');
  assert((await stat(`dist/assets/downloads/${a.id}.zip`)).size>0);
  await writeFile('vite.config.js','invalid JavaScript syntax !');await assert.rejects(buildSimple(),/Vite failed/);
  console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
-}finally{process.chdir(source);await rm(root,{recursive:true,force:true});}
+}finally{if(originalBaseline===undefined)delete process.env.GLB_SIZE_BASELINE_COMMIT;else process.env.GLB_SIZE_BASELINE_COMMIT=originalBaseline;process.chdir(source);await rm(root,{recursive:true,force:true});}
