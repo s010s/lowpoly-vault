@@ -77,23 +77,35 @@ export function createStagePoster(stage, reduced, mobile) {
   async function reveal(image) {
     const poster = current;
     if (!poster || poster.id !== image.dataset.modelId) return;
-    if (poster.travel) await poster.travel;
-    if (current !== poster || !image.isConnected) return;
-    const target = !reduced() && poster.canvas.animate && imageFrame(image, { includeHidden: true });
-    const source = target && frame(poster.id);
-    if (source?.box.width && source.box.height) {
-      const end = artLanding(source, target);
-      const transform = new DOMMatrix(getComputedStyle(poster.canvas).transform);
-      const x = transform.e + end.left - source.box.left, y = transform.f + end.top - source.box.top;
-      poster.animation = poster.canvas.animate([
-        { transform: `translate(${transform.e}px,${transform.f}px) scale(1)` },
-        { transform: `translate(${x}px,${y}px) scale(${end.width / source.box.width})` },
-      ], { duration: mobile() ? reducedDuration : 220, easing: fastSettle, fill: 'both', id: animationId + 'poster' });
-      await poster.animation.finished.catch(() => {});
+    // A canceled navigation animation is not a failed image load.
+    if (poster.travel) await Promise.resolve(poster.travel).catch(() => {});
+    if (current !== poster) return;
+    if (!image.isConnected) { clear(); return; }
+    // Motion is optional: reduced-motion, missing WAAPI, or an unavailable
+    // layout must still reveal the decoded image and retire the bridge.
+    const target = !reduced() && typeof poster.canvas.animate === 'function'
+      ? imageFrame(image, { includeHidden: true }) : null;
+    const source = target ? frame(poster.id) : null;
+    if (source?.box?.width > 0 && source.box.height > 0) {
+      try {
+        const end = artLanding(source, target);
+        const transform = new DOMMatrix(getComputedStyle(poster.canvas).transform);
+        const x = transform.e + end.left - source.box.left, y = transform.f + end.top - source.box.top;
+        poster.animation = poster.canvas.animate([
+          { transform: `translate(${transform.e}px,${transform.f}px) scale(1)` },
+          { transform: `translate(${x}px,${y}px) scale(${end.width / source.box.width})` },
+        ], { duration: mobile() ? reducedDuration : 220, easing: fastSettle, fill: 'both', id: animationId + 'poster' });
+        await poster.animation.finished.catch(() => {});
+      } catch {
+        // A presentation-only animation failure must not block model loading.
+      }
     }
     if (current === poster && image.isConnected) {
       // The two poses exchange in one paint, after the decoded poster is ready.
       image.style.visibility = 'visible';
+      clear();
+    } else if (current === poster) {
+      // The target may be removed while its optional animation is settling.
       clear();
     }
   }

@@ -74,7 +74,7 @@ function warmDetailPosters(){
  const nearby=state.results.slice(Math.max(0,center-1),center+2);
  for(const [id,entry] of detailPosterCache)if(!entry.ready&&!nearby.some(asset=>asset.id===id)){entry.image.onload=entry.image.onerror=null;entry.image.removeAttribute('src');detailPosterCache.delete(id);}
  for(const asset of nearby){
-  if(asset.id===state.selected||detailPosterCache.has(asset.id))continue;
+  if(asset.id===state.selected||detailPosterCache.has(asset.id)||!asset.galleryPosters?.detail)continue;
   const image=document.createElement('img'),entry={image,ready:false};image.decoding='async';cacheDetailPoster(asset.id,entry);
   image.onload=()=>{Promise.resolve(image.decode?.()).then(()=>{if(detailPosterCache.get(asset.id)===entry)entry.ready=true;},()=>{});};
   image.onerror=()=>{if(detailPosterCache.get(asset.id)===entry)detailPosterCache.delete(asset.id);};image.src=poster(asset);
@@ -191,8 +191,8 @@ function selectPoster(asset,version,source){
  const bridge=stagePoster.prepare(asset.id,warmed?.ready&&!isPhone?null:source);
  if(warmed&&!warmed.ready){warmed.image.onload=warmed.image.onerror=null;warmed.image.removeAttribute('src');}
  detailPosterCache.delete(asset.id);image.id='detail-poster';image.alt=asset.name[state.lang]||asset.name.en;image.dataset.modelId=asset.id;image.dataset.state='loading';image.dataset.source='canonical';image.style.visibility='hidden';image.decoding='async';image.fetchPriority='high';
- const active=()=>version===selectionVersion&&state.selected===asset.id&&$('#detail-poster')===image;
- let fallback=false,frame=0,settled=false,revealing=false,resolveReady;
+ const active=()=>version===selectionVersion&&state.selected===asset.id&&$('#detail-poster')===image&&image.dataset.state!=='invalid-version';
+ let frame=0,settled=false,revealing=false,resolveReady;
  const ready=new Promise(resolve=>resolveReady=resolve);
  const finish=value=>{if(settled)return;settled=true;if(frame)cancelAnimationFrame(frame);frame=0;resolveReady(value);};
  cancelSelectedPoster=()=>finish(false);
@@ -208,7 +208,18 @@ function selectPoster(asset,version,source){
   else{image.style.visibility='visible';acknowledge();}
  };
  image.onload=()=>{if(!active())return;Promise.resolve(image.decode?.()).then(reveal,reveal);};
- image.onerror=()=>{if(!active())return;if(!fallback){fallback=true;image.dataset.source='fallback';updateSelectedPosterFrame();image.src=urlAsset(asset.preview);}else{image.dataset.state='error';image.style.visibility='hidden';finish(false);}};
+ image.onerror=()=>{
+  if(!active())return;
+  // Generic previews can have another camera, crop or renderer. Never pass
+  // them off as the canonical first 3D frame when the matching poster fails.
+  image.dataset.state='error';image.dataset.source='unavailable';image.style.visibility='hidden';
+  stagePoster.clear();finish(false);
+  if(!currentReady)$('#loading').textContent=stage.dataset.state==='fallback'
+   ?t('Preview and 3D unavailable · retry','预览图与3D暂不可用，请重试')
+   :stage.dataset.state==='static'
+   ?t('Preview unavailable · tap Interact in 3D','预览图暂不可用，请点「交互查看」')
+   :t('Preview unavailable · preparing the 3D view…','预览图暂不可用，正在准备3D视图…');
+ };
  if(previous){
   previous.onload=previous.onerror=null;previous.replaceWith(image);
   // Desktop history can restore a model whose wheel thumbnail was filtered out.
@@ -217,7 +228,7 @@ function selectPoster(asset,version,source){
    cacheDetailPoster(previousId,{image:previous,ready:true});
   }else previous.removeAttribute('src');
  }else stage.prepend(image);
- if(warmed?.ready)reveal();else{image.src=poster(asset);if(image.complete&&image.naturalWidth>0)image.onload();}
+ if(!asset.galleryPosters?.detail)queueMicrotask(image.onerror);else if(warmed?.ready)reveal();else{image.src=poster(asset);if(image.complete&&image.naturalWidth>0)image.onload();}
  return {image,ready,bridge};
 }
 async function choose(id,{push=true,openMobile=true,activateMobile=false,center=false,syncHistory=true,phoneSource=null}={}){
@@ -227,7 +238,7 @@ async function choose(id,{push=true,openMobile=true,activateMobile=false,center=
  const source=opening?.art||(!isPhone?wheelArtwork(row):wasOpen?stagePoster.frame(id):null);
  if(opening||wasOpen)phoneContinuity.stop();
  cancelPosterWarmup();ui.resetCopy();if(push&&syncHistory)saveCurrentHistory();if(push)state.view='detail';const version=++selectionVersion;clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;closeInfo();hover.pause();settler.stop();state.selected=id;state.keyboard=id;currentReady=false;stage.dataset.modelId=id;stage.dataset.state='loading';title.textContent=short(asset);$('#subtitle').textContent=t(categories[asset.category]?.[0]||asset.category,categories[asset.category]?.[1]||asset.category)+' / '+t('Stylized specimen','风格化示意');$('#triangles').textContent=asset.triangles.toLocaleString();$('#dimensions').textContent=modelHeight(asset);$('#file-size').textContent=Math.round((asset.glb_bytes||0)/1024)+' KB';
- $('#download').href=urlAsset(asset.glb);$('#blend').href=urlAsset(asset.blend);const selectedPoster=selectPoster(asset,version,source);$('#retry').hidden=true;$('#loading').textContent='';infoContent(asset);$('#comparison-label').hidden=true;$('#compare').setAttribute('aria-pressed','false');$('#compare').disabled=true;$('#wireframe').setAttribute('aria-pressed',String(renderer?.wire||false));renderSummary();renderWheel();settler.stop();
+ $('#download').href=urlAsset(asset.glb);$('#blend').href=urlAsset(asset.blend);$('#download').removeAttribute('aria-disabled');$('#blend').removeAttribute('aria-disabled');for(const link of [$('#download'),$('#blend')]){link.style.removeProperty('opacity');link.style.removeProperty('pointer-events');}const selectedPoster=selectPoster(asset,version,source);$('#retry').hidden=true;$('#loading').textContent='';infoContent(asset);$('#comparison-label').hidden=true;$('#compare').setAttribute('aria-pressed','false');$('#compare').disabled=true;$('#wireframe').setAttribute('aria-pressed',String(renderer?.wire||false));renderSummary();renderWheel();settler.stop();
  state.mobileOpen=state.view==='detail'&&openMobile;syncMobileView();updateSelectedPosterFrame();
  if(center)settler.centerOn(id,{immediate:mobile()});
  if(syncHistory){if(push)pushHistory();else saveCurrentHistory();}
@@ -247,9 +258,25 @@ async function choose(id,{push=true,openMobile=true,activateMobile=false,center=
   });
   if(version!==selectionVersion||!ready)return;currentReady=true;hover.refresh();$('#detail').dataset.state='ready';$('#detail-poster').classList.add('ready');$('#loading').textContent='';$('#compare').disabled=!renderer.detail.metric?.available;$('#compare').title=renderer.detail.metric?.available?'':t('Metric scale is unverified','米制尺寸未验证');
  }
- catch{showError(version,id);}finally{clearTimeout(loadingTimer);if(selectionLoadingTimer===loadingTimer)selectionLoadingTimer=0;}
+ catch(error){showError(version,id,error);}finally{clearTimeout(loadingTimer);if(selectionLoadingTimer===loadingTimer)selectionLoadingTimer=0;}
 }
-function showError(version=selectionVersion,id=state.selected){if(version!==selectionVersion||id!==state.selected)return;clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;cancelSelectedPoster?.();currentReady=false;hover.pause();$('#detail').dataset.state='fallback';$('#detail-poster').classList.remove('ready');$('#loading').textContent=t('Static preview · 3D unavailable','静态预览 · 3D暂不可用');$('#retry').hidden=false;}
+function showError(version=selectionVersion,id=state.selected,error){
+ if(version!==selectionVersion||id!==state.selected)return;
+ clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;cancelSelectedPoster?.();currentReady=false;hover.pause();
+ const image=$('#detail-poster'),integrityFailure=['MODEL_VERSION_MISMATCH','MODEL_IDENTITY_MISSING','MODEL_INTEGRITY_UNAVAILABLE'].includes(error?.code);
+ $('#detail').dataset.state=integrityFailure?'version-error':'fallback';image.classList.remove('ready');
+ if(integrityFailure){
+  // The selected poster must not imply that mismatched/unverified model bytes
+  // have been displayed. Retire late decode/transition callbacks as well.
+  image.dataset.state='invalid-version';image.dataset.source='invalid-version';image.onload=image.onerror=null;image.style.visibility='hidden';image.removeAttribute('src');stagePoster.clear();
+  for(const link of [$('#download'),$('#blend')]){link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.style.opacity='.45';link.style.pointerEvents='none';}
+  $('#loading').textContent=error.code==='MODEL_VERSION_MISMATCH'
+   ?t('Model version mismatch · preview hidden · retry','模型版本不匹配，已隐藏预览，请重试')
+   :t('Model version could not be verified · preview hidden · retry','无法核验模型版本，已隐藏预览，请重试');
+ }else $('#loading').textContent=image.dataset.state==='error'?t('Preview and 3D unavailable · retry','预览图与3D暂不可用，请重试'):t('Static preview · 3D unavailable','静态预览 · 3D暂不可用');
+ $('#retry').hidden=false;
+}
+
 function syncMobileView(){
  const open=mobile()&&state.mobileOpen;
  document.body.classList.toggle('mobile-detail',open);$('#mobile-back').hidden=!open;
@@ -352,7 +379,7 @@ $('#detail').addEventListener('keydown',event=>{if(event.ctrlKey||event.metaKey|
 $('#credits').onclick=event=>{const asset=sample.find(a=>a.id===state.selected);if(asset)ui.copyAttribution(asset,event);};
 $('#mobile-back').onclick=returnToCollection;window.addEventListener('blur',stopHover);window.addEventListener('resize',()=>{phoneContinuity.stop();wheelContinuity.stop();updateSelectedPosterFrame();stopHover();clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{const id=state.center,index=state.results.findIndex(a=>a.id===id);settler.stop();measure();if(index>=0)setWheelPosition(index*SLOT);renderWheel();settler.stop();syncMobileView();updateSelectedPosterFrame();renderer?.draw();},80);});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{phoneContinuity.stop();wheelContinuity.stop();stopHover();settler.stop();renderWheel();});
 translate();$('#search').value=state.query;state.results=compute();state.keyboard=state.selected;renderSummary();renderWheel();setWheelPosition(Number.isFinite(savedState?.scroll)?Math.max(0,savedState.scroll):Math.max(0,state.results.findIndex(a=>a.id===state.selected))*SLOT);wheelTitle.reset();renderWheel();settler.stop();
-try{renderer=new PreviewRenderer($('#detail'));renderer.onReferenceError=error=>{$('#compare').ariaPressed='false';$('#comparison-label').hidden=false;$('#comparison-label').textContent=t('Reference could not load. Try again.','参照加载失败，请重试。');console.warn(error);};renderer.onInteraction=stopHover;renderer.onError=(error,context)=>{if(!context||context.assetId===state.selected)showError();};renderer.onRestore=()=>choose(state.selected,{push:false,preserve:false,activateMobile:mobile()});}catch(error){console.warn('Static fallback',error.message);}
+try{renderer=new PreviewRenderer($('#detail'));renderer.onReferenceError=error=>{$('#compare').ariaPressed='false';$('#comparison-label').hidden=false;$('#comparison-label').textContent=t('Reference could not load. Try again.','参照加载失败，请重试。');console.warn(error);};renderer.onInteraction=stopHover;renderer.onError=(error,context)=>{if(!context||context.assetId===state.selected)showError(selectionVersion,state.selected,error);};renderer.onRestore=()=>choose(state.selected,{push:false,preserve:false,activateMobile:mobile()});}catch(error){console.warn('Static fallback',error.message);}
 window.__preview={state,models:sample,choose,settler,get renderer(){return renderer;},get detailPosterCacheStats(){const entries=[...detailPosterCache].map(([id,e])=>({id,ready:e.ready,width:e.image.naturalWidth,height:e.image.naturalHeight,src:e.image.currentSrc||e.image.src}));return {size:entries.length,limit:DETAIL_POSTER_CACHE_LIMIT,entries,estimatedDecodedRGBABytes:entries.filter(e=>e.ready).reduce((n,e)=>n+e.width*e.height*4,0)};},get thumbnailStats(){return thumbnails.stats;},renderWheel,returnToCollection,async generatePosters(){const output={};for(const asset of sample)output[asset.id]=await renderer.poster(asset);return output;},async generateWheelPosters(){const images={},specs={};for(const asset of sample){images[asset.id+'-wheel']=await renderer.poster(asset,{wheel:true});specs[asset.id]=renderer.lastPosterSpec;}return {images,specs};}};
 if(state.selected)await choose(state.selected,{push:false,preserve:false,openMobile:hasInitialModel});else{$('#title').textContent=t('No published models yet','暂无已发布模型');$('.download-card').hidden=true;$('#detail').hidden=true;}
 window.__gallery=window.__preview;

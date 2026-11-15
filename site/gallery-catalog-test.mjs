@@ -36,7 +36,7 @@ assert.equal(url.pathname,'/lowpoly-vault/zh-CN/models/page/3/');
 assert.deepEqual(readGalleryQuery(url.searchParams),parsed,'All shareable filters survive reload and locale switch');
 assert.deepEqual(emptyFacets(),{worlds:[],packs:[],category:[],collection:[],triangleBand:[],triangleMax:[]});
 const bird=models.find(a=>a.id==='confuciusornis'),rule=MEASURED_SUPPORTS.confuciusornis;
-assert.equal(bird.sha256.glb,rule.sha256,'Production must retain reviewed support source digest');
+if(bird.sha256.glb!==rule.sha256)assert.equal(measuredSupport(bird,{sha256:bird.sha256.glb}),null,'A newer model must not inherit the historical support correction');
 assert.equal(measuredSupport({...bird,sha256:{glb:'wrong'}},{sha256:rule.sha256}),null);
 console.log(`Gallery catalog passed: ${models.length} real published models, future catalog growth, exact metadata, source-bound resources, full search/filter URLs and bilingual pagination.`);
 

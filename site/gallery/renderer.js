@@ -1,3 +1,6 @@
+const DISPLAY_ORIENTATION_YAW={"astraspis": 3.141592653589793, "belemnotheutis": 3.141592653589793, "casea": 4.71238898038469, "cephalaspis": 4.71238898038469, "dimetrodon": 4.71238898038469, "dollocaris": 3.141592653589793, "elasmotherium": 4.71238898038469, "emeraldella": 3.141592653589793, "euproops": 4.71238898038469, "mecochirus": 3.141592653589793, "mesolimulus": 4.71238898038469, "olenellus": 3.141592653589793, "opabinia": 3.141592653589793, "palaeophonus": 3.141592653589793, "plenocaris": 3.141592653589793, "plesiadapis": 3.141592653589793, "proterogyrinus": 3.141592653589793, "tanystropheus": 4.71238898038469, "thalassodromeus": 3.141592653589793, "koolasuchus": 3.141592653589793, "mammut": 3.141592653589793, "platysomus": 3.141592653589793};
+const DISPLAY_ORIENTATION_CANDIDATES={"astraspis": "cd56774ebdd09372455fc6ca6478bb0ebf1a9d6dabe9e7f52e6d356736bf7cff", "belemnotheutis": "54bc58882d8006a06b6cb8788067936175642bab76c5b50db0492924ebcf9f4a", "casea": "305ba1e6f6ec5049399786ed3a837907e5739d9dc9c6cff15a3b00764dbf36c9", "cephalaspis": "de9ca9304ac1e1c577baf37ace2d201e2a7659d11709f64374ce53eebfbec21b", "dimetrodon": "1c01f311e1ec4019b0aaa2e3d03b1cf9594856ad97233233d4ea8cb783ea3c33", "dollocaris": "bc7651bf7cf535a32b8ce6937f6d53f7d1d4ac89044ac4ce3e2b89229f8d5cab", "elasmotherium": "abb90c031092fa745acbb4071cf3f043a3152537022bec9e794b609cc3639c8e", "emeraldella": "c2ca008ceaa7597b5aa0c951e062392e373997887eb91164d30c221603487f75", "euproops": "c123ff230fb22567d16bc30c3861214b8d226c2eaebfd91e295090330bec33af", "mecochirus": "d950681148e88d44d9635b565b7bbb986f85e1a194df611093ac6e8a04cbc9a5", "mesolimulus": "afbb672c846693b301ed1fa512c34843f7e6d0ad4eac6e1a5633dace632ced4e", "olenellus": "aac1d4525cd558fc31ffd3415107ba74eaa38bebd787e4de24bfae7fec9ca9e7", "opabinia": "4d70a77c155a5d4f2fce183c3e9369d849abbbd10392509b89fe073af71aa9ac", "palaeophonus": "18fe528764de23edb7399e9f1694bca26521e07ab08f9b0926e6e541a2278b7e", "plenocaris": "35b5ba379547edb0cf15a392a7423eef049a868ce0f05b7302f0232ea8625913", "plesiadapis": "cfccb4a9e067d16cc2f8a49cc3c6ddba3e1ef853010a9d879331341ae7207c12", "proterogyrinus": "3bac4f365a728f6236e2abd4098d5d608b1cb563a4ab1e8abddb1b7854881fcc", "tanystropheus": "4de2e8763b34b3cae54cd687e5e761cd52764969dddbc31876e378e99e28b416", "thalassodromeus": "4688d2008512646280dcb07a719b9f548edd24b1fe4e0a21a0e107f4fcd3179c", "koolasuchus": "f63d0c8b8d803675540563be1c5afe86ba4a599a5c512959992f7cb9c58f08a3", "mammut": "68237db44f3bb685f6b4c8ff8399302deb58e361f89bdd8f086f239cdcfeb2c1", "platysomus": "6a45b0dac25f33e3969ae54cd25cda4c32b3a92b562417c5e8b4ca181634ae20"};
+const DISPLAY_MATERIAL_CANDIDATES={"dorypterus": "2be89e0f439d328f786fcb355380ce27079fbd66f03ebaa8c303e90b4f7a92a3", "platysomus": "6a45b0dac25f33e3969ae54cd25cda4c32b3a92b562417c5e8b4ca181634ae20", "mammut": "68237db44f3bb685f6b4c8ff8399302deb58e361f89bdd8f086f239cdcfeb2c1", "carnotaurus": "36953e70fb997d1fa502aef7efe73379022529fea7ebad6ecabd537d119b4899"};
 import * as THREE from 'three';
 import {assetURL} from './urls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -18,7 +21,7 @@ const direction=(a,e)=>new THREE.Vector3(Math.sin(a*Math.PI/180)*Math.cos(e*Math
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 export class PreviewRenderer {
  constructor(detail,onChange){
-  this.host=detail;this.onChange=onChange;this.cache=new Map();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
+  this.host=detail;this.onChange=onChange;this.cache=new Map();this.retiredEntries=new Set();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
   this.stats={rendererCount:1,requests:0,aborted:0,stale:0,cacheEntries:0,estimatedCacheBytes:0,cacheByteLimit:48*1024*1024,frames:0,hoverId:null,detailId:null};
   this.renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});
   this.renderer.domElement.className='preview-renderer';this.renderer.domElement.setAttribute('aria-hidden','true');document.body.append(this.renderer.domElement);
@@ -106,29 +109,47 @@ export class PreviewRenderer {
   return {scene,camera,key,floor,grid,contact,shadowViewport,target:new THREE.Vector3(),model:null,asset:null,scale:1};
  }
  async resource(asset,signal,priority='auto'){
-  if(this.cache.has(asset.id)){const e=this.cache.get(asset.id);this.cache.delete(asset.id);this.cache.set(asset.id,e);return e;}
+  const expected=asset.sha256?.glb,sourceURL=new URL(assetURL(asset.glb)).href;
+  const failure=(code,message)=>Object.assign(new Error(message),{code});
+  if(!/^[a-f0-9]{64}$/.test(expected||''))throw failure('MODEL_IDENTITY_MISSING','This model has no valid expected version digest');
+  if(this.cache.has(asset.id)){
+   const e=this.cache.get(asset.id);this.cache.delete(asset.id);
+   if(e.sha256===expected&&e.sourceURL===sourceURL){this.cache.set(asset.id,e);return e;}
+   this.retiredEntries.add(e);this.releaseRetiredEntries();
+  }
+  if(!globalThis.crypto?.subtle)throw failure('MODEL_INTEGRITY_UNAVAILABLE','This browser cannot verify the model version');
   this.stats.requests++;
-  const response=await fetch(new URL(assetURL(asset.glb)),{signal,priority});if(!response.ok)throw new Error('GLB '+response.status);
+  const response=await fetch(sourceURL,{signal,priority});if(!response.ok)throw new Error('GLB '+response.status);
   const bytes=await response.arrayBuffer();if(signal?.aborted)throw new DOMException('Cancelled','AbortError');
-  // Only reviewed support overrides need a byte-level identity check. A changed
-  // source safely falls back to the existing box origin until reviewed again.
-  const sha256=needsSupportDigest(asset)&&globalThis.crypto?.subtle?Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join(''):null;
+  let sha256;
+  try{sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');}
+  catch{throw failure('MODEL_INTEGRITY_UNAVAILABLE','The model version could not be verified');}
+  if(signal?.aborted)throw new DOMException('Cancelled','AbortError');
+  // Reject before GLTF parsing, caching, model attachment, or first-frame ready.
+  if(sha256!==expected)throw failure('MODEL_VERSION_MISMATCH','Received model bytes do not match the selected version');
   const gltf=await new GLTFLoader().parseAsync(bytes,new URL('.',new URL(assetURL(asset.glb))).href);
   if(signal?.aborted){this.disposeRoot(gltf.scene);throw new DOMException('Cancelled','AbortError');}
   const box=new THREE.Box3().setFromObject(gltf.scene),size=box.getSize(new THREE.Vector3());
   const buffers=new Set(),textures=new Set();gltf.scene.traverse(o=>{if(o.geometry){for(const a of [...Object.values(o.geometry.attributes),o.geometry.index])if(a?.array?.buffer)buffers.add(a.array.buffer);}for(const m of Array.isArray(o.material)?o.material:[o.material])if(m)for(const v of Object.values(m))if(v?.isTexture)textures.add(v);});const estimatedBytes=[...buffers].reduce((n,b)=>n+b.byteLength,0)+[...textures].reduce((n,t)=>n+Math.ceil((t.image?.width||0)*(t.image?.height||0)*4*4/3),0);
-  const entry={root:gltf.scene,box,size,sha256,bytes:bytes.byteLength,estimatedBytes};this.cache.set(asset.id,entry);this.stats.cacheEntries=this.cache.size;this.trim(asset.id);return entry;
+  const entry={root:gltf.scene,box,size,sha256,sourceURL,bytes:bytes.byteLength,estimatedBytes};this.cache.set(asset.id,entry);this.stats.cacheEntries=this.cache.size;this.trim(asset.id);return entry;
+ }
+ releaseRetiredEntries(){
+  for(const entry of this.retiredEntries||[]){
+   if((this.detail?.model&&this.detail.entry===entry)||(this.hover?.model&&this.hover.entry===entry))continue;
+   this.disposeRoot(entry.root);this.retiredEntries.delete(entry);
+  }
  }
  trim(pendingId){let total=[...this.cache.values()].reduce((n,e)=>n+e.estimatedBytes,0);for(const [id,entry] of this.cache){if(this.cache.size<=3&&total<=this.stats.cacheByteLimit)break;if(id===pendingId||id===this.detail.asset?.id||id===this.hover?.asset?.id)continue;this.cache.delete(id);total-=entry.estimatedBytes;this.disposeRoot(entry.root);}this.stats.cacheEntries=this.cache.size;this.stats.estimatedCacheBytes=total;}
  disposeView(view){this.detach(view);for(const o of [view.floor,view.grid,view.contact]){o.geometry.dispose();o.material.map?.dispose();o.material.dispose();}view.key.shadow.map?.dispose();view.key.shadow.mapPass?.dispose();view.scene.clear();}
 
  disposeRoot(root){const gs=new Set(),ms=new Set();root.traverse(o=>{if(o.geometry)gs.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])if(m)ms.add(m);});gs.forEach(g=>g.dispose());ms.forEach(m=>{for(const v of Object.values(m))if(v?.isTexture)v.dispose();m.dispose();});}
- detach(view){if(!view?.model)return;view.model.removeFromParent();view.model.traverse(o=>{for(const m of Array.isArray(o.material)?o.material:[o.material])m?.dispose();});view.model=null;view.orientation=null;view.comparisonYaw=null;view.authoredRoot=null;view.supportOffset=null;view.supportRule=null;}
+ detach(view){if(!view?.model)return;view.model.removeFromParent();view.model.traverse(o=>{for(const m of Array.isArray(o.material)?o.material:[o.material])m?.dispose();});view.model=null;view.orientation=null;view.comparisonYaw=null;view.authoredRoot=null;view.supportOffset=null;view.supportRule=null;view.entry=null;this.releaseRetiredEntries();}
  attach(view,asset,entry){
   this.detach(view);view.asset=asset;view.scale=2/Math.max(...entry.size.toArray());const group=new THREE.Group();const root=entry.root.clone(true);
   const center=entry.box.getCenter(new THREE.Vector3());root.position.sub(new THREE.Vector3(center.x,entry.box.min.y,center.z));root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true; o.material=Array.isArray(o.material)?o.material.map(m=>m.clone()):o.material.clone();}});
+  if(Object.hasOwn(DISPLAY_MATERIAL_CANDIDATES,asset.id)&&DISPLAY_MATERIAL_CANDIDATES[asset.id]===entry.sha256)root.traverse(o=>{if(o.isMesh)for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.metalness=0;m.needsUpdate=true;}});
   const supportRule=measuredSupport(asset,entry),supportOffset=supportRule?new THREE.Vector3(supportRule.point[0]-center.x,0,supportRule.point[2]-center.z):new THREE.Vector3();
-  const orientation=new THREE.Group();orientation.position.x=-supportOffset.x;orientation.position.z=-supportOffset.z;orientation.name='main-model-inspection-pivot';orientation.position.y=entry.size.y*.49;root.position.y-=orientation.position.y;orientation.add(root);const comparisonYaw=new THREE.Group();comparisonYaw.name='main-model-ground-yaw';comparisonYaw.position.copy(supportOffset);comparisonYaw.add(orientation);group.add(comparisonYaw);group.name='main-model-layout-only';group.scale.setScalar(view.scale);view.scene.add(group);view.model=group;view.orientation=orientation;view.comparisonYaw=comparisonYaw;view.authoredRoot=root;view.supportOffset=supportOffset;view.supportRule=supportRule;view.entry=entry;view.target.set(0,entry.size.y*view.scale*.49,0);
+  const orientation=new THREE.Group();orientation.position.x=-supportOffset.x;orientation.position.z=-supportOffset.z;orientation.name='main-model-inspection-pivot';orientation.position.y=entry.size.y*.49;root.position.y-=orientation.position.y;const authoredPose=new THREE.Group();authoredPose.name='exact-version-initial-display-pose';if(Object.hasOwn(DISPLAY_ORIENTATION_CANDIDATES,asset.id)&&DISPLAY_ORIENTATION_CANDIDATES[asset.id]===entry.sha256)authoredPose.rotation.y=DISPLAY_ORIENTATION_YAW[asset.id];authoredPose.add(root);orientation.add(authoredPose);const comparisonYaw=new THREE.Group();comparisonYaw.name='main-model-ground-yaw';comparisonYaw.position.copy(supportOffset);comparisonYaw.add(orientation);group.add(comparisonYaw);group.name='main-model-layout-only';group.scale.setScalar(view.scale);view.scene.add(group);view.model=group;view.orientation=orientation;view.comparisonYaw=comparisonYaw;view.authoredRoot=root;view.supportOffset=supportOffset;view.supportRule=supportRule;view.entry=entry;view.target.set(0,entry.size.y*view.scale*.49,0);
   view.contact.visible=true;view.contact.position.x=view.contact.position.z=0;view.contact.scale.set(Math.max(.45,entry.size.x*view.scale*1.35),Math.max(.45,entry.size.z*view.scale*1.6),1);
   view.metric=metricReferenceSpec(entry.size,asset);this.fit(view,preset.azimuth,preset.elevation);return view;
  }

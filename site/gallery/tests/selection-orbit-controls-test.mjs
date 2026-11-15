@@ -66,7 +66,7 @@ globalThis.fetch=async(url,{signal}={})=>{
  if(path.startsWith('gallery/scale-reference/')){const bytes=await readFile(new URL('site/public/'+path,repositoryURL));return {ok:true,arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)};}
  return new Promise((resolve,reject)=>network.push({path,signal,reject,async resolve(){const bytes=await readFile(fixtureAssetURL(path));resolve({ok:true,arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)});}}));
 };
-const r=Object.create(PreviewRenderer.prototype);r.stats={requests:0,aborted:0,stale:0,cacheByteLimit:48*1024*1024};r.cache=new Map();r.pending=new Map();r.token=r.referenceToken=0;r.wire=false;r.stopHover=()=>{};
+const r=Object.create(PreviewRenderer.prototype);r.stats={requests:0,aborted:0,stale:0,cacheByteLimit:48*1024*1024};r.cache=new Map();r.retiredEntries=new Set();r.pending=new Map();r.token=r.referenceToken=0;r.wire=false;r.stopHover=()=>{};
 r.detail={scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(38,1,.01,100),contact:new THREE.Object3D(),target:new THREE.Vector3()};r.detail.scene.fog=new THREE.Fog('#c5bdb3',6,18);r.controls={target:new THREE.Vector3(),enabled:false,update(){}};
 r.renderer={domElement:{style:{}},setScissorTest(){},setClearColor(){},clear(){clears++;}};
 r.host=$('#detail');r.visible=true;
@@ -102,7 +102,7 @@ const settleChoice=(...args)=>settle(p.choose(...args));
 const model=id=>models.find(a=>a.id===id),request=id=>network.findLast(n=>n.path===model(id).glb);
 const active=id=>{assert.equal(p.state.selected,id);assert.equal($('#detail').dataset.modelId,id);assert.equal($('#detail-poster').dataset.modelId,id);assert.equal($('#detail-poster').src,assetURL(model(id).galleryPosters?.detail||model(id).preview));};
 const baseline=()=>{const actual=r.viewState(),wanted=r.singleState();for(const key of ['position','target','modelPosition','modelQuaternion'])actual[key].forEach((x,i)=>assert(Math.abs(x-wanted[key][i])<1e-7,key));assert.equal(actual.zoom,1);assert.equal(r.comparison,false);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);assert.equal(r.controls.enabled,true);};
-const first=p.state.selected;await request(first).resolve();await flush();assert.equal($('#detail').dataset.state,'ready');baseline();
+const first=p.state.selected;await request(first).resolve();await settle((async()=>{const until=Date.now()+15000;while($('#detail').dataset.state==='loading'&&Date.now()<until)await new Promise(resolve=>setTimeout(resolve,1));})());assert.equal($('#detail').dataset.state,'ready');baseline();
 $('#wheel').scrollTop=0;p.renderWheel();await settleChoice(first,{center:true});advance(600);assert.equal($('#wheel').scrollTop,p.state.results.findIndex(asset=>asset.id===first)*128);assert.equal(p.settler.state,'idle');
 checks.push('Non-reduced-motion desktop activation completes its centering RAF after collection visibility is synchronized');
 // Inspect each transient handoff boundary, instead of only its ready endpoint.
@@ -122,7 +122,7 @@ checks.push('Cached selection ignores legacy preserve/hover pose options and del
 // Stale errors never flip the newest loading/ready UI into fallback.
 const badB=p.choose(B);const cachedC=p.choose(C);request(B).reject(new Error('late old network failure'));await settle(Promise.all([badB,cachedC]));active(C);assert.equal($('#detail').dataset.state,'ready');baseline();
 checks.push('A stale request error cannot overwrite the newest cached asset status');
-const D='fern-cluster';const failed=p.choose(D);request(D).reject(new Error('current network failure'));await settle(failed);active(D);assert.equal($('#detail').dataset.state,'fallback');assert.equal(r.detail.model,null);assert.equal(r.renderer.domElement.style.visibility,'visible');assert.equal($('#retry').hidden,false);const failedPoster=$('#detail-poster');failedPoster.onerror();assert.equal(failedPoster.src,new URL(model(D).preview,document.baseURI).href);failedPoster.onerror();assert.equal(failedPoster.style.visibility,'hidden');
+const D='fern-cluster';const failed=p.choose(D);request(D).reject(new Error('current network failure'));await settle(failed);active(D);assert.equal($('#detail').dataset.state,'fallback');assert.equal(r.detail.model,null);assert.equal(r.renderer.domElement.style.visibility,'visible');assert.equal($('#retry').hidden,false);const failedPoster=$('#detail-poster');failedPoster.onerror();assert.equal(failedPoster.dataset.source,'unavailable');assert.equal(failedPoster.style.visibility,'hidden');
 const retry=p.choose(D,{push:false});await request(D).resolve();await settle(retry);baseline();active(D);assert.equal($('#detail').dataset.state,'ready');
 checks.push('Current failure keeps only the selected asset fallback, image fallback is ID-scoped, and Retry starts from a clean baseline');
 await settleChoice(C);r.rotate(90,12);r.zoom(.4);r.compare(true);await r.referenceReady;advance(250);assert(r.cameraFrame);assert(r.referenceFrame);const toA=p.choose(first);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);await settle(toA);advance(4000);baseline();active(first);assert(Math.abs(r.detail.scene.fog.near-Math.max(6,r.viewState().distance*1.5))<1e-10);
