@@ -7,7 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "node site/ci-build-simple.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node site/unified-delivery-contract-test.mjs && node site/ci-simple-build-test.mjs && node site/ci-live-smoke-test.mjs",
+    "test": "node site/gallery/tests/metric-unit-contract-test.mjs && node site/unified-delivery-contract-test.mjs && node site/ci-simple-build-test.mjs && node site/ci-live-smoke-test.mjs",
     "test:browser": "node site/browser-test.mjs",
     "manifest": "node site/generate-manifest.mjs",
     "manifest:check": "node site/generate-manifest.mjs --check",

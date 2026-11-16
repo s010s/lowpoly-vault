@@ -1,21 +1,26 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import vm from 'node:vm';
-import {formatModelLength,modelHeight,dimensionDetails,dimensionNote,comparisonMeasurement,comparisonText} from '../model-dimensions.js';
+import {hasMetricDimensions,formatModelLength,modelHeight,dimensionDetails,dimensionNote,comparisonMeasurement,comparisonText} from '../model-dimensions.js';
 import {publishedModels} from './geometry-fixtures.mjs';
 import {validDetailPresentation,detailScreenFrame} from '../detail-presentation-policy.js';
 const root=new URL('./',import.meta.url),models=await publishedModels(),source=await readFile(new URL('../main.js',root),'utf8'),html=await readFile(new URL('../shell.html',root),'utf8');
 const checks=[];assert(models.length>0);
-const cycad=models.find(a=>a.id==='cycad');assert.equal(modelHeight(cycad),'1.37 m');assert.equal(dimensionDetails(cycad),'Height (Y): 1.37 m · Width (X): 2.11 m · Depth (Z): 2.17 m');assert.equal(dimensionDetails(cycad,'zh'),'高度 (Y)：1.37 m · 宽度 (X)：2.11 m · 深度 (Z)：2.17 m');checks.push('Exact cycad identity: 1.37 m height, 2.11 m width, 2.17 m depth in both languages');
-const wave=models.find(a=>a.id==='wave-ripple-surface');
+// Explicit meter-authored fixtures keep formatting examples independent of catalog revisions.
+const cycad={...models.find(a=>a.id==='cycad'),units:'meters',dimensions:[2.11,1.37,2.17]};
+assert.equal(modelHeight(cycad),'1.37 m');
+assert.equal(dimensionDetails(cycad),'Height (Y): 1.37 m · Width (X): 2.11 m · Depth (Z): 2.17 m');
+const wave={...models.find(a=>a.id==='wave-ripple-surface'),units:'meters',dimensions:[1.5,.081,1.16]};
 assert.equal(comparisonMeasurement(wave),'Footprint (W × D) 1.50 × 1.16 m · Thickness 8.1 cm');
 assert.equal(comparisonMeasurement(wave,'zh'),'占地（宽 × 深）1.50 × 1.16 m · 厚度8.1 cm');
 assert.equal(modelHeight(wave),'8.1 cm');
-for(const asset of models.filter(a=>a!==wave))for(const lang of ['en','zh'])for(const kind of ['hand','human'])assert.equal(comparisonText(kind,lang,asset),comparisonText(kind,lang));
+checks.push('Explicit meter-authored formatting fixtures; real catalog units are not overridden');
+for(const asset of models.filter(a=>a.id!==wave.id))for(const lang of ['en','zh'])for(const kind of ['hand','human'])assert.equal(comparisonText(kind,lang,asset),comparisonText(kind,lang));
 for(const asset of [undefined,{id:wave.id},{id:wave.id,dimensions:[1.5,NaN,1.16]},{id:wave.id,dimensions:[1.5,-.081,1.16]}])assert.equal(comparisonMeasurement(asset),'');
 checks.push('Flat-wave caption separates X/Z footprint 1.50 × 1.16 m from Y thickness 8.1 cm in both languages; all other published model captions stay unchanged');
 for(const asset of models){
  const original=JSON.stringify(asset.dimensions),[width,height,depth]=asset.dimensions;
+ if(!hasMetricDimensions(asset)){assert.equal(modelHeight(asset),'—');assert.match(dimensionDetails(asset),/unconfirmed/);continue;}
  assert.equal(modelHeight(asset),formatModelLength(height));
  for(const lang of ['en','zh']){
   const text=dimensionDetails(asset,lang);for(const size of [width,height,depth])assert(text.includes(formatModelLength(size)));
@@ -40,7 +45,7 @@ for(let exponent=-323;exponent<=-4;exponent++){
  assert(Number.parseFloat(formatted)>0,`Positive ${meters} must stay positive: ${formatted}`);
  assert.match(formatted,/ mm$/);
 }
-const tinyAsset={dimensions:[.000499,.00040237721987068653,.000001]},tinySnapshot=JSON.stringify(tinyAsset);
+const tinyAsset={units:'meters',dimensions:[.000499,.00040237721987068653,.000001]},tinySnapshot=JSON.stringify(tinyAsset);
 assert.equal(modelHeight(tinyAsset),'0.402 mm');
 assert.equal(dimensionDetails(tinyAsset),'Height (Y): 0.402 mm · Width (X): 0.499 mm · Depth (Z): 0.001 mm');
 assert.equal(dimensionDetails(tinyAsset,'zh'),'高度 (Y)：0.402 mm · 宽度 (X)：0.499 mm · 深度 (Z)：0.001 mm');
@@ -51,21 +56,22 @@ assert.match(html,/id="dimensions"><\/strong><span data-en="Model height" data-z
 assert.doesNotMatch(source,/Math\.max\(\.\.\.asset\.dimensions\)/);assert.match(source,/\$\('#dimensions'\)\.textContent=modelHeight\(asset\);/);
 checks.push('Production main.js uses modelHeight, and index.html labels it Model height / 模型高度');
 class Node{
- constructor(){this.children=[];this.dataset={};this.attributes={};this.textContent='';this.hidden=false;this.style={removeProperty(name){delete this[name==='transform-origin'?'transformOrigin':name];}};this.classList={add(){},remove(){}};}
+ constructor(){this.children=[];this.dataset={};this.attributes={};this.textContent='';this.hidden=false;this.style={removeProperty(name){delete this[name==='transform-origin'?'transformOrigin':name];}};this.classList={add(){},remove(){},contains(){return false;},toggle(){}};}
  append(...nodes){this.children.push(...nodes);}
  replaceChildren(...nodes){this.children=[...nodes];}
  setAttribute(name,value){this.attributes[name]=value;}
+ removeAttribute(name){delete this.attributes[name];}
  contains(node){return this===node||this.children.some(child=>child.contains?.(node));}
 }
 const nodes=new Map(),get=s=>{if(!nodes.has(s))nodes.set(s,new Node());return nodes.get(s);},label=new Node();label.dataset={en:'Model height',zh:'模型高度'};
 const state={lang:'en',selected:'cycad'},document={documentElement:{lang:'en'},createElement:()=>new Node()},renderer={comparison:false,kind:'human',compare(){this.comparison=true;return {kind:this.kind};}};
 const ui={resetCopy(){},updateOverflow(){}},storage=new Map();
-const context=vm.createContext({state,document,$:get,all:selector=>selector==='[data-gallery-route]'?[]:[label],wheel:new Node(),renderer,URL,siteRoot:new URL('https://example.test/'),detailHref:id=>'/models/'+id+'/',saveCurrentHistory(){},t:(en,zh)=>state.lang==='zh'?zh:en,modelHeight,dimensionDetails,dimensionNote,comparisonText,ui,sample:models,localStorage:{setItem:(k,v)=>storage.set(k,v)},renderSummary(){},renderWheel(){},short:a=>a.id,categories:{plants:['Plants','植物']},draft:null,renderFilters(){},currentReady:true});
+const context=vm.createContext({phoneContinuity:{stop(){}},wheelContinuity:{stop(){}},state,document,$:get,all:selector=>selector==='[data-gallery-route]'?[]:[label],wheel:new Node(),renderer,URL,siteRoot:new URL('https://example.test/'),urlAsset:path=>path,detailHref:id=>'/models/'+id+'/',saveCurrentHistory(){},t:(en,zh)=>state.lang==='zh'?zh:en,modelHeight,dimensionDetails,dimensionNote,comparisonText,ui,sample:models.map(a=>a.id===cycad.id?cycad:a.id===wave.id?wave:a),localStorage:{setItem:(k,v)=>storage.set(k,v)},renderSummary(){},renderWheel(){},short:a=>a.id,categories:{plants:['Plants','植物']},draft:null,renderFilters(){},currentReady:true});
 for(const name of ['updateComparisonLabel','translate','infoContent']){const line=source.split('\n').find(s=>s.startsWith('function '+name+'('));assert(line);vm.runInContext(line,context);}
 const languageLine=source.split('\n').find(s=>s.startsWith("$('#language').onclick="));vm.runInContext(languageLine,context);
 const comparisonStart=source.indexOf("$('#compare').onclick="),comparisonEnd=source.indexOf(";$('#reset').onclick=",comparisonStart);assert(comparisonEnd>comparisonStart);vm.runInContext(source.slice(comparisonStart,comparisonEnd)+';',context);
 const actualMetricAssignment=source.match(/\$\('#dimensions'\)\.textContent=[^;]+;/)[0];
-for(const asset of models){context.asset=asset;vm.runInContext(actualMetricAssignment,context);assert.equal(get('#dimensions').textContent,formatModelLength(asset.dimensions[1]));for(const lang of ['en','zh']){state.lang=lang;vm.runInContext('infoContent(asset);',context);assert.equal(get('#info-content').children[1].textContent,dimensionDetails(asset,lang));assert.equal(get('#info-content').children[2].textContent,dimensionNote(lang));}}
+for(const asset of models){context.asset=asset;vm.runInContext(actualMetricAssignment,context);assert.equal(get('#dimensions').textContent,modelHeight(asset));for(const lang of ['en','zh']){state.lang=lang;vm.runInContext('infoContent(asset);',context);assert.equal(get('#info-content').children[1].textContent,dimensionDetails(asset,lang));assert.equal(get('#info-content').children[2].textContent,dimensionNote(lang,asset));}}
 checks.push('Actual production metric assignment and infoContent execute correctly in a bounded fake DOM for all published models × 2 languages');
 state.lang='en';renderer.kind='hand';get('#compare').onclick();assert.match(get('#comparison-label').textContent,/Hand length 18 cm/);assert.equal(get('#compare').ariaPressed,'true');assert.equal(get('#comparison-label').hidden,false);
 get('#compare').onclick();assert.equal((get('#comparison-label').textContent.match(/Horizontal drag/g)||[]).length,1);
@@ -78,7 +84,7 @@ renderer.compare=function(){this.comparison=!this.comparison;return this.compari
 renderer.reset=function(){this.comparison=false;};
 renderer.select=async function(){this.comparison=false;return true;};
 renderer.detail={metric:{available:true}};
-Object.assign(context,{syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},hover:{pause(){},refresh(){}},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:asset=>{const image=get('#detail-poster');Object.assign(image.dataset,{modelId:asset.id,source:'canonical',presentationFrame:'native-viewport-v2'});Object.assign(image.style,{transform:'stale',transformOrigin:'0 0'});return {ready:Promise.resolve(true)};},validDetailPresentation,detailScreenFrame,mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
+Object.assign(context,{stage:get('#detail'),title:get('#title'),wheelArtwork:()=>null,cancelPosterWarmup(){},stagePoster:{frame(){return null;},clear(){}},syncMobileView(){},selectionVersion:0,selectionLoadingTimer:0,closeInfo(){},stopHover(){},hover:{pause(){},refresh(){}},settler:{stop(){}},saveCurrentHistory(){},pushHistory(){},urlAsset:path=>path,selectPoster:asset=>{const image=get('#detail-poster');Object.assign(image.dataset,{modelId:asset.id,source:'canonical',presentationFrame:'native-viewport-v2'});Object.assign(image.style,{transform:'stale',transformOrigin:'0 0'});return {ready:Promise.resolve(true)};},validDetailPresentation,detailScreenFrame,mobile:()=>false,setTimeout:()=>1,clearTimeout(){},showError(){throw Error('Unexpected selection error');},console:{warn(){}}});
 document.body=new Node();ui.filter={open:false};
 const frameStart=source.indexOf('function updateSelectedPosterFrame(){'),frameEnd=source.indexOf('function selectPoster(',frameStart);assert(frameStart>=0&&frameEnd>frameStart);
 vm.runInContext(source.slice(frameStart,frameEnd)+source.slice(source.indexOf('async function choose('),source.indexOf('function showError(')),context);

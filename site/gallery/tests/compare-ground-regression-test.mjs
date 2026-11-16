@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import * as THREE from 'three';
 import {ViewTransition} from '../view-transition.js';
-const {fixture,compare,sample,drag,pointer,step,models,report,source}=await import('./compare-ground-drift-audit.mjs');
+const {metricAsset,fixture,compare,sample,drag,pointer,step,models,report,source}=await import('./compare-ground-drift-audit.mjs');
 const checks=[];const close=(a,b,message='',eps=1e-7)=>assert(Math.abs(a-b)<=eps,`${message}: ${a} != ${b}`);
 const arrays=(a,b,message='')=>a.forEach((v,i)=>close(v,b[i],message+' ['+i+']'));
 const cleanup=r=>{r.controls.dispose();r.viewMotion.cancelAll();r.removeReference();};
@@ -23,7 +23,7 @@ for(const asset of models){
  cleanup(r);
 }
 checks.push('A complete 24-step yaw/zoom sweep across all published real GLBs and four viewport sizes keep both ground anchors fixed, meshes grounded and source/model/reference scale unchanged');
-const asset=models.find(a=>a.id==='waptia');
+const asset=metricAsset;
 const r=fixture(asset);compare(r);const callback=source.match(/detail\.addEventListener\('wheel',event=>\{([\s\S]*?)\},\{passive:false,capture:true\}\);/);assert(callback,'production wheel capture callback must be identifiable');
 r.host.addEventListener('wheel',new Function('detail','return event=>{'+callback[1]+'};').call(r,r.host),{passive:false,capture:true});
 let before=sample(r);const wheel=r.host.dispatch('wheel',{deltaY:100,deltaMode:0,clientX:300,clientY:300});let after=sample(r);close(after.zoom,before.zoom/Math.exp(.1),'one custom wheel change only');close(after.distance,before.distance);assert(wheel.defaultPrevented);

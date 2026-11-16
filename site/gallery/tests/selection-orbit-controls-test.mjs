@@ -1,3 +1,4 @@
+import {measuredSupport} from '../model-support.js';
 import {prepareModels} from '../catalog-build.mjs';
 // Executes the real main.js event wiring in a minimal DOM, not a browser/layout test.
 import * as dimensionPresentation from '../model-dimensions.js';
@@ -76,7 +77,7 @@ r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
 const location=new URL('models/',siteRoot);
 const history={state:null,replaceState(value,_,url){this.state=structuredClone(value);latestHistorySnapshot=this.state;if(url)location.href=url;},pushState(value,_,url){this.replaceState(value,_,url);pushes++;}};
-const context=vm.createContext({validDetailPresentation,detailScreenFrame,innerWidth:1200,innerHeight:800,devicePixelRatio:1,HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
+const context=vm.createContext({queueMicrotask,validDetailPresentation,detailScreenFrame,innerWidth:1200,innerHeight:800,devicePixelRatio:1,HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
 // Unwrap only the mount boundary so the existing deterministic probes can still
@@ -100,7 +101,7 @@ const settle=async promise=>{
 };
 const settleChoice=(...args)=>settle(p.choose(...args));
 const model=id=>models.find(a=>a.id===id),request=id=>network.findLast(n=>n.path===model(id).glb);
-const active=id=>{assert.equal(p.state.selected,id);assert.equal($('#detail').dataset.modelId,id);assert.equal($('#detail-poster').dataset.modelId,id);assert.equal($('#detail-poster').src,assetURL(model(id).galleryPosters?.detail||model(id).preview));};
+const active=id=>{assert.equal(p.state.selected,id);assert.equal($('#detail').dataset.modelId,id);assert.equal($('#detail-poster').dataset.modelId,id);if(model(id).galleryPosters?.detail)assert.equal($('#detail-poster').src,assetURL(model(id).galleryPosters.detail));else{assert.equal($('#detail-poster').src,undefined,'Missing canonical source must not load any substitute');assert.equal($('#detail-poster').style.visibility,'hidden','Missing canonical image must remain hidden');assert(['loading','error'].includes($('#detail-poster').dataset.state),'Only pending/error states are valid without a canonical poster');}};
 const baseline=()=>{const actual=r.viewState(),wanted=r.singleState();for(const key of ['position','target','modelPosition','modelQuaternion'])actual[key].forEach((x,i)=>assert(Math.abs(x-wanted[key][i])<1e-7,key));assert.equal(actual.zoom,1);assert.equal(r.comparison,false);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);assert.equal(r.controls.enabled,true);};
 const first=p.state.selected;await request(first).resolve();await settle((async()=>{const until=Date.now()+15000;while($('#detail').dataset.state==='loading'&&Date.now()<until)await new Promise(resolve=>setTimeout(resolve,1));})());assert.equal($('#detail').dataset.state,'ready');baseline();
 $('#wheel').scrollTop=0;p.renderWheel();await settleChoice(first,{center:true});advance(600);assert.equal($('#wheel').scrollTop,p.state.results.findIndex(asset=>asset.id===first)*128);assert.equal(p.settler.state,'idle');
@@ -125,7 +126,13 @@ checks.push('A stale request error cannot overwrite the newest cached asset stat
 const D='fern-cluster';const failed=p.choose(D);request(D).reject(new Error('current network failure'));await settle(failed);active(D);assert.equal($('#detail').dataset.state,'fallback');assert.equal(r.detail.model,null);assert.equal(r.renderer.domElement.style.visibility,'visible');assert.equal($('#retry').hidden,false);const failedPoster=$('#detail-poster');failedPoster.onerror();assert.equal(failedPoster.dataset.source,'unavailable');assert.equal(failedPoster.style.visibility,'hidden');
 const retry=p.choose(D,{push:false});await request(D).resolve();await settle(retry);baseline();active(D);assert.equal($('#detail').dataset.state,'ready');
 checks.push('Current failure keeps only the selected asset fallback, image fallback is ID-scoped, and Retry starts from a clean baseline');
-await settleChoice(C);r.rotate(90,12);r.zoom(.4);r.compare(true);await r.referenceReady;advance(250);assert(r.cameraFrame);assert(r.referenceFrame);const toA=p.choose(first);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);await settle(toA);advance(4000);baseline();active(first);assert(Math.abs(r.detail.scene.fog.near-Math.max(6,r.viewState().distance*1.5))<1e-10);
+await settleChoice(C);assert.equal(r.compare(true),null,'Unknown-unit current Cycad must not compare');
+// A deliberately meter-authored box exercises Compare cancellation without relabeling catalog geometry.
+const metricAsset={id:'test-meter-selection-box',units:'meters',dimensions:[.12,.08,.1]};
+const metricRoot=new THREE.Mesh(new THREE.BoxGeometry(...metricAsset.dimensions),new THREE.MeshBasicMaterial());
+const metricBox=new THREE.Box3().setFromObject(metricRoot);
+r.attach(r.detail,metricAsset,{root:metricRoot,box:metricBox,size:metricBox.getSize(new THREE.Vector3())});
+r.applyState(r.singleState());r.rotate(90,12);r.zoom(.4);r.compare(true);await r.referenceReady;advance(250);assert(r.cameraFrame);assert(r.referenceFrame);const toA=p.choose(first);assert.equal(r.companion,null);assert.equal(r.cameraFrame,0);assert.equal(r.referenceFrame,0);await settle(toA);advance(4000);baseline();active(first);assert(Math.abs(r.detail.scene.fog.near-Math.max(6,r.viewState().distance*1.5))<1e-10);
 checks.push('Compare during entry → switch cancels both RAF owners/reference and resets fog, framing and zoom for the new model');
 reduced=true;r.rotate(180,55);r.zoom(3);await settleChoice(C);baseline();active(C);assert.equal($('#detail').dataset.state,'ready');reduced=false;
 checks.push('Reduced-motion selection follows the same independent baseline without transition callbacks');
@@ -216,7 +223,7 @@ try{
  Object.defineProperty(globalThis,'crypto',{configurable:true,value:{subtle:{async digest(...args){delayedDigests++;await new Promise(resolve=>setTimeout(resolve,40));return nativeCrypto.subtle.digest(...args);}}}});
  const started=Date.now(),delayed=p.choose('confuciusornis',{push:false,openMobile:false});await request('confuciusornis').resolve();
  assert.equal(r.controls.enabled,false);assert.equal(r.detail.model,null);
- await settle(delayed);active('confuciusornis');baseline();assert.equal(delayedDigests,1);assert(Date.now()-started>=35);assert(r.detail.supportRule,'Delayed source identity must still validate the reviewed foot support');
+ await settle(delayed);active('confuciusornis');baseline();assert.equal(delayedDigests,1);assert(Date.now()-started>=35);assert.equal(r.detail.supportRule,measuredSupport(model('confuciusornis'),r.detail.entry),'Delayed digest must gate support by exact reviewed version, not asset name');
  checks.push('A real asynchronous source digest delayed beyond immediate-loop cadence still gates mesh readiness and validates reviewed support before selection completes');
 }finally{Object.defineProperty(globalThis,'crypto',originalCrypto);}
 // History owns synchronous route restoration, never the lifetime of a GLB.

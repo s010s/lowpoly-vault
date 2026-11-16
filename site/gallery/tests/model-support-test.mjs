@@ -6,14 +6,18 @@ import * as T from 'three';
 import {MEASURED_SUPPORTS,measuredSupport} from '../model-support.js';
 const {fixture,compare,sample,step,models}=await import('./compare-ground-drift-audit.mjs');
 const close=(a,b,m,eps=1e-7)=>assert(Math.abs(a-b)<eps,`${m}: ${a} vs ${b}`);
+const rendererSource=await readFile(new URL('../renderer.js',import.meta.url),'utf8');
+const displayYaw=JSON.parse(rendererSource.match(/const DISPLAY_ORIENTATION_YAW=(\{[^\n]+\});/)[1]);
+const displaySha=JSON.parse(rendererSource.match(/const DISPLAY_ORIENTATION_CANDIDATES=(\{[^\n]+\});/)[1]);
 const point=new T.Vector3(),checks=[],rows=[];
 const release=r=>{r.controls.dispose();r.viewMotion.cancelAll();r.removeReference();};
 for(const asset of models){
  const r=fixture(asset),v=r.detail,center=v.entry.box.getCenter(new T.Vector3());
- assert.equal(!!v.supportRule,asset.id==='confuciusornis');
- // The split pivots cancel exactly in ordinary mode: no poster/canonical pose shift.
+ assert.equal(v.supportRule,measuredSupport(asset,v.entry),'Only exact reviewed source versions may apply the support rule');
+ // Ordinary geometry preserves the explicit exact-version canonical Y rotation; support pivots cancel.
  v.model.updateMatrixWorld(true);const actual=new T.Box3().setFromObject(v.model,true);
- const expected=v.entry.box.clone().translate(new T.Vector3(-center.x,-v.entry.box.min.y,-center.z));expected.min.multiplyScalar(v.scale);expected.max.multiplyScalar(v.scale);
+ const expected=v.entry.box.clone().translate(new T.Vector3(-center.x,-v.entry.box.min.y,-center.z));if(displaySha[asset.id]===v.entry.sha256){expected.applyMatrix4(new T.Matrix4().makeRotationY(displayYaw[asset.id]));}
+ expected.min.multiplyScalar(v.scale);expected.max.multiplyScalar(v.scale);
  close(actual.min.distanceTo(expected.min),0,asset.id+' ordinary min');close(actual.max.distanceTo(expected.max),0,asset.id+' ordinary max');
  close(v.contact.position.x,0,asset.id+' ordinary shadow X');close(v.contact.position.z,0,asset.id+' ordinary shadow Z');
  const c=compare(r),initial=sample(r),support=v.comparisonYaw.localToWorld(new T.Vector3()),reference=c.root.position.clone();
@@ -25,16 +29,25 @@ for(const asset of models){
  rows.push({id:asset.id,supportMode:v.supportRule?'source-verified paired feet':'unchanged box-centered origin',supportAuthoredMeters:v.supportRule?.point??null,supportWorld:support.toArray(),referenceWorld:reference.toArray(),sourceSha256:v.entry.sha256,scale:v.scale,referenceScale:c.root.scale.x});release(r);
 }
 checks.push('All published GLBs: unchanged ordinary authored geometry, equal support/wrist ground depth, 36 yaw/zoom steps per model with stable support and common scalar');
-const asset=models.find(a=>a.id==='confuciusornis'),r=fixture(asset),entry=r.detail.entry;
+// Contract fixture represents the reviewed bounds/digest, not a recovered production GLB.
+// Current catalog bytes must be checked separately and never relabeled to match it.
+const current=models.find(a=>a.id==='confuciusornis'),currentRenderer=fixture(current);
+const bytes=await readFile(assetURL(current.glb));
+assert.equal(createHash('sha256').update(bytes).digest('hex'),currentRenderer.detail.entry.sha256);
+assert.equal(currentRenderer.detail.supportRule,measuredSupport(current,currentRenderer.detail.entry));release(currentRenderer);
+const rule=MEASURED_SUPPORTS.confuciusornis,box=new T.Box3(new T.Vector3(...rule.min),new T.Vector3(...rule.max));
+const mesh=new T.Mesh(new T.BoxGeometry(...box.getSize(new T.Vector3()).toArray()),new T.MeshBasicMaterial());mesh.position.copy(box.getCenter(new T.Vector3()));
+const contractEntry={root:mesh,box,size:box.getSize(new T.Vector3()),sha256:rule.sha256};
+const asset={id:'confuciusornis',units:'meters',dimensions:contractEntry.size.toArray(),sha256:{glb:rule.sha256}},r=fixture(asset,contractEntry),entry=r.detail.entry;
 assert(measuredSupport(asset,entry));
 for(const changed of [{...entry,sha256:null},{...entry,sha256:'bad'},{...entry,box:entry.box.clone().translate(new T.Vector3(.01,0,0))}])assert.equal(measuredSupport(asset,changed),null);
 assert.equal(measuredSupport({...asset,sha256:{glb:'new-source'}},entry),null);
 assert.equal(measuredSupport({...asset,id:'unreviewed-bird'},entry),null);
-const bytes=await readFile(assetURL(asset.glb));assert.equal(createHash('sha256').update(bytes).digest('hex'),MEASURED_SUPPORTS.confuciusornis.sha256);
+
 checks.push('Source binding rejects missing/mismatched fetched digest, catalog digest, id or geometry bounds; all other published assets keep existing origin');
 release(r);
 for(const angle of [-173,-90,63,179])for(const ms of [0,100,350,699]){
- const a=fixture(asset);compare(a);a.rotate(angle,0);a.reset();step(ms);a.detail.model.updateMatrixWorld(true);
+ const a=fixture(asset,contractEntry);compare(a);a.rotate(angle,0);a.reset();step(ms);a.detail.model.updateMatrixWorld(true);
  const before=[];a.detail.model.traverse(o=>{if(o.isMesh)before.push(o.matrixWorld.clone());});
  const contactBefore=a.detail.contact.position.clone();a.cancelCamera();close(a.detail.contact.position.distanceTo(contactBefore),0,'contact does not follow representation rebase');a.detail.model.updateMatrixWorld(true);let i=0;a.detail.model.traverse(o=>{if(o.isMesh){o.matrixWorld.elements.forEach((v,j)=>close(v,before[i].elements[j],'interrupted pivot fold'));i++;}});
  const snap=sample(a);step(.001);assert(a.detail.contact.position.distanceTo(contactBefore)<1e-5,'contact does not jump next frame');assert(a.detail.model.position.distanceTo(new T.Vector3().fromArray(snap.modelPosition))<1e-5,'no old-layout jump after pivot fold');step(900);close(a.detail.model.position.x,0,'layout finishes at single X');close(a.detail.model.position.z,0,'layout finishes at single Z');

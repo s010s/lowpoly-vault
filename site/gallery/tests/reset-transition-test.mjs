@@ -37,7 +37,7 @@ const results=[];
 for(const asset of models){
  const gltf=await parse(dist+asset.glb),box=new THREE.Box3().setFromObject(gltf.scene),size=box.getSize(new THREE.Vector3());
  const p=Object.create(PreviewRenderer.prototype);p.stats={};p.draw=()=>{};p.detail={scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(38,1,.01,100),contact:new THREE.Object3D(),target:new THREE.Vector3()};
- p.attach(p.detail,asset,{root:gltf.scene,box,size});p.controls={target:p.detail.target.clone(),update(){}};
+ p.attach(p.detail,asset,{root:gltf.scene,box,size});if(!p.detail.metric.available){assert.equal(p.compare(true),null,asset.id+' unknown units must reject comparison');}p.controls={target:p.detail.target.clone(),update(){}};
  const kind=Math.max(...size.toArray())<.6?'hand':'human',companion=new ScaleCompanion(refs[kind].clone(true),kind);
  const initialScale=p.detail.model.scale.toArray(),authoredMatrix=gltf.scene.matrix.clone(),destination=p.comparisonLayout(companion);p.detail.scene.add(companion.root);companion.apply(companion.settled());p.applyState(destination);
  assert.deepEqual(p.detail.model.scale.toArray(),initialScale);assert.deepEqual(companion.root.scale.toArray(),initialScale);assert(gltf.scene.matrix.equals(authoredMatrix));
@@ -55,7 +55,7 @@ for(const asset of models){
  const left=new THREE.Vector3().fromArray(destination.modelPosition).dot(new THREE.Vector3(Math.cos(42*Math.PI/180),0,-Math.sin(42*Math.PI/180)));assert(left<0);
  results.push({id:asset.id,kind,commonScale:p.detail.scale,referenceMeters:companion.height,worstNDC:worst,dimensionsMeters:size.toArray()});
 }
-checks.push('all published actual GLBs retain dimensions and share exactly the reference scalar');checks.push('all published paired baseline frames fit at 4 viewport sizes');
+checks.push('geometry-only layout envelopes retain dimensions and share the reference scalar; unknown units separately reject actual comparison');checks.push('all published paired baseline frames fit at 4 viewport sizes');
 await mkdir(new URL('./evidence/',import.meta.url),{recursive:true});
 await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify({checks,models:results,browserCoverage:false},null,2));
 console.log(JSON.stringify({passed:checks.length,models:models.length,viewports:4,checks},null,2));
@@ -66,24 +66,29 @@ Object.defineProperty(globalThis,'performance',{value:{now:()=>fakeNow},configur
 globalThis.requestAnimationFrame=callback=>{rafCallbacks.set(++rafId,callback);return rafId;};
 globalThis.cancelAnimationFrame=id=>rafCallbacks.delete(id);
 const step=milliseconds=>{fakeNow+=milliseconds;const callbacks=[...rafCallbacks.values()];rafCallbacks.clear();for(const callback of callbacks)callback(fakeNow);};
+// Lifecycle inputs are synthetic, explicitly meter-authored boxes, not relabelled catalog assets.
+const lifecycleModels=[
+ {id:'test-meter-small',units:'meters',dimensions:[.12,.08,.1]},
+ {id:'test-meter-tall',units:'meters',dimensions:[2.11,1.37,2.17]},
+];
 const fixtureEntries=new Map();
-for(const id of ['calceola','cycad']){const asset=models.find(a=>a.id===id);const gltf=await parse(dist+asset.glb);const box=new THREE.Box3().setFromObject(gltf.scene);fixtureEntries.set(id,{root:gltf.scene,box,size:box.getSize(new THREE.Vector3())});}
+for(const asset of lifecycleModels){const root=new THREE.Mesh(new THREE.BoxGeometry(...asset.dimensions),new THREE.MeshBasicMaterial());const box=new THREE.Box3().setFromObject(root);fixtureEntries.set(asset.id,{root,box,size:box.getSize(new THREE.Vector3())});}
 const renderer=Object.create(PreviewRenderer.prototype);renderer.stats={stale:0,aborted:0};renderer.token=0;renderer.referenceToken=0;renderer.draw=()=>{writes++;if(renderer.detail?.model)renderer.acknowledgeDetailFrame();};renderer.host={getBoundingClientRect:()=>({left:0,top:0,right:600,bottom:600,width:600,height:600})};renderer.visible=true;globalThis.innerWidth=1200;globalThis.innerHeight=800;renderer.stopHover=()=>{};renderer.trim=()=>{};renderer.resource=async asset=>fixtureEntries.get(asset.id);
 const selectRendered=async(...args)=>{const promise=renderer.select(...args);await new Promise(resolve=>setImmediate(resolve));step(16);step(16);return promise;};
 renderer.detail={scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(38,1,.01,100),contact:new THREE.Object3D(),target:new THREE.Vector3()};renderer.controls={target:new THREE.Vector3(),update(){}};
 renderer.viewMotion=new ViewTransition({read:()=>renderer.viewState(),write:(state,ownership)=>renderer.applyState(state,ownership),reduced:()=>false});
-renderer.attach(renderer.detail,models.find(a=>a.id==='calceola'),fixtureEntries.get('calceola'));renderer.controls.target.copy(renderer.detail.target);
+renderer.attach(renderer.detail,lifecycleModels[0],fixtureEntries.get('test-meter-small'));renderer.controls.target.copy(renderer.detail.target);
 let fetchCount=0;globalThis.fetch=async(url,{signal}={})=>{fetchCount++;const bytes=await readFile(new URL('../../public/'+new URL(url).pathname.slice(1),import.meta.url));signal?.throwIfAborted();return {ok:true,arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)};};
 renderer.rotate(137,11);renderer.zoom(.74);const inspected=renderer.viewState();
 assert.equal(renderer.compare(true).meters,.18);await renderer.referenceReady;assert.deepEqual(renderer.viewState().position,inspected.position);step(350);assert(renderer.detail.model.position.length()>0);assert.notDeepEqual(renderer.viewState().position,inspected.position);step(350);deepClose(renderer.viewState().position,renderer.comparisonState.position);checks.push('real renderer comparison starts from inspected pose and jointly returns baseline/moves left');
 step(1000);const visibleBefore={...renderer.companion.state};renderer.reset();assert.equal(renderer.comparison,false);assert.deepEqual(renderer.companion.state,visibleBefore);step(200);const leavingOpacity=renderer.companion.state.opacity;renderer.compare(true);assert.equal(renderer.companion.state.opacity,leavingOpacity);assert.equal(fetchCount,1);step(700);assert.equal(renderer.companion.state.opacity,1);checks.push('toggle-off/on interruption preserves presented reference opacity and reuses one decoded reference');
 renderer.reset();step(1100);assert.equal(renderer.companion.state.opacity,0);deepClose(renderer.detail.model.position.toArray(),[0,0,0]);deepClose(renderer.viewState().position,renderer.singleState().position);checks.push('standalone Reset and toggle-off end at identical baseline with zero model displacement');
 renderer.compare(true);step(350);renderer.zoom(.7);const manualZoom=renderer.viewState().zoom;step(350);deepClose(renderer.viewState().position,renderer.comparisonState.position);close(renderer.viewState().zoom,manualZoom);close(renderer.controls.target.y,0);checks.push('comparison zoom stays user-owned while ground framing and main-model placement finish');
-await selectRendered(models.find(a=>a.id==='cycad'));assert.equal(renderer.companion,null);assert.equal(renderer.referenceFrame,0);assert.equal(renderer.cameraFrame,0);assert.equal(renderer.comparison,false);assert.equal(rafCallbacks.size,0);deepClose(renderer.detail.contact.position.toArray(),[0,0,0]);checks.push('actual asset selection cancels camera, reference animation and shifted contact shadow');
+await selectRendered(lifecycleModels[1]);assert.equal(renderer.companion,null);assert.equal(renderer.referenceFrame,0);assert.equal(renderer.cameraFrame,0);assert.equal(renderer.comparison,false);assert.equal(rafCallbacks.size,0);deepClose(renderer.detail.contact.position.toArray(),[0,0,0]);checks.push('actual asset selection cancels camera, reference animation and shifted contact shadow');
 renderer.compare(true);const pending=renderer.referenceReady;renderer.reset();await pending;assert.equal(renderer.companion,null);assert.equal(renderer.comparison,false);step(700);assert.equal(rafCallbacks.size,0);checks.push('Reset during reference fetch aborts safely without stale attachment');
 renderer.compare(true);await renderer.referenceReady;assert.equal(renderer.companion.height,1.8);assert.equal(renderer.companion.root.scale.x,renderer.detail.model.scale.x);renderer.suspend();assert.equal(renderer.companion,null);assert.equal(renderer.detail.model,null);assert.equal(rafCallbacks.size,0);checks.push('human calibration is 1.8 m; suspend cancels both motion owners and disposes reference');
 const report={checks,models:results,browserCoverage:false};await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify(report,null,2));console.log('PASS actual renderer lifecycle: '+checks.length+' total assertions groups.');
-await selectRendered(models.find(a=>a.id==='calceola'));
+await selectRendered(lifecycleModels[0]);
 let releaseFetch;const normalFetch=globalThis.fetch;
 globalThis.fetch=(url,options)=>new Promise(resolve=>{releaseFetch=()=>normalFetch(url,options).then(resolve);});
 renderer.compare(true);renderer.rotate(55,8);renderer.zoom(.8);const duringLoad=renderer.viewState();
@@ -91,7 +96,7 @@ await releaseFetch();await renderer.referenceReady;step(700);close(renderer.view
 renderer.suspend();globalThis.fetch=normalFetch;
 await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify({checks,models:results,browserCoverage:false},null,2));console.log('PASS pending-load camera ownership: '+checks.length+' total check groups.');
 let mediaReduced=true;globalThis.matchMedia=()=>({matches:mediaReduced});renderer.viewMotion.reduced=()=>mediaReduced;
-await selectRendered(models.find(a=>a.id==='calceola'));
+await selectRendered(lifecycleModels[0]);
 globalThis.fetch=(url,options)=>new Promise(resolve=>{releaseFetch=()=>normalFetch(url,options).then(resolve);});
 renderer.compare(true);renderer.rotate(30,7);renderer.zoom(.75);const reducedPending=renderer.viewState();
 await releaseFetch();await renderer.referenceReady;close(renderer.viewState().zoom,reducedPending.zoom);close(renderer.viewState().modelYaw,reducedPending.modelYaw);close(renderer.controls.target.y,0);assert(renderer.detail.model.position.length()>0);assert.equal(renderer.cameraFrame,0);checks.push('cold-load ownership also survives synchronous reduced-motion completion');
@@ -99,11 +104,11 @@ step(90);assert(renderer.companion.state.opacity>.4&&renderer.companion.state.op
 mediaReduced=true;renderer.reset();step(90);assert(renderer.companion.state.opacity>.4&&renderer.companion.state.opacity<.6);mediaReduced=false;step(90);assert.equal(renderer.companion.state.opacity,0);assert.equal(renderer.referenceFrame,0);checks.push('reduce-to-normal preference change completes the started withdrawal fade');
 renderer.suspend();globalThis.fetch=normalFetch;
 await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify({checks,models:results,browserCoverage:false},null,2));console.log('PASS dynamic preference and pending ownership: '+checks.length+' total check groups.');
-mediaReduced=false;await selectRendered(models.find(a=>a.id==='calceola'));renderer.compare(true);await renderer.referenceReady;step(4000);renderer.zoom(8);const farCompare=renderer.viewState().distance,wideZoom=renderer.viewState().zoom;close(wideZoom,.125);renderer.reset();renderer.zoom(.999);close(renderer.viewState().distance,farCompare*.999);step(700);close(renderer.viewState().zoom,wideZoom);checks.push('ordinary zoom during return releases the projection reset too, without a size snap');renderer.suspend();
+mediaReduced=false;await selectRendered(lifecycleModels[0]);renderer.compare(true);await renderer.referenceReady;step(4000);renderer.zoom(8);const farCompare=renderer.viewState().distance,wideZoom=renderer.viewState().zoom;close(wideZoom,.125);renderer.reset();renderer.zoom(.999);close(renderer.viewState().distance,farCompare*.999);step(700);close(renderer.viewState().zoom,wideZoom);checks.push('ordinary zoom during return releases the projection reset too, without a size snap');renderer.suspend();
 await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify({checks,models:results,browserCoverage:false},null,2));console.log('PASS transition-safe zoom bounds: '+checks.length+' total check groups.');
 
 // V4: inspection belongs to the main pivot, never the reference or camera orbit.
-mediaReduced=false;await selectRendered(models.find(a=>a.id==='calceola'),{preserve:false});
+mediaReduced=false;await selectRendered(lifecycleModels[0],{preserve:false});
 const identity=new THREE.Quaternion(),canonical=renderer.detail.camera.quaternion.clone();
 const angle=(a,b)=>new THREE.Quaternion().fromArray(a).angleTo(new THREE.Quaternion().fromArray(b));
 const grounded=()=>close(new THREE.Box3().setFromObject(renderer.detail.model,true).min.y,0,1e-7);
@@ -128,7 +133,7 @@ renderer.reset();const resetFromYaw=renderer.detail.comparisonYaw.rotation.y;ass
 checks.push('standalone Reset uses same eased main-only recovery while fading a fixed reference');
 renderer.suspend();
 await writeFile(new URL('./evidence/reset-test-report.json',import.meta.url),JSON.stringify({checks,models:results,browserCoverage:false},null,2));console.log('PASS independent main/reference orientation: '+checks.length+' total check groups.');
-await selectRendered(models.find(a=>a.id==='calceola'),{preserve:false});renderer.rotate(90,7);renderer.compare(true);await renderer.referenceReady;step(200);
+await selectRendered(lifecycleModels[0],{preserve:false});renderer.rotate(90,7);renderer.compare(true);await renderer.referenceReady;step(200);
 // A pointer was already held when Compare began: another change has no new start event.
 renderer.detail.camera.position.copy(renderer.controls.target).add(new THREE.Vector3().setFromSpherical(new THREE.Spherical(renderer.viewState().distance,1.03,1.44)));renderer.detail.camera.lookAt(renderer.controls.target);renderer.consumeMainOrbit();
 assert.equal(renderer.viewMotion.active.yaw,false);assert.equal(renderer.viewMotion.active.orientation,true);const heldYaw=renderer.detail.comparisonYaw.rotation.y;step(700);close(renderer.detail.comparisonYaw.rotation.y,heldYaw);assert(renderer.detail.orientation.quaternion.angleTo(identity)<1e-7);close(renderer.controls.target.y,0);checks.push('held-pointer input owns comparison yaw while old inspection tilt and ground framing still finish');
