@@ -1,0 +1,42 @@
+import {assertModelIntegrationIsolation} from './model-commit-isolation.mjs';
+/** Focused branch integration; not a full build or visual release approval. */
+import assert from 'node:assert/strict';
+import {readFile,mkdtemp,rm} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {checkDelivery} from '../../site/unified-delivery-contract.mjs';
+import {resolveGalleryPoster} from '../../site/gallery/wheel-presentations.js';
+import {prepareModels} from '../../site/gallery/catalog-build.mjs';
+import {deliverManifestAssets} from '../../site/asset-delivery.mjs';
+const id='favosites';
+const json=p=>readFile(p,'utf8').then(JSON.parse);
+const manifest=await json('assets/manifest.json'),resources=await json('site/public/gallery/resources.json');
+assert.equal(manifest.assets.length,939);
+const integration=assertModelIntegrationIsolation({id,subject:'fix(favosites): clarify coral material with matched posters',currentManifest:manifest,currentResources:resources});
+const original=JSON.parse(execFileSync('git',['show',integration+'^:assets/manifest.json'],{encoding:'utf8',maxBuffer:16*1024*1024}));
+const asset=manifest.assets.find(a=>a.id===id),one={...manifest,assets:[asset]};
+assert.equal(asset.quality_status,'work_in_progress');
+const old=original.assets.find(a=>a.id===id);
+assert.deepEqual(asset.scientific_scope,old.scientific_scope);
+const parse=b=>{const n=b.readUInt32LE(12);return {j:JSON.parse(b.subarray(20,20+n).toString()),tail:b.subarray(20+n)}};
+const before=parse(execFileSync('git',['show',integration+'^:'+old.glb],{maxBuffer:16*1024*1024})),after=parse(await readFile(asset.glb));
+assert.equal(before.j.materials[0].pbrMetallicRoughness.metallicFactor,undefined);
+assert.equal(after.j.materials[0].pbrMetallicRoughness.metallicFactor,0);
+delete after.j.materials[0].pbrMetallicRoughness.metallicFactor;
+assert.deepEqual(after.j,before.j);assert.deepEqual(after.tail,before.tail);
+assert.equal(asset.revision_provenance.original_glb_sha256,old.sha256.glb);
+const poster=resolveGalleryPoster(asset,resources);assert(poster);assert.equal(poster.source_glb_sha256,asset.sha256.glb);
+assert.deepEqual(prepareModels(one,resources)[0].galleryPosters,asset.galleryPosters);
+const delivery=await checkDelivery({manifest:one,resources,hash:true});assert.equal(delivery.count,1);
+for(const role of ['glb','blend','preview'])assert.equal(createHash('sha256').update(await readFile(asset[role])).digest('hex'),asset.sha256[role]);
+const out=await mkdtemp(join(tmpdir(),'favosites-delivery-'));
+try{
+ const built=await deliverManifestAssets(one,out,{verifyHashes:true});const a=built.assets[0];
+ assert.equal(a.downloads.glb,a.glb);assert.equal(a.downloads.blend,a.blend);
+ for(const role of ['glb','blend'])assert.deepEqual(await readFile(join(out,a[role])),await readFile(a[role]));
+ const credits=await readFile(join(out,a.downloads.credits),'utf8');assert(credits.includes('Material-only correction'));assert(credits.includes('not historical original authoring source'));assert(credits.includes(old.sha256.glb));
+ execFileSync('python3',['-c',`import zipfile,sys,hashlib,json\nz=zipfile.ZipFile(sys.argv[1]);assert z.testzip() is None\nassert hashlib.sha256(z.read('model.glb')).hexdigest()==sys.argv[2]\nassert hashlib.sha256(z.read('source.blend')).hexdigest()==sys.argv[3]`,join(out,a.downloads.bundle),a.sha256.glb,a.sha256.blend]);
+}finally{await rm(out,{recursive:true,force:true});}
+console.log('PASS: sole metallicFactor edit, unchanged BIN/geometry/UV/texture; 938 other entries isolated; paired assets/posters and actual ZIP/credits verified.');
