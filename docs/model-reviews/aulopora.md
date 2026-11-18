@@ -18,4 +18,12 @@ Original site: exact three-asset SHA checks, 34 desktop + 6 phone finite entry f
 
 Candidate source-built site: 34 desktop + 4 phone monotonic finite frames, correct new GLB response SHA/HTTP200 and no recorded HTTP/JS errors. Actual held/ready screenshots preserve primary position, scale, angle and material. No uninterrupted or all-pixel stability guarantee is claimed. Candidate 8/8 repeated-flow cases pass, retry requests each2, true transition-end reset with unchanged camera/target1e-4 and quaternion1e-7 thresholds. Phone dragging is simulated mouse, not physical all-touch hardware.
 
-Focused isolation/delivery test passes: the sole metallicFactor edit, remaining JSON/BIN equality, 938 other entries unchanged at model introduction, paired source/poster hashes, and actual generated download ZIP/credits. Candidate build originated at baseline source with the now-committed candidate manifest/assets; its baseline SCOPE commit is not falsely represented as already containing those candidate edits. Independent review, unified integration and exact CI remain pending. Not deployed.
+Focused isolation/delivery test passes: the sole metallicFactor edit, remaining JSON/BIN equality, 938 other entries unchanged at model introduction, paired source/poster hashes, and actual generated download ZIP/credits. Candidate build originated at baseline source with the now-committed candidate manifest/assets; its baseline SCOPE commit is not falsely represented as already containing those candidate edits. Independent review accepted the bounded material improvement and complete pairing.
+
+## Unified completion
+
+Remote introduction `f02547e03` + `242b907b32c14cc208049cd07f3d1958dec33619` equals the complete local tested tree `473eb008ecc0f469075aa9905a56bd6c0cf0a6d3` (tree `3e2d755d6c34c49bf4c712e44c1756aa8d6270fb`). Official shared scoped build, fresh dual-end held→ready screenshots and 30 + 6 monotonic finite frames verified main projection/material consistency, exact candidate GLB HTTP200 body hash and no recorded HTTP/JS errors. All 8 unified repeated-flow cases passed, retry each2, strict endpoint reset unchanged. Independent integrated visual recheck passed within those limits.
+
+Final head `7efae6da1db12e2b5bf15c834f7b9b5d9222b5cb` adds only another model: Aulopora manifest entry/poster binding/assets and all `site/gallery` renderer code compare equal to 242b. Focused checks passed again on 7ef. Exact CI `44395354019` completed successfully, deployment skipped. Earlier 242b CI was cancelled, not counted as a pass.
+
+Aulopora review is complete, awaiting shared release; not already deployed. Review-stage manifest flags are not production-release authorization. Original and candidate sampling/artistic limits remain applicable.
