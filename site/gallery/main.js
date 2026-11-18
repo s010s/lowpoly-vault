@@ -75,7 +75,7 @@ function warmDetailPosters(){
  for(const [id,entry] of detailPosterCache)if(!entry.ready&&!nearby.some(asset=>asset.id===id)){entry.image.onload=entry.image.onerror=null;entry.image.removeAttribute('src');detailPosterCache.delete(id);}
  for(const asset of nearby){
   if(asset.id===state.selected||detailPosterCache.has(asset.id)||!asset.galleryPosters?.detail)continue;
-  const image=document.createElement('img'),entry={image,ready:false};image.decoding='async';cacheDetailPoster(asset.id,entry);
+  const image=document.createElement('img'),entry={image,ready:false};image.dataset.glbSha=asset.sha256?.glb||'';image.decoding='async';cacheDetailPoster(asset.id,entry);
   image.onload=()=>{Promise.resolve(image.decode?.()).then(()=>{if(detailPosterCache.get(asset.id)===entry)entry.ready=true;},()=>{});};
   image.onerror=()=>{if(detailPosterCache.get(asset.id)===entry)detailPosterCache.delete(asset.id);};image.src=poster(asset);
  }
@@ -187,10 +187,14 @@ function updateSelectedPosterFrame(){
 }
 function selectPoster(asset,version,source){
  cancelSelectedPoster?.();
- const isPhone=mobile(),previous=$('#detail-poster'),warmed=detailPosterCache.get(asset.id),image=warmed?.ready?warmed.image:document.createElement('img');
- const bridge=stagePoster.prepare(asset.id,warmed?.ready&&!isPhone?null:source);
- if(warmed&&!warmed.ready){warmed.image.onload=warmed.image.onerror=null;warmed.image.removeAttribute('src');}
- detailPosterCache.delete(asset.id);image.id='detail-poster';image.alt=asset.name[state.lang]||asset.name.en;image.dataset.modelId=asset.id;image.dataset.state='loading';image.dataset.source='canonical';image.style.visibility='hidden';image.decoding='async';image.fetchPriority='high';
+ const isPhone=mobile(),previous=$('#detail-poster'),cachedWarm=detailPosterCache.get(asset.id),warmed=cachedWarm?.ready&&cachedWarm.image.complete&&cachedWarm.image.naturalWidth>0&&cachedWarm.image.dataset.glbSha===asset.sha256?.glb&&cachedWarm.image.currentSrc===new URL(poster(asset),location.href).href?cachedWarm:null;
+ const sameDecoded=!!(previous&&previous.dataset.modelId===asset.id&&previous.dataset.glbSha===asset.sha256?.glb&&previous.dataset.source==='canonical'&&previous.dataset.state==='ready'&&previous.complete&&previous.naturalWidth>0&&previous.currentSrc===new URL(poster(asset),location.href).href);
+ const image=sameDecoded?previous:warmed?.ready?warmed.image:document.createElement('img');
+ // A decoded image may still sit under an in-flight previous bridge.
+ if(sameDecoded)stagePoster.clear();
+ const bridge=sameDecoded?null:stagePoster.prepare(asset.id,warmed?.ready&&!isPhone?null:source);
+ if(cachedWarm&&cachedWarm.image!==image){cachedWarm.image.onload=cachedWarm.image.onerror=null;cachedWarm.image.removeAttribute('src');}
+ detailPosterCache.delete(asset.id);image.id='detail-poster';image.alt=asset.name[state.lang]||asset.name.en;image.dataset.modelId=asset.id;image.dataset.glbSha=asset.sha256?.glb||'';image.dataset.state=sameDecoded?'ready':'loading';image.dataset.source='canonical';image.style.visibility=sameDecoded?'visible':'hidden';image.style.removeProperty('opacity');image.style.removeProperty('transition');image.decoding='async';image.fetchPriority='high';
  const active=()=>version===selectionVersion&&state.selected===asset.id&&$('#detail-poster')===image&&image.dataset.state!=='invalid-version';
  let frame=0,settled=false,revealing=false,resolveReady;
  const ready=new Promise(resolve=>resolveReady=resolve);
@@ -220,15 +224,15 @@ function selectPoster(asset,version,source){
    ?t('Preview unavailable · tap Interact in 3D','预览图暂不可用，请点「交互查看」')
    :t('Preview unavailable · preparing the 3D view…','预览图暂不可用，正在准备3D视图…');
  };
- if(previous){
+ if(previous&&previous!==image){
   previous.onload=previous.onerror=null;previous.replaceWith(image);
   // Desktop history can restore a model whose wheel thumbnail was filtered out.
   const previousId=previous.dataset.modelId;
   if(!isPhone&&previousId&&previousId!==asset.id&&previous.dataset.state==='ready'&&previous.dataset.source==='canonical'&&previous.naturalWidth){
    cacheDetailPoster(previousId,{image:previous,ready:true});
   }else previous.removeAttribute('src');
- }else stage.prepend(image);
- if(!asset.galleryPosters?.detail)queueMicrotask(image.onerror);else if(warmed?.ready)reveal();else{image.src=poster(asset);if(image.complete&&image.naturalWidth>0)image.onload();}
+ }else if(!previous)stage.prepend(image);
+ if(!asset.galleryPosters?.detail)queueMicrotask(image.onerror);else if(sameDecoded||warmed?.ready)reveal();else{image.src=poster(asset);if(image.complete&&image.naturalWidth>0)image.onload();}
  return {image,ready,bridge};
 }
 async function choose(id,{push=true,openMobile=true,activateMobile=false,center=false,syncHistory=true,phoneSource=null}={}){
@@ -255,6 +259,7 @@ async function choose(id,{push=true,openMobile=true,activateMobile=false,center=
   const ready=await renderer.select(asset,{
    presentationReady:selectedPoster.ready,
    beforeFirstFrame:()=>{if(selectedPoster.image.dataset.state==='error')stagePoster.clear();},
+   afterFirstRender:()=>{if(version===selectionVersion&&$('#detail-poster')===selectedPoster.image){selectedPoster.image.style.transition='none';selectedPoster.image.style.opacity='0';}},
   });
   if(version!==selectionVersion||!ready)return;currentReady=true;hover.refresh();$('#detail').dataset.state='ready';$('#detail-poster').classList.add('ready');$('#loading').textContent='';$('#compare').disabled=!renderer.detail.metric?.available;$('#compare').title=renderer.detail.metric?.available?'':t('Metric scale is unverified','米制尺寸未验证');
  }
@@ -264,7 +269,7 @@ function showError(version=selectionVersion,id=state.selected,error){
  if(version!==selectionVersion||id!==state.selected)return;
  clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;cancelSelectedPoster?.();currentReady=false;hover.pause();
  const image=$('#detail-poster'),integrityFailure=['MODEL_VERSION_MISMATCH','MODEL_IDENTITY_MISSING','MODEL_INTEGRITY_UNAVAILABLE'].includes(error?.code);
- $('#detail').dataset.state=integrityFailure?'version-error':'fallback';image.classList.remove('ready');
+ $('#detail').dataset.state=integrityFailure?'version-error':'fallback';image.classList.remove('ready');image.style.removeProperty('opacity');image.style.removeProperty('transition');
  if(integrityFailure){
   // The selected poster must not imply that mismatched/unverified model bytes
   // have been displayed. Retire late decode/transition callbacks as well.

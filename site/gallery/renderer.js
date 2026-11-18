@@ -76,8 +76,9 @@ export class PreviewRenderer {
  acknowledgeDetailFrame(){
   const pending=this.firstDetailFrame;
   if(!pending||pending.frame||pending.token!==this.token||pending.id!==this.detail.asset?.id||!this.detailPresentable())return;
-  // A successful matching render is necessary but not sufficient: retain the
-  // selected poster across a presentation boundary, including a cached load.
+  // Retire only the matching raster after its 3D draw has succeeded.
+  const onRendered=pending.onRendered;pending.onRendered=null;onRendered?.();
+  // Keep the two-frame ready/control gate independent of raster retirement.
   const afterFrame=phase=>{
    pending.frame=0;if(this.firstDetailFrame!==pending)return;
    if(pending.token!==this.token||pending.id!==this.detail.asset?.id){this.cancelDetailFrame();return;}
@@ -255,7 +256,7 @@ export class PreviewRenderer {
   if(this.detail.scene.fog){this.detail.scene.fog.near=Math.max(6,distance*1.5);this.detail.scene.fog.far=Math.max(18,distance*5);}
   c.lookAt(this.controls.target);this.resizeCamera(this.detail,this.detail.viewportWidth||c.aspect,this.detail.viewportHeight||1);if(cameraOwned)this.keepResetFramed();this.updateControls();this.draw();
  }
- async select(asset,{presentationReady=Promise.resolve(true),beforeFirstFrame}={}){
+ async select(asset,{presentationReady=Promise.resolve(true),beforeFirstFrame,afterFirstRender}={}){
   this.cancelDetailFrame();this.cancelCamera(true);const token=++this.token;this.controller?.abort();this.stopHover();this.comparison=false;this.removeReference();this.resetControlSession();
   const controller=new AbortController();this.controller=controller;this.detach(this.detail);this.detail.contact.visible=false;this.detail.asset=asset;this.stats.detailId=asset.id;this.stats.detailFirstFrameId=null;this.stats.detailFirstFrameToken=null;this.stats.detailStatus='loading';this.clearDetailPixels();this.draw();
   try{
@@ -272,7 +273,7 @@ export class PreviewRenderer {
    if(this.lost)throw new Error('WebGL context is unavailable');
    // Every selection is a new inspection session, including cached assets,
    // retries and a hover-to-detail click. Never inherit pose, zoom or framing.
-   const painted=new Promise(resolve=>{this.firstDetailFrame={token,id:asset.id,resolve,frame:0};});
+   const painted=new Promise(resolve=>{this.firstDetailFrame={token,id:asset.id,resolve,frame:0,onRendered:afterFirstRender};});
    this.attach(this.detail,asset,entry);beforeFirstFrame?.();this.applyState(this.singleState());this.updateControls();this.wireframe(this.wire);this.stats.detailStatus='rendering';this.draw();this.trim();
    const ready=await painted;if(!ready||token!==this.token||controller.signal.aborted||this.lost)return false;
    this.controls.enabled=true;this.stats.detailStatus='ready';return true;
