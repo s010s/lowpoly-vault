@@ -1,0 +1,37 @@
+{
+  "model_id": "choia",
+  "base_commit": "17b421d6",
+  "status": "work_in_progress",
+  "original_glb_sha256": "85a4ff038b1d9acada42944de8c0146987fafd927538c546cb9e1857bd5faf1b",
+  "change": "Material-only repair: explicit metallicFactor 0 instead of implicit 1. GLB BIN, geometry, UVs and embedded texture unchanged. New matching posters; editable Blender source imported from this candidate GLB with packed images, not historical authoring. Integration and final acceptance pending.",
+  "files": {
+    "model.glb": {
+      "bytes": 3761212,
+      "sha256": "95a14621139d3cfdaf7fe037b49ea03ce10fc3a3bb635b4bc3a0bcbc0f9bf9c3"
+    },
+    "source.blend": {
+      "bytes": 5062820,
+      "sha256": "03f8d05091c092a1b9cd4c9cdd2502bb401be8fa4bc4acac96b0fffa31b360ce"
+    },
+    "wheel.png": {
+      "bytes": 430752,
+      "sha256": "fcb3dad384ca0da2218915415b890dc766ec259ff34fd3e379e6a5f8ff26935f"
+    },
+    "detail.png": {
+      "bytes": 1024399,
+      "sha256": "84c624c3be6782e02aa514198049d27354454d72b49ff8a4f41d17882c6e0354"
+    }
+  },
+  "source_kind": "Blender import of candidate GLB with packed texture; released original retained in previous version",
+  "checks_completed": [
+    "Both material slots explicit metallic0 only; exact BIN",
+    "Candidate-derived editable Blend reopened equals direct candidate import",
+    "8 paired state/projection/pose exact; original29+6 and candidate33+6 finite frames without inversions",
+    "8/8 browser cases PASS, retry>=2",
+    "938 non-target manifest/resources isolated and real download ZIP/credits preflight PASS"
+  ],
+  "remaining": [
+    "Independent review",
+    "Unified integration and CI"
+  ]
+}
