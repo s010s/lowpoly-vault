@@ -1,0 +1,39 @@
+{
+  "model_id": "marrella",
+  "base_commit": "430bb6cd",
+  "status": "work_in_progress",
+  "original_glb_sha256": "64cebf34b8b062a3fe5e3f7cd945ff3edfec7c5b7e66005273b29f7c539ea1d3",
+  "change": "Material-only repair: explicit metallicFactor 0 instead of implicit 1. GLB BIN, geometry, UVs and embedded texture unchanged. New matching posters; editable Blender source imported from this candidate GLB with packed images, not historical authoring. Integration and final acceptance pending.",
+  "files": {
+    "model.glb": {
+      "bytes": 2778864,
+      "sha256": "884e870cc75457c19929ac048a4a41a4d4e6e3eef90e2c03620285865634b7f0"
+    },
+    "source.blend": {
+      "bytes": 5013756,
+      "sha256": "0e1f98323f88b5498c8898b4e609a063bdc85518cdd4a0e593c75e3a65777cf1"
+    },
+    "wheel.png": {
+      "bytes": 308594,
+      "sha256": "9a98c570199538d5b4a39432fb2976127c6cddff1e95aa0d29def290e8218664"
+    },
+    "detail.png": {
+      "bytes": 875314,
+      "sha256": "29e9221a65064e5c29e2ff7adb6f250daa3eaf88eac156034d37259e7f46836f"
+    }
+  },
+  "source_kind": "Blender import of candidate GLB with packed texture; released original retained in previous version",
+  "checks_completed": [
+    "Single material slot explicit metallic0 only; exact BIN",
+    "Candidate-derived editable Blend reopened equals direct candidate import",
+    "8 same-state/projection/pose paired views, underside/edge supplement",
+    "Candidate27desktop+4mobile finite frames, no inversion, HTTP/JS0 and correct GLB response",
+    "Precommit actual download ZIP/credits and938non-target manifest/resources isolation",
+    "8/8 actual browser regression PASS, retry>=2"
+  ],
+  "remaining": [
+    "Independent review",
+    "Unified integration and CI"
+  ],
+  "sample_limits": "27/4 total desktop/mobile frames; strict release-after samples25/3, no inversions; mobile sparse samples not continuous no-jump guarantee. Independent scoped visual review passed; source reopen/browser reports read, not rerun by reviewer."
+}
