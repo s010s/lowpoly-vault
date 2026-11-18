@@ -32,3 +32,11 @@ node site/gallery/tests/canadaspis-handoff-browser.mjs
 The test uses sandboxed headless Chromium, rejects other origins, delays the exact model response, performs the actual selection/mobile interaction, saves finite frame samples, and asserts the target response SHA and final model identity. Captures are kept outside Git. A viewer must inspect the captured transition; ready and hash assertions alone are not a visual pass.
 
 No new scientific/original-input-source certification, physical-device performance guarantee, complete shared matrix, or production deployment is asserted. No evidence currently justifies regenerating the model; remaining batch integration and deployed-device checks belong to the shared release process.
+
+## Integrated follow-up at c49ae7ba
+
+The exact current model was then checked in the five-model integrated build of `c49ae7ba2216f6fbff5bc5b1177d12e8d6eb5d23`. Its desktop/phone handoff captures contain 7/4 finite, monotonic CDP samples, matching successful response-byte hashes and no page or HTTP errors. The four held/ready stage images retain the same brown model, framing and orientation; sampling and fine shadow/raster differences remain limitations.
+
+The three other models' 24 regressions were **not** counted for Canadaspis. The unchanged regression script committed at `7f20f92544c2708b1c11187e086a7dc128bb27ba` was separately run with `QA_MODEL_IDS=canadaspis`: all eight desktop/phone cases passed (rapid reselection, cancellation after switching to Confuciusornis, visible retry after controlled failure, drag then Reset). Retry required at least two requests. Reset waited for the real animation endpoint and retained the camera/target `1e-4` and quaternion `1e-7` tolerances. Mouse drag in a touch-emulated viewport is not native multitouch, and the late-response case tests cancellation rather than successful stale data delivery.
+
+This completes this model's scoped repair review and integrated regression without replacing its assets or requiring regeneration. Batch deployment and its post-deployment checks remain separate; this is not full-inventory, all-device, or production-release acceptance.
