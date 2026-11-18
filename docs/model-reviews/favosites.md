@@ -12,4 +12,12 @@ New paired wheel/detail images are captured from the actual candidate through th
 
 Candidate source-built site: actual SHA-bound GLB responses passed, no recorded HTTP/JS errors, 34 desktop + 6 phone finite screencast frames. Desktop frame 9→10 reverses 3.993 ms; phone 4→5 reverses 17.974 ms. Held and ready screenshots retain the main projection, scale and material appearance in the viewed range. These samples do not establish uninterrupted every-frame stability; title/page motion and emulated mobile input remain limitations. Candidate regression also passes 8/8 with retry >=2 and unchanged strict reset thresholds. The candidate build was made from baseline source plus the exact now-committed candidate manifest/resources; its SCOPE commit is the baseline, not a claim that uncommitted candidate assets already existed in that commit.
 
-Focused test passes the unique metallic edit and unchanged remaining GLB/BIN, 938-entry isolation at introduction, exact asset/poster hashes and actual generated ZIP/credits. Independent review and unified-head CI remain pending. Not deployed.
+Focused test passes the unique metallic edit and unchanged remaining GLB/BIN, 938-entry isolation at introduction, exact asset/poster hashes and actual generated ZIP/credits. Independent review accepted the material-only improvement and delivery within this scope.
+
+## Unified completion
+
+Remote introduction: `a9bcc7678` and `2ba01a0ee`; accepted unified head `430bb6cdfcd2dcaa16e3c834026172970c5bcf72`. Its complete Git tree equals local build head `12149b4de73cd767657696f7f354aea774fbb122` (`0a18c82b1389e88f03c6a8fee1be23529ce63cab`). The official six-model scoped site was built from that tree, not substituted diagnostic JavaScript.
+
+The unified focused test passed again. Fresh unified dual-end capture produced 31 desktop + 6 phone monotonic finite samples, exact candidate GLB HTTP-200 body SHA and no recorded HTTP/JS errors. Main projection and material matched held-to-ready in actual screenshots. All 8 repeated-flow regression cases passed again, retry requests each 2. Independent review accepted this integrated finite-sample result; original/candidate sampling limitations above remain, and this does not certify every frame or real hardware.
+
+CI run `44389349442` completed successfully for exact remote head `430bb6cdfcd2dcaa16e3c834026172970c5bcf72`; deployment was skipped. Model review is complete and awaiting the shared release, not already deployed. Review-stage manifest flags are not production-release authorization.
