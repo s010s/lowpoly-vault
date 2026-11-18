@@ -1,16 +1,11 @@
-# Confuciusornis material candidate
+# Confuciusornis material repair
 
-Status: **in progress; not release-ready**. This commit preserves the actual reviewed candidate, not a production manifest replacement. The deployed model remains unchanged.
+Status: **in progress; not release-ready**. The shared `repair/live-models-review` branch selects this candidate through the real manifest and gallery poster resolver. Main and the production deployment are unchanged.
 
-The material-only edit improves wing and belly readability. Geometry, UVs and the GLB binary payload are unchanged. `source.blend` is an editable import of this candidate with packed images, not the original modeling session. `wheel.png` and `detail.png` belong to this candidate only.
+The material-only edit improves wing and belly readability. Geometry, UVs and the GLB binary payload are unchanged. `source.blend` is an editable import of this candidate with packed images, not the original modeling session. Both posters belong to this candidate.
 
-Independent scoped review confirmed asset pairing and material improvement. Transition residuals and complete repository integration remain unresolved. Limited local screenshot tests are not full production or real-device acceptance.
+Independent scoped review confirmed asset pairing and material improvement. The real integration now checks source-bound posters, sizes and hashes, generated GLB/Blend ZIP/credits, and that all 938 other manifest entries are unchanged. Run `node qa/repair-integration/confuciusornis-test.mjs`. This focused test is not a full build or visual release approval.
 
-## Continue this same branch
+Remaining: integrate shared transition fixes in source, retest the integrated renderer and complete full-repository CI plus final independent review. No diagnostic compiled bundle or per-model cumulative whitelist was copied. Historical source files remain intact.
 
-1. Integrate candidate paths, checksums, size and provenance through the repository's existing same-ID successor contract. Do not relabel old golden poster approvals.
-2. Integrate the shared transition fix as a separately reviewable source change. Do not copy diagnostic compiled bundles or cumulative model allowlists.
-3. Generate/check final poster metadata and actual GLB/Blend download mapping against the integrated version.
-4. Run targeted visual checks and full PR CI, obtain independent final review, then include in an authorized release batch.
-
-The four final assets and a small machine-readable receipt live here. Bulk debugging logs and private operational records are deliberately excluded.
+All models are handled on the shared repair branch with per-model commits. Open a PR and merge/deploy only after the full requested scope and integrated verification are complete, not after a timed or model-count batch.
