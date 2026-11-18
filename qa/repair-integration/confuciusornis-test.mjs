@@ -1,3 +1,4 @@
+import {assertModelIntegrationIsolation} from './model-commit-isolation.mjs';
 /** Focused branch integration; not a full build or visual release approval. */
 import assert from 'node:assert/strict';
 import {readFile,mkdtemp,rm} from 'node:fs/promises';
@@ -9,12 +10,11 @@ import {checkDelivery} from '../../site/unified-delivery-contract.mjs';
 import {resolveGalleryPoster} from '../../site/gallery/wheel-presentations.js';
 import {prepareModels} from '../../site/gallery/catalog-build.mjs';
 import {deliverManifestAssets} from '../../site/asset-delivery.mjs';
-const base='d1fd39fa570cf668fca5ab90cc8df76dc2db5b67', id='confuciusornis';
+const id='confuciusornis';
 const json=p=>readFile(p,'utf8').then(JSON.parse);
 const manifest=await json('assets/manifest.json'),resources=await json('site/public/gallery/resources.json');
-const original=JSON.parse(execFileSync('git',['show',`${base}:assets/manifest.json`],{encoding:'utf8',maxBuffer:16*1024*1024}));
 assert.equal(manifest.assets.length,939);
-assert.deepEqual(manifest.assets.filter(a=>a.id!==id),original.assets.filter(a=>a.id!==id),'Unrelated assets changed');
+assertModelIntegrationIsolation({id,subject:'fix(confuciusornis): wire material candidate into shared review catalog',currentManifest:manifest,currentResources:resources});
 const asset=manifest.assets.find(a=>a.id===id),one={...manifest,assets:[asset]};
 assert.equal(asset.quality_status,'work_in_progress');
 const poster=resolveGalleryPoster(asset,resources);assert(poster);assert.equal(poster.source_glb_sha256,asset.sha256.glb);
@@ -29,4 +29,4 @@ try{
  const credits=await readFile(join(out,a.downloads.credits),'utf8');assert(credits.includes('Material-only repair'));assert(credits.includes('Integration and final acceptance pending'));
  execFileSync('python3',['-c',`import zipfile,sys,hashlib,json\nz=zipfile.ZipFile(sys.argv[1]);assert z.testzip() is None\nassert hashlib.sha256(z.read('model.glb')).hexdigest()==sys.argv[2]\nassert hashlib.sha256(z.read('source.blend')).hexdigest()==sys.argv[3]`,join(out,a.downloads.bundle),a.sha256.glb,a.sha256.blend]);
 }finally{await rm(out,{recursive:true,force:true});}
-console.log('PASS: one-model source-bound posters, asset hashes, generated download ZIP/credits, and 938 unchanged entries; full build/visual acceptance NOT run.');
+console.log('PASS: one-model source-bound posters, asset hashes, generated download ZIP/credits, and 938 unchanged entries at the model integration commit; full build/visual acceptance NOT run.');
