@@ -211,3 +211,14 @@ html .vault-header .gallery-repository .vault-icon{width:14px;height:14px;flex-b
 html .vault-header #language{display:inline-flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0;white-space:nowrap}
 @media(max-width:760px){html .vault-header{gap:8px}html .vault-header .gallery-repository{font-size:11px}html .vault-header .gallery-repository .vault-icon{display:none}}
 @media(max-width:360px){html .vault-header{padding:0 12px;gap:6px}html .vault-header .vault-brand{font-size:14px;letter-spacing:1.2px;gap:7px}html .vault-header .vault-mark{width:23px;height:23px;flex-basis:23px}html .vault-header #language{padding:0 3px}}
+/* Only the heading/control changes; the poster and renderer share the original stage. */
+@media(min-width:761px){
+ .heading.detail-heading-side{left:var(--detail-heading-left);right:auto;width:var(--detail-heading-width)}
+ .heading.detail-heading-side .title-row{display:block}
+ .heading.detail-heading-side #title{min-width:0;overflow-wrap:anywhere}
+ .heading.detail-heading-compact #title{font-size:1.75rem}
+ .heading.detail-heading-side .info-region{display:inline-block;margin-top:8px}
+}
+@media(max-width:760px){
+ #mobile-interact.detail-interact-side{left:var(--detail-interact-left);transform:none}
+}
