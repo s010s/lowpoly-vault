@@ -6,6 +6,8 @@ import {createHash} from 'node:crypto';
 import {mkdir, writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {releaseCatalogPath} from './release-catalog-path.js';
+import {creditText} from './asset-delivery.mjs';
 
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -69,15 +71,24 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
   const marker = await (await get('release-build.json')).json();
   assert.equal(marker.source_commit, expectedSha, 'Deployment not yet current');
   const live = await (await get('assets/manifest.json')).json();
-  const gallery = await (await get('assets/gallery.json')).json();
+  const pinnedGallery=releaseCatalogPath('gallery',expectedSha);
+  assert(!marker.gallery_path||['assets/gallery.json',pinnedGallery].includes(marker.gallery_path), 'Wrong gallery release path');
+  if(marker.catalog_path) assert.equal(marker.catalog_path,releaseCatalogPath('catalog',marker.gallery_path===pinnedGallery?expectedSha:''),'Wrong detail catalog release path');
+  const gallery = await (await get(marker.gallery_path||'assets/gallery.json')).json();
   assert.deepEqual(live.assets.map(a => [a.id, a.glb, a.sha256.glb]), source.assets.map(a => [a.id, a.glb, a.sha256.glb]), 'Live catalog differs from pinned commit');
   assert.equal(marker.models, source.assets.length);
   assert.equal(gallery.assets.length, source.assets.length);
-  const old = new Map(baseline.assets.map(a => [a.id, a.sha256.glb]));
-  const selected = source.assets.filter(a => old.get(a.id) !== a.sha256.glb);
+  const old = new Map(baseline.assets.map(a => [a.id,a]));
+  const packageInput = (a,manifest)=>JSON.stringify([a.glb?.split('/').at(-1),a.sha256?.glb,a.blend?.split('/').at(-1),a.sha256?.blend,creditText(a,manifest)]);
+  const selected = source.assets.filter(a => {
+    const prior=old.get(a.id);
+    return prior?.sha256.glb!==a.sha256.glb ||
+      (a.zipVersioned===true&&(prior.zipVersioned!==true||packageInput(a,source)!==packageInput(prior,baseline)));
+  });
   assert(selected.length > 0, 'No changed models selected');
   const pins = new Map(resources.files.map(f => [f.path, f]));
   const display = new Map(gallery.assets.map(a => [a.id, a]));
+  const liveAssets = new Map(live.assets.map(a => [a.id,a]));
   const report = {status: 'RUNNING', source_commit: expectedSha, started_at: new Date().toISOString(),
     scope: 'Actual HTTP GET bytes and localized HTML; no repeated model acceptance or browser/device interaction test.',
     total_catalog_ids: source.assets.length, selected_count: selected.length, models: []};
@@ -104,6 +115,17 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
         row.glb = await binary(asset.glb, asset.sha256.glb, asset.file_sizes.glb);
         const shown = display.get(asset.id);
         assert.equal(shown?.sha256.glb, asset.sha256.glb, 'Gallery GLB differs');
+        const delivered=liveAssets.get(asset.id),bundle=delivered?.downloads?.bundle;
+        if(asset.zipVersioned===true) {
+          const sha256=delivered?.sha256?.bundle;
+          assert(/^[a-f0-9]{64}$/.test(sha256||''),'Missing versioned ZIP digest');
+          assert.equal(bundle,`assets/downloads/${asset.id}-${sha256.slice(0,16)}.zip`,'ZIP does not use its exact version');
+          assert.equal(shown.downloads?.bundle,bundle,'Gallery ZIP differs from delivered manifest');
+          row.bundle=await binary(bundle,sha256,delivered.file_sizes.bundle);
+        }else if(bundle) {
+          assert.equal(bundle,`assets/downloads/${asset.id}.zip`,'Non-opted-in ZIP URL changed');
+          assert.equal(shown.downloads?.bundle,bundle,'Gallery ZIP differs from delivered manifest');
+        }
         for (const role of ['wheel', 'detail']) {
           const path = resources.posters[asset.id]?.[role], pin = pins.get(path);
           assert(pin, `Missing poster pin: ${asset.id}/${role}`);
@@ -115,6 +137,7 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
           assert(hasLocalizedHeading(html, asset.name[language]), `Localized name missing: ${path}`);
           const targets = anchorTargets(html, new URL(path, base));
           assert(targets.includes(new URL(asset.glb, base).href), `GLB link missing: ${path}`);
+          if(bundle) assert(targets.includes(new URL(bundle,base).href), `ZIP link missing: ${path}`);
           assert(targets.includes('https://creativecommons.org/licenses/by/4.0/'), `License link missing: ${path}`);
           row.pages.push({path, language, http_status: response.status, bytes: Buffer.byteLength(html), sha256: sha(html), checks: ['localized-name', 'selected-glb-link', 'CC-BY-4.0-link']});
         }

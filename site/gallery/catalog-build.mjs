@@ -1,3 +1,4 @@
+import {releaseCatalogPath} from '../release-catalog-path.js';
 /** Build-time presentation resolution. Provenance remains in the full manifest;
  * the browser receives the exact display fields after these source-bound checks. */
 import {readFile,writeFile} from 'node:fs/promises';
@@ -30,5 +31,8 @@ export function createGalleryCatalog(manifest,resources, {index=createCatalog(ma
 export async function writeGalleryCatalog(manifest,out,{root=process.cwd()}={}){
  const resources=JSON.parse(await readFile(resolve(root,'site/public/gallery/resources.json')));
  const result=createGalleryCatalog(manifest,resources);
- await writeFile(resolve(out,'assets/gallery.json'),JSON.stringify(result)+'\n');return result;
+ const body=JSON.stringify(result)+'\n';
+ await writeFile(resolve(out,'assets/gallery.json'),body);
+ const pinned=releaseCatalogPath('gallery',process.env.VITE_RELEASE_CATALOG_TOKEN||'');
+ if(pinned!=='assets/gallery.json')await writeFile(resolve(out,pinned),body);return result;
 }

@@ -1,5 +1,5 @@
 /** Manifest-only delivery: no recursive asset discovery/copying and no QA state changes. */
-import { cp, mkdir, readFile, realpath, stat, writeFile, readdir, rm } from 'node:fs/promises';
+import { cp, mkdir, rename, readFile, realpath, stat, writeFile, readdir, rm } from 'node:fs/promises';
 import { dirname, resolve, sep, extname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -83,7 +83,17 @@ export async function deliverManifestAssets(manifest, outDir, { root = process.c
   }
   const python = `import json,sys,zipfile\nfor job in json.load(sys.stdin):\n with zipfile.ZipFile(job['destination'],'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:\n  for item in job['files']:\n   info=zipfile.ZipInfo(item['name'],date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED\n   with open(item['source'],'rb') as f: archive.writestr(info,f.read())\n  info=zipfile.ZipInfo('CREDITS.txt',date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;archive.writestr(info,job['credits'])\n`;
   if(jobs.length) { const result=spawnSync('python3',['-c',python],{input:JSON.stringify(jobs),encoding:'utf8'}); if(result.status !== 0) throw new Error(`ZIP packaging failed: ${result.stderr || result.error}`); }
-  for(const asset of enriched.assets) asset.file_sizes.bundle=(await stat(resolve(outDir,asset.downloads.bundle))).size;
+  for(const asset of enriched.assets) {
+    const bundle=resolve(outDir,asset.downloads.bundle);
+    asset.file_sizes.bundle=(await stat(bundle)).size;
+    if(asset.zipVersioned===true) {
+      const hash=createHash('sha256').update(await readFile(bundle)).digest('hex');
+      const versioned=asset.downloads.bundle.replace(/\.zip$/,'-'+hash.slice(0,16)+'.zip');
+      await rename(bundle,resolve(outDir,versioned));
+      asset.downloads.bundle=versioned;
+      asset.sha256={...asset.sha256,bundle:hash};
+    }
+  }
   await writeFile(resolve(outDir,'assets/manifest.json'),`${JSON.stringify(enriched,null,2)}\n`);
   return enriched;
 }

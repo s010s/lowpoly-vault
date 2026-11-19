@@ -8,6 +8,7 @@ import {pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {clearDeliveredAssets,deliverManifestAssets} from './asset-delivery.mjs';
 import {writeCatalog} from './catalog-build.mjs';
+import {releaseCatalogPath} from './release-catalog-path.js';
 import {writeGalleryCatalog} from './gallery/catalog-build.mjs';
 import {writeStaticRoutes} from './static-routes.mjs';
 export async function copyPublicMember(root,out,path){
@@ -35,6 +36,7 @@ export async function buildSimple(){
  console.log(`GLB byte gate: ${byteBudget.changed_count} new/replaced files pass; ${byteBudget.legacy_oversize.length} unchanged legacy files exceed 5 MB and are not certified by this release.`);
  const {checkDelivery}=await import('./unified-delivery-contract.mjs');
  const delivery=await checkDelivery({root:process.cwd()});
+ if(/^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA||'')) process.env.VITE_RELEASE_CATALOG_TOKEN=process.env.GITHUB_SHA;
  const build=spawnSync(process.execPath,['node_modules/vite/bin/vite.js','build'],{stdio:'inherit'});assert.equal(build.status,0,build.error?.message||'Vite failed');
  await clearDeliveredAssets('dist');
  let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false});
@@ -52,7 +54,9 @@ export async function buildSimple(){
  for(const a of manifest.assets)for(const path of [a.glb,a.blend,a.preview,a.downloads.bundle,a.downloads.credits,`models/${a.id}/index.html`,`zh-CN/models/${a.id}/index.html`])assert((await stat(resolve('dist',path))).size>0,'Missing built member '+path);
  for(const model of delivery.models)for(const file of Object.values(model.files)){const path=file.path.replace(/^site\/public\//,'');assert((await stat(resolve('dist',path))).size>0,'Missing built delivery '+path);}
  const sample=[delivery.models[0],delivery.models.at(-1)].filter((m,i,rows)=>rows.findIndex(x=>x.id===m.id)===i).map(m=>({id:m.id,files:Object.fromEntries(Object.entries(m.files).map(([role,f])=>[role,f.path.replace(/^site\/public\//,'')]))}));
- await writeFile('dist/release-build.json',JSON.stringify({source_commit:process.env.GITHUB_SHA||null,models:manifest.assets.length,sample})+'\n');
+ const stamp=process.env.VITE_RELEASE_CATALOG_TOKEN||'';
+ const catalogPaths={gallery_path:releaseCatalogPath('gallery',stamp),catalog_path:releaseCatalogPath('catalog',stamp)};
+ await writeFile('dist/release-build.json',JSON.stringify({source_commit:process.env.GITHUB_SHA||null,models:manifest.assets.length,...catalogPaths,sample})+'\n');
  const result={status:'PASS',models:manifest.assets.length,seconds:(performance.now()-started)/1000,model_qa:'NOT_REPEATED',hashes:'NOT_REPEATED'};
  await mkdir('qa/ci-timings',{recursive:true});await writeFile('qa/ci-timings/simple-build.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));return result;
 }

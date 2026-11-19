@@ -117,3 +117,40 @@ test('cancels non-text HTTP failure streams while retaining the service status',
   assert.equal(row.failure_details.public_error_excerpt, undefined);
   assert.equal(report.models.find(r => r.id === 'replacement').status, 'PASS');
 });
+
+function versionedZipFixture({corruptZip=false}={}){
+ const {options,requests}=fixture();
+ const row=options.source.assets[0],bundle=Buffer.from('versioned-zip-test-fixture'),bundleSha=sha(bundle);
+ const path=`assets/downloads/${row.id}-${bundleSha.slice(0,16)}.zip`;
+ const original=options.fetcher;
+ row.zipVersioned=true;
+ const delivered={assets:options.source.assets.map(a=>a.id===row.id?{...a,downloads:{bundle:path},file_sizes:{...a.file_sizes,bundle:bundle.length},sha256:{...a.sha256,bundle:bundleSha}}:a)};
+ options.baseline={assets:[{...row,name:{en:'Old credits title',zh:'中文'}},...options.source.assets.slice(1)]};
+ const gallery=`assets/gallery-${expectedSha}.json`,catalog=`assets/catalog-${expectedSha}.json`;
+ options.fetcher=async url=>{
+  const p=url.pathname.replace('/vault/','');
+  if(p==='release-build.json')return Response.json({source_commit:expectedSha,models:3,gallery_path:gallery,catalog_path:catalog});
+  if(p==='assets/manifest.json'||p===gallery)return Response.json(delivered);
+  if(p==='assets/gallery.json')throw Error('fixed gallery alias used despite pinned release marker');
+  if(p===path)return new Response(corruptZip?Buffer.from('wrong zip'):bundle);
+  const response=await original(url);
+  if(p.endsWith(`models/${row.id}/`))return new Response((await response.text())+`<a download href="/vault/${path}">ZIP</a>`);
+  return response;
+ };
+ return {options,requests,path,bundleSha};
+}
+
+test('release-pinned gallery detects credit-only ZIP change and verifies actual named archive', async()=>{
+ const {options,path,bundleSha}=versionedZipFixture();
+ const report=await checkDelivery(options);
+ assert.equal(report.status,'PASS');assert.equal(report.selected_count,1);
+ assert.equal(report.models[0].bundle.path,path);
+ assert.equal(report.models[0].bundle.sha256,bundleSha);
+});
+
+test('rejects changed opted-in ZIP bytes even if delivered manifest and URL agree', async()=>{
+ const {options}=versionedZipFixture({corruptZip:true});
+ const report=await checkDelivery(options);
+ assert.equal(report.status,'FAIL');
+ assert.equal(report.models[0].error_kind,'CONTENT_HASH_MISMATCH');
+});
