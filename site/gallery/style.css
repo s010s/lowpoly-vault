@@ -222,3 +222,15 @@ html .vault-header #language{display:inline-flex;align-items:center;justify-cont
 @media(max-width:760px){
  #mobile-interact.detail-interact-side{left:var(--detail-interact-left);transform:none}
 }
+
+/* Preserve the toolbar's normal flow slot; only its existing controls move. */
+@media(max-width:760px){
+ #mobile-interact.detail-interact-above{top:var(--detail-interact-top);bottom:auto}
+ .workspace-bottom.detail-tools-side::before{content:'';flex:0 0 var(--detail-tools-flow-height)}
+ .workspace-bottom.detail-tools-side .tools{
+  position:absolute;flex-direction:column;align-items:stretch;left:var(--detail-tools-left);
+  bottom:var(--detail-tools-bottom);width:var(--detail-tools-width);border-radius:18px
+ }
+ .workspace-bottom.detail-tools-side .tools button{min-height:44px;min-width:44px;padding:5px;white-space:normal}
+ .workspace-bottom.detail-tools-side .tools button+button::before{left:25%;right:25%;top:-3px;bottom:auto;width:auto;height:1px}
+}

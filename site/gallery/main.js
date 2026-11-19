@@ -186,7 +186,7 @@ function updateSelectedPosterFrame(){
  if(frame){image.style.transformOrigin='0 0';image.style.transform=`matrix(${frame.css_matrix.join(',')})`;image.dataset.presentationFrame='native-viewport-v2';}
  else{image.style.removeProperty('transform-origin');image.style.removeProperty('transform');delete image.dataset.presentationFrame;}
 }
-const detailHeadingLayout=createDetailHeadingLayout({heading:$('.workspace .heading'),title:$('#title'),stage:$('#detail'),footer:$('.workspace-bottom'),button:$('#mobile-interact'),isMobile:mobile});
+const detailHeadingLayout=createDetailHeadingLayout({heading:$('.workspace .heading'),title:$('#title'),stage:$('#detail'),footer:$('.workspace-bottom'),button:$('#mobile-interact'),tools:$('.workspace-bottom .tools'),download:$('.workspace-bottom .download-card'),isMobile:mobile});
 document.fonts?.ready.then(()=>detailHeadingLayout.refresh());
 function selectPoster(asset,version,source){
  cancelSelectedPoster?.();

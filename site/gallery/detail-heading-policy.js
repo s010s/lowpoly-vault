@@ -13,7 +13,14 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  detail:'gallery/repairs/leptomitus/material-20261118/detail.png',
  preview:'ffa1c5f2a3b9d733871b336e6a1ae0306d3a96bd476822a1d084e8b4af30b4a6',
  bounds:leptomitusBounds,
-}].map(Object.freeze))]]);
+}].map(Object.freeze))],['sawdonia',Object.freeze([Object.freeze({
+ glb:'6d62e6890268274ed9930a156b574f2e5901bb5ce5051e62b9c821da7e357356',
+ detail:'gallery/reviewed-release-20261114-06/sawdonia/detail.png',
+ preview:'8f8fc3397860873be9f4a1f7756560cc73acef9cbca6258e62e360dfbdb96dc2',
+ bounds:Object.freeze([0.303429945259016,0.15390621080320468,0.7102649641251585,0.8605725078342307]),
+ mobileOnly:true,
+ mobileTools:true,
+})])]]);
 // Delivery verifies poster bytes offline. At runtime only the GLB hash and
 // the exact versioned detail path are present for this opt-in lookup.
 export function reviewedHeadingProfile(asset){
@@ -25,7 +32,7 @@ export function projectedHeadingBounds(rect,bounds){
  return {left:x+bounds[0]*size,top:y+bounds[1]*size,right:x+bounds[2]*size,bottom:y+bounds[3]*size};
 }
 const overlaps=(a,b)=>Math.min(a.right,b.right)>Math.max(a.left,b.left)&&Math.min(a.bottom,b.bottom)>Math.max(a.top,b.top);
-export function createDetailHeadingLayout({heading,title,stage,footer,button,isMobile}){
+export function createDetailHeadingLayout({heading,title,stage,footer,button,tools,download,isMobile}){
  let selected=null;
  const resetHeading=()=>{
   heading.classList.remove('detail-heading-side','detail-heading-compact');
@@ -33,12 +40,38 @@ export function createDetailHeadingLayout({heading,title,stage,footer,button,isM
   heading.style.removeProperty('--detail-heading-left');
  };
  const resetButton=()=>{
-  button.classList.remove('detail-interact-side');
+  button.classList.remove('detail-interact-side','detail-interact-above');
   button.style.removeProperty('--detail-interact-left');
+  button.style.removeProperty('--detail-interact-top');
+ };
+ const resetTools=()=>{
+  footer.classList.remove('detail-tools-side');
+  for(const field of ['left','width','bottom','flow-height'])footer.style.removeProperty('--detail-tools-'+field);
+ };
+ const moveTools=(rect,model)=>{
+  if(!tools||!download)return;
+  const normal=tools.getBoundingClientRect();
+  if(!normal.width||!overlaps(normal,model))return;
+  const box=footer.getBoundingClientRect(),card=download.getBoundingClientRect();
+  const topControl=button.getBoundingClientRect();
+  for(const [left,right,side] of [[model.right+12,rect.right-16,'right'],[rect.left+16,model.left-12,'left']]){
+   const width=Math.floor(Math.min(104,right-left));
+   if(width<88)continue;
+   const x=side==='right'?right-width:left;
+   footer.style.setProperty('--detail-tools-left',x-box.left+'px');
+   footer.style.setProperty('--detail-tools-width',width+'px');
+   footer.style.setProperty('--detail-tools-bottom',box.bottom-normal.bottom+'px');
+   footer.style.setProperty('--detail-tools-flow-height',normal.height+'px');
+   footer.classList.add('detail-tools-side');
+   const placed=tools.getBoundingClientRect();
+   if(placed.top>=Math.max(rect.top+16,heading.getBoundingClientRect().bottom+8)
+     &&!overlaps(placed,model)&&!overlaps(placed,card)&&!overlaps(placed,topControl))return;
+   resetTools();
+  }
  };
  const apply=asset=>{
   selected=asset;
-  resetHeading();resetButton();
+  resetHeading();resetButton();resetTools();
   const profile=reviewedHeadingProfile(asset);
   if(!profile)return;
   const rect=stage.getBoundingClientRect();
@@ -46,14 +79,26 @@ export function createDetailHeadingLayout({heading,title,stage,footer,button,isM
   const model=projectedHeadingBounds(rect,profile.bounds);
   if(isMobile()){
    const control=button.getBoundingClientRect();
-   if(!control.width||!overlaps(control,model))return;
-   const right=model.right+12,left=model.left-control.width-12;
-   const position=right+control.width<=rect.right-16?right:left>=rect.left+16?left:null;
-   if(position===null)return;
-   button.style.setProperty('--detail-interact-left',position-rect.left+'px');
-   button.classList.add('detail-interact-side');
+   if(control.width&&overlaps(control,model)){
+    const right=model.right+12,left=model.left-control.width-12;
+    const position=right+control.width<=rect.right-16?right:left>=rect.left+16?left:null;
+    if(position!==null){
+     button.style.setProperty('--detail-interact-left',position-rect.left+'px');
+     button.classList.add('detail-interact-side');
+    }else if(profile.mobileTools){
+     // The full English label may be wider than either side. Only use
+     // the free band above the specimen when it clears the whole heading.
+     const top=model.top-12-control.height;
+     if(top>=Math.max(rect.top+16,heading.getBoundingClientRect().bottom+8)){
+      button.style.setProperty('--detail-interact-top',top-rect.top+'px');
+      button.classList.add('detail-interact-above');
+     }
+    }
+   }
+   if(profile.mobileTools)moveTools(rect,model);
    return;
   }
+  if(profile.mobileOnly)return;
   if(!overlaps(title.getBoundingClientRect(),model))return;
   const preferred=heading.getBoundingClientRect().left;
   const footerTop=footer.getBoundingClientRect().top-16;
