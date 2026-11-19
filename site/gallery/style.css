@@ -234,3 +234,53 @@ html .vault-header #language{display:inline-flex;align-items:center;justify-cont
  .workspace-bottom.detail-tools-side .tools button{min-height:44px;min-width:44px;padding:5px;white-space:normal}
  .workspace-bottom.detail-tools-side .tools button+button::before{left:25%;right:25%;top:-3px;bottom:auto;width:auto;height:1px}
 }
+
+/* Mobile detail is normal document flow. The media stays independently sized
+   from the published fit square; longer titles and controls cannot cover it. */
+.mobile-detail-actions { display: none; }
+.detail-media { display: contents; }
+@media (max-width: 760px) {
+ body.mobile-detail main { display: block; height: auto; min-height: 0; }
+ body.mobile-detail main .workspace {
+  --detail-air: clamp(0px, calc((100dvh - 100vw - 390px) * .25), 12px);
+  display: flex; flex-direction: column; overflow: visible;
+ }
+ body.mobile-detail .mobile-detail-actions {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; min-height: 64px;
+  padding: 10px max(17px, env(safe-area-inset-right, 0px)) 10px max(17px, env(safe-area-inset-left, 0px));
+ }
+ body.mobile-detail #mobile-back,
+ body.mobile-detail #mobile-interact {
+  position: static; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; transform: none;
+ }
+ body.mobile-detail .heading { position: static; margin: 0 24px 8px; }
+ body.mobile-detail #subtitle { margin-block: 4px 0; }
+ body.mobile-detail .detail-media { display: block; position: relative; }
+ /* Keep vertical page gestures possible on both sides even while center
+    gestures belong to the 3D inspection stage. No change to the fit square. */
+ body.mobile-detail .detail-media::before,
+ body.mobile-detail .detail-media::after {
+  content: ''; position: absolute; inset-block: 0; width: 24px;
+  z-index: 3; touch-action: pan-y;
+ }
+ body.mobile-detail .detail-media::before { left: 0; }
+ body.mobile-detail .detail-media::after { right: 0; }
+ body.mobile-detail .stage {
+  position: relative; inset: auto; flex: none;
+  height: min(100vw, max(560px, calc(100dvh - 55px)));
+ }
+ body.mobile-detail #comparison-label {
+  position: static; align-self: center; margin: 0 17px 8px;
+ }
+ body.mobile-detail .workspace-bottom {
+  position: static; gap: calc(4px + min(8px, var(--detail-air))); flex: none;
+  padding: 8px 17px max(8px, env(safe-area-inset-bottom, 0px));
+ }
+ body.mobile-detail .tools { padding-block: min(4px, var(--detail-air)); }
+ body.mobile-detail .tools button { min-width: 44px; min-height: 44px; }
+ body.mobile-detail .download-card { padding: calc(6px + var(--detail-air)) 16px; }
+ body.mobile-detail .download-card .metrics { margin-bottom: calc(4px + min(8px, var(--detail-air))); }
+ body.mobile-detail .download-card #credits { margin-top: min(9px, var(--detail-air)); }
+}
