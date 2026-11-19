@@ -1,0 +1,6 @@
+# Paratingia branch-only material review
+The five live files match the exact Git asset. The crown's stacked fronds and leaf veins are difficult to read in the original default-metallic rendering. An isolated four-angle comparison and independent page review support the minimal default metallic factor change 1 → 0.65 rather than full brightening; crown shade and brown trunk remain. Other parsed GLB JSON and BIN bytes, textures, geometry, authored size, transforms, and camera/default pose are unchanged. The exact paired editable source opens with the same mesh, UV, transforms and non-empty packed texture fingerprint; only its original Principled metallic input was changed.
+
+Replacement wheel and detail use the same branch's actual PreviewRenderer and preserve the existing wheel framing unchanged. At 1440×1000 desktop and 390×844 simulated mobile the canonical poster and loaded model show no visible jump in position, scale, orientation, background or surface. Both original and candidate passed four real buttons, two real poster response hashes, eight lifecycle checks, and validator 0 errors/0 warnings. Evidence is finite browser sampling, not true-device or continuous-frame certification.
+
+The short-phone overlay collision at 390×740 is a separate page issue; this material change alone does not resolve it. Branch CI and unified release are separate.
