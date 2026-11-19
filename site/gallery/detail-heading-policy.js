@@ -20,6 +20,11 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  bounds:Object.freeze([0.303429945259016,0.15390621080320468,0.7102649641251585,0.8605725078342307]),
  mobileOnly:true,
  mobileTools:true,
+})])],['spyroceras',Object.freeze([Object.freeze({
+ glb:'2a08b6e6d97ef9b5c7fe36cbdb49c335afbd772d2e503b3bd56d54cfe73b2a54',
+ detail:'gallery/reviewed-release-20261114-06/spyroceras/detail.png',
+ preview:'8cdceb2ed2544054308026bd9a7d047b37d42b7b16204a2f344da0a72d62a01d',
+ bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
 })])]]);
 // Delivery verifies poster bytes offline. At runtime only the GLB hash and
 // the exact versioned detail path are present for this opt-in lookup.
