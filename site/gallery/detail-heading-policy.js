@@ -38,6 +38,24 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
 export function reviewedHeadingProfile(asset){
  return reviewed.get(asset?.id)?.find(p=>asset.sha256?.glb===p.glb&&asset.galleryPosters?.detail===p.detail)??null;
 }
+const HASH=/^[a-f0-9]{64}$/;
+const validDesktopBounds=(entry,glb,detail)=>entry?.version===1&&entry.kind==='legacy-square-subject'
+ &&typeof glb==='string'&&HASH.test(glb)&&entry.glb===glb&&typeof detail==='string'
+ &&/^gallery\/posters\/[a-z0-9-]+\.png$/.test(detail)&&entry.detail===detail
+ &&typeof entry.detail_sha256==='string'&&HASH.test(entry.detail_sha256)
+ &&Number.isSafeInteger(entry.detail_bytes)&&entry.detail_bytes>0
+ &&Array.isArray(entry.bounds)&&entry.bounds.length===4&&entry.bounds.every(x=>Number.isFinite(x)&&x>=0&&x<=1)
+ &&entry.bounds[0]<entry.bounds[2]&&entry.bounds[1]<entry.bounds[3];
+
+// Called only with the final resolved poster; wheel/preview bytes are not substitutes.
+export function resolveDesktopHeadingBounds(asset,poster,resources){
+ const entry=poster?.desktopHeadingBounds,glb=asset?.sha256?.glb,detail=poster?.detail;
+ if(!entry||poster.detailPresentation||poster.source_glb_sha256!==glb||!validDesktopBounds(entry,glb,detail)||!Array.isArray(resources?.files))return null;
+ const pins=resources.files.filter(file=>file?.path===detail);
+ if(pins.length!==1||pins[0].sha256!==entry.detail_sha256||pins[0].bytes!==entry.detail_bytes)return null;
+ return {version:1,kind:'legacy-square-subject',glb,detail,detail_sha256:entry.detail_sha256,detail_bytes:entry.detail_bytes,bounds:[...entry.bounds]};
+}
+
 export function projectedHeadingBounds(rect,bounds){
  const size=Math.min(rect.width,rect.height);
  const x=rect.left+(rect.width-size)/2-.06*size,y=rect.top+(rect.height-size)/2;
@@ -84,12 +102,17 @@ export function createDetailHeadingLayout({heading,title,stage,footer,button,too
  const apply=asset=>{
   selected=asset;
   resetHeading();resetButton();resetTools();
-  const profile=reviewedHeadingProfile(asset);
-  if(!profile||(profile.desktopOnly&&isMobile()))return;
+  const phone=isMobile(), reviewedProfile=reviewedHeadingProfile(asset);
+  const candidate=asset?.desktopHeadingBounds;
+  const desktop= !phone&&!asset?.detailPresentation
+   &&validDesktopBounds(candidate,asset?.sha256?.glb,asset?.galleryPosters?.detail)?candidate:null;
+  // Preserve all previous reviewed policies; no new mobile/3D path.
+  const profile=reviewedProfile||desktop;
+  if(!profile||(profile.desktopOnly&&phone))return;
   const rect=stage.getBoundingClientRect();
   if(!rect.width||!rect.height)return;
   const model=projectedHeadingBounds(rect,profile.bounds);
-  if(isMobile()){
+  if(phone){
    const control=button.getBoundingClientRect();
    if(control.width&&overlaps(control,model)){
     const right=model.right+12,left=model.left-control.width-12;
@@ -124,7 +147,9 @@ export function createDetailHeadingLayout({heading,title,stage,footer,button,too
    heading.style.setProperty('--detail-heading-left',left-rect.left+'px');
    heading.classList.add('detail-heading-side');
    if(available<240||heading.getBoundingClientRect().bottom>footerTop)heading.classList.add('detail-heading-compact');
-   if(heading.getBoundingClientRect().bottom<=footerTop)return;
+   const placed=heading.getBoundingClientRect();
+   const card=download?.getBoundingClientRect();
+   if(placed.bottom<=footerTop&&(!desktop||reviewedProfile||(!overlaps(placed,model)&&(!card||!overlaps(placed,card)))))return;
    resetHeading();
   }
   // The original format remains readable if neither side column fits.
