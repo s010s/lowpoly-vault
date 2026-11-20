@@ -66,3 +66,18 @@ test('visible pending feedback is a disposable child of empty stage status and n
  assert.match(main,/if\(!active\(\)\)\{finish\(false\);return;\}if\(revealing\)return;revealing=true;clearMobilePendingCopy\(\)/);
  assert.match(main,/image\.onerror=\(\)=>\{\n  if\(!active\(\)\)return;\n  clearMobilePendingCopy\(\)/);
 });
+
+test('mobile preview Exit during loading suspends instead of starting the same model again',async()=>{
+ const main=await readFile(new URL('../main.js',import.meta.url),'utf8');
+ const start=main.indexOf('mobileInteract.onclick=()=>{'),end=main.indexOf('\n};',start);
+ assert(start>=0&&end>start);
+ const {runInNewContext}=await import('node:vm');
+ const mobileInteract={},stage={dataset:{state:'loading'}},calls=[];
+ runInNewContext(main.slice(start,end+3),{mobile:()=>true,mobileInteract,stage,
+  currentReady:false,state:{selected:'sample'},mobileIntent:{request:()=>calls.push('queued')},
+  choose:(id,options)=>calls.push([id,{...options}])});
+ mobileInteract.onclick();
+ assert.deepEqual(calls,[['sample',{push:false,preserve:false,activateMobile:false}]]);
+ stage.dataset.state='static';calls.length=0;mobileInteract.onclick();
+ assert.deepEqual(calls,['queued']);
+});
