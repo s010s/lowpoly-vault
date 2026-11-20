@@ -19,7 +19,7 @@ import {filterItems,WheelSettler} from './state.js';
 import {DetailRenderer as PreviewRenderer,POSTER_IMAGE_SCALE} from './detail-renderer.js';
 import {validDetailPresentation,detailScreenFrame} from './detail-presentation-policy.js';
 import {createMobileActivationIntent} from './mobile-activation-intent.js';
-import {canonicalEntrancePlan} from './canonical-entrance.js';
+import {canonicalEntrancePlan,hasCanonicalDetail} from './canonical-entrance.js';
 // Importing this module prepares code and CSS without touching the SSG document.
 // Bootstrap mounts only after every startup dependency has finished loading.
 export async function mountGallery(){
@@ -233,7 +233,7 @@ function updateSelectedPosterFrame(){
 }
 const detailHeadingLayout=createDetailHeadingLayout({heading:$('.workspace .heading'),title:$('#title'),stage:$('#detail'),footer:$('.workspace-bottom'),button:$('#mobile-interact'),tools:$('.workspace-bottom .tools'),download:$('.workspace-bottom .download-card'),isMobile:mobile});
 document.fonts?.ready.then(()=>detailHeadingLayout.refresh());
-function selectPoster(asset,version,source,{beforeCanonicalVisible}={}){
+function selectPoster(asset,version,source,{beforeCanonicalVisible,desktopCanonical=false}={}){
  cancelSelectedPoster?.();
  const isPhone=mobile(),previous=$('#detail-poster'),cachedWarm=detailPosterCache.get(asset.id),warmed=cachedWarm?.ready&&cachedWarm.image.complete&&cachedWarm.image.naturalWidth>0&&cachedWarm.image.dataset.glbSha===asset.sha256?.glb&&cachedWarm.image.currentSrc===new URL(poster(asset),location.href).href?cachedWarm:null;
  const sameDecoded=!!(previous&&previous.dataset.modelId===asset.id&&previous.dataset.glbSha===asset.sha256?.glb&&previous.dataset.source==='canonical'&&previous.dataset.state==='ready'&&previous.complete&&previous.naturalWidth>0&&previous.currentSrc===new URL(poster(asset),location.href).href);
@@ -250,6 +250,7 @@ function selectPoster(asset,version,source,{beforeCanonicalVisible}={}){
  cancelSelectedPoster=()=>finish(false);
  const reveal=()=>{
   if(!active()){finish(false);return;}if(revealing)return;revealing=true;clearMobilePendingCopy();updateSelectedPosterFrame();image.dataset.state='ready';image.classList.toggle('ready',currentReady);
+  if(desktopCanonical&&(!image.complete||!image.naturalWidth||!image.naturalHeight||image.currentSrc!==new URL(poster(asset),location.href).href)){image.onerror();return;}
   // A decoded cached poster still gets a real presentation opportunity before
   // its matching 3D surface can appear. No simulated network delay is added.
   const painted=phase=>{frame=0;if(!active()){finish(false);return;}if(phase===0){frame=requestAnimationFrame(()=>painted(1));return;}finish(true);};
@@ -257,7 +258,13 @@ function selectPoster(asset,version,source,{beforeCanonicalVisible}={}){
   // The GLB can download while the matching raster hands over. A newer
   // selection cancels both the visual handoff and the stale presentation gate.
   if(bridge)Promise.resolve().then(()=>active()&&stagePoster.reveal(image)).then(acknowledge);
-  else{beforeCanonicalVisible?.();image.style.visibility='visible';acknowledge();}
+  else{
+   if(desktopCanonical){
+    // A reused right image may retain opacity 0 from its previous 3D handoff.
+    image.classList.remove('ready');image.style.transition='none';image.style.opacity='1';
+   }
+   beforeCanonicalVisible?.();image.style.visibility='visible';acknowledge();
+  }
  };
  image.onload=()=>{if(!active())return;Promise.resolve(image.decode?.()).then(reveal,reveal);};
  image.onerror=()=>{
@@ -290,12 +297,15 @@ async function choose(id,{push=true,openMobile=true,activateMobile=false,center=
  const row=$('#option-'+id),isPhone=mobile(),wasOpen=document.body.classList.contains('mobile-detail');
  const entering=phoneSource||(isPhone&&openMobile&&push&&!wasOpen?phoneContinuity.fromWheel(id,row):null);
  const {opening,canonicalFirst}=canonicalEntrancePlan({asset,isPhone,openMobile,activateMobile,opening:entering,reviewOnly:catalog.manifest?.review_only===true});
- const source=canonicalFirst?null:(opening?.art||(!isPhone?wheelArtwork(row):wasOpen?stagePoster.frame(id):null));
+ // The released display catalog resolved this canonical role against the GLB.
+ const desktopCanonical=!isPhone&&catalog.manifest?.review_only===false&&hasCanonicalDetail(asset);
+ const source=canonicalFirst||desktopCanonical?null:(opening?.art||(!isPhone?wheelArtwork(row):wasOpen?stagePoster.frame(id):null));
  if(opening||wasOpen)phoneContinuity.stop();
  cancelPosterWarmup();ui.resetCopy();if(push&&syncHistory)saveCurrentHistory();if(push)state.view='detail';const version=++selectionVersion;clearTimeout(selectionLoadingTimer);selectionLoadingTimer=0;closeInfo();hover.pause();settler.stop();state.selected=id;state.keyboard=id;currentReady=false;stage.dataset.modelId=id;stage.dataset.state='loading';title.textContent=short(asset);$('#subtitle').textContent=t(categories[asset.category]?.[0]||asset.category,categories[asset.category]?.[1]||asset.category)+' / '+t('Stylized specimen','风格化示意');$('#triangles').textContent=asset.triangles.toLocaleString();$('#dimensions').textContent=modelHeight(asset);$('#file-size').textContent=Math.round((asset.glb_bytes||0)/1024)+' KB';
  $('#download').href=urlAsset(asset.glb);$('#blend').href=urlAsset(asset.blend);$('#download').removeAttribute('aria-disabled');$('#blend').removeAttribute('aria-disabled');for(const link of [$('#download'),$('#blend')]){link.style.removeProperty('opacity');link.style.removeProperty('pointer-events');}detailHeadingLayout.apply(asset);const loading=$('#loading'),preparing=t('Preparing the model preview…','正在准备模型预览…');
- loading.textContent=canonicalFirst?preparing:'';
- const selectedPoster=selectPoster(asset,version,source,canonicalFirst?{beforeCanonicalVisible:()=>{
+ const canonicalPending=canonicalFirst||desktopCanonical;
+ loading.textContent=canonicalPending?preparing:'';
+ const selectedPoster=selectPoster(asset,version,source,canonicalPending?{desktopCanonical,beforeCanonicalVisible:()=>{
   if(version===selectionVersion&&state.selected===id&&loading.textContent===preparing)loading.textContent='';
  }}:undefined);$('#retry').hidden=true;infoContent(asset);$('#comparison-label').hidden=true;$('#compare').setAttribute('aria-pressed','false');$('#compare').disabled=true;$('#wireframe').setAttribute('aria-pressed',String(renderer?.wire||false));renderSummary();renderWheel();settler.stop();
  state.mobileOpen=state.view==='detail'&&openMobile;syncMobileView();updateSelectedPosterFrame();
@@ -312,7 +322,9 @@ async function choose(id,{push=true,openMobile=true,activateMobile=false,center=
   mobileIntent.bind({id,sha:asset.sha256?.glb||'',src:new URL(poster(asset),location.href).href,version,image:selectedPoster.image},selectedPoster.ready);
   return;
  }
- const loadingTimer=selectionLoadingTimer=setTimeout(()=>{if(version===selectionVersion&&!currentReady)$('#loading').textContent=t('Preparing the 3D view…','正在准备3D视图…');},600);
+ // On canonical desktop the preview or its explicit fallback owns the copy.
+ // Do not overlay a progress label on intact poster art while the GLB loads.
+ const loadingTimer=selectionLoadingTimer=desktopCanonical?0:setTimeout(()=>{if(version===selectionVersion&&!currentReady)$('#loading').textContent=t('Preparing the 3D view…','正在准备3D视图…');},600);
  if(!renderer){clearTimeout(loadingTimer);showError(version,id);return;}
  try{
   const ready=await renderer.select(asset,{

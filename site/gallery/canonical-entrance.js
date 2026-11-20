@@ -1,7 +1,7 @@
 /** A release-catalog canonical detail role is selected by GLB identity at build
  * time. Like the existing image loader, runtime does not independently hash PNGs. */
 const SHA=/^[a-f0-9]{64}$/;
-function hasCanonicalDetail(asset) {
+export function hasCanonicalDetail(asset) {
  const path=asset?.galleryPosters?.detail;
  return SHA.test(asset?.sha256?.glb||'')&&typeof path==='string'&&
   (path.startsWith('gallery/')||path.startsWith('detail-presentations/'))&&
