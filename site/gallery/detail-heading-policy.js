@@ -25,6 +25,13 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  detail:'gallery/reviewed-release-20261114-06/spyroceras/detail.png',
  preview:'8cdceb2ed2544054308026bd9a7d047b37d42b7b16204a2f344da0a72d62a01d',
  bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
+})])],['diplomoceras',Object.freeze([Object.freeze({
+ glb:'6dad0da9076f6b7afbfc22c578f8886801c17639c5cb138aeb99074bdaca9a67',
+ detail:'gallery/posters/diplomoceras.png',
+ preview:'dbb5971ef2590f7941d27be91dd65dc94a81afd57f8e9d1310af3cf549f98e3e',
+ // Full alpha + exact initial 3D projection in the legacy square, padded 1px.
+ bounds:Object.freeze([162/512,45/512,508/512,478/512]),
+ desktopOnly:true,
 })])]]);
 // Delivery verifies poster bytes offline. At runtime only the GLB hash and
 // the exact versioned detail path are present for this opt-in lookup.
@@ -78,7 +85,7 @@ export function createDetailHeadingLayout({heading,title,stage,footer,button,too
   selected=asset;
   resetHeading();resetButton();resetTools();
   const profile=reviewedHeadingProfile(asset);
-  if(!profile)return;
+  if(!profile||(profile.desktopOnly&&isMobile()))return;
   const rect=stage.getBoundingClientRect();
   if(!rect.width||!rect.height)return;
   const model=projectedHeadingBounds(rect,profile.bounds);
