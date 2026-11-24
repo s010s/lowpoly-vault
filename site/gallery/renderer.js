@@ -468,14 +468,23 @@ export class PreviewRenderer {
    }
   }finally{camera.layers.mask=mask;scene.background=background;this.renderer.autoClear=autoClear;}
  }
- renderView(view,rect,clip=rect,{overlay=false}={}){
+ renderView(view,rect,clip=rect,{overlay=false,projectionRect=rect}={}){
   if(!view||(!view.model&&!view.isBackdrop)||rect.width<1||rect.height<1)return false;
   const clipped={left:Math.max(0,clip.left),right:Math.min(innerWidth,clip.right),top:Math.max(0,clip.top),bottom:Math.min(innerHeight,clip.bottom)};
   clipped.width=clipped.right-clipped.left;clipped.height=clipped.bottom-clipped.top;if(clipped.width<1||clipped.height<1)return false;
-  this.resizeCamera(view,rect.width,rect.height);const h=innerHeight;
+  const extend=projectionRect!==rect;
+  this.resizeCamera(view,projectionRect.width,projectionRect.height);
+  // Keep the stage projection exactly centered while painting its surrounding surface.
+  if(extend)view.camera.setViewOffset(projectionRect.width,projectionRect.height,
+   rect.left-projectionRect.left,rect.top-projectionRect.top,rect.width,rect.height);
+  const h=innerHeight;
   const ratio=this.renderer.getPixelRatio();view.shadowViewport.value.set(Math.floor(rect.left*ratio),Math.floor((h-rect.bottom)*ratio),Math.floor(rect.width*ratio),Math.floor(rect.height*ratio));
   this.renderer.setViewport(rect.left,h-rect.bottom,rect.width,rect.height);this.renderer.setScissor(clipped.left,h-clipped.bottom,clipped.width,clipped.height);this.renderer.setScissorTest(true);
-  if(overlay)this.renderer.clearDepth();else this.renderer.clear(true,true,true);this.renderScenePasses(view);return true;
+  try{
+   if(overlay)this.renderer.clearDepth();else this.renderer.clear(true,true,true);
+   this.renderScenePasses(view);
+  }finally{if(extend)view.camera.clearViewOffset();}
+  return true;
  }
  draw(hoverOnly=false){if(!this.renderer||this.lost||document.hidden)return;const width=innerWidth,height=innerHeight,ratio=Math.min(devicePixelRatio||1,1.75);const size=this.renderer.getSize(new THREE.Vector2());if(this.renderer.getPixelRatio()!==ratio){this.renderer.setPixelRatio(ratio);hoverOnly=false;}if(size.x!==width||size.y!==height){this.renderer.setSize(width,height,false);hoverOnly=false;}
   // setSize(..., false) deliberately leaves CSS alone. Intrinsic canvas dimensions
@@ -486,8 +495,12 @@ export class PreviewRenderer {
   if(!hoverOnly){
    this.renderer.setScissorTest(false);this.renderer.setClearColor(0,0);this.renderer.clear(true,true,true);
    const rect=this.host.getBoundingClientRect();
-   // The phone pane can already be on screen when its intersection callback is still pending.
-   this.renderView(this.backdrop,rect);
+   // Mobile detail lays the gesture/model host inside the document-flow surface.
+   // Continue that same backdrop through the rest of the workspace, not through
+   // the model's scissor: the fit square and DOM gesture target stay unchanged.
+   const mobileSurface=document.body.classList.contains('mobile-detail')?this.host.closest('.workspace'):null;
+   const surface=mobileSurface?.getBoundingClientRect()||rect;
+   this.renderView(this.backdrop,surface,surface,{projectionRect:rect});
    if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true}))this.acknowledgeDetailFrame();
   }
   if(this.hover?.host.isConnected&&this.hover.model){const hostRect=this.hover.host.getBoundingClientRect(),rw=Math.min(hostRect.width,hostRect.height*WHEEL_ASPECT),rh=rw/WHEEL_ASPECT,r={left:hostRect.left+(hostRect.width-rw)/2,top:hostRect.top+(hostRect.height-rh)/2,width:rw,height:rh};r.right=r.left+r.width;r.bottom=r.top+r.height;const list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),w=Math.max(1,Math.floor(r.width*ratio)),h=Math.max(1,Math.floor(r.height*ratio)),sx=Math.floor(r.left*ratio),sy=this.renderer.domElement.height-Math.floor((innerHeight-r.bottom)*ratio)-h;this.hover.presentation.update(this.renderer.domElement,sx,sy,w,h,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
