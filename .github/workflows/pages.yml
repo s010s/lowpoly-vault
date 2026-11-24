@@ -28,6 +28,16 @@ jobs:
         run: node site/ci-code-tests.mjs
       - name: Check files and build the site once
         run: node site/ci-build-simple.mjs
+      - name: Test local built delivery verifier
+        run: node --test site/ci-release-delivery-candidate.test.mjs
+      - name: Verify local built release deliveries
+        run: node site/ci-release-delivery-candidate.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: candidate-delivery-${{ github.run_id }}
+          path: qa/candidate-delivery/report.json
+          if-no-files-found: ignore
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -36,14 +36,15 @@ jobs:
       - name: Test delivery validation
         run: node --test site/ci-release-delivery.test.mjs
       - name: Read every model delivery changed since the catalog baseline
+        if: github.event_name == 'workflow_run'
         env:
           SITE_URL: https://s010s.github.io/lowpoly-vault/
-          DEPLOYED_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.event.pull_request.base.sha }}
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
           # Public catalog checkpoint preceding the reviewed model replacements.
           DELIVERY_BASELINE_SHA: 44a9d6a0c56920658369b374a0aa4b458e7845f0
         run: node site/ci-release-delivery.mjs
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && github.event_name == 'workflow_run'
         with:
           name: release-delivery-${{ github.run_id }}
           path: qa/live-smoke/release-delivery.json
