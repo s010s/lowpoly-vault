@@ -23,7 +23,7 @@ const direction=(a,e)=>new THREE.Vector3(Math.sin(a*Math.PI/180)*Math.cos(e*Math
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 export class PreviewRenderer {
  constructor(detail,onChange){
-  this.host=detail;this.onChange=onChange;this.cache=new Map();this.retiredEntries=new Set();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
+  this.host=detail;this.shortLandscapeFit=matchMedia('(760px < width <= 1000px) and (320px <= height <= 460px)');this.onChange=onChange;this.cache=new Map();this.retiredEntries=new Set();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
   this.stats={rendererCount:1,requests:0,aborted:0,stale:0,cacheEntries:0,estimatedCacheBytes:0,cacheByteLimit:48*1024*1024,frames:0,hoverId:null,detailId:null};
   this.renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});
   this.renderer.domElement.className='preview-renderer';this.renderer.domElement.setAttribute('aria-hidden','true');document.body.append(this.renderer.domElement);
@@ -498,8 +498,10 @@ export class PreviewRenderer {
    // Mobile detail lays the gesture/model host inside the document-flow surface.
    // Continue that same backdrop through the rest of the workspace, not through
    // the model's scissor: the fit square and DOM gesture target stay unchanged.
-   const mobileSurface=document.body.classList.contains('mobile-detail')?this.host.closest('.workspace'):null;
-   const surface=mobileSurface?.getBoundingClientRect()||rect;
+   const slot=this.host.dataset.modelId;
+   const splitSurface=document.body.classList.contains('mobile-detail')||
+    (this.shortLandscapeFit.matches&&slot&&slot!=='teichichnus-spreite-wall');
+   const surface=(splitSurface&&this.host.closest('.workspace')?.getBoundingClientRect())||rect;
    this.renderView(this.backdrop,surface,surface,{projectionRect:rect});
    if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true}))this.acknowledgeDetailFrame();
   }

@@ -356,3 +356,93 @@ html .vault-header #language{display:inline-flex;align-items:center;justify-cont
 #a308-download-section {padding:14px 27px 24px;display:flex;justify-content:flex-end;align-items:flex-start;gap:12px;flex-wrap:wrap}
 #a308-download-heading {font-size:18px;margin:10px 0}
 #a308-download-close {border:1px solid #c8c8be;border-radius:22px;padding:9px 12px}
+
+/* A short, wide pane has more width than height. Reserve a real download
+   column and tool row instead of laying either on top of the model. */
+@media (760px < width <= 1000px) and (320px <= height <= 460px) {
+ main:has(.workspace #detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) {
+  height: calc(100dvh - 62px);
+  min-height: 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) {
+  display: grid;
+  grid-template: auto minmax(0, 1fr) auto / minmax(0, 1fr) clamp(174px, 23vw, 214px);
+  column-gap: 8px;
+  padding-inline-end: 12px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .heading {
+  grid-area: 1 / 1 / 2 / 3;
+  position: relative;
+  inset: auto;
+  min-width: 0;
+  margin: 10px 12px 4px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) h1 {
+  font-size: clamp(24px, 3vw, 30px);
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) #subtitle {
+  margin-block: 4px 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .detail-media {
+  grid-area: 2 / 1;
+  display: block;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .workspace-bottom {
+  grid-area: auto;
+  display: contents;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .tools {
+  grid-area: 3 / 1;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  width: auto;
+  max-width: 100%;
+  margin: 2px 0 8px;
+  padding: 2px;
+  gap: 2px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .tools button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 4px;
+  gap: 3px;
+  white-space: normal;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-card {
+  grid-area: 2 / 2 / 4 / 3;
+  width: 100%;
+  align-self: center;
+  padding: 8px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .metrics {
+  margin-bottom: 6px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-actions {
+  flex-direction: column;
+  gap: 5px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-actions a {
+  min-height: 44px;
+  flex: 0 0 auto;
+  padding-block: 5px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) #credits {
+  margin-top: 6px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .stage-hint {
+  display: none;
+ }
+}
+
+/* On low mobile viewports, scroll the model list inside the wheel rather
+   than pushing the document down and inheriting that offset into detail. */
+@media (max-width: 760px) and (320px <= height <= 560px) {
+ body:not(.mobile-detail) main { min-height: 0; }
+ body.mobile-detail .detail-media > .stage {
+  height: min(100vw, max(132px, calc(100dvh - 247px)));
+ }
+}
