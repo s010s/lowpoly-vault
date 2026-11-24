@@ -25,6 +25,13 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  detail:'gallery/reviewed-release-20261114-06/spyroceras/detail.png',
  preview:'8cdceb2ed2544054308026bd9a7d047b37d42b7b16204a2f344da0a72d62a01d',
  bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
+})])],['chaloneria',Object.freeze([Object.freeze({
+ glb:'54a072cf79a6642fa0b53d9781402acb62b1f544b1d993a1123660bb7e64c9e8',
+ detail:'gallery/reviewed-release-20261114-07/chaloneria/detail.png',
+ preview:'ed404d4519506f65fbc166c8730be23edee1cdb9965444d35f6a3d86f06ed10e',
+ // Canonical projected mesh and matching poster subject; padded by two poster pixels.
+ bounds:Object.freeze([0.45075812716623764,0.04283366259586899,0.5669514764562911,0.8756414949704007]),
+ desktopOnly:true,
 })])],['diplomoceras',Object.freeze([Object.freeze({
  glb:'6dad0da9076f6b7afbfc22c578f8886801c17639c5cb138aeb99074bdaca9a67',
  detail:'gallery/posters/diplomoceras.png',
