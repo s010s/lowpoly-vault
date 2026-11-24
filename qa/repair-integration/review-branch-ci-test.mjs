@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const yaml=await readFile('.github/workflows/pages.yml','utf8');
+assert.match(yaml,/push:\s*\n\s*branches: \[main, repair\/live-models-review\]/);
+assert.match(yaml,/pull_request:/);
+assert.match(yaml,/fetch-depth: 0/);
+assert.match(yaml,/run: node site\/ci-build-simple.mjs/);
+assert.match(yaml,/deploy:\s*\n\s*if: github.event_name == 'push' && github.ref == 'refs\/heads\/main'/);
+const canDeploy=(event,ref)=>event==='push'&&ref==='refs/heads/main';
+assert.equal(canDeploy('push','refs/heads/repair/live-models-review'),false);
+assert.equal(canDeploy('pull_request','refs/pull/1/merge'),false);
+assert.equal(canDeploy('workflow_dispatch','refs/heads/repair/live-models-review'),false);
+assert.equal(canDeploy('push','refs/heads/main'),true);
+console.log('PASS: shared review branch triggers complete build; production deploy remains main-push-only. Static workflow guard, not a CI run.');

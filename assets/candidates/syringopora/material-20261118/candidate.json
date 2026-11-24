@@ -1,0 +1,38 @@
+{
+  "model_id": "syringopora",
+  "base_commit": "7efae6da",
+  "status": "work_in_progress",
+  "original_glb_sha256": "82230cd59edf12e0e0297b181292e46b6bf9cb0acada1cba0d55f2db793faaa4",
+  "change": "Material-only repair: explicit metallicFactor 0 instead of implicit 1. GLB BIN, geometry, UVs and embedded texture unchanged. New matching posters; editable Blender source imported from this candidate GLB with packed images, not historical authoring. Integration and final acceptance pending.",
+  "files": {
+    "model.glb": {
+      "bytes": 3566464,
+      "sha256": "e8c421a693b199b847525d413eedcad146051bfc462aaf2f5c5f53e85caf7b45"
+    },
+    "source.blend": {
+      "bytes": 4481248,
+      "sha256": "99ea86e431cb39da8edb81d8e69ebc00767dd56938b809881e95dc41c6bef0f6"
+    },
+    "wheel.png": {
+      "bytes": 227054,
+      "sha256": "6090eae200e0e9447d044b17ccbe5caf8426385c5da0ac5822d6eedb9aca5294"
+    },
+    "detail.png": {
+      "bytes": 1172253,
+      "sha256": "a938cc2ec7b330907fec1a15ca7560662ac62b84d4c1fea9fa7da7509ad747f3"
+    }
+  },
+  "source_kind": "Blender import of candidate GLB with packed texture; released original retained in previous version",
+  "checks_completed": [
+    "Single slot explicit metallic0 only; entire BIN remains exact",
+    "Real candidate-derived Blend reopen equals direct GLB import",
+    "8 same-state/projection/pose paired views plus underside/edge",
+    "29desktop+5mobile total frames, strict postrelease[27, 4]; no inversions, correct actual200GLB and HTTP/JS0",
+    "Precommit true ZIP/credits and non-target manifest/resources isolation PASS",
+    "Final actual8browser regression PASS, retry>=2; initial build-not-ready launch excluded"
+  ],
+  "remaining": [
+    "Independent review",
+    "Unified integration and CI"
+  ]
+}

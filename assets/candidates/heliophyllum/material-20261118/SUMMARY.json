@@ -1,0 +1,152 @@
+{
+  "model": "heliophyllum",
+  "change": "metallicFactor default 1 -> 0.65 only; all other parsed JSON and complete BIN unchanged",
+  "original_sha256": "100d5c5031567a50ec72ca57353dbea5cef73a6f29c728f3fb27c900592e8abd",
+  "candidate_sha256": "434125cc24153ab1349846a4a6f9c8e20f1e6123e13e1e20c4212851e3d9db0c",
+  "live_original_verified": {
+    "glb": {
+      "sha256": "100d5c5031567a50ec72ca57353dbea5cef73a6f29c728f3fb27c900592e8abd",
+      "bytes": 1947668,
+      "matches_manifest": true
+    },
+    "blend": {
+      "sha256": "36fe905f2c19b5486549c08a7953ec47d4d42fffac6edb2e0651d06c946f4e14",
+      "bytes": 2340872,
+      "matches_manifest": true
+    }
+  },
+  "source_pair": {
+    "pass": true,
+    "candidate_glb_vs_reopened_blend": {
+      "mesh": "ac5eef7f34b5e15191eae0afe3f27f7bb5a5531705ba1f74baf771638550a4da",
+      "images": [
+        {
+          "name": "Image_0",
+          "size": [
+            1024,
+            1024
+          ],
+          "pixel_count": 4194304,
+          "pixels_sha256": "d5035c16bd7d5cf6da9c7a9be5b0162b89814da8c4a8dd5959c2c278279cda9a",
+          "packed_bytes": 1131992,
+          "packed_sha256": "94323a39f4c4d045bda34ebf76958748fa04ce52086c4424372c6146c9d432b8"
+        }
+      ]
+    }
+  },
+  "poster_responses": {
+    "pass": true,
+    "asset": "heliophyllum",
+    "seen": [
+      {
+        "url": "http://127.0.0.1:5188/gallery/repairs/heliophyllum/material-20261118/detail.png",
+        "status": 200,
+        "sha": "453375d34f8eb9afc8e3560065fcf4382b232bcf4f2085765a99a5a6bce18fa0"
+      },
+      {
+        "url": "http://127.0.0.1:5188/gallery/repairs/heliophyllum/material-20261118/wheel.png",
+        "status": 200,
+        "sha": "ad97eff39f60b6d6ed3f39047430afa9b782d9464f21ceb300caba269a19b69e"
+      }
+    ]
+  },
+  "actual_downloads": [
+    {
+      "width": 1440,
+      "role": "glb",
+      "url": "http://127.0.0.1:5188/assets/candidates/heliophyllum/material-20261118/model.glb",
+      "sha256": "434125cc24153ab1349846a4a6f9c8e20f1e6123e13e1e20c4212851e3d9db0c",
+      "bytes": 1947692,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "role": "blend",
+      "url": "http://127.0.0.1:5188/assets/candidates/heliophyllum/material-20261118/source.blend",
+      "sha256": "84046b1c58daa39a23ad46304c66f8390f2b27259ae2b6638e56b01616e5bee6",
+      "bytes": 4181400,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "role": "glb",
+      "url": "http://127.0.0.1:5188/assets/candidates/heliophyllum/material-20261118/model.glb",
+      "sha256": "434125cc24153ab1349846a4a6f9c8e20f1e6123e13e1e20c4212851e3d9db0c",
+      "bytes": 1947692,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "role": "blend",
+      "url": "http://127.0.0.1:5188/assets/candidates/heliophyllum/material-20261118/source.blend",
+      "sha256": "84046b1c58daa39a23ad46304c66f8390f2b27259ae2b6638e56b01616e5bee6",
+      "bytes": 4181400,
+      "pass": true
+    }
+  ],
+  "regression": [
+    {
+      "width": 1440,
+      "mode": "rapid-reselect",
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "mode": "late-response",
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "mode": "retry",
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "mode": "rotate-reset",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "mode": "rapid-reselect",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "mode": "late-response",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "mode": "retry",
+      "pass": true
+    },
+    {
+      "width": 390,
+      "mode": "rotate-reset",
+      "pass": true
+    }
+  ],
+  "finite_handoff": {
+    "original_frames": [
+      39,
+      47
+    ],
+    "original_timestamp_inversions": [
+      1,
+      0
+    ],
+    "candidate_frames": [
+      41,
+      47
+    ],
+    "candidate_timestamp_inversions": [
+      1,
+      1
+    ],
+    "page_errors": 0,
+    "exact_glb_response_verified": true,
+    "limits": "Finite frames only; touch-emulated Chromium, not physical-device or zero-blank guarantee. Small shadow differences remain."
+  },
+  "independent_visual_review": "Material controls and actual candidate held/ready desktop/mobile screenshots accepted independently.",
+  "publication": "not published; exact-commit CI and branch integration pending"
+}

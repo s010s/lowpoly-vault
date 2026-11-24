@@ -1,0 +1,39 @@
+{
+  "model_id": "onoclea",
+  "base_commit": "f431d37",
+  "status": "work_in_progress",
+  "original_glb_sha256": "6ba7e491855423fe51417cff4602b2b6159b335b1b8689dc717ec93ab9e20bbd",
+  "change": "Material and size repair: explicit metallicFactor 0 on both slots; primary texture JPEG98 4:4:4 encoding, measured PSNR44.65dB. Every non-primary-image bufferView remains exact, including geometry, UV and second texture. New matching posters; editable Blender source imported from this candidate GLB with packed images, not historical authoring. Integration and final acceptance pending.",
+  "files": {
+    "model.glb": {
+      "bytes": 4644716,
+      "sha256": "b0e0743a6b2e9f584c03819b7a05e7cad148df9bd465490b69869d9d090c7f7f"
+    },
+    "source.blend": {
+      "bytes": 6050972,
+      "sha256": "c21f20842ff1148e7ef73f0065e9c18cb8f3ddf88e19b639363767b85957e2fa"
+    },
+    "wheel.png": {
+      "bytes": 245882,
+      "sha256": "c8cad58e1412a3c04a3e77395d4546eb84a6f298e1ccb1c104256ecc37809a2f"
+    },
+    "detail.png": {
+      "bytes": 1019966,
+      "sha256": "683b4acc5eecd54f08bffc00c5700df700b013e2adf9bfe993107b69fb93d989"
+    }
+  },
+  "source_kind": "Blender import of candidate GLB with packed texture; released original retained in previous version",
+  "checks_completed": [
+    "All non-primary-image bufferViews byte-identical; geometry/UV unchanged",
+    "Primary texture JPEG98 4:4:4; PSNR44.65dB; not lossless",
+    "8 paired views state/projection/pose equal",
+    "Actual source-build candidate 30 desktop + 4 mobile finite frames",
+    "Derived editable Blend real reopen matches direct candidate import",
+    "8/8 browser regression with retry>=2",
+    "938 non-target manifest and resources isolation, actual download ZIP/credits"
+  ],
+  "remaining": [
+    "Independent review",
+    "Unified branch integration and CI"
+  ]
+}

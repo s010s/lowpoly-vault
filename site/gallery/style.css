@@ -211,3 +211,242 @@ html .vault-header .gallery-repository .vault-icon{width:14px;height:14px;flex-b
 html .vault-header #language{display:inline-flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0;white-space:nowrap}
 @media(max-width:760px){html .vault-header{gap:8px}html .vault-header .gallery-repository{font-size:11px}html .vault-header .gallery-repository .vault-icon{display:none}}
 @media(max-width:360px){html .vault-header{padding:0 12px;gap:6px}html .vault-header .vault-brand{font-size:14px;letter-spacing:1.2px;gap:7px}html .vault-header .vault-mark{width:23px;height:23px;flex-basis:23px}html .vault-header #language{padding:0 3px}}
+/* Only the heading/control changes; the poster and renderer share the original stage. */
+@media(min-width:761px){
+ .heading.detail-heading-side{left:var(--detail-heading-left);right:auto;width:var(--detail-heading-width)}
+ .heading.detail-heading-side .title-row{display:block}
+ .heading.detail-heading-side #title{min-width:0;overflow-wrap:anywhere}
+ .heading.detail-heading-compact #title{font-size:1.75rem}
+ .heading.detail-heading-side .info-region{display:inline-block;margin-top:8px}
+}
+@media(max-width:760px){
+ #mobile-interact.detail-interact-side{left:var(--detail-interact-left);transform:none}
+}
+
+/* Preserve the toolbar's normal flow slot; only its existing controls move. */
+@media(max-width:760px){
+ #mobile-interact.detail-interact-above{top:var(--detail-interact-top);bottom:auto}
+ .workspace-bottom.detail-tools-side::before{content:'';flex:0 0 var(--detail-tools-flow-height)}
+ .workspace-bottom.detail-tools-side .tools{
+  position:absolute;flex-direction:column;align-items:stretch;left:var(--detail-tools-left);
+  bottom:var(--detail-tools-bottom);width:var(--detail-tools-width);border-radius:18px
+ }
+ .workspace-bottom.detail-tools-side .tools button{min-height:44px;min-width:44px;padding:5px;white-space:normal}
+ .workspace-bottom.detail-tools-side .tools button+button::before{left:25%;right:25%;top:-3px;bottom:auto;width:auto;height:1px}
+}
+
+/* Mobile detail is normal document flow. The media stays independently sized
+   from the published fit square; longer titles and controls cannot cover it. */
+.mobile-detail-actions { display: none; }
+.detail-media { display: contents; }
+@media (max-width: 760px) {
+ body.mobile-detail main { display: block; height: auto; min-height: 0; }
+ body.mobile-detail main .workspace {
+  --detail-air: clamp(0px, calc((100dvh - 100vw - 390px) * .25), 12px);
+  display: flex; flex-direction: column; overflow: visible;
+ }
+ body.mobile-detail .mobile-detail-actions {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; min-height: 64px;
+  padding: 10px max(17px, env(safe-area-inset-right, 0px)) 10px max(17px, env(safe-area-inset-left, 0px));
+ }
+ body.mobile-detail #mobile-back,
+ body.mobile-detail #mobile-interact {
+  position: static; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; transform: none;
+ }
+ body.mobile-detail .heading { position: static; margin: 0 24px 8px; }
+ body.mobile-detail #subtitle { margin-block: 4px 0; }
+ body.mobile-detail .detail-media { display: block; position: relative; }
+ /* Keep vertical page gestures possible on both sides even while center
+    gestures belong to the 3D inspection stage. No change to the fit square. */
+ body.mobile-detail .detail-media::before,
+ body.mobile-detail .detail-media::after {
+  content: ''; position: absolute; inset-block: 0; width: 24px;
+  z-index: 3; touch-action: pan-y;
+ }
+ body.mobile-detail .detail-media::before { left: 0; }
+ body.mobile-detail .detail-media::after { right: 0; }
+ body.mobile-detail .stage {
+  position: relative; inset: auto; flex: none;
+  height: min(100vw, max(560px, calc(100dvh - 55px)));
+ }
+ body.mobile-detail #comparison-label {
+  position: static; align-self: center; margin: 0 17px 8px;
+ }
+ body.mobile-detail .workspace-bottom {
+  position: static; gap: calc(4px + min(8px, var(--detail-air))); flex: none;
+  padding: 8px 17px max(8px, env(safe-area-inset-bottom, 0px));
+ }
+ body.mobile-detail .tools { padding-block: min(4px, var(--detail-air)); }
+ body.mobile-detail .tools button { min-width: 44px; min-height: 44px; }
+ body.mobile-detail .download-card { padding: calc(6px + var(--detail-air)) 16px; }
+ body.mobile-detail .download-card .metrics { margin-bottom: calc(4px + min(8px, var(--detail-air))); }
+ body.mobile-detail .download-card #credits { margin-top: min(9px, var(--detail-air)); }
+}
+
+/* Keep Louisella's controls out of the interactive preview. */
+@media (width > 760px) {
+ .workspace:has(#detail[data-model-id="louisella"]) {
+  display: grid;
+  grid-template: minmax(0, 1fr) auto / minmax(0, 1fr);
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .detail-media {
+  position: relative;
+  display: block;
+  min-height: 0;
+  grid-area: 1 / 1;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .stage-hint {
+  position: relative;
+  inset: auto;
+  align-self: end;
+  justify-self: start;
+  margin: 0 25px 8px;
+  grid-area: 1 / 1;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .workspace-bottom {
+  position: relative;
+  inset: auto;
+  grid-area: 2 / 1;
+  padding: 8px 27px 26px 30px;
+ }
+}
+
+/* Shift only the heading at narrow widths. Do not change the stage
+   projection or apply a viewport breakpoint to the artwork. */
+@media (width > 760px) {
+ .workspace:has(#detail[data-model-id="louisella"]) .heading {
+  top: clamp(12px, calc((100vw - 900px) * .06 + 12px), 32px);
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .workspace-bottom {
+  box-shadow: inset 0 1px #c8bdb250;
+ }
+}
+
+/* Keep the footer's height stable when wide tools switch orientation. */
+@media (760px < width < 1000px) {
+ .workspace:has(#detail[data-model-id="louisella"]) .workspace-bottom {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 8px;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .tools {
+  align-self: flex-end;
+  display: grid;
+  border-radius: 14px;
+  width: 90px;
+  flex: 0 0 90px;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .tools button {
+  white-space: normal;
+  padding: 7px 4px;
+  line-height: 1.1;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .tools button + button::before {
+  display: none;
+ }
+ .workspace:has(#detail[data-model-id="louisella"]) .download-card {
+  width: min(290px, calc(100% - 98px));
+ }
+}
+
+/* The A308 disclosure is mounted only in its desktop detail lifecycle. */
+#a308-download-entry {position:absolute;right:0;bottom:0;pointer-events:auto;background:var(--green);color:#fff;padding:11px 15px;border-radius:23px;white-space:nowrap}
+#a308-download-section {padding:14px 27px 24px;display:flex;justify-content:flex-end;align-items:flex-start;gap:12px;flex-wrap:wrap}
+#a308-download-heading {font-size:18px;margin:10px 0}
+#a308-download-close {border:1px solid #c8c8be;border-radius:22px;padding:9px 12px}
+
+/* A short, wide pane has more width than height. Reserve a real download
+   column and tool row instead of laying either on top of the model. */
+@media (760px < width <= 1000px) and (320px <= height <= 460px) {
+ main:has(.workspace #detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) {
+  height: calc(100dvh - 62px);
+  min-height: 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) {
+  display: grid;
+  grid-template: auto minmax(0, 1fr) auto / minmax(0, 1fr) clamp(174px, 23vw, 214px);
+  column-gap: 8px;
+  padding-inline-end: 12px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .heading {
+  grid-area: 1 / 1 / 2 / 3;
+  position: relative;
+  inset: auto;
+  min-width: 0;
+  margin: 10px 12px 4px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) h1 {
+  font-size: clamp(24px, 3vw, 30px);
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) #subtitle {
+  margin-block: 4px 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .detail-media {
+  grid-area: 2 / 1;
+  display: block;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .workspace-bottom {
+  grid-area: auto;
+  display: contents;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .tools {
+  grid-area: 3 / 1;
+  z-index: 3;
+  transform: translateZ(0);
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  width: auto;
+  max-width: 100%;
+  margin: 2px 0 8px;
+  padding: 2px;
+  gap: 2px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .tools button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 4px;
+  gap: 3px;
+  white-space: normal;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-card {
+  grid-area: 2 / 2 / 4 / 3;
+  z-index: 3;
+  transform: translateZ(0);
+  width: 100%;
+  align-self: center;
+  padding: 8px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .metrics {
+  margin-bottom: 6px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-actions {
+  flex-direction: column;
+  gap: 5px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .download-actions a {
+  min-height: 44px;
+  flex: 0 0 auto;
+  padding-block: 5px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) #credits {
+  margin-top: 6px;
+ }
+ .workspace:has(#detail[data-model-id]:not([data-model-id="teichichnus-spreite-wall"])) .stage-hint {
+  display: none;
+ }
+}
+
+/* On low mobile viewports, scroll the model list inside the wheel rather
+   than pushing the document down and inheriting that offset into detail. */
+@media (max-width: 760px) and (320px <= height <= 560px) {
+ body:not(.mobile-detail) main { min-height: 0; }
+ body.mobile-detail .detail-media > .stage {
+  height: min(100vw, max(132px, calc(100dvh - 247px)));
+ }
+}

@@ -1,3 +1,4 @@
+import {releaseCatalogPath} from '../release-catalog-path.js';
 /** The release manifest owns membership. Reviewed resources only decorate matching bytes. */
 import {parseRoute,routeHref} from '../routes.js';
 import {siteRoot,assetURL} from './urls.js';
@@ -41,7 +42,7 @@ let loadGeneration = 0;
 export async function loadGalleryCatalog({fetchImpl=fetch,signal}={}) {
   const generation = ++loadGeneration;
   const read=async path=>{const response=await fetchImpl(assetURL(path),{signal});if(!response.ok)throw new Error(`Catalog request failed (${response.status}).`);return response.json();};
-  const index=await read('assets/gallery.json');
+  const index=await read(releaseCatalogPath('gallery'));
   if (signal?.aborted) throw signal.reason || new DOMException('Catalog load aborted.','AbortError');
   if (generation !== loadGeneration) throw new DOMException('Catalog load superseded.','AbortError');
   const prepared=validateGalleryModels(index,{allowReview:document.body.dataset.reviewOnly==='true'});

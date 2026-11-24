@@ -1,0 +1,38 @@
+{
+  "model_id": "longipteryx",
+  "base_commit": "7f20f925",
+  "status": "work_in_progress",
+  "original_glb_sha256": "e1aaa5c1ba273ee2566c490f276e9de8734ddae73718662187bda3d92f12ee74",
+  "change": "Material-only repair: explicit metallicFactor 0 instead of implicit 1. GLB BIN, geometry, UVs and embedded texture unchanged. New matching posters; editable Blender source imported from this candidate GLB with packed images, not historical authoring. Integration and final acceptance pending.",
+  "files": {
+    "model.glb": {
+      "sha256": "bea8c102229ae6b7567c06847b5ff74a4e576e03fa6f4f1c2f3a63622cf3367e",
+      "bytes": 2049840
+    },
+    "source.blend": {
+      "sha256": "4bacfa3e1e1ed3808e90570076cfb6dfec9425ca7599d1dd7e786bbad7e807c2",
+      "bytes": 4284392
+    },
+    "wheel.png": {
+      "sha256": "85bc027a928bb82cb90218cb4704bf52aaf1dbc89781189331d83ec9382802f3",
+      "bytes": 226466
+    },
+    "detail.png": {
+      "sha256": "38c66d6546d655242a269714f5750a4a3b8dbb3920176428eb5c9e90d4d7d2e2",
+      "bytes": 752510
+    }
+  },
+  "source_kind": "Blender import of candidate GLB with packed texture; released original retained in previous version",
+  "checks_completed": [
+    "Metallic-only semantic change with identical BIN",
+    "Eight matched original/candidate views with identical state/projection",
+    "Candidate-derived Blender source independently reloaded against direct GLB import",
+    "Actual shared-source desktop/mobile handoff:33+5 finite frames",
+    "Eight browser regression cases including retry>=2",
+    "Focused generated download contract and938unchanged entries"
+  ],
+  "remaining": [
+    "Independent review",
+    "Shared branch integration and CI"
+  ]
+}

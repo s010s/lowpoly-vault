@@ -1,3 +1,4 @@
+import {releaseCatalogBase,releaseCatalogPath} from './release-catalog-path.js';
 /** Derived browsing data only. This module never discovers assets or approves QA. */
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -16,12 +17,12 @@ const relativeAssetPath = value => typeof value === 'string' && value.startsWith
   !/[\\\u0000-\u001f?#%]/.test(value) && !value.split('/').some(part => part === '..' || part === '.');
 
 /** In-memory equivalent used by Vite. Full detail objects are referenced, never duplicated. */
-export function createCatalog(manifest, { name = 'catalog', approvedOnly = false, catalogData = CATALOG_DATA } = {}) {
+export function createCatalog(manifest, { name = 'catalog', approvedOnly = false, catalogData = CATALOG_DATA, releaseToken = '' } = {}) {
   if (!manifest || !Array.isArray(manifest.assets)) throw new Error('Catalog requires an existing manifest.');
   if (approvedOnly && manifest.review_only) throw new Error('A review-only manifest cannot produce a release catalog.');
   if (!['catalog', 'catalog-review'].includes(name)) throw new Error('Invalid catalog name.');
   const { catalogMembership, WORLD_LABELS, PACK_LABELS, PACK_RECORDS } = createCuration(catalogData);
-  const prefix = `assets/${name}`;
+  const prefix = releaseCatalogBase(name,releaseToken);
   const normalized = manifest.assets.map(asset => ({...asset, collection:asset.collection || asset.worlds?.[0] || 'unscoped'}));
   const ids = new Set();
   for (const asset of normalized) {
@@ -77,18 +78,27 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
 }
 
 /** Write a catalog beneath a site output root, using only the supplied manifest. */
-export async function writeCatalog(manifest, outDir, options = {}) {
+async function writeCatalogOnce(manifest,outDir,options) {
   const name = options.name || 'catalog';
   const catalog = createCatalog(manifest, { ...options, name });
-  const root = join(outDir, 'assets', name);
+  const root = join(outDir, releaseCatalogBase(name,options.releaseToken));
   await rm(root, { recursive: true, force: true });
   await mkdir(join(root, 'shards'), { recursive: true });
   await mkdir(join(root, 'details'), { recursive: true });
   for (const [path, value] of [...catalog.shards, ...catalog.details]) {
     await writeFile(join(outDir, path), `${JSON.stringify(value)}\n`);
   }
-  const indexPath = join(outDir, 'assets', `${name}.json`);
+  const indexPath = join(outDir,releaseCatalogPath(name,options.releaseToken||''));
   await mkdir(dirname(indexPath), { recursive: true });
   await writeFile(indexPath, `${JSON.stringify(catalog.index)}\n`);
   return catalog.index;
+}
+
+export async function writeCatalog(manifest,outDir,options={}) {
+ const index=await writeCatalogOnce(manifest,outDir,options);
+ const token=process.env.VITE_RELEASE_CATALOG_TOKEN||'';
+ if((options.name||'catalog')==='catalog'&&releaseCatalogBase('catalog',token)!=='assets/catalog') {
+  await writeCatalogOnce(manifest,outDir,{...options,releaseToken:token});
+ }
+ return index;
 }

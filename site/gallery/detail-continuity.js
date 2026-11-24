@@ -204,12 +204,13 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
   function fromDetail(id, art) {
     return reduced() || !workspace.animate ? { id } : capture(id, art, title);
   }
-  function travel(from, { opening, poster, row }) {
+  function travel(from, { opening, poster, row, staticTitle = false }) {
     stop();
     if (!workspace.animate) return;
     const motion = { id: from.id, animations: [] };
     current = motion;
     const still = reduced();
+    const fixedTitle = opening && staticTitle;
     const duration = still ? reducedDuration : paneDuration;
     function animate(element, name, frames, easing = 'linear') {
       const animation = element.animate(frames, { duration, easing, fill: 'both', id: animationId + 'pane-' + name });
@@ -234,7 +235,7 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
       if (!opening && row?.dataset.nameVisible === 'true') {
         for (const animation of targetTitle.getAnimations()) animation.cancel();
       }
-      const endTitle = titleFrame(targetTitle);
+      const endTitle = fixedTitle ? null : titleFrame(targetTitle);
       if (from.title && endTitle && from.title.text === endTitle.text) {
         const name = document.createElement('div');
         name.className = 'continuity-title';
@@ -275,7 +276,7 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
         ? ['#subtitle', '#excluded', '.info-region', '.workspace-bottom', '#mobile-back', '#mobile-interact']
         : ['.searchbar', '.summary', '.list-hint', '#empty-state'];
       const entries = selectors.map(selector => pane.querySelector(selector)).filter(node => node && !node.hidden);
-      if (opening && !motion.title) entries.push(title);
+      if (opening && !motion.title && !fixedTitle) entries.push(title);
       for (const entry of entries) {
         animate(entry, 'arrival', [{ opacity: 0 }, { opacity: 0, offset: .5, easing: 'ease-out' }, { opacity: 1 }]);
       }

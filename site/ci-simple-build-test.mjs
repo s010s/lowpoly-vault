@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {mkdtemp,mkdir,writeFile,readFile,rm,symlink,copyFile,stat} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {resolve,join,dirname} from 'node:path';
@@ -44,7 +45,23 @@ try{
  const replacement=await buildSimple();assert.equal(replacement.status,'PASS');
  assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,1);
  assert.equal((await readFile('dist/'+a.glb,'utf8')),'under-budget replacement fixture');
- assert((await stat(`dist/assets/downloads/${a.id}.zip`)).size>0);
+ const model=async()=>JSON.parse(await readFile('dist/assets/manifest.json')).assets[0];
+ const stable=await model();
+ assert.equal(stable.downloads.bundle,`assets/downloads/${a.id}.zip`);
+ const stableBytes=await readFile('dist/'+stable.downloads.bundle);
+ assert(stableBytes.length>0);
+ const scope=JSON.parse(await readFile('assets/manifest.json'));
+ scope.assets[0].zipVersioned=true;
+ await writeFile('assets/manifest.json',JSON.stringify(scope));
+ assert.equal((await buildSimple()).status,'PASS');
+ const opted=await model();
+ const bundle=await readFile('dist/'+opted.downloads.bundle),sha=createHash('sha256').update(bundle).digest('hex');
+ assert.deepEqual(bundle,stableBytes);
+ assert.equal(opted.sha256.bundle,sha);
+ assert.equal(opted.downloads.bundle,`assets/downloads/${a.id}-${sha.slice(0,16)}.zip`);
+ await assert.rejects(stat('dist/'+stable.downloads.bundle),{code:'ENOENT'});
+ const gallery=JSON.parse(await readFile('dist/assets/gallery.json'));
+ assert.equal(gallery.assets[0].downloads.bundle,opted.downloads.bundle);
  await writeFile('vite.config.js','invalid JavaScript syntax !');await assert.rejects(buildSimple(),/Vite failed/);
  console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
 }finally{if(originalBaseline===undefined)delete process.env.GLB_SIZE_BASELINE_COMMIT;else process.env.GLB_SIZE_BASELINE_COMMIT=originalBaseline;process.chdir(source);await rm(root,{recursive:true,force:true});}

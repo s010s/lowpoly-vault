@@ -1,3 +1,4 @@
+import {releaseCatalogPath} from './release-catalog-path.js';
 import { SharedModelPreview } from './model-preview.js';
 import { createCatalogToolbar } from './catalog-toolbar.js';
 import { createCatalogScroll } from './catalog-scroll.js';
@@ -507,7 +508,7 @@ window.addEventListener('pagehide',()=>{catalogScroll.dispose();restoreOriginVis
 async function load(){
   if(!staticContent)$('#grid').innerHTML=Array.from({length:8},()=>'<div class="skeleton" aria-hidden="true"></div>').join('');$('#grid').ariaBusy='true';
   try{
-    const review=import.meta.env.DEV&&new URLSearchParams(location.search).get('review')==='1';index=await store.load(new URL(review?'assets/catalog-review.json':'assets/catalog.json',new URL(siteRoot,location.origin)).href);
+    const review=import.meta.env.DEV&&new URLSearchParams(location.search).get('review')==='1';index=await store.load(new URL(review?'assets/catalog-review.json':releaseCatalogPath('catalog'),new URL(siteRoot,location.origin)).href);
     if(index.review_only&&!$('.review-notice')){const notice=document.createElement('p');notice.className='review-notice';notice.textContent=t('review');document.body.prepend(notice);}
     if(index.release_status==='initial'&&!$('.initial-release-notice')){const notice=document.createElement('p');notice.className='initial-release-notice';notice.textContent=t('initialRelease');document.querySelector('footer').prepend(notice);}
     paintHome();readQuery();paintFilters();await renderGrid();await syncRoute();
