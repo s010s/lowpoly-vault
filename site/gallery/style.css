@@ -356,3 +356,14 @@ html .vault-header #language{display:inline-flex;align-items:center;justify-cont
 #a308-download-section {padding:14px 27px 24px;display:flex;justify-content:flex-end;align-items:flex-start;gap:12px;flex-wrap:wrap}
 #a308-download-heading {font-size:18px;margin:10px 0}
 #a308-download-close {border:1px solid #c8c8be;border-radius:22px;padding:9px 12px}
+
+/* Bothriolepis: reveal existing download links on short screens, outside the stage. */
+#a13-short-download {
+ display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;
+ padding:8px 12px;border:1px solid var(--green);border-radius:22px;
+ background:var(--green);color:#fff;font:12px var(--vault-font-ui);white-space:nowrap;
+}
+.catalog .summary #a13-short-download {margin-inline-start:auto;}
+@media(forced-colors:active) {
+ #a13-short-download {background:ButtonFace;color:ButtonText;border-color:ButtonText;}
+}
