@@ -347,7 +347,7 @@ function showError(version=selectionVersion,id=state.selected,error){
   // The selected poster must not imply that mismatched/unverified model bytes
   // have been displayed. Retire late decode/transition callbacks as well.
   image.dataset.state='invalid-version';image.dataset.source='invalid-version';image.onload=image.onerror=null;image.style.visibility='hidden';image.removeAttribute('src');stagePoster.clear();
-  for(const link of [$('#download'),$('#blend')]){link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.style.opacity='.45';link.style.pointerEvents='none';}syncA13Download();
+  for(const link of [$('#download'),$('#blend')]){link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.style.opacity='.45';link.style.pointerEvents='none';}
   $('#loading').textContent=error.code==='MODEL_VERSION_MISMATCH'
    ?t('Model version mismatch · preview hidden · retry','模型版本不匹配，已隐藏预览，请重试')
    :t('Model version could not be verified · preview hidden · retry','无法核验模型版本，已隐藏预览，请重试');
@@ -358,39 +358,10 @@ function showError(version=selectionVersion,id=state.selected,error){
 const downloadDisclosure=createDownloadDisclosure({
  stage,card:$('.download-card'),isMobile:mobile,text:t,redraw:()=>renderer?.draw()
 });
-// Keep the short-screen download shortcut outside the 3D gesture surface.
-const a13Download=$('#a13-short-download');
-const a13Portrait=matchMedia('(max-width:760px) and (max-height:550px)');
-const a13Landscape=matchMedia('(761px <= width <= 950px) and (max-height:460px)');
-const a13DownloadTarget=$('#download'),a13SourceTarget=$('#blend');
-function syncA13Download(){
- const portrait=a13Portrait.matches&&document.body.classList.contains('mobile-detail');
- const landscape=a13Landscape.matches;
- const show=state.selected==='bothriolepis'&&stage.dataset.modelId===state.selected&&
-  (portrait||landscape)&&a13DownloadTarget.hasAttribute('href')&&a13SourceTarget.hasAttribute('href');
- const hadFocus=document.activeElement===a13Download;
- if(show&&landscape){
-  const sidebar=$('.catalog .summary');if(a13Download.parentNode!==sidebar)sidebar.append(a13Download);
- }else if(a13Download.parentNode!==mobileInteract.parentNode)mobileInteract.before(a13Download);
- a13Download.hidden=!show;
- if(hadFocus){
-  if(show)a13Download.focus({preventScroll:true});
-  else if(mobile()&&document.body.classList.contains('mobile-detail'))$('#mobile-back').focus({preventScroll:true});
-  else if(mobile())$('#search').focus({preventScroll:true});
-  else stage.focus({preventScroll:true});
- }
-}
-a13Download.onclick=()=>{
- if(a13Download.hidden||state.selected!=='bothriolepis'||!a13DownloadTarget.hasAttribute('href')||!a13SourceTarget.hasAttribute('href'))return;
- $('#model-download-actions').scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});
- a13DownloadTarget.focus({preventScroll:true});
-};
-a13Portrait.addEventListener('change',syncA13Download);
-a13Landscape.addEventListener('change',syncA13Download);
 function syncMobileView(){
  downloadDisclosure.sync(state.selected);
  const open=mobile()&&state.mobileOpen;
- document.body.classList.toggle('mobile-detail',open);$('#mobile-back').hidden=!open;syncA13Download();
+ document.body.classList.toggle('mobile-detail',open);$('#mobile-back').hidden=!open;
  if(open){thumbnails.clear();clearTimeout(warmPosterTimer);}
  if(!open){measure();setWheelPosition(collectionScroll);renderWheel();settler.stop();}
 }
