@@ -67,7 +67,9 @@ export async function buildSimple(){
  await clearDeliveredAssets('dist');
  const pruned=await pruneUnusedPublicPosters(source,delivery,{out:'dist'});
  if(pruned.removedFiles)console.log(`Pruned ${pruned.removedFiles} unreferenced poster files (${(pruned.removedBytes/1e6).toFixed(1)} MB) from dist.`);
- let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false});
+ const previewById=new Map(delivery.models.filter(m=>m.files?.right?.path?.startsWith('site/public/')).map(m=>[m.id,m.files.right.path.slice('site/public/'.length)]));
+ let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false,includeBundles:false,previewById});
+ console.log(`Pages space optimization: static ZIP bundles omitted (client-side ZIP enabled); ${previewById.size} preview paths mapped to canonical detail posters.`);
  manifest=await deliverLegacyMedia(manifest);
  const changedAssets=manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id));
  if(changedAssets.length)await checkGlbSizes({assets:changedAssets},{root:'dist'});
@@ -80,7 +82,7 @@ export async function buildSimple(){
  await cp('LICENSES','dist/LICENSES',{recursive:true});
  await writeStaticRoutes(manifest,'dist');
  // Small output check: required model files and generated download/HTML paths exist.
- for(const a of manifest.assets)for(const path of [a.glb,a.blend,a.preview,a.downloads.bundle,a.downloads.credits,`models/${a.id}/index.html`,`zh-CN/models/${a.id}/index.html`])assert((await stat(resolve('dist',path))).size>0,'Missing built member '+path);
+ for(const a of manifest.assets)for(const path of [a.glb,a.blend,a.preview,a.downloads.credits,`models/${a.id}/index.html`,`zh-CN/models/${a.id}/index.html`])assert((await stat(resolve('dist',path))).size>0,'Missing built member '+path);
  for(const model of delivery.models)for(const file of Object.values(model.files)){const path=file.path.replace(/^site\/public\//,'');assert((await stat(resolve('dist',path))).size>0,'Missing built delivery '+path);}
  const sample=[delivery.models[0],delivery.models.at(-1)].filter((m,i,rows)=>rows.findIndex(x=>x.id===m.id)===i).map(m=>({id:m.id,files:Object.fromEntries(Object.entries(m.files).map(([role,f])=>[role,f.path.replace(/^site\/public\//,'')]))}));
  const stamp=process.env.VITE_RELEASE_CATALOG_TOKEN||'';

@@ -15,6 +15,9 @@ const counts = (assets, key) => Object.fromEntries([...assets.reduce((map, asset
 const facets = (assets, key) => Object.entries(counts(assets, key)).map(([id, count]) => ({ id, count }));
 const relativeAssetPath = value => typeof value === 'string' && value.startsWith('assets/') &&
   !/[\\\u0000-\u001f?#%]/.test(value) && !value.split('/').some(part => part === '..' || part === '.');
+const relativePreviewPath = value => typeof value === 'string' &&
+  ['assets/', 'gallery/', 'detail-presentations/', 'wheel-presentations/'].some(prefix => value.startsWith(prefix)) &&
+  !/[\\\u0000-\u001f?#%]/.test(value) && !value.split('/').some(part => part === '..' || part === '.');
 
 /** In-memory equivalent used by Vite. Full detail objects are referenced, never duplicated. */
 export function createCatalog(manifest, { name = 'catalog', approvedOnly = false, catalogData = CATALOG_DATA, releaseToken = '' } = {}) {
@@ -30,7 +33,7 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
       throw new Error(`Invalid or duplicate catalog asset id: ${asset.id}`);
     }
     ids.add(asset.id);
-    if (!asset.name || !asset.category || !asset.collection || !relativeAssetPath(asset.preview) || !relativeAssetPath(asset.glb)) {
+    if (!asset.name || !asset.category || !asset.collection || !relativePreviewPath(asset.preview) || !relativeAssetPath(asset.glb)) {
       throw new Error(`Invalid catalog browsing fields: ${asset.id}`);
     }
   }

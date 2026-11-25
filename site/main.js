@@ -1,4 +1,5 @@
 import {releaseCatalogPath} from './release-catalog-path.js';
+import {downloadModelZip} from './client-zip.js';
 import { SharedModelPreview } from './model-preview.js';
 import { createCatalogToolbar } from './catalog-toolbar.js';
 import { createCatalogScroll } from './catalog-scroll.js';
@@ -182,7 +183,12 @@ function fillInfo(asset){
   $('#asset-title').textContent=loc(asset.name);$('#asset-category').textContent=t(asset.category||'');$('#asset-collection').textContent=(asset.worlds||[asset.collection]).filter(Boolean).map(t).join(' · ');$('#asset-description').textContent=loc(asset.description);
   const dims=Array.isArray(asset.dimensions)?asset.dimensions.map(n=>Number(n).toFixed(2)).join(' × ')+' m':t('notAvailable');
   $('#asset-stats').innerHTML=`<dt>${t('triangles')}</dt><dd>${Number.isFinite(asset.triangles)?asset.triangles.toLocaleString():'—'}</dd><dt>${t('dimensions')}</dt><dd>${esc(dims)}</dd><dt>${t('license')}</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></dd>`;
-  $('#downloads').innerHTML=['bundle','glb','blend'].map(key=>{const file=asset.downloads?.[key]||asset[key];return file?`<a href="${esc(path(file))}" download class="${key==='bundle'?'bundle':'secondary'}"><span>${t(key)}<small>${formatBytes(asset.file_sizes?.[key])}</small></span><span aria-hidden="true">↓</span></a>`:'';}).join('')+(asset.glb?`<button id="copy-attribution">${t('copy')}</button>`:'');
+  const bundleBytes=(asset.file_sizes?.glb||0)+(asset.file_sizes?.blend||0);
+  const bundleMarkup=asset.downloads?.bundle
+    ? `<a href="${esc(path(asset.downloads.bundle))}" download class="bundle"><span>${t('bundle')}<small>${formatBytes(asset.file_sizes?.bundle)}</small></span><span aria-hidden="true">↓</span></a>`
+    : (asset.glb&&asset.blend ? `<button type="button" id="download-bundle" class="bundle"><span>${t('bundle')}<small>${formatBytes(bundleBytes||undefined)}</small></span><span aria-hidden="true">↓</span></button>` : '');
+  $('#downloads').innerHTML=bundleMarkup+['glb','blend'].map(key=>{const file=asset.downloads?.[key]||asset[key];return file?`<a href="${esc(path(file))}" download class="secondary"><span>${t(key)}<small>${formatBytes(asset.file_sizes?.[key])}</small></span><span aria-hidden="true">↓</span></a>`:'';}).join('')+(asset.glb?`<button id="copy-attribution">${t('copy')}</button>`:'');
+  if($('#download-bundle'))$('#download-bundle').onclick=async()=>{const btn=$('#download-bundle');if(btn.disabled)return;btn.disabled=true;setStatus(lang==='zh'?'正在打包 ZIP…':'Preparing ZIP…');try{await downloadModelZip(asset,{resolveURL:path});}catch{setStatus(lang==='zh'?'无法生成 ZIP 下载。':'Could not build ZIP download.');}finally{btn.disabled=false;}};
   if($('#copy-attribution'))$('#copy-attribution').onclick=()=>copyText(`${loc(asset.name)} by Leon Made This / s010s — https://github.com/s010s/lowpoly-vault — CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ (indicate any changes)`,$('#copy-attribution'));
   $('#asset-provenance').innerHTML=(asset.scientific_scope?`<p>${esc(loc(asset.scientific_scope))}</p>`:'')+(asset.sources||[]).filter(source=>/^https:\/\//.test(source.url)).map(source=>`<p><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title || source.id || source.url)} ↗</a></p>`).join('');
   $('#provenance').hidden=!$('#asset-provenance').textContent;paintIcons($('#viewer-dialog'));

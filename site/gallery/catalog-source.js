@@ -6,11 +6,12 @@ export {siteRoot,assetURL};
 export let models=[];
 export let catalog={};
 const safePath=(value,prefix)=>typeof value==='string'&&value.startsWith(prefix)&&!/[\\\u0000-\u001f?#%]/.test(value)&&value.split('/').every(part=>part&&part!=='.'&&part!=='..');
+const safePreviewPath=value=>['assets/','gallery/','detail-presentations/','wheel-presentations/'].some(prefix=>safePath(value,prefix));
 export function validateGalleryModels(index,{allowReview=false}={}){
  if(index?.kind!=='gallery-display-v1'||(index.review_only&&!allowReview)||!Array.isArray(index.assets))throw new Error('Published gallery unavailable.');
  const ids=new Set();
  for(const asset of index.assets){
-  if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend','preview'].every(key=>safePath(asset[key],'assets/'))||!Array.isArray(asset.worlds)||!Array.isArray(asset.packs))throw new Error('Invalid gallery model.');
+  if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(asset.id||'')||ids.has(asset.id)||!asset.name||!['glb','blend'].every(key=>safePath(asset[key],'assets/'))||!safePreviewPath(asset.preview)||!Array.isArray(asset.worlds)||!Array.isArray(asset.packs))throw new Error('Invalid gallery model.');
   if(asset.galleryPosters&&!['wheel','detail'].every(key=>safePath(asset.galleryPosters[key],'gallery/')||safePath(asset.galleryPosters[key],'wheel-presentations/')||safePath(asset.galleryPosters[key],'detail-presentations/')))throw new Error('Invalid gallery poster.');
   ids.add(asset.id);
  }

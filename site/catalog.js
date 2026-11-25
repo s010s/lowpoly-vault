@@ -19,9 +19,13 @@ function safeRelativePath(path) {
   if (typeof path !== 'string' || !path.startsWith('assets/') || /[\\\u0000-\u001f?#%]/.test(path)) return false;
   return !path.split('/').some(part => part === '.' || part === '..');
 }
+function safePublicPath(path) {
+  if (typeof path !== 'string' || !['assets/', 'gallery/', 'detail-presentations/', 'wheel-presentations/'].some(p => path.startsWith(p)) || /[\\\u0000-\u001f?#%]/.test(path)) return false;
+  return !path.split('/').some(part => part === '.' || part === '..');
+}
 function isItem(item) {
   return item && validId(item.id) && item.name && typeof item.category === 'string' &&
-    typeof item.collection === 'string' && safeRelativePath(item.preview) && safeRelativePath(item.glb) && safeRelativePath(item.detail);
+    typeof item.collection === 'string' && safePublicPath(item.preview) && safeRelativePath(item.glb) && safeRelativePath(item.detail);
 }
 
 // A bounded max-heap retains only the best entries needed for the requested sorted page.
@@ -94,7 +98,7 @@ export class CatalogStore {
 
   /** Resolve asset paths under the site's deployment prefix; reject remote/traversal URLs. */
   resolvePath(path) {
-    if (!this.siteRoot || !safeRelativePath(path)) return '';
+    if (!this.siteRoot || !safePublicPath(path)) return '';
     const url = new URL(path, this.siteRoot);
     return url.origin === this.siteRoot.origin && url.pathname.startsWith(this.siteRoot.pathname) ? url.href : '';
   }

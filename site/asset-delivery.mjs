@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { catalogMembership } from './curation.js';
 import { validAssetId } from './routes.js';
 
-export function assetFileAllowlist(manifest) {
+export function assetFileAllowlist(manifest, { skipPreviewIds = null } = {}) {
   if (!manifest || !Array.isArray(manifest.assets)) throw new Error('A supplied manifest is required.');
   const paths = new Set();
   for (const asset of manifest.assets) {
@@ -16,12 +16,12 @@ export function assetFileAllowlist(manifest) {
       if (typeof path !== 'string' || !path.startsWith('assets/') || /[\\\u0000-\u001f?#%]/.test(path) || path.split('/').some(p => p === '.' || p === '..') ||
         !(key === 'preview' ? ['.png','.jpg','.jpeg','.webp'].includes(extname(path).toLowerCase()) : extname(path) === `.${key}`)) throw new Error(`Unsafe ${key} delivery path: ${asset.id}`);
       if (path.split('/').some(p => /^(qa|experiments?|references?|research)$/i.test(p))) throw new Error(`Non-release directory in asset path: ${path}`);
-      paths.add(path);
+      if (key !== 'preview' || !skipPreviewIds?.has(asset.id)) paths.add(path);
     }
   }
   return [...paths].sort();
 }
-export async function enrichManifest(manifest, root = process.cwd(), { verifyHashes = true } = {}) {
+export async function enrichManifest(manifest, root = process.cwd(), { verifyHashes = true, includeBundles = true, previewById = null } = {}) {
   assetFileAllowlist(manifest);
   const assetRoot = await realpath(resolve(root,'assets'));
   const assets = [];
@@ -39,10 +39,23 @@ export async function enrichManifest(manifest, root = process.cwd(), { verifyHas
     try { const qa = JSON.parse(await readFile(resolve(root,dirname(asset.glb),'qa.json'),'utf8'));
       if (['pass','pass_with_warnings'].includes(qa.glb?.status) && Number.isInteger(qa.glb.materials) && qa.glb.materials >= 0 && qa.glb.sha256 && qa.glb.sha256 === asset.sha256?.glb) material_count = qa.glb.materials;
     } catch(error) { if (error.code !== 'ENOENT') throw error; }
-    const {material_count:ignoredMaterialCount,qa:privateQaPath,...sourceAsset}=asset;
-    assets.push({...sourceAsset, ...catalogMembership(asset), file_sizes, glb_bytes:file_sizes.glb, blend_bytes:file_sizes.blend,
+    const {material_count:ignoredMaterialCount,qa:privateQaPath,zipVersioned:rawZipVersioned,...sourceAsset}=asset;
+    const downloads = {
+      glb: asset.glb,
+      blend: asset.blend,
+      ...(includeBundles ? { bundle: `assets/downloads/${asset.id}.zip` } : {}),
+      credits: `assets/downloads/${asset.id}-CREDITS.txt`,
+    };
+    assets.push({
+      ...sourceAsset,
+      ...(includeBundles && rawZipVersioned !== undefined ? { zipVersioned: rawZipVersioned } : {}),
+      ...(previewById?.has(asset.id) ? { preview: previewById.get(asset.id) } : {}),
+      ...catalogMembership(asset),
+      file_sizes,
+      glb_bytes: file_sizes.glb,
+      blend_bytes: file_sizes.blend,
       ...(material_count === undefined ? {} : { material_count }),
-      downloads: {glb:asset.glb, blend:asset.blend, bundle:`assets/downloads/${asset.id}.zip`, credits:`assets/downloads/${asset.id}-CREDITS.txt`}
+      downloads,
     });
   }
   return {...manifest, assets};
@@ -67,10 +80,11 @@ export async function clearDeliveredAssets(outDir) {
     if (item.isDirectory() || !/\.(?:js|css|map)$/.test(item.name)) await rm(join(folder,item.name),{recursive:true,force:true});
   }
 }
-export async function deliverManifestAssets(manifest, outDir, { root = process.cwd(), review = false, verifyHashes = true } = {}) {
+export async function deliverManifestAssets(manifest, outDir, { root = process.cwd(), review = false, verifyHashes = true, includeBundles = true, previewById = null } = {}) {
   if (manifest.review_only && !review) throw new Error('A review-only manifest cannot be released.');
-  const enriched = await enrichManifest(manifest,root,{verifyHashes});
-  for (const path of assetFileAllowlist(enriched)) {
+  const enriched = await enrichManifest(manifest, root, { verifyHashes, includeBundles, previewById });
+  const skipPreviewIds = previewById ? new Set(previewById.keys()) : null;
+  for (const path of assetFileAllowlist(manifest, { skipPreviewIds })) {
     await mkdir(dirname(resolve(outDir,path)),{recursive:true});
     await cp(resolve(root,path),resolve(outDir,path));
   }
@@ -79,19 +93,23 @@ export async function deliverManifestAssets(manifest, outDir, { root = process.c
   for (const asset of enriched.assets) {
     const credits = creditText(asset,enriched);
     await writeFile(resolve(outDir,asset.downloads.credits),credits);
-    jobs.push({destination:resolve(outDir,asset.downloads.bundle),files:[asset.glb,asset.blend].map(path=>({source:resolve(root,path),name:path.split('/').at(-1)})),credits});
+    if (includeBundles && asset.downloads.bundle) {
+      jobs.push({destination:resolve(outDir,asset.downloads.bundle),files:[asset.glb,asset.blend].map(path=>({source:resolve(root,path),name:path.split('/').at(-1)})),credits});
+    }
   }
   const python = `import json,sys,zipfile\nfor job in json.load(sys.stdin):\n with zipfile.ZipFile(job['destination'],'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:\n  for item in job['files']:\n   info=zipfile.ZipInfo(item['name'],date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED\n   with open(item['source'],'rb') as f: archive.writestr(info,f.read())\n  info=zipfile.ZipInfo('CREDITS.txt',date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;archive.writestr(info,job['credits'])\n`;
-  if(jobs.length) { const result=spawnSync('python3',['-c',python],{input:JSON.stringify(jobs),encoding:'utf8'}); if(result.status !== 0) throw new Error(`ZIP packaging failed: ${result.stderr || result.error}`); }
-  for(const asset of enriched.assets) {
-    const bundle=resolve(outDir,asset.downloads.bundle);
-    asset.file_sizes.bundle=(await stat(bundle)).size;
-    if(asset.zipVersioned===true) {
-      const hash=createHash('sha256').update(await readFile(bundle)).digest('hex');
-      const versioned=asset.downloads.bundle.replace(/\.zip$/,'-'+hash.slice(0,16)+'.zip');
-      await rename(bundle,resolve(outDir,versioned));
-      asset.downloads.bundle=versioned;
-      asset.sha256={...asset.sha256,bundle:hash};
+  if(includeBundles && jobs.length) { const result=spawnSync('python3',['-c',python],{input:JSON.stringify(jobs),encoding:'utf8'}); if(result.status !== 0) throw new Error(`ZIP packaging failed: ${result.stderr || result.error}`); }
+  if (includeBundles) {
+    for(const asset of enriched.assets) {
+      const bundle=resolve(outDir,asset.downloads.bundle);
+      asset.file_sizes.bundle=(await stat(bundle)).size;
+      if(asset.zipVersioned===true) {
+        const hash=createHash('sha256').update(await readFile(bundle)).digest('hex');
+        const versioned=asset.downloads.bundle.replace(/\.zip$/,'-'+hash.slice(0,16)+'.zip');
+        await rename(bundle,resolve(outDir,versioned));
+        asset.downloads.bundle=versioned;
+        asset.sha256={...asset.sha256,bundle:hash};
+      }
     }
   }
   await writeFile(resolve(outDir,'assets/manifest.json'),`${JSON.stringify(enriched,null,2)}\n`);

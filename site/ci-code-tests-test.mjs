@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {ACTIVE_CODE_TESTS,testsFor,changedPaths} from './ci-code-tests.mjs';
-const expected=['site/capture-model-images-test.mjs','site/ci-code-tests-test.mjs','site/ci-live-smoke-test.mjs','site/ci-simple-build-test.mjs','site/gallery-loading-test.mjs','site/glb-material-gate-test.mjs','site/home-startup-test.mjs','site/unified-delivery-contract-test.mjs'];
+const expected=['site/capture-model-images-test.mjs','site/ci-code-tests-test.mjs','site/ci-live-smoke-test.mjs','site/ci-simple-build-test.mjs','site/client-zip-test.mjs','site/gallery-loading-test.mjs','site/glb-material-gate-test.mjs','site/home-startup-test.mjs','site/unified-delivery-contract-test.mjs'];
 assert.deepEqual(ACTIVE_CODE_TESTS,expected);
 const fixture=JSON.parse(await readFile(new URL('../qa/ci-fixtures/pr77-cumulative-paths.json',import.meta.url)));
 assert.equal(fixture.head,'9af07afdf4080afc52652e43f6b8face33cd0611');assert.equal(fixture.changed.length,280);assert.equal(fixture.previous_selection.length,16);

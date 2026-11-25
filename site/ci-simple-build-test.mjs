@@ -74,21 +74,21 @@ try{
  assert.deepEqual(await readFile('dist/'+a.glb),validGlbB);
  const model=async()=>JSON.parse(await readFile('dist/assets/manifest.json')).assets[0];
  const stable=await model();
- assert.equal(stable.downloads.bundle,`assets/downloads/${a.id}.zip`);
- const stableBytes=await readFile('dist/'+stable.downloads.bundle);
- assert(stableBytes.length>0);
- const scope=JSON.parse(await readFile('assets/manifest.json'));
- scope.assets[0].zipVersioned=true;
- await writeFile('assets/manifest.json',JSON.stringify(scope));
- assert.equal((await buildSimple()).status,'PASS');
- const opted=await model();
- const bundle=await readFile('dist/'+opted.downloads.bundle),sha=createHash('sha256').update(bundle).digest('hex');
- assert.deepEqual(bundle,stableBytes);
- assert.equal(opted.sha256.bundle,sha);
- assert.equal(opted.downloads.bundle,`assets/downloads/${a.id}-${sha.slice(0,16)}.zip`);
- await assert.rejects(stat('dist/'+stable.downloads.bundle),{code:'ENOENT'});
+ // Tier 1A + Tier 2 Pages space optimization: no static .zip bundles in dist, and
+ // duplicate assets/.../preview.png is deduplicated to canonical gallery detail poster.
+ assert.equal(stable.downloads.bundle,undefined);
+ assert.equal(stable.downloads.credits,`assets/downloads/${a.id}-CREDITS.txt`);
+ assert.equal(stable.preview,`gallery/${a.id}/detail.png`);
+ await assert.rejects(stat(`dist/assets/downloads/${a.id}.zip`),{code:'ENOENT'});
+ await assert.rejects(stat('dist/'+a.preview),{code:'ENOENT'});
+ const detailHtml=await readFile(`dist/models/${a.id}/index.html`,'utf8');
+ assert(!detailHtml.includes('.zip'),'Static model page must not link removed .zip bundles');
+ assert(detailHtml.includes(a.glb)&&detailHtml.includes(a.blend)&&detailHtml.includes(stable.downloads.credits)&&detailHtml.includes(stable.preview));
  const gallery=JSON.parse(await readFile('dist/assets/gallery.json'));
- assert.equal(gallery.assets[0].downloads.bundle,opted.downloads.bundle);
+ assert.equal(gallery.assets[0].downloads.bundle,undefined);
+ assert.equal(gallery.assets[0].preview,`gallery/${a.id}/detail.png`);
+ const catalogDetail=JSON.parse(await readFile(`dist/assets/catalog/details/${a.id}.json`));
+ assert.equal(catalogDetail.preview,`gallery/${a.id}/detail.png`);
  await writeFile('vite.config.js','invalid JavaScript syntax !');await assert.rejects(buildSimple(),/Vite failed/);
  console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, material/byte gates, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
 }finally{if(originalBaseline===undefined)delete process.env.GLB_SIZE_BASELINE_COMMIT;else process.env.GLB_SIZE_BASELINE_COMMIT=originalBaseline;if(originalMaterialBaseline===undefined)delete process.env.GLB_MATERIAL_BASELINE_COMMIT;else process.env.GLB_MATERIAL_BASELINE_COMMIT=originalMaterialBaseline;process.chdir(source);await rm(root,{recursive:true,force:true});}
