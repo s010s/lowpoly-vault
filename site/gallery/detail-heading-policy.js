@@ -26,7 +26,7 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  preview:'5c5353edda5aa74cdc26317dc6a3aaba78f8bf01bad26b70d38f55c8528d64a6',
  bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
 })])],['chaloneria',Object.freeze([Object.freeze({
- glb:'bb73e1de4010944f1ee455deb69530241bded201b91271d85ef52f7e180733d7',
+ glb:'d8b1c3ec3fa9f7a1fa9ac644650d30d5c6f2154a734214519478bbb2b7a7e84e',
  detail:'gallery/ws1a-repair-20261125-02/chaloneria/detail.png',
  preview:'fdafcf6171013290f2e8b8acacd2edfb6d0c1553a145a7060770cce6f29dcf28',
  // Canonical projected mesh and matching poster subject; padded by two poster pixels.
