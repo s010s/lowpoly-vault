@@ -6,14 +6,29 @@ import {tmpdir} from 'node:os';
 import {resolve,join,dirname} from 'node:path';
 import {buildSimple,copyPublicMember} from './ci-build-simple.mjs';
 import {testsFor} from './ci-code-tests.mjs';
+function makeSyntheticGlb(materials){
+ let j=Buffer.from(JSON.stringify({asset:{version:'2.0'},materials}),'utf8');
+ if(j.length%4)j=Buffer.concat([j,Buffer.alloc(4-(j.length%4),0x20)]);
+ const b=Buffer.alloc(16),total=28+j.length+b.length,out=Buffer.alloc(total);
+ out.write('glTF',0,'ascii');out.writeUInt32LE(2,4);out.writeUInt32LE(total,8);
+ out.writeUInt32LE(j.length,12);out.writeUInt32LE(0x4e4f534a,16);j.copy(out,20);
+ out.writeUInt32LE(b.length,20+j.length);out.writeUInt32LE(0x004e4942,24+j.length);b.copy(out,28+j.length);
+ return out;
+}
 const originalBaseline=process.env.GLB_SIZE_BASELINE_COMMIT;
+const originalMaterialBaseline=process.env.GLB_MATERIAL_BASELINE_COMMIT;
 const source=process.cwd(),root=await mkdtemp(join(tmpdir(),'simple-build-'));
 const put=async(path,value)=>{await mkdir(dirname(join(root,path)),{recursive:true});await writeFile(join(root,path),value);};
+const validGlbA=makeSyntheticGlb([{name:'base',pbrMetallicRoughness:{metallicFactor:0.0,roughnessFactor:0.9}}]);
+const validGlbB=makeSyntheticGlb([{name:'replacement',pbrMetallicRoughness:{metallicFactor:0.0,roughnessFactor:0.85}}]);
+const omittedMetalGlb=makeSyntheticGlb([{name:'bad-omit',pbrMetallicRoughness:{roughnessFactor:0.9}}]);
+const highMetalGlb=makeSyntheticGlb([{name:'bad-high',pbrMetallicRoughness:{metallicFactor:0.65,roughnessFactor:0.9}}]);
 try{
  const original=JSON.parse(await readFile('assets/manifest.json'));const a=structuredClone(original.assets[0]);
  a.glb=`assets/${a.id}/model.glb`;a.blend=`assets/${a.id}/source.blend`;a.preview=`assets/${a.id}/preview.png`;delete a.production_release;delete a.production_posters;
  await put('assets/manifest.json',JSON.stringify({...original,publication:{},assets:[a]}));
- for(const path of [a.glb,a.blend,a.preview])await put(path,'nonempty fixture; model QA is deliberately not repeated');
+ await put(a.glb,validGlbA);
+ for(const path of [a.blend,a.preview])await put(path,'nonempty fixture; model QA is deliberately not repeated');
  const resources={posters:{[a.id]:{source_glb_sha256:a.sha256.glb,wheel:`gallery/${a.id}/wheel.png`,detail:`gallery/${a.id}/detail.png`}}};
  await put('site/public/gallery/resources.json',JSON.stringify(resources));for(const p of ['wheel','detail'])await put(`site/public/gallery/${a.id}/${p}.png`,'image fixture');
  for(const name of ['wheel','detail'])await put(`site/gallery/${name}-presentations-index.js`,'export default {presentations:{}};');
@@ -26,25 +41,32 @@ try{
  await put('empty','');await assert.rejects(copyPublicMember(root,join(root,'out'),'empty'));
  assert.deepEqual(testsFor(['assets/new/model.glb','site/public/gallery/new.png']),[]);
  assert(testsFor(['site/ci-build-simple.mjs']).includes('site/ci-simple-build-test.mjs'));
- // The release byte gate intentionally requires Git history. Give this isolated
- // fixture its own baseline rather than weakening the production gate or using
- // the caller's release commit, which does not exist in this temporary checkout.
+ // The release byte and material gates intentionally require Git history. Give this
+ // isolated fixture its own baseline rather than weakening production gates.
  const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'});
  git('init','-q');git('add','assets/manifest.json',a.glb);
  git('-c','user.name=Test','-c','user.email=test@users.noreply.github.com','commit','-qm','Fixture baseline');
- process.env.GLB_SIZE_BASELINE_COMMIT=git('rev-parse','HEAD').trim();
+ const fixtureSha=git('rev-parse','HEAD').trim();
+ process.env.GLB_SIZE_BASELINE_COMMIT=fixtureSha;
+ process.env.GLB_MATERIAL_BASELINE_COMMIT=fixtureSha;
  process.chdir(root);
  // Changing bytes at the same path must still be checked even when metadata is
- // unchanged. Verify the build entry point rejects over-budget replacement data.
+ // unchanged. Verify the build entry point rejects over-budget and high-metallic data.
  await writeFile(a.glb,Buffer.alloc(5_000_001));
  await assert.rejects(buildSimple(),/exceeds 5000000 bytes/);
- await writeFile(a.glb,'nonempty fixture; model QA is deliberately not repeated');
+ await writeFile(a.glb,omittedMetalGlb);
+ await assert.rejects(buildSimple(),/omits pbrMetallicRoughness\.metallicFactor/);
+ await writeFile(a.glb,highMetalGlb);
+ await assert.rejects(buildSimple(),/metallicFactor=0\.65 exceeds 0\.1/);
+ await writeFile(a.glb,validGlbA);
  const result=await buildSimple();assert.equal(result.status,'PASS');assert.equal(result.models,1);
  assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,0);
- await writeFile(a.glb,'under-budget replacement fixture');
+ assert.equal(JSON.parse(await readFile('dist/glb-material-gate.json')).changed_count,0);
+ await writeFile(a.glb,validGlbB);
  const replacement=await buildSimple();assert.equal(replacement.status,'PASS');
  assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,1);
- assert.equal((await readFile('dist/'+a.glb,'utf8')),'under-budget replacement fixture');
+ assert.equal(JSON.parse(await readFile('dist/glb-material-gate.json')).changed_count,1);
+ assert.deepEqual(await readFile('dist/'+a.glb),validGlbB);
  const model=async()=>JSON.parse(await readFile('dist/assets/manifest.json')).assets[0];
  const stable=await model();
  assert.equal(stable.downloads.bundle,`assets/downloads/${a.id}.zip`);
@@ -63,5 +85,5 @@ try{
  const gallery=JSON.parse(await readFile('dist/assets/gallery.json'));
  assert.equal(gallery.assets[0].downloads.bundle,opted.downloads.bundle);
  await writeFile('vite.config.js','invalid JavaScript syntax !');await assert.rejects(buildSimple(),/Vite failed/);
- console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
-}finally{if(originalBaseline===undefined)delete process.env.GLB_SIZE_BASELINE_COMMIT;else process.env.GLB_SIZE_BASELINE_COMMIT=originalBaseline;process.chdir(source);await rm(root,{recursive:true,force:true});}
+ console.log('PASS minimal build: real Vite, catalog/routes, GLB/Blend/ZIP delivery, material/byte gates, no hash replay, unsafe/empty path rejected, data-only unit tests skipped');
+}finally{if(originalBaseline===undefined)delete process.env.GLB_SIZE_BASELINE_COMMIT;else process.env.GLB_SIZE_BASELINE_COMMIT=originalBaseline;if(originalMaterialBaseline===undefined)delete process.env.GLB_MATERIAL_BASELINE_COMMIT;else process.env.GLB_MATERIAL_BASELINE_COMMIT=originalMaterialBaseline;process.chdir(source);await rm(root,{recursive:true,force:true});}
