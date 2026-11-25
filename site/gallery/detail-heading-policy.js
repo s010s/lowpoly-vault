@@ -21,9 +21,9 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  mobileOnly:true,
  mobileTools:true,
 })])],['spyroceras',Object.freeze([Object.freeze({
- glb:'2a08b6e6d97ef9b5c7fe36cbdb49c335afbd772d2e503b3bd56d54cfe73b2a54',
- detail:'gallery/reviewed-release-20261114-06/spyroceras/detail.png',
- preview:'8cdceb2ed2544054308026bd9a7d047b37d42b7b16204a2f344da0a72d62a01d',
+ glb:'09f51c0e0ac3cf13c171fe0fef81e2a3ea01e2f4393928cdd4045f5e2757ae71',
+ detail:'gallery/ws1a-repair-20261125-08/spyroceras/detail.png',
+ preview:'5c5353edda5aa74cdc26317dc6a3aaba78f8bf01bad26b70d38f55c8528d64a6',
  bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
 })])],['chaloneria',Object.freeze([Object.freeze({
  glb:'54a072cf79a6642fa0b53d9781402acb62b1f544b1d993a1123660bb7e64c9e8',
