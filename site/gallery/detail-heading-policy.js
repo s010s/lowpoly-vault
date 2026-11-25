@@ -9,7 +9,7 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  preview:'979deaf0e5d970dddb88b7d34c7e1c09b6d3305dc882ecbed0dfee76c8837c89',
  bounds:leptomitusBounds,
 },{
- glb:'47965d4caa9670d1da06f23e295891e4f46054b4649571ec6f5d3e424a612deb',
+ glb:'ef144a99db868bf0e9c9786f4f396d5a4915dac1e22f913ba0c8fd341df0b21e',
  detail:'gallery/repairs/leptomitus/material-20261118/detail.png',
  preview:'ffa1c5f2a3b9d733871b336e6a1ae0306d3a96bd476822a1d084e8b4af30b4a6',
  bounds:leptomitusBounds,
