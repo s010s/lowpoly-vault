@@ -19,6 +19,7 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0,str(SCRIPTS_DIR))
 from qa_glb import audit_glb
+from ensure_glb_pbr_defaults import ensure_glb_pbr_defaults
 
 REPO_ROOT = SCRIPTS_DIR.parent
 LICENSE = 'CC-BY-4.0'
@@ -437,6 +438,7 @@ def export_asset(slug, title, category, collection, metadata=None, output_root=N
     missing=set(options)-available
     if missing: raise RuntimeError('Blender exporter lacks required flags: '+', '.join(sorted(missing)))
     bpy.ops.export_scene.gltf(**options)
+    ensure_glb_pbr_defaults(output_dir/f'{slug}.glb',asset_id=slug,default_roughness=0.9)
     glb=audit_glb(output_dir/f'{slug}.glb',max_triangles,max_materials,max_primitives)
     qa['glb']=glb
     # Axis-aware source-to-export bounds comparison catches scaling/selection errors.

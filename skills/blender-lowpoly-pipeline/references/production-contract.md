@@ -29,7 +29,11 @@ Grounded animals have lowest intended contact point at Z=0 in Blender and Y=0 in
 
 ## Materials and color
 
-Use one Principled BSDF connected to Material Output for baseline parts. Prefer 4–8 palette colors per animal, metallic 0, roughness around 0.7–1.0, alpha 1, and no emission unless required by the brief. These values are artistic defaults. Keep Principled extension-triggering inputs at defaults unless a supported extension is intended. Inspect `extensionsUsed` after export instead of assuming no extensions were written.
+Use one Principled BSDF connected to Material Output for baseline parts. Prefer 4–8 palette colors per animal, metallic 0, roughness around 0.85–1.0 (or 0.7–1.0 where softer sheen is needed; 0.15–0.35 only for explicit crystal/glass dielectrics), alpha 1, and no emission unless required by the brief. These values are artistic defaults. Keep Principled extension-triggering inputs at defaults unless a supported extension is intended. Inspect `extensionsUsed` after export instead of assuming no extensions were written.
+
+**Mandatory glTF 2.0 `metallicFactor` rule (Blender and Colab/`trimesh`)**: In glTF 2.0, omitting `pbrMetallicRoughness.metallicFactor` without a `metallicRoughnessTexture` defaults to **`1.0` (100% pure metal)**, which renders dark/metallic in web viewers without an IBL environment map. Every non-whitelisted export (only `pyrite-cube-cluster` and `native-copper-dendrite` are exempt true metals) MUST explicitly write `metallicFactor = 0.0` (and a sensible `roughnessFactor`, default `0.85–1.0`, when no `metallicRoughnessTexture` is attached):
+- **Blender**: set `Principled BSDF -> Metallic = 0.0` and `Roughness = 0.85–1.0` explicitly; `scripts/asset_common.py` also runs `scripts/ensure_glb_pbr_defaults.py` post-export.
+- **Colab / `trimesh`**: construct `trimesh.visual.material.PBRMaterial(baseColorTexture=..., metallicFactor=0.0, roughnessFactor=0.9)` before `mesh.export(out_glb)`, and run `python3 scripts/ensure_glb_pbr_defaults.py <out.glb> --id <asset-id>` followed by `node site/glb-material-gate.mjs --files <out.glb> --id <asset-id>`.
 
 Palette hex colors are sRGB; Blender node color sockets and glTF baseColorFactor are linear. Convert each sRGB channel `c`: `c/12.92` when `c <= 0.04045`, otherwise `((c+0.055)/1.055)**2.4`. Do not assign hex/255 directly to linear node sockets. GLTFLoader already handles glTF color roles; do not re-convert loaded material colors or mark normal/roughness textures sRGB.
 

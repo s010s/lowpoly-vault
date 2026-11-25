@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {checkGlbSizes} from './glb-size-gate.mjs';
 import {checkReleaseGlbSizes} from './glb-release-size-gate.mjs';
+import {checkReleaseGlbMaterials,DEFAULT_MATERIAL_BASELINE_COMMIT} from './glb-material-gate.mjs';
 import {readFile,writeFile,mkdir,cp,stat,realpath} from 'node:fs/promises';
 import {resolve,dirname,sep} from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -34,6 +35,8 @@ export async function buildSimple(){
  assert(!source.review_only,'Review-only manifests cannot be deployed');
  const byteBudget=await checkReleaseGlbSizes({manifest:source,baselineCommit:process.env.GLB_SIZE_BASELINE_COMMIT||'dfa8877b3a74959ce514c4c1dea93351d1a4f952'});
  console.log(`GLB byte gate: ${byteBudget.changed_count} new/replaced files pass; ${byteBudget.legacy_oversize.length} unchanged legacy files exceed 5 MB and are not certified by this release.`);
+ const materialGate=await checkReleaseGlbMaterials({manifest:source,baselineCommit:process.env.GLB_MATERIAL_BASELINE_COMMIT||DEFAULT_MATERIAL_BASELINE_COMMIT});
+ console.log(`GLB material gate: ${materialGate.changed_count} new/replaced files pass (${materialGate.unchanged_count} unchanged baseline files skipped).`);
  const {checkDelivery}=await import('./unified-delivery-contract.mjs');
  const delivery=await checkDelivery({root:process.cwd()});
  if(/^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA||'')) process.env.VITE_RELEASE_CATALOG_TOKEN=process.env.GITHUB_SHA;
@@ -44,6 +47,7 @@ export async function buildSimple(){
  const changedAssets=manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id));
  if(changedAssets.length)await checkGlbSizes({assets:changedAssets},{root:'dist'});
  await writeFile('dist/glb-byte-budget.json',JSON.stringify(byteBudget,null,2)+'\n');
+ await writeFile('dist/glb-material-gate.json',JSON.stringify(materialGate,null,2)+'\n');
  await writeFile('dist/assets/manifest.json',JSON.stringify(manifest,null,2)+'\n');
  await writeCatalog(manifest,'dist',{approvedOnly:true});
  await writeGalleryCatalog(manifest,'dist');
