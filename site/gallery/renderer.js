@@ -1,6 +1,6 @@
 import {installWheelSoftFill} from './wheel-soft-fill.mjs';
-const DISPLAY_ORIENTATION_YAW={"proterogyrinus":3.141592653589793};
-const DISPLAY_ORIENTATION_CANDIDATES={"proterogyrinus":"9853d5a9b46b441f9ef9f9cb5442645b7da38cab872466744c9d87a6b15d871e"};
+const DISPLAY_ORIENTATION_YAW={ };
+const DISPLAY_ORIENTATION_CANDIDATES={ };
 const DISPLAY_MATERIAL_CANDIDATES={ };
 const DISPLAY_DETAIL_ORIENTATION_CANDIDATES=Object.freeze({});
 import * as THREE from 'three';
