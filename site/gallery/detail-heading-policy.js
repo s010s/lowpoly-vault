@@ -14,9 +14,9 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  preview:'ffa1c5f2a3b9d733871b336e6a1ae0306d3a96bd476822a1d084e8b4af30b4a6',
  bounds:leptomitusBounds,
 }].map(Object.freeze))],['sawdonia',Object.freeze([Object.freeze({
- glb:'6d62e6890268274ed9930a156b574f2e5901bb5ce5051e62b9c821da7e357356',
- detail:'gallery/reviewed-release-20261114-06/sawdonia/detail.png',
- preview:'8f8fc3397860873be9f4a1f7756560cc73acef9cbca6258e62e360dfbdb96dc2',
+ glb:'3f6e42b9ea26b9acadf2691f0d853b882cd43439247e0579fe78ae384c8daa35',
+ detail:'gallery/ws1a-repair-20261125-07/sawdonia/detail.png',
+ preview:'974716b4e472fa69f8be90bd3499da192027ba6f1baf8fd5d068e44ee81df3eb',
  bounds:Object.freeze([0.303429945259016,0.15390621080320468,0.7102649641251585,0.8605725078342307]),
  mobileOnly:true,
  mobileTools:true,
