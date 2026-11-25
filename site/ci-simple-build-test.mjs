@@ -31,6 +31,9 @@ try{
  for(const path of [a.blend,a.preview])await put(path,'nonempty fixture; model QA is deliberately not repeated');
  const resources={posters:{[a.id]:{source_glb_sha256:a.sha256.glb,wheel:`gallery/${a.id}/wheel.png`,detail:`gallery/${a.id}/detail.png`}}};
  await put('site/public/gallery/resources.json',JSON.stringify(resources));for(const p of ['wheel','detail'])await put(`site/public/gallery/${a.id}/${p}.png`,'image fixture');
+ for(const stale of ['site/public/gallery/posters/stale-old.png','site/public/wheel-presentations/stale-old.png','site/public/detail-presentations/stale-old.png'])await put(stale,'stale unused poster');
+ await put('site/public/gallery/scale-reference/hand.glb','scale ref glb');
+ await put('site/public/gallery/scale-reference/notice.png','scale ref image preserved');
  for(const name of ['wheel','detail'])await put(`site/gallery/${name}-presentations-index.js`,'export default {presentations:{}};');
  await put('assets/turntables/index.json','{"assets":[],"posters":[]}');
  await put('package.json','{"type":"module"}');await put('index.html','<html lang="en"><head><title>Fixture</title></head><body><div id="app"></div></body></html>');
@@ -60,6 +63,8 @@ try{
  await assert.rejects(buildSimple(),/metallicFactor=0\.65 exceeds 0\.1/);
  await writeFile(a.glb,validGlbA);
  const result=await buildSimple();assert.equal(result.status,'PASS');assert.equal(result.models,1);
+ for(const stale of ['dist/gallery/posters/stale-old.png','dist/wheel-presentations/stale-old.png','dist/detail-presentations/stale-old.png'])await assert.rejects(stat(stale),{code:'ENOENT'});
+ for(const kept of [`dist/gallery/${a.id}/wheel.png`,`dist/gallery/${a.id}/detail.png`,'dist/gallery/resources.json','dist/gallery/scale-reference/hand.glb','dist/gallery/scale-reference/notice.png'])assert((await stat(kept)).size>0,`Expected kept file ${kept}`);
  assert.equal(JSON.parse(await readFile('dist/glb-byte-budget.json')).changed_count,0);
  assert.equal(JSON.parse(await readFile('dist/glb-material-gate.json')).changed_count,0);
  await writeFile(a.glb,validGlbB);
