@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {checkGlbSizes} from './glb-size-gate.mjs';
 import {checkReleaseGlbSizes} from './glb-release-size-gate.mjs';
 import {checkReleaseGlbMaterials,DEFAULT_MATERIAL_BASELINE_COMMIT} from './glb-material-gate.mjs';
-import {readFile,writeFile,mkdir,cp,stat,realpath} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,cp,stat,realpath,readdir,rm} from 'node:fs/promises';
 import {resolve,dirname,sep} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
@@ -30,6 +30,29 @@ export async function deliverLegacyMedia(manifest,{root=process.cwd(),out='dist'
  }
  return manifest;
 }
+export async function pruneUnusedPublicPosters(manifest,delivery,{root=process.cwd(),out='dist'}={}){
+ const resources=JSON.parse(await readFile(resolve(root,'site/public/gallery/resources.json'),'utf8'));
+ const keep=new Set();
+ for(const model of delivery?.models||[])for(const file of Object.values(model.files||{}))if(file?.path?.startsWith('site/public/'))keep.add(file.path.slice('site/public/'.length));
+ for(const a of manifest?.assets||[])for(const role of ['wheel','detail']){const p=resources.posters?.[a.id]?.[role];if(typeof p==='string'&&p)keep.add(p);}
+ let removedFiles=0,removedBytes=0;
+ async function walk(dir,relPrefix,isTop){
+  let entries;
+  try{entries=await readdir(dir,{withFileTypes:true});}catch(error){if(error.code==='ENOENT')return;throw error;}
+  for(const entry of entries){
+   const rel=relPrefix?`${relPrefix}/${entry.name}`:entry.name,full=resolve(dir,entry.name);
+   if(rel==='gallery/scale-reference')continue;
+   if(entry.isDirectory()){
+    await walk(full,rel,false);
+   }else if(entry.isFile()&&/\.(?:png|webp|jpe?g)$/i.test(entry.name)&&!keep.has(rel)){
+    removedBytes+=(await stat(full)).size;removedFiles++;await rm(full,{force:true});
+   }
+  }
+  if(!isTop&&(await readdir(dir)).length===0)await rm(dir,{recursive:true,force:true});
+ }
+ for(const folder of ['gallery','wheel-presentations','detail-presentations'])await walk(resolve(out,folder),folder,folder==='gallery');
+ return {removedFiles,removedBytes};
+}
 export async function buildSimple(){
  const started=performance.now(),source=JSON.parse(await readFile('assets/manifest.json'));
  assert(!source.review_only,'Review-only manifests cannot be deployed');
@@ -42,6 +65,8 @@ export async function buildSimple(){
  if(/^[a-f0-9]{40}$/.test(process.env.GITHUB_SHA||'')) process.env.VITE_RELEASE_CATALOG_TOKEN=process.env.GITHUB_SHA;
  const build=spawnSync(process.execPath,['node_modules/vite/bin/vite.js','build'],{stdio:'inherit'});assert.equal(build.status,0,build.error?.message||'Vite failed');
  await clearDeliveredAssets('dist');
+ const pruned=await pruneUnusedPublicPosters(source,delivery,{out:'dist'});
+ if(pruned.removedFiles)console.log(`Pruned ${pruned.removedFiles} unreferenced poster files (${(pruned.removedBytes/1e6).toFixed(1)} MB) from dist.`);
  let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false});
  manifest=await deliverLegacyMedia(manifest);
  const changedAssets=manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id));
