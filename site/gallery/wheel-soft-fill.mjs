@@ -1,5 +1,5 @@
 export const EXACT_ID = 'ecphora';
-export const EXACT_GLTF_SHA = '3c41ce19ff3e7cd7f925857704b0424e5a4d21d1cc930fd87e6ad0fbe0f0472f';
+export const EXACT_GLTF_SHA = '82f3ab94e55b105086c0ded3292e30e605536e92fa4eb48fb1cc4120f18de737';
 
 // Diagnostic only. entry must be the verified resource() result, not asset.sha256.
 export function installWheelSoftFill(view, asset, entry, DirectionalLight, route) {

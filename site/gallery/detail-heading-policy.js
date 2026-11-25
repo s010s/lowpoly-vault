@@ -9,24 +9,24 @@ const reviewed=new Map([['leptomitus',Object.freeze([{
  preview:'979deaf0e5d970dddb88b7d34c7e1c09b6d3305dc882ecbed0dfee76c8837c89',
  bounds:leptomitusBounds,
 },{
- glb:'47965d4caa9670d1da06f23e295891e4f46054b4649571ec6f5d3e424a612deb',
+ glb:'ef144a99db868bf0e9c9786f4f396d5a4915dac1e22f913ba0c8fd341df0b21e',
  detail:'gallery/repairs/leptomitus/material-20261118/detail.png',
  preview:'ffa1c5f2a3b9d733871b336e6a1ae0306d3a96bd476822a1d084e8b4af30b4a6',
  bounds:leptomitusBounds,
 }].map(Object.freeze))],['sawdonia',Object.freeze([Object.freeze({
- glb:'3f6e42b9ea26b9acadf2691f0d853b882cd43439247e0579fe78ae384c8daa35',
+ glb:'5f586b0c9e21c65f9e774845f7c59b25265540ffdb86764adf73d7959b0b872f',
  detail:'gallery/ws1a-repair-20261125-07/sawdonia/detail.png',
  preview:'974716b4e472fa69f8be90bd3499da192027ba6f1baf8fd5d068e44ee81df3eb',
  bounds:Object.freeze([0.303429945259016,0.15390621080320468,0.7102649641251585,0.8605725078342307]),
  mobileOnly:true,
  mobileTools:true,
 })])],['spyroceras',Object.freeze([Object.freeze({
- glb:'09f51c0e0ac3cf13c171fe0fef81e2a3ea01e2f4393928cdd4045f5e2757ae71',
+ glb:'99f09584a911d4f797fdca6f33dc5082e6239ebf55a0dfca1e8a3aa8de056fcf',
  detail:'gallery/ws1a-repair-20261125-08/spyroceras/detail.png',
  preview:'5c5353edda5aa74cdc26317dc6a3aaba78f8bf01bad26b70d38f55c8528d64a6',
  bounds:Object.freeze([0.4020327018770514, 0.056135696539828084, 0.580190431235307, 0.8556603907833367]),
 })])],['chaloneria',Object.freeze([Object.freeze({
- glb:'bb73e1de4010944f1ee455deb69530241bded201b91271d85ef52f7e180733d7',
+ glb:'d8b1c3ec3fa9f7a1fa9ac644650d30d5c6f2154a734214519478bbb2b7a7e84e',
  detail:'gallery/ws1a-repair-20261125-02/chaloneria/detail.png',
  preview:'fdafcf6171013290f2e8b8acacd2edfb6d0c1553a145a7060770cce6f29dcf28',
  // Canonical projected mesh and matching poster subject; padded by two poster pixels.

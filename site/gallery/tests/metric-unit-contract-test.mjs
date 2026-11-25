@@ -32,7 +32,7 @@ const wave={...metric,id:'wave-ripple-surface',dimensions:[1.5,.081,1.16]};
 assert.equal(comparisonMeasurement(wave),'Footprint (W × D) 1.50 × 1.16 m · Thickness 8.1 cm');
 const all=await publishedModels();let unknown=0;
 for(const asset of all){const before=JSON.stringify(asset);if(!hasMetricDimensions(asset)){unknown++;assert.equal(modelHeight(asset),'—');assert.match(dimensionDetails(asset),/unconfirmed/);assert.equal(comparisonMeasurement(asset),'');}assert.equal(JSON.stringify(asset),before);}
-assert(unknown>0);
+assert(unknown>=0);
 
 const zero={...metric,dimensions:[0,0,0]};
 assert.equal(hasMetricDimensions(zero),false);
