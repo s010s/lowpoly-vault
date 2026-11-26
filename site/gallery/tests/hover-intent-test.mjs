@@ -21,7 +21,7 @@ function fixture(){
  // Execute the actual wheel event bindings, not a duplicate implementation.
  const start=source.indexOf("wheel.addEventListener('scroll'");const end=source.indexOf("wheel.addEventListener('keydown'",start);
  const window=new EventTarget();
- vm.runInNewContext(source.slice(start,end),{wheel,window,hover,settler,stopHover:()=>hover.clear(),collectionScroll:0,restoringHistory:false,programmaticPosition:null,renderWheel:()=>{},saveCurrentHistory:()=>{}});
+ vm.runInNewContext(source.slice(start,end),{wheel,window,hover,settler,stopHover:()=>hover.clear(),collectionScroll:0,restoringHistory:false,programmaticPosition:null,renderWheel:()=>{},saveCurrentHistory:()=>{},phoneContinuity:{stop(){}},wheelContinuity:{stop(){}},hasBrowsed:false});
  const event=(type,properties={})=>Object.assign(new Event(type),properties);
  return {hover,settler,wheel,window,a,b,sessions,timers,frames,
   move:(pointerType='mouse',x=50,y=50)=>hover.pointer({pointerType,clientX:x,clientY:y}),
@@ -92,11 +92,11 @@ await test('actual main pointer wiring and choose ready callback recover the sel
  const document=new EventTarget(),window=new EventTarget(),media=new EventTarget();media.matches=true;
  const slots={},row={dataset:{id:'a'},isConnected:true,parentElement:slots,querySelector:()=>({})};
  const wheel={clientHeight:300,getBoundingClientRect:()=>({left:0,right:300,top:0,bottom:300})};
- Object.assign(document,{hidden:false,documentElement:new EventTarget(),elementFromPoint:()=>({closest:()=>row})});
+ Object.assign(document,{hidden:false,body:{classList:{contains:()=>false}},documentElement:new EventTarget(),elementFromPoint:()=>({closest:()=>row})});
  let timerId=0;const timers=new Map(),loads=[],previews=[];
  const asset={id:'a',name:{en:'A'},category:'geology',triangles:1};
  const frameClears=[];
- const node=()=>({dataset:{},style:{removeProperty(name){frameClears.push(name);delete this[name==='transform-origin'?'transformOrigin':name];}},classList:{add(){},remove(){}},setAttribute(){}}),nodes=new Map();
+ const node=()=>({dataset:{},style:{removeProperty(name){frameClears.push(name);delete this[name==='transform-origin'?'transformOrigin':name];}},classList:{add(){},remove(){}},setAttribute(){},removeAttribute(){}}),nodes=new Map();
  const $=id=>{if(!nodes.has(id))nodes.set(id,node());return nodes.get(id);};
  const renderer={wire:false,detail:{metric:{available:true}},stops:0,reveals:0,animations:0,
   select(){assert.deepEqual(frameClears,['transform-origin','transform'],'real poster frame update precedes model selection');const load=deferred();loads.push(load);return load.promise;},
@@ -105,13 +105,16 @@ await test('actual main pointer wiring and choose ready callback recover the sel
  const settler={state:'idle',stop(){this.state='idle';},centerOn(){}};
  const context=vm.createContext({HoverIntent:class extends HoverIntent{constructor(args){super({...args,schedule:fn=>{timers.set(++timerId,fn);return timerId;},cancel:id=>timers.delete(id)});}},hoverRowAt,
   HoverTurntable:class{ready(){}stop(){}},renderer,document,window,wheel,slots,settler,matchMedia:()=>media,reduced:()=>false,
-  currentReady:true,selectionVersion:0,selectionLoadingTimer:0,state:{selected:'a',results:[asset],lang:'en'},sample:[asset],
+  currentReady:true,selectionVersion:0,selectionLoadingTimer:0,state:{selected:'a',results:[asset],lang:'en',view:'collection',mobileOpen:false},sample:[asset],catalog:{manifest:{review_only:false}},
   ui:{resetCopy(){}},closeInfo(){},saveCurrentHistory(){},pushHistory(){},selectPoster:asset=>{const image=$('#detail-poster');Object.assign(image.dataset,{modelId:asset.id,source:'canonical',presentationFrame:'native-viewport-v2'});Object.assign(image.style,{transform:'stale',transformOrigin:'0 0'});return {ready:Promise.resolve(true)};},
-  validDetailPresentation,detailScreenFrame,
-  infoContent(){},renderSummary(){},renderWheel(){},syncMobileView(){},mobile:()=>false,modelHeight:()=>'',short:()=> 'A',
-  t:en=>en,categories:{geology:['Geology','地质']},urlAsset:value=>value,$,cancelSelectedPoster:null,
+  validDetailPresentation,detailScreenFrame,canonicalEntrancePlan:()=>({opening:null,canonicalFirst:false}),hasCanonicalDetail:()=>false,
+  phoneContinuity:{fromWheel:()=>null,stop(){},travel(){}},wheelContinuity:{stop(){}},stagePoster:{frame:()=>null,clear(){}},mobileIntent:{clear(){},bind(){},cancel(){}},wheelArtwork:()=>null,
+  detailHeadingLayout:{apply(){},refresh(){}},createDetailHeadingLayout:()=>({apply(){},refresh(){}}),title:{textContent:'',focus(){}},stage:$('#detail'),
+  showModelWorkspace(){},cancelPosterWarmup(){},cancelGalleryZip(){},integrityBlocked:false,assetSummaryLine:()=>'Geology',syncMetricCard(){},setDownloadsDisabled(){},setStageNotice(){},syncMobileChrome(){},stageNoticeKind:null,compareLoadKind:null,compareError:false,mobile3DActive:false,getStoredWireframe:()=>false,
+  infoContent(){},renderSummary(){},renderWheel(){},syncMobileView(){},mobile:()=>false,short:()=> 'A',
+  t:en=>en,urlAsset:value=>value,$,cancelSelectedPoster:null,poster:()=>'',URL,location:{href:'https://example.test/models/'},
   setTimeout:()=>0,clearTimeout(){}});
- const hoverStart=source.indexOf('const hover=new HoverIntent('),hoverEnd=source.indexOf('function renderWheel(){',hoverStart);
+ const hoverStart=source.indexOf('const hover=new HoverIntent('),hoverEnd=source.indexOf('function syncJumpCurrent(){',hoverStart);
  const chooseStart=source.indexOf('async function choose('),chooseEnd=source.indexOf('function syncMobileView(){',chooseStart);
  const frameStart=source.indexOf('function updateSelectedPosterFrame(){'),frameEnd=source.indexOf('function selectPoster(',frameStart);assert(frameStart>=0&&frameEnd>frameStart);
  vm.runInContext(source.slice(frameStart,frameEnd)+source.slice(hoverStart,hoverEnd)+source.slice(chooseStart,chooseEnd),context);

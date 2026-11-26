@@ -13,7 +13,6 @@ try {
   document.dispatchEvent?.(new Event('gallery-mount'));
   document.body.replaceChildren(fragment.content.cloneNode(true));
   document.body.dataset.gallery='approved-v55';document.body.classList.remove('gallery-loading');loadingStyle.remove();
-  document.documentElement.dataset.theme='light';
   await mountGallery();document.body.classList.remove('gallery-loading');loadingStyle.remove();
 } catch(error) {
   console.error('Gallery enhancement unavailable',error);

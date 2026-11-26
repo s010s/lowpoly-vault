@@ -13,6 +13,7 @@ export function routeHref({ type = 'home', lang = 'en', id, page = 0, query } = 
   if (type === 'detail') { if (!validAssetId(id)) throw new Error('Invalid asset id.'); suffix = `models/${encodeURIComponent(id)}/`; }
   else if (type === 'models' || type === 'catalog') suffix = `models/${page > 0 ? `page/${Math.floor(page) + 1}/` : ''}`;
   else if (type === 'about') suffix = 'about/';
+  else if (type === 'notices') suffix = 'notices/';
   else if (type !== 'home') throw new Error('Unknown route type.');
   const params = query ? queryToParams(query) : new URLSearchParams();
   // The pathname owns pagination; the query is only search/filter/sort.
@@ -30,6 +31,7 @@ export function parseRoute(pathname, root = '/') {
   if (path === 'zh-CN' || path.startsWith('zh-CN/')) { lang = 'zh-CN'; path = path.slice(5).replace(/^\//, ''); }
   if (!path) return { type: 'home', lang, page: 0 };
   if (path === 'about') return { type: 'about', lang, page: 0 };
+  if (path === 'notices') return { type: 'notices', lang, page: 0 };
   if (path === 'models') return { type: 'models', lang, page: 0 };
   const page = path.match(/^models\/page\/([1-9]\d*)$/);
   if (page && Number.isSafeInteger(Number(page[1]))) return { type: 'models', lang, page: Number(page[1]) - 1 };
@@ -54,12 +56,34 @@ export function queryToParams(options = {}) {
 }
 export const itemWorlds = item => Array.isArray(item.worlds) ? item.worlds : [item.collection].filter(Boolean);
 export const itemPacks = item => Array.isArray(item.packs) ? item.packs : [];
+const CATEGORY_SEARCH_MAP = {
+  animals: 'animals 动物',
+  plants: 'plants 植物',
+  geology: 'geology 地质',
+  traces: 'traces 遗迹 痕迹',
+  specimen: 'specimen fossil 化石 化石标本',
+  terrain: 'terrain 地貌 地形',
+  wood: 'wood 木材',
+  mollusk: 'mollusk 软体动物',
+  fungi: 'fungi 真菌',
+};
 export function matchesCatalogItem(item, { query = '', category = 'all', collection = 'all', world = 'all', pack = 'all', maxTriangles = 0 } = {}) {
   if (Number(maxTriangles) > 0 && (!Number.isFinite(item.triangles) || item.triangles > Number(maxTriangles))) return false;
   const terms = normalizeText(query).trim().split(/\s+/).filter(Boolean);
   const has = value => value && value !== 'all';
   if ((has(category) && item.category !== category) || (has(collection) && item.collection !== collection) || (has(world) && !itemWorlds(item).includes(world)) || (has(pack) && !itemPacks(item).includes(pack))) return false;
-  const searchable = normalizeText([item.id, ...Object.values(typeof item.name === 'object' ? item.name : { en: item.name }), item.category, item.collection, ...itemWorlds(item), ...itemPacks(item)].join(' '));
+  if (!terms.length) return true;
+  const searchable = normalizeText([
+    item.id,
+    String(item.id || '').replace(/[-_.]+/g, ' '),
+    ...Object.values(typeof item.name === 'object' ? item.name : { en: item.name }),
+    item.category,
+    CATEGORY_SEARCH_MAP[item.category] || '',
+    item.collection,
+    item.collection === 'prehistoric' ? '史前 史前世界' : '',
+    ...itemWorlds(item),
+    ...itemPacks(item),
+  ].join(' '));
   return terms.every(term => searchable.includes(term));
 }
 const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });

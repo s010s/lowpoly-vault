@@ -32,6 +32,15 @@ export default defineConfig({
  plugins:[{name:'local-asset-preview',configureServer(server){server.middlewares.use(async(req,res,next)=>{
   let pathname=new URL(req.url,'http://localhost').pathname;
   if(siteBase !== '/' && pathname.startsWith(siteBase)) pathname='/'+pathname.slice(siteBase.length);
+  if(pathname==='/THIRD_PARTY_NOTICES.md'){
+   try{
+    const notices=await readFile(resolve('THIRD_PARTY_NOTICES.md'),'utf8');
+    res.setHeader('Content-Type','text/markdown; charset=utf-8');
+    res.setHeader('Cache-Control','no-cache');
+    res.end(notices);
+    return;
+   }catch{res.statusCode=404;res.end('Notices unavailable');return;}
+  }
   if(!pathname.startsWith('/assets/'))return next();
   try{
    if(/^\/assets\/(?:catalog(?:-review)?|gallery)(?:\.json|\/)/.test(pathname)){

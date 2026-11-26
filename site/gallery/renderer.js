@@ -22,11 +22,11 @@ const preset={azimuth:42,elevation:23.3,fov:38};
 const direction=(a,e)=>new THREE.Vector3(Math.sin(a*Math.PI/180)*Math.cos(e*Math.PI/180),Math.sin(e*Math.PI/180),Math.cos(a*Math.PI/180)*Math.cos(e*Math.PI/180));
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 export class PreviewRenderer {
- constructor(detail,onChange){
-  this.host=detail;this.shortLandscapeFit=matchMedia('(760px < width <= 1000px) and (320px <= height <= 460px)');this.onChange=onChange;this.cache=new Map();this.retiredEntries=new Set();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
+ constructor(detail,onChange,{inPlace=false}={}){
+  this.host=detail;this.inPlace=!!inPlace;this.dirty=false;this.selectInputGen=0;this.shortLandscapeFit=matchMedia('(760px < width <= 1000px) and (320px <= height <= 460px)');this.onChange=onChange;this.cache=new Map();this.retiredEntries=new Set();this.pending=new Map();this.token=0;this.hoverToken=0;this.raf=0;this.wire=false;this.comparison=false;
   this.stats={rendererCount:1,requests:0,aborted:0,stale:0,cacheEntries:0,estimatedCacheBytes:0,cacheByteLimit:48*1024*1024,frames:0,hoverId:null,detailId:null};
   this.renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true,powerPreference:'low-power'});
-  this.renderer.domElement.className='preview-renderer';this.renderer.domElement.setAttribute('aria-hidden','true');document.body.append(this.renderer.domElement);
+  this.renderer.domElement.className=this.inPlace?'preview-renderer preview-renderer-inplace':'preview-renderer';this.renderer.domElement.setAttribute('aria-hidden','true');(this.inPlace?detail:document.body).append(this.renderer.domElement);
   this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.1;
   this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFShadowMap;this.renderer.autoClear=false;
   // The stage owns its own fixed camera and lighting. Model fitting, zoom and
@@ -37,15 +37,17 @@ export class PreviewRenderer {
   this.controls=this.createControls(detail);
   this.viewMotion=new ViewTransition({read:()=>this.viewState(),write:(state,ownership)=>this.applyState(state,ownership),reduced,onActivity:active=>{this.stats.cameraTransition=active;}});
   this.referenceToken=0;this.referenceFrame=0;this.cameraInputGeneration=0;
-  detail.addEventListener('wheel',event=>{event.stopImmediatePropagation();if(event.ctrlKey||event.metaKey||!this.detail.model||!this.controls.enabled)return;if(event.cancelable)event.preventDefault();this.stopHover();this.onInteraction?.();const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?detail.clientHeight:1);this.zoom(Math.exp(Math.max(-150,Math.min(150,delta))*.001));},{passive:false,capture:true});
+  this.onWheel=event=>{event.stopImmediatePropagation();if(event.ctrlKey||event.metaKey||!this.detail.model||!this.controls.enabled)return;if(event.cancelable)event.preventDefault();this.stopHover();this.onInteraction?.();const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?detail.clientHeight:1);this.zoom(Math.exp(Math.max(-150,Math.min(150,delta))*.001));};
+  detail.addEventListener('wheel',this.onWheel,{passive:false,capture:true});
   this.observer=new ResizeObserver(()=>this.draw());this.observer.observe(detail);this.visible=true;
   this.intersection=new IntersectionObserver(([entry])=>{this.visible=entry.isIntersecting;if(!this.visible)this.stopHover();this.draw();});this.intersection.observe(detail);
   this.visibility=()=>{if(document.hidden)this.stopHover();else this.draw();};document.addEventListener('visibilitychange',this.visibility);
-  this.motion=matchMedia('(prefers-reduced-motion: reduce)');this.motion.addEventListener('change',()=>{this.stopHover();if(reduced()){this.viewMotion.finish();this.finishReference();}this.draw();});
+  this.motion=matchMedia('(prefers-reduced-motion: reduce)');this.onMotionChange=()=>{this.stopHover();if(reduced()){this.viewMotion.finish();this.finishReference();}this.draw();};this.motion.addEventListener('change',this.onMotionChange);
   this.renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();this.lost=true;this.suspend();this.onError?.(new Error('WebGL context lost'),{assetId:this.detail.asset?.id,token:this.token});});
   this.renderer.domElement.addEventListener('webglcontextrestored',()=>{this.lost=false;this.draw();this.onRestore?.();});
   window.__previewGPU=this.stats;
  }
+ markDirty(next){const value=!!next;if(this.dirty===value)return;this.dirty=value;this.onDirtyChange?.(value);}
  createControls(host){
   const controls=new OrbitControls(this.detail.camera,host);controls.enableDamping=false;controls.enablePan=false;controls.enableZoom=true;controls.touches.TWO=THREE.TOUCH.DOLLY_ROTATE;controls.enableRotate=true;controls.enabled=false;controls.minPolarAngle=.08;controls.maxPolarAngle=Math.PI/2+.12;
   controls.addEventListener('change',()=>{if(!this.syncingControls)this.consumeMainOrbit();this.draw();this.onChange?.();});
@@ -206,13 +208,14 @@ export class PreviewRenderer {
   if(this.comparison){
    const expected=v.presentedCameraDistance||distance,orbit=camera.position.clone().sub(this.controls.target);
    const angle=THREE.MathUtils.euclideanModulo(preset.azimuth*Math.PI/180-Math.atan2(orbit.x,orbit.z)+Math.PI,Math.PI*2)-Math.PI;
-   if(Math.abs(angle)>1e-9){this.cancelCamera();v.comparisonYaw.rotation.y+=angle;}
-   if(Math.abs(distance/expected-1)>1e-9)this.comparisonZoom(distance/expected);
+   if(Math.abs(angle)>1e-9){this.cancelCamera();v.comparisonYaw.rotation.y+=angle;this.markDirty(true);}
+   if(Math.abs(distance/expected-1)>1e-9){this.cameraInputGeneration=(this.cameraInputGeneration||0)+1;this.comparisonZoom(distance/expected);this.markDirty(true);}
    camera.position.copy(this.controls.target).add(direction(preset.azimuth,preset.elevation).multiplyScalar(expected));camera.lookAt(this.controls.target);
    this.updateControls();return;
   }
   const rotation=this.cameraPose().multiply(camera.quaternion.clone().invert()).normalize();
-  if(rotation.angleTo(new THREE.Quaternion())>1e-9){this.cancelCamera();v.orientation.quaternion.premultiply(rotation).normalize();}
+  if(rotation.angleTo(new THREE.Quaternion())>1e-9){this.cancelCamera();v.orientation.quaternion.premultiply(rotation).normalize();this.markDirty(true);}
+  if(Math.abs(distance-(v.presentedCameraDistance||distance))>1e-4){this.cameraInputGeneration=(this.cameraInputGeneration||0)+1;this.markDirty(true);}
   this.groundMainModel();this.recenterInspectedGround(previousY);camera.position.copy(this.controls.target).add(direction(preset.azimuth,preset.elevation).multiplyScalar(distance));camera.lookAt(this.controls.target);
   this.updateControls();
  }
@@ -276,7 +279,7 @@ export class PreviewRenderer {
    // Every selection is a new inspection session, including cached assets,
    // retries and a hover-to-detail click. Never inherit pose, zoom or framing.
    const painted=new Promise(resolve=>{this.firstDetailFrame={token,id:asset.id,resolve,frame:0,onRendered:afterFirstRender};});
-   this.attach(this.detail,asset,entry);beforeFirstFrame?.();this.applyState(this.singleState());this.updateControls();this.wireframe(this.wire);this.stats.detailStatus='rendering';this.draw();this.trim();
+   this.attach(this.detail,asset,entry);beforeFirstFrame?.();this.applyState(this.singleState());this.updateControls();this.wireframe(this.wire);this.selectInputGen=this.cameraInputGeneration||0;this.markDirty(false);this.stats.detailStatus='rendering';this.draw();this.trim();
    const ready=await painted;if(!ready||token!==this.token||controller.signal.aborted||this.lost)return false;
    this.controls.enabled=true;this.stats.detailStatus='ready';return true;
   }catch(e){
@@ -284,7 +287,7 @@ export class PreviewRenderer {
    this.cancelDetailFrame();this.detach(this.detail);this.detail.contact.visible=false;this.clearDetailPixels();this.draw();this.stats.detailStatus='error';this.onError?.(e,{assetId:asset.id,token});throw e;
   }
  }
- suspend(){this.cancelDetailFrame();this.cancelCamera(true);this.comparison=false;this.removeReference();++this.token;this.controller?.abort();this.stopHover();this.resetControlSession();this.detach(this.detail);this.detail.contact.visible=false;this.stats.detailStatus='suspended';this.clearDetailPixels();this.draw();}
+ suspend(){this.cancelDetailFrame();this.cancelCamera(true);this.comparison=false;this.removeReference();this.markDirty(false);this.onReferenceStateChange?.('idle',null);++this.token;this.controller?.abort();this.stopHover();this.resetControlSession();this.detach(this.detail);this.detail.contact.visible=false;this.stats.detailStatus='suspended';this.clearDetailPixels();this.draw();}
 
  async preview(asset,host){
   this.stopHover();if(reduced()||!this.detail.model||document.hidden)return false;const token=++this.hoverToken;this.hoverController=new AbortController();const hover=this.makeView(false);hover.host=host;this.hover=hover;this.stats.hoverId=asset.id;
@@ -302,12 +305,13 @@ export class PreviewRenderer {
  }
  zoom(factor){
   if(!this.detail.model)return;
+  this.markDirty(true);
   if(this.comparison){this.cameraInputGeneration=(this.cameraInputGeneration||0)+1;this.comparisonZoom(factor);this.updateControls();this.draw();return;}
   this.cancelCamera();const camera=this.detail.camera,offset=camera.position.clone().sub(this.controls.target),baseline=this.detail.fitDistance;
   const current=offset.length(),minimum=Math.min((baseline||5)*.15,current),maximum=Math.max((baseline||5)*8,current),distance=Math.max(minimum,Math.min(maximum,current*factor));camera.position.copy(this.controls.target).add(offset.setLength(distance));this.updateControls();this.draw();
  }
  rotate(azimuth,elevation){
-  if(!this.detail.orientation)return;this.cancelCamera();
+  if(!this.detail.orientation)return;this.cancelCamera();this.markDirty(true);
   if(this.comparison){this.detail.comparisonYaw.rotation.y-=azimuth*Math.PI/180;this.updateControls();this.draw();return;}
   const previousY=this.detail.model.position.y;
   // Keyboard rotation follows the same main-only path as pointer rotation.
@@ -320,12 +324,13 @@ export class PreviewRenderer {
   // Match the canonical transparent poster by translating its projection, not
   // the physical camera: every vertex shifts exactly 6% of the shorter side,
   // regardless of depth. Compare smoothly brings this offset back to center.
-  return {contactPosition:[0,0],position:target.clone().add(direction(preset.azimuth,preset.elevation).multiplyScalar(distance)).toArray(),target:target.toArray(),zoom:1,screenShift:.06,screenShiftY:0,modelYaw:0,distance,modelPosition:[0,0,0],modelQuaternion:[0,0,0,1]};
+  return {contactPosition:[0,0],position:target.clone().add(direction(preset.azimuth,preset.elevation).multiplyScalar(distance)).toArray(),target:target.toArray(),zoom:1,screenShift:this.inPlace?0:.06,screenShiftY:0,modelYaw:0,distance,modelPosition:[0,0,0],modelQuaternion:[0,0,0,1]};
  }
  reset(){
   if(!this.detail.model)return;this.stopHover();this.comparison=false;this.syncControlMode();
   ++this.referenceToken;this.referenceController?.abort();this.referenceController=null;
   this.stats.referenceState=this.companion?'hiding':'idle';if(this.companion)this.animateReference(false);this.animateState(this.singleState());
+  this.selectInputGen=this.cameraInputGeneration||0;this.markDirty(false);this.onReferenceStateChange?.('idle',null);
  }
  removeReference(){
   ++this.referenceToken;this.referenceController?.abort();this.referenceController=null;
@@ -371,7 +376,7 @@ export class PreviewRenderer {
   this.stopHover();const kind=Math.max(...this.detail.entry.size.toArray())<.6?'hand':'human';
   const result={kind,meters:REFERENCE_SPECS[kind].meters};
   if(this.comparison){this.comparisonCameraIntent=this.cameraInputGeneration||0;if(this.comparisonState)this.animateState(this.comparisonState);return result;}
-  this.comparison=true;this.syncControlMode();this.comparisonCameraIntent=this.cameraInputGeneration||0;const token=++this.referenceToken,assetId=this.detail.asset.id;
+  this.comparison=true;this.markDirty(true);this.syncControlMode();this.comparisonCameraIntent=this.cameraInputGeneration||0;const token=++this.referenceToken,assetId=this.detail.asset.id;
   const begin=companion=>{
    if(token!==this.referenceToken||!this.comparison||assetId!==this.detail.asset?.id){if(companion!==this.companion)companion.dispose();return;}
    this.companion=companion;this.reference=companion.root;this.detail.scene.add(this.reference);
@@ -380,15 +385,15 @@ export class PreviewRenderer {
    // Input during a cold load keeps its yaw/zoom, while the required ground
    // framing and old inspection tilt recovery still complete smoothly.
    this.animateState(destination,{camera:true,orientation:true,yaw:!keepManualInput,zoom:!keepManualInput});this.animateReference(true);
-   this.stats.referenceState='ready';this.onChange?.();
+   this.stats.referenceState='ready';this.onReferenceStateChange?.('ready',kind);this.onChange?.();
   };
-  if(this.companion){begin(this.companion);return result;}
-  this.referenceController?.abort();this.referenceController=new AbortController();this.stats.referenceState='loading';
+  if(this.companion){begin(this.companion);return {...result,ready:true};}
+  this.referenceController?.abort();this.referenceController=new AbortController();this.stats.referenceState='loading';this.onReferenceStateChange?.('loading',kind);
   this.referenceReady=loadScaleReference(kind,this.referenceController.signal).then(begin).catch(error=>{
    if(error.name==='AbortError'||token!==this.referenceToken)return;
-   this.comparison=false;this.syncControlMode();this.stats.referenceState='error';this.onReferenceError?.(error);this.onChange?.();
+   this.comparison=false;this.syncControlMode();this.stats.referenceState='error';this.markDirty((this.cameraInputGeneration||0)!==this.selectInputGen);this.onReferenceStateChange?.('error',kind);this.onReferenceError?.(error);this.onChange?.();
   });
-  return result;
+  return {...result,ready:false};
  }
  animateReference(enter){
   if(!this.companion)return;if(this.referenceFrame)cancelAnimationFrame(this.referenceFrame);
@@ -468,16 +473,16 @@ export class PreviewRenderer {
    }
   }finally{camera.layers.mask=mask;scene.background=background;this.renderer.autoClear=autoClear;}
  }
- renderView(view,rect,clip=rect,{overlay=false,projectionRect=rect}={}){
+ renderView(view,rect,clip=rect,{overlay=false,projectionRect=rect,canvasWidth=innerWidth,canvasHeight=innerHeight}={}){
   if(!view||(!view.model&&!view.isBackdrop)||rect.width<1||rect.height<1)return false;
-  const clipped={left:Math.max(0,clip.left),right:Math.min(innerWidth,clip.right),top:Math.max(0,clip.top),bottom:Math.min(innerHeight,clip.bottom)};
+  const clipped={left:Math.max(0,clip.left),right:Math.min(canvasWidth,clip.right),top:Math.max(0,clip.top),bottom:Math.min(canvasHeight,clip.bottom)};
   clipped.width=clipped.right-clipped.left;clipped.height=clipped.bottom-clipped.top;if(clipped.width<1||clipped.height<1)return false;
   const extend=projectionRect!==rect;
   this.resizeCamera(view,projectionRect.width,projectionRect.height);
   // Keep the stage projection exactly centered while painting its surrounding surface.
   if(extend)view.camera.setViewOffset(projectionRect.width,projectionRect.height,
    rect.left-projectionRect.left,rect.top-projectionRect.top,rect.width,rect.height);
-  const h=innerHeight;
+  const h=canvasHeight;
   const ratio=this.renderer.getPixelRatio();view.shadowViewport.value.set(Math.floor(rect.left*ratio),Math.floor((h-rect.bottom)*ratio),Math.floor(rect.width*ratio),Math.floor(rect.height*ratio));
   this.renderer.setViewport(rect.left,h-rect.bottom,rect.width,rect.height);this.renderer.setScissor(clipped.left,h-clipped.bottom,clipped.width,clipped.height);this.renderer.setScissorTest(true);
   try{
@@ -486,24 +491,24 @@ export class PreviewRenderer {
   }finally{if(extend)view.camera.clearViewOffset();}
   return true;
  }
- draw(hoverOnly=false){if(!this.renderer||this.lost||document.hidden)return;const width=innerWidth,height=innerHeight,ratio=Math.min(devicePixelRatio||1,1.75);const size=this.renderer.getSize(new THREE.Vector2());if(this.renderer.getPixelRatio()!==ratio){this.renderer.setPixelRatio(ratio);hoverOnly=false;}if(size.x!==width||size.y!==height){this.renderer.setSize(width,height,false);hoverOnly=false;}
+ draw(hoverOnly=false){if(!this.renderer||this.lost||document.hidden)return;const hostRect=this.inPlace?this.host.getBoundingClientRect():null;const width=this.inPlace?Math.max(1,Math.round(hostRect.width)):innerWidth,height=this.inPlace?Math.max(1,Math.round(hostRect.height)):innerHeight,ratio=Math.min(devicePixelRatio||1,1.75);const size=this.renderer.getSize(new THREE.Vector2());if(this.renderer.getPixelRatio()!==ratio){this.renderer.setPixelRatio(ratio);hoverOnly=false;}if(size.x!==width||size.y!==height){this.renderer.setSize(width,height,false);hoverOnly=false;}
   // setSize(..., false) deliberately leaves CSS alone. Intrinsic canvas dimensions
   // are physical pixels at DPR>1, so they must never become its display size.
-  Object.assign(this.renderer.domElement.style,{width:'100vw',height:'100dvh'});
+  Object.assign(this.renderer.domElement.style,this.inPlace?{width:'100%',height:'100%'}:{width:'100vw',height:'100dvh'});
   this.renderer.domElement.style.visibility='visible';
   this.stats.logicalWidth=width;this.stats.logicalHeight=height;this.stats.pixelRatio=ratio;this.stats.bufferWidth=this.renderer.domElement.width;this.stats.bufferHeight=this.renderer.domElement.height;
   if(!hoverOnly){
    this.renderer.setScissorTest(false);this.renderer.setClearColor(0,0);this.renderer.clear(true,true,true);
-   const rect=this.host.getBoundingClientRect();
+   const rect=this.inPlace?{left:0,top:0,right:width,bottom:height,width,height}:this.host.getBoundingClientRect();
    // Mobile detail lays the gesture/model host inside the document-flow surface.
    // Continue that same backdrop through the rest of the workspace, not through
    // the model's scissor: the fit square and DOM gesture target stay unchanged.
-   const slot=this.host.dataset.modelId;
-   const splitSurface=document.body.classList.contains('mobile-detail')||
-    (this.shortLandscapeFit.matches&&slot&&slot!=='teichichnus-spreite-wall');
+   const slot=this.host?.dataset?.modelId;
+   const splitSurface=!this.inPlace&&(document.body?.classList?.contains('mobile-detail')||
+    (this.shortLandscapeFit?.matches&&slot&&slot!=='teichichnus-spreite-wall'));
    const surface=(splitSurface&&this.host.closest('.workspace')?.getBoundingClientRect())||rect;
-   this.renderView(this.backdrop,surface,surface,{projectionRect:rect});
-   if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true}))this.acknowledgeDetailFrame();
+   this.renderView(this.backdrop,surface,surface,{projectionRect:rect,canvasWidth:width,canvasHeight:height});
+   if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true,canvasWidth:width,canvasHeight:height}))this.acknowledgeDetailFrame();
   }
   if(this.hover?.host.isConnected&&this.hover.model){const hostRect=this.hover.host.getBoundingClientRect(),rw=Math.min(hostRect.width,hostRect.height*WHEEL_ASPECT),rh=rw/WHEEL_ASPECT,r={left:hostRect.left+(hostRect.width-rw)/2,top:hostRect.top+(hostRect.height-rh)/2,width:rw,height:rh};r.right=r.left+r.width;r.bottom=r.top+r.height;const list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),w=Math.max(1,Math.floor(r.width*ratio)),h=Math.max(1,Math.floor(r.height*ratio)),sx=Math.floor(r.left*ratio),sy=this.renderer.domElement.height-Math.floor((innerHeight-r.bottom)*ratio)-h;this.hover.presentation.update(this.renderer.domElement,sx,sy,w,h,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
   this.renderer.setScissorTest(false);this.stats.frames++;this.stats.detailId=this.detail.asset?.id||null;
@@ -523,5 +528,17 @@ export class PreviewRenderer {
  }
  async poster(asset,{wheel=false}={}){const controller=new AbortController();const entry=await this.resource(asset,controller.signal);const view=this.makeView(false);this.attach(view,asset,entry);if(wheel){this.wheelFrame(view,asset,{rebuild:true});installWheelSoftFill(view,asset,entry,THREE.DirectionalLight,'wheel-poster');}
   const oldSize=this.renderer.getSize(new THREE.Vector2()),oldRatio=this.renderer.getPixelRatio();this.renderer.setPixelRatio(1);const w=wheel?768:512,h=wheel?432:512;this.renderer.setSize(w,h,false);this.renderer.setScissorTest(false);this.renderer.setViewport(0,0,w,h);this.renderer.setClearColor(0,0);this.resizeCamera(view,w,h);view.shadowViewport.value.set(0,0,w,h);this.renderer.clear(true,true,true);this.renderer.render(view.scene,view.camera);const data=this.renderer.domElement.toDataURL('image/png');this.lastPosterSpec=wheel?view.wheelSpec:null;this.disposeView(view);this.renderer.setPixelRatio(oldRatio);this.renderer.setSize(oldSize.x,oldSize.y,false);this.draw();return data;
+ }
+ dispose(){
+  this.suspend();
+  this.host?.removeEventListener('wheel',this.onWheel,{capture:true});
+  this.observer?.disconnect();this.intersection?.disconnect();
+  document.removeEventListener('visibilitychange',this.visibility);
+  this.motion?.removeEventListener('change',this.onMotionChange);
+  this.controls?.dispose();
+  this.disposeView(this.detail);this.disposeView(this.backdrop);
+  for(const entry of this.cache.values())this.disposeRoot(entry.root);
+  this.cache.clear();
+  this.renderer?.dispose();this.renderer?.domElement?.remove();this.renderer=null;
  }
 }

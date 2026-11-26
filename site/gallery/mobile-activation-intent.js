@@ -26,8 +26,9 @@ export function createMobileActivationIntent({eligible, activate, announce = () 
    e.readiness=ready===true?'ready':'unavailable';
    if(!e.requested)return;
    if(e.readiness==='ready'&&fire(e,'ready'))return;
-   // Missing PNG: never convert this delayed request to an unverified fallback.
-   // After removal of the bridge, a fresh explicit tap may use the stock fallback.
+   // If the poster failed while the user already requested 3D, honor that intent
+   // immediately instead of making the user tap the exact same button twice.
+   if(e.readiness==='unavailable'&&fire(e,'missing'))return;
    end(e,e.readiness==='unavailable'&&eligible(e.context,'missing')?'unavailable':'idle');
   };
   Promise.resolve(painted).then(finish,()=>finish(false));

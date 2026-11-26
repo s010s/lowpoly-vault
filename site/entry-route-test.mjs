@@ -71,9 +71,9 @@ try {
     await mkdir(out, { recursive: true });
     await writeFile(join(out, 'index.html'), sourceHTML);
     const result = await writeStaticRoutes({ assets }, out, { base, origin: 'https://example.test' });
-    assert.equal(result.pages, 58);
+    assert.equal(result.pages, 60);
     for (const locale of ['', 'zh-CN/']) {
-      for (const path of ['', 'models/', 'models/page/2/', 'about/', 'models/model-0/']) {
+      for (const path of ['', 'models/', 'models/page/2/', 'about/', 'notices/', 'models/model-0/']) {
         const html = await readFile(join(out, locale, path, 'index.html'), 'utf8');
         assert(html.includes('id="static-route-content"'), `${locale}${path} has real HTML`);
         assert(html.includes('src="/entry.js"'), `${locale}${path} shares the route dispatcher`);

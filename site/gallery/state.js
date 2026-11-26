@@ -1,13 +1,31 @@
 /** Gallery browsing state. The published manifest remains authoritative. */
-import {normalizeText} from '../routes.js';
+import { normalizeText } from '../routes.js';
+import { buildSearchableText } from '../shared-ui.js';
+import { modelShortName } from './presentation-labels.js';
+
+const searchCache = new WeakMap();
+function searchableFor(item) {
+  if (item && typeof item === 'object') {
+    let cached = searchCache.get(item);
+    if (cached === undefined) {
+      cached = buildSearchableText(item, [modelShortName(item, 'en'), modelShortName(item, 'zh')]);
+      searchCache.set(item, cached);
+    }
+    return cached;
+  }
+  return '';
+}
+
 export function filterItems(items, query = '', facets = {}) {
   const terms = normalizeText(query).trim().split(/\s+/).filter(Boolean);
   return items.filter(item => {
-    const searchable=normalizeText([item.id,...Object.values(item.name||{}),item.category,item.collection,...(item.worlds||[]),...(item.packs||[])].join(' '));
-    if(!terms.every(term=>searchable.includes(term)))return false;
+    if (terms.length) {
+      const searchable = searchableFor(item);
+      if (!terms.every(term => searchable.includes(term))) return false;
+    }
     return Object.entries(facets).every(([group, selected]) => {
-      if (!selected.length) return true;
-      if(group==='triangleMax')return Number.isFinite(item.triangles)&&item.triangles<=Number(selected[0]);
+      if (!selected?.length) return true;
+      if (group === 'triangleMax') return Number.isFinite(item.triangles) && item.triangles <= Number(selected[0]);
       const values = Array.isArray(item[group]) ? item[group] : [item[group]];
       return selected.some(value => values.includes(value));
     });
@@ -129,7 +147,7 @@ export class WheelSettler {
     }
   }
 
-  finish() { this.stop();if(!this.destroyed)this.settled(); }
+  finish() { this.stop(); if (!this.destroyed) this.settled(); }
 
   stop() {
     if (this.raf) this.cancel(this.raf);

@@ -27,13 +27,13 @@ test('expired or replaced pending intent cannot activate a newer generation of s
  painted=true;second.resolve(true);await tick();assert.deepEqual(starts,[]);
  assert.equal(q.request(),'activated');assert.equal(q.request(),'ignored');assert.deepEqual(starts,[b]);
 });
-test('decode failure clears pending without opening; fallback requires a fresh explicit request and real error identity',async()=>{
+test('decode failure honors existing user intent in a single tap without requiring a double press',async()=>{
  const p=defer(),log=[],starts=[];let failed=false;
  const q=createMobileActivationIntent({eligible:(_,mode)=>mode==='pending'||mode==='missing'&&failed,activate:c=>starts.push(c),announce:x=>log.push(x)});
  q.bind('current',p.ready);assert.equal(q.request(),'pending');
  failed=true;p.resolve(false);await tick();
- assert.deepEqual(starts,[]);assert.deepEqual(log,['pending','unavailable']);
- assert.equal(q.request(),'fallback');assert.deepEqual(starts,['current']);
+ assert.deepEqual(starts,['current']);assert.deepEqual(log,['pending','idle']);
+ assert.equal(q.request(),'ignored');
 });
 test('fixed real heading is limited to canonical-first openings; original typed title remains focusable',async()=>{
  const main=await readFile(new URL('../main.js',import.meta.url),'utf8');

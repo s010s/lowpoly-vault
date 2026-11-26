@@ -5,7 +5,7 @@ export function initTheme({doc=document,media=matchMedia,storage=()=>localStorag
  try{const saved=storage().getItem('vault-theme');if(saved==='light'||saved==='dark')chosen=saved;}catch{}
  let theme=chosen||(system.matches?'dark':'light');
  const buttons=[...doc.querySelectorAll('[data-theme-toggle]')];
- function labels(){const zh=root.lang.startsWith('zh');for(const b of buttons){b.setAttribute('aria-label',zh?(theme==='dark'?'切换浅色主题':'切换深色主题'):(theme==='dark'?'Switch to light theme':'Switch to dark theme'));b.setAttribute('aria-pressed',String(theme==='dark'));b.title=b.getAttribute('aria-label');}}
+ function labels(){const zh=(root.lang||'').startsWith('zh');for(const b of buttons){b.setAttribute('aria-label',zh?(theme==='dark'?'切换浅色主题':'切换深色主题'):(theme==='dark'?'Switch to light theme':'Switch to dark theme'));b.setAttribute('aria-pressed',String(theme==='dark'));b.title=b.getAttribute('aria-label');}}
  function apply(value){theme=value;root.dataset.theme=value;root.style.colorScheme=value;doc.querySelector('meta[name="theme-color"]')?.setAttribute('content',value==='dark'?'#20211e':'#f3f2ed');labels();}
  apply(theme);
  async function drain(){if(running||!pending)return;running=true;const request=pending;pending=null;const {value,button}=request;
@@ -25,6 +25,6 @@ export function initTheme({doc=document,media=matchMedia,storage=()=>localStorag
  function toggle(button){const next=(pending?.value||chosen||theme)==='dark'?'light':'dark';chosen=next;try{storage().setItem('vault-theme',next);}catch{}pending={value:next,button};active?.skipTransition();void drain();}
  buttons.forEach(b=>b.addEventListener('click',()=>toggle(b)));
  system.addEventListener('change',()=>{if(!chosen){pending={value:system.matches?'dark':'light'};active?.skipTransition();void drain();}});
- new MutationObserver(labels).observe(root,{attributes:true,attributeFilter:['lang']});
+ if(typeof MutationObserver==='function')new MutationObserver(labels).observe(root,{attributes:true,attributeFilter:['lang']});
  return {get theme(){return theme;},get chosen(){return chosen;}};
 }

@@ -1,13 +1,165 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3ec"><meta name="description" content="An open collection of original low-poly 3D assets. Find a shape, turn it around, and make it yours. GLB models and editable Blender sources."><title>Lowpoly Vault — Find your next building block</title><link rel="icon" type="image/svg+xml" sizes="any" href="%BASE_URL%brand/favicon.svg"><link rel="stylesheet" href="./brand.css"><script>try{var t=localStorage.getItem("vault-theme");document.documentElement.dataset.theme=t==="light"||t==="dark"?t:matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}catch{document.documentElement.dataset.theme=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}</script></head>
-<body><a class="skip" href="#catalog">Skip to assets</a><header class="topbar"><a class="brand vault-brand" href="./" data-route="home" aria-label="Lowpoly Vault home"><svg class="vault-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 2 29 9v14l-13 7L3 23V9z"/><path d="m3 9 13 7 13-7M16 16v14"/></svg><span class="vault-wordmark">LOWPOLY <span>VAULT</span></span></a><nav class="primary-nav" aria-label="Primary"><a href="./" data-route="home" data-t="home">Home</a><a href="./models/" data-route="catalog" data-t="allModels">All models</a><a href="./about/" data-route="about" data-t="about">About</a></nav><div class="top-actions"><a href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="theme-toggle" data-theme-toggle aria-label="Switch theme" aria-pressed="false"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g><path class="moon" d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z"/></svg></button><button id="language" aria-label="切换为中文">中文</button></div></header>
-<noscript><p>JavaScript powers the interactive catalog. <a href="https://github.com/s010s/lowpoly-vault/tree/main/assets">Browse the source assets on GitHub.</a></p></noscript>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f3ec">
+<meta name="description" content="An open library of 1,000 original low-poly 3D models. Explore in 3D, download ready-to-use GLB files or editable Blender sources under CC BY 4.0.">
+<title>Lowpoly Vault — Original low-poly 3D models</title>
+<link rel="icon" type="image/svg+xml" sizes="any" href="%BASE_URL%brand/favicon.svg">
+<link rel="stylesheet" href="./brand.css">
+<script>try{var t=localStorage.getItem("vault-theme");document.documentElement.dataset.theme=t==="light"||t==="dark"?t:matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}catch{document.documentElement.dataset.theme=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}</script>
+</head>
+<body>
+<a class="skip" href="#main-content" data-t="skip">Skip to content</a>
+<header class="topbar">
+ <a class="brand vault-brand" href="./" data-route="home" aria-label="Lowpoly Vault home"><svg class="vault-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 2 29 9v14l-13 7L3 23V9z"/><path d="m3 9 13 7 13-7M16 16v14"/></svg><span class="vault-wordmark">LOWPOLY <span>VAULT</span></span></a>
+ <nav class="primary-nav" aria-label="Primary"><a href="./" data-route="home" data-t="home">Home</a><a href="./models/" data-route="catalog" data-t="allModels">All models</a><a href="./about/" data-route="about" data-t="about">About</a></nav>
+ <div class="top-actions">
+  <a class="github-link" href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)"><span>GitHub</span><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g><path class="moon" d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z"/></svg></button>
+  <a id="language" lang="zh-CN" href="./zh-CN/" aria-label="切换为简体中文">中文</a>
+ </div>
+</header>
+<noscript><p class="noscript-banner">JavaScript powers the interactive 3D viewer. You can still browse every model and download all files directly, or <a href="https://github.com/s010s/lowpoly-vault/tree/main/assets">browse source files on GitHub</a>.</p></noscript>
+<main id="main-content" tabindex="-1">
 <section id="home-page" class="home-page" aria-labelledby="home-title">
-<div class="home-hero"><img class="hero-art" src="./home/editorial-hero.webp" width="1600" height="1000" alt="" fetchpriority="high"><div class="home-copy"><span class="edition" data-t="edition">THE PREHISTORIC COLLECTION / 01</span><h1 id="home-title" data-t="homeTitle">A world,<br>piece by piece.</h1><p data-t="homeIntro">Small polygons. Open possibilities.<br>Original 3D models, ready for your next idea.</p><button class="home-cta" data-browse><span data-t="exploreAll">Explore all models</span><span aria-hidden="true">↗</span></button><span class="home-license">GLB + BLENDER · CC BY 4.0</span></div><div class="hero-caption"><span data-t="heroCaption">Stone, trees, and a little imagination.</span><button id="hero-inspect" data-home-asset="natural-arch"><span data-t="inspectArch">Inspect the arch</span> ↗</button></div></div>
-<form id="home-search" class="home-search"><label for="home-query" data-t="findShape">What will you make?</label><div><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="home-query" type="search" autocomplete="off" placeholder="Find a model…" aria-label="Find a model"><button type="submit"><span data-t="searchAction">Search models</span><span aria-hidden="true">→</span></button></div></form>
-<section class="home-curation"><div class="curation-heading"><div><span class="edition" data-t="collectionOne">COLLECTION 01</span><h2 data-t="prehistoricHome">A little prehistoric.</h2></div><p data-t="curationIntro">Shapes from a world before us.<br>Build something entirely your own.</p><button data-browse class="text-link"><span data-t="viewCollection">View collection</span> ↗</button></div><div class="curation-grid" id="home-categories"></div></section>
-<div class="home-foot"><span data-t="openFiles">Made to be opened. And made your own.</span><a href="./about/" data-route="about" data-t="aboutLibrary">About the library ↗</a></div></section>
-<section id="about-page" class="about-page" hidden><span class="edition">LOWPOLY VAULT</span><h1 data-t="aboutTitle">Good shapes.<br>Open files.</h1><p data-t="aboutBody">A small collection of original, editable low-poly assets by Leon Made This / s010s. Download GLB for your project or open the Blender source to make it your own. Credit the creator, link CC BY 4.0, and indicate your changes.</p><div class="about-links"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a><a href="./THIRD_PARTY_NOTICES.md" data-t="notices">Third-party notices</a><button data-browse data-t="exploreAll">Explore all models</button></div></section>
-<div class="workspace" id="catalog-page" hidden>
-<main id="collection"><section class="intro"><div><h1 id="collection-title" data-t="title">A world of possibilities.</h1><p data-t="intro">Find a shape. Turn it around. Make it yours.</p></div><div class="intro-note"><span class="status-dot"></span><span data-t="original">Original 3D assets<br>GLB + Blender sources</span></div></section><aside class="sidebar"><div class="sidebar-top"><button id="all-assets" class="library-button"><span aria-hidden="true">▦</span><span data-t="all">All assets</span><span id="library-count"></span></button></div><div id="themes" hidden></div><div><div id="filters" role="group" aria-label="Filter by category"></div></div></aside><div class="search-row"><label class="search"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" list="search-suggestions" type="search" autocomplete="off" placeholder="Search assets…" aria-label="Search assets"><kbd aria-hidden="true">/</kbd></label><label class="sort-label"><span data-t="sort">Sort</span><select id="sort"><option value="name" data-t="sortName">Name</option><option value="triangles-asc" data-t="sortPoly">Polygon count</option><option value="triangles-desc" data-t="sortPolyHigh">Polygon count: high to low</option></select></label></div><div class="results-bar"><div><h2 data-t="collection">The collection</h2><span id="count" aria-live="polite"></span></div></div><div id="active-filters"></div><datalist id="search-suggestions"></datalist><div id="grid" class="grid" aria-busy="true"></div><nav class="pagination" aria-label="Asset pages"><button id="prev-page" data-t="previous">← Previous</button><span id="page-number" aria-live="polite"></span><button id="next-page" data-t="next">Next →</button></nav><footer><span data-t="footer">Small polygons. Big plans.</span><div><a href="./THIRD_PARTY_NOTICES.md" data-t="notices">Third-party notices</a><span>Assets: CC BY 4.0 · Code: MIT</span></div></footer></main></div>
-<dialog id="viewer-dialog" aria-labelledby="asset-title"><div class="modal-chrome-shadow" aria-hidden="true"></div><button class="theme-toggle" data-theme-toggle aria-label="Switch theme" aria-pressed="false"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g><path class="moon" d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z"/></svg></button><button id="close" class="close" aria-label="Close viewer"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div class="viewer-layout"><section class="viewer-panel" aria-label="Model preview"><div class="viewer-topline"><span id="asset-collection"></span></div><div id="canvas-host" tabindex="0" role="img" aria-label="Interactive model. Arrow keys rotate, plus and minus zoom, Home resets."></div><p id="viewer-status" role="status"></p><div class="viewer-controls"><button id="reset" ><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10a8.5 8.5 0 1 1 1.7 7.3M3.5 4.5V10H9"/></svg><span data-t="reset">Reset view</span></button><button id="wireframe" aria-pressed="false" ><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9m-8-4.5 8-4.5 8 4.5M12 3v9"/></svg><span data-t="wireframe">Wireframe</span></button><button id="scale-reference" aria-pressed="false" ><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7v4m4-4v6m4-6v4m4-4v6"/></svg><span data-t="scaleReference">Scale reference</span></button><button id="zoom-in" aria-label="Zoom in"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></button><button id="zoom-out" aria-label="Zoom out"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button></div><p id="scale-status" class="scale-status" role="status"></p><p class="viewer-hint" data-t="hint">Drag to orbit · Scroll to zoom · Arrow keys to rotate</p></section><section class="asset-info"><div class="detail-label"><span id="asset-category"></span><span class="license-badge">CC BY 4.0</span></div><h2 id="asset-title"></h2><p id="asset-description"></p><dl id="asset-stats"></dl><div id="downloads"></div><p class="asset-license" data-t="licenseHelp">Credit Leon Made This / s010s, link CC BY 4.0, and indicate changes.</p><details id="provenance"><summary data-t="provenance">About this asset</summary><div id="asset-provenance"></div></details><button id="share" class="share" data-t="share">Copy link ↗</button><nav class="model-pagination" aria-label="Previous and next models"><a id="previous-model" href="#" aria-keyshortcuts="ArrowLeft"></a><a id="next-model" href="#" aria-keyshortcuts="ArrowRight"></a></nav><section id="related" hidden><h3 data-t="related">From the same pack</h3><div id="related-models"></div></section></section></div></dialog><div id="announcement" class="sr-only" role="status" aria-live="polite"></div><script type="module" src="/entry.js"></script></body></html>
+ <div class="home-hero">
+  <img class="hero-art" src="./home/editorial-hero.webp" width="1600" height="1000" alt="" fetchpriority="high">
+  <div class="home-copy">
+   <span class="edition" data-t="edition">THE PREHISTORIC COLLECTION / 01</span>
+   <h1 id="home-title" data-t="homeTitle">A world,<br>piece by piece.</h1>
+   <p data-t="homeIntro">Small polygons. Open possibilities.<br>Original 3D models, ready for your next idea.</p>
+   <a class="home-cta" href="./models/" data-browse><span data-t="exploreAll">Explore all models</span><span aria-hidden="true">→</span></a>
+   <span class="home-license">GLB + BLENDER · CC BY 4.0</span>
+  </div>
+  <div class="hero-caption">
+   <span data-t="heroCaption">Stone, trees, and a little imagination.</span>
+   <a id="hero-inspect" href="./models/natural-arch/" data-route-detail="natural-arch"><span data-t="inspectArch">Inspect the arch</span> →</a>
+  </div>
+ </div>
+ <form id="home-search" class="home-search">
+  <label for="home-query" data-t="findShape">What will you make?</label>
+  <div class="home-search-field">
+   <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+   <input id="home-query" type="search" autocomplete="off" placeholder="Find a model…" aria-label="Find a model">
+   <button id="home-search-clear" type="button" class="search-clear" hidden aria-label="Clear search"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+   <kbd class="search-kbd" aria-hidden="true">/</kbd>
+   <button type="submit" class="home-search-submit"><span data-t="searchAction">Search models</span><span aria-hidden="true">→</span></button>
+  </div>
+ </form>
+ <section class="home-curation">
+  <div class="curation-heading">
+   <div><span class="edition" data-t="collectionOne">COLLECTION 01</span><h2 data-t="prehistoricHome">A little prehistoric.</h2></div>
+   <p data-t="curationIntro">Models from a world before us.<br>Build something entirely your own.</p>
+   <a href="./models/" data-browse class="text-link"><span data-t="viewCollection">View collection</span> →</a>
+  </div>
+  <div class="curation-grid" id="home-categories"></div>
+ </section>
+ <footer class="home-foot">
+  <span data-t="openFiles">Made to be opened. And made your own.</span>
+  <div class="home-foot-links">
+   <a href="./about/" data-route="about" data-t="aboutLibrary">About the library →</a>
+   <a href="./notices/" data-route="notices" data-t="notices">Third-party notices</a>
+   <a href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+ </footer>
+</section>
+
+<section id="about-page" class="about-page" hidden aria-labelledby="about-heading">
+ <span class="edition">LOWPOLY VAULT</span>
+ <h1 id="about-heading" data-t="aboutTitle">Good shapes.<br>Open files.</h1>
+ <p class="about-lead" data-t="aboutBody">An open library of 1,000 original, editable low-poly 3D models by Leon Made This / s010s. Free for personal and commercial projects under CC BY 4.0 — download ready-to-use GLB files or open the Blender sources to remix them.</p>
+ <div class="about-highlights">
+  <article><h2 data-t="aboutCommercialTitle">Free for commercial use</h2><p data-t="aboutCommercialBody">Use, adapt, and ship in personal or commercial projects under CC BY 4.0. Just credit Leon Made This / s010s, link the license, and note changes.</p></article>
+  <article><h2 data-t="aboutFilesTitle">GLB + editable Blender files</h2><p data-t="aboutFilesBody">Every model includes a web- and engine-ready GLB alongside its editable .blend source file and attribution text.</p></article>
+  <article>
+   <h2 data-t="aboutCreditTitle">Standard attribution</h2>
+   <p id="about-credit-sample" class="about-credit-sample" data-t="aboutCreditSample">"Stegosaurus" by Leon Made This / s010s (https://s010s.github.io/lowpoly-vault/models/stegosaurus/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Indicate changes if modified.</p>
+   <button id="about-copy-credit" type="button" class="about-copy-btn" data-t="copy">Copy attribution · CC BY 4.0</button>
+  </article>
+ </div>
+ <div class="about-links">
+  <a href="./models/" data-browse class="about-primary-cta"><span data-t="exploreAll">Explore all models</span> →</a>
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a>
+  <a href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  <a href="./notices/" data-route="notices" data-t="notices">Third-party notices</a>
+ </div>
+</section>
+
+<section id="notices-page" class="notices-page" hidden aria-labelledby="notices-heading">
+ <nav class="detail-breadcrumbs" aria-label="Breadcrumb"><a href="./" data-route="home" data-t="home">Home</a><span aria-hidden="true">/</span><a href="./about/" data-route="about" data-t="about">About</a><span aria-hidden="true">/</span><span data-t="notices">Third-party notices</span></nav>
+ <h1 id="notices-heading" data-t="noticesTitle">Third-party notices</h1>
+ <p class="notices-intro" data-t="noticesIntro">Lowpoly Vault code is licensed under MIT and original 3D models under CC BY 4.0. Third-party dependencies keep their original licenses below.</p>
+ <div id="notices-body" class="notices-body"></div>
+</section>
+
+<section id="detail-page" class="detail-page" hidden aria-labelledby="detail-title">
+ <div class="detail-topbar-row">
+  <nav class="detail-breadcrumbs" aria-label="Breadcrumb"><a href="./" data-route="home" data-t="home">Home</a><span aria-hidden="true">/</span><a href="./models/" data-route="catalog" data-t="allModels">All models</a><span aria-hidden="true">/</span><span id="detail-crumb-name"></span></nav>
+  <a id="detail-back" class="detail-back-link" href="./models/" data-route="catalog" data-t="backToModels">← Back to all models</a>
+ </div>
+ <div class="detail-grid">
+  <section class="detail-stage-column" aria-label="3D preview">
+   <div id="detail-stage-wrap" class="detail-stage-wrap">
+    <div id="detail-stage" class="detail-stage" tabindex="0" role="img" aria-label="3D model. Drag to rotate, scroll or plus/minus to zoom, arrow keys to rotate, Home or R to reset.">
+     <img id="detail-poster" alt="">
+     <div class="stage-feedback"><span id="detail-loading" role="status"></span><button id="detail-retry" type="button" hidden data-t="retry">Try again</button></div>
+    </div>
+    <div id="detail-comparison-label" class="detail-comparison-label" hidden></div>
+   </div>
+   <div class="detail-controls-row">
+    <div class="detail-tools" id="detail-tools" role="group" aria-label="Model tools">
+     <button id="detail-wireframe" type="button" aria-pressed="false"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9m-8-4.5 8-4.5 8 4.5M12 3v9"/></svg><span data-t="wireframe">Wireframe</span></button>
+     <button id="detail-compare" type="button" aria-pressed="false"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7v4m4-4v6m4-6v4m4-4v6"/></svg><span data-t="compare">Compare size</span></button>
+     <button id="detail-zoom-out" type="button" class="tool-icon-only" aria-label="Zoom out"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+     <button id="detail-zoom-in" type="button" class="tool-icon-only" aria-label="Zoom in"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+     <button id="detail-reset" type="button" disabled><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10a8.5 8.5 0 1 1 1.7 7.3M3.5 4.5V10H9"/></svg><span data-t="reset">Reset view</span></button>
+    </div>
+    <p id="detail-stage-hint" class="detail-stage-hint" data-t="hint">Drag to rotate · Scroll to zoom · Arrow keys to rotate</p>
+   </div>
+  </section>
+  <section class="detail-info-column">
+   <div class="detail-label"><span id="detail-category"></span><span class="license-badge">CC BY 4.0</span></div>
+   <h1 id="detail-title"></h1>
+   <p id="detail-description" class="detail-description"></p>
+   <div class="detail-metrics">
+    <div><strong id="detail-triangles">—</strong><span data-t="triangles">Triangles</span></div>
+    <div><strong id="detail-primary-dim">—</strong><span id="detail-primary-dim-label">Model height</span></div>
+    <div><strong id="detail-glb-bytes">—</strong><span>GLB</span></div>
+   </div>
+   <div class="detail-dimensions-box">
+    <p id="detail-xyz"></p>
+    <p id="detail-dim-note" class="detail-dim-note"></p>
+   </div>
+   <div id="detail-downloads" class="detail-downloads"></div>
+   <div class="detail-action-row">
+    <button id="detail-copy-credit" type="button" class="detail-util-btn" data-t="copy">Copy attribution · CC BY 4.0</button>
+    <button id="detail-share" type="button" class="detail-util-btn" data-t="share">Copy link</button>
+   </div>
+   <p class="detail-license-line" data-t="licenseHelp">Credit Leon Made This / s010s, link CC BY 4.0, and indicate changes.</p>
+   <section id="detail-scope-section" class="detail-extra" hidden>
+    <h2 data-t="scope">Scientific scope</h2>
+    <p id="detail-scope"></p>
+   </section>
+   <section id="detail-sources-section" class="detail-extra" hidden>
+    <h2 data-t="source">Sources</h2>
+    <ul id="detail-sources"></ul>
+   </section>
+   <nav class="model-pagination" aria-label="Previous and next models">
+    <a id="previous-model" href="#" hidden></a>
+    <a id="next-model" href="#" hidden></a>
+   </nav>
+   <section id="related" class="detail-related" hidden>
+    <h2 data-t="related">More models to explore</h2>
+    <div id="related-models"></div>
+   </section>
+  </section>
+ </div>
+</section>
+</main>
+<div id="site-toast" class="site-toast" role="status" aria-live="polite"><span id="site-toast-msg"></span><button id="site-toast-action" type="button" hidden></button></div>
+<div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+<script type="module" src="/entry.js"></script>
+</body>
+</html>

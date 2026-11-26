@@ -33,18 +33,22 @@
     if(thumbnail.hasAttribute('src')&&thumbnail.complete){if(thumbnail.naturalWidth>0)loaded();else fail();}
   }
   const url=new URL(location.href),requested=url.searchParams.get('model');
+  const requestedCategory=url.searchParams.get('category');
   const explicit=rows.find(row=>row.dataset.id===requested);
-  const selected=explicit||rows.find(row=>row.dataset.selected==='true')||rows[0];
+  const categoryMatch=!explicit&&requestedCategory&&requestedCategory!=='all'?rows.find(row=>row.dataset.category===requestedCategory):null;
+  const selected=explicit||categoryMatch||rows.find(row=>row.dataset.selected==='true')||rows[0];
   const mobileDetail=!!explicit&&matchMedia('(max-width:760px)').matches;
   document.body.classList.toggle('mobile-detail',mobileDetail);
   const back=root.querySelector('#mobile-back');
   url.searchParams.delete('model');back.href=url.pathname+url.search;back.hidden=!mobileDetail;
-  const setText=(id,value)=>{const node=root.querySelector('#'+id);if(node)node.textContent=value;};
+  const setText=(id,value)=>{const node=root.querySelector('#'+id);if(node&&value!==undefined)node.textContent=value;};
   for(const row of rows)row.dataset.selected=String(row===selected);
   selected.setAttribute('aria-current','true');
   const image=root.querySelector('#detail-poster');
   image.src=selected.dataset.poster;image.alt=selected.getAttribute('aria-label');
-  setText('title',selected.dataset.title);setText('subtitle',selected.dataset.subtitle);setText('triangles',selected.dataset.triangles);setText('dimensions',selected.dataset.dimensions);setText('file-size',selected.dataset.fileSize);
+  setText('title',selected.dataset.title);setText('subtitle',selected.dataset.subtitle);setText('triangles',selected.dataset.triangles);setText('dimensions',selected.dataset.dimensions);setText('dimensions-label',selected.dataset.dimensionsLabel);setText('file-size',selected.dataset.fileSize);
+  const dlSize=root.querySelector('#download em');if(dlSize)dlSize.textContent=selected.dataset.fileSize==='—'?'':(selected.dataset.fileSize||'');
+  const blendSize=root.querySelector('#blend em');if(blendSize)blendSize.textContent=selected.dataset.blendSize||'';
   for(const id of ['download','blend','info'])root.querySelector('#'+id).href=selected.dataset[id];
   // Native lazy loading fetches rows far outside the clipped wheel. Until the
   // full app mounts, observe this actual scrolling viewport with zero overscan.

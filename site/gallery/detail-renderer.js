@@ -7,13 +7,13 @@ export {POSTER_IMAGE_SCALE} from './renderer.js';
 export class DetailRenderer extends PreviewRenderer{
  attach(view,asset,entry){
   super.attach(view,asset,entry);
-  if(view===this.detail&&validDetailPresentation(asset.detailPresentation)){
+  if(!this.inPlace&&view===this.detail&&validDetailPresentation(asset.detailPresentation)){
    if(this.fitDetailMargin(view,asset.detailPresentation))view.fitDistance=view.camera.position.distanceTo(view.target);
   }
   return view;
  }
  renderScenePasses(view){
-  if(view===this.detail&&!this.companion&&!this.comparison&&validDetailPresentation(view.asset?.detailPresentation)){
+  if(!this.inPlace&&view===this.detail&&!this.companion&&!this.comparison&&validDetailPresentation(view.asset?.detailPresentation)){
    const frame=detailScreenFrame(this.host.getBoundingClientRect(),{width:innerWidth,height:innerHeight},this.renderer.getPixelRatio(),view.screenShift??.06);
    if(frame)view.shadowViewport.value.fromArray(frame.canonical_shadow_frame);
   }

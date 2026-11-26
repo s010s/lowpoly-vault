@@ -1,21 +1,117 @@
-
-<header class="vault-header"><a class="brand vault-brand" href="/" data-gallery-route="home" aria-label="Lowpoly Vault home"><svg class="vault-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 2 29 9v14l-13 7L3 23V9z"/><path d="m3 9 13 7 13-7M16 16v14"/></svg><span class="vault-wordmark">LOWPOLY <span>VAULT</span></span></a><span class="tagline" data-en="CURATED 3D ASSETS" data-zh="精选低多边形模型"></span><nav class="vault-nav" aria-label="Primary"><a data-gallery-route="home" data-en="Home" data-zh="首页"></a><span aria-current="page" data-en="All models" data-zh="全部模型"></span><a data-gallery-route="about" data-en="About" data-zh="关于"></a></nav><button id="language" aria-label="Switch language">EN / 中文</button><a id="gallery-github" class="gallery-repository" href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)"><span>GitHub</span><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a></header>
-<a class="gallery-skip" href="#wheel">Skip to models / 跳至模型</a><main>
-<aside class="catalog"><div class="searchbar"><label class="search"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" autocomplete="off" placeholder="Search the collection" aria-label="Search models"></label><button id="filters" aria-expanded="false" aria-controls="filter-panel"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="var(--vault-surface,#f6f3ec)"/><circle cx="15" cy="17" r="2" fill="var(--vault-surface,#f6f3ec)"/></svg> <span data-en="Filters" data-zh="筛选"></span><b id="filter-count"></b></button></div><div class="summary"><span id="results" role="status"></span><div id="chips"></div></div>
-<div class="wheel-wrap"><div class="focus-guide focus-guide-left" aria-hidden="true" hidden></div><div id="wheel" role="listbox" aria-label="Models" tabindex="0"><div id="slots"></div></div><div id="empty-state" class="empty" hidden><p id="empty-message" role="status"></p><button id="empty-filters" data-en="Modify filters" data-zh="修改筛选"></button><button id="empty-clear" data-en="Clear all conditions" data-zh="清除全部条件"></button></div><div class="focus-guide focus-guide-right" aria-hidden="true" hidden></div></div><footer class="list-hint" data-en="Scroll to explore · Click to inspect" data-zh="滚动探索 · 点击查看"></footer>
-<section id="filter-panel" hidden aria-label="Filters">
- <div class="panel-heading"><h2 id="filter-title" data-en="Refine the collection" data-zh="筛选模型"></h2><button id="filter-close" aria-label="Close filters"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
- <div class="filter-options">
-  <form id="filter-form" tabindex="0" aria-labelledby="filter-title"></form>
-  <div class="filter-scroll-cue" aria-hidden="true"><span class="icon" data-icon="chevron-down"></span></div>
+<a class="gallery-skip" href="#wheel" data-en="Skip to models" data-zh="跳至模型列表">Skip to models</a>
+<header class="vault-header"><a class="brand vault-brand" href="/" data-gallery-route="home" aria-label="Lowpoly Vault home"><svg class="vault-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 2 29 9v14l-13 7L3 23V9z"/><path d="m3 9 13 7 13-7M16 16v14"/></svg><span class="vault-wordmark">LOWPOLY <span>VAULT</span></span></a><nav class="vault-nav" aria-label="Primary"><a data-gallery-route="home" data-en="Home" data-zh="首页">Home</a><span aria-current="page" data-en="All models" data-zh="全部模型">All models</span><a data-gallery-route="about" data-en="About" data-zh="关于">About</a></nav><div class="top-actions"><a id="gallery-github" class="github-link" href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)"><span>GitHub</span><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6m0-6L10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g><path class="moon" d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z"/></svg></button><button id="language" type="button" aria-label="切换为简体中文">中文</button></div></header>
+<main>
+<aside class="catalog">
+ <div class="searchbar">
+  <div class="search">
+   <svg class="vault-icon search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+   <input id="search" type="search" autocomplete="off" placeholder="Search models…" aria-label="Search models">
+   <button id="search-clear" type="button" class="search-clear" hidden aria-label="Clear search"><span class="icon" data-icon="close" aria-hidden="true"></span></button>
+   <kbd class="search-kbd" aria-hidden="true">/</kbd>
+  </div>
+  <button id="filters" type="button" aria-expanded="false" aria-controls="filter-panel"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="var(--vault-surface,#f6f3ec)"/><circle cx="15" cy="17" r="2" fill="var(--vault-surface,#f6f3ec)"/></svg><span data-en="Filters" data-zh="筛选">Filters</span><b id="filter-count"></b></button>
  </div>
- <div class="filter-actions"><button id="filter-clear" data-en="Clear all" data-zh="清除全部"></button><button id="filter-cancel" data-en="Cancel" data-zh="取消"></button><button id="filter-apply" class="primary"></button></div>
-</section>
+ <div class="summary">
+  <div class="summary-top">
+   <span id="results" role="status"></span>
+   <label class="sort-control"><span class="sr-only" data-en="Sort models" data-zh="模型排序">Sort models</span><select id="sort-select" aria-label="Sort models"></select></label>
+  </div>
+  <div id="chips"></div>
+ </div>
+ <div class="wheel-wrap">
+  <div class="focus-guide focus-guide-left" aria-hidden="true" hidden></div>
+  <div id="wheel" role="listbox" aria-label="Models" tabindex="0"><div id="slots"></div></div>
+  <div id="empty-state" class="empty" hidden>
+   <p id="empty-message" role="status"></p>
+   <div class="empty-actions">
+    <button id="empty-filters" type="button" data-en="Modify filters" data-zh="修改筛选">Modify filters</button>
+    <button id="empty-clear" type="button" class="primary" data-en="Clear search &amp; filters" data-zh="清除搜索与筛选">Clear search &amp; filters</button>
+   </div>
+  </div>
+  <div class="focus-guide focus-guide-right" aria-hidden="true" hidden></div>
+ </div>
+ <footer class="list-hint">
+  <span id="list-hint-copy" data-en="Scroll or ↑ ↓ · Click to inspect" data-zh="滚动或按 ↑ ↓ 浏览 · 点击查看">Scroll or ↑ ↓ · Click to inspect</span>
+  <button id="jump-current" type="button" hidden data-en="Jump to current" data-zh="回到当前模型">Jump to current</button>
+ </footer>
+ <div id="filter-backdrop" class="popover-backdrop filter-backdrop" hidden aria-hidden="true"></div>
+ <section id="filter-panel" role="dialog" aria-modal="true" hidden aria-labelledby="filter-title">
+  <div class="panel-heading"><h2 id="filter-title" data-en="Filter models" data-zh="筛选模型">Filter models</h2><button id="filter-close" type="button" aria-label="Close filters"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+  <div class="filter-options">
+   <form id="filter-form" tabindex="0" aria-labelledby="filter-title"></form>
+   <div class="filter-scroll-cue" aria-hidden="true"><span class="icon" data-icon="chevron-down"></span></div>
+  </div>
+  <div class="filter-actions"><button id="filter-clear" type="button" data-en="Reset filters" data-zh="重置筛选">Reset filters</button><button id="filter-apply" type="button" class="primary"></button></div>
+ </section>
 </aside>
-<section class="workspace"><div class="mobile-detail-actions"><button id="mobile-back" hidden data-en="← Collection" data-zh="← 返回列表"></button><button id="mobile-interact" hidden></button></div><div class="heading"><div class="eyebrow" data-en="THE PREHISTORIC COLLECTION" data-zh="史前主题精选"></div><div class="title-row"><h1 id="title"></h1><div class="info-region"><button id="info" aria-label="Model information" aria-expanded="false" aria-controls="info-panel">i</button><section id="info-panel" hidden aria-labelledby="info-panel-label"><div class="info-panel-toolbar"><span id="info-panel-label" data-en="Model information" data-zh="模型说明"></span><button id="info-close" type="button" aria-label="Close model information"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><div id="info-content" tabindex="0" role="region"></div></section></div></div><p id="subtitle"></p><p id="excluded" hidden data-en="Current model is outside these results" data-zh="当前模型不在筛选结果内"></p></div>
-<div class="detail-media"><div id="detail" class="stage" tabindex="0" role="img" aria-label="3D model. Drag to rotate, wheel or plus/minus to zoom, arrow keys to rotate."><img id="detail-poster" alt=""><span id="loading" role="status"></span><button id="retry" hidden data-en="Retry 3D" data-zh="重试3D"></button></div></div>
-<div id="comparison-label" hidden></div><div class="stage-hint" data-en="Drag to rotate · Scroll to zoom" data-zh="拖拽旋转 · 滚轮缩放"></div>
-<div class="workspace-bottom"><div class="tools" role="group" aria-label="Model tools"><button id="wireframe" aria-pressed="false"><span class="icon" data-icon="wireframe" aria-hidden="true"></span> <span data-en="Wireframe" data-zh="线框"></span></button><button id="compare" aria-pressed="false"><span class="icon" data-icon="compare" aria-hidden="true"></span> <span data-en="Compare size" data-zh="尺寸对比"></span></button><button id="reset"><span class="icon" data-icon="reset" aria-hidden="true"></span> <span data-en="Reset" data-zh="重置"></span></button></div>
-<section class="download-card"><div class="metrics"><div><strong id="triangles"></strong><span data-en="triangles" data-zh="三角面"></span></div><div><strong id="dimensions"></strong><span data-en="Model height" data-zh="模型高度"></span></div><div><strong id="file-size"></strong><span data-en="GLB file" data-zh="GLB文件"></span></div></div><div class="download-actions"><a id="download" class="primary" download><span class="icon" data-icon="download" aria-hidden="true"></span> <span data-en="Download GLB" data-zh="下载GLB"></span></a><a id="blend" download><span class="icon" data-icon="source" aria-hidden="true"></span> <span data-en="Blender source" data-zh="Blender源文件"></span></a></div><button id="credits" type="button" data-copy-state="idle"><span class="icon" data-icon="copy" aria-hidden="true"></span><span data-en="Copy attribution · CC BY 4.0" data-zh="复制署名 · CC BY 4.0"></span></button><span id="copy-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span><small>Leon Made This / s010s · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></small></section></div>
-
-</section></main><div id="toast" role="status"></div>
+<section class="workspace">
+ <div class="mobile-detail-actions">
+  <button id="mobile-back" type="button" hidden data-en="← All models" data-zh="← 全部模型">← All models</button>
+  <div id="mobile-stepper" class="mobile-stepper" hidden>
+   <button id="mobile-prev" type="button" aria-label="Previous model"><span class="icon" data-icon="chevron-left" aria-hidden="true"></span></button>
+   <span id="mobile-position" aria-live="polite"></span>
+   <button id="mobile-next" type="button" aria-label="Next model"><span class="icon" data-icon="chevron-right" aria-hidden="true"></span></button>
+  </div>
+  <button id="mobile-interact" type="button" hidden></button>
+ </div>
+ <div class="heading">
+  <div id="missing-banner" class="stage-notice" role="status" hidden><span id="missing-text"></span><button id="missing-close" type="button" aria-label="Dismiss"><span class="icon" data-icon="close" aria-hidden="true"></span></button></div>
+  <div class="title-row">
+   <h1 id="title"></h1>
+   <div class="title-actions">
+    <div class="info-region">
+     <button id="info" type="button" aria-label="Model details" aria-expanded="false" aria-controls="info-panel"><span class="icon" data-icon="info" aria-hidden="true"></span><span class="action-label" data-en="Details" data-zh="说明">Details</span></button>
+     <div id="info-backdrop" class="popover-backdrop info-backdrop" hidden aria-hidden="true"></div>
+     <section id="info-panel" hidden aria-labelledby="info-panel-label">
+      <div class="info-panel-toolbar"><span id="info-panel-label" data-en="Model details" data-zh="模型说明">Model details</span><button id="info-close" type="button" aria-label="Close model details"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+      <div id="info-content" tabindex="0" role="region"></div>
+     </section>
+    </div>
+    <button id="share-link" type="button" class="title-action-btn" data-copy-state="idle"><span class="icon" data-icon="link" aria-hidden="true"></span><span class="action-label" data-en="Copy link" data-zh="复制链接">Copy link</span></button>
+   </div>
+  </div>
+  <p id="subtitle"></p>
+  <div id="excluded" class="excluded-banner" hidden><span id="excluded-text" data-en="Not in current filters" data-zh="当前模型不在筛选结果内">Not in current filters</span><button id="excluded-first" type="button" data-en="View first match" data-zh="查看首个结果">View first match</button><button id="excluded-clear" type="button" data-en="Clear filters" data-zh="清除筛选">Clear filters</button></div>
+ </div>
+ <div class="detail-media">
+  <div id="detail" class="stage" tabindex="0" role="img" aria-label="3D model. Drag to rotate, scroll or plus/minus to zoom, arrow keys to rotate, Home or R to reset.">
+   <img id="detail-poster" alt="">
+   <div class="stage-feedback"><span id="loading" role="status"></span><button id="retry" type="button" hidden data-en="Retry 3D" data-zh="重试 3D">Retry 3D</button></div>
+   <button id="stage-enter-3d" type="button" class="stage-enter-3d" hidden><span class="icon" data-icon="cube" aria-hidden="true"></span><span data-en="Inspect in 3D" data-zh="进入 3D 查看">Inspect in 3D</span></button>
+  </div>
+ </div>
+ <div id="workspace-empty" class="workspace-empty" hidden>
+  <p id="workspace-empty-message" data-en="No models match your current search or filters." data-zh="没有符合当前搜索或筛选条件的模型。">No models match your current search or filters.</p>
+  <button id="workspace-empty-clear" type="button" class="primary" data-en="Clear search &amp; filters" data-zh="清除搜索与筛选">Clear search &amp; filters</button>
+ </div>
+ <div id="comparison-label" hidden></div>
+ <div id="stage-hint" class="stage-hint" data-en="Drag to rotate · Scroll to zoom" data-zh="拖动旋转 · 滚轮缩放">Drag to rotate · Scroll to zoom</div>
+ <div class="workspace-bottom">
+  <div class="tools" id="stage-tools" role="group" aria-label="Model tools">
+   <button id="wireframe" type="button" aria-pressed="false"><span class="icon" data-icon="wireframe" aria-hidden="true"></span><span data-en="Wireframe" data-zh="线框">Wireframe</span></button>
+   <button id="compare" type="button" aria-pressed="false"><span class="icon" data-icon="compare" aria-hidden="true"></span><span data-en="Compare size" data-zh="尺寸对比">Compare size</span></button>
+   <button id="zoom-out" type="button" class="tool-icon-only" aria-label="Zoom out"><span class="icon" data-icon="zoom-out" aria-hidden="true"></span></button>
+   <button id="zoom-in" type="button" class="tool-icon-only" aria-label="Zoom in"><span class="icon" data-icon="zoom-in" aria-hidden="true"></span></button>
+   <button id="reset" type="button" disabled><span class="icon" data-icon="reset" aria-hidden="true"></span><span data-en="Reset view" data-zh="重置视角">Reset view</span></button>
+  </div>
+  <section class="download-card">
+   <div class="metrics">
+    <div><strong id="triangles"></strong><span data-en="Triangles" data-zh="三角面">Triangles</span></div>
+    <div><strong id="dimensions"></strong><span id="dimensions-label" data-en="Model height" data-zh="模型高度">Model height</span></div>
+    <div><strong id="file-size"></strong><span data-en="GLB file" data-zh="GLB 文件">GLB file</span></div>
+   </div>
+   <div class="download-actions">
+    <a id="download" class="primary" download><span class="icon" data-icon="download" aria-hidden="true"></span><span class="download-btn-text"><span data-en="Download GLB" data-zh="下载 GLB">Download GLB</span><em id="download-glb-size"></em></span></a>
+    <a id="blend" download><span class="icon" data-icon="source" aria-hidden="true"></span><span class="download-btn-text"><span data-en="Blender source" data-zh="Blender 源文件">Blender source</span><em id="download-blend-size"></em></span></a>
+   </div>
+   <div class="download-secondary">
+    <button id="download-zip" type="button" class="zip-btn"><span class="icon" data-icon="zip" aria-hidden="true"></span><span data-en="Complete ZIP" data-zh="完整 ZIP">Complete ZIP</span></button>
+    <button id="credits" type="button" data-copy-state="idle"><span class="icon" data-icon="copy" aria-hidden="true"></span><span data-en="Copy attribution" data-zh="复制署名">Copy attribution</span></button>
+   </div>
+   <span id="copy-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></span>
+   <small>Leon Made This / s010s · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></small>
+  </section>
+ </div>
+</section>
+</main>
+<div id="toast" role="status" aria-live="polite"><span id="toast-message"></span><button id="toast-action" type="button" hidden></button></div>

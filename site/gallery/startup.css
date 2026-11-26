@@ -7,20 +7,23 @@ body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content)
 .gallery-static #slots{height:calc(var(--startup-count)*128px + 100cqh - 128px);min-height:100%}
 .gallery-static .slot{top:calc((100cqh - 128px)/2 + var(--startup-index)*128px)}
 .gallery-static .slot-image img{transform:scale(1)}
-.gallery-static .slot-copy strong{max-height:42px;margin-bottom:8px;opacity:1;transform:none;transition:none}
-.gallery-static[data-startup-initialized] .slot:not([data-name-visible=true]) .slot-copy strong{max-height:0;margin-bottom:0;opacity:0}
-.gallery-static .slot:focus-visible .slot-copy strong,.gallery-static .slot:hover .slot-copy strong{max-height:42px;margin-bottom:8px;opacity:1}
+/* Always keep visible row names readable during startup so there is no flash on mount. */
+.gallery-static .slot-copy strong{max-height:none;opacity:.82;transform:none;transition:none}
+.gallery-static .slot[data-name-visible=true] .slot-copy strong,
+.gallery-static .slot[data-selected=true] .slot-copy strong,
+.gallery-static .slot:focus-visible .slot-copy strong,
+.gallery-static .slot:hover .slot-copy strong{opacity:1}
 .gallery-static .startup-guides{top:0;height:100%}
-.gallery-static .startup-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 6px 20px;font:11px var(--vault-font-ui);letter-spacing:.4px;color:#70746b}
+.gallery-static .startup-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 6px 16px;font:12px var(--vault-font-ui);color:var(--vault-muted)}
 .gallery-static .startup-pagination a{text-decoration:underline;text-underline-offset:3px}
-.gallery-static #info{display:grid;place-items:center;pointer-events:auto}
-.gallery-static #language{display:flex;align-items:center}
-.gallery-static .startup-credit{display:block;text-align:center;font:9px var(--vault-font-ui);color:#777c6d;margin-top:15px}
-.gallery-static .gallery-load-error{position:fixed;left:18px;right:18px;bottom:12px;z-index:80;max-width:620px;margin:0 auto;padding:10px 12px;background:#faf8f0;border:1px solid #d9d6cd;border-radius:9px;font:12px/1.5 var(--vault-font-ui);color:#305742}
+.gallery-static #info{display:inline-flex;align-items:center;gap:5px;pointer-events:auto}
+.gallery-static #language{display:inline-flex;align-items:center;justify-content:center}
+.gallery-static .startup-credit{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;font:12px var(--vault-font-ui);color:var(--vault-muted);margin-top:10px}
+.gallery-static .gallery-load-error{position:fixed;left:18px;right:18px;bottom:12px;z-index:80;max-width:620px;margin:0 auto;padding:10px 14px;background:var(--vault-panel);border:1px solid var(--vault-line);border-radius:var(--vault-radius);font:13px/1.5 var(--vault-font-ui);color:var(--vault-accent)}
 .gallery-static .startup-empty{padding:32px;font:14px/1.6 var(--vault-font-ui)}
 @media(prefers-reduced-motion:reduce){.gallery-static .slot-image{transform:none!important}}
 
-.gallery-static .slot[data-selected=true] .slot-marker{background:var(--green);box-shadow:0 0 0 2px #f6f3ec,0 0 0 3px var(--green);border-color:var(--green)}
+.gallery-static .slot[data-selected=true] .slot-marker{background:var(--vault-accent);box-shadow:0 0 0 2px var(--vault-surface),0 0 0 3px var(--vault-accent);border-color:var(--vault-accent)}
 
 /* Script-managed images have a no-JS counterpart in noscript. */
 .gallery-static .slot-image img:not([src]){visibility:hidden}
