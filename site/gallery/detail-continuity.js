@@ -23,17 +23,32 @@ function raster(bitmap) {
 }
 
 function imageFrame(image, { includeHidden = false } = {}) {
+  if (!image?.naturalWidth || typeof getComputedStyle !== 'function') return null;
   const style = getComputedStyle(image);
-  if (!image.naturalWidth || (!includeHidden && style.visibility !== 'visible')) return null;
+  if (!includeHidden && style.visibility !== 'visible') return null;
   const box = contain(image.getBoundingClientRect(), image.naturalWidth, image.naturalHeight);
   if (!box.width || !box.height) return null;
-  return { bitmap: image, box, opacity: Number(style.opacity) };
+  const opacity = Number(style.opacity);
+  return { bitmap: image, box, opacity: Number.isFinite(opacity) ? opacity : 1 };
 }
 
 export function wheelArtwork(row) {
-  const image = row?.querySelector('img[data-thumbnail-state=ready]');
+  if (!row || typeof getComputedStyle !== 'function') return null;
+  let image = row.querySelector('img[data-thumbnail-state=ready]');
+  if (!image) {
+    const candidate = row.querySelector('.slot-image img');
+    if (candidate?.complete && candidate.naturalWidth > 0) image = candidate;
+  }
   const art = image && imageFrame(image);
-  if (art) art.opacity *= Number(getComputedStyle(image.parentElement).opacity) * Number(getComputedStyle(row.querySelector('.slot-motion')).opacity);
+  if (art) {
+    // If HoverPresentation temporarily faded the wheel img to 0 while spinning,
+    // still hand off the decoded wheel raster at full stage presence.
+    if (art.opacity < .05) art.opacity = 1;
+    const parentOp = Number(getComputedStyle(image.parentElement).opacity);
+    const motionNode = row.querySelector('.slot-motion');
+    const motionOp = motionNode ? Number(getComputedStyle(motionNode).opacity) : 1;
+    art.opacity *= (Number.isFinite(parentOp) ? parentOp : 1) * (Number.isFinite(motionOp) ? motionOp : 1);
+  }
   return art;
 }
 
@@ -42,25 +57,63 @@ export function detailArtwork(image, live, stage) {
   return imageFrame(image);
 }
 
+const CANONICAL_AZIMUTH = 42;
+const CANONICAL_ELEVATION = 23.3;
+
+function samePoseAsDetail(asset) {
+  const spec = asset?.wheelSpec;
+  if (!spec) return true;
+  return Math.abs((spec.azimuth ?? CANONICAL_AZIMUTH) - CANONICAL_AZIMUTH) < 0.5
+    && Math.abs((spec.elevation ?? CANONICAL_ELEVATION) - CANONICAL_ELEVATION) < 0.5;
+}
+
 /** Bridge the released wheel raster to the canonical poster without another request. */
 export function createStagePoster(stage, reduced, mobile) {
   let current;
   function clear() {
     if (!current) return;
     current.animation?.cancel();
+    current.revealAnimation?.cancel();
     current.canvas.remove();
     current = null;
   }
-  function prepare(id, art) {
+  function prepare(id, art, asset = null) {
     clear();
     if (!art) return null;
     const canvas = raster(art.bitmap);
     if (!canvas) return null;
-    canvas.className = 'continuity-poster';
+    const sameSource = asset?.wheelSpec?.aspect === 1;
+    canvas.className = sameSource ? 'continuity-poster continuity-same-source' : 'continuity-poster';
     canvas.dataset.modelId = id;
     canvas.setAttribute('aria-hidden', 'true');
+    const samePose = sameSource || samePoseAsDetail(asset);
+    const spec = asset?.wheelSpec;
+    // Pre-align legacy 16:9 wheel rasters to the canonical 1:1 detail projection at 0ms.
+    // Same-source 1:1 WebP wheels already match #detail-poster pixel-for-pixel via CSS.
+    if (!sameSource && spec && !mobile() && stage?.getBoundingClientRect) {
+      const rect = stage.getBoundingClientRect();
+      const stageSquare = Math.min(rect.width, rect.height);
+      const zoom = Number(spec.zoom) || 1;
+      const aspect = Number(spec.aspect) || (16 / 9);
+      if (stageSquare > 0 && zoom > 0.2) {
+        const rawW = (stageSquare / zoom) * aspect;
+        const clampedW = Math.max(stageSquare * 0.58, Math.min(stageSquare * 1.6, rawW));
+        const clampedH = clampedW / aspect;
+        const ox = Array.isArray(spec.offset) ? Number(spec.offset[0]) || 0 : 0;
+        const oy = Array.isArray(spec.offset) ? Number(spec.offset[1]) || 0 : 0;
+        const shiftX = samePose ? (ox / 1600) * clampedW : 0;
+        const shiftY = samePose ? (oy / 900) * clampedH : 0;
+        canvas.style.width = `${clampedW}px`;
+        canvas.style.transform = `translate(calc(-50% + ${shiftX.toFixed(2)}px), calc(-50% + ${shiftY.toFixed(2)}px))`;
+      }
+    }
     stage.prepend(canvas);
-    current = { id, canvas };
+    if (!sameSource && !reduced() && typeof canvas.animate === 'function') {
+      try {
+        canvas.animate([{ opacity: .78 }, { opacity: 1 }], { duration: 110, easing: MOTION.easeStandard, id: animationId + 'poster-enter' });
+      } catch {}
+    }
+    current = { id, canvas, samePose, sameSource };
     return current;
   }
   function frame(id) {
@@ -72,7 +125,7 @@ export function createStagePoster(stage, reduced, mobile) {
   }
   function restore(poster) {
     if (current !== poster) return;
-    poster.canvas.className = 'continuity-poster';
+    poster.canvas.className = poster.sameSource ? 'continuity-poster continuity-same-source' : 'continuity-poster';
     poster.canvas.removeAttribute('style');
     stage.prepend(poster.canvas);
   }
@@ -85,31 +138,69 @@ export function createStagePoster(stage, reduced, mobile) {
     if (!image.isConnected) { clear(); return; }
     // Motion is optional: reduced-motion, missing WAAPI, or an unavailable
     // layout must still reveal the decoded image and retire the bridge.
-    const target = !reduced() && typeof poster.canvas.animate === 'function'
-      ? imageFrame(image, { includeHidden: true }) : null;
-    const source = target ? frame(poster.id) : null;
-    if (source?.box?.width > 0 && source.box.height > 0) {
-      try {
-        const end = artLanding(source, target);
-        const transform = new DOMMatrix(getComputedStyle(poster.canvas).transform);
-        const x = transform.e + end.left - source.box.left, y = transform.f + end.top - source.box.top;
-        poster.animation = poster.canvas.animate([
-          { transform: `translate(${transform.e}px,${transform.f}px) scale(1)` },
-          { transform: `translate(${x}px,${y}px) scale(${end.width / source.box.width})` },
-        ], { duration: mobile() ? reducedDuration : 220, easing: fastSettle, fill: 'both', id: animationId + 'poster' });
-        await poster.animation.finished.catch(() => {});
-      } catch {
-        // A presentation-only animation failure must not block model loading.
+    const canAnimate = !reduced() && typeof poster.canvas.animate === 'function' && typeof image.animate === 'function';
+    if (poster.sameSource) {
+      // Exact 1:1 pixel match between low-res wheel.webp and high-res detail.webp:
+      // never move or scale; purely sharpen in place without alpha dip.
+      image.style.visibility = 'visible';
+      if (canAnimate) {
+        try {
+          poster.revealAnimation = image.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 110, easing: MOTION.easeStandard, id: animationId + 'poster-in' });
+          await poster.revealAnimation.finished.catch(() => {});
+        } catch {}
+      }
+      if (current === poster) clear();
+      return;
+    }
+    if (canAnimate && poster.samePose) {
+      const target = imageFrame(image, { includeHidden: true });
+      const source = target ? frame(poster.id) : null;
+      if (source?.box?.width > 0 && source.box.height > 0) {
+        try {
+          const end = artLanding(source, target);
+          const dx = end.left - source.box.left, dy = end.top - source.box.top;
+          const ratio = end.width / source.box.width;
+          // Only run a micro-alignment tween when residual framing differs noticeably.
+          if (Math.abs(dx) > 2 || Math.abs(dy) > 2 || Math.abs(ratio - 1) > 0.025) {
+            const transform = new DOMMatrix(getComputedStyle(poster.canvas).transform);
+            const x = transform.e + dx, y = transform.f + dy;
+            poster.animation = poster.canvas.animate([
+              { transform: `translate(${transform.e}px,${transform.f}px) scale(1)` },
+              { transform: `translate(${x}px,${y}px) scale(${ratio})` },
+            ], { duration: mobile() ? reducedDuration : 160, easing: fastSettle, fill: 'both', id: animationId + 'poster' });
+            await poster.animation.finished.catch(() => {});
+          }
+        } catch {
+          // A presentation-only animation failure must not block model loading.
+        }
       }
     }
-    if (current === poster && image.isConnected) {
-      // The two poses exchange in one paint, after the decoded poster is ready.
-      image.style.visibility = 'visible';
-      clear();
-    } else if (current === poster) {
-      // The target may be removed while its optional animation is settling.
-      clear();
+    if (current !== poster || !image.isConnected) {
+      if (current === poster) clear();
+      return;
     }
+    if (canAnimate) {
+      image.style.visibility = 'visible';
+      try {
+        if (poster.samePose) {
+          // Keep the aligned wheel raster solid underneath while HD detail.png fades in on top
+          // so silhouette alpha never dips mid-crossfade.
+          poster.revealAnimation = image.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 150, easing: MOTION.easeStandard, id: animationId + 'poster-in' });
+          await poster.revealAnimation.finished.catch(() => {});
+        } else {
+          // Different camera elevation (e.g. 40° flat thumbnail → 23.3° stage): smooth cross-dissolve.
+          poster.revealAnimation = image.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: MOTION.easeStandard, id: animationId + 'poster-in' });
+          const outAnim = poster.canvas.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: MOTION.easeStandard, fill: 'forwards', id: animationId + 'poster-out' });
+          poster.animation = outAnim;
+          await Promise.allSettled([poster.revealAnimation.finished, outAnim.finished]);
+        }
+      } catch {}
+      if (current === poster) clear();
+      return;
+    }
+    // Reduced-motion or non-WAAPI fallback: immediate single-paint swap.
+    image.style.visibility = 'visible';
+    clear();
   }
   return { prepare, frame, restore, reveal, clear };
 }
@@ -275,8 +366,8 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
       }
       const pane = opening ? workspace : collection;
       const selectors = opening
-        ? ['#subtitle', '#excluded', '.info-region', '#share-link', '.workspace-bottom', '#mobile-back', '#mobile-stepper', '#mobile-interact']
-        : ['.searchbar', '.summary', '.list-hint', '#empty-state'];
+        ? ['#subtitle', '#excluded', '.info-region', '.workspace-bottom', '#mobile-back', '#mobile-stepper', '#mobile-interact']
+        : ['.searchbar', '.summary', '#empty-state'];
       const entries = selectors.map(selector => pane.querySelector(selector)).filter(node => node && !node.hidden);
       if (opening && !motion.title && !fixedTitle) entries.push(title);
       const lift = opening ? 8 : 5;

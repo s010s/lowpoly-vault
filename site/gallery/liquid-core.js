@@ -55,7 +55,7 @@ export function makeGeometry(spec,width=384,height=216){
   const i=Math.floor(index),f=index-i,ray=table[i]*(1-f)+table[(i+1)%count]*f;
   const derivative=(table[(i+1)%count]-table[(i-1+count)%count])/(2*tau/count);
   const n=y*width+x;rho[n]=Math.hypot(dx,dy)/ray;
-  metric[n]=ray/Math.sqrt(1+(derivative/ray)**2)*(768/width);
+  metric[n]=ray/Math.sqrt(1+(derivative/ray)**2)*((width===height?512:768)/width);
   let delta=Math.atan2(Math.sin(angle-Math.PI/2),Math.cos(angle-Math.PI/2));
   lobe[n]=Math.exp(-.5*(delta/.60)**2);
   if((rho[n]-1)*metric[n]<6&&rho[n]>.005)indices.push(n);

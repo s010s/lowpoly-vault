@@ -156,7 +156,12 @@ export class PreviewRenderer {
   const supportRule=measuredSupport(asset,entry),supportOffset=supportRule?new THREE.Vector3(supportRule.point[0]-center.x,0,supportRule.point[2]-center.z):new THREE.Vector3();
   const orientation=new THREE.Group();orientation.position.x=-supportOffset.x;orientation.position.z=-supportOffset.z;orientation.name='main-model-inspection-pivot';orientation.position.y=entry.size.y*.49;root.position.y-=orientation.position.y;const authoredPose=new THREE.Group();authoredPose.name='exact-version-initial-display-pose';if(Object.hasOwn(DISPLAY_ORIENTATION_CANDIDATES,asset.id)&&DISPLAY_ORIENTATION_CANDIDATES[asset.id]===entry.sha256)authoredPose.rotation.y=DISPLAY_ORIENTATION_YAW[asset.id];else if(view===this.detail&&Object.hasOwn(DISPLAY_DETAIL_ORIENTATION_CANDIDATES,asset.id)){const display=DISPLAY_DETAIL_ORIENTATION_CANDIDATES[asset.id];if(display.sha256===entry.sha256)authoredPose.rotation.y=display.yaw;}authoredPose.add(root);orientation.add(authoredPose);const comparisonYaw=new THREE.Group();comparisonYaw.name='main-model-ground-yaw';comparisonYaw.position.copy(supportOffset);comparisonYaw.add(orientation);group.add(comparisonYaw);group.name='main-model-layout-only';group.scale.setScalar(view.scale);view.scene.add(group);view.model=group;view.orientation=orientation;view.comparisonYaw=comparisonYaw;view.authoredRoot=root;view.supportOffset=supportOffset;view.supportRule=supportRule;view.entry=entry;view.target.set(0,entry.size.y*view.scale*.49,0);
   view.contact.visible=true;view.contact.position.x=view.contact.position.z=0;view.contact.scale.set(Math.max(.45,entry.size.x*view.scale*1.35),Math.max(.45,entry.size.z*view.scale*1.6),1);
-  view.metric=metricReferenceSpec(entry.size,asset);this.fit(view,preset.azimuth,preset.elevation);return view;
+  view.metric=metricReferenceSpec(entry.size,asset);const pose=this.detailPose(asset);this.fit(view,pose.azimuth,pose.elevation);return view;
+ }
+ detailPose(asset=this.detail?.asset){
+  const spec=asset?.wheelSpec;
+  if(spec&&Number.isFinite(spec.azimuth)&&Number.isFinite(spec.elevation))return {azimuth:spec.azimuth,elevation:spec.elevation};
+  return {azimuth:preset.azimuth,elevation:preset.elevation};
  }
  fit(view,azimuth=preset.azimuth,elevation=preset.elevation,{canonical=true}={}){
   view.camera.zoom=1;view.camera.clearViewOffset();const size=view.entry.size.clone().multiplyScalar(view.scale);const radius=size.length()/2;view.fitDistance=radius/Math.sin(preset.fov*Math.PI/360)*1.08;
@@ -180,8 +185,10 @@ export class PreviewRenderer {
  // The renderer camera keeps its canonical direction. OrbitControls is used
  // only to collect incremental drag rotation; its temporary orbit is converted
  // immediately into the main model's independent inspection pivot.
- cameraPose(azimuth=preset.azimuth,elevation=preset.elevation){
-  const camera=new THREE.PerspectiveCamera();camera.position.copy(direction(azimuth,elevation));camera.lookAt(0,0,0);return camera.quaternion.clone();
+ cameraPose(azimuth,elevation){
+  const base=this.comparison?preset:this.detailPose();
+  const a=azimuth??base.azimuth,e=elevation??base.elevation;
+  const camera=new THREE.PerspectiveCamera();camera.position.copy(direction(a,e));camera.lookAt(0,0,0);return camera.quaternion.clone();
  }
  orientationForView(azimuth,elevation){return this.cameraPose().multiply(this.cameraPose(azimuth,elevation).invert()).normalize();}
  recenterInspectedGround(previousY){
@@ -213,10 +220,11 @@ export class PreviewRenderer {
    camera.position.copy(this.controls.target).add(direction(preset.azimuth,preset.elevation).multiplyScalar(expected));camera.lookAt(this.controls.target);
    this.updateControls();return;
   }
-  const rotation=this.cameraPose().multiply(camera.quaternion.clone().invert()).normalize();
+  const pose=this.detailPose();
+  const rotation=this.cameraPose(pose.azimuth,pose.elevation).multiply(camera.quaternion.clone().invert()).normalize();
   if(rotation.angleTo(new THREE.Quaternion())>1e-9){this.cancelCamera();v.orientation.quaternion.premultiply(rotation).normalize();this.markDirty(true);}
   if(Math.abs(distance-(v.presentedCameraDistance||distance))>1e-4){this.cameraInputGeneration=(this.cameraInputGeneration||0)+1;this.markDirty(true);}
-  this.groundMainModel();this.recenterInspectedGround(previousY);camera.position.copy(this.controls.target).add(direction(preset.azimuth,preset.elevation).multiplyScalar(distance));camera.lookAt(this.controls.target);
+  this.groundMainModel();this.recenterInspectedGround(previousY);camera.position.copy(this.controls.target).add(direction(pose.azimuth,pose.elevation).multiplyScalar(distance));camera.lookAt(this.controls.target);
   this.updateControls();
  }
  viewState(){
@@ -291,7 +299,7 @@ export class PreviewRenderer {
 
  async preview(asset,host){
   this.stopHover();if(reduced()||!this.detail.model||document.hidden)return false;const token=++this.hoverToken;this.hoverController=new AbortController();const hover=this.makeView(false);hover.host=host;this.hover=hover;this.stats.hoverId=asset.id;
-  try{const entry=await this.resource(asset,this.hoverController.signal);if(token!==this.hoverToken)return false;await host.querySelector('img').decode().catch(()=>{});if(token!==this.hoverToken)return false;this.attach(hover,asset,entry);this.wheelFrame(hover,asset);installWheelSoftFill(hover,asset,entry,THREE.DirectionalLight,'wheel-hover');hover.presentation=new HoverPresentation(host);hover.surface=hover.presentation.canvas;this.draw();this.stats.hoverFirstFrameId=asset.id;return true;}catch(e){if(e.name!=='AbortError')console.warn('Hover fallback',e.message);if(token===this.hoverToken)this.stopHover();return false;}
+  try{const entry=await this.resource(asset,this.hoverController.signal);if(token!==this.hoverToken)return false;await host.querySelector('img').decode().catch(()=>{});if(token!==this.hoverToken)return false;this.attach(hover,asset,entry);if(asset.wheelSpec?.aspect===1){hover.aspect=1;hover.screenShift=0;hover.screenShiftY=0;}else{hover.aspect=WHEEL_ASPECT;this.wheelFrame(hover,asset);installWheelSoftFill(hover,asset,entry,THREE.DirectionalLight,'wheel-hover');}hover.presentation=new HoverPresentation(host);hover.surface=hover.presentation.canvas;this.draw();this.stats.hoverFirstFrameId=asset.id;return true;}catch(e){if(e.name!=='AbortError')console.warn('Hover fallback',e.message);if(token===this.hoverToken)this.stopHover();return false;}
  }
  revealHover(){return this.hover?.presentation?.reveal()||Promise.resolve(false);}
  animateHover(){if(!this.hover?.model||reduced())return;const start=performance.now();const tick=now=>{const h=this.hover;if(!h?.model||document.hidden||reduced()){this.raf=0;return;}const angle=previewTurnAngle((now-start)/1000);h.model.rotation.y=angle;h.effect?.rotate(angle);this.stats.hoverAngle=angle;this.draw(true);this.raf=requestAnimationFrame(tick);};this.raf=requestAnimationFrame(tick);}
@@ -315,16 +323,18 @@ export class PreviewRenderer {
   if(this.comparison){this.detail.comparisonYaw.rotation.y-=azimuth*Math.PI/180;this.updateControls();this.draw();return;}
   const previousY=this.detail.model.position.y;
   // Keyboard rotation follows the same main-only path as pointer rotation.
-  const rotation=this.orientationForView(preset.azimuth+azimuth,Math.max(3,Math.min(87,preset.elevation+elevation)));
+  const pose=this.detailPose();
+  const rotation=this.orientationForView(pose.azimuth+azimuth,Math.max(3,Math.min(87,pose.elevation+elevation)));
   this.detail.orientation.quaternion.premultiply(rotation).normalize();this.groundMainModel();this.recenterInspectedGround(previousY);this.updateControls();this.draw();
  }
  get cameraFrame(){return this.viewMotion?.frame||0;}
  singleState(){
-  const v=this.detail,target=v.target.clone(),distance=v.fitDistance;
+  const v=this.detail,target=v.target.clone(),distance=v.fitDistance,pose=this.detailPose(v.asset);
+  const mobileDetail=typeof document!=='undefined'&&document.body?.classList?.contains('mobile-detail');
   // Match the canonical transparent poster by translating its projection, not
-  // the physical camera: every vertex shifts exactly 6% of the shorter side,
-  // regardless of depth. Compare smoothly brings this offset back to center.
-  return {contactPosition:[0,0],position:target.clone().add(direction(preset.azimuth,preset.elevation).multiplyScalar(distance)).toArray(),target:target.toArray(),zoom:1,screenShift:this.inPlace?0:.06,screenShiftY:0,modelYaw:0,distance,modelPosition:[0,0,0],modelQuaternion:[0,0,0,1]};
+  // the physical camera: every vertex shifts exactly 6% of the shorter side on
+  // desktop, and stays dead-center on mobile detail where the dock sits below.
+  return {contactPosition:[0,0],position:target.clone().add(direction(pose.azimuth,pose.elevation).multiplyScalar(distance)).toArray(),target:target.toArray(),zoom:1,screenShift:this.inPlace||mobileDetail?0:.06,screenShiftY:0,modelYaw:0,distance,modelPosition:[0,0,0],modelQuaternion:[0,0,0,1]};
  }
  reset(){
   if(!this.detail.model)return;this.stopHover();this.comparison=false;this.syncControlMode();
@@ -510,7 +520,7 @@ export class PreviewRenderer {
    this.renderView(this.backdrop,surface,surface,{projectionRect:rect,canvasWidth:width,canvasHeight:height});
    if(this.visible&&this.renderView(this.detail,rect,rect,{overlay:true,canvasWidth:width,canvasHeight:height}))this.acknowledgeDetailFrame();
   }
-  if(this.hover?.host.isConnected&&this.hover.model){const hostRect=this.hover.host.getBoundingClientRect(),rw=Math.min(hostRect.width,hostRect.height*WHEEL_ASPECT),rh=rw/WHEEL_ASPECT,r={left:hostRect.left+(hostRect.width-rw)/2,top:hostRect.top+(hostRect.height-rh)/2,width:rw,height:rh};r.right=r.left+r.width;r.bottom=r.top+r.height;const list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),w=Math.max(1,Math.floor(r.width*ratio)),h=Math.max(1,Math.floor(r.height*ratio)),sx=Math.floor(r.left*ratio),sy=this.renderer.domElement.height-Math.floor((innerHeight-r.bottom)*ratio)-h;this.hover.presentation.update(this.renderer.domElement,sx,sy,w,h,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
+  if(this.hover?.host.isConnected&&this.hover.model){const hostRect=this.hover.host.getBoundingClientRect(),hoverAspect=this.hover.aspect||WHEEL_ASPECT,rw=Math.min(hostRect.width,hostRect.height*hoverAspect),rh=rw/hoverAspect,r={left:hostRect.left+(hostRect.width-rw)/2,top:hostRect.top+(hostRect.height-rh)/2,width:rw,height:rh};r.right=r.left+r.width;r.bottom=r.top+r.height;const list=document.querySelector('#wheel').getBoundingClientRect();const clip={left:Math.max(r.left,list.left),right:Math.min(r.right,list.right),top:Math.max(r.top,list.top),bottom:Math.min(r.bottom,list.bottom)};clip.width=clip.right-clip.left;clip.height=clip.bottom-clip.top;if(clip.width>0&&clip.height>0){this.renderer.setClearColor(0,0);this.renderView(this.hover,r,clip);const ratio=this.renderer.getPixelRatio(),w=Math.max(1,Math.floor(r.width*ratio)),h=Math.max(1,Math.floor(r.height*ratio)),sx=Math.floor(r.left*ratio),sy=this.renderer.domElement.height-Math.floor((innerHeight-r.bottom)*ratio)-h;this.hover.presentation.update(this.renderer.domElement,sx,sy,w,h,w,h);this.renderer.setClearColor(0,0);this.renderer.setScissor(clip.left,innerHeight-clip.bottom,clip.width,clip.height);this.renderer.clear(true,true,true);}}
   this.renderer.setScissorTest(false);this.stats.frames++;this.stats.detailId=this.detail.asset?.id||null;
  }
  captureDetail({transparent=false}={}){

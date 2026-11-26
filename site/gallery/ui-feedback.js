@@ -125,6 +125,8 @@ export function createUIFeedback({ t, reduced, getSelection }) {
     updateFilterOverflow();
   }
   const filter = createPopover(filterPanel, document.querySelector('#filters'), { backdrop: document.querySelector('#filter-backdrop'), reduced, schedule: later, cancel: clear, beforeEnter: fitFilterPanel });
+  const morePanel = document.querySelector('#download-menu'), moreTrigger = document.querySelector('#more-actions');
+  const more = morePanel ? createPopover(morePanel, moreTrigger, { backdrop: document.querySelector('#more-backdrop'), enter: 160, exit: 110, reduced, schedule: later, cancel: clear }) : { open: false, show() {}, hide() {}, settle() {}, dispose() {} };
 
   const infoPanel = document.querySelector('#info-panel'), infoContent = document.querySelector('#info-content'), infoTrigger = document.querySelector('#info');
   let safeProbe = null;
@@ -211,7 +213,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
   function renderChips(items, { animate = false, onRemove, onMore, onClearAll } = {}) {
     const visible = items.slice(0, 3).map(item => ({ ...item, key: item.group + ':' + item.id }));
     if (items.length > 3) visible.push({ key: 'more', label: '+' + (items.length - 3), more: true });
-    if (items.length >= 2 && onClearAll) visible.push({ key: 'clear-all', label: t('Clear filters', '清除筛选'), clearAll: true });
+    if (items.length >= 2 && onClearAll) visible.push({ key: 'clear-all', label: t('Clear', '清除'), clearAll: true });
     const keys = new Set(visible.map(item => item.key)), focused = document.activeElement;
     const removedFocus = [...chipNodes].some(([key, node]) => !keys.has(key) && node === focused);
     const shouldFlip = animate && !reduced();
@@ -311,8 +313,8 @@ export function createUIFeedback({ t, reduced, getSelection }) {
 
   const credits = document.querySelector('#credits'), copyText = credits.querySelector('[data-en]'), status = document.querySelector('#copy-status');
   const shareBtn = document.querySelector('#share-link'), shareLabel = shareBtn?.querySelector('[data-en]');
-  const creditsAnchor = () => credits.closest?.('.download-secondary') || credits;
-  const shareAnchor = () => shareBtn?.closest?.('.title-row') || shareBtn;
+  const creditsAnchor = () => credits.closest?.('.download-menu') || credits.closest?.('.download-card') || credits;
+  const shareAnchor = () => shareBtn?.closest?.('.download-menu') || shareBtn?.closest?.('.download-card') || shareBtn;
   let releaseCreditsWidth = null, releaseShareWidth = null;
 
   function setButtonIcon(button, name, animate = false) {
@@ -432,6 +434,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
   listen(media, 'change', () => {
     filter.settle();
     info.settle();
+    more.settle();
     release();
     for (const [node, id] of reveals) {
       clear(id);
@@ -449,7 +452,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
   });
 
   return {
-    filter, info, pointer,
+    filter, info, more, pointer,
     get pointerInput() { return input === 'pointer'; },
     get copyState() { return copyState; },
     renderChips, reveal, resetCopy, resetShare, copyAttribution, copyShareLink, updateOverflow, updateFilterOverflow,
@@ -462,6 +465,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
       safeProbe?.remove();
       filter.dispose();
       info.dispose();
+      more.dispose();
       resetCopy();
       for (const timer of timers) clearTimeout(timer);
       timers.clear();
