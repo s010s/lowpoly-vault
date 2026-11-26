@@ -1,27 +1,48 @@
 // Logical open state is separate from hidden so an exit can reverse in place.
 import { formatAttribution, showCopyFallback, clearCopyFallback } from '../shared-ui.js';
+import { MOTION, animateOneShot, cancelOneShot, lockButtonWidth, swapIconSmooth } from '../motion-system.js';
+import { iconMarkup } from './icons.js';
 import { detailHref } from './catalog-source.js';
 
-export function createPopover(panel, trigger, { enter = 200, exit = 150, reduced = () => false, schedule = setTimeout, cancel = clearTimeout, beforeEnter = () => {} } = {}) {
+export function createPopover(panel, trigger, { backdrop = null, enter = 200, exit = 140, reduced = () => false, schedule = setTimeout, cancel = clearTimeout, beforeEnter = () => {} } = {}) {
   let open = false, timer = 0, version = 0;
   panel.classList.add('ui-popover');
   panel.dataset.open = 'false';
   panel.inert = true;
+  if (backdrop) {
+    backdrop.dataset.open = 'false';
+    backdrop.dataset.motion = 'false';
+  }
   const clear = () => { cancel(timer); timer = 0; };
   const mode = animate => animate ? (reduced() ? 'reduced' : 'true') : 'false';
   function set(next, { animate = false } = {}) {
-    if (open === next) { if (!next && !animate) { clear(); panel.hidden = true; } return; }
+    if (open === next) {
+      if (!next && !animate) {
+        clear();
+        panel.hidden = true;
+        if (backdrop) { backdrop.dataset.motion = 'false'; backdrop.dataset.open = 'false'; backdrop.hidden = true; }
+      }
+      return;
+    }
     open = next;
     clear();
     const owner = ++version, motion = mode(animate), duration = motion === 'reduced' ? 100 : (motion === 'true' ? (next ? enter : exit) : 0);
     panel.dataset.motion = motion;
     panel.style.setProperty('--ui-duration', duration + 'ms');
+    if (backdrop) {
+      backdrop.dataset.motion = motion;
+      backdrop.style.setProperty('--ui-duration', duration + 'ms');
+    }
     trigger?.setAttribute('aria-expanded', String(next));
     panel.inert = !next;
     panel.setAttribute('aria-hidden', String(!next));
     if (next) {
       const wasHidden = panel.hidden;
       panel.hidden = false;
+      if (backdrop) {
+        backdrop.hidden = false;
+        backdrop.dataset.open = 'false';
+      }
       beforeEnter();
       if (trigger && (wasHidden || !panel.style.transformOrigin)) {
         const p = panel.getBoundingClientRect(), t = trigger.getBoundingClientRect();
@@ -29,17 +50,33 @@ export function createPopover(panel, trigger, { enter = 200, exit = 150, reduced
       }
       if (wasHidden && duration) panel.getBoundingClientRect();
       panel.dataset.open = 'true';
+      if (backdrop) backdrop.dataset.open = 'true';
     } else {
       panel.dataset.open = 'false';
-      if (duration) timer = schedule(() => { if (owner === version && !open) panel.hidden = true; timer = 0; }, duration);
-      else panel.hidden = true;
+      if (backdrop) backdrop.dataset.open = 'false';
+      if (duration) timer = schedule(() => {
+        if (owner === version && !open) {
+          panel.hidden = true;
+          if (backdrop) backdrop.hidden = true;
+        }
+        timer = 0;
+      }, duration);
+      else {
+        panel.hidden = true;
+        if (backdrop) backdrop.hidden = true;
+      }
     }
   }
   return {
     get open() { return open; },
     show: options => set(true, options),
     hide: options => set(false, options),
-    settle() { clear(); panel.dataset.motion = 'false'; panel.hidden = !open; },
+    settle() {
+      clear();
+      panel.dataset.motion = 'false';
+      panel.hidden = !open;
+      if (backdrop) { backdrop.dataset.motion = 'false'; backdrop.dataset.open = String(open); backdrop.hidden = !open; }
+    },
     dispose() { clear(); version++; },
   };
 }
@@ -87,7 +124,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
     filterPanel.style.setProperty('--filter-room', Math.max(0, viewportBottom - top) + 'px');
     updateFilterOverflow();
   }
-  const filter = createPopover(filterPanel, document.querySelector('#filters'), { reduced, schedule: later, cancel: clear, beforeEnter: fitFilterPanel });
+  const filter = createPopover(filterPanel, document.querySelector('#filters'), { backdrop: document.querySelector('#filter-backdrop'), reduced, schedule: later, cancel: clear, beforeEnter: fitFilterPanel });
 
   const infoPanel = document.querySelector('#info-panel'), infoContent = document.querySelector('#info-content'), infoTrigger = document.querySelector('#info');
   let safeProbe = null;
@@ -118,7 +155,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
     infoPanel.style.setProperty('--info-max-height', fitted.maxHeight + 'px');
     infoPanel.dataset.placement = fitted.placement;
   }
-  const info = createPopover(infoPanel, infoTrigger, { enter: 150, exit: 125, reduced, schedule: later, cancel: clear, beforeEnter: positionInfo });
+  const info = createPopover(infoPanel, infoTrigger, { backdrop: document.querySelector('#info-backdrop'), enter: 160, exit: 120, reduced, schedule: later, cancel: clear, beforeEnter: positionInfo });
 
   function updateOverflow() { infoPanel.dataset.more = String(info.open && overflowRemaining(infoContent)); }
   function refreshInfoViewport() { if (info.open) positionInfo(); updateOverflow(); }
@@ -138,7 +175,7 @@ export function createUIFeedback({ t, reduced, getSelection }) {
   const mutation = typeof MutationObserver === 'function' ? new MutationObserver(refreshInfoViewport) : null;
   mutation?.observe(infoContent, { childList: true, subtree: true, characterData: true });
 
-  function reveal(node, { animate = false, duration = 150, remove = false } = {}) {
+  function reveal(node, { animate = false, duration = 160, remove = false, onDone = null } = {}) {
     const prior = reveals.get(node);
     if (prior) { clear(prior); reveals.delete(node); }
     const motion = animate ? (reduced() ? 'reduced' : 'true') : 'false';
@@ -154,17 +191,43 @@ export function createUIFeedback({ t, reduced, getSelection }) {
       if (!wasLeaving && ms) { node.dataset.visible = 'false'; node.getBoundingClientRect(); }
       node.dataset.visible = 'true';
     }
-    if (!ms) { if (remove) node.remove(); return; }
-    reveals.set(node, later(() => { reveals.delete(node); if (remove) node.remove(); else { node.classList.remove('ui-reveal'); delete node.dataset.visible; } }, ms));
+    if (!ms) { if (remove) node.remove(); onDone?.(); return; }
+    reveals.set(node, later(() => {
+      reveals.delete(node);
+      if (remove) node.remove();
+      else { node.classList.remove('ui-reveal'); delete node.dataset.visible; }
+      onDone?.();
+    }, ms));
   }
 
   const chips = document.querySelector('#chips');
+  let chipsHeightTimer = 0;
+  function clearChipFloatStyles(node) {
+    node.style.removeProperty('position');
+    node.style.removeProperty('left');
+    node.style.removeProperty('top');
+    node.style.removeProperty('pointer-events');
+  }
   function renderChips(items, { animate = false, onRemove, onMore, onClearAll } = {}) {
     const visible = items.slice(0, 3).map(item => ({ ...item, key: item.group + ':' + item.id }));
     if (items.length > 3) visible.push({ key: 'more', label: '+' + (items.length - 3), more: true });
     if (items.length >= 2 && onClearAll) visible.push({ key: 'clear-all', label: t('Clear filters', '清除筛选'), clearAll: true });
     const keys = new Set(visible.map(item => item.key)), focused = document.activeElement;
     const removedFocus = [...chipNodes].some(([key, node]) => !keys.has(key) && node === focused);
+    const shouldFlip = animate && !reduced();
+    // Batch-read all resting rects before any DOM mutation (cancel in-flight FLIP first).
+    const beforeRects = new Map();
+    let containerRect = null;
+    if (shouldFlip && chipNodes.size) {
+      for (const node of chipNodes.values()) cancelOneShot(node, 'chip-flip');
+      if (typeof chips.getBoundingClientRect === 'function') containerRect = chips.getBoundingClientRect();
+      for (const [key, node] of chipNodes) {
+        if (node.isConnected && !node.inert && typeof node.getBoundingClientRect === 'function') {
+          const r = node.getBoundingClientRect();
+          if (r.width > 0) beforeRects.set(key, { left: r.left, top: r.top });
+        }
+      }
+    }
     visible.forEach((item, index) => {
       let node = chipNodes.get(item.key);
       const added = !node;
@@ -174,18 +237,74 @@ export function createUIFeedback({ t, reduced, getSelection }) {
         node.dataset.chipKey = item.key;
         if (item.clearAll) node.className = 'chip-clear-all';
         chipNodes.set(item.key, node);
+      } else {
+        // Always restore flow positioning when reviving a chip mid-exit.
+        clearChipFloatStyles(node);
       }
       node.textContent = item.more || item.clearAll ? item.label : `${item.label} ×`;
       node.title = item.clearAll ? t('Clear all filters', '清除全部筛选') : item.more ? t('More filters', '更多筛选') : t('Remove ', '移除 ') + item.label;
       node.onclick = event => item.clearAll ? onClearAll(event) : item.more ? onMore(event) : onRemove(item, event);
       const at = [...chips.children].filter(child => keys.has(child.dataset.chipKey))[index];
       if (at !== node) chips.insertBefore(node, at || null);
-      if (added || node.inert) reveal(node, { animate, duration: 150 });
+      if (added || node.inert) reveal(node, { animate, duration: 160 });
     });
+    let removedAny = false;
+    // Float leaving chips only while at least one sibling remains in flow (prevents collapse to 0px).
+    const canFloatLeaving = shouldFlip && visible.length > 0 && containerRect && containerRect.width > 0;
     for (const [key, node] of chipNodes) if (!keys.has(key)) {
-      if (!node.inert) reveal(node, { animate, duration: 100, remove: true });
-      if (!animate) { node.remove(); chipNodes.delete(key); }
-      else later(() => { if (!node.isConnected && chipNodes.get(key) === node) chipNodes.delete(key); }, 110);
+      removedAny = true;
+      if (!animate) {
+        const prior = reveals.get(node);
+        if (prior) { clear(prior); reveals.delete(node); }
+        clearChipFloatStyles(node);
+        node.remove();
+        chipNodes.delete(key);
+      } else if (!node.inert) {
+        if (canFloatLeaving) {
+          const before = beforeRects.get(key);
+          if (before) {
+            if (!chips.style.position) chips.style.position = 'relative';
+            node.style.position = 'absolute';
+            node.style.left = `${before.left - containerRect.left}px`;
+            node.style.top = `${before.top - containerRect.top}px`;
+            node.style.pointerEvents = 'none';
+          }
+        }
+        reveal(node, {
+          animate,
+          duration: 120,
+          remove: true,
+          onDone: () => {
+            clearChipFloatStyles(node);
+            if (!node.isConnected && chipNodes.get(key) === node) chipNodes.delete(key);
+          },
+        });
+      }
+    }
+    if (canFloatLeaving && removedAny && beforeRects.size) {
+      const afterContainerHeight = typeof chips.getBoundingClientRect === 'function' ? chips.getBoundingClientRect().height : 0;
+      if (containerRect.height > afterContainerHeight + 2) {
+        chips.style.minHeight = `${Math.ceil(containerRect.height)}px`;
+        clear(chipsHeightTimer);
+        chipsHeightTimer = later(() => { chips.style.removeProperty('min-height'); chipsHeightTimer = 0; }, 130);
+      }
+      for (const [key, before] of beforeRects) {
+        if (!keys.has(key)) continue;
+        const node = chipNodes.get(key);
+        if (!node || !node.isConnected || node.inert) continue;
+        const after = node.getBoundingClientRect();
+        const dx = before.left - after.left, dy = before.top - after.top;
+        if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
+          animateOneShot(node, 'chip-flip', [
+            { transform: `translate(${dx}px, ${dy}px)` },
+            { transform: 'none' },
+          ], { duration: MOTION.fast, easing: MOTION.easeStandard });
+        }
+      }
+    } else if (!visible.length) {
+      clear(chipsHeightTimer);
+      chipsHeightTimer = 0;
+      chips.style.removeProperty('min-height');
     }
     if (removedFocus) ([...chips.children].find(node => !node.inert) || document.querySelector('#filters')).focus({ preventScroll: true });
   }
@@ -194,15 +313,27 @@ export function createUIFeedback({ t, reduced, getSelection }) {
   const shareBtn = document.querySelector('#share-link'), shareLabel = shareBtn?.querySelector('[data-en]');
   const creditsAnchor = () => credits.closest?.('.download-secondary') || credits;
   const shareAnchor = () => shareBtn?.closest?.('.title-row') || shareBtn;
+  let releaseCreditsWidth = null, releaseShareWidth = null;
+
+  function setButtonIcon(button, name, animate = false) {
+    const host = button?.querySelector?.('.icon');
+    if (!host) return;
+    if (animate) swapIconSmooth(host, iconMarkup(name), { reduced: reduced() });
+    else host.innerHTML = iconMarkup(name);
+  }
 
   function resetShare() {
     shareVersion++;
     clear(shareTimer);
     shareTimer = 0;
+    releaseShareWidth?.();
+    releaseShareWidth = null;
     if (!shareBtn || !shareLabel) return;
+    const wasSuccess = shareBtn.dataset.copyState === 'success';
     shareBtn.dataset.copyState = 'idle';
     shareBtn.removeAttribute('aria-busy');
     shareLabel.textContent = shareLabel.dataset[root.lang === 'zh-CN' ? 'zh' : 'en'];
+    setButtonIcon(shareBtn, 'link', wasSuccess);
     clearCopyFallback(shareAnchor(), 'share-link');
   }
 
@@ -210,10 +341,14 @@ export function createUIFeedback({ t, reduced, getSelection }) {
     copyVersion++;
     clear(copyTimer);
     copyTimer = 0;
+    releaseCreditsWidth?.();
+    releaseCreditsWidth = null;
+    const wasSuccess = copyState === 'success';
     copyState = 'idle';
     credits.dataset.copyState = 'idle';
     credits.removeAttribute('aria-busy');
     copyText.textContent = copyText.dataset[root.lang === 'zh-CN' ? 'zh' : 'en'];
+    setButtonIcon(credits, 'copy', wasSuccess);
     status.textContent = '';
     clearCopyFallback(creditsAnchor(), 'credits');
     resetShare();
@@ -232,12 +367,13 @@ export function createUIFeedback({ t, reduced, getSelection }) {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard is unavailable');
       await navigator.clipboard.writeText(text);
       if (disposed || owner !== copyVersion || selection !== getSelection() || language !== root.lang) return;
+      releaseCreditsWidth = lockButtonWidth(credits);
       copyState = 'success';
       credits.dataset.copyState = 'success';
       credits.removeAttribute('aria-busy');
-      copyText.textContent = t('✓ Copied', '✓ 已复制');
+      copyText.textContent = t('Copied', '已复制');
+      setButtonIcon(credits, 'check', true);
       status.textContent = t('Attribution copied', '署名已复制');
-      reveal(copyText, { animate: pointer(event), duration: 150 });
       copyTimer = later(() => { if (owner === copyVersion) resetCopy(); }, 2000);
     } catch {
       if (disposed || owner !== copyVersion || selection !== getSelection() || language !== root.lang) return;
@@ -263,11 +399,12 @@ export function createUIFeedback({ t, reduced, getSelection }) {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard is unavailable');
       await navigator.clipboard.writeText(url);
       if (disposed || owner !== shareVersion || selection !== getSelection() || language !== root.lang) return;
+      releaseShareWidth = lockButtonWidth(shareBtn);
       shareBtn.dataset.copyState = 'success';
       shareBtn.removeAttribute('aria-busy');
-      shareLabel.textContent = t('Link copied ✓', '链接已复制 ✓');
+      shareLabel.textContent = t('Copied', '已复制');
+      setButtonIcon(shareBtn, 'check', true);
       status.textContent = t('Model link copied', '模型链接已复制');
-      reveal(shareLabel, { animate: pointer(event), duration: 150 });
       shareTimer = later(() => { if (owner === shareVersion) resetShare(); }, 2000);
     } catch {
       if (disposed || owner !== shareVersion || selection !== getSelection() || language !== root.lang) return;
@@ -298,9 +435,15 @@ export function createUIFeedback({ t, reduced, getSelection }) {
     release();
     for (const [node, id] of reveals) {
       clear(id);
-      if (node.inert) node.remove();
+      if (node.inert) {
+        const chipKey = node.dataset?.chipKey;
+        if (chipKey && chipNodes.get(chipKey) === node) chipNodes.delete(chipKey);
+        clearChipFloatStyles(node);
+        node.remove();
+      }
       else { node.classList.remove('ui-reveal'); delete node.dataset.visible; }
     }
+    chips.style.removeProperty('min-height');
     reveals.clear();
     updateOverflow();
   });

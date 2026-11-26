@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f6f3ec">
+<meta name="theme-color" content="#f9f7f1">
 <meta name="description" content="An open library of 1,000 original low-poly 3D models. Explore in 3D, download ready-to-use GLB files or editable Blender sources under CC BY 4.0.">
 <title>Lowpoly Vault — Original low-poly 3D models</title>
 <link rel="icon" type="image/svg+xml" sizes="any" href="%BASE_URL%brand/favicon.svg">
@@ -30,12 +30,12 @@
    <span class="edition" data-t="edition">THE PREHISTORIC COLLECTION / 01</span>
    <h1 id="home-title" data-t="homeTitle">A world,<br>piece by piece.</h1>
    <p data-t="homeIntro">Small polygons. Open possibilities.<br>Original 3D models, ready for your next idea.</p>
-   <a class="home-cta" href="./models/" data-browse><span data-t="exploreAll">Explore all models</span><span aria-hidden="true">→</span></a>
+   <a class="home-cta" href="./models/" data-browse><span data-t="exploreAll">Explore all models</span><span class="arrow-right" aria-hidden="true">→</span></a>
    <span class="home-license">GLB + BLENDER · CC BY 4.0</span>
   </div>
   <div class="hero-caption">
    <span data-t="heroCaption">Stone, trees, and a little imagination.</span>
-   <a id="hero-inspect" href="./models/natural-arch/" data-route-detail="natural-arch"><span data-t="inspectArch">Inspect the arch</span> →</a>
+   <a id="hero-inspect" href="./models/natural-arch/" data-route-detail="natural-arch"><span data-t="inspectArch">Inspect the arch</span> <span class="arrow-right" aria-hidden="true">→</span></a>
   </div>
  </div>
  <form id="home-search" class="home-search">
@@ -45,14 +45,14 @@
    <input id="home-query" type="search" autocomplete="off" placeholder="Find a model…" aria-label="Find a model">
    <button id="home-search-clear" type="button" class="search-clear" hidden aria-label="Clear search"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
    <kbd class="search-kbd" aria-hidden="true">/</kbd>
-   <button type="submit" class="home-search-submit"><span data-t="searchAction">Search models</span><span aria-hidden="true">→</span></button>
+   <button type="submit" class="home-search-submit"><span data-t="searchAction">Search models</span><span class="arrow-right" aria-hidden="true">→</span></button>
   </div>
  </form>
  <section class="home-curation">
   <div class="curation-heading">
    <div><span class="edition" data-t="collectionOne">COLLECTION 01</span><h2 data-t="prehistoricHome">A little prehistoric.</h2></div>
    <p data-t="curationIntro">Models from a world before us.<br>Build something entirely your own.</p>
-   <a href="./models/" data-browse class="text-link"><span data-t="viewCollection">View collection</span> →</a>
+   <a href="./models/" data-browse class="text-link"><span data-t="viewCollection">View collection</span> <span class="arrow-right" aria-hidden="true">→</span></a>
   </div>
   <div class="curation-grid" id="home-categories"></div>
  </section>
@@ -76,11 +76,11 @@
   <article>
    <h2 data-t="aboutCreditTitle">Standard attribution</h2>
    <p id="about-credit-sample" class="about-credit-sample" data-t="aboutCreditSample">"Stegosaurus" by Leon Made This / s010s (https://s010s.github.io/lowpoly-vault/models/stegosaurus/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Indicate changes if modified.</p>
-   <button id="about-copy-credit" type="button" class="about-copy-btn" data-t="copy">Copy attribution · CC BY 4.0</button>
+   <button id="about-copy-credit" type="button" class="about-copy-btn" data-copy-state="idle" data-default-icon="copy"><span class="btn-icon" aria-hidden="true"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M15.5 8V4.5A1.5 1.5 0 0 0 14 3H5.5A1.5 1.5 0 0 0 4 4.5V14a1.5 1.5 0 0 0 1.5 1.5H8"/></svg></span><span class="btn-label" data-t="copy">Copy attribution · CC BY 4.0</span></button>
   </article>
  </div>
  <div class="about-links">
-  <a href="./models/" data-browse class="about-primary-cta"><span data-t="exploreAll">Explore all models</span> →</a>
+  <a href="./models/" data-browse class="about-primary-cta"><span data-t="exploreAll">Explore all models</span> <span class="arrow-right" aria-hidden="true">→</span></a>
   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a>
   <a href="https://github.com/s010s/lowpoly-vault" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
   <a href="./notices/" data-route="notices" data-t="notices">Third-party notices</a>
@@ -104,7 +104,7 @@
    <div id="detail-stage-wrap" class="detail-stage-wrap">
     <div id="detail-stage" class="detail-stage" tabindex="0" role="img" aria-label="3D model. Drag to rotate, scroll or plus/minus to zoom, arrow keys to rotate, Home or R to reset.">
      <img id="detail-poster" alt="">
-     <div class="stage-feedback"><span id="detail-loading" role="status"></span><button id="detail-retry" type="button" hidden data-t="retry">Try again</button></div>
+     <div class="stage-feedback"><span id="detail-loading" role="status" hidden></span><button id="detail-retry" type="button" hidden data-t="retry">Try again</button></div>
     </div>
     <div id="detail-comparison-label" class="detail-comparison-label" hidden></div>
    </div>
@@ -134,8 +134,8 @@
    </div>
    <div id="detail-downloads" class="detail-downloads"></div>
    <div class="detail-action-row">
-    <button id="detail-copy-credit" type="button" class="detail-util-btn" data-t="copy">Copy attribution · CC BY 4.0</button>
-    <button id="detail-share" type="button" class="detail-util-btn" data-t="share">Copy link</button>
+    <button id="detail-copy-credit" type="button" class="detail-util-btn" data-copy-state="idle" data-default-icon="copy"><span class="btn-icon" aria-hidden="true"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M15.5 8V4.5A1.5 1.5 0 0 0 14 3H5.5A1.5 1.5 0 0 0 4 4.5V14a1.5 1.5 0 0 0 1.5 1.5H8"/></svg></span><span class="btn-label" data-t="copy">Copy attribution · CC BY 4.0</span></button>
+    <button id="detail-share" type="button" class="detail-util-btn" data-copy-state="idle" data-default-icon="link"><span class="btn-icon" aria-hidden="true"><svg class="vault-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L10.7 5.22"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.12 2.12a5 5 0 0 0 7.07 7.07l1.41-1.41"/></svg></span><span class="btn-label" data-t="share">Copy link</span></button>
    </div>
    <p class="detail-license-line" data-t="licenseHelp">Credit Leon Made This / s010s, link CC BY 4.0, and indicate changes.</p>
    <section id="detail-scope-section" class="detail-extra" hidden>

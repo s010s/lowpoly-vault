@@ -16,6 +16,7 @@ const paths={
  cube:'<path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/>',
  info:'<circle cx="12" cy="12" r="9"/><path d="M12 10.5v5.5M12 7.5h.01"/>',
  close:'<path d="m6 6 12 12M6 18 18 6"/>',
+ check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
 };
 export function iconMarkup(name){
  if(!Object.hasOwn(paths,name))throw new Error('Unknown control icon: '+name);

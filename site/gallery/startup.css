@@ -11,8 +11,8 @@ body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content)
 .gallery-static .slot-copy strong{max-height:none;opacity:.82;transform:none;transition:none}
 .gallery-static .slot[data-name-visible=true] .slot-copy strong,
 .gallery-static .slot[data-selected=true] .slot-copy strong,
-.gallery-static .slot:focus-visible .slot-copy strong,
-.gallery-static .slot:hover .slot-copy strong{opacity:1}
+.gallery-static .slot:focus-visible .slot-copy strong{opacity:1}
+@media(hover:hover) and (pointer:fine){.gallery-static .slot:hover .slot-copy strong{opacity:1}}
 .gallery-static .startup-guides{top:0;height:100%}
 .gallery-static .startup-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 6px 16px;font:12px var(--vault-font-ui);color:var(--vault-muted)}
 .gallery-static .startup-pagination a{text-decoration:underline;text-underline-offset:3px}

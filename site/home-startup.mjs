@@ -4,7 +4,7 @@
 import {readFile} from 'node:fs/promises';
 import postcss from 'postcss';
 
-const shellClasses=new Set(['topbar','top-actions','primary-nav','brand','brand-light','skip','sr-only','edition','text-link','inline-icon','theme-toggle','nav-active','sun','moon','search-clear','search-kbd']);
+const shellClasses=new Set(['topbar','top-actions','primary-nav','brand','brand-light','skip','sr-only','edition','text-link','inline-icon','theme-toggle','nav-active','sun','moon','search-clear','search-kbd','arrow-right']);
 const homeIds=new Set(['home-page','home-title','home-search','home-query','home-search-clear','theme-toggle','language']);
 export function isHomepageSelector(selector){
  const classes=[...selector.matchAll(/\.([a-zA-Z_][\w-]*)/g)].map(match=>match[1]);

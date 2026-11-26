@@ -1,3 +1,5 @@
+import { MOTION } from '../motion-system.js';
+
 function visibleRows(rows, viewport) {
   const visible = new Map();
   for (const row of rows) {
@@ -109,13 +111,15 @@ export function createWheelContinuity({ wheel, slots, reduced, mobile, onFinish 
     const destination = wheel.getBoundingClientRect();
     const next = visibleRows(slots.children, destination);
     const still = reduced();
-    const duration = still ? 150 : mobile() ? (keyboard ? 240 : 300) : (keyboard ? 160 : 200);
-    const options = { duration, easing: 'ease-in-out', fill: 'both' };
+    const duration = still ? 120 : mobile() ? (keyboard ? 180 : 240) : (keyboard ? 130 : 180);
+    const options = { duration, easing: MOTION.easeStandard, fill: 'both' };
     for (const [id, frame] of next) {
       const old = previous.get(id);
       const y = old ? old.box.top - frame.box.top : 0;
       if (!old) {
-        const frames = still ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0 }, { opacity: 0, offset: .5, easing: 'ease-out' }, { opacity: 1 }];
+        const frames = still
+          ? [{ opacity: 0 }, { opacity: 1 }]
+          : [{ opacity: 0 }, { opacity: 0, offset: .35, easing: MOTION.easeStandard }, { opacity: 1 }];
         animate(frame.surface, 'enter', frames, { ...options, easing: 'linear' });
         continue;
       }
@@ -143,7 +147,7 @@ export function createWheelContinuity({ wheel, slots, reduced, mobile, onFinish 
       const ghost = departingRow(frame, destination);
       exits.append(ghost.row);
       animate(ghost.surface, 'exit', [{ opacity: frame.opacity }, { opacity: 0 }], {
-        duration: still ? 150 : Math.round(duration * .32), easing: 'ease-out', fill: 'both',
+        duration: still ? 110 : Math.round(duration * .45), easing: MOTION.easeExit, fill: 'both',
       }, () => ghost.row.remove());
     }
   }
