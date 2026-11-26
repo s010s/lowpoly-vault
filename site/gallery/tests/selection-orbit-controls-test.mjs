@@ -15,7 +15,13 @@ import {filterItems,WheelSettler} from '../state.js';
 import {publishedModels,assetURL as fixtureAssetURL,repositoryURL,installGeometryOnlyTextureFixture} from './geometry-fixtures.mjs';
 import {siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref} from '../catalog-source.js';
 import {PACK_LABELS,WORLD_LABELS} from '../../curation.js';
-import {modelShortName} from '../presentation-labels.js';
+import {modelShortName,galleryCategoryLabel,duplicateZhNames,disambiguatedName} from '../presentation-labels.js';
+import {initTheme} from '../../theme.js';
+import {downloadModelZip} from '../../client-zip.js';
+import {categoryLabel,isUserFacingPack,curatedPackLabel,formatBytes,formatTrianglesCompact,setStoredLang,getStoredWireframe,setStoredWireframe,formatAttribution,showCopyFallback,clearCopyFallback} from '../../shared-ui.js';
+import {createDetailHeadingLayout} from '../detail-heading-policy.js';
+import {canonicalEntrancePlan,hasCanonicalDetail} from '../canonical-entrance.js';
+import {createMobileActivationIntent} from '../mobile-activation-intent.js';
 import {ThumbnailQueue} from '../thumbnail-queue.js';
 import {thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders} from '../thumbnail-placeholder.js';
 import {parseRoute} from '../../routes.js';
@@ -40,17 +46,19 @@ class Element{
  remove(){if(this.parent)this.parent.children=this.parent.children.filter(el=>el!==this);}
  setAttribute(name,value){this.attributes[name]=value;}
  removeAttribute(name){delete this.attributes[name];}
- focus(){} contains(){return false;} matches(){return false;}
+ focus(){} contains(){return false;} matches(){return false;} closest(){return null;} querySelectorAll(){return [];} after(...items){this.parent?.append?.(...items);}
  set innerHTML(value){this.children=[];if(value.includes('slot-image')){this.parts=new Map(['img','strong','small','.current','.slot-image','.slot-copy'].map(key=>[key,new Element()]));}}
  get innerHTML(){return '';}
  querySelector(selector){if(selector==='[data-en]'){if(!this.copyText){this.copyText=new Element();this.copyText.dataset={en:'Copy attribution · CC BY 4.0',zh:'复制署名 · CC BY 4.0'};}return this.copyText;}return this.parts?.get(selector)||null;}
+ getAttribute(name){return this.attributes[name]??null;}
+ get parentElement(){return this.parent||null;}
  getBoundingClientRect(){return {left:0,top:0,right:600,bottom:600,width:600,height:600};}
  insertBefore(node,before){node.remove();node.parent=this;const index=this.children.indexOf(before);if(index<0)this.children.push(node);else this.children.splice(index,0,node);}
  get isConnected(){return !!this.parent;}
 }
 Element.prototype.removeEventListener=function(n,fn){this.events.set(n,(this.events.get(n)||[]).filter(f=>f!==fn));};Element.prototype.getRootNode=function(){return document;};Element.prototype.setPointerCapture=function(){};Element.prototype.releasePointerCapture=function(){};Element.prototype.getBoundingClientRect=function(){return {left:0,top:0,right:600,bottom:600,width:600,height:600};};
 function $(selector){if(selector.startsWith('#option-'))return elements.get('#slots')?.children.find(el=>el.id===selector.slice(1))||null;if(!elements.has(selector))elements.set(selector,new Element());return elements.get(selector);}
-const document=new Element();Object.assign(document,{documentElement:new Element(),body:new Element(),baseURI:siteRoot.href,querySelector:$,querySelectorAll:()=>[],createElement:()=>new Element(),createTextNode:text=>({textContent:text})});
+const document=new Element();Object.assign(document,{documentElement:Object.assign(new Element(),{lang:'en'}),body:new Element(),baseURI:siteRoot.href,querySelector:$,querySelectorAll:()=>[],createElement:()=>new Element(),createTextNode:text=>({textContent:text})});
 const window=new Element();
 function matchMedia(query){if(!media.has(query)){const value=new Element();Object.defineProperty(value,'matches',{get:()=>query.includes('reduced-motion')?reduced:query.includes('max-width')?mobile:query.includes('hover:hover')});media.set(query,value);}return media.get(query);}
 const now=()=>time;
@@ -77,7 +85,7 @@ r.host=$('#detail');r.controls=r.createControls(r.host);
 r.viewMotion=new ViewTransition({read:()=>r.viewState(),write:(state,ownership)=>r.applyState(state,ownership),reduced:()=>reduced});
 const location=new URL('models/',siteRoot);
 const history={state:null,replaceState(value,_,url){this.state=structuredClone(value);latestHistorySnapshot=this.state;if(url)location.href=url;},pushState(value,_,url){this.replaceState(value,_,url);pushes++;}};
-const context=vm.createContext({queueMicrotask,validDetailPresentation,detailScreenFrame,innerWidth:1200,innerHeight:800,devicePixelRatio:1,HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
+const context=vm.createContext({queueMicrotask,validDetailPresentation,detailScreenFrame,innerWidth:1200,innerHeight:800,devicePixelRatio:1,HoverIntent,hoverRowAt,...dimensionPresentation,modelShortName,galleryCategoryLabel,duplicateZhNames,disambiguatedName,initTheme,downloadModelZip,categoryLabel,isUserFacingPack,curatedPackLabel,formatBytes,formatTrianglesCompact,setStoredLang,getStoredWireframe,setStoredWireframe,formatAttribution,showCopyFallback,clearCopyFallback,createDetailHeadingLayout,canonicalEntrancePlan,hasCanonicalDetail,createMobileActivationIntent,thumbnailPlaceholderMarkup,synchronizeThumbnailPlaceholders,parseRoute,ThumbnailQueue:TestThumbnails,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame,AbortController,window,document,location,localStorage:{getItem:()=>null,setItem(){}},sessionStorage:{getItem:()=>null,setItem(){}},URL,matchMedia,models,catalog,siteRoot,assetURL,readGalleryQuery,galleryURL,emptyFacets,detailHref,PACK_LABELS,WORLD_LABELS,WheelTitle:TestTitle,WheelSettler:TestSettler,filterItems,HoverTurntable:class{},PreviewRenderer:class{constructor(){return r;}},POSTER_IMAGE_SCALE:1,performance:{now},setTimeout:schedule,clearTimeout:id=>timers.delete(id),structuredClone,history,console:{warn(){}},navigator:{}});
 let source=await readFile(new URL('../main.js',import.meta.url),'utf8');
 assert(source.includes('export async function mountGallery(){'),'The app must mount explicitly after startup prerequisites');
 // Unwrap only the mount boundary so the existing deterministic probes can still
@@ -85,7 +93,7 @@ assert(source.includes('export async function mountGallery(){'),'The app must mo
 source=source.replace('export async function mountGallery(){','').replace('mountIcons(document);','').replace(/\n}\s*$/,'');
 source=source.replace(/^import .*;$/gm,'').replace(/^if\(import\.meta\.hot\).*$/gm,'').replace(/if\(state.selected\)await choose\(/m,'if(state.selected)void choose(');
 // Execute the real UI modules in the same deterministic DOM as the entry point.
-const uiModules=await Promise.all(['ui-feedback','wheel-guides','wheel-continuity','detail-continuity'].map(async name=>(await readFile(new URL(`../${name}.js`,import.meta.url),'utf8')).replace(/^export /gm,'')));
+const uiModules=await Promise.all(['ui-feedback','wheel-guides','wheel-continuity','detail-continuity'].map(async name=>(await readFile(new URL(`../${name}.js`,import.meta.url),'utf8')).replace(/^import .*;$/gm,'').replace(/^export /gm,'')));
 vm.runInContext([...uiModules,source].join('\n'),context);
 
 const p=window.__preview,checks=[];
@@ -140,7 +148,7 @@ checks.push('Reduced-motion selection follows the same independent baseline with
 const E='opabinia',lost=p.choose(E);r.lost=true;r.suspend();r.onError(new Error('WebGL context lost'),{assetId:E,token:r.token});await request(E).resolve();await settle(lost);active(E);assert.equal($('#detail').dataset.state,'fallback');assert.equal(r.detail.model,null);assert.equal(r.controls.enabled,false);assert.equal(r.renderer.domElement.style.visibility,'hidden');r.lost=false;
 checks.push('Context loss during pending load invalidates selection, so late success cannot hide the fallback or enable controls');
 // Context loss after a cached GLB resolves must also release a pending poster decode.
-const blockedPoster=p.choose(D);const waitingImage=$('#detail-poster');let unblockPoster;waitingImage.decode=()=>new Promise(resolve=>unblockPoster=resolve);await new Promise(resolve=>setImmediate(resolve));assert.equal(r.detail.model,null);r.lost=true;r.suspend();r.onError(new Error('WebGL context lost'),{assetId:D,token:r.token});await settle(blockedPoster);advance(1000);assert.equal($('#detail').dataset.state,'fallback');assert.equal($('#loading').textContent,'Static preview · 3D unavailable');r.lost=false;unblockPoster?.();await flush();
+const blockedPoster=p.choose(D);const waitingImage=$('#detail-poster');let unblockPoster;waitingImage.decode=()=>new Promise(resolve=>unblockPoster=resolve);await new Promise(resolve=>setImmediate(resolve));assert.equal(r.detail.model,null);r.lost=true;r.suspend();r.onError(new Error('WebGL context lost'),{assetId:D,token:r.token});await settle(blockedPoster);advance(1000);assert.equal($('#detail').dataset.state,'fallback');assert.equal($('#loading').textContent,'3D unavailable here · showing rendered preview');r.lost=false;unblockPoster?.();await flush();
 checks.push('Context loss between cached GLB completion and poster decode releases select and cannot resurrect delayed loading text');
 // Older async popstate continuations must not restore their stale wheel/keyboard/mobile state.
 const F='waptia',historyA={gallery:true,view:'detail',selected:F,keyboard:F,scroll:128,mobileOpen:true},historyB={gallery:true,view:'collection',selected:first,keyboard:first,scroll:512,mobileOpen:false};
@@ -178,13 +186,12 @@ mobile=false;
 
 // Sorting UI must preserve URL aliases and reorder only locale-aware sorts.
 p.state.sort=readGalleryQuery(new URLSearchParams('sort=triangles-asc')).sort;
-vm.runInContext('applyResults(false)',context);$('#filters').onclick();
-const aliasSelect=$('#filter-form').children.at(-1).children[1];
-assert.equal(aliasSelect.value,'triangles');assert(aliasSelect.children.some(option=>option.value===aliasSelect.value));
-assert.equal(vm.runInContext('draft.sort',context),'triangles-asc');
-const ascendingIds=p.state.results.map(asset=>asset.id);$('#filter-apply').onclick();
+vm.runInContext('applyResults(false);renderSortOptions();',context);
+const aliasSelect=$('#sort-select');
+assert.equal(aliasSelect.value,'triangles-asc');assert(aliasSelect.children.some(option=>option.value===aliasSelect.value));
+const ascendingIds=p.state.results.map(asset=>asset.id);$('#filters').onclick();$('#filter-apply').onclick();
 assert.equal(p.state.sort,'triangles-asc');assert.deepEqual(p.state.results.map(asset=>asset.id),ascendingIds);
-checks.push('The triangles-asc URL alias displays the available ascending option without changing its query meaning or order when filters are applied');
+checks.push('The triangles-asc URL alias displays the available ascending option without changing its query meaning or order when filters are opened and closed');
 const selectedBeforeSort=p.state.selected,meshBeforeSort=r.detail.model,rendererTokenBeforeSort=r.token,selectionVersionBeforeSort=vm.runInContext('selectionVersion',context),requestsBeforeSort=r.stats.requests;
 const assertSortKeepsSelection=()=>{assert.equal(p.state.selected,selectedBeforeSort);assert.equal(r.detail.model,meshBeforeSort);assert.equal(r.token,rendererTokenBeforeSort);assert.equal(vm.runInContext('selectionVersion',context),selectionVersionBeforeSort);assert.equal(r.stats.requests,requestsBeforeSort);};
 for(const sort of ['name','name-desc']){
@@ -243,7 +250,7 @@ for(const asset of models){
  await settle(selection);active(asset.id);baseline();
  assert.equal(r.stats.detailFirstFrameId,asset.id,'Only the current rendered model may acknowledge readiness');
  assert.equal($('#detail').dataset.state,'ready');
- assert.equal($('#dimensions').textContent,dimensionPresentation.modelHeight(asset));
+ assert.equal($('#dimensions').textContent,dimensionPresentation.primaryDimension(asset).value);
  fullCatalogSelections++;
 }
 assert.equal(fullCatalogSelections,models.length);

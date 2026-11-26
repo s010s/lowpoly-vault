@@ -4,6 +4,7 @@ import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { itemWorlds, itemPacks, compareCatalogNames } from './routes.js';
 import { createCuration, CATALOG_DATA } from './curation.js';
+import { HOME_FEATURED_SPECS } from './shared-ui.js';
 
 export const CATALOG_SHARD_SIZE = 256;
 const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
@@ -61,6 +62,12 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
     shards.set(path, { version: 1, items: part });
     descriptors.push({ path, count: part.length, categories: counts(part, 'category'), collections: counts(part, 'collection'), worlds: counts(part, 'worlds'), packs: counts(part, 'packs') });
   }
+  const byId = new Map(items.map(item => [item.id, item]));
+  const featured = HOME_FEATURED_SPECS.map(spec => {
+    const pick = byId.get(spec.id) || items.find(item => item.category === spec.category);
+    if (!pick) return null;
+    return { category: spec.category, num: spec.num, id: pick.id, name: pick.name, preview: pick.preview };
+  }).filter(Boolean);
   const index = {
     version: 1,
     total: items.length,
@@ -70,6 +77,7 @@ export function createCatalog(manifest, { name = 'catalog', approvedOnly = false
     collections: facets(items, 'collection'),
     worlds: facets(items, 'worlds').map(facet => ({...facet, ...(WORLD_LABELS[facet.id] ? {name:WORLD_LABELS[facet.id]} : {})})),
     packs: facets(items, 'packs').map(facet => ({...facet, ...(PACK_LABELS[facet.id] ? {name:PACK_LABELS[facet.id]} : {}), ...(PACK_RECORDS[facet.id] ? {description:PACK_RECORDS[facet.id].description,asset_ids:PACK_RECORDS[facet.id].asset_ids.filter(id=>ids.has(id))} : {})})),
+    featured,
     shards: descriptors,
     initial: items.slice(0, 24),
     detailBase: `${prefix}/details/`

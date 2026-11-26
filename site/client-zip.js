@@ -122,21 +122,31 @@ export function buildStoreZip(entries) {
 
 function defaultCreditsText(asset) {
   const title = typeof asset?.name === 'string' ? asset.name : asset?.name?.en || asset?.id || 'Model';
+  const titleZh = typeof asset?.name === 'object' ? asset?.name?.zh || '' : '';
   const author = asset?.author || 'Leon Made This / s010s';
   const license = asset?.license || 'CC-BY-4.0';
   const source = asset?.source_url || 'https://github.com/s010s/lowpoly-vault';
-  return `${title}\nCreator: ${author}\nSource: ${source}\nLicense: ${license}\nhttps://creativecommons.org/licenses/by/4.0/\n`;
+  const modelLink = asset?.id ? `https://s010s.github.io/lowpoly-vault/models/${asset.id}/` : source;
+  return `${title}${titleZh && titleZh !== title ? `\n${titleZh}` : ''}\nCreator: ${author}\nModel: ${modelLink}\nSource: ${source}\nLicense: ${license}\nhttps://creativecommons.org/licenses/by/4.0/\nIndicate changes if modified.\n`;
 }
 
-export async function assembleModelZip(asset, { resolveURL, fetchImpl = globalThis.fetch?.bind(globalThis), fallbackCredits } = {}) {
+export async function assembleModelZip(asset, { resolveURL, fetchImpl = globalThis.fetch?.bind(globalThis), fallbackCredits, signal } = {}) {
   if (!asset?.id || !asset?.glb || !asset?.blend) throw new Error('Model ZIP requires id, glb, and blend paths.');
+  const checkAborted = () => {
+    if (signal?.aborted) throw new DOMException('Cancelled', 'AbortError');
+  };
+  checkAborted();
   const toURL = typeof resolveURL === 'function' ? resolveURL : (p => p);
   const fetchBytes = async (path, label) => {
+    checkAborted();
     const url = toURL(path);
     if (!url) throw new Error(`Missing URL for ${label}`);
-    const response = await fetchImpl(url);
+    const response = signal ? await fetchImpl(url, { signal }) : await fetchImpl(url);
+    checkAborted();
     if (!response.ok) throw new Error(`Failed to fetch ${label} (HTTP ${response.status})`);
-    return new Uint8Array(await response.arrayBuffer());
+    const buffer = await response.arrayBuffer();
+    checkAborted();
+    return new Uint8Array(buffer);
   };
   const glbName = asset.glb.split('/').at(-1) || `${asset.id}.glb`;
   const blendName = asset.blend.split('/').at(-1) || `${asset.id}.blend`;
@@ -145,9 +155,13 @@ export async function assembleModelZip(asset, { resolveURL, fetchImpl = globalTh
     fetchBytes(asset.glb, glbName),
     fetchBytes(asset.blend, blendName),
     creditsPath
-      ? fetchBytes(creditsPath, 'CREDITS.txt').catch(() => encoder.encode(fallbackCredits || defaultCreditsText(asset)))
+      ? fetchBytes(creditsPath, 'CREDITS.txt').catch(error => {
+          if (error?.name === 'AbortError' || signal?.aborted) throw error;
+          return encoder.encode(fallbackCredits || defaultCreditsText(asset));
+        })
       : Promise.resolve(encoder.encode(fallbackCredits || defaultCreditsText(asset))),
   ]);
+  checkAborted();
   const bytes = buildStoreZip([
     { name: glbName, data: glbBytes },
     { name: blendName, data: blendBytes },
@@ -158,6 +172,7 @@ export async function assembleModelZip(asset, { resolveURL, fetchImpl = globalTh
 
 export async function downloadModelZip(asset, options = {}) {
   const { filename, bytes } = await assembleModelZip(asset, options);
+  if (options.signal?.aborted) throw new DOMException('Cancelled', 'AbortError');
   const blob = new Blob([bytes], { type: 'application/zip' });
   const href = URL.createObjectURL(blob);
   const link = document.createElement('a');

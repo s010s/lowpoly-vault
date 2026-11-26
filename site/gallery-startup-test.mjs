@@ -52,7 +52,7 @@ for(const first of ['app','catalog']){
  f[first].resolve(first==='app'?{mountGallery:f.mountGallery}:{});await tick();assert.deepEqual(f.events,[],'One ready dependency cannot remove useful SSG');
  f[first==='app'?'catalog':'app'].resolve(first==='app'?{}:{mountGallery:f.mountGallery});await tick();
  assert.deepEqual(f.events,['swap','mount'],'All prerequisites are ready before synchronous body swap/mount');
- assert.equal(f.document.documentElement.dataset.theme,'light');
+ assert.equal(f.document.documentElement.dataset.theme,'dark','Gallery preserves the user theme without flashing light');
  f.firstFrame.resolve();await f.run;
 }
 for(const failure of ['app','catalog','mount']){

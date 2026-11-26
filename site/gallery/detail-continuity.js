@@ -273,7 +273,7 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
       }
       const pane = opening ? workspace : collection;
       const selectors = opening
-        ? ['#subtitle', '#excluded', '.info-region', '.workspace-bottom', '#mobile-back', '#mobile-interact']
+        ? ['#subtitle', '#excluded', '.info-region', '#share-link', '.workspace-bottom', '#mobile-back', '#mobile-stepper', '#mobile-interact']
         : ['.searchbar', '.summary', '.list-hint', '#empty-state'];
       const entries = selectors.map(selector => pane.querySelector(selector)).filter(node => node && !node.hidden);
       if (opening && !motion.title && !fixedTitle) entries.push(title);

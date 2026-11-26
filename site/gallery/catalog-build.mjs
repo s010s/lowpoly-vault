@@ -19,14 +19,14 @@ export function prepareModels(manifest,resources={}, {allowReview=false}={}) {
     const poster=resolveGalleryPoster(asset,resources),matching=!!poster;
     const desktopHeadingBounds=resolveDesktopHeadingBounds(asset,poster,resources);
     const {detailPresentation:untrustedDetailPresentation,galleryPosters:untrustedPosters,wheelSpec:untrustedWheelSpec,desktopHeadingBounds:untrustedHeadingBounds,...sourceAsset}=asset;
-    return {...sourceAsset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,
+    return {...sourceAsset,author:asset.author||manifest.author||'Leon Made This / s010s',license:asset.license||manifest.license||'CC-BY-4.0',source_url:asset.source_url||manifest.attribution_url||'https://github.com/s010s/lowpoly-vault',worlds:asset.worlds||[asset.collection].filter(Boolean),packs:asset.packs||[],glb_bytes:asset.glb_bytes||asset.file_sizes?.glb||0,blend_bytes:asset.blend_bytes||asset.file_sizes?.blend||0,
       ...(poster?.detailPresentation?{detailPresentation:poster.detailPresentation}:{}),
       ...(desktopHeadingBounds?{desktopHeadingBounds}:{}),
       ...(matching?{galleryPosters:{detail:poster.detail,wheel:poster.wheel},wheelSpec:poster.wheelSpec}:{})};
   });
 }
 
-export const DISPLAY_FIELDS=['id','name','category','collection','worlds','packs','glb','blend','preview','glb_bytes','dimensions','units','axes','blender_unit_scale','triangles','description','reconstruction_notes','scientific_scope','sources','source_url','author','license','downloads','galleryPosters','wheelSpec','detailPresentation','desktopHeadingBounds'];
+export const DISPLAY_FIELDS=['id','name','category','collection','worlds','packs','glb','blend','preview','glb_bytes','blend_bytes','dimensions','units','axes','blender_unit_scale','triangles','description','reconstruction_notes','scientific_scope','sources','source_url','author','license','downloads','galleryPosters','wheelSpec','detailPresentation','desktopHeadingBounds'];
 export function createGalleryCatalog(manifest,resources, {index=createCatalog(manifest).index,allowReview=false}={}){
  const prepared=prepareModels(manifest,resources,{allowReview});
  const assets=prepared.map(asset=>({...Object.fromEntries(DISPLAY_FIELDS.filter(key=>asset[key]!==undefined).map(key=>[key,asset[key]])),sha256:{glb:asset.sha256?.glb}}));
