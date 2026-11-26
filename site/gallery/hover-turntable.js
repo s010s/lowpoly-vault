@@ -5,7 +5,8 @@ const fallbackSpec={floorCenter:[.5,350/432],floorPoints:Array.from({length:48},
 function getLayer(spec){
  const key=spec?.floorPoints?.length?spec:fallbackSpec;
  if(layers.has(key)){const value=layers.get(key);layers.delete(key);layers.set(key,value);return value;}
- const geometry=makeGeometry(key),surface=document.createElement('canvas');surface.width=geometry.width;surface.height=geometry.height;
+ const square=spec?.aspect===1;
+ const geometry=makeGeometry(key,square?256:384,square?256:216),surface=document.createElement('canvas');surface.width=geometry.width;surface.height=geometry.height;
  const context=surface.getContext('2d'),pixels=context.createImageData(geometry.width,geometry.height);
  const layer={geometry,surface,context,pixels,key:null,renders:0};layers.set(key,layer);
  while(layers.size>CACHE_LIMIT)layers.delete(layers.keys().next().value);
@@ -15,15 +16,16 @@ export const liquidRuntime={FIELD_FPS,CACHE_LIMIT,cacheSize:()=>layers.size,clea
 export class HoverTurntableLiquid {
   constructor(e, t, { reduced: n = () => false } = {}) {
     this.rotatingAt=null;this.frozenAge=LIQUID.releaseEnd;this.liquidLayer=null;
-    this.host = e, this.spec = t, this.reduced = n, this.phase = "loading", this.angle = 0, this.started = performance.now(), this.lastEmit = this.started, this.particles = [], this.seed = 811, this.raf = 0, this.canvas = document.createElement("canvas"), this.canvas.width = 768, this.canvas.height = 432, this.canvas.className = "hover-table", this.canvas.setAttribute("aria-hidden", "true"), e.prepend(this.canvas), e.dataset.hoverState = "loading", this.frame = this.frame.bind(this), this.schedule();
+    this.square=t?.aspect===1;this.cw=this.square?512:768;this.ch=this.square?512:432;
+    this.host = e, this.spec = t, this.reduced = n, this.phase = "loading", this.angle = 0, this.started = performance.now(), this.lastEmit = this.started, this.particles = [], this.seed = 811, this.raf = 0, this.canvas = document.createElement("canvas"), this.canvas.width = this.cw, this.canvas.height = this.ch, this.canvas.className = "hover-table", this.canvas.setAttribute("aria-hidden", "true"), e.prepend(this.canvas), e.dataset.hoverState = "loading", this.frame = this.frame.bind(this), this.schedule();
   }
   random() {
     return this.seed = Math.imul(this.seed, 1664525) + 1013904223 >>> 0, this.seed / 4294967296;
   }
   point(e, t = 1) {
     const n = this.spec?.floorPoints;
-    if (!n?.length) return { x: 384 + Math.cos(e) * 150 * t, y: 350 + Math.sin(e) * 27 * t };
-    const i = (e / (Math.PI * 2) % 1 + 1) % 1 * n.length, r = Math.floor(i), o = i - r, a = n[r], l = n[(r + 1) % n.length], c = this.spec.floorCenter[0] * 768, h = this.spec.floorCenter[1] * 432, d = (a[0] + (l[0] - a[0]) * o) * 768, u = (a[1] + (l[1] - a[1]) * o) * 432;
+    if (!n?.length) return { x: this.cw * 0.5 + Math.cos(e) * (this.square ? 140 : 150) * t, y: this.ch * (this.square ? 0.72 : 350 / 432) + Math.sin(e) * (this.square ? 44 : 27) * t };
+    const i = (e / (Math.PI * 2) % 1 + 1) % 1 * n.length, r = Math.floor(i), o = i - r, a = n[r], l = n[(r + 1) % n.length], c = this.spec.floorCenter[0] * this.cw, h = this.spec.floorCenter[1] * this.ch, d = (a[0] + (l[0] - a[0]) * o) * this.cw, u = (a[1] + (l[1] - a[1]) * o) * this.ch;
     return { x: c + (d - c) * t, y: h + (u - h) * t };
   }
   ready() {
@@ -50,7 +52,7 @@ export class HoverTurntableLiquid {
       renderLiquidSample(layer.geometry,sample,layer.pixels.data);layer.context.putImageData(layer.pixels,0,0);layer.key=bucket;layer.renders++;
     }
     context.save();context.globalAlpha=visibility;context.imageSmoothingEnabled=true;
-    context.drawImage(layer.surface,0,0,768,432);context.restore();
+    context.drawImage(layer.surface,0,0,this.cw,this.ch);context.restore();
   }
   schedule() {
     this.raf || (this.raf = requestAnimationFrame(this.frame));
@@ -70,7 +72,7 @@ export class HoverTurntableLiquid {
   draw(e) {
     if (!this.canvas.isConnected) return;
     const t = this.canvas.getContext("2d");
-    t.clearRect(0, 0, 768, 432);
+    t.clearRect(0, 0, this.cw, this.ch);
     const n = this.phase === "ending", i = n ? 1-ease((e-this.endedAt)/180) : 1, r = this.phase !== "loading", o = r && !n;
     t.lineCap = "round", t.lineWidth = 1.35;
     if(r)this.drawLiquid(t,e,i);

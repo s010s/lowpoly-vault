@@ -7,16 +7,19 @@ body[data-static-route="models"]:not([data-gallery])>:not(#static-route-content)
 .gallery-static #slots{height:calc(var(--startup-count)*128px + 100cqh - 128px);min-height:100%}
 .gallery-static .slot{top:calc((100cqh - 128px)/2 + var(--startup-index)*128px)}
 .gallery-static .slot-image img{transform:scale(1)}
-/* Always keep visible row names readable during startup so there is no flash on mount. */
-.gallery-static .slot-copy strong{max-height:none;opacity:.82;transform:none;transition:none}
+/* Match quiet focus-rhythmed wheel names during startup so there is no jump on mount. */
+.gallery-static .slot-copy strong{max-height:none;opacity:.44;transform:none;transition:none}
 .gallery-static .slot[data-name-visible=true] .slot-copy strong,
 .gallery-static .slot[data-selected=true] .slot-copy strong,
 .gallery-static .slot:focus-visible .slot-copy strong{opacity:1}
-@media(hover:hover) and (pointer:fine){.gallery-static .slot:hover .slot-copy strong{opacity:1}}
+.gallery-static .slot[data-name-visible=true] .slot-copy small,
+.gallery-static .slot[data-selected=true] .slot-copy small{opacity:.82}
+@media(hover:hover) and (pointer:fine){.gallery-static .slot:hover .slot-copy strong{opacity:.95}.gallery-static .slot:hover .slot-copy small{opacity:.78}}
 .gallery-static .startup-guides{top:0;height:100%}
 .gallery-static .startup-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 6px 16px;font:12px var(--vault-font-ui);color:var(--vault-muted)}
 .gallery-static .startup-pagination a{text-decoration:underline;text-underline-offset:3px}
-.gallery-static #info{display:inline-flex;align-items:center;gap:5px;pointer-events:auto}
+.gallery-static #info{display:grid;place-items:center;pointer-events:auto}
+.gallery-static .startup-blend-link{flex:none!important;width:40px;height:40px;padding:0!important}
 .gallery-static #language{display:inline-flex;align-items:center;justify-content:center}
 .gallery-static .startup-credit{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;font:12px var(--vault-font-ui);color:var(--vault-muted);margin-top:10px}
 .gallery-static .gallery-load-error{position:fixed;left:18px;right:18px;bottom:12px;z-index:80;max-width:620px;margin:0 auto;padding:10px 14px;background:var(--vault-panel);border:1px solid var(--vault-line);border-radius:var(--vault-radius);font:13px/1.5 var(--vault-font-ui);color:var(--vault-accent)}

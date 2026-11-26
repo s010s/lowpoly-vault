@@ -246,27 +246,27 @@ function showView(view) {
 
 function syncDetailTools() {
   $('#detail-wireframe').disabled = !detailReady;
-  $('#detail-zoom-in').disabled = !detailReady;
-  $('#detail-zoom-out').disabled = !detailReady;
-  $('#detail-reset').disabled = !detailReady || !detailRenderer?.dirty;
+  const showReset = Boolean(detailReady && detailRenderer?.dirty);
+  $('#detail-reset').disabled = !showReset;
+  animatePresence($('#detail-reset'), showReset, { id: 'detail-reset', enterY: 0, exitY: 0, enterScale: 0.92, enterDuration: 150, exitDuration: 110, reduced: prefersReducedMotion() });
   const metricOk = Boolean(detailReady && detailRenderer?.detail?.metric?.available);
   $('#detail-compare').hidden = !metricOk;
   $('#detail-compare').disabled = !metricOk;
 }
 
-function syncDetailStageHint() {
-  const hint = $('#detail-stage-hint');
-  if (!hint) return;
-  const next = detailRenderer?.comparison
-    ? (lang === 'zh' ? '水平拖动旋转 · 滚轮缩放' : 'Drag horizontally to turn · Scroll to zoom')
-    : t('hint');
-  if (hint.textContent !== next) {
-    const hadText = Boolean(hint.textContent);
-    hint.textContent = next;
-    if (hadText) {
-      animateOneShot(hint, 'hint-swap', [{ opacity: 0.35 }, { opacity: 1 }], { duration: prefersReducedMotion() ? MOTION.reducedFade : 140, easing: MOTION.easeStandard });
-    }
-  }
+let detailOrbitDragging = false, detailOrbitStart = null, detailOrbitTimer = 0;
+function setDetailOrbiting(active) {
+  const wrap = $('#detail-stage-wrap');
+  if (!wrap) return;
+  if (active) wrap.dataset.orbiting = 'true';
+  else delete wrap.dataset.orbiting;
+}
+function clearDetailOrbiting() {
+  detailOrbitDragging = false;
+  detailOrbitStart = null;
+  clearTimeout(detailOrbitTimer);
+  detailOrbitTimer = 0;
+  setDetailOrbiting(false);
 }
 
 function updateDetailComparisonLabel() {
@@ -344,7 +344,14 @@ async function ensureDetailRenderer() {
   detailRenderer = new DetailRenderer($('#detail-stage'), undefined, { inPlace: true });
   detailRenderer.wire = getStoredWireframe();
   detailRenderer.onDirtyChange = () => syncDetailTools();
-  detailRenderer.onInteraction = () => detailStepper.cancel();
+  detailRenderer.onInteraction = () => {
+    detailStepper.cancel();
+    if (!prefersReducedMotion() && !detailOrbitDragging && detailReady) {
+      setDetailOrbiting(true);
+      clearTimeout(detailOrbitTimer);
+      detailOrbitTimer = setTimeout(() => { detailOrbitTimer = 0; if (!detailOrbitDragging) setDetailOrbiting(false); }, 420);
+    }
+  };
   detailRenderer.onError = (error, ctx) => {
     if (!ctx || ctx.assetId === requestedDetailId) {
       handleDetailError(detailVersion, requestedDetailId, error);
@@ -374,7 +381,6 @@ async function ensureDetailRenderer() {
       $('#detail-compare').setAttribute('aria-pressed', 'false');
     }
     updateDetailComparisonLabel();
-    syncDetailStageHint();
     syncDetailTools();
   };
   detailRenderer.onReferenceError = () => {
@@ -383,7 +389,6 @@ async function ensureDetailRenderer() {
     $('#detail-compare').removeAttribute('aria-busy');
     $('#detail-compare').setAttribute('aria-pressed', 'false');
     updateDetailComparisonLabel();
-    syncDetailStageHint();
     syncDetailTools();
   };
   return detailRenderer;
@@ -402,7 +407,9 @@ function renderDetailInfo(asset) {
   $('#detail-category').textContent = categoryLabel(asset.category, lang);
   $('#detail-title').textContent = name;
   const desc = loc(asset.reconstruction_notes) || loc(asset.description);
-  $('#detail-description').textContent = desc;
+  const scope = loc(asset.scientific_scope);
+  const isBoilerplateDesc = !desc || /由本版验收\s*GLB\s*导入|imported from the reviewed GLB/i.test(desc);
+  $('#detail-description').textContent = isBoilerplateDesc ? '' : desc;
   const locale = lang === 'zh' ? 'zh-CN' : 'en-US';
   $('#detail-triangles').textContent = Number.isFinite(asset.triangles) ? asset.triangles.toLocaleString(locale) : '—';
   const dim = primaryDimension(asset, lang);
@@ -416,17 +423,18 @@ function renderDetailInfo(asset) {
 
   const glbFile = asset.downloads?.glb || asset.glb;
   const blendFile = asset.downloads?.blend || asset.blend;
-  const glbSizeText = formatBytes(glbBytes, lang);
   const blendSizeText = formatBytes(blendBytes, lang);
   const zipMarkup = asset.downloads?.bundle
     ? `<a href="${esc(path(asset.downloads.bundle))}" download class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span class="arrow-down" aria-hidden="true">↓</span></a>`
     : (asset.glb && asset.blend
       ? `<button type="button" id="detail-download-zip" class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span class="arrow-down" aria-hidden="true">↓</span></button>`
       : '');
+  const secondaryMarkup = (blendFile || zipMarkup)
+    ? `<div class="detail-dl-secondary-row">${blendFile ? `<a href="${esc(path(blendFile))}" download class="detail-dl-secondary" data-dl-track="blend"><span>${esc(t('blend'))}${blendSizeText ? `<small>${esc(blendSizeText)}</small>` : ''}</span><span class="arrow-down" aria-hidden="true">↓</span></a>` : ''}${zipMarkup}</div>`
+    : '';
   $('#detail-downloads').innerHTML =
-    (glbFile ? `<a href="${esc(path(glbFile))}" download class="detail-dl-primary" data-dl-track="glb"><span>${esc(t('glb'))}<small>${esc(glbSizeText)}</small></span><span class="arrow-down" aria-hidden="true">↓</span></a>` : '') +
-    (blendFile ? `<a href="${esc(path(blendFile))}" download class="detail-dl-secondary" data-dl-track="blend"><span>${esc(t('blend'))}<small>${esc(blendSizeText)}</small></span><span class="arrow-down" aria-hidden="true">↓</span></a>` : '') +
-    zipMarkup;
+    (glbFile ? `<a href="${esc(path(glbFile))}" download class="detail-dl-primary" data-dl-track="glb"><span>${esc(t('glb'))}</span><span class="arrow-down" aria-hidden="true">↓</span></a>` : '') +
+    secondaryMarkup;
 
   const zipBtn = $('#detail-download-zip');
   if (zipBtn) {
@@ -501,10 +509,10 @@ function renderDetailInfo(asset) {
     key: 'detail-share',
   });
 
-  const scope = loc(asset.scientific_scope);
-  const showScope = Boolean(scope && scope !== desc);
+  const noteText = isBoilerplateDesc ? (desc || scope) : (scope && scope !== desc && !(desc && desc.includes(scope)) ? scope : '');
+  const showScope = Boolean(noteText);
   $('#detail-scope-section').hidden = !showScope;
-  if (showScope) $('#detail-scope').textContent = scope;
+  if (showScope) $('#detail-scope').textContent = noteText;
 
   const validSources = (asset.sources || []).filter(s => /^https?:\/\//.test(s.url || ''));
   $('#detail-sources-section').hidden = !validSources.length;
@@ -684,7 +692,7 @@ async function openDetail(id) {
   $('#detail-wireframe').setAttribute('aria-pressed', String(getStoredWireframe()));
   animatePresence($('#detail-retry'), false, { id: 'detail-retry', immediate: true });
   syncDetailTools();
-  syncDetailStageHint();
+  clearDetailOrbiting();
   if (!keepStaticWhileLoading) showView('detail');
 
   try {
@@ -885,8 +893,6 @@ function paintLanguage() {
   $('#home-query').placeholder = t('homeSearch');
   $('#home-query').ariaLabel = t('homeSearch');
   $('#detail-stage').ariaLabel = t('canvas');
-  $('#detail-zoom-in').ariaLabel = t('zoomIn');
-  $('#detail-zoom-out').ariaLabel = t('zoomOut');
   $('.model-pagination').ariaLabel = lang === 'zh' ? '上一个和下一个模型' : 'Previous and next models';
   document.querySelectorAll('[data-route]').forEach(a => { a.href = href(a.dataset.route); });
   document.querySelectorAll('[data-browse]').forEach(a => { if (a.tagName === 'A') a.href = href('models'); });
@@ -899,7 +905,6 @@ function paintLanguage() {
     renderDetailInfo(selected);
     paintDetailNeighbors();
     updateDetailComparisonLabel();
-    syncDetailStageHint();
     document.title = `${modelShortName(selected, lang)} | Lowpoly Vault`;
   } else if (currentView === 'about') {
     document.title = `${t('about')} | Lowpoly Vault`;
@@ -1010,11 +1015,8 @@ $('#detail-compare').onclick = () => {
     else { detailCompareLoading = true; $('#detail-compare').setAttribute('aria-busy', 'true'); }
   }
   updateDetailComparisonLabel();
-  syncDetailStageHint();
   syncDetailTools();
 };
-$('#detail-zoom-in').onclick = () => { if (detailReady) detailStepper.zoom(0.85); };
-$('#detail-zoom-out').onclick = () => { if (detailReady) detailStepper.zoom(1.18); };
 $('#detail-reset').onclick = () => {
   if (!detailReady || !detailRenderer) return;
   detailStepper.cancel();
@@ -1029,9 +1031,33 @@ $('#detail-reset').onclick = () => {
   $('#detail-compare').setAttribute('aria-pressed', 'false');
   $('#detail-compare').removeAttribute('aria-busy');
   updateDetailComparisonLabel();
-  syncDetailStageHint();
   syncDetailTools();
 };
+$('#detail-stage').addEventListener('pointerdown', event => {
+  if (!detailReady || event.button > 0) return;
+  clearTimeout(detailOrbitTimer);
+  detailOrbitStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+});
+window.addEventListener('pointermove', event => {
+  if (!detailOrbitStart || event.pointerId !== detailOrbitStart.id || detailOrbitDragging || prefersReducedMotion()) return;
+  if (Math.hypot(event.clientX - detailOrbitStart.x, event.clientY - detailOrbitStart.y) >= 4) {
+    detailOrbitDragging = true;
+    setDetailOrbiting(true);
+  }
+}, { passive: true });
+const endDetailOrbit = () => {
+  if (!detailOrbitStart && !detailOrbitDragging) return;
+  detailOrbitStart = null;
+  const was = detailOrbitDragging;
+  detailOrbitDragging = false;
+  if (was) {
+    clearTimeout(detailOrbitTimer);
+    detailOrbitTimer = setTimeout(() => { detailOrbitTimer = 0; if (!detailOrbitDragging) setDetailOrbiting(false); }, 180);
+  }
+};
+window.addEventListener('pointerup', endDetailOrbit, { passive: true });
+window.addEventListener('pointercancel', endDetailOrbit, { passive: true });
+window.addEventListener('blur', clearDetailOrbiting);
 $('#detail-retry').onclick = () => { if (requestedDetailId) void openDetail(requestedDetailId); };
 $('#detail-stage').addEventListener('keydown', event => {
   if (event.ctrlKey || event.metaKey || event.altKey || !detailReady || !detailRenderer) return;

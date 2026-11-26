@@ -10,7 +10,7 @@ const HASH=/^[a-f0-9]{64}$/;
 const pair=value=>Array.isArray(value)&&value.length===2&&value.every(Number.isFinite);
 export function validPresentationSpec(spec){
   return !!spec&&['azimuth','elevation','zoom','aspect'].every(key=>Number.isFinite(spec[key]))
-    &&spec.zoom>0&&spec.elevation>-90&&spec.elevation<90&&Math.abs(spec.aspect-16/9)<1e-9
+    &&spec.zoom>0&&spec.elevation>-90&&spec.elevation<90&&(Math.abs(spec.aspect-16/9)<1e-9||Math.abs(spec.aspect-1)<1e-9)
     &&pair(spec.offset)&&pair(spec.floorCenter)&&Array.isArray(spec.floorPoints)
     &&spec.floorPoints.length>=3&&spec.floorPoints.every(pair)
     &&!!spec.projectedBounds&&['left','right','top','bottom'].every(key=>Number.isFinite(spec.projectedBounds[key]))

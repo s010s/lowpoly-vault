@@ -67,8 +67,14 @@ export async function buildSimple(){
  await clearDeliveredAssets('dist');
  const pruned=await pruneUnusedPublicPosters(source,delivery,{out:'dist'});
  if(pruned.removedFiles)console.log(`Pruned ${pruned.removedFiles} unreferenced poster files (${(pruned.removedBytes/1e6).toFixed(1)} MB) from dist.`);
+ const resources=JSON.parse(await readFile('site/public/gallery/resources.json','utf8'));
  const previewById=new Map(delivery.models.filter(m=>m.files?.right?.path?.startsWith('site/public/')).map(m=>[m.id,m.files.right.path.slice('site/public/'.length)]));
+ const cardPreviewById=new Map(delivery.models.filter(m=>m.files?.left?.path?.startsWith('site/public/')).map(m=>[m.id,m.files.left.path.slice('site/public/'.length)]));
  let manifest=await deliverManifestAssets(source,'dist',{verifyHashes:false,includeBundles:false,previewById});
+ for(const asset of manifest.assets){
+  const card=cardPreviewById.get(asset.id);if(card)asset.card_preview=card;
+  const spec=resources.posters?.[asset.id]?.wheelSpec;if(spec)asset.wheelSpec=spec;
+ }
  console.log(`Pages space optimization: static ZIP bundles omitted (client-side ZIP enabled); ${previewById.size} preview paths mapped to canonical detail posters.`);
  manifest=await deliverLegacyMedia(manifest);
  const changedAssets=manifest.assets.filter(a=>byteBudget.changed_ids.includes(a.id));
