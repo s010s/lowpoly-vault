@@ -81,11 +81,17 @@ test('blocks asset paths outside the site', async () => {
 });
 
 test('records bounded HTTP503 evidence without calling it a hash failure or capturing cookies', async () => {
-  const {options} = fixture(); const original = options.fetcher;
-  options.fetcher = async url => url.pathname.endsWith('new-model-wheel.png')
-    ? new Response('upstream unavailable\n' + 'x'.repeat(4096), {status: 503, headers: {'content-type': 'text/plain', server: 'example-gateway', 'retry-after': '3', 'set-cookie': 'must-not-be-recorded'}})
-    : original(url);
+  const {options} = fixture(); const original = options.fetcher; let attempts = 0; const delays = [];
+  options.sleep = async ms => { delays.push(ms); };
+  options.fetcher = async url => {
+    if (url.pathname.endsWith('new-model-wheel.png')) {
+      attempts++;
+      return new Response('upstream unavailable\n' + 'x'.repeat(4096), {status: 503, headers: {'content-type': 'text/plain', server: 'example-gateway', 'retry-after': '3', 'set-cookie': 'must-not-be-recorded'}});
+    }
+    return original(url);
+  };
   const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
+  assert.equal(attempts, 4); assert.deepEqual(delays, [3000, 3000, 3000]);
   assert.equal(report.failed, 1); assert.equal(report.passed, 1);
   assert.equal(row.error_kind, 'HTTP_RESPONSE_ERROR'); assert.equal(row.failure_details.http_status, 503);
   assert.equal(row.failure_details.path, 'gallery/new-model-wheel.png');
@@ -94,6 +100,40 @@ test('records bounded HTTP503 evidence without calling it a hash failure or capt
   assert(row.failure_details.public_error_excerpt.startsWith('upstream unavailable'));
   assert(row.failure_details.public_error_excerpt.length <= 512);
   assert(!JSON.stringify(report).includes('must-not-be-recorded'));
+});
+
+test('retries transient HTTP 503 and 429 with backoff and Retry-After until delivery succeeds', async () => {
+  const {options} = fixture(); const original = options.fetcher;
+  const delays = []; let wheelAttempts = 0; let detailAttempts = 0; let cancelled = 0;
+  options.sleep = async ms => { delays.push(ms); };
+  options.fetcher = async url => {
+    if (url.pathname.endsWith('new-model-wheel.png') && wheelAttempts++ < 2) {
+      return new Response(new ReadableStream({cancel() { cancelled++; }}), {status: 503, headers: {'content-type': 'application/octet-stream'}});
+    }
+    if (url.pathname.endsWith('new-model-detail.png') && detailAttempts++ < 1) {
+      return new Response('rate limited', {status: 429, headers: {'retry-after': '2'}});
+    }
+    return original(url);
+  };
+  const report = await checkDelivery(options);
+  assert.equal(report.status, 'PASS'); assert.equal(report.passed, 2); assert.equal(report.failed, 0);
+  assert.equal(wheelAttempts, 3); assert.equal(detailAttempts, 2); assert.equal(cancelled, 2);
+  assert.deepEqual(delays.sort((a, b) => a - b), [500, 1000, 2000]);
+});
+
+test('does not retry permanent HTTP 404 responses', async () => {
+  const {options} = fixture(); const original = options.fetcher; let attempts = 0; const delays = [];
+  options.sleep = async ms => { delays.push(ms); };
+  options.fetcher = async url => {
+    if (url.pathname.endsWith('new-model-wheel.png')) {
+      attempts++;
+      return new Response('not found', {status: 404, headers: {'content-type': 'text/plain'}});
+    }
+    return original(url);
+  };
+  const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
+  assert.equal(attempts, 1); assert.deepEqual(delays, []);
+  assert.equal(row.status, 'FAIL'); assert.equal(row.failure_details.http_status, 404);
 });
 
 test('distinguishes a successful HTTP response with corrupt bytes from a service error', async () => {
@@ -107,12 +147,13 @@ test('distinguishes a successful HTTP response with corrupt bytes from a service
 });
 
 test('cancels non-text HTTP failure streams while retaining the service status', async () => {
-  const {options} = fixture(); const original = options.fetcher; let cancelled = false;
+  const {options} = fixture(); const original = options.fetcher; let cancelled = 0;
+  options.sleep = async () => {};
   options.fetcher = async url => url.pathname.endsWith('new-model-wheel.png')
-    ? new Response(new ReadableStream({cancel() {cancelled = true;}}), {status: 503, headers: {'content-type': 'application/octet-stream'}})
+    ? new Response(new ReadableStream({cancel() {cancelled++;}}), {status: 503, headers: {'content-type': 'application/octet-stream'}})
     : original(url);
   const report = await checkDelivery(options), row = report.models.find(r => r.id === 'new-model');
-  assert(cancelled); assert.equal(row.error_kind, 'HTTP_RESPONSE_ERROR');
+  assert.equal(cancelled, 4); assert.equal(row.error_kind, 'HTTP_RESPONSE_ERROR');
   assert.equal(row.failure_details.http_status, 503);
   assert.equal(row.failure_details.public_error_excerpt, undefined);
   assert.equal(report.models.find(r => r.id === 'replacement').status, 'PASS');

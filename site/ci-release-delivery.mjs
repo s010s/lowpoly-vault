@@ -12,6 +12,27 @@ import {creditText} from './asset-delivery.mjs';
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const commit = value => { assert(/^[a-f0-9]{40}$/.test(value || ''), 'Full commit SHA required'); return value; };
+const RETRYABLE_HTTP_STATUSES = new Set([429, 502, 503, 504]);
+const DEFAULT_MAX_RETRIES = 3;
+const DEFAULT_RETRY_BASE_MS = 500;
+const DEFAULT_MAX_RETRY_DELAY_MS = 15000;
+function parseRetryAfterMs(header) {
+  if (!header) return null;
+  const trimmed = String(header).trim();
+  if (/^\d+(?:\.\d+)?$/.test(trimmed)) return Math.ceil(Number(trimmed) * 1000);
+  const timestamp = Date.parse(trimmed);
+  if (Number.isFinite(timestamp)) return Math.max(0, timestamp - Date.now());
+  return null;
+}
+function retryDelayMs(attempt, response, retryBaseMs, maxRetryDelayMs) {
+  const backoff = retryBaseMs * (2 ** attempt);
+  const retryAfter = response ? parseRetryAfterMs(response.headers.get('retry-after')) : null;
+  return Math.min(maxRetryDelayMs, Math.max(0, retryAfter !== null ? Math.max(backoff, retryAfter) : backoff));
+}
+function isRetryableFetchError(error) {
+  if (!error || error.name === 'AssertionError' || error.delivery_error_kind) return false;
+  return error.name === 'TimeoutError' || error.name === 'AbortError' || error instanceof TypeError;
+}
 async function httpFailure(path, response) {
   const headers = {};
   for (const name of ['date', 'server', 'via', 'content-type', 'retry-after', 'age', 'x-cache', 'x-cache-hits', 'x-served-by', 'x-github-request-id', 'x-fastly-request-id', 'cf-ray']) {
@@ -53,9 +74,22 @@ function hasLocalizedHeading(html, name) {
   return [...markup.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)].some(match => match[1].replace(/<[^>]*>/g, '').trim() === escapeHTML(name));
 }
 
-export async function checkDelivery({baseURL, expectedSha, baseline, source, resources, fetcher = fetch, concurrency = 4}) {
+export async function checkDelivery({
+  baseURL,
+  expectedSha,
+  baseline,
+  source,
+  resources,
+  fetcher = fetch,
+  concurrency = 4,
+  maxRetries = DEFAULT_MAX_RETRIES,
+  retryBaseMs = DEFAULT_RETRY_BASE_MS,
+  maxRetryDelayMs = DEFAULT_MAX_RETRY_DELAY_MS,
+  sleep = ms => new Promise(done => setTimeout(done, ms)),
+}) {
   commit(expectedSha);
   assert(Number.isInteger(concurrency) && concurrency > 0 && concurrency <= 8);
+  assert(Number.isInteger(maxRetries) && maxRetries >= 0 && maxRetries <= 10);
   const base = new URL(baseURL);
   assert(['https:', 'http:'].includes(base.protocol) && !base.username && !base.password, 'Invalid site URL');
   if (!base.pathname.endsWith('/')) base.pathname += '/';
@@ -64,9 +98,29 @@ export async function checkDelivery({baseURL, expectedSha, baseline, source, res
     const url = new URL(path, base);
     assert(url.origin === base.origin && url.pathname.startsWith(base.pathname), 'Delivery path escapes site');
     url.searchParams.set('deployment', expectedSha);
-    const response = await fetcher(url, {signal: AbortSignal.timeout(60000), cache: 'no-store'});
-    if (!response.ok) throw await httpFailure(path, response);
-    return response;
+    for (let attempt = 0; ; attempt++) {
+      let response;
+      try {
+        response = await fetcher(url, {signal: AbortSignal.timeout(60000), cache: 'no-store'});
+      } catch (error) {
+        if (attempt < maxRetries && isRetryableFetchError(error)) {
+          const delay = retryDelayMs(attempt, null, retryBaseMs, maxRetryDelayMs);
+          console.log('DELIVERY_RETRY', path, `${error.name || 'Error'} (attempt ${attempt + 1}/${maxRetries}, wait ${delay}ms)`);
+          await sleep(delay);
+          continue;
+        }
+        throw error;
+      }
+      if (response.ok) return response;
+      if (attempt < maxRetries && RETRYABLE_HTTP_STATUSES.has(response.status)) {
+        const delay = retryDelayMs(attempt, response, retryBaseMs, maxRetryDelayMs);
+        if (response.body) await response.body.cancel().catch(() => {});
+        console.log('DELIVERY_RETRY', path, `HTTP ${response.status} (attempt ${attempt + 1}/${maxRetries}, wait ${delay}ms)`);
+        await sleep(delay);
+        continue;
+      }
+      throw await httpFailure(path, response);
+    }
   };
   const marker = await (await get('release-build.json')).json();
   assert.equal(marker.source_commit, expectedSha, 'Deployment not yet current');
