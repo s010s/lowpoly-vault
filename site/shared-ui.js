@@ -1,5 +1,6 @@
 /** Single source of truth for bilingual UI terminology, formatting, curation visibility, attribution, and copy feedback. */
 import { normalizeText } from './routes.js';
+import { MOTION, prefersReducedMotion, animateOneShot } from './motion-system.js';
 
 export const CATEGORIES = Object.freeze({
   animals: { en: 'Animals', zh: '动物', aliases: ['animal', 'creature', 'fauna', '生物', '动物形态'] },
@@ -190,9 +191,33 @@ export function showCopyFallback(anchor, text, lang = 'en', { key = '', focusTar
   close.className = 'copy-fallback-close';
   close.textContent = '×';
   close.setAttribute('aria-label', isZh(lang) ? '关闭复制框' : 'Dismiss copy box');
+  let closing = false;
   const dismiss = () => {
-    box.remove();
-    returnTarget?.focus?.({ preventScroll: true });
+    if (closing) return;
+    closing = true;
+    box.inert = true;
+    box.setAttribute('aria-hidden', 'true');
+    const reduced = prefersReducedMotion();
+    const anim = animateOneShot(
+      box,
+      'copy-fallback',
+      reduced
+        ? [{ opacity: 1 }, { opacity: 0 }]
+        : [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-4px)' }],
+      { duration: reduced ? 90 : 130, easing: MOTION.easeExit, fill: 'forwards' },
+    );
+    const finish = () => {
+      const activeEl = typeof document !== 'undefined' ? document.activeElement : null;
+      const shouldRestoreFocus = box.isConnected && (
+        box.contains?.(activeEl) || !activeEl || activeEl === document?.body
+      );
+      box.remove();
+      if (shouldRestoreFocus && returnTarget?.isConnected !== false) {
+        returnTarget?.focus?.({ preventScroll: true });
+      }
+    };
+    if (anim) Promise.resolve(anim.finished).then(finish, finish);
+    else finish();
   };
   close.onclick = dismiss;
   input.addEventListener('keydown', e => {
@@ -201,6 +226,15 @@ export function showCopyFallback(anchor, text, lang = 'en', { key = '', focusTar
   row.append(input, close);
   box.append(hint, row);
   anchor.after(box);
+  const reduced = prefersReducedMotion();
+  animateOneShot(
+    box,
+    'copy-fallback',
+    reduced
+      ? [{ opacity: 0 }, { opacity: 1 }]
+      : [{ opacity: 0, transform: 'translateY(-4px)' }, { opacity: 1, transform: 'translateY(0)' }],
+    { duration: reduced ? MOTION.reducedFade : MOTION.fast, easing: MOTION.easeStandard },
+  );
   input.focus({ preventScroll: true });
   input.select();
   return box;

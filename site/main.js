@@ -11,6 +11,11 @@ import {
 } from './shared-ui.js';
 import { primaryDimension, dimensionDetails, dimensionNote, comparisonText } from './gallery/model-dimensions.js';
 import { modelShortName } from './gallery/presentation-labels.js';
+import { iconMarkup } from './gallery/icons.js';
+import {
+  MOTION, prefersReducedMotion, installResizeMotionGuard, animateOneShot, animatePresence,
+  lockButtonWidth, swapIconSmooth, createDiscreteCameraStepper,
+} from './motion-system.js';
 import './style.css';
 
 const $ = selector => document.querySelector(selector);
@@ -37,6 +42,7 @@ const plainClick = event => event.button === 0 && !event.metaKey && !event.ctrlK
 const store = new CatalogStore({ baseURL: new URL(siteRoot, location.origin).href });
 const path = p => store.resolvePath(p);
 initTheme();
+installResizeMotionGuard();
 
 let index = null;
 let currentView = 'home';
@@ -52,12 +58,17 @@ let detailCompareKind = null;
 let detailNeighbors = { prev: null, next: null, related: [] };
 let detailZipController = null;
 let detailZipVersion = 0;
+let detailSkeletonTimer = 0;
+let detailContentLoaded = false;
 let pendingRoute = false;
 let queuedRoute = false;
 let toastTimer = 0;
 let pendingSearchQuery = '';
 let pendingCategory = 'all';
 const copyTimers = new WeakMap();
+const copyWidthReleases = new WeakMap();
+const copyVersions = new WeakMap();
+const detailStepper = createDiscreteCameraStepper(() => detailRenderer, { reduced: prefersReducedMotion });
 const staticContent = $('#static-route-content');
 const setStatus = text => { $('#announcement').textContent = text; };
 
@@ -71,7 +82,11 @@ function listURL() {
 function showToast(message, { actionLabel = null, onAction = null, duration = 2800 } = {}) {
   const host = $('#site-toast'), msg = $('#site-toast-msg'), btn = $('#site-toast-action');
   if (!host || !msg) return;
+  const wasVisible = host.classList.contains('visible');
   msg.textContent = message;
+  if (wasVisible) {
+    animateOneShot(msg, 'toast-swap', [{ opacity: 0.4 }, { opacity: 1 }], { duration: prefersReducedMotion() ? MOTION.reducedFade : 120, easing: MOTION.easeStandard });
+  }
   if (actionLabel && onAction && btn) {
     btn.textContent = actionLabel;
     btn.hidden = false;
@@ -106,16 +121,12 @@ function setDetailDownloadsDisabled(disabled) {
         link.removeAttribute('href');
       }
       link.setAttribute('aria-disabled', 'true');
-      link.style.opacity = '.45';
-      link.style.pointerEvents = 'none';
     } else {
       if (link.dataset.disabledHref) {
         link.setAttribute('href', link.dataset.disabledHref);
         delete link.dataset.disabledHref;
       }
       link.removeAttribute('aria-disabled');
-      link.style.removeProperty('opacity');
-      link.style.removeProperty('pointer-events');
     }
   }
   for (const btn of host.querySelectorAll('button')) {
@@ -123,33 +134,61 @@ function setDetailDownloadsDisabled(disabled) {
   }
 }
 
+function setCopyButtonContent(button, text, iconName, { animateIcon = false } = {}) {
+  if (!button) return;
+  const label = button.querySelector?.('.btn-label');
+  const iconHost = button.querySelector?.('.btn-icon');
+  if (label) {
+    if (text !== undefined) label.textContent = text;
+  } else if (text !== undefined) {
+    button.textContent = text;
+  }
+  if (iconHost && iconName) {
+    const markup = iconMarkup(iconName).replace('<svg ', '<svg class="vault-icon" width="15" height="15" ');
+    if (animateIcon) swapIconSmooth(iconHost, markup, { reduced: prefersReducedMotion() });
+    else iconHost.innerHTML = markup;
+  }
+}
+
 function resetCopyButton(button, defaultText, { anchor, key } = {}) {
   if (!button) return;
+  copyVersions.set(button, (copyVersions.get(button) || 0) + 1);
   const timer = copyTimers.get(button);
   if (timer) { clearTimeout(timer); copyTimers.delete(button); }
-  delete button.dataset.copyState;
+  const releaseWidth = copyWidthReleases.get(button);
+  if (releaseWidth) { releaseWidth(); copyWidthReleases.delete(button); }
+  const wasCopied = button.dataset.copyState === 'copied';
+  button.dataset.copyState = 'idle';
   button.removeAttribute('aria-busy');
-  if (defaultText !== undefined) button.textContent = defaultText;
+  const defaultIcon = button.dataset.defaultIcon || '';
+  setCopyButtonContent(button, defaultText, defaultIcon, { animateIcon: wasCopied });
   clearCopyFallback(anchor || button.closest('.detail-action-row') || button, key || button.id || '');
 }
 
-async function copyText(text, button, { successLabel, defaultLabel, anchor = button, key = button?.id || '' } = {}) {
+async function copyText(text, button, { successLabel, statusLabel, defaultLabel, anchor = button, key = button?.id || '' } = {}) {
   if (!button) return;
   resetCopyButton(button, defaultLabel, { anchor, key });
-  const doneLabel = successLabel || `${t('copied')} ✓`;
+  const version = (copyVersions.get(button) || 0) + 1;
+  copyVersions.set(button, version);
+  const hasIcon = Boolean(button.querySelector?.('.btn-icon'));
+  const doneLabel = successLabel || (hasIcon ? t('copied') : `${t('copied')} ✓`);
+  const announceLabel = statusLabel || doneLabel;
   try {
     if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
     await navigator.clipboard.writeText(text);
-    if (!button.isConnected) return;
+    if (!button.isConnected || copyVersions.get(button) !== version) return;
+    copyWidthReleases.set(button, lockButtonWidth(button));
     button.dataset.copyState = 'copied';
-    button.textContent = doneLabel;
-    setStatus(doneLabel);
+    setCopyButtonContent(button, doneLabel, hasIcon ? 'check' : '', { animateIcon: hasIcon });
+    setStatus(announceLabel);
     const id = setTimeout(() => {
-      if (button.isConnected && button.dataset.copyState === 'copied') resetCopyButton(button, defaultLabel, { anchor, key });
+      if (button.isConnected && copyVersions.get(button) === version && button.dataset.copyState === 'copied') {
+        resetCopyButton(button, defaultLabel, { anchor, key });
+      }
     }, 2000);
     copyTimers.set(button, id);
   } catch {
-    if (!button.isConnected) return;
+    if (!button.isConnected || copyVersions.get(button) !== version) return;
     button.dataset.copyState = 'error';
     setStatus(t('copyFail'));
     showCopyFallback(anchor, text, lang, { key, focusTarget: button });
@@ -159,12 +198,21 @@ async function copyText(text, button, { successLabel, defaultLabel, anchor = but
 function syncHomeSearchClear() {
   const input = $('#home-query'), btn = $('#home-search-clear');
   if (!input || !btn) return;
-  btn.hidden = !input.value;
+  animatePresence(btn, Boolean(input.value), {
+    id: 'home-search-clear',
+    enterY: 0,
+    exitY: 0,
+    enterScale: 0.82,
+    enterDuration: 140,
+    exitDuration: 110,
+    reduced: prefersReducedMotion(),
+  });
   btn.ariaLabel = lang === 'zh' ? '清除搜索词' : 'Clear search';
 }
 
 function showView(view) {
   if (!['home', 'about', 'notices', 'detail'].includes(view)) view = 'home';
+  const prevView = currentView;
   currentView = view;
   $('#home-page').hidden = view !== 'home';
   $('#about-page').hidden = view !== 'about';
@@ -174,12 +222,26 @@ function showView(view) {
   if (view !== 'detail') {
     detailRenderer?.suspend();
     detailReady = false;
+    if (typeof detailContentLoaded === 'boolean') detailContentLoaded = false;
   }
   document.querySelectorAll('.topbar [data-route]').forEach(anchor => {
     const active = anchor.dataset.route === view;
     if (active) anchor.setAttribute('aria-current', 'page');
     else anchor.removeAttribute('aria-current');
   });
+  const docEl = document.documentElement;
+  const mounted = docEl?.dataset?.viewMounted === 'true';
+  if (docEl?.dataset) docEl.dataset.viewMounted = 'true';
+  const targetSection = $(`#${view}-page`);
+  if (mounted && prevView !== view && typeof animateOneShot === 'function' && typeof MOTION !== 'undefined') {
+    const reduced = typeof prefersReducedMotion === 'function' && prefersReducedMotion();
+    animateOneShot(
+      targetSection,
+      'view-enter',
+      reduced ? [{ opacity: 0.45 }, { opacity: 1 }] : [{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }],
+      { duration: reduced ? MOTION.reducedFade : 200, easing: MOTION.easeStandard },
+    );
+  }
 }
 
 function syncDetailTools() {
@@ -195,36 +257,63 @@ function syncDetailTools() {
 function syncDetailStageHint() {
   const hint = $('#detail-stage-hint');
   if (!hint) return;
-  if (detailRenderer?.comparison) {
-    hint.textContent = lang === 'zh' ? '水平拖动旋转 · 滚轮缩放' : 'Drag horizontally to turn · Scroll to zoom';
-  } else {
-    hint.textContent = t('hint');
+  const next = detailRenderer?.comparison
+    ? (lang === 'zh' ? '水平拖动旋转 · 滚轮缩放' : 'Drag horizontally to turn · Scroll to zoom')
+    : t('hint');
+  if (hint.textContent !== next) {
+    const hadText = Boolean(hint.textContent);
+    hint.textContent = next;
+    if (hadText) {
+      animateOneShot(hint, 'hint-swap', [{ opacity: 0.35 }, { opacity: 1 }], { duration: prefersReducedMotion() ? MOTION.reducedFade : 140, easing: MOTION.easeStandard });
+    }
   }
 }
 
 function updateDetailComparisonLabel() {
   const label = $('#detail-comparison-label');
   if (!label) return;
+  const reduced = prefersReducedMotion();
   if (detailCompareError) {
-    label.hidden = false;
+    label.dataset.state = 'error';
     label.textContent = lang === 'zh' ? '参照加载失败，请重试。' : 'Could not load scale reference. Try again.';
+    animatePresence(label, true, { id: 'compare-label', enterY: -4, exitY: -3, reduced });
     return;
   }
   if (detailCompareLoading) {
-    label.hidden = false;
+    label.dataset.state = 'loading';
     label.textContent = lang === 'zh' ? '正在载入尺寸参照…' : 'Loading scale reference…';
+    animatePresence(label, true, { id: 'compare-label', enterY: -4, exitY: -3, reduced });
     return;
   }
   if (detailRenderer?.comparison && detailCompareKind && selected) {
-    label.hidden = false;
+    label.dataset.state = 'ready';
     label.textContent = comparisonText(detailCompareKind, lang, selected);
+    animatePresence(label, true, { id: 'compare-label', enterY: -4, exitY: -3, reduced });
     return;
   }
-  label.hidden = true;
+  delete label.dataset.state;
+  animatePresence(label, false, { id: 'compare-label', exitY: -3, reduced });
+}
+
+function setDetailLoadingMessage(text) {
+  const pill = $('#detail-loading');
+  if (!pill) return;
+  if (!text) {
+    animatePresence(pill, false, {
+      id: 'detail-loading',
+      exitY: 2,
+      reduced: prefersReducedMotion(),
+      onHidden: () => { pill.textContent = ''; },
+    });
+    return;
+  }
+  pill.textContent = text;
+  animatePresence(pill, true, { id: 'detail-loading', enterY: 3, reduced: prefersReducedMotion() });
 }
 
 function handleDetailError(version, id, error) {
   if (version !== detailVersion || id !== requestedDetailId) return;
+  detailStepper.cancel();
   detailReady = false;
   const posterImg = $('#detail-poster');
   posterImg.classList.remove('ready');
@@ -235,17 +324,17 @@ function handleDetailError(version, id, error) {
     posterImg.style.visibility = 'hidden';
     posterImg.removeAttribute('src');
     setDetailDownloadsDisabled(true);
-    $('#detail-loading').textContent = lang === 'zh'
+    setDetailLoadingMessage(lang === 'zh'
       ? '文件校验未通过，为避免下到损坏文件已暂停预览与下载，请重试。'
-      : 'File check failed. Preview and downloads are paused to avoid corrupted files — please retry.';
+      : 'File check failed. Preview and downloads are paused to avoid corrupted files — please retry.');
   } else {
-    $('#detail-loading').textContent = selected?.glb ? t('viewError') : t('detailError');
+    setDetailLoadingMessage(selected?.glb ? t('viewError') : t('detailError'));
     if (!selected) {
       $('#detail-title').textContent = id || '';
       $('#detail-description').textContent = t('missing');
     }
   }
-  $('#detail-retry').hidden = false;
+  animatePresence($('#detail-retry'), true, { id: 'detail-retry', enterY: 5, reduced: prefersReducedMotion() });
   syncDetailTools();
 }
 
@@ -255,6 +344,7 @@ async function ensureDetailRenderer() {
   detailRenderer = new DetailRenderer($('#detail-stage'), undefined, { inPlace: true });
   detailRenderer.wire = getStoredWireframe();
   detailRenderer.onDirtyChange = () => syncDetailTools();
+  detailRenderer.onInteraction = () => detailStepper.cancel();
   detailRenderer.onError = (error, ctx) => {
     if (!ctx || ctx.assetId === requestedDetailId) {
       handleDetailError(detailVersion, requestedDetailId, error);
@@ -329,13 +419,13 @@ function renderDetailInfo(asset) {
   const glbSizeText = formatBytes(glbBytes, lang);
   const blendSizeText = formatBytes(blendBytes, lang);
   const zipMarkup = asset.downloads?.bundle
-    ? `<a href="${esc(path(asset.downloads.bundle))}" download class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span aria-hidden="true">↓</span></a>`
+    ? `<a href="${esc(path(asset.downloads.bundle))}" download class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span class="arrow-down" aria-hidden="true">↓</span></a>`
     : (asset.glb && asset.blend
-      ? `<button type="button" id="detail-download-zip" class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span aria-hidden="true">↓</span></button>`
+      ? `<button type="button" id="detail-download-zip" class="detail-dl-zip"><span>${detailZipLabelHtml(asset)}</span><span class="arrow-down" aria-hidden="true">↓</span></button>`
       : '');
   $('#detail-downloads').innerHTML =
-    (glbFile ? `<a href="${esc(path(glbFile))}" download class="detail-dl-primary" data-dl-track="glb"><span>${esc(t('glb'))}<small>${esc(glbSizeText)}</small></span><span aria-hidden="true">↓</span></a>` : '') +
-    (blendFile ? `<a href="${esc(path(blendFile))}" download class="detail-dl-secondary" data-dl-track="blend"><span>${esc(t('blend'))}<small>${esc(blendSizeText)}</small></span><span aria-hidden="true">↓</span></a>` : '') +
+    (glbFile ? `<a href="${esc(path(glbFile))}" download class="detail-dl-primary" data-dl-track="glb"><span>${esc(t('glb'))}<small>${esc(glbSizeText)}</small></span><span class="arrow-down" aria-hidden="true">↓</span></a>` : '') +
+    (blendFile ? `<a href="${esc(path(blendFile))}" download class="detail-dl-secondary" data-dl-track="blend"><span>${esc(t('blend'))}<small>${esc(blendSizeText)}</small></span><span class="arrow-down" aria-hidden="true">↓</span></a>` : '') +
     zipMarkup;
 
   const zipBtn = $('#detail-download-zip');
@@ -343,7 +433,7 @@ function renderDetailInfo(asset) {
     if (detailZipController) {
       zipBtn.disabled = true;
       zipBtn.setAttribute('aria-busy', 'true');
-      zipBtn.querySelector('span').textContent = t('preparingZip');
+      zipBtn.querySelector('span').innerHTML = `${esc(t('preparingZip'))}<small>${esc(t('bundleSub'))}</small>`;
     }
     zipBtn.onclick = async () => {
       if (zipBtn.disabled || detailIntegrityBlocked) return;
@@ -353,11 +443,15 @@ function renderDetailInfo(asset) {
       zipBtn.disabled = true;
       zipBtn.setAttribute('aria-busy', 'true');
       const labelSpan = zipBtn.querySelector('span');
-      labelSpan.textContent = t('preparingZip');
+      labelSpan.innerHTML = `${esc(t('preparingZip'))}<small>${esc(t('bundleSub'))}</small>`;
       setStatus(t('preparingZip'));
       try {
         const { filename } = await downloadModelZip(asset, { resolveURL: path, signal: controller.signal });
         if (gen !== detailZipVersion || selected?.id !== asset.id || detailIntegrityBlocked || controller.signal.aborted) return;
+        const arrow = zipBtn.querySelector('.arrow-down');
+        if (arrow && !prefersReducedMotion()) {
+          animateOneShot(arrow, 'dl-nudge', [{ transform: 'translateY(0)' }, { transform: 'translateY(3px)' }, { transform: 'translateY(0)' }], { duration: 220, easing: MOTION.easeStandard });
+        }
         showToast(lang === 'zh' ? `已开始下载 ${filename}` : `Downloading ${filename}`, {
           actionLabel: lang === 'zh' ? '复制署名' : 'Copy credit',
           onAction: () => copyAttributionFor(asset),
@@ -382,6 +476,10 @@ function renderDetailInfo(asset) {
   for (const dlLink of $('#detail-downloads').querySelectorAll('a[data-dl-track]')) {
     dlLink.addEventListener('click', () => {
       if (detailIntegrityBlocked || dlLink.getAttribute('aria-disabled') === 'true') return;
+      const arrow = dlLink.querySelector('.arrow-down');
+      if (arrow && !prefersReducedMotion()) {
+        animateOneShot(arrow, 'dl-nudge', [{ transform: 'translateY(0)' }, { transform: 'translateY(3px)' }, { transform: 'translateY(0)' }], { duration: 220, easing: MOTION.easeStandard });
+      }
       showToast(lang === 'zh' ? '已开始下载 · 别忘了附带 CC BY 4.0 署名' : 'Download started · Remember CC BY 4.0 credit', {
         actionLabel: lang === 'zh' ? '复制署名' : 'Copy credit',
         onAction: () => copyAttributionFor(asset),
@@ -396,7 +494,8 @@ function renderDetailInfo(asset) {
   resetCopyButton($('#detail-share'), t('share'), { anchor: actionRow, key: 'detail-share' });
   $('#detail-copy-credit').onclick = () => copyAttributionFor(asset);
   $('#detail-share').onclick = () => copyText(new URL(href('detail', asset.id), location.origin).href, $('#detail-share'), {
-    successLabel: `${t('linkCopied')} ✓`,
+    successLabel: t('copied'),
+    statusLabel: t('linkCopied'),
     defaultLabel: t('share'),
     anchor: actionRow,
     key: 'detail-share',
@@ -417,7 +516,7 @@ function renderDetailInfo(asset) {
 function copyAttributionFor(asset) {
   const canonicalUrl = new URL(href('detail', asset.id), location.origin).href;
   return copyText(formatAttribution(asset, lang, canonicalUrl), $('#detail-copy-credit'), {
-    successLabel: `${t('copied')} ✓`,
+    successLabel: t('copied'),
     defaultLabel: t('copy'),
     anchor: $('.detail-action-row'),
     key: 'detail-copy-credit',
@@ -441,10 +540,24 @@ function paintDetailNeighbors() {
     nextEl.textContent = `${modelShortName(next, lang)} →`;
     nextEl.ariaLabel = `${t('nextModel')}: ${modelShortName(next, lang)}`;
   }
-  $('#related').hidden = !related.length;
+  const relatedSec = $('#related');
+  const hadHidden = relatedSec.hidden;
+  relatedSec.hidden = !related.length;
   $('#related-models').innerHTML = related.map(item =>
-    `<a href="${esc(href('detail', item.id))}" data-route-detail="${esc(item.id)}"><img src="${esc(path(item.preview))}" alt="${esc(modelShortName(item, lang))}" loading="lazy" width="160" height="160"><span>${esc(modelShortName(item, lang))}</span></a>`
+    `<a href="${esc(href('detail', item.id))}" data-route-detail="${esc(item.id)}"><span class="related-thumb"><img src="${esc(path(item.preview))}" alt="${esc(modelShortName(item, lang))}" loading="lazy" width="160" height="160" data-thumb-loading="true"></span><span>${esc(modelShortName(item, lang))}</span></a>`
   ).join('');
+  for (const img of $('#related-models').querySelectorAll('img')) {
+    const settle = () => { delete img.dataset.thumbLoading; };
+    if (img.complete && img.naturalWidth > 0) settle();
+    else {
+      img.addEventListener('load', settle, { once: true });
+      img.addEventListener('error', settle, { once: true });
+    }
+  }
+  if (hadHidden && related.length) {
+    const reduced = prefersReducedMotion();
+    animateOneShot(relatedSec, 'related-enter', reduced ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: reduced ? MOTION.reducedFade : 180, easing: MOTION.easeStandard });
+  }
 }
 
 async function renderDetailNeighborsAndRelated(asset, version) {
@@ -530,12 +643,17 @@ function resetDetailSkeleton() {
 
 async function openDetail(id) {
   const version = ++detailVersion;
+  const previousId = selected?.id || requestedDetailId;
+  const wasShowingDetail = currentView === 'detail' && detailContentLoaded;
   const keepStaticWhileLoading = Boolean(
     staticContent &&
     !staticContent.hidden &&
     staticContent.dataset.routeType === 'detail' &&
     staticContent.dataset.assetId === id
   );
+  clearTimeout(detailSkeletonTimer);
+  detailSkeletonTimer = 0;
+  detailStepper.cancel();
   cancelDetailZip();
   requestedDetailId = id;
   selected = null;
@@ -546,13 +664,25 @@ async function openDetail(id) {
   detailCompareKind = null;
   detailNeighbors = { prev: null, next: null, related: [] };
   detailRenderer?.suspend();
-  resetDetailSkeleton();
-  $('#detail-comparison-label').hidden = true;
+  const infoCol = $('.detail-info-column');
+  if (!wasShowingDetail) {
+    resetDetailSkeleton();
+    setDetailLoadingMessage(t('viewLoading'));
+  } else {
+    if (previousId !== id && scrollY > 40) {
+      scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    }
+    detailSkeletonTimer = setTimeout(() => {
+      if (version !== detailVersion || selected) return;
+      if (infoCol) infoCol.dataset.loading = 'true';
+      setDetailLoadingMessage(t('viewLoading'));
+    }, 140);
+  }
+  animatePresence($('#detail-comparison-label'), false, { id: 'compare-label', immediate: true });
   $('#detail-compare').setAttribute('aria-pressed', 'false');
   $('#detail-compare').removeAttribute('aria-busy');
   $('#detail-wireframe').setAttribute('aria-pressed', String(getStoredWireframe()));
-  $('#detail-retry').hidden = true;
-  $('#detail-loading').textContent = t('viewLoading');
+  animatePresence($('#detail-retry'), false, { id: 'detail-retry', immediate: true });
   syncDetailTools();
   syncDetailStageHint();
   if (!keepStaticWhileLoading) showView('detail');
@@ -560,9 +690,16 @@ async function openDetail(id) {
   try {
     const asset = await store.getDetail(id);
     if (version !== detailVersion) return;
+    clearTimeout(detailSkeletonTimer);
+    detailSkeletonTimer = 0;
+    if (infoCol) delete infoCol.dataset.loading;
     selected = asset;
     showView('detail');
     renderDetailInfo(asset);
+    detailContentLoaded = true;
+    if (wasShowingDetail && previousId !== id && infoCol) {
+      animateOneShot(infoCol, 'detail-swap', [{ opacity: 0.6 }, { opacity: 1 }], { duration: prefersReducedMotion() ? MOTION.reducedFade : 160, easing: MOTION.easeStandard });
+    }
     document.title = `${modelShortName(asset, lang)} | Lowpoly Vault`;
 
     const posterImg = $('#detail-poster');
@@ -570,9 +707,20 @@ async function openDetail(id) {
     posterImg.classList.remove('ready');
     posterImg.style.visibility = previewPath ? 'visible' : 'hidden';
     if (previewPath) {
-      posterImg.src = path(previewPath);
+      const nextSrc = path(previewPath);
+      const settlePoster = () => { if (version === detailVersion) delete posterImg.dataset.posterState; };
+      posterImg.onload = settlePoster;
+      posterImg.onerror = settlePoster;
+      posterImg.dataset.posterState = 'loading';
+      posterImg.src = nextSrc;
       posterImg.alt = modelShortName(asset, lang);
+      if (posterImg.complete && posterImg.naturalWidth > 0) settlePoster();
+    } else {
+      posterImg.onload = posterImg.onerror = null;
+      delete posterImg.dataset.posterState;
+      posterImg.removeAttribute('src');
     }
+    if (!detailReady) setDetailLoadingMessage(t('viewLoading'));
     void renderDetailNeighborsAndRelated(asset, version);
 
     const r = await ensureDetailRenderer();
@@ -584,10 +732,13 @@ async function openDetail(id) {
     });
     if (version !== detailVersion || !ready) return;
     detailReady = true;
-    $('#detail-loading').textContent = '';
+    setDetailLoadingMessage('');
     $('#detail-wireframe').setAttribute('aria-pressed', String(r.wire));
     syncDetailTools();
   } catch (error) {
+    clearTimeout(detailSkeletonTimer);
+    detailSkeletonTimer = 0;
+    if (infoCol) delete infoCol.dataset.loading;
     if (error?.name === 'AbortError' || version !== detailVersion) return;
     if (keepStaticWhileLoading && !selected && staticContent && !staticContent.hidden) {
       showToast(t('detailError'), { duration: 4200 });
@@ -607,14 +758,26 @@ async function renderNotices() {
     host.dataset.loaded = 'true';
     return;
   }
+  let showedLoading = false;
+  const loadingTimer = setTimeout(() => {
+    if (host.dataset.loaded === 'true') return;
+    showedLoading = true;
+    host.innerHTML = `<p class="notices-loading" role="status">${esc(lang === 'zh' ? '正在载入许可说明…' : 'Loading notices…')}</p>`;
+  }, 90);
   try {
     const response = await fetch(new URL('THIRD_PARTY_NOTICES.md', new URL(siteRoot, location.origin)).href);
     const contentType = response.headers.get('content-type') || '';
     if (!response.ok || /text\/html/i.test(contentType)) throw new Error('Notices unavailable');
     const markdown = await response.text();
+    clearTimeout(loadingTimer);
     host.innerHTML = renderNoticesMarkdown(markdown);
     host.dataset.loaded = 'true';
+    if (showedLoading) {
+      const reduced = prefersReducedMotion();
+      animateOneShot(host, 'notices-enter', reduced ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], { duration: reduced ? MOTION.reducedFade : 180, easing: MOTION.easeStandard });
+    }
   } catch {
+    clearTimeout(loadingTimer);
     host.innerHTML = `<p><a href="${esc(new URL('THIRD_PARTY_NOTICES.md', new URL(siteRoot, location.origin)).href)}">THIRD_PARTY_NOTICES.md</a></p>`;
   }
 }
@@ -670,7 +833,31 @@ function paintHome() {
         const pick = index.initial.find(x => x.id === spec.id) || index.initial.find(x => x.category === spec.category);
         return pick ? { category: spec.category, num: spec.num, id: pick.id, name: pick.name, preview: pick.preview } : null;
       }).filter(Boolean);
-  $('#home-categories').innerHTML = featured.map(item => {
+  const grid = $('#home-categories');
+  const existingCards = [...grid.querySelectorAll('.curation-card[data-home-category]')];
+  const canReuse = existingCards.length === featured.length &&
+    existingCards.every((card, idx) => card.dataset.homeCategory === featured[idx].category);
+  if (canReuse) {
+    featured.forEach((item, idx) => {
+      const card = existingCards[idx];
+      const count = (countByCat.get(item.category) || 0).toLocaleString(locale);
+      card.href = href('models', undefined, { query: { category: item.category } });
+      const img = card.querySelector('img');
+      if (img) img.alt = loc(item.name);
+      const num = card.querySelector('.curation-number');
+      if (num) num.textContent = item.num;
+      const titleEl = card.querySelector('.curation-title');
+      if (titleEl) {
+        const countSpan = titleEl.querySelector('span');
+        const label = categoryLabel(item.category, lang);
+        if (titleEl.firstChild?.nodeType === 3) titleEl.firstChild.textContent = label;
+        else titleEl.prepend(document.createTextNode(label));
+        if (countSpan) countSpan.textContent = `${count} ${t('count')} →`;
+      }
+    });
+    return;
+  }
+  grid.innerHTML = featured.map(item => {
     const count = (countByCat.get(item.category) || 0).toLocaleString(locale);
     return `<a class="curation-card" href="${esc(href('models', undefined, { query: { category: item.category } }))}" data-home-category="${esc(item.category)}"><div><img src="${esc(path(item.preview))}" alt="${esc(loc(item.name))}" loading="lazy" width="640" height="640"><span class="curation-number">${esc(item.num)}</span></div><span class="curation-title">${esc(categoryLabel(item.category, lang))}<span>${esc(count)} ${esc(t('count'))} →</span></span></a>`;
   }).join('');
@@ -780,7 +967,7 @@ $('#home-search-clear').onclick = () => {
 $('#about-copy-credit').onclick = () => {
   const text = $('#about-credit-sample').textContent.trim();
   void copyText(text, $('#about-copy-credit'), {
-    successLabel: `${t('copied')} ✓`,
+    successLabel: t('copied'),
     defaultLabel: t('copy'),
     anchor: $('#about-copy-credit'),
     key: 'about-copy-credit',
@@ -796,6 +983,7 @@ $('#language').onclick = event => {
   const target = href(route.type === 'not-found' ? 'home' : route.type, route.id, { page: route.page });
   history.replaceState(history.state, '', target);
   paintLanguage();
+  animateOneShot($('#language'), 'lang-swap', [{ opacity: 0.45 }, { opacity: 1 }], { duration: prefersReducedMotion() ? MOTION.reducedFade : 120, easing: MOTION.easeStandard });
 };
 
 $('#detail-wireframe').onclick = () => {
@@ -807,6 +995,7 @@ $('#detail-wireframe').onclick = () => {
 };
 $('#detail-compare').onclick = () => {
   if (!detailReady || !detailRenderer) return;
+  detailStepper.cancel();
   detailCompareError = false;
   const result = detailRenderer.compare();
   if (!result) {
@@ -824,10 +1013,15 @@ $('#detail-compare').onclick = () => {
   syncDetailStageHint();
   syncDetailTools();
 };
-$('#detail-zoom-in').onclick = () => { if (detailReady) detailRenderer?.zoom(0.85); };
-$('#detail-zoom-out').onclick = () => { if (detailReady) detailRenderer?.zoom(1.18); };
+$('#detail-zoom-in').onclick = () => { if (detailReady) detailStepper.zoom(0.85); };
+$('#detail-zoom-out').onclick = () => { if (detailReady) detailStepper.zoom(1.18); };
 $('#detail-reset').onclick = () => {
   if (!detailReady || !detailRenderer) return;
+  detailStepper.cancel();
+  if (!prefersReducedMotion()) {
+    const svg = $('#detail-reset svg');
+    animateOneShot(svg, 'reset-spin', [{ transform: 'rotate(0deg)' }, { transform: 'rotate(-360deg)' }], { duration: MOTION.gentle, easing: MOTION.easeStandard });
+  }
   detailCompareLoading = false;
   detailCompareError = false;
   detailCompareKind = null;
@@ -842,10 +1036,10 @@ $('#detail-retry').onclick = () => { if (requestedDetailId) void openDetail(requ
 $('#detail-stage').addEventListener('keydown', event => {
   if (event.ctrlKey || event.metaKey || event.altKey || !detailReady || !detailRenderer) return;
   const action = {
-    '+': () => detailRenderer.zoom(0.85), '=': () => detailRenderer.zoom(0.85),
-    '-': () => detailRenderer.zoom(1.18), '_': () => detailRenderer.zoom(1.18),
-    ArrowLeft: () => detailRenderer.rotate(-8, 0), ArrowRight: () => detailRenderer.rotate(8, 0),
-    ArrowUp: () => detailRenderer.rotate(0, 8), ArrowDown: () => detailRenderer.rotate(0, -8),
+    '+': () => detailStepper.zoom(0.85), '=': () => detailStepper.zoom(0.85),
+    '-': () => detailStepper.zoom(1.18), '_': () => detailStepper.zoom(1.18),
+    ArrowLeft: () => detailStepper.rotate(-8, 0), ArrowRight: () => detailStepper.rotate(8, 0),
+    ArrowUp: () => detailStepper.rotate(0, 8), ArrowDown: () => detailStepper.rotate(0, -8),
     Home: () => $('#detail-reset').click(), r: () => $('#detail-reset').click(), R: () => $('#detail-reset').click(),
   }[event.key];
   if (action) { event.preventDefault(); action(); }
@@ -867,7 +1061,11 @@ document.addEventListener('keydown', event => {
 
 window.addEventListener('popstate', syncRoute);
 window.addEventListener('hashchange', syncRoute);
+document.addEventListener('visibilitychange', () => { if (document.hidden) detailStepper.cancel(); });
+matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => { detailStepper.cancel(); });
 window.addEventListener('pagehide', event => {
+  clearTimeout(detailSkeletonTimer);
+  detailStepper.cancel();
   cancelDetailZip();
   if (event.persisted) {
     detailRenderer?.suspend();
@@ -903,7 +1101,7 @@ async function load() {
         showToast(t('detailError'), { duration: 4200 });
       } else {
         showView('detail');
-        $('#detail-loading').textContent = t('detailError');
+        setDetailLoadingMessage(t('detailError'));
       }
     }
   }

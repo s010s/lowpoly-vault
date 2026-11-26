@@ -9,10 +9,24 @@
   --vault-muted:#6b7067;
   --vault-line:#d9d6cd;
   --vault-accent:#305742;
+  --vault-accent-hover:#244432;
   --vault-on-accent:#fff;
   --vault-accent-soft:#e1e9db;
+  --vault-error:#b44b34;
   --vault-radius:9px;
   --vault-icon-stroke:1.65;
+  --motion-micro:90ms;
+  --motion-fast:160ms;
+  --motion-base:220ms;
+  --motion-gentle:380ms;
+  --motion-theme:440ms;
+  --motion-spatial:700ms;
+  --ease-standard:cubic-bezier(0.22,1,0.36,1);
+  --ease-spatial:cubic-bezier(0.32,0.72,0,1);
+  --ease-tactile:cubic-bezier(0.2,0,0,1);
+  --ease-exit:cubic-bezier(0.32,0,0.67,0);
+  --ease:var(--ease-standard);
+  --ui-ease-out:var(--ease-standard);
   font-synthesis:none;
 }
 :root[data-theme=dark] {
@@ -22,8 +36,10 @@
   --vault-muted:#b6bbae;
   --vault-line:#454d40;
   --vault-accent:#bfd1b6;
+  --vault-accent-hover:#d1e0c9;
   --vault-on-accent:#24382b;
   --vault-accent-soft:#374833;
+  --vault-error:#f09a86;
 }
 /* Native documents must honor the OS theme before any script can run, including
    when JavaScript is disabled. An explicit theme always takes precedence. */
@@ -35,28 +51,51 @@
     --vault-muted:#b6bbae;
     --vault-line:#454d40;
     --vault-accent:#bfd1b6;
+    --vault-accent-hover:#d1e0c9;
     --vault-on-accent:#24382b;
     --vault-accent-soft:#374833;
+    --vault-error:#f09a86;
   }
+}
+/* Suppress transition lag during active window resize or non-VT theme swaps. */
+html[data-resizing="true"] *,html[data-resizing="true"] *::before,html[data-resizing="true"] *::after,
+html[data-theme-switching="true"] *,html[data-theme-switching="true"] *::before,html[data-theme-switching="true"] *::after {
+  transition:none!important;
 }
 html .vault-brand {
   display:inline-flex;align-items:center;gap:12px;flex-shrink:0;
   font-family:var(--vault-font-display);font-size:20px;font-weight:400;
   line-height:1;letter-spacing:2.4px;white-space:nowrap;color:var(--vault-ink);
   text-decoration:none;
+  transition:opacity var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
 }
+html .vault-brand:active {transform:scale(.98);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 html .vault-brand .vault-mark {
   display:block;width:29px;height:29px;flex:0 0 29px;
   fill:none;stroke:var(--vault-accent);stroke-width:var(--vault-icon-stroke);
   stroke-linecap:round;stroke-linejoin:round;
+  transition:transform var(--motion-base) var(--ease-standard);
 }
+@media(hover:hover) and (pointer:fine){html .vault-brand:hover .vault-mark{transform:scale(1.04)}}
 html .vault-brand .vault-wordmark {color:var(--vault-ink)}
 html .vault-brand .vault-wordmark>span {color:var(--vault-muted);font-weight:400}
 html .vault-icon {display:inline-block;width:20px;height:20px;flex:0 0 20px;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:var(--vault-icon-stroke);stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 html .vault-nav {display:flex;align-items:center;gap:24px;font:13px/1.5 var(--vault-font-ui);white-space:nowrap}
-html .vault-nav>a,html .vault-nav>[aria-current] {position:relative;padding:8px 0;color:var(--vault-muted);text-decoration:none}
-html .vault-nav>[aria-current=page] {color:var(--vault-ink);font-weight:500}
-html .vault-nav>[aria-current=page]::after {content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--vault-accent)}
+html .vault-nav>a,html .vault-nav>[aria-current],html .topbar .primary-nav a {
+  position:relative;padding:8px 0;color:var(--vault-muted);text-decoration:none;
+  transition:color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
+}
+html .vault-nav>a::after,html .vault-nav>[aria-current]::after,html .topbar .primary-nav a::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;border-radius:1px;
+  background:var(--vault-accent);opacity:0;transform:scaleX(0);transform-origin:center;
+  transition:transform var(--motion-base) var(--ease-standard),opacity var(--motion-fast) var(--ease-standard);
+}
+html .vault-nav>[aria-current=page],html .topbar .primary-nav a[aria-current=page] {color:var(--vault-ink);font-weight:500}
+html .vault-nav>[aria-current=page]::after,html .topbar .primary-nav a[aria-current=page]::after {opacity:1;transform:scaleX(1)}
+@media(hover:hover) and (pointer:fine){
+  html .vault-nav>a:hover,html .topbar .primary-nav a:hover {color:var(--vault-ink)}
+}
+html .vault-nav>a:active,html .topbar .primary-nav a:active {transform:scale(.97);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 /* Unified header chrome shared across Home, All models, Detail, About, Notices, and 404. */
 html .topbar,html .vault-header {
   display:flex;align-items:center;gap:40px;min-height:64px;height:64px;padding:0 32px;
@@ -74,16 +113,23 @@ html .topbar .top-actions,html .vault-header .top-actions {
 html .top-actions .github-link {
   display:inline-flex;align-items:center;gap:4px;min-height:38px;padding:0 4px;
   color:var(--vault-muted);text-decoration:none;white-space:nowrap;
+  transition:color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
 }
-@media(hover:hover) and (pointer:fine){html .top-actions .github-link:hover{color:var(--vault-ink)}}
-html .top-actions .github-link .vault-icon {width:14px;height:14px;flex-basis:14px}
+html .top-actions .github-link .vault-icon {width:14px;height:14px;flex-basis:14px;transition:transform var(--motion-fast) var(--ease-standard)}
+@media(hover:hover) and (pointer:fine){
+  html .top-actions .github-link:hover{color:var(--vault-ink)}
+  html .top-actions .github-link:hover .vault-icon{transform:translate(2px,-2px)}
+}
+html .top-actions .github-link:active{transform:scale(.96);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 html .theme-toggle {
   display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;
   background:transparent;border:1px solid var(--vault-line);border-radius:var(--vault-radius);color:var(--vault-ink);
   cursor:pointer;
+  transition:border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
 }
-html .theme-toggle svg {width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:var(--vault-icon-stroke);stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease-out}
-@media(hover:hover) and (pointer:fine){html .theme-toggle:hover svg{transform:rotate(16deg)}}
+html .theme-toggle svg {width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:var(--vault-icon-stroke);stroke-linecap:round;stroke-linejoin:round;transition:transform var(--motion-base) var(--ease-standard)}
+@media(hover:hover) and (pointer:fine){html .theme-toggle:hover svg{transform:rotate(14deg)}}
+html .theme-toggle:active{transform:scale(.92);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 html .theme-toggle .moon {display:none}
 html[data-theme=light] .theme-toggle .sun {display:none}
 html[data-theme=light] .theme-toggle .moon {display:block}
@@ -92,7 +138,9 @@ html .top-actions #language {
   min-width:48px;min-height:42px;padding:0 12px;
   background:transparent;border:1px solid var(--vault-line);border-radius:var(--vault-radius);
   font:12px/1 var(--vault-font-ui);color:var(--vault-ink);white-space:nowrap;text-decoration:none;cursor:pointer;
+  transition:border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
 }
+html .top-actions #language:active{transform:scale(.95);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 @media(hover:hover) and (pointer:fine){
   html .theme-toggle:hover,html .top-actions #language:hover {border-color:var(--vault-accent);color:var(--vault-accent)}
 }
@@ -113,6 +161,14 @@ html .top-actions #language {
   html .theme-toggle {width:40px;height:40px}
   html .top-actions #language {min-width:44px;min-height:40px;padding:0 10px}
 }
+/* Shared busy indicator across async controls (Compare size, ZIP packaging, 3D load). */
+@keyframes vault-busy-pulse {
+  0%,100%{opacity:1}
+  50%{opacity:.68}
+}
+[aria-busy="true"]:not([data-copy-state="pending"]) {
+  animation:vault-busy-pulse 1.15s ease-in-out infinite;
+}
 /* Shared manual-copy fallback box when clipboard API is blocked. */
 .copy-fallback-box {
   pointer-events:auto;margin-top:8px;padding:10px 12px;border:1px solid var(--vault-line);border-radius:var(--vault-radius);
@@ -127,10 +183,30 @@ html .top-actions #language {
 .copy-fallback-close {
   flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--vault-line);
   border-radius:6px;background:transparent;color:var(--vault-muted);font-size:18px;line-height:1;cursor:pointer;
+  transition:border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard),background-color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard);
 }
+@media(hover:hover) and (pointer:fine){
+  .copy-fallback-close:hover {color:var(--vault-ink);border-color:var(--vault-accent);background:var(--vault-accent-soft)}
+}
+.copy-fallback-close:active {transform:scale(.92);transition-duration:var(--motion-micro);transition-timing-function:var(--ease-tactile)}
 @media(max-width:760px){.copy-fallback-input{font-size:16px}}
+/* Unified keyboard focus ring baseline (covers 404 and static routes too). */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible {
+  outline:2px solid var(--vault-accent);outline-offset:3px;
+}
 /* Non-blocking View Transitions shared across site and gallery theme toggles. */
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 ::view-transition-new(root){z-index:1}
 ::view-transition-old(root){z-index:0}
 ::view-transition{pointer-events:none}
+@media(prefers-reduced-motion:reduce) {
+  [aria-busy="true"]:not([data-copy-state="pending"]) {animation:none!important;opacity:.82}
+  html .vault-brand:active,html .vault-nav>a:active,html .topbar .primary-nav a:active,
+  html .top-actions .github-link:active,html .theme-toggle:active,html .top-actions #language:active,
+  .copy-fallback-close:active,html .theme-toggle svg,html .vault-brand .vault-mark,html .top-actions .github-link .vault-icon {
+    transform:none!important;
+  }
+  html .vault-nav>a::after,html .vault-nav>[aria-current]::after,html .topbar .primary-nav a::after {
+    transition:opacity 100ms var(--ease-standard)!important;
+  }
+}

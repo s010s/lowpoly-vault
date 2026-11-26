@@ -96,7 +96,7 @@ export class WheelSettler {
       return true;
     }
     this.started = this.now();
-    this.duration = Math.min(440, 280 + Math.abs(this.to - this.from) * .18);
+    this.duration = Math.min(360, 220 + Math.abs(this.to - this.from) * .14);
     this.state = 'centering';
     this.schedule();
     return true;
@@ -114,8 +114,8 @@ export class WheelSettler {
       const target = this.targets().find(item => item.id === this.destinationId);
       if (!target || target.offset !== this.to) { this.finish(); return; }
       const progress = this.reduced() ? 1 : Math.min(1, (time - this.started) / this.duration);
-      // Smooth start/finish; a new click retargets from the currently presented position.
-      const eased = progress * progress * (3 - 2 * progress);
+      // Fast-response ease-out deceleration; a new click retargets smoothly from the live frame.
+      const eased = 1 - (1 - progress) ** 3;
       this.write(this.from + (this.to - this.from) * eased);
       this.previous = this.read();
       const nearest = this.nearest(this.previous);

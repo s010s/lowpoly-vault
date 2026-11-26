@@ -1,6 +1,8 @@
-const fastSettle = 'cubic-bezier(.32,.72,0,1)';
-const paneDuration = 480;
-const reducedDuration = 150;
+import { MOTION } from '../motion-system.js';
+const fastSettle = MOTION.easeSpatial;
+const enterDuration = MOTION.gentle;
+const returnDuration = MOTION.returnDuration;
+const reducedDuration = 120;
 const animationId = 'gallery-continuity-';
 
 function contain(box, width, height) {
@@ -211,7 +213,7 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
     current = motion;
     const still = reduced();
     const fixedTitle = opening && staticTitle;
-    const duration = still ? reducedDuration : paneDuration;
+    const duration = still ? reducedDuration : (opening ? enterDuration : returnDuration);
     function animate(element, name, frames, easing = 'linear') {
       const animation = element.animate(frames, { duration, easing, fill: 'both', id: animationId + 'pane-' + name });
       motion.animations.push(animation);
@@ -277,8 +279,13 @@ export function createPhoneContinuity({ main, collection, workspace, wheel, titl
         : ['.searchbar', '.summary', '.list-hint', '#empty-state'];
       const entries = selectors.map(selector => pane.querySelector(selector)).filter(node => node && !node.hidden);
       if (opening && !motion.title && !fixedTitle) entries.push(title);
+      const lift = opening ? 8 : 5;
       for (const entry of entries) {
-        animate(entry, 'arrival', [{ opacity: 0 }, { opacity: 0, offset: .5, easing: 'ease-out' }, { opacity: 1 }]);
+        animate(entry, 'arrival', [
+          { opacity: 0, transform: `translateY(${lift}px)` },
+          { opacity: 0, transform: `translateY(${lift}px)`, offset: .36, easing: MOTION.easeStandard },
+          { opacity: 1, transform: 'none' },
+        ]);
       }
     }
     const finished = Promise.allSettled(motion.animations.map(animation => animation.finished)).then(() => {
